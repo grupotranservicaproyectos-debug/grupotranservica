@@ -41,15 +41,17 @@ export default function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/50 z-10"></div>
       </div>
 
-      {/* Netflix Style Navigation */}
-      <nav className="absolute top-0 left-0 right-0 z-50 px-4 sm:px-6 lg:px-8 py-3">
+      {/* Netflix Style Navigation with Background for Logo Visibility */}
+      <nav className="absolute top-0 left-0 right-0 z-50 px-4 sm:px-6 lg:px-8 py-3 bg-gradient-to-b from-black/80 via-black/60 to-transparent">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center space-x-8">
-            <img 
-              src={logoTranservica} 
-              alt="TRANSERVICA" 
-              className="h-12 sm:h-14 lg:h-16 w-auto"
-            />
+            <div className="bg-white/95 backdrop-blur-sm rounded-lg p-2 shadow-lg">
+              <img 
+                src={logoTranservica} 
+                alt="TRANSERVICA" 
+                className="h-16 sm:h-20 lg:h-24 w-auto"
+              />
+            </div>
             <div className="hidden md:flex space-x-6">
               <button 
                 onClick={() => scrollToSection('inicio')}
