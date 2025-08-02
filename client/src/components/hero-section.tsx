@@ -44,13 +44,11 @@ export default function HeroSection() {
       <nav className="absolute top-0 left-0 right-0 z-50 px-4 sm:px-6 lg:px-8 py-4">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center space-x-8">
-            <div className="bg-white/95 rounded-lg p-2 shadow-xl">
-              <img 
-                src={logoTranservica} 
-                alt="TRANSERVICA" 
-                className="h-16 sm:h-20 lg:h-24 w-auto"
-              />
-            </div>
+            <img 
+              src={logoTranservica} 
+              alt="TRANSERVICA" 
+              className="h-16 sm:h-20 lg:h-24 w-auto drop-shadow-2xl filter brightness-110 contrast-110"
+            />
             <div className="hidden md:flex space-x-6">
               <button 
                 onClick={() => scrollToSection('inicio')}
@@ -115,7 +113,7 @@ export default function HeroSection() {
       {/* Netflix Style Content Container with Perfect Spacing */}
       <div className="absolute inset-0 z-20 flex items-center">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <div className="max-w-lg pt-32 sm:pt-36 lg:pt-40 pb-12 bg-black/70 rounded-2xl p-6 border border-white/20 shadow-2xl ml-0 sm:ml-4">
+          <div className="inline-block pt-32 sm:pt-36 lg:pt-40 pb-4 px-6 py-4 bg-black/70 rounded-2xl border border-white/20 shadow-2xl ml-0 sm:ml-4">
             {/* Main Title Netflix Style - Very Small */}
             <h1 className="text-lg sm:text-xl lg:text-2xl font-bold mb-2 lg:mb-3 leading-tight text-white drop-shadow-lg">
               Transporte Cargas Excepcionales Venezuela - Especializados en Movilización de Cargas <span className="text-transervica-green">Pesada y Sobredimensionada</span>
