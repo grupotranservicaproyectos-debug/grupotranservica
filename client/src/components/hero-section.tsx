@@ -41,7 +41,56 @@ export default function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/50 z-10"></div>
       </div>
 
-      
+      {/* Netflix Style Navigation */}
+      <nav className="absolute top-0 left-0 right-0 z-50 px-4 sm:px-6 lg:px-8 py-4">
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
+          <div className="flex items-center space-x-8">
+            <img 
+              src={logoTranservica} 
+              alt="TRANSERVICA" 
+              className="h-8 sm:h-10 w-auto"
+            />
+            <div className="hidden md:flex space-x-6">
+              <button 
+                onClick={() => scrollToSection('inicio')}
+                className="text-white hover:text-gray-300 text-sm font-medium transition"
+              >
+                Inicio
+              </button>
+              <button 
+                onClick={() => scrollToSection('servicios')}
+                className="text-white hover:text-gray-300 text-sm font-medium transition"
+              >
+                Servicios
+              </button>
+              <button 
+                onClick={() => scrollToSection('equipos')}
+                className="text-white hover:text-gray-300 text-sm font-medium transition"
+              >
+                Equipos
+              </button>
+              <button 
+                onClick={() => scrollToSection('proyectos')}
+                className="text-white hover:text-gray-300 text-sm font-medium transition"
+              >
+                Proyectos
+              </button>
+              <button 
+                onClick={() => scrollToSection('nosotros')}
+                className="text-white hover:text-gray-300 text-sm font-medium transition"
+              >
+                Nosotros
+              </button>
+            </div>
+          </div>
+          <button 
+            onClick={scrollToContact}
+            className="bg-transervica-green text-white px-4 py-2 rounded text-sm font-medium hover:bg-transervica-light-green transition"
+          >
+            Cotizar
+          </button>
+        </div>
+      </nav>
 
       {/* WhatsApp Floating Button */}
       <a 
