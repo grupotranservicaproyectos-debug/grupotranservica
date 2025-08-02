@@ -22,7 +22,8 @@ export default function Footer() {
               <img 
                 src={logoTranservica} 
                 alt="TRANSERVICA Logo" 
-                className="h-20 w-auto hover:scale-105 transition-transform duration-300 filter brightness-110"
+                className="h-32 w-auto max-w-full hover:scale-105 transition-transform duration-300 filter brightness-125 contrast-110"
+                style={{ imageRendering: 'crisp-edges' }}
               />
             </button>
             <div className="mb-6">
