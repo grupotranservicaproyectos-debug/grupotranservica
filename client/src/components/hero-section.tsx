@@ -22,7 +22,7 @@ export default function HeroSection() {
     >
       {/* Botón WhatsApp tipo nube flotante */}
       <a 
-        href="https://wa.me/584241234567" 
+        href="https://wa.me/584142776340?text=Hola%2C%20necesito%20información%20sobre%20transporte%20de%20cargas%20excepcionales" 
         target="_blank" 
         rel="noopener noreferrer"
         className="fixed bottom-8 right-8 z-40 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-2xl transition-all duration-300 hover:scale-110"
@@ -36,8 +36,8 @@ export default function HeroSection() {
       </a>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="relative z-10">
+        <div className="grid lg:grid-cols-5 gap-12 items-center">
+          <div className="lg:col-span-2 relative z-10">
             <div className="bg-transervica-dark-gray/40 backdrop-blur-sm rounded-2xl p-8 border border-transervica-green/30">
               <h1 className="text-3xl lg:text-4xl font-bold mb-6 leading-tight text-white drop-shadow-lg">
                 Transporte Cargas Excepcionales Venezuela - Especializados en Movilización de Cargas <span className="text-black bg-transervica-green px-2 py-1 rounded font-bold">Pesada y Sobredimensionada</span>
@@ -48,6 +48,22 @@ export default function HeroSection() {
               <p className="text-lg mb-8 text-white drop-shadow-md leading-relaxed">
                 Especializados en Movilización de Cargas Pesadas y Sobredimensionadas hasta 1,100 toneladas con trailers Modulares Hidráulicos de última generación
               </p>
+              
+              {/* Estadísticas Visuales */}
+              <div className="grid grid-cols-3 gap-4 mb-8">
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center border border-transervica-green/30">
+                  <div className="text-3xl font-bold text-transervica-green">40</div>
+                  <div className="text-sm text-white">Años de Experiencia</div>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center border border-transervica-green/30">
+                  <div className="text-3xl font-bold text-transervica-green">1,100</div>
+                  <div className="text-sm text-white">Toneladas Máximas</div>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center border border-transervica-green/30">
+                  <div className="text-3xl font-bold text-transervica-green">100%</div>
+                  <div className="text-sm text-white">Confiable</div>
+                </div>
+              </div>
               <div className="flex flex-col sm:flex-row gap-4">
                 <button 
                   onClick={scrollToContact}
@@ -69,16 +85,24 @@ export default function HeroSection() {
               </div>
             </div>
           </div>
-          <div className="relative">
-            <div className="relative bg-black rounded-lg overflow-hidden shadow-2xl">
-              <iframe 
-                src="https://www.youtube.com/embed/_LQbWkWlg6s" 
-                className="w-full h-64 lg:h-80"
-                frameBorder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+
+          
+          {/* Video Corporativo */}
+          <div className="lg:col-span-3 relative">
+            <div className="aspect-video bg-black/30 backdrop-blur-sm rounded-2xl overflow-hidden border border-transervica-green/30 shadow-2xl">
+              <iframe
+                className="w-full h-full"
+                src="https://www.youtube.com/embed/_LQbWkWlg6s?rel=0&showinfo=0&modestbranding=1&fs=1&controls=1"
+                title="TRANSERVICA - 40 años transportando el futuro de Venezuela"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
-                title="Video corporativo TRANSERVICA"
+                loading="lazy"
               />
+            </div>
+            <div className="text-center mt-4">
+              <h3 className="text-lg font-semibold text-white drop-shadow-lg">
+                TRANSERVICA - 40 años transportando el futuro de Venezuela
+              </h3>
             </div>
           </div>
         </div>

@@ -86,7 +86,7 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold">Teléfono</h3>
-                  <p className="text-green-100">+58 (424) 123-4567</p>
+                  <p className="text-green-100">+58 414 277 6340</p>
                 </div>
               </div>
               
@@ -96,7 +96,7 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold">Email</h3>
-                  <p className="text-green-100">info@transervica.net</p>
+                  <p className="text-green-100">direccioncomercialtvc@grupotranservica.com</p>
                 </div>
               </div>
               
@@ -106,12 +106,12 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold">Ubicación</h3>
-                  <p className="text-green-100">Mariara, Estado Carabobo, Venezuela</p>
+                  <p className="text-green-100">Carretera Nacional Maracay Mariara Km 9, Mariara, Edo. Carabobo</p>
                 </div>
               </div>
               
               <a 
-                href="https://wa.me/584241234567" 
+                href="https://wa.me/584142776340?text=Hola%2C%20necesito%20información%20sobre%20transporte%20de%20cargas%20excepcionales" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="inline-flex items-center bg-green-500 text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-green-600 transition"

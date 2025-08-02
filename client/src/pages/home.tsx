@@ -2,9 +2,10 @@ import Navigation from "@/components/navigation";
 import HeroSection from "@/components/hero-section";
 import StatisticsSection from "@/components/statistics-section";
 import ServicesSection from "@/components/services-section";
-import ProjectsGallery from "@/components/projects-gallery";
+import ProjectsCarousel from "@/components/projects-carousel";
 import AboutSection from "@/components/about-section";
 import EquipmentSection from "@/components/equipment-section";
+import BlogSection from "@/components/blog-section";
 import FAQSection from "@/components/faq-section";
 import ContactSection from "@/components/contact-section";
 import Footer from "@/components/footer";
@@ -17,9 +18,10 @@ export default function Home() {
         <HeroSection />
         <StatisticsSection />
         <ServicesSection />
-        <ProjectsGallery />
+        <ProjectsCarousel />
         <AboutSection />
         <EquipmentSection />
+        <BlogSection />
         <FAQSection />
         <ContactSection />
       </main>
