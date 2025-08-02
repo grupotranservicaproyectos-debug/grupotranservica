@@ -31,13 +31,14 @@ export default function HeroSection() {
             minHeight: '100%',
             width: '100vw',
             height: '100vh',
-            objectFit: 'cover'
+            objectFit: 'cover',
+            transform: 'scale(1.1)'
           }}
         />
         
-        {/* Gradient overlay Netflix style */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent z-10"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/40 z-10"></div>
+        {/* Gradient overlay Netflix style - More pronounced */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-transparent z-10"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/50 z-10"></div>
       </div>
 
       {/* Netflix Style Navigation */}
@@ -107,61 +108,61 @@ export default function HeroSection() {
       {/* Netflix Style Content Container */}
       <div className="absolute inset-0 z-20 flex items-center">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <div className="max-w-2xl pt-20 pb-16">
+          <div className="max-w-lg pt-16 pb-12">
             {/* Logo/Badge Style */}
-            <div className="mb-4">
-              <span className="inline-block bg-transervica-green text-black px-3 py-1 rounded text-sm font-bold">
+            <div className="mb-3">
+              <span className="inline-block bg-transervica-green text-black px-2 py-1 rounded text-xs font-bold">
                 TV-E  2024  Transporte Especializado  40 años
               </span>
             </div>
             
-            {/* Main Title Netflix Style */}
-            <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 lg:mb-6 leading-tight text-white">
+            {/* Main Title Netflix Style - Much Smaller */}
+            <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-3 lg:mb-4 leading-tight text-white">
               Transporte Cargas Excepcionales Venezuela - Especializados en Movilización de Cargas <span className="text-transervica-green">Pesada y Sobredimensionada</span>
             </h1>
             
-            {/* Subtitle */}
-            <h2 className="text-base sm:text-lg lg:text-xl xl:text-2xl font-bold mb-4 lg:mb-6 text-transervica-light-green">
+            {/* Subtitle - Smaller */}
+            <h2 className="text-sm sm:text-base lg:text-lg font-bold mb-3 lg:mb-4 text-transervica-light-green">
               CON 40 AÑOS TRANSPORTANDO EL FUTURO DE VENEZUELA
             </h2>
             
-            {/* Description */}
-            <p className="text-sm sm:text-base lg:text-lg mb-6 lg:mb-8 text-white/90 leading-relaxed max-w-xl">
+            {/* Description - Smaller */}
+            <p className="text-xs sm:text-sm lg:text-base mb-4 lg:mb-6 text-white/90 leading-relaxed max-w-md">
               Especializados en Movilización de Cargas Pesadas y Sobredimensionadas hasta 1,100 toneladas con trailers Modulares Hidráulicos de última generación. Contamos con tecnología alemana de vanguardia y un equipo técnico altamente especializado.
             </p>
 
-            {/* Stats Row */}
-            <div className="flex space-x-4 sm:space-x-6 mb-6 lg:mb-8">
+            {/* Stats Row - Smaller */}
+            <div className="flex space-x-4 mb-4 lg:mb-6">
               <div className="text-left">
-                <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-transervica-green">40</div>
-                <div className="text-xs sm:text-sm text-white/80">Años</div>
+                <div className="text-lg sm:text-xl lg:text-2xl font-bold text-transervica-green">40</div>
+                <div className="text-xs text-white/80">Años</div>
               </div>
               <div className="text-left">
-                <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-transervica-green">1,100</div>
-                <div className="text-xs sm:text-sm text-white/80">Toneladas</div>
+                <div className="text-lg sm:text-xl lg:text-2xl font-bold text-transervica-green">1,100</div>
+                <div className="text-xs text-white/80">Toneladas</div>
               </div>
               <div className="text-left">
-                <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-transervica-green">100%</div>
-                <div className="text-xs sm:text-sm text-white/80">Confiable</div>
+                <div className="text-lg sm:text-xl lg:text-2xl font-bold text-transervica-green">100%</div>
+                <div className="text-xs text-white/80">Confiable</div>
               </div>
             </div>
             
-            {/* Netflix Style Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+            {/* Netflix Style Buttons - Smaller */}
+            <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
               <button 
                 onClick={scrollToContact}
-                className="flex items-center justify-center bg-white text-black px-6 sm:px-8 py-3 rounded text-base sm:text-lg font-semibold hover:bg-gray-200 transition"
+                className="flex items-center justify-center bg-white text-black px-4 sm:px-6 py-2 rounded text-sm sm:text-base font-semibold hover:bg-gray-200 transition"
               >
-                <svg className="w-5 h-5 sm:w-6 sm:h-6 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 sm:w-5 sm:h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M8 5v14l11-7z"/>
                 </svg>
                 Solicitar Cotización
               </button>
               <button 
                 onClick={() => scrollToSection('servicios')}
-                className="flex items-center justify-center bg-gray-600/70 text-white px-6 sm:px-8 py-3 rounded text-base sm:text-lg font-semibold hover:bg-gray-600/90 transition backdrop-blur-sm"
+                className="flex items-center justify-center bg-gray-600/70 text-white px-4 sm:px-6 py-2 rounded text-sm sm:text-base font-semibold hover:bg-gray-600/90 transition backdrop-blur-sm"
               >
-                <svg className="w-5 h-5 sm:w-6 sm:h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 sm:w-5 sm:h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
                 Más Información
