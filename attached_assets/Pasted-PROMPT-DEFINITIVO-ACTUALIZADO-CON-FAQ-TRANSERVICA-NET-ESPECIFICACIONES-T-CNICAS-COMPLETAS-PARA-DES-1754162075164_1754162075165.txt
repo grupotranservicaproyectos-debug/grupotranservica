@@ -1,0 +1,802 @@
+PROMPT DEFINITIVO ACTUALIZADO CON FAQ - TRANSERVICA.NET
+ESPECIFICACIONES TÉCNICAS COMPLETAS PARA DESARROLLO WEB
+
+Este documento contiene las especificaciones DEFINITIVAS ACTUALIZADAS para desarrollar la página web oficial de TRANSERVICA, C.A.
+(www.transervica.net), incorporando video corporativo, carrusel de galería, blogs, FAQ y optimizaciones específicas
+para posicionar #1 en Google Venezuela para "transporte cargas excepcionales Venezuela".
+
+1. INFORMACIÓN CORPORATIVA FUNDAMENTAL ACTUALIZADA
+
+DATOS CORPORATIVOS:
+• Razón Social: TRANSERVICA, C.A.
+• RIF: J-00207776-0
+• Experiencia: 40 años en transporte terrestre de cargas excepcionales
+• Capacidad máxima: 1,100 toneladas métricas
+• Tecnología: Trailers modulares hidráulicos especializados
+• Cobertura: Nacional Venezuela
+
+DIRECCIÓN COMPLETA:
+Carretera Nacional Maracay Mariara Km 9 Parcela N°6
+Sector Las Vueltas. Mariara, Edo. Carabobo. Venezuela
+
+MISIÓN:
+Prestación del servicio de movilización e izamiento de cargas sobredimensionadas mediante el cumplimiento
+de criterios de seguridad, garantía y confiabilidad, anticipando y respondiendo eficazmente las necesidades
+de nuestros clientes, procurando el bienestar de nuestros trabajadores y maximizando la productividad.
+
+VISIÓN:
+Ser una empresa reconocida nacional e internacionalmente en la prestación de servicios de movilización
+e izamiento de cargas sobredimensionadas, con personal calificado, mejoramiento continuo, aprovechamiento
+de oportunidades y satisfacción permanente de clientes.
+
+SLOGAN PRINCIPAL: "Nada es demasiado pesado para Nosotros"
+MENSAJE CLAVE: "SON 40 AÑOS TRANSPORTANDO EL FUTURO DE VENEZUELA"
+
+2. HERO SECTION CON VIDEO CORPORATIVO INTEGRADO
+
+H1 PRINCIPAL Y SLUG:
+"Transporte Cargas Excepcionales Venezuela - Especializados en movilización de cargas excepcionales
+hasta 1,100 toneladas con trailers modulares hidráulicos de última generación"
+
+SLOGAN DESTACADO:
+"Nada es demasiado pesado para Nosotros"
+
+VIDEO CORPORATIVO INTEGRADO:
+• URL: https://www.youtube.com/watch?v=_LQbWkWlg6s
+• Posición: Parte superior del hero section
+• Tamaño: Responsive, ocupando 60% del ancho en desktop
+• Controles: Autoplay desactivado, controles visibles
+• Thumbnail: Imagen profesional de trailer con transformador
+• Título del video: "TRANSERVICA - 40 años transportando el futuro de Venezuela"
+
+ESTADÍSTICAS VISUALES (TARJETAS DESTACADAS):
+• 40 - Años de Experiencia
+• 1,100 - Toneladas Máximas
+• 100% - Confiable
+
+BOTONES PRINCIPALES CON CTA:
+• "SOLICITAR COTIZACIÓN AHORA" (Botón primario verde)
+• "VER NUESTROS PROYECTOS" (Botón secundario)
+• "CONTACTAR VÍA WHATSAPP" (Botón terciario)
+
+IMAGEN DE FONDO:
+• Trailer modular hidráulico transportando transformador eléctrico
+• Alta resolución, profesional, que muestre la capacidad técnica
+• Overlay oscuro sutil para legibilidad del texto y video
+
+3. CARRUSEL DE GALERÍA DE PROYECTOS
+
+TÍTULO DE SECCIÓN: "Galería de Proyectos Destacados"
+SUBTÍTULO: "Conoce algunos de nuestros proyectos más emblemáticos"
+
+CARACTERÍSTICAS DEL CARRUSEL:
+• Carrusel horizontal con navegación por flechas
+• Indicadores de posición (dots) en la parte inferior
+• Autoplay cada 5 segundos (pausable al hover)
+• Transición suave entre slides
+• Responsive: 3 proyectos en desktop, 1 en móvil
+
+PROYECTOS EN EL CARRUSEL:
+
+SLIDE 1 - TRANSFORMADOR 333 MVA:
+• Imagen: Transformador de 180 toneladas siendo transportado
+• Overlay con información:
+  - Título: "Transformador 333 MVA"
+  - Peso: "180 toneladas"
+  - Sector: "Energético"
+  - Ubicación: "Puerto Cabello - Subestación Sur"
+• Botón CTA: "Ver Detalles del Proyecto"
+
+SLIDE 2 - REACTOR CATALÍTICO:
+• Imagen: Reactor de 370 toneladas en transporte
+• Overlay con información:
+  - Título: "Reactor Catalítico Industrial"
+  - Peso: "370 toneladas"
+  - Sector: "Petroquímico"
+  - Ubicación: "Complejo Industrial José"
+• Botón CTA: "Conocer Más Proyectos"
+
+SLIDE 3 - PLANTA TERMOELÉCTRICA:
+• Imagen: Equipos de generación eléctrica
+• Overlay con información:
+  - Título: "Planta Termoeléctrica Don Luis Zambrano"
+  - Peso: "Múltiples cargas"
+  - Sector: "Energético"
+  - Ubicación: "Estado Zulia"
+• Botón CTA: "Ver Portafolio Completo"
+
+SLIDE 4 - TERMO-ZULIA:
+• Imagen: Turbina especializada
+• Overlay con información:
+  - Título: "Proyecto Termo-Zulia"
+  - Peso: "Gran capacidad"
+  - Sector: "Industrial"
+  - Ubicación: "Zulia"
+• Botón CTA: "Solicitar Cotización"
+
+SLIDE 5 - PUENTE ONIA:
+• Imagen: Construcción de infraestructura
+• Overlay con información:
+  - Título: "Puente Onia - Ingeniería Civil"
+  - Peso: "Estructuras metálicas"
+  - Sector: "Infraestructura"
+  - Ubicación: "El Vigía"
+• Botón CTA: "Contactar Especialistas"
+
+CONTROLES DEL CARRUSEL:
+• Flechas de navegación izquierda/derecha
+• Indicadores numerados (1, 2, 3, 4, 5)
+• Botón de pausa/play para autoplay
+• Efecto hover en cada slide
+
+4. SECCIÓN EQUIPOS ACTUALIZADOS CON GRÚAS ALEMANAS
+
+TÍTULO DE SECCIÓN: "Equipos de Última Generación"
+
+EFECTO HOVER EN IMÁGENES DE EQUIPOS:
+• Al pasar cursor sobre imagen del equipo, aparece overlay con información
+• Texto que aparece: Nombre del equipo + especificaciones básicas
+• Transición suave de opacidad
+• Fondo semi-transparente oscuro para legibilidad
+
+EQUIPOS A MOSTRAR CON EFECTO:
+
+TRAILER SCHEUERLE:
+• Imagen: Trailer modular hidráulico SCHEUERLE
+• Texto hover: "SCHEUERLE - Tecnología alemana hasta 1,100 toneladas"
+
+GRÚAS MÓVILES GROVE:
+• Imagen: Grúa móvil telescópica GROVE
+• Texto hover: "GROVE - Grúas móviles alemanas de alta capacidad"
+
+GRÚAS SOBRE ORUGA GROVE:
+• Imagen: Grúa sobre oruga GROVE
+• Texto hover: "GROVE - Grúas sobre oruga alemanas especializadas"
+
+GRÚAS MÓVILES LIEBHERR:
+• Imagen: Grúa móvil LIEBHERR
+• Texto hover: "LIEBHERR - Tecnología alemana de precisión"
+
+GRÚAS SOBRE ORUGA LIEBHERR:
+• Imagen: Grúa sobre oruga LIEBHERR
+• Texto hover: "LIEBHERR - Grúas sobre oruga alemanas de alta ingeniería"
+
+EQUIPO COMETTO:
+• Imagen: Sistema modular COMETTO
+• Texto hover: "COMETTO - Soluciones italianas de alta ingeniería"
+
+TRAILER CAPPERI:
+• Imagen: Sistema CAPPERI
+• Texto hover: "CAPPERI - Tecnología especializada modular"
+
+CAMIÓN MACK:
+• Imagen: Camión tractor MACK
+• Texto hover: "MACK - Potencia y confiabilidad americana"
+
+DISEÑO DEL EFECTO:
+• Overlay: rgba(0, 0, 0, 0.8)
+• Texto: Color blanco, centrado
+• Fuente: Montserrat Bold
+• Animación: Fade in/out 0.4 segundos
+• Posición: Centro de la imagen
+• Botón CTA en cada equipo: "Ver Especificaciones"
+
+5. SECCIÓN BLOG CORPORATIVO
+
+TÍTULO DE SECCIÓN: "Blog Transervica"
+SUBTÍTULO: "Noticias, proyectos y novedades del sector transporte"
+
+ESTRUCTURA DEL BLOG:
+• Página dedicada: /blog/
+• Categorías principales:
+  - Proyectos Ejecutados
+  - Noticias del Sector
+  - Tecnología y Equipos
+  - Casos de Éxito
+  - Normativas INTT
+
+ARTÍCULOS SUGERIDOS PARA LANZAMIENTO:
+
+ARTÍCULO 1: "Transporte de Transformador 333 MVA: Un Hito en Venezuela"
+• Categoría: Proyectos Ejecutados
+• Contenido: Detalles técnicos del proyecto, desafíos superados
+• Palabras clave: "transporte transformador Venezuela", "333 MVA"
+• CTA: "Solicita cotización para tu proyecto"
+
+ARTÍCULO 2: "Grúas Alemanas Grove y Liebherr: Tecnología de Vanguardia"
+• Categoría: Tecnología y Equipos
+• Contenido: Especificaciones técnicas, ventajas competitivas
+• Palabras clave: "grúas alemanas Venezuela", "Grove Liebherr"
+• CTA: "Conoce nuestros equipos"
+
+ARTÍCULO 3: "40 Años Transportando el Futuro de Venezuela"
+• Categoría: Historia Corporativa
+• Contenido: Evolución de la empresa, hitos importantes
+• Palabras clave: "historia Transervica", "40 años experiencia"
+• CTA: "Conoce nuestra trayectoria"
+
+ARTÍCULO 4: "Normativas INTT para Transporte de Cargas Excepcionales"
+• Categoría: Normativas INTT
+• Contenido: Guía completa de permisos y regulaciones
+• Palabras clave: "permisos INTT Venezuela", "cargas excepcionales"
+• CTA: "Gestiona tus permisos con nosotros"
+
+ARTÍCULO 5: "Trailers Modulares Hidráulicos: La Clave del Éxito"
+• Categoría: Tecnología y Equipos
+• Contenido: Ventajas de la tecnología modular hidráulica
+• Palabras clave: "trailers modulares hidráulicos", "SCHEUERLE Venezuela"
+• CTA: "Solicita información técnica"
+
+DISEÑO DEL BLOG:
+• Layout de tarjetas con imagen destacada
+• Extracto de 150 caracteres por artículo
+• Fecha de publicación visible
+• Autor del artículo
+• Tiempo estimado de lectura
+• Botones de compartir en redes sociales
+• Comentarios habilitados
+• Sidebar con artículos relacionados
+• Buscador interno del blog
+
+6. SECCIÓN PREGUNTAS FRECUENTES (FAQ)
+
+TÍTULO DE SECCIÓN: "Preguntas Frecuentes"
+SUBTÍTULO: "Resolvemos las dudas más comunes sobre nuestros servicios"
+
+DISEÑO DE FAQ:
+• Formato acordeón expandible
+• Icono + (expandir) / - (contraer)
+• Transición suave al abrir/cerrar
+• Búsqueda interna de preguntas
+• Categorización por temas
+
+PREGUNTAS Y RESPUESTAS COMPLETAS:
+
+FAQ 1: ¿Cuál es la capacidad máxima de carga que pueden transportar?
+RESPUESTA:
+"Nuestra capacidad máxima de transporte es de 1,100 toneladas métricas. Contamos con trailers modulares hidráulicos especializados de las marcas SCHEUERLE, COMETTO y CAPPERI que nos permiten manejar cargas de gran envergadura con total seguridad. Esta capacidad nos posiciona como líderes en Venezuela para el transporte de equipos industriales de gran peso como transformadores eléctricos, reactores catalíticos y maquinaria pesada."
+CTA: "Solicitar cotización para mi carga"
+
+FAQ 2: ¿Qué tipos de cargas pueden transportar?
+RESPUESTA:
+"Transportamos una amplia variedad de cargas excepcionales incluyendo:
+• Transformadores eléctricos (hasta 333 MVA)
+• Reactores catalíticos industriales
+• Turbinas y generadores eléctricos
+• Maquinaria pesada industrial
+• Estructuras metálicas de gran tamaño
+• Equipos para plantas termoeléctricas
+• Componentes para la industria petroquímica
+• Puentes y estructuras de ingeniería civil
+• Cualquier carga sobredimensionada que requiera transporte especializado
+
+Nuestros 40 años de experiencia nos han permitido desarrollar expertise en múltiples sectores industriales."
+CTA: "Ver nuestros proyectos ejecutados"
+
+FAQ 3: ¿Cómo se gestiona el proceso de permisos para cargas excepcionales?
+RESPUESTA:
+"Gestionamos integralmente todos los permisos requeridos por el INTT (Instituto Nacional de Transporte Terrestre) para cargas excepcionales:
+
+PROCESO COMPLETO:
+• Evaluación técnica de la carga y ruta
+• Elaboración de estudios de factibilidad
+• Gestión de permisos especiales ante INTT
+• Coordinación con autoridades locales
+• Planificación de rutas alternativas si es necesario
+• Gestión de escoltas policiales cuando se requiera
+• Coordinación con empresas de servicios públicos (electricidad, telecomunicaciones)
+• Seguimiento completo del proceso hasta la aprobación
+
+Nuestro equipo especializado se encarga de toda la documentación legal, ahorrándole tiempo y garantizando el cumplimiento normativo."
+CTA: "Gestionar mis permisos INTT"
+
+FAQ 4: ¿Cuál es el alcance geográfico de sus servicios?
+RESPUESTA:
+"Ofrecemos servicios de transporte de cargas excepcionales en todo el territorio nacional venezolano:
+
+COBERTURA NACIONAL:
+• Región Capital (Caracas, Miranda, Vargas)
+• Región Central (Carabobo, Aragua, Cojedes)
+• Región Centro-Occidental (Lara, Yaracuy, Portuguesa)
+• Región Zuliana (Zulia)
+• Región Oriental (Anzoátegui, Sucre, Monagas)
+• Región Guayana (Bolívar, Amazonas, Delta Amacuro)
+• Región de los Llanos (Apure, Barinas, Guárico)
+
+SEDE PRINCIPAL:
+Ubicados estratégicamente en Mariara, Estado Carabobo, lo que nos permite acceso eficiente a los principales puertos, zonas industriales y centros de distribución del país."
+CTA: "Consultar cobertura para mi ubicación"
+
+FAQ 5: ¿Qué medidas de seguridad implementan durante el transporte?
+RESPUESTA:
+"La seguridad es nuestra máxima prioridad. Implementamos un protocolo integral de seguridad:
+
+MEDIDAS DE SEGURIDAD:
+• Personal técnico certificado y con 40 años de experiencia
+• Equipos de última generación con mantenimiento preventivo riguroso
+• Estudios previos de ruta y análisis de riesgos
+• Sistemas de monitoreo GPS en tiempo real
+• Seguros de carga de amplia cobertura
+• Escoltas especializadas cuando se requiera
+• Comunicación constante con el cliente durante el transporte
+• Protocolos de emergencia establecidos
+• Cumplimiento estricto de normativas INTT
+• Coordinación con autoridades de tránsito
+• Señalización especializada y equipos de seguridad vial
+
+CERTIFICACIONES:
+• Cumplimiento de normas internacionales de seguridad
+• Personal certificado en manejo de cargas especiales
+• Equipos inspeccionados y certificados regularmente"
+CTA: "Conocer nuestros protocolos de seguridad"
+
+FAQ 6: ¿Cuánto tiempo toma planificar un transporte de carga excepcional?
+RESPUESTA:
+"El tiempo de planificación varía según la complejidad del proyecto:
+
+TIEMPOS ESTIMADOS:
+• Evaluación inicial y cotización: 24-48 horas
+• Cargas estándar (hasta 100 toneladas): 5-7 días hábiles
+• Cargas complejas (100-500 toneladas): 10-15 días hábiles
+• Cargas excepcionales (500-1,100 toneladas): 15-30 días hábiles
+
+FACTORES QUE INFLUYEN EN LA PLANIFICACIÓN:
+• Peso y dimensiones de la carga
+• Complejidad de la ruta
+• Permisos especiales requeridos
+• Coordinación con terceros
+• Disponibilidad de equipos especializados
+• Condiciones climáticas
+• Restricciones de tráfico
+
+PROCESO DE PLANIFICACIÓN:
+1. Evaluación técnica detallada
+2. Estudio de factibilidad de ruta
+3. Gestión de permisos INTT
+4. Coordinación logística
+5. Preparación de equipos
+6. Ejecución del transporte
+
+Recomendamos contactarnos con la mayor anticipación posible para garantizar la mejor planificación."
+CTA: "Iniciar planificación de mi proyecto"
+
+FUNCIONALIDADES ADICIONALES FAQ:
+• Buscador interno de preguntas
+• Categorías: Servicios, Permisos, Seguridad, Logística, Equipos
+• Botón "¿No encontraste tu respuesta?" → Formulario de contacto
+• Estadísticas de preguntas más consultadas
+• Opción de valorar la utilidad de cada respuesta
+• Enlaces a artículos relacionados del blog
+• CTAs específicos en cada respuesta
+
+7. BOTONES DE LLAMADA A LA ACCIÓN DISTRIBUIDOS
+
+DISTRIBUCIÓN DE CTAs EN TODA LA WEB:
+
+HEADER (FIJO):
+• "SOLICITAR COTIZACIÓN" - Botón primario verde
+• "CONTACTAR AHORA" - Botón secundario
+
+HERO SECTION:
+• "SOLICITAR COTIZACIÓN AHORA" - Botón principal
+• "VER NUESTROS PROYECTOS" - Botón secundario
+• "CONTACTAR VÍA WHATSAPP" - Botón terciario
+
+SECCIÓN NOSOTROS:
+• "CONOCE NUESTRA HISTORIA" - Botón informativo
+• "VER CERTIFICACIONES" - Botón secundario
+
+SECCIÓN SERVICIOS:
+• "COTIZAR TRANSPORTE" - Por cada servicio
+• "VER CASOS DE ÉXITO" - Botón secundario
+• "DESCARGAR BROCHURE" - Botón informativo
+
+SECCIÓN EQUIPOS:
+• "VER ESPECIFICACIONES" - Por cada equipo
+• "SOLICITAR DEMOSTRACIÓN" - Botón secundario
+• "CONTACTAR ESPECIALISTA" - Botón terciario
+
+CARRUSEL DE PROYECTOS:
+• "Ver Detalles del Proyecto" - Por cada slide
+• "Conocer Más Proyectos" - Botón general
+• "Ver Portafolio Completo" - Botón principal
+• "Solicitar Cotización" - Botón de conversión
+
+SECCIÓN BLOG:
+• "LEER ARTÍCULO COMPLETO" - Por cada post
+• "SUSCRIBIRSE AL BLOG" - Botón de suscripción
+• "COMPARTIR ARTÍCULO" - Botones sociales
+
+SECCIÓN FAQ:
+• "Solicitar cotización para mi carga" - FAQ 1
+• "Ver nuestros proyectos ejecutados" - FAQ 2
+• "Gestionar mis permisos INTT" - FAQ 3
+• "Consultar cobertura para mi ubicación" - FAQ 4
+• "Conocer nuestros protocolos de seguridad" - FAQ 5
+• "Iniciar planificación de mi proyecto" - FAQ 6
+• "¿No encontraste tu respuesta?" - Formulario contacto
+
+FORMULARIO DE COTIZACIÓN:
+• "ENVIAR COTIZACIÓN" - Botón principal
+• "LLAMAR AHORA" - Botón alternativo
+• "CHATEAR POR WHATSAPP" - Botón de contacto inmediato
+
+SECCIÓN CONTACTO:
+• "LLAMAR AHORA" - Enlaces tel: en teléfonos
+• "ENVIAR EMAIL" - Enlaces mailto: en emails
+• "VER EN MAPA" - Botón para Google Maps
+• "AGENDAR VISITA" - Botón de contacto
+
+FOOTER:
+• "SOLICITAR COTIZACIÓN" - Botón destacado
+• "SEGUIR EN REDES" - Botones sociales
+• "SUSCRIBIRSE" - Newsletter
+
+SIDEBAR FLOTANTE:
+• WhatsApp flotante con número +58 414 277 6340
+• "Cotización Rápida" - Formulario emergente
+• "Llamar Ahora" - Enlace directo
+
+CARACTERÍSTICAS DE LOS CTAs:
+• Colores contrastantes (verde #8BC34A, amarillo #FFC107)
+• Efectos hover obligatorios
+• Textos orientados a la acción
+• Iconos descriptivos
+• Responsive en todos los dispositivos
+• Tracking con Google Analytics
+
+8. SERVICIOS ESPECIALIZADOS ACTUALIZADOS
+
+SECCIÓN SERVICIOS (3 SERVICIOS PRINCIPALES):
+
+SERVICIO 1 - TRANSPORTE DE CARGAS EXCEPCIONALES:
+• Título: "Transporte de Cargas Excepcionales"
+• Descripción: "Capacidad hasta 1,100 toneladas con trailers modulares hidráulicos especializados"
+• Equipos: "Trailers SCHEUERLE, Equipos COMETTO, Sistemas CAPPERI"
+• Icono: Camión con carga
+• CTA: "COTIZAR TRANSPORTE AHORA"
+
+SERVICIO 2 - IZAMIENTO CON GRÚAS ALEMANAS:
+• Título: "Izamiento con Grúas Alemanas"
+• Descripción: "Grúas móviles y sobre oruga alemanas Grove y Liebherr para proyectos de gran envergadura"
+• Equipos: "Grúas móviles Grove, Grúas sobre oruga Grove, Grúas móviles Liebherr, Grúas sobre oruga Liebherr"
+• Icono: Grúa
+• CTA: "VER CAPACIDADES DE GRÚAS"
+
+SERVICIO 3 - LOGÍSTICA DE INGENIERÍA:
+• Título: "Logística de Ingeniería"
+• Descripción: "Planificación integral y gestión completa de proyectos"
+• Servicios: "Estudios de factibilidad, Gestión de permisos INTT, Coordinación multimodal"
+• Icono: Engranajes/planificación
+• CTA: "PLANIFICAR MI PROYECTO"
+
+SERVICIOS ADICIONALES:
+• Gestión de Permisos INTT
+• Estudios de Factibilidad
+• Coordinación Multimodal
+• Asesoría Técnica Especializada
+• Seguimiento de Proyectos 24/7
+
+9. ESTRUCTURA WEB COMPLETA ACTUALIZADA
+
+MENÚ PRINCIPAL:
+• INICIO - Hero con video, estadísticas y carrusel de proyectos
+• NOSOTROS - Misión, Visión, Valores, 40 años de historia
+• SERVICIOS - Transporte, Izamiento con grúas alemanas, Logística
+• EQUIPOS - Galería con efectos hover y nombres de equipos
+• PROYECTOS - Portafolio dividido por sectores con tarjetas detalladas
+• BLOG - Artículos, noticias y casos de éxito
+• FAQ - Preguntas frecuentes con respuestas detalladas
+• CONTACTO - Información completa en tarjetas + mapa
+
+SECCIONES DE LA PÁGINA INICIO:
+1. Hero Section (con video corporativo y estadísticas)
+2. "40 Años Transportando el Futuro de Venezuela" (Nosotros resumido)
+3. "Nuestros Servicios Especializados" (3 servicios principales con CTAs)
+4. "Equipos de Última Generación" (con efectos hover y CTAs)
+5. Carrusel de "Galería de Proyectos Destacados" (con navegación)
+6. "Preguntas Frecuentes" (FAQ principales con acordeón)
+7. "Últimas Noticias del Blog" (3 artículos recientes)
+8. "Solicita tu Cotización" (formulario interactivo)
+9. "Contáctanos" (información de contacto en tarjetas)
+
+PÁGINAS ADICIONALES:
+• Página de Servicios Detallados
+• Página de Equipos Completa
+• Página de Proyectos por Sectores
+• Página de Blog con categorías
+• Página de FAQ Completa
+• Página de Contacto Extendida
+• Página de Cotización Independiente
+• Página "Acerca de Nosotros" extendida
+
+10. ESTRATEGIA SEO ACTUALIZADA PARA POSICIÓN #1
+
+H1 PRINCIPAL Y SLUG OPTIMIZADO:
+"Transporte Cargas Excepcionales Venezuela - Especializados en movilización de cargas excepcionales
+hasta 1,100 toneladas con trailers modulares hidráulicos de última generación"
+
+PALABRAS CLAVE PRINCIPALES:
+• "transporte cargas excepcionales Venezuela"
+• "trailers modulares hidráulicos Venezuela"
+• "transporte cargas pesadas Venezuela"
+• "grúas alemanas Grove Liebherr Venezuela"
+• "izamiento cargas industriales Venezuela"
+• "transporte transformadores Venezuela"
+• "TRANSERVICA Venezuela"
+
+PALABRAS CLAVE SECUNDARIAS:
+• "grúas móviles Grove Venezuela"
+• "grúas sobre oruga Liebherr Venezuela"
+• "equipos SCHEUERLE Venezuela"
+• "transporte 1100 toneladas Venezuela"
+• "permisos INTT cargas excepcionales"
+• "logística ingeniería Venezuela"
+
+META TAGS OPTIMIZADOS:
+• Title: "Transporte Cargas Excepcionales Venezuela | TRANSERVICA - Hasta 1,100 Toneladas"
+• Description: "Líderes en transporte de cargas excepcionales en Venezuela. 40 años de experiencia, grúas alemanas Grove y Liebherr, trailers SCHEUERLE hasta 1,100 toneladas. ¡Cotiza gratis!"
+• Keywords: "transporte cargas excepcionales Venezuela, grúas alemanas Grove Liebherr, trailers modulares hidráulicos, SCHEUERLE Venezuela"
+
+CONTENIDO SEO POR SECCIÓN:
+• H1: "Transporte Cargas Excepcionales Venezuela - 40 años transportando el futuro"
+• H2: "Grúas Alemanas Grove y Liebherr", "Proyectos Destacados", "Servicios Especializados", "Preguntas Frecuentes"
+• H3: Nombres específicos de proyectos y equipos, preguntas FAQ
+• Alt text descriptivo en todas las imágenes
+• URLs amigables: /servicios, /equipos, /proyectos, /blog, /faq, /contacto
+
+SCHEMA MARKUP ACTUALIZADO:
+• LocalBusiness con dirección exacta Mariara, Carabobo
+• Service para cada servicio ofrecido
+• Organization con datos corporativos
+• VideoObject para video de YouTube integrado
+• BlogPosting para artículos del blog
+• FAQPage para sección de preguntas frecuentes
+• Review para testimonios
+• FAQ para preguntas frecuentes
+
+SEO PARA BLOG:
+• Artículos optimizados con palabras clave long-tail
+• Meta descriptions únicas por artículo
+• Estructura de encabezados H2, H3, H4
+• Enlaces internos entre artículos
+• Imágenes optimizadas con alt text
+• Sitemap XML actualizado automáticamente
+
+SEO PARA FAQ:
+• Schema markup FAQPage implementado
+• Preguntas optimizadas con palabras clave
+• Respuestas detalladas con contenido valioso
+• Enlaces internos a servicios y blog
+• CTAs específicos en cada respuesta
+
+11. FUNCIONALIDADES TÉCNICAS AVANZADAS
+
+VIDEO CORPORATIVO INTEGRADO:
+• URL: https://www.youtube.com/watch?v=_LQbWkWlg6s
+• Integración: Embed responsive de YouTube
+• Posición: Hero section parte superior
+• Configuración: Autoplay off, controles visibles
+• Lazy loading para optimizar velocidad
+• Schema markup VideoObject
+
+CARRUSEL DE PROYECTOS:
+• JavaScript/CSS puro o Swiper.js
+• Navegación táctil en móviles
+• Autoplay configurable
+• Indicadores de posición
+• Lazy loading de imágenes
+• Responsive breakpoints
+
+BLOG FUNCIONAL:
+• CMS integrado (WordPress headless o custom)
+• Categorías y tags
+• Buscador interno
+• Comentarios moderados
+• RSS feed
+• Sitemap automático
+• SEO por artículo
+
+FAQ INTERACTIVO:
+• Acordeón expandible con JavaScript
+• Buscador interno de preguntas
+• Categorización por temas
+• Schema markup FAQPage
+• CTAs específicos por respuesta
+• Enlaces internos a servicios relacionados
+
+BOTÓN WHATSAPP FLOTANTE:
+• Posición: Fijo esquina inferior derecha
+• Número: +58 414 277 6340
+• Mensaje predeterminado: "Hola, necesito información sobre transporte de cargas excepcionales"
+• Icono animado con pulso sutil
+• Visible en todas las páginas
+• Responsive en móvil
+
+FORMULARIO FUNCIONAL:
+• Validación en tiempo real
+• Envío por email a: direccioncomercialtvc@grupotranservica.com
+• Confirmación automática al usuario
+• Integración con Google Analytics para tracking
+• Protección anti-spam con reCAPTCHA
+• Barra interactiva de toneladas (1-1,100)
+
+OPTIMIZACIONES TÉCNICAS:
+• Velocidad de carga < 3 segundos
+• Compresión de imágenes WebP/AVIF
+• Lazy loading para imágenes y video
+• Minificación CSS/JS
+• CDN para recursos estáticos
+• SSL Certificate
+• Sitemap XML dinámico
+• Robots.txt optimizado
+
+INTEGRACIONES:
+• Google Analytics 4
+• Google Search Console
+• Google My Business
+• Facebook Pixel
+• YouTube API para video
+• Integración redes sociales:
+  - Instagram: https://www.instagram.com/grupotranservica
+  - Facebook: https://www.facebook.com/people/Grupotranservica/100093036004743
+  - YouTube: https://www.youtube.com/@transervicac.a.3092
+
+12. INFORMACIÓN DE CONTACTO COMPLETA ACTUALIZADA
+
+DATOS DE CONTACTO PRINCIPALES:
+• Teléfonos: +58 414 277 6340 / +58 412 441 8890
+• Email Dirección Comercial: direccioncomercialtvc@grupotranservica.com
+• Email Dirección Ejecutiva: direccionejecutivatvc@grupotranservica.com
+• Email Gerencia Administrativa: gerenciaadministraciontvc@grupotranservica.com
+• Email Gerencia Operaciones: gerenciadeoperacionestvc@grupotranservica.com
+• Sitio web: www.transervica.net
+
+DIRECCIÓN FÍSICA ACTUALIZADA:
+Carretera Nacional Maracay Mariara Km 9 Parcela N°6
+Sector Las Vueltas. Mariara, Edo. Carabobo. Venezuela
+
+SECCIÓN CONTACTO EN TARJETAS (4 COLUMNAS):
+
+TARJETA 1 - DIRECCIÓN:
+• Icono: Ubicación/mapa
+• Título: "Dirección"
+• Contenido:
+  "Carretera Nacional Maracay Mariara Km 9 Parcela N°6
+  Sector Las Vueltas. Mariara, Edo. Carabobo. Venezuela"
+• CTA: "VER EN GOOGLE MAPS"
+
+TARJETA 2 - TELÉFONOS:
+• Icono: Teléfono
+• Título: "Teléfonos"
+• Contenido:
+  "+58 414 277 6340
+  +58 412 441 8890"
+• CTA: "LLAMAR AHORA" (enlaces tel:)
+
+TARJETA 3 - EMAILS:
+• Icono: Email/sobre
+• Título: "Emails"
+• Contenido:
+  "direccioncomercialtvc@grupotranservica.com
+  direccionejecutivatvc@grupotranservica.com"
+• CTA: "ENVIAR EMAIL" (enlaces mailto:)
+
+TARJETA 4 - HORARIOS:
+• Icono: Reloj
+• Título: "Horarios"
+• Contenido:
+  "Lunes a Viernes: 7:00 AM - 6:00 PM
+  Sábados: 8:00 AM - 12:00 PM
+   Contacto 24/7 vía WhatsApp"
+• CTA: "CONTACTO Via Whatsapp"
+
+REDES SOCIALES OFICIALES:
+• Instagram: @grupotranservica
+  URL: https://www.instagram.com/grupotranservica
+• Facebook: Grupotranservica
+  URL: https://www.facebook.com/people/Grupotranservica/100093036004743
+• YouTube: Transervica C.A.
+  Canal: https://www.youtube.com/@transervicac.a.3092
+  Video destacado: https://www.youtube.com/watch?v=_LQbWkWlg6s
+• LinkedIn: TRANSERVICA C.A.
+
+MAPA INTEGRADO:
+• Google Maps embebido
+• Ubicación exacta: Mariara, Estado Carabobo
+• Marcador personalizado con logo
+• Zoom apropiado para mostrar ubicación
+• CTA: "CÓMO LLEGAR"
+
+13. ESPECIFICACIONES DE DISEÑO Y COLORES
+
+PALETA DE COLORES DEFINITIVA:
+• Primario: Verde corporativo (#8BC34A) - del logo
+• Primario Hover: Verde oscuro (#7CB342) - para efectos hover
+• Secundario: Gris oscuro (#424242) - del logo
+• Acento: Amarillo (#FFC107) - para destacados y badges
+• Neutros: Blanco (#FFFFFF), Gris claro (#F5F5F5)
+• Overlay: rgba(0, 0, 0, 0.8) - para efectos sobre imágenes
+• Transparencias: rgba(255, 255, 255, 0.9) - para tarjetas sobre fondo
+
+TIPOGRAFÍA:
+• Títulos principales: Montserrat Bold
+• Subtítulos: Montserrat SemiBold
+• Texto normal: Open Sans Regular
+• Texto hover: Montserrat Bold (para efectos en equipos)
+
+EFECTOS Y TRANSICIONES:
+• Duración transiciones: 0.3-0.4 segundos
+• Easing: ease-in-out
+• Hover elevación: box-shadow: 0 8px 25px rgba(0,0,0,0.15)
+• Bordes redondeados: 8px para tarjetas, 4px para botones
+
+RESPONSIVE DESIGN:
+• Mobile-first approach
+• Breakpoints: 320px, 768px, 1024px, 1440px
+• Navegación hamburger en móvil
+• Tarjetas apiladas en móvil
+• Carrusel adaptativo en móvil
+• Video responsive con aspect ratio
+• Slider de toneladas adaptativo en móvil
+• FAQ acordeón optimizado para móvil
+
+INSTRUCCIONES FINALES PARA EL AGENTE DE DESARROLLO
+
+PRIORIDADES DE IMPLEMENTACIÓN:
+
+1. HERO SECTION CON VIDEO:
+   - Integrar video de YouTube: https://www.youtube.com/watch?v=_LQbWkWlg6s
+   - H1 optimizado: "Transporte Cargas Excepcionales Venezuela"
+   - Estadísticas visuales: 40 años, 1,100 toneladas, 100% confiable
+   - Múltiples botones CTA con efectos hover
+
+2. CARRUSEL DE PROYECTOS:
+   - 5 slides con proyectos destacados
+   - Navegación por flechas e indicadores
+   - Autoplay cada 5 segundos
+   - CTAs en cada slide
+
+3. EQUIPOS ACTUALIZADOS:
+   - Eliminar referencias a grúas P&H
+   - Incluir grúas móviles y sobre oruga Grove y Liebherr
+   - Efectos hover con nombres de equipos
+   - CTAs por cada equipo
+
+4. BLOG INTEGRADO:
+   - Sección blog con 5 artículos iniciales
+   - Categorías: Proyectos, Noticias, Tecnología, Casos de Éxito, Normativas
+   - SEO optimizado por artículo
+   - CTAs en cada post
+
+5. FAQ COMPLETO:
+   - 6 preguntas frecuentes con respuestas detalladas
+   - Formato acordeón expandible
+   - Schema markup FAQPage
+   - CTAs específicos en cada respuesta
+   - Buscador interno de preguntas
+
+6. CTAs DISTRIBUIDOS:
+   - Botones de llamada a la acción en toda la web
+   - Colores contrastantes y efectos hover
+   - Tracking con Google Analytics
+   - WhatsApp flotante siempre visible
+
+7. INFORMACIÓN ACTUALIZADA:
+   - Dirección completa: Mariara, Edo. Carabobo
+   - Eliminar cobertura internacional
+   - Enfoque en mercado nacional Venezuela
+   - Grúas alemanas Grove y Liebherr
+
+8. SEO OPTIMIZADO:
+   - H1 y slug específicos
+   - Meta tags para Venezuela
+   - Schema markup completo incluyendo FAQPage
+   - Blog para contenido fresco
+
+OBJETIVO FINAL:
+Crear una página web profesional, funcional y optimizada que posicione a TRANSERVICA
+en el #1 de Google Venezuela para "transporte cargas excepcionales Venezuela"
+incorporando video corporativo, carrusel de proyectos, blog, FAQ detallado y CTAs estratégicos.
+
+¡IMPLEMENTAR TODOS LOS ELEMENTOS ACTUALIZADOS Y NUEVAS FUNCIONALIDADES!
