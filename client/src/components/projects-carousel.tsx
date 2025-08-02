@@ -63,7 +63,7 @@ const projects: Project[] = [
   {
     id: 5,
     title: "Operaciones Marítimas Industriales",
-    weight: "500+ toneladas",
+    weight: "380 toneladas",
     sector: "Petróleo y Gas",
     location: "Puerto Industrial",
     image: image5,
@@ -218,7 +218,7 @@ export default function ProjectsCarousel() {
 
                   {/* Weight Badge */}
                   <div className="absolute top-4 right-4">
-                    <span className="bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                    <span className="text-white px-3 py-1 rounded-full text-sm font-medium bg-[#3ea30f]">
                       {currentProject.weight}
                     </span>
                   </div>
