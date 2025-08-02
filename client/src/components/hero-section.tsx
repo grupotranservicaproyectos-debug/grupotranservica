@@ -39,8 +39,8 @@ export default function HeroSection() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="relative z-10">
             <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-              <h1 className="text-4xl lg:text-5xl font-bold mb-6 leading-tight text-white drop-shadow-lg">
-                Nada es demasiado <span className="text-white bg-transervica-light-green px-2 py-1 rounded">pesado</span> para Nosotros
+              <h1 className="text-3xl lg:text-4xl font-bold mb-6 leading-tight text-white drop-shadow-lg">
+                Transporte Cargas Excepcionales Venezuela - Especializados en Movilización de Cargas <span className="text-white bg-transervica-light-green px-2 py-1 rounded">Pesada y Sobredimensionada</span>
               </h1>
               <h2 className="text-2xl lg:text-3xl font-bold mb-4 text-orange-300 drop-shadow-lg">
                 CON 40 AÑOS TRANSPORTANDO EL FUTURO DE VENEZUELA
