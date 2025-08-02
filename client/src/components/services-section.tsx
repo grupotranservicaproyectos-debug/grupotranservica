@@ -77,7 +77,7 @@ export default function ServicesSection() {
           <h2 className="text-4xl font-bold text-slate-800 mb-6">
             Nuestros Servicios
           </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+          <p className="text-xl max-w-3xl mx-auto" style={{ color: 'hsl(0, 0%, 15%)' }}>
             Ofrecemos soluciones integrales para el transporte de cargas excepcionales, 
             respaldados por 40 años de experiencia y tecnología de vanguardia
           </p>

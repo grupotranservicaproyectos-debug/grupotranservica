@@ -32,7 +32,7 @@ export default function AboutSection() {
           <p className="text-2xl lg:text-3xl font-bold text-transervica-green mb-6 italic">
             "Nada es Demasiado Pesado para Nosotros"
           </p>
-          <p className="text-lg text-gray-700 max-w-3xl mx-auto">
+          <p className="text-lg max-w-3xl mx-auto" style={{ color: 'hsl(0, 0%, 15%)' }}>
             Especializados en transporte de cargas excepcionales hasta 1,100 toneladas con tecnología alemana de vanguardia
           </p>
         </div>
@@ -53,7 +53,7 @@ export default function AboutSection() {
                 <div className="absolute bottom-4 left-4 right-4">
                   <div className="bg-white/95 backdrop-blur-sm rounded-xl p-4 border border-transervica-green/60 shadow-lg">
                     <p className="text-transervica-green font-bold text-lg">40 Años de Experiencia</p>
-                    <p className="text-gray-700 text-sm">Líderes en Venezuela</p>
+                    <p className="text-sm" style={{ color: 'hsl(0, 0%, 15%)' }}>Líderes en Venezuela</p>
                   </div>
                 </div>
               </div>

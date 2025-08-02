@@ -70,17 +70,27 @@
   body {
     @apply font-sans antialiased bg-background;
     font-family: 'Inter', system-ui, sans-serif;
-    color: hsl(135, 65%, 35%); /* Transervica green for all text */
+    color: hsl(0, 0%, 15%); /* Elegant black for body text */
   }
   
-  /* Make all text elements use Transervica green by default */
-  h1, h2, h3, h4, h5, h6, p, span, div, a, li, td, th, label, input, textarea, button {
+  /* Transervica green only for titles */
+  h1, h2, h3, h4, h5, h6 {
     color: hsl(135, 65%, 35%) !important;
+  }
+  
+  /* Elegant black for all other text */
+  p, span, div, a, li, td, th, label {
+    color: hsl(0, 0%, 15%) !important;
   }
   
   /* Override white text for contrast elements */
   .text-white, .bg-gray-800 *, .bg-gray-900 *, footer * {
     color: white !important;
+  }
+  
+  /* Navigation and button text */
+  nav button, .btn {
+    color: inherit;
   }
 }
 
