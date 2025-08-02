@@ -42,13 +42,13 @@ export default function HeroSection() {
       </div>
 
       {/* Netflix Style Navigation */}
-      <nav className="absolute top-0 left-0 right-0 z-50 px-4 sm:px-6 lg:px-8 py-4">
+      <nav className="absolute top-0 left-0 right-0 z-50 px-4 sm:px-6 lg:px-8 py-3">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center space-x-8">
             <img 
               src={logoTranservica} 
               alt="TRANSERVICA" 
-              className="h-8 sm:h-10 w-auto"
+              className="h-12 sm:h-14 lg:h-16 w-auto"
             />
             <div className="hidden md:flex space-x-6">
               <button 
@@ -58,10 +58,10 @@ export default function HeroSection() {
                 Inicio
               </button>
               <button 
-                onClick={() => scrollToSection('servicios')}
+                onClick={() => scrollToSection('nosotros')}
                 className="text-white hover:text-gray-300 text-sm font-medium transition"
               >
-                Servicios
+                Nosotros
               </button>
               <button 
                 onClick={() => scrollToSection('equipos')}
@@ -70,16 +70,22 @@ export default function HeroSection() {
                 Equipos
               </button>
               <button 
+                onClick={() => scrollToSection('servicios')}
+                className="text-white hover:text-gray-300 text-sm font-medium transition"
+              >
+                Servicios
+              </button>
+              <button 
                 onClick={() => scrollToSection('proyectos')}
                 className="text-white hover:text-gray-300 text-sm font-medium transition"
               >
                 Proyectos
               </button>
               <button 
-                onClick={() => scrollToSection('nosotros')}
+                onClick={scrollToContact}
                 className="text-white hover:text-gray-300 text-sm font-medium transition"
               >
-                Nosotros
+                Contacto
               </button>
             </div>
           </div>
@@ -108,61 +114,54 @@ export default function HeroSection() {
       {/* Netflix Style Content Container */}
       <div className="absolute inset-0 z-20 flex items-center">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <div className="max-w-lg pt-16 pb-12">
-            {/* Logo/Badge Style */}
-            <div className="mb-3">
-              <span className="inline-block bg-transervica-green text-black px-2 py-1 rounded text-xs font-bold">
-                TV-E  2024  Transporte Especializado  40 años
-              </span>
-            </div>
-            
-            {/* Main Title Netflix Style - Much Smaller */}
-            <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-3 lg:mb-4 leading-tight text-white">
+          <div className="max-w-md pt-20 pb-12">
+            {/* Main Title Netflix Style - Very Small */}
+            <h1 className="text-lg sm:text-xl lg:text-2xl font-bold mb-2 lg:mb-3 leading-tight text-white">
               Transporte Cargas Excepcionales Venezuela - Especializados en Movilización de Cargas <span className="text-transervica-green">Pesada y Sobredimensionada</span>
             </h1>
             
-            {/* Subtitle - Smaller */}
-            <h2 className="text-sm sm:text-base lg:text-lg font-bold mb-3 lg:mb-4 text-transervica-light-green">
+            {/* Subtitle - Very Small */}
+            <h2 className="text-xs sm:text-sm lg:text-base font-bold mb-2 lg:mb-3 text-transervica-light-green">
               CON 40 AÑOS TRANSPORTANDO EL FUTURO DE VENEZUELA
             </h2>
             
-            {/* Description - Smaller */}
-            <p className="text-xs sm:text-sm lg:text-base mb-4 lg:mb-6 text-white/90 leading-relaxed max-w-md">
-              Especializados en Movilización de Cargas Pesadas y Sobredimensionadas hasta 1,100 toneladas con trailers Modulares Hidráulicos de última generación. Contamos con tecnología alemana de vanguardia y un equipo técnico altamente especializado.
+            {/* Description - Very Small */}
+            <p className="text-xs sm:text-sm mb-3 lg:mb-4 text-white/90 leading-relaxed max-w-sm">
+              Especializados en Movilización de Cargas Pesadas y Sobredimensionadas hasta 1,100 toneladas con trailers Modulares Hidráulicos de última generación.
             </p>
 
-            {/* Stats Row - Smaller */}
-            <div className="flex space-x-4 mb-4 lg:mb-6">
+            {/* Stats Row - Very Small */}
+            <div className="flex space-x-3 mb-3 lg:mb-4">
               <div className="text-left">
-                <div className="text-lg sm:text-xl lg:text-2xl font-bold text-transervica-green">40</div>
+                <div className="text-base sm:text-lg lg:text-xl font-bold text-transervica-green">40</div>
                 <div className="text-xs text-white/80">Años</div>
               </div>
               <div className="text-left">
-                <div className="text-lg sm:text-xl lg:text-2xl font-bold text-transervica-green">1,100</div>
+                <div className="text-base sm:text-lg lg:text-xl font-bold text-transervica-green">1,100</div>
                 <div className="text-xs text-white/80">Toneladas</div>
               </div>
               <div className="text-left">
-                <div className="text-lg sm:text-xl lg:text-2xl font-bold text-transervica-green">100%</div>
+                <div className="text-base sm:text-lg lg:text-xl font-bold text-transervica-green">100%</div>
                 <div className="text-xs text-white/80">Confiable</div>
               </div>
             </div>
             
-            {/* Netflix Style Buttons - Smaller */}
-            <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
+            {/* Netflix Style Buttons - Very Small */}
+            <div className="flex flex-col sm:flex-row gap-2">
               <button 
                 onClick={scrollToContact}
-                className="flex items-center justify-center bg-white text-black px-4 sm:px-6 py-2 rounded text-sm sm:text-base font-semibold hover:bg-gray-200 transition"
+                className="flex items-center justify-center bg-white text-black px-4 py-2 rounded text-xs sm:text-sm font-semibold hover:bg-gray-200 transition"
               >
-                <svg className="w-4 h-4 sm:w-5 sm:h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                <svg className="w-3 h-3 sm:w-4 sm:h-4 mr-1" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M8 5v14l11-7z"/>
                 </svg>
                 Solicitar Cotización
               </button>
               <button 
                 onClick={() => scrollToSection('servicios')}
-                className="flex items-center justify-center bg-gray-600/70 text-white px-4 sm:px-6 py-2 rounded text-sm sm:text-base font-semibold hover:bg-gray-600/90 transition backdrop-blur-sm"
+                className="flex items-center justify-center bg-gray-600/70 text-white px-4 py-2 rounded text-xs sm:text-sm font-semibold hover:bg-gray-600/90 transition backdrop-blur-sm"
               >
-                <svg className="w-4 h-4 sm:w-5 sm:h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-3 h-3 sm:w-4 sm:h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
                 Más Información
