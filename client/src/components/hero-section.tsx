@@ -114,8 +114,8 @@ export default function HeroSection() {
           <div className="pt-32 sm:pt-36 lg:pt-40">
             <div className="bg-black/70 rounded-xl border border-white/20 shadow-2xl p-4 w-fit">
               {/* Main Title Netflix Style - Very Small */}
-              <h1 className="text-lg sm:text-xl lg:text-2xl font-bold mb-2 lg:mb-3 leading-tight drop-shadow-lg max-w-lg">
-                <span style={{ color: '#155d29' }} className="text-[#155d29]">Transporte Cargas Excepcionales Venezuela - Especializados en Movilización de Cargas Pesada y Sobredimensionada</span>
+              <h1 className="text-lg sm:text-xl lg:text-2xl font-bold mb-2 lg:mb-3 leading-tight drop-shadow-lg max-w-lg text-[#155d29]" style={{ color: '#155d29' }}>
+                Transporte Cargas Excepcionales Venezuela - Especializados en Movilización de Cargas Pesada y Sobredimensionada
               </h1>
               
               {/* Subtitle - Very Small */}
