@@ -13,7 +13,7 @@ export default function HeroSection() {
       id="inicio" 
       className="pt-20 text-white relative min-h-screen"
       style={{
-        backgroundImage: `linear-gradient(rgba(34, 139, 34, 0.9), rgba(255, 140, 0, 0.8)), url(${backgroundImage})`,
+        backgroundImage: `linear-gradient(rgba(94, 157, 40, 0.9), rgba(64, 64, 64, 0.8)), url(${backgroundImage})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
@@ -38,11 +38,11 @@ export default function HeroSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="relative z-10">
-            <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+            <div className="bg-transervica-dark-gray/40 backdrop-blur-sm rounded-2xl p-8 border border-transervica-green/30">
               <h1 className="text-3xl lg:text-4xl font-bold mb-6 leading-tight text-white drop-shadow-lg">
-                Transporte Cargas Excepcionales Venezuela - Especializados en Movilización de Cargas <span className="text-white bg-transervica-light-green px-2 py-1 rounded">Pesada y Sobredimensionada</span>
+                Transporte Cargas Excepcionales Venezuela - Especializados en Movilización de Cargas <span className="text-black bg-transervica-green px-2 py-1 rounded font-bold">Pesada y Sobredimensionada</span>
               </h1>
-              <h2 className="text-2xl lg:text-3xl font-bold mb-4 text-orange-300 drop-shadow-lg">
+              <h2 className="text-2xl lg:text-3xl font-bold mb-4 text-transervica-light-green drop-shadow-lg">
                 CON 40 AÑOS TRANSPORTANDO EL FUTURO DE VENEZUELA
               </h2>
               <p className="text-lg mb-8 text-white drop-shadow-md leading-relaxed">
