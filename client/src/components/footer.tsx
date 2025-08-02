@@ -10,23 +10,23 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer className="bg-gray-800 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid lg:grid-cols-4 gap-12">
           {/* Logo y Descripción */}
           <div className="lg:col-span-1">
             <button 
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-              className="focus:outline-none mb-6"
+              className="focus:outline-none mb-8"
             >
               <img 
                 src={logoTranservica} 
                 alt="TRANSERVICA Logo" 
-                className="h-16 w-auto hover:scale-105 transition-transform duration-300"
+                className="h-20 w-auto hover:scale-105 transition-transform duration-300 filter brightness-110"
               />
             </button>
             <div className="mb-6">
-              <h3 className="text-xl font-bold text-white mb-2">TRANSERVICA, C.A.</h3>
+              <h3 className="text-2xl font-bold text-white mb-2">TRANSERVICA, C.A.</h3>
               <p className="text-sm text-gray-400 mb-4">RIF: J-00207776-0</p>
             </div>
             <p className="text-gray-300 text-sm leading-relaxed mb-6">
@@ -149,7 +149,7 @@ export default function Footer() {
               <input 
                 type="email" 
                 placeholder="Work Email" 
-                className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-transervica-green transition"
+                className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-transervica-green transition"
               />
             </div>
             <button className="w-full bg-transervica-green hover:bg-transervica-light-green text-white px-4 py-3 rounded-lg font-semibold transition-all duration-300">
@@ -159,7 +159,7 @@ export default function Footer() {
         </div>
         
         {/* Footer Bottom */}
-        <div className="border-t border-gray-800 mt-12 pt-8">
+        <div className="border-t border-gray-700 mt-12 pt-8">
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center">
             <div className="mb-4 lg:mb-0">
               <div className="flex flex-wrap gap-6 text-sm text-gray-400 mb-4 lg:mb-0">
