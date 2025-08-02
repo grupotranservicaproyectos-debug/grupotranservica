@@ -85,23 +85,34 @@ export default function ContactSection() {
                   <Phone className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold">Teléfono</h3>
+                  <h3 className="text-lg font-semibold">Teléfonos Principales</h3>
                   <p className="text-green-100">+58 414 277 6340</p>
+                  <p className="text-green-100">+58 412 441 8890</p>
                 </div>
               </div>
               
               <div className="flex items-center">
-                <div className="w-12 h-12 bg-transervica-orange rounded-lg flex items-center justify-center mr-4">
+                <div className="w-12 h-12 bg-transervica-light-green rounded-lg flex items-center justify-center mr-4">
                   <Mail className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold">Email</h3>
+                  <h3 className="text-lg font-semibold">Dirección Comercial</h3>
                   <p className="text-green-100">direccioncomercialtvc@grupotranservica.com</p>
+                </div>
+              </div>
+
+              <div className="flex items-center">
+                <div className="w-12 h-12 bg-transervica-light-green rounded-lg flex items-center justify-center mr-4">
+                  <Mail className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold">Dirección Ejecutiva</h3>
+                  <p className="text-green-100">direccionejecutivatvc@grupotranservica.com</p>
                 </div>
               </div>
               
               <div className="flex items-center">
-                <div className="w-12 h-12 bg-transervica-orange rounded-lg flex items-center justify-center mr-4">
+                <div className="w-12 h-12 bg-transervica-light-green rounded-lg flex items-center justify-center mr-4">
                   <MapPin className="w-6 h-6 text-white" />
                 </div>
                 <div>

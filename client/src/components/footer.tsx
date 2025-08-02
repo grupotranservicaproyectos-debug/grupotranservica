@@ -10,7 +10,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-transervica-gray text-white">
+    <footer className="bg-slate-800 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid md:grid-cols-4 gap-8">
           <div className="md:col-span-2">
@@ -28,10 +28,16 @@ export default function Footer() {
               <strong>TRANSERVICA, C.A.</strong><br />
               <span className="text-sm">RIF: J-00207776-0</span>
             </p>
-            <p className="text-gray-300 mb-6 leading-relaxed">
+            <p className="text-gray-300 mb-4 leading-relaxed">
               Especializados en transporte de cargas excepcionales hasta 1,100 toneladas con trailers modulares hidráulicos. 
               40 años transportando el futuro de Venezuela con tecnología alemana de vanguardia.
             </p>
+            <div className="text-gray-400 text-sm space-y-1 mb-6">
+              <p>📞 +58 414 277 6340 / +58 412 441 8890</p>
+              <p>📧 direccioncomercialtvc@grupotranservica.com</p>
+              <p>📧 direccionejecutivatvc@grupotranservica.com</p>
+              <p>📍 Carretera Nacional Maracay Mariara Km 9, Mariara, Edo. Carabobo</p>
+            </div>
             <div className="mb-6 flex flex-col sm:flex-row gap-3">
               <button 
                 onClick={scrollToContact}
@@ -118,7 +124,8 @@ export default function Footer() {
               <div className="flex items-start">
                 <Mail className="w-4 h-4 mr-2 flex-shrink-0 mt-1" />
                 <div>
-                  <a href="mailto:direccioncomercialtvc@grupotranservica.com" className="hover:text-white transition text-sm">direccioncomercialtvc@grupotranservica.com</a>
+                  <a href="mailto:direccioncomercialtvc@grupotranservica.com" className="hover:text-white transition text-sm">direccioncomercialtvc@grupotranservica.com</a><br />
+                  <a href="mailto:direccionejecutivatvc@grupotranservica.com" className="hover:text-white transition text-sm">direccionejecutivatvc@grupotranservica.com</a>
                 </div>
               </div>
               <div className="flex items-start">

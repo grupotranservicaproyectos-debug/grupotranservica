@@ -24,21 +24,18 @@
   --ring: hsl(20, 14.3%, 4.1%);
   --radius: 0.5rem;
   
-  /* Transervica Brand Colors - Based on Logo Green and Orange */
+  /* Transervica Brand Colors - Only Green Corporate Colors */
   --transervica-green: hsl(135, 65%, 35%);
   --transervica-dark-green: hsl(135, 65%, 25%);
   --transervica-light-green: hsl(135, 65%, 45%);
-  --transervica-orange: hsl(28, 88%, 53%);
-  --transervica-dark-orange: hsl(28, 88%, 40%);
-  --transervica-light-orange: hsl(28, 88%, 65%);
   --transervica-gray: hsl(210, 6%, 25%);
   --transervica-dark-gray: hsl(210, 8%, 15%);
   --transervica-light-gray: hsl(210, 4%, 60%);
   
-  /* Update primary colors to match Transervica branding */
+  /* Update primary colors to match Transervica green branding */
   --primary: hsl(135, 65%, 35%);
   --primary-foreground: hsl(0, 0%, 100%);
-  --accent: hsl(28, 88%, 53%);
+  --accent: hsl(135, 65%, 45%);
   --accent-foreground: hsl(0, 0%, 100%);
 }
 
@@ -89,10 +86,6 @@
     color: hsl(135, 65%, 45%);
   }
   
-  .text-transervica-orange {
-    color: hsl(28, 88%, 53%);
-  }
-  
   .text-transervica-gray {
     color: hsl(210, 6%, 25%);
   }
@@ -117,10 +110,6 @@
     background-color: hsl(135, 65%, 45%);
   }
   
-  .bg-transervica-orange {
-    background-color: hsl(28, 88%, 53%);
-  }
-  
   .bg-transervica-gray {
     background-color: hsl(210, 6%, 25%);
   }
@@ -135,10 +124,6 @@
   
   .border-transervica-green {
     border-color: hsl(135, 65%, 35%);
-  }
-  
-  .border-transervica-orange {
-    border-color: hsl(28, 88%, 53%);
   }
   
   .border-transervica-gray {

@@ -128,7 +128,7 @@ export default function ServicesSection() {
         </div>
 
         <div className="text-center mt-16">
-          <div className="bg-gradient-to-r from-emerald-50 via-white to-orange-50 rounded-2xl p-8 md:p-12 shadow-xl border border-emerald-100">
+          <div className="bg-gradient-to-r from-emerald-50 via-white to-emerald-50 rounded-2xl p-8 md:p-12 shadow-xl border border-emerald-100">
             <h3 className="text-2xl font-bold text-slate-800 mb-4">
               ¿Necesita transportar cargas excepcionales?
             </h3>
