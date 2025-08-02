@@ -9,24 +9,30 @@ export default function AboutSection() {
   };
 
   return (
-    <section id="nosotros" className="relative py-20 bg-gradient-to-br from-teal-900 via-teal-800 to-gray-900 overflow-hidden">
-      {/* Background Decorative Elements */}
+    <section id="nosotros" className="relative py-20 bg-gradient-to-br from-gray-900 via-black to-gray-800 overflow-hidden">
+      {/* Background Decorative Elements - TRANSERVICA Corporate Colors */}
       <div className="absolute inset-0">
-        <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-transervica-green/10 to-transparent"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-br from-transervica-light-green/20 to-transparent rounded-full blur-3xl"></div>
-        <div className="absolute top-20 right-20 w-64 h-64 bg-gradient-to-br from-transervica-green/20 to-transparent rounded-full blur-2xl"></div>
+        <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-transervica-green/20 to-transparent"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-br from-transervica-green/30 to-transparent rounded-full blur-3xl"></div>
+        <div className="absolute top-20 right-20 w-64 h-64 bg-gradient-to-br from-transervica-light-green/30 to-transparent rounded-full blur-2xl"></div>
+        <div className="absolute bottom-20 left-20 w-80 h-80 bg-gradient-to-br from-transervica-green/20 to-transparent rounded-full blur-3xl"></div>
       </div>
       
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header Section - Sky2C Style */}
+        {/* Header Section - TRANSERVICA Style */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-            Por qué las empresas confían en <span className="text-transervica-green">TRANSERVICA</span>
+          <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
+            <span className="text-transervica-green">TRANSERVICA, C.A.</span> SON MÁS DE
             <br />
-            <span className="text-2xl lg:text-3xl text-transervica-light-green">para Cargas Excepcionales</span>
+            <span className="text-4xl lg:text-5xl bg-gradient-to-r from-transervica-green to-transervica-light-green bg-clip-text text-transparent">
+              40 AÑOS TRANSPORTANDO EL FUTURO DE VENEZUELA
+            </span>
           </h2>
+          <p className="text-2xl lg:text-3xl font-bold text-transervica-light-green mb-6 italic">
+            "Nada es Demasiado Pesado para Nosotros"
+          </p>
           <p className="text-lg text-gray-300 max-w-3xl mx-auto">
-            Soluciones confiables de transporte pesado y sobredimensionado con 40 años respaldándonos
+            Especializados en transporte de cargas excepcionales hasta 1,100 toneladas con tecnología alemana de vanguardia
           </p>
         </div>
 
@@ -34,12 +40,22 @@ export default function AboutSection() {
         <div className="grid lg:grid-cols-2 gap-16 mb-20 items-center">
           {/* Left Side - Image */}
           <div className="relative">
-            <div className="rounded-3xl overflow-hidden shadow-2xl">
-              <img 
-                src={transportImage} 
-                alt="TRANSERVICA Transporte de Cargas Excepcionales" 
-                className="w-full h-[500px] object-cover"
-              />
+            <div className="relative group">
+              <div className="absolute -inset-4 bg-gradient-to-r from-transervica-green via-transervica-light-green to-transervica-green rounded-3xl blur opacity-30 group-hover:opacity-60 transition duration-1000"></div>
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-transervica-green/30">
+                <img 
+                  src={transportImage} 
+                  alt="TRANSERVICA Transporte de Cargas Excepcionales - 40 años de experiencia" 
+                  className="w-full h-[500px] object-contain bg-white p-4"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
+                <div className="absolute bottom-4 left-4 right-4">
+                  <div className="bg-black/70 backdrop-blur-sm rounded-xl p-4 border border-transervica-green/50">
+                    <p className="text-white font-bold text-lg">40 Años de Experiencia</p>
+                    <p className="text-transervica-light-green text-sm">Líderes en Venezuela</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -145,20 +161,21 @@ export default function AboutSection() {
           </div>
         </div>
 
-        {/* CTA Section - Sky2C Style */}
+        {/* CTA Section - TRANSERVICA Style */}
         <div className="text-center">
-          <div className="bg-gradient-to-r from-teal-900/80 to-gray-900/80 backdrop-blur-sm rounded-3xl p-12 border border-white/10">
+          <div className="bg-gradient-to-r from-gray-900/90 to-black/90 backdrop-blur-sm rounded-3xl p-12 border border-transervica-green/30">
             <h3 className="text-3xl lg:text-4xl font-bold text-white mb-6">
-              Múltiples Cargas. Una Plataforma. Cero Complicaciones.
+              Múltiples <span className="text-transervica-green">Cargas Excepcionales</span>. Una Plataforma. Cero Complicaciones.
             </h3>
             <p className="text-lg text-gray-300 mb-8 max-w-3xl mx-auto">
-              Compare cotizaciones de transporte de cargas excepcionales, reserve al instante y rastree en tiempo real — todo con TRANSERVICA.
+              Compare cotizaciones de transporte pesado y sobredimensionado, reserve al instante y rastree en tiempo real — todo con 
+              <span className="text-transervica-light-green font-bold"> TRANSERVICA</span>.
             </p>
             
             <div className="flex flex-col lg:flex-row gap-6 justify-center items-center max-w-2xl mx-auto">
               <button 
                 onClick={scrollToContact}
-                className="group relative px-10 py-4 bg-gradient-to-r from-transervica-green to-transervica-light-green text-white font-bold text-lg rounded-xl hover:shadow-2xl hover:shadow-transervica-green/30 transition-all duration-300 transform hover:scale-105 w-full lg:w-auto"
+                className="group relative px-10 py-4 bg-gradient-to-r from-transervica-green to-transervica-light-green text-white font-bold text-lg rounded-xl hover:shadow-2xl hover:shadow-transervica-green/50 transition-all duration-300 transform hover:scale-105 w-full lg:w-auto"
               >
                 OBTENER COTIZACIÓN INSTANTÁNEA
               </button>
