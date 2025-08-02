@@ -259,7 +259,7 @@ export default function ProjectsCarousel() {
                     <div className="text-sm text-slate-600">de {projects.length} proyectos</div>
                   </div>
                   <div className="bg-slate-50 rounded-lg p-3">
-                    <div className="text-2xl font-bold text-orange-500">40+</div>
+                    <div className="text-2xl font-bold" style={{ color: '#155d29' }}>40+</div>
                     <div className="text-sm text-slate-600">años experiencia</div>
                   </div>
                 </div>
