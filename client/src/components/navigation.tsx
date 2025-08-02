@@ -16,13 +16,18 @@ export default function Navigation() {
   return (
     <nav className="bg-white shadow-lg fixed w-full z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-24">
           <div className="flex items-center">
-            <img 
-              src={logoTranservica} 
-              alt="TRANSERVICA Logo" 
-              className="h-16 w-auto"
-            />
+            <button 
+              onClick={() => scrollToSection('inicio')}
+              className="focus:outline-none"
+            >
+              <img 
+                src={logoTranservica} 
+                alt="TRANSERVICA Logo" 
+                className="h-24 w-auto hover:scale-105 transition-transform duration-300"
+              />
+            </button>
           </div>
           
           {/* Desktop Menu */}

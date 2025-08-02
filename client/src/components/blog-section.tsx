@@ -50,21 +50,21 @@ const blogPosts: BlogPost[] = [
 
 export default function BlogSection() {
   const scrollToContact = () => {
-    const element = document.getElementById('contacto');
+    const element = document.getElementById('contact');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
   return (
-    <section id="blog" className="py-20 bg-white">
+    <section id="blog" className="py-20 bg-gradient-to-br from-emerald-50 to-orange-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-transervica-gray mb-4">
-            Blog Transervica
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold text-slate-800 mb-6">
+            Blog TRANSERVICA
           </h2>
-          <p className="text-xl text-gray-600">
-            Noticias, proyectos y novedades del sector transporte
+          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+            Noticias, proyectos ejecutados y novedades del sector transporte de cargas excepcionales en Venezuela
           </p>
         </div>
 
@@ -72,88 +72,85 @@ export default function BlogSection() {
           {blogPosts.map((post) => (
             <article 
               key={post.id}
-              className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
+              className="group bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-3 border-l-4 border-emerald-500"
             >
-              {/* Imagen destacada */}
-              <div className="aspect-video bg-gradient-to-br from-transervica-green to-transervica-gray relative">
-                <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
-                  <div className="text-center text-white">
-                    <div className="text-2xl font-bold mb-2">{post.category}</div>
-                  </div>
-                </div>
-                <div className="absolute top-4 left-4 bg-transervica-green text-white px-3 py-1 rounded-full text-sm font-semibold">
+              <div className="relative h-48 overflow-hidden">
+                <img
+                  src={post.image}
+                  alt={post.title}
+                  className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute top-4 left-4 bg-emerald-600 text-white px-3 py-1 rounded-full text-xs font-semibold">
                   {post.category}
                 </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               </div>
 
-              {/* Contenido del artículo */}
               <div className="p-6">
-                <h3 className="text-xl font-bold text-transervica-gray mb-3 line-clamp-2">
+                <h3 className="text-xl font-bold text-slate-800 mb-3 group-hover:text-emerald-700 transition-colors duration-300 line-clamp-2">
                   {post.title}
                 </h3>
                 
-                <p className="text-gray-600 mb-4 line-clamp-3">
+                <p className="text-slate-600 mb-4 leading-relaxed line-clamp-3">
                   {post.excerpt}
                 </p>
-
-                {/* Meta información */}
-                <div className="flex items-center text-sm text-gray-500 mb-4 space-x-4">
+                
+                <div className="flex items-center justify-between text-sm text-slate-500 mb-4">
                   <div className="flex items-center">
                     <User className="w-4 h-4 mr-1" />
-                    {post.author}
+                    <span className="truncate">{post.author}</span>
                   </div>
                   <div className="flex items-center">
                     <Calendar className="w-4 h-4 mr-1" />
-                    {new Date(post.date).toLocaleDateString('es-VE')}
+                    <span>{post.date}</span>
                   </div>
                   <div className="flex items-center">
                     <Clock className="w-4 h-4 mr-1" />
-                    {post.readTime}
+                    <span>{post.readTime}</span>
                   </div>
                 </div>
-
-                {/* Keywords */}
+                
                 <div className="flex flex-wrap gap-2 mb-4">
                   {post.keywords.map((keyword, index) => (
-                    <span 
-                      key={index}
-                      className="bg-gray-100 text-gray-700 px-2 py-1 rounded-full text-xs"
-                    >
+                    <span key={index} className="bg-emerald-100 text-emerald-700 px-2 py-1 rounded-full text-xs">
                       {keyword}
                     </span>
                   ))}
                 </div>
-
-                {/* Botón CTA */}
+                
                 <button 
                   onClick={scrollToContact}
-                  className="w-full bg-transervica-green text-white px-4 py-2 rounded-lg font-semibold hover:bg-transervica-light-green transition"
+                  className="w-full bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
                 >
-                  LEER ARTÍCULO COMPLETO
+                  Leer Más
                 </button>
               </div>
             </article>
           ))}
         </div>
 
-        {/* Suscripción al blog */}
-        <div className="mt-16 bg-transervica-green rounded-xl p-8 text-center text-white">
-          <h3 className="text-2xl font-bold mb-4">Suscríbete a Nuestro Blog</h3>
-          <p className="text-lg mb-6">
-            Recibe las últimas noticias sobre transporte de cargas excepcionales
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-            <input 
-              type="email" 
-              placeholder="Tu email aquí"
-              className="flex-1 px-4 py-2 rounded-lg text-gray-800"
-            />
-            <button 
-              onClick={scrollToContact}
-              className="bg-white text-transervica-green px-6 py-2 rounded-lg font-semibold hover:bg-gray-100 transition"
-            >
-              SUSCRIBIRSE
-            </button>
+        <div className="text-center mt-16">
+          <div className="bg-gradient-to-r from-emerald-50 via-white to-orange-50 rounded-2xl p-8 md:p-12 shadow-xl border border-emerald-100">
+            <h3 className="text-2xl font-bold text-slate-800 mb-4">
+              ¿Quiere estar al día con las últimas noticias del sector?
+            </h3>
+            <p className="text-lg text-slate-600 mb-8 max-w-2xl mx-auto">
+              Suscríbase a nuestro blog y reciba actualizaciones sobre proyectos ejecutados y tendencias del transporte especializado
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button 
+                onClick={scrollToContact}
+                className="bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
+              >
+                Suscribirse al Blog
+              </button>
+              <button 
+                onClick={() => document.getElementById('proyectos')?.scrollIntoView({ behavior: 'smooth' })}
+                className="border-2 border-emerald-600 text-emerald-600 hover:bg-emerald-600 hover:text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105"
+              >
+                Ver Todos los Proyectos
+              </button>
+            </div>
           </div>
         </div>
       </div>

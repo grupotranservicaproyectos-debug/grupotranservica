@@ -24,13 +24,22 @@
   --ring: hsl(20, 14.3%, 4.1%);
   --radius: 0.5rem;
   
-  /* Transervica Brand Colors - Based on Logo */
-  --transervica-green: hsl(94, 60%, 45%);
-  --transervica-dark-green: hsl(94, 47%, 17%);
-  --transervica-light-green: hsl(94, 35%, 55%);
-  --transervica-gray: hsl(0, 0%, 40%);
-  --transervica-dark-gray: hsl(0, 0%, 25%);
-  --transervica-light-gray: hsl(0, 0%, 60%);
+  /* Transervica Brand Colors - Based on Logo Green and Orange */
+  --transervica-green: hsl(135, 65%, 35%);
+  --transervica-dark-green: hsl(135, 65%, 25%);
+  --transervica-light-green: hsl(135, 65%, 45%);
+  --transervica-orange: hsl(28, 88%, 53%);
+  --transervica-dark-orange: hsl(28, 88%, 40%);
+  --transervica-light-orange: hsl(28, 88%, 65%);
+  --transervica-gray: hsl(210, 6%, 25%);
+  --transervica-dark-gray: hsl(210, 8%, 15%);
+  --transervica-light-gray: hsl(210, 4%, 60%);
+  
+  /* Update primary colors to match Transervica branding */
+  --primary: hsl(135, 65%, 35%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --accent: hsl(28, 88%, 53%);
+  --accent-foreground: hsl(0, 0%, 100%);
 }
 
 .dark {
@@ -69,71 +78,79 @@
 
 @layer utilities {
   .text-transervica-green {
-    color: hsl(94, 60%, 45%);
+    color: hsl(135, 65%, 35%);
   }
   
   .text-transervica-dark-green {
-    color: hsl(94, 47%, 17%);
+    color: hsl(135, 65%, 25%);
   }
   
   .text-transervica-light-green {
-    color: hsl(94, 35%, 55%);
+    color: hsl(135, 65%, 45%);
+  }
+  
+  .text-transervica-orange {
+    color: hsl(28, 88%, 53%);
   }
   
   .text-transervica-gray {
-    color: hsl(0, 0%, 40%);
+    color: hsl(210, 6%, 25%);
   }
   
   .text-transervica-dark-gray {
-    color: hsl(0, 0%, 25%);
+    color: hsl(210, 8%, 15%);
   }
   
   .text-transervica-light-gray {
-    color: hsl(0, 0%, 60%);
+    color: hsl(210, 4%, 60%);
   }
   
   .bg-transervica-green {
-    background-color: hsl(94, 60%, 45%);
+    background-color: hsl(135, 65%, 35%);
   }
   
   .bg-transervica-dark-green {
-    background-color: hsl(94, 47%, 17%);
+    background-color: hsl(135, 65%, 25%);
   }
   
   .bg-transervica-light-green {
-    background-color: hsl(94, 35%, 55%);
+    background-color: hsl(135, 65%, 45%);
+  }
+  
+  .bg-transervica-orange {
+    background-color: hsl(28, 88%, 53%);
   }
   
   .bg-transervica-gray {
-    background-color: hsl(0, 0%, 40%);
+    background-color: hsl(210, 6%, 25%);
   }
   
   .bg-transervica-dark-gray {
-    background-color: hsl(0, 0%, 25%);
+    background-color: hsl(210, 8%, 15%);
   }
   
   .bg-transervica-light-gray {
-    background-color: hsl(0, 0%, 60%);
+    background-color: hsl(210, 4%, 60%);
   }
   
   .border-transervica-green {
-    border-color: hsl(94, 60%, 45%);
+    border-color: hsl(135, 65%, 35%);
   }
   
-  .border-transervica-dark-green {
-    border-color: hsl(94, 47%, 17%);
+  .border-transervica-orange {
+    border-color: hsl(28, 88%, 53%);
   }
   
   .border-transervica-gray {
-    border-color: hsl(0, 0%, 40%);
+    border-color: hsl(210, 6%, 25%);
   }
   
   .hover\:bg-transervica-green:hover {
-    background-color: hsl(94, 60%, 45%);
+    background-color: hsl(135, 65%, 35%);
   }
   
-  .hover\:bg-transervica-dark-green:hover {
-    background-color: hsl(94, 47%, 17%);
+  .hover\:bg-transervica-light-green:hover {
+    background-color: hsl(135, 65%, 45%);
   }
   
   .hover\:bg-transervica-light-green:hover {

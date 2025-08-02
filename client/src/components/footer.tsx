@@ -14,11 +14,16 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid md:grid-cols-4 gap-8">
           <div className="md:col-span-2">
-            <img 
-              src={logoTranservica} 
-              alt="TRANSERVICA Logo" 
-              className="h-16 w-auto mb-6"
-            />
+            <button 
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className="focus:outline-none"
+            >
+              <img 
+                src={logoTranservica} 
+                alt="TRANSERVICA Logo" 
+                className="h-28 w-auto mb-6 hover:scale-105 transition-transform duration-300"
+              />
+            </button>
             <p className="text-gray-300 mb-4">
               <strong>TRANSERVICA, C.A.</strong><br />
               <span className="text-sm">RIF: J-00207776-0</span>
@@ -27,12 +32,18 @@ export default function Footer() {
               Especializados en transporte de cargas excepcionales hasta 1,100 toneladas con trailers modulares hidráulicos. 
               40 años transportando el futuro de Venezuela con tecnología alemana de vanguardia.
             </p>
-            <div className="mb-6">
+            <div className="mb-6 flex flex-col sm:flex-row gap-3">
               <button 
                 onClick={scrollToContact}
-                className="bg-transervica-green text-white px-6 py-3 rounded-lg font-bold hover:bg-transervica-light-green transition-colors shadow-lg"
+                className="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-lg font-bold transition-all duration-300 transform hover:scale-105 shadow-lg"
               >
                 SOLICITAR COTIZACIÓN
+              </button>
+              <button 
+                onClick={() => document.getElementById('blog')?.scrollIntoView({ behavior: 'smooth' })}
+                className="border-2 border-emerald-600 text-emerald-600 hover:bg-emerald-600 hover:text-white px-6 py-3 rounded-lg font-bold transition-all duration-300 transform hover:scale-105"
+              >
+                VER BLOG
               </button>
             </div>
             <div className="flex space-x-4">
