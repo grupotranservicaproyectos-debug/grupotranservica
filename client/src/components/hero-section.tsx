@@ -1,4 +1,4 @@
-import backgroundImage from "@assets/24_1754164388999.png";
+import backgroundImage from "@assets/22_1754164388997.png";
 
 export default function HeroSection() {
   const scrollToContact = () => {
@@ -13,10 +13,11 @@ export default function HeroSection() {
       id="inicio" 
       className="pt-20 text-white relative min-h-screen"
       style={{
-        backgroundImage: `linear-gradient(rgba(35, 76, 28, 0.85), rgba(62, 90, 58, 0.85)), url(${backgroundImage})`,
+        backgroundImage: `linear-gradient(rgba(34, 139, 34, 0.9), rgba(255, 140, 0, 0.8)), url(${backgroundImage})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
+        backgroundRepeat: 'no-repeat',
+        backgroundAttachment: 'fixed'
       }}
     >
       {/* Botón WhatsApp tipo nube flotante */}
