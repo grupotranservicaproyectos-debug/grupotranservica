@@ -47,7 +47,8 @@ export default function HeroSection() {
             <img 
               src={logoTranservica} 
               alt="TRANSERVICA" 
-              className="h-16 sm:h-20 lg:h-24 w-auto drop-shadow-2xl filter brightness-110 contrast-110"
+              className="h-16 sm:h-20 lg:h-24 w-auto drop-shadow-2xl filter brightness-110 contrast-110 cursor-pointer hover:scale-105 transition-transform"
+              onClick={() => scrollToSection('inicio')}
             />
             <div className="hidden md:flex space-x-6">
               <button 
