@@ -35,39 +35,39 @@ export default function HeroSection() {
         </svg>
       </a>
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
-        <div className="grid lg:grid-cols-5 gap-8 lg:gap-12 items-center">
-          <div className="lg:col-span-2 relative z-10">
-            <div className="bg-transervica-dark-gray/50 backdrop-blur-md rounded-2xl p-6 lg:p-8 border border-transervica-green/40 shadow-2xl">
-              <h1 className="text-3xl lg:text-4xl xl:text-5xl font-bold mb-6 leading-tight text-white drop-shadow-lg text-left">
-                Transporte Cargas Excepcionales Venezuela - Especializados en Movilización de Cargas <span className="text-black bg-transervica-green px-2 py-1 rounded font-bold">Pesada y Sobredimensionada</span>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
+        <div className="grid lg:grid-cols-5 gap-6 sm:gap-8 lg:gap-16 items-start lg:items-center">
+          <div className="lg:col-span-2 relative z-10 mb-8 lg:mb-0">
+            <div className="bg-transervica-dark-gray/60 backdrop-blur-md rounded-3xl p-6 sm:p-8 lg:p-10 border border-transervica-green/50 shadow-2xl">
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 sm:mb-6 lg:mb-8 leading-tight text-white drop-shadow-lg text-left">
+                Transporte Cargas Excepcionales Venezuela - Especializados en Movilización de Cargas <span className="text-black bg-transervica-green px-2 py-1 rounded font-bold whitespace-nowrap">Pesada y Sobredimensionada</span>
               </h1>
-              <h2 className="text-xl lg:text-2xl xl:text-3xl font-bold mb-6 text-transervica-light-green drop-shadow-lg text-left">
+              <h2 className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-bold mb-6 sm:mb-8 text-transervica-light-green drop-shadow-lg text-left">
                 CON 40 AÑOS TRANSPORTANDO EL FUTURO DE VENEZUELA
               </h2>
-              <p className="text-base lg:text-lg mb-8 text-white drop-shadow-md leading-relaxed text-justify">
+              <p className="text-sm sm:text-base lg:text-lg mb-6 sm:mb-8 lg:mb-10 text-white drop-shadow-md leading-relaxed text-justify">
                 Especializados en Movilización de Cargas Pesadas y Sobredimensionadas hasta 1,100 toneladas con trailers Modulares Hidráulicos de última generación. Contamos con tecnología alemana de vanguardia y un equipo técnico altamente especializado para garantizar el éxito de cada proyecto.
               </p>
               
               {/* Estadísticas Visuales */}
-              <div className="grid grid-cols-3 gap-3 lg:gap-4 mb-8">
-                <div className="bg-white/20 backdrop-blur-sm rounded-xl p-3 lg:p-4 text-center border border-transervica-green/40 hover:bg-white/30 transition-all duration-300 transform hover:scale-105">
-                  <div className="text-2xl lg:text-3xl xl:text-4xl font-bold text-transervica-green">40</div>
-                  <div className="text-xs lg:text-sm text-white font-medium">Años de Experiencia</div>
+              <div className="grid grid-cols-3 gap-2 sm:gap-3 lg:gap-4 mb-6 sm:mb-8 lg:mb-10">
+                <div className="bg-white/25 backdrop-blur-sm rounded-xl p-3 sm:p-4 lg:p-5 text-center border border-transervica-green/50 hover:bg-white/35 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                  <div className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold text-transervica-green mb-1">40</div>
+                  <div className="text-xs sm:text-sm lg:text-base text-white font-medium leading-tight">Años de Experiencia</div>
                 </div>
-                <div className="bg-white/20 backdrop-blur-sm rounded-xl p-3 lg:p-4 text-center border border-transervica-green/40 hover:bg-white/30 transition-all duration-300 transform hover:scale-105">
-                  <div className="text-2xl lg:text-3xl xl:text-4xl font-bold text-transervica-green">1,100</div>
-                  <div className="text-xs lg:text-sm text-white font-medium">Toneladas Máximas</div>
+                <div className="bg-white/25 backdrop-blur-sm rounded-xl p-3 sm:p-4 lg:p-5 text-center border border-transervica-green/50 hover:bg-white/35 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                  <div className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold text-transervica-green mb-1">1,100</div>
+                  <div className="text-xs sm:text-sm lg:text-base text-white font-medium leading-tight">Toneladas Máximas</div>
                 </div>
-                <div className="bg-white/20 backdrop-blur-sm rounded-xl p-3 lg:p-4 text-center border border-transervica-green/40 hover:bg-white/30 transition-all duration-300 transform hover:scale-105">
-                  <div className="text-2xl lg:text-3xl xl:text-4xl font-bold text-transervica-green">100%</div>
-                  <div className="text-xs lg:text-sm text-white font-medium">Confiable</div>
+                <div className="bg-white/25 backdrop-blur-sm rounded-xl p-3 sm:p-4 lg:p-5 text-center border border-transervica-green/50 hover:bg-white/35 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                  <div className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold text-transervica-green mb-1">100%</div>
+                  <div className="text-xs sm:text-sm lg:text-base text-white font-medium leading-tight">Confiable</div>
                 </div>
               </div>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center sm:justify-start">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 lg:gap-5 justify-stretch sm:justify-start">
                 <button 
                   onClick={scrollToContact}
-                  className="bg-gradient-to-r from-white to-gray-100 text-transervica-green px-6 lg:px-8 py-3 lg:py-4 rounded-xl text-base lg:text-lg font-bold hover:from-gray-100 hover:to-white transition-all duration-300 text-center shadow-xl hover:shadow-2xl transform hover:scale-105 border-2 border-transparent hover:border-transervica-green/20"
+                  className="bg-gradient-to-r from-white to-gray-100 text-transervica-green px-6 sm:px-7 lg:px-8 py-3 sm:py-4 lg:py-4 rounded-xl text-sm sm:text-base lg:text-lg font-bold hover:from-gray-100 hover:to-white transition-all duration-300 text-center shadow-xl hover:shadow-2xl transform hover:scale-105 border-2 border-transparent hover:border-transervica-green/30 flex-1 sm:flex-none whitespace-nowrap"
                 >
                   Solicitar Cotización
                 </button>
@@ -78,7 +78,7 @@ export default function HeroSection() {
                       element.scrollIntoView({ behavior: 'smooth' });
                     }
                   }}
-                  className="border-2 border-white/80 text-white px-6 lg:px-8 py-3 lg:py-4 rounded-xl text-base lg:text-lg font-bold hover:bg-white hover:text-transervica-green transition-all duration-300 text-center backdrop-blur-sm hover:shadow-xl transform hover:scale-105"
+                  className="border-2 border-white/90 text-white px-6 sm:px-7 lg:px-8 py-3 sm:py-4 lg:py-4 rounded-xl text-sm sm:text-base lg:text-lg font-bold hover:bg-white hover:text-transervica-green transition-all duration-300 text-center backdrop-blur-sm hover:shadow-xl transform hover:scale-105 flex-1 sm:flex-none whitespace-nowrap"
                 >
                   Ver Equipos
                 </button>
@@ -89,22 +89,22 @@ export default function HeroSection() {
           
           {/* Video Corporativo */}
           <div className="lg:col-span-3 relative">
-            <div className="aspect-video bg-black/40 backdrop-blur-sm rounded-2xl overflow-hidden border border-transervica-green/40 shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-[1.02]">
+            <div className="aspect-video bg-black/50 backdrop-blur-sm rounded-3xl overflow-hidden border border-transervica-green/50 shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-[1.01]">
               <iframe
                 className="w-full h-full"
-                src="https://www.youtube.com/embed/_LQbWkWlg6s?rel=0&showinfo=0&modestbranding=1&fs=1&controls=1"
+                src="https://www.youtube.com/embed/_LQbWkWlg6s?autoplay=1&mute=1&rel=0&showinfo=0&modestbranding=1&fs=1&controls=1&loop=1&playlist=_LQbWkWlg6s"
                 title="TRANSERVICA - 40 años transportando el futuro de Venezuela"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
-                loading="lazy"
+                loading="eager"
               />
             </div>
-            <div className="text-center mt-4 lg:mt-6">
-              <h3 className="text-base lg:text-lg xl:text-xl font-semibold text-white drop-shadow-lg">
+            <div className="text-center mt-4 sm:mt-6 lg:mt-8 px-4">
+              <h3 className="text-base sm:text-lg lg:text-xl xl:text-2xl font-semibold text-white drop-shadow-lg mb-2">
                 TRANSERVICA - 40 años transportando el futuro de Venezuela
               </h3>
-              <p className="text-sm lg:text-base text-white/80 mt-2">
-                Conoce nuestra trayectoria y capacidades técnicas
+              <p className="text-sm sm:text-base lg:text-lg text-white/90 leading-relaxed">
+                Conoce nuestra trayectoria y capacidades técnicas especializadas
               </p>
             </div>
           </div>
