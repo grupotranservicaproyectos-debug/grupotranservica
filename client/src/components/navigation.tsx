@@ -18,17 +18,11 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <div className="flex items-center">
-            <div className="flex items-center">
-              <img 
-                src={logoTranservica} 
-                alt="TRANSERVICA Logo" 
-                className="h-16 w-auto mr-4"
-              />
-              <div>
-                <div className="text-3xl font-bold text-transervica-green">TRANSERVICA</div>
-                <div className="text-sm text-transervica-gray">40 Años de Experiencia</div>
-              </div>
-            </div>
+            <img 
+              src={logoTranservica} 
+              alt="TRANSERVICA Logo" 
+              className="h-16 w-auto"
+            />
           </div>
           
           {/* Desktop Menu */}
