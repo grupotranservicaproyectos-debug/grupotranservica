@@ -112,10 +112,10 @@ export default function HeroSection() {
         </svg>
       </a>
       
-      {/* Netflix Style Content Container with Dark Background for Text */}
+      {/* Netflix Style Content Container with Perfect Spacing */}
       <div className="absolute inset-0 z-20 flex items-center">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <div className="max-w-md pt-20 pb-12 bg-black/70 rounded-2xl p-6 border border-white/20 shadow-2xl">
+          <div className="max-w-lg pt-32 sm:pt-36 lg:pt-40 pb-12 bg-black/70 rounded-2xl p-6 border border-white/20 shadow-2xl ml-0 sm:ml-4">
             {/* Main Title Netflix Style - Very Small */}
             <h1 className="text-lg sm:text-xl lg:text-2xl font-bold mb-2 lg:mb-3 leading-tight text-white drop-shadow-lg">
               Transporte Cargas Excepcionales Venezuela - Especializados en Movilización de Cargas <span className="text-transervica-green">Pesada y Sobredimensionada</span>
