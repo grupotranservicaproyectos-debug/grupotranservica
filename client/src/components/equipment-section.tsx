@@ -1,113 +1,156 @@
-interface Equipment {
-  id: number;
+import image15 from "@assets/15_1754168567957.png";
+import image16 from "@assets/16_1754168567957.png"; 
+import image17 from "@assets/17_1754168567957.png";
+import image20 from "@assets/20_1754168567958.png";  
+import image21 from "@assets/21_1754168567958.png";
+import image24 from "@assets/24_1754168567959.png";
+
+interface EquipmentItem {
   name: string;
-  description: string;
-  hoverText: string;
   image: string;
+  description: string;
+  capacity: string;
+  brand: string;
+  features: string[];
 }
 
-const equipment: Equipment[] = [
-  {
-    id: 1,
-    name: "TRAILER SCHEUERLE",
-    description: "Trailer modular hidráulico SCHEUERLE",
-    hoverText: "SCHEUERLE - Tecnología alemana hasta 1,100 toneladas",
-    image: "/api/placeholder/400/300"
-  },
-  {
-    id: 2,
-    name: "GRÚAS MÓVILES GROVE",
-    description: "Grúa móvil telescópica GROVE",
-    hoverText: "GROVE - Grúas móviles alemanas de alta capacidad",
-    image: "/api/placeholder/400/300"
-  },
-  {
-    id: 3,
-    name: "GRÚAS SOBRE ORUGA GROVE",
-    description: "Grúa sobre oruga GROVE",
-    hoverText: "GROVE - Grúas sobre oruga alemanas especializadas",
-    image: "/api/placeholder/400/300"
-  },
-  {
-    id: 4,
-    name: "GRÚAS MÓVILES LIEBHERR",
-    description: "Grúa móvil LIEBHERR",
-    hoverText: "LIEBHERR - Tecnología alemana de precisión",
-    image: "/api/placeholder/400/300"
-  },
-  {
-    id: 5,
-    name: "GRÚAS SOBRE ORUGA LIEBHERR",
-    description: "Grúa sobre oruga LIEBHERR",
-    hoverText: "LIEBHERR - Grúas sobre oruga alemanas de alta ingeniería",
-    image: "/api/placeholder/400/300"
-  },
-  {
-    id: 6,
-    name: "EQUIPO COMETTO",
-    description: "Sistema modular COMETTO",
-    hoverText: "COMETTO - Soluciones italianas de alta ingeniería",
-    image: "/api/placeholder/400/300"
-  },
-  {
-    id: 7,
-    name: "TRAILER CAPPERI",
-    description: "Sistema CAPPERI",
-    hoverText: "CAPPERI - Tecnología especializada modular",
-    image: "/api/placeholder/400/300"
-  },
-  {
-    id: 8,
-    name: "CAMIÓN MACK",
-    description: "Camión tractor MACK",
-    hoverText: "MACK - Potencia y confiabilidad americana",
-    image: "/api/placeholder/400/300"
-  }
-];
-
 export default function EquipmentSection() {
+  const equipmentItems: EquipmentItem[] = [
+    {
+      name: "Trailers Modulares Hidráulicos 1,100 toneladas",
+      image: image15,
+      description: "Equipos de última generación para el transporte de cargas excepcionales",
+      capacity: "1,100 toneladas",
+      brand: "SCHEUERLE",
+      features: [
+        "Sistemas hidráulicos avanzados",
+        "Configuración modular", 
+        "Control remoto",
+        "Suspensión adaptativa"
+      ]
+    },
+    {
+      name: "Sistemas Especializados hasta 1100 toneladas",
+      image: image16,
+      description: "Plataformas autopropulsadas de alta precisión para cargas críticas",
+      capacity: "hasta 1100 toneladas", 
+      brand: "COMETTO",
+      features: [
+        "Autopropulsado",
+        "Control de precisión",
+        "Sistemas de navegación",
+        "Operación remota"
+      ]
+    },
+    {
+      name: "Grúas Móviles Telescópicas hasta 500 toneladas",
+      image: image20,
+      description: "Grúas Móviles de Alta Capacidad para Operaciones de Izamiento Especializado",
+      capacity: "hasta 500 toneladas",
+      brand: "GROVE", 
+      features: [
+        "Alta movilidad",
+        "Controles digitales",
+        "Operadores certificados"
+      ]
+    },
+    {
+      name: "Grúas sobre Orugas hasta 800 toneladas",
+      image: image17,
+      description: "Equipos Especializados para Izamiento en Terrenos Difíciles",
+      capacity: "hasta 800 toneladas",
+      brand: "P&H",
+      features: [
+        "Base sobre orugas",
+        "Estabilidad superior", 
+        "Alcance extendido",
+        "Configuración versátil"
+      ]
+    },
+    {
+      name: "Camiones Especializados Variable",  
+      image: image21,
+      description: "Alquiler de Flota de Camiones Especializados para Diferentes Tipos de Carga",
+      capacity: "Variable",
+      brand: "MAN / MACK",
+      features: [
+        "Alta potencia",
+        "Transmisión especializada",
+        "Sistemas de seguridad", 
+        "Mantenimiento preventivo"
+      ]
+    },
+    {
+      name: "Equipos de Apoyo Diversas",
+      image: image24,
+      description: "Sistemas complementarios para operaciones complejas de transporte", 
+      capacity: "Diversas",
+      brand: "CATERPILLAR",
+      features: [
+        "Sistemas de apoyo",
+        "Equipos auxiliares",
+        "Herramientas especializadas",
+        "Soporte técnico"
+      ]
+    }
+  ];
+
   const scrollToContact = () => {
-    const element = document.getElementById('contacto');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
   return (
-    <section id="equipos" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-transervica-gray mb-4">
-            Equipos de Última Generación
+    <section className="py-20 bg-gradient-to-br from-slate-50 to-gray-100">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold text-slate-800 mb-6">
+            Nuestros Equipos Especializados para Izamiento y Transportes Excepcionales
           </h2>
-          <p className="text-xl text-gray-600">
-            Tecnología alemana e italiana de vanguardia para proyectos excepcionales
+          <p className="text-xl text-slate-600 max-w-4xl mx-auto mb-4">
+            Contamos con la Flota más Moderna y Especializada de Venezuela para el Transporte de Cargas Excepcionales, con Equipos de las Marcas más Reconocidas Mundialmente
+          </p>
+          <h3 className="text-2xl font-semibold text-emerald-700 mb-4">Nuestros Equipos</h3>
+          <p className="text-lg text-slate-600 max-w-3xl mx-auto">
+            Contamos con la flota más moderna y especializada de Venezuela para el transporte de cargas excepcionales, con equipos de las marcas más reconocidas mundialmente
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {equipment.map((item) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {equipmentItems.map((equipment, index) => (
             <div
-              key={item.id}
-              className="group relative bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-400 transform hover:scale-105"
+              key={index}
+              className="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 hover:scale-105 overflow-hidden"
             >
-              {/* Imagen del equipo */}
-              <div className="relative aspect-[4/3] bg-gradient-to-br from-transervica-green to-transervica-gray overflow-hidden">
-                <div className="absolute inset-0 bg-transervica-gray/20 flex items-center justify-center">
-                  <div className="text-center text-white">
-                    <div className="text-2xl font-bold mb-2">{item.name}</div>
-                  </div>
-                </div>
+              {/* Capacity badge */}
+              <div className="absolute top-4 left-4 z-20 bg-emerald-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                {equipment.capacity}
+              </div>
+
+              {/* Brand badge */}  
+              <div className="absolute top-4 right-4 z-20 bg-orange-500 text-white px-3 py-1 rounded-full text-xs font-semibold">
+                {equipment.brand}
+              </div>
+
+              {/* Image container */}
+              <div className="relative h-64 overflow-hidden">
+                <img
+                  src={equipment.image}
+                  alt={equipment.name}
+                  className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                />
                 
-                {/* Overlay con efecto hover */}
-                <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex items-center justify-center">
-                  <div className="text-center text-white p-4">
-                    <h3 className="text-lg font-bold mb-2" style={{ fontFamily: 'Montserrat, sans-serif' }}>
-                      {item.hoverText}
-                    </h3>
+                {/* Gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                
+                {/* Hover content */}
+                <div className="absolute inset-0 flex items-end justify-center p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                  <div className="text-center text-white">
                     <button 
                       onClick={scrollToContact}
-                      className="bg-transervica-green text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-transervica-light-green transition"
+                      className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
                     >
                       Ver Especificaciones
                     </button>
@@ -115,31 +158,55 @@ export default function EquipmentSection() {
                 </div>
               </div>
 
-              {/* Información del equipo */}
+              {/* Equipment info */}
               <div className="p-6">
-                <h3 className="text-lg font-semibold text-transervica-gray mb-2">
-                  {item.name}
+                <h3 className="text-xl font-bold text-slate-800 mb-3 group-hover:text-emerald-700 transition-colors duration-300">
+                  {equipment.name}
                 </h3>
-                <p className="text-gray-600 text-sm">
-                  {item.description}
+                
+                <p className="text-slate-600 mb-4 leading-relaxed">
+                  {equipment.description}
                 </p>
-                <div className="mt-4 flex space-x-2">
-                  <button 
-                    onClick={scrollToContact}
-                    className="bg-transervica-green text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-transervica-light-green transition"
-                  >
-                    Solicitar Demostración
-                  </button>
-                  <button 
-                    onClick={scrollToContact}
-                    className="border border-transervica-green text-transervica-green px-4 py-2 rounded-lg text-sm font-semibold hover:bg-transervica-green hover:text-white transition"
-                  >
-                    Contactar Especialista
-                  </button>
-                </div>
+                
+                <ul className="space-y-2">
+                  {equipment.features.map((feature, featureIndex) => (
+                    <li key={featureIndex} className="flex items-center text-sm text-slate-600">
+                      <div className="w-2 h-2 bg-emerald-500 rounded-full mr-3 transform group-hover:scale-125 transition-transform duration-300"></div>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
               </div>
+
+              {/* Animated border */}
+              <div className="absolute inset-0 border-2 border-emerald-300 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>
           ))}
+        </div>
+
+        <div className="text-center mt-16">
+          <div className="bg-gradient-to-r from-emerald-50 via-white to-orange-50 rounded-2xl p-8 md:p-12 shadow-xl border border-emerald-100">
+            <h3 className="text-2xl font-bold text-slate-800 mb-4">
+              ¿Necesita equipos especializados para su proyecto?
+            </h3>
+            <p className="text-lg text-slate-600 mb-8 max-w-2xl mx-auto">
+              Consulte nuestra disponibilidad de equipos y obtenga una cotización personalizada para su operación
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button 
+                onClick={scrollToContact}
+                className="bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
+              >
+                Consultar Disponibilidad
+              </button>
+              <button 
+                onClick={scrollToContact}
+                className="border-2 border-emerald-600 text-emerald-600 hover:bg-emerald-600 hover:text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105"
+              >
+                Solicitar Especificaciones
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </section>
