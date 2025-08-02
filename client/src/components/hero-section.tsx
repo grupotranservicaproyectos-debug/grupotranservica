@@ -39,11 +39,14 @@ export default function HeroSection() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="relative z-10">
             <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-              <h1 className="text-5xl lg:text-6xl font-bold mb-6 leading-tight text-white drop-shadow-lg">
+              <h1 className="text-4xl lg:text-5xl font-bold mb-6 leading-tight text-white drop-shadow-lg">
                 Nada es demasiado <span className="text-white bg-transervica-light-green px-2 py-1 rounded">pesado</span> para Nosotros
               </h1>
-              <p className="text-xl mb-8 text-white drop-shadow-md">
-                Especialistas en transporte de cargas excepcionales en Venezuela con 40 años de experiencia y capacidad hasta 1,100 toneladas.
+              <h2 className="text-2xl lg:text-3xl font-bold mb-4 text-orange-300 drop-shadow-lg">
+                CON 40 AÑOS TRANSPORTANDO EL FUTURO DE VENEZUELA
+              </h2>
+              <p className="text-lg mb-8 text-white drop-shadow-md leading-relaxed">
+                Especializados en Movilización de Cargas Pesadas y Sobredimensionadas hasta 1,100 toneladas con trailers Modulares Hidráulicos de última generación
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <button 
