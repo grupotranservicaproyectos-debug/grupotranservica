@@ -122,7 +122,7 @@ export default function HeroSection() {
               </h1>
               
               {/* Subtitle - Very Small */}
-              <h2 className="text-xs sm:text-sm lg:text-base font-bold mb-2 lg:mb-3 bg-gradient-to-r from-transervica-green to-transervica-light-green bg-clip-text text-transparent drop-shadow-lg max-w-lg">
+              <h2 className="text-xs sm:text-sm lg:text-base font-bold mb-2 lg:mb-3 drop-shadow-lg max-w-lg" style={{ color: '#1E7E3B' }}>
                 CON 40 AÑOS TRANSPORTANDO EL FUTURO DE VENEZUELA
               </h2>
               
