@@ -106,13 +106,13 @@ export default function EquipmentSection() {
     <section className="py-20 bg-gradient-to-br from-slate-50 to-gray-100">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-slate-800 mb-6">
+          <h2 className="text-4xl font-bold mb-6" style={{ color: '#155d29' }}>
             Nuestros Equipos Especializados para Izamiento y Transportes Excepcionales
           </h2>
           <p className="text-xl text-slate-600 max-w-4xl mx-auto mb-4">
             Contamos con la Flota más Moderna y Especializada de Venezuela para el Transporte de Cargas Excepcionales, con Equipos de las Marcas más Reconocidas Mundialmente
           </p>
-          <h3 className="text-2xl font-semibold text-emerald-700 mb-4">Nuestros Equipos</h3>
+          <h3 className="text-2xl font-semibold mb-4" style={{ color: '#155d29' }}>Nuestros Equipos</h3>
           <p className="text-lg text-slate-600 max-w-3xl mx-auto">
             Contamos con la flota más moderna y especializada de Venezuela para el transporte de cargas excepcionales, con equipos de las marcas más reconocidas mundialmente
           </p>
@@ -125,12 +125,12 @@ export default function EquipmentSection() {
               className="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 hover:scale-105 overflow-hidden"
             >
               {/* Capacity badge */}
-              <div className="absolute top-4 left-4 z-20 bg-emerald-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
+              <div className="absolute top-4 left-4 z-20 text-white px-3 py-1 rounded-full text-sm font-semibold" style={{ backgroundColor: '#155d29' }}>
                 {equipment.capacity}
               </div>
 
               {/* Brand badge */}  
-              <div className="absolute top-4 right-4 z-20 bg-emerald-700 text-white px-3 py-1 rounded-full text-xs font-semibold">
+              <div className="absolute top-4 right-4 z-20 text-white px-3 py-1 rounded-full text-xs font-semibold" style={{ backgroundColor: '#155d29' }}>
                 {equipment.brand}
               </div>
 
@@ -150,7 +150,10 @@ export default function EquipmentSection() {
                   <div className="text-center text-white">
                     <button 
                       onClick={scrollToContact}
-                      className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
+                      className="text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
+                      style={{ backgroundColor: '#155d29' }}
+                      onMouseEnter={(e) => (e.target as HTMLElement).style.backgroundColor = '#0f4a21'}
+                      onMouseLeave={(e) => (e.target as HTMLElement).style.backgroundColor = '#155d29'}
                     >
                       Ver Especificaciones
                     </button>
@@ -160,7 +163,7 @@ export default function EquipmentSection() {
 
               {/* Equipment info */}
               <div className="p-6">
-                <h3 className="text-xl font-bold text-slate-800 mb-3 group-hover:text-emerald-700 transition-colors duration-300">
+                <h3 className="text-xl font-bold mb-3 transition-colors duration-300" style={{ color: '#155d29' }}>
                   {equipment.name}
                 </h3>
                 
@@ -171,7 +174,7 @@ export default function EquipmentSection() {
                 <ul className="space-y-2">
                   {equipment.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-center text-sm text-slate-600">
-                      <div className="w-2 h-2 bg-emerald-500 rounded-full mr-3 transform group-hover:scale-125 transition-transform duration-300"></div>
+                      <div className="w-2 h-2 rounded-full mr-3 transform group-hover:scale-125 transition-transform duration-300" style={{ backgroundColor: '#155d29' }}></div>
                       {feature}
                     </li>
                   ))}
@@ -179,14 +182,14 @@ export default function EquipmentSection() {
               </div>
 
               {/* Animated border */}
-              <div className="absolute inset-0 border-2 border-emerald-300 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="absolute inset-0 border-2 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ borderColor: '#155d29' }}></div>
             </div>
           ))}
         </div>
 
         <div className="text-center mt-16">
-          <div className="bg-gradient-to-r from-emerald-50 via-white to-emerald-50 rounded-2xl p-8 md:p-12 shadow-xl border border-emerald-100">
-            <h3 className="text-2xl font-bold text-slate-800 mb-4">
+          <div className="bg-gradient-to-r from-green-50 via-white to-green-50 rounded-2xl p-8 md:p-12 shadow-xl border" style={{ borderColor: 'rgba(21, 93, 41, 0.1)' }}>
+            <h3 className="text-2xl font-bold mb-4" style={{ color: '#155d29' }}>
               ¿Necesita equipos especializados para su proyecto?
             </h3>
             <p className="text-lg text-slate-600 mb-8 max-w-2xl mx-auto">
@@ -195,13 +198,19 @@ export default function EquipmentSection() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button 
                 onClick={() => window.open('https://wa.me/584142776340?text=Hola%2C%20necesito%20consultar%20disponibilidad%20de%20equipos%20especializados', '_blank')}
-                className="bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
+                className="text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
+                style={{ backgroundColor: '#155d29' }}
+                onMouseEnter={(e) => (e.target as HTMLElement).style.backgroundColor = '#0f4a21'}
+                onMouseLeave={(e) => (e.target as HTMLElement).style.backgroundColor = '#155d29'}
               >
                 Consultar Disponibilidad
               </button>
               <button 
                 onClick={scrollToContact}
-                className="border-2 border-emerald-600 text-emerald-600 hover:bg-emerald-600 hover:text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105"
+                className="border-2 font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 hover:text-white"
+                style={{ borderColor: '#155d29', color: '#155d29' }}
+                onMouseEnter={(e) => { (e.target as HTMLElement).style.backgroundColor = '#155d29'; (e.target as HTMLElement).style.color = 'white'; }}
+                onMouseLeave={(e) => { (e.target as HTMLElement).style.backgroundColor = 'transparent'; (e.target as HTMLElement).style.color = '#155d29'; }}
               >
                 Solicitar Especificaciones
               </button>

@@ -74,7 +74,7 @@ export default function ServicesSection() {
     <section className="py-20 bg-gradient-to-br from-slate-50 to-gray-100">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-slate-800 mb-6">
+          <h2 className="text-4xl font-bold mb-6" style={{ color: '#155d29' }}>
             Nuestros Servicios
           </h2>
           <p className="text-xl max-w-3xl mx-auto" style={{ color: 'hsl(0, 0%, 15%)' }}>
@@ -89,20 +89,21 @@ export default function ServicesSection() {
             return (
               <div
                 key={index}
-                className="group relative bg-white border-l-4 border-emerald-500 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 hover:scale-105 overflow-hidden"
+                className="group relative bg-white border-l-4 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 hover:scale-105 overflow-hidden"
+                style={{ borderLeftColor: '#155d29' }}
               >
                 {/* Animated background gradient */}
-                <div className="absolute inset-0 bg-gradient-to-br from-emerald-50 via-white to-orange-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-green-50 via-white to-orange-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 
                 {/* Content */}
                 <div className="relative z-10">
                   <div className="flex items-center mb-6">
-                    <div className="bg-gradient-to-br from-emerald-100 to-emerald-200 group-hover:from-emerald-500 group-hover:to-emerald-600 p-4 rounded-2xl transition-all duration-500 transform group-hover:scale-110 group-hover:rotate-3">
-                      <IconComponent className="w-8 h-8 text-emerald-600 group-hover:text-white transition-colors duration-500" />
+                    <div className="p-4 rounded-2xl transition-all duration-500 transform group-hover:scale-110 group-hover:rotate-3" style={{ backgroundColor: 'rgba(21, 93, 41, 0.1)' }}>
+                      <IconComponent className="w-8 h-8 group-hover:text-white transition-colors duration-500" style={{ color: '#155d29' }} />
                     </div>
                   </div>
                   
-                  <h3 className="text-xl font-bold text-slate-800 mb-4 group-hover:text-emerald-700 transition-colors duration-300">
+                  <h3 className="text-xl font-bold mb-4 transition-colors duration-300" style={{ color: '#155d29' }}>
                     {service.title}
                   </h3>
                   
@@ -113,7 +114,7 @@ export default function ServicesSection() {
                   <ul className="space-y-3">
                     {service.features.map((feature, featureIndex) => (
                       <li key={featureIndex} className="flex items-center text-sm text-slate-600 group-hover:text-slate-700">
-                        <div className="w-2 h-2 bg-emerald-500 rounded-full mr-3 transform group-hover:scale-125 transition-transform duration-300"></div>
+                        <div className="w-2 h-2 rounded-full mr-3 transform group-hover:scale-125 transition-transform duration-300" style={{ backgroundColor: '#155d29' }}></div>
                         {feature}
                       </li>
                     ))}
@@ -121,7 +122,7 @@ export default function ServicesSection() {
                 </div>
 
                 {/* Hover overlay border */}
-                <div className="absolute inset-0 border-2 border-emerald-300 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="absolute inset-0 border-2 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ borderColor: '#155d29' }}></div>
               </div>
             );
           })}

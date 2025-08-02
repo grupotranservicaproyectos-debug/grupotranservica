@@ -74,7 +74,7 @@ export default function ContactSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12">
           <div>
-            <h2 className="text-4xl font-bold mb-6">Solicita tu Cotización</h2>
+            <h2 className="text-4xl font-bold mb-6" style={{ color: '#155d29' }}>Solicita tu Cotización</h2>
             <p className="text-xl text-green-100 mb-8">
               Cuéntanos sobre tu proyecto y te proporcionaremos una solución personalizada con la mejor propuesta del mercado.
             </p>

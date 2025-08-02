@@ -23,13 +23,13 @@ export default function AboutSection() {
         {/* Header Section - TRANSERVICA Style */}
         <div className="text-center mb-16">
           <h2 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-4">
-            <span className="text-transervica-green">TRANSERVICA, C.A.</span> SON MÁS DE
+            <span style={{ color: '#155d29' }}>TRANSERVICA, C.A.</span> SON MÁS DE
             <br />
-            <span className="text-4xl lg:text-5xl bg-gradient-to-r from-transervica-green to-transervica-light-green bg-clip-text text-transparent">
+            <span className="text-4xl lg:text-5xl font-bold" style={{ color: '#155d29' }}>
               40 AÑOS TRANSPORTANDO EL FUTURO DE VENEZUELA
             </span>
           </h2>
-          <p className="text-2xl lg:text-3xl font-bold text-transervica-green mb-6 italic">
+          <p className="text-2xl lg:text-3xl font-bold mb-6 italic" style={{ color: '#155d29' }}>
             "Nada es Demasiado Pesado para Nosotros"
           </p>
           <p className="text-lg max-w-3xl mx-auto" style={{ color: 'hsl(0, 0%, 15%)' }}>
@@ -52,7 +52,7 @@ export default function AboutSection() {
                 <div className="absolute inset-0 bg-gradient-to-t from-transervica-green/20 via-transparent to-transparent"></div>
                 <div className="absolute bottom-4 left-4 right-4">
                   <div className="bg-white/95 backdrop-blur-sm rounded-xl p-4 border border-transervica-green/60 shadow-lg">
-                    <p className="text-transervica-green font-bold text-lg">40 Años de Experiencia</p>
+                    <p className="font-bold text-lg" style={{ color: '#155d29' }}>40 Años de Experiencia</p>
                     <p className="text-sm" style={{ color: 'hsl(0, 0%, 15%)' }}>Líderes en Venezuela</p>
                   </div>
                 </div>
@@ -65,14 +65,14 @@ export default function AboutSection() {
             {/* Benefit 1 */}
             <div className="flex items-start space-x-4">
               <div className="flex-shrink-0">
-                <div className="w-12 h-12 bg-gradient-to-br from-transervica-green to-transervica-light-green rounded-full flex items-center justify-center">
+                <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ background: '#155d29' }}>
                   <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                 </div>
               </div>
               <div>
-                <h3 className="text-xl font-bold text-gray-800 mb-2">Capacidad excepcional hasta 1,100 toneladas</h3>
+                <h3 className="text-xl font-bold mb-2" style={{ color: '#155d29' }}>Capacidad excepcional hasta 1,100 toneladas</h3>
                 <p className="text-gray-600">Equipos modulares hidráulicos alemanes de última generación.</p>
               </div>
             </div>
@@ -80,14 +80,14 @@ export default function AboutSection() {
             {/* Benefit 2 */}
             <div className="flex items-start space-x-4">
               <div className="flex-shrink-0">
-                <div className="w-12 h-12 bg-gradient-to-br from-transervica-green to-transervica-light-green rounded-full flex items-center justify-center">
+                <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ background: '#155d29' }}>
                   <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
               </div>
               <div>
-                <h3 className="text-xl font-bold text-gray-800 mb-2">Cobertura nacional con experiencia comprobada</h3>
+                <h3 className="text-xl font-bold mb-2" style={{ color: '#155d29' }}>Cobertura nacional con experiencia comprobada</h3>
                 <p className="text-gray-600">40 años transportando el futuro de Venezuela con éxito.</p>
               </div>
             </div>
@@ -95,14 +95,14 @@ export default function AboutSection() {
             {/* Benefit 3 */}
             <div className="flex items-start space-x-4">
               <div className="flex-shrink-0">
-                <div className="w-12 h-12 bg-gradient-to-br from-transervica-green to-transervica-light-green rounded-full flex items-center justify-center">
+                <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ background: '#155d29' }}>
                   <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                   </svg>
                 </div>
               </div>
               <div>
-                <h3 className="text-xl font-bold text-gray-800 mb-2">Plataforma integral con soporte 24/7</h3>
+                <h3 className="text-xl font-bold mb-2" style={{ color: '#155d29' }}>Plataforma integral con soporte 24/7</h3>
                 <p className="text-gray-600">Seguimiento completo y especialistas disponibles siempre.</p>
               </div>
             </div>
@@ -110,14 +110,14 @@ export default function AboutSection() {
             {/* Benefit 4 */}
             <div className="flex items-start space-x-4">
               <div className="flex-shrink-0">
-                <div className="w-12 h-12 bg-gradient-to-br from-transervica-green to-transervica-light-green rounded-full flex items-center justify-center">
+                <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ background: '#155d29' }}>
                   <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z" />
                   </svg>
                 </div>
               </div>
               <div>
-                <h3 className="text-xl font-bold text-gray-800 mb-2">Soporte personalizado con humanos reales</h3>
+                <h3 className="text-xl font-bold mb-2" style={{ color: '#155d29' }}>Soporte personalizado con humanos reales</h3>
                 <p className="text-gray-600">Especialistas en logística dedicados disponibles en cualquier momento.</p>
               </div>
             </div>

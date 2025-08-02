@@ -38,15 +38,15 @@ export default function Footer() {
             {/* Información de Contacto */}
             <div className="space-y-3 mb-6">
               <div className="flex items-center text-sm">
-                <Phone className="w-4 h-4 mr-3 text-transervica-green flex-shrink-0" />
+                <Phone className="w-4 h-4 mr-3 flex-shrink-0" style={{ color: '#155d29' }} />
                 <a href="tel:+584142776340" className="text-gray-300 hover:text-white transition">+58 414 277 6340</a>
               </div>
               <div className="flex items-start text-sm">
-                <Mail className="w-4 h-4 mr-3 text-transervica-green flex-shrink-0 mt-0.5" />
+                <Mail className="w-4 h-4 mr-3 flex-shrink-0 mt-0.5" style={{ color: '#155d29' }} />
                 <a href="mailto:direccioncomercialtvc@grupotranservica.com" className="text-gray-300 hover:text-white transition break-all">direccioncomercialtvc@grupotranservica.com</a>
               </div>
               <div className="flex items-start text-sm">
-                <MapPin className="w-4 h-4 mr-3 text-transervica-green flex-shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 mr-3 flex-shrink-0 mt-0.5" style={{ color: '#155d29' }} />
                 <span className="text-gray-300">Carretera Nacional Maracay Mariara Km 9, Mariara, Edo. Carabobo</span>
               </div>
             </div>
@@ -75,7 +75,8 @@ export default function Footer() {
                 href="https://www.instagram.com/grupotranservica" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-transervica-green transition"
+                className="text-gray-400 transition"
+                style={{ color: '#155d29' }}
                 title="Instagram"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -86,7 +87,8 @@ export default function Footer() {
                 href="https://www.facebook.com/people/Grupotranservica/100093036004743" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-transervica-green transition"
+                className="text-gray-400 transition"
+                style={{ color: '#155d29' }}
                 title="Facebook"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -97,7 +99,8 @@ export default function Footer() {
                 href="https://www.youtube.com/@transervicac.a.3092" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-transervica-green transition"
+                className="text-gray-400 transition"
+                style={{ color: '#155d29' }}
                 title="YouTube"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -108,7 +111,8 @@ export default function Footer() {
                 href="https://wa.me/584142776340?text=Hola%2C%20necesito%20información%20sobre%20transporte%20de%20cargas%20excepcionales" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-transervica-green transition"
+                className="text-gray-400 transition"
+                style={{ color: '#155d29' }}
                 title="WhatsApp"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -120,7 +124,7 @@ export default function Footer() {
           
           {/* Servicios */}
           <div>
-            <h3 className="text-lg font-semibold text-transervica-green mb-6">Servicios</h3>
+            <h3 className="text-lg font-semibold mb-6" style={{ color: '#155d29' }}>Servicios</h3>
             <ul className="space-y-3 text-sm">
               <li><a href="#servicios" className="text-gray-300 hover:text-white transition">Transporte Cargas Excepcionales</a></li>
               <li><a href="#servicios" className="text-gray-300 hover:text-white transition">Izamiento con Grúas Alemanas</a></li>
@@ -132,7 +136,7 @@ export default function Footer() {
 
           {/* Recursos */}
           <div>
-            <h3 className="text-lg font-semibold text-transervica-green mb-6">Recursos</h3>
+            <h3 className="text-lg font-semibold mb-6" style={{ color: '#155d29' }}>Recursos</h3>
             <ul className="space-y-3 text-sm">
               <li><a href="#nosotros" className="text-gray-300 hover:text-white transition">Nosotros</a></li>
               <li><a href="#equipos" className="text-gray-300 hover:text-white transition">Nuestros Equipos</a></li>
@@ -177,7 +181,8 @@ export default function Footer() {
                 href="https://www.linkedin.com/company/transervica" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-transervica-green transition"
+                className="text-gray-400 transition"
+                style={{ color: '#155d29' }}
                 title="LinkedIn"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
