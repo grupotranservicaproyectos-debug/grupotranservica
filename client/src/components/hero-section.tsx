@@ -36,22 +36,20 @@ export default function HeroSection() {
           }}
         />
         
-        {/* Gradient overlay Netflix style - More pronounced */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-transparent z-10"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/50 z-10"></div>
+        {/* Elegant light overlay for professional logo visibility */}
+        <div className="absolute inset-0 bg-gradient-to-r from-white/20 via-gray-200/15 to-transparent z-10"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-white/25 z-10"></div>
       </div>
 
-      {/* Netflix Style Navigation with Background for Logo Visibility */}
-      <nav className="absolute top-0 left-0 right-0 z-50 px-4 sm:px-6 lg:px-8 py-3 bg-gradient-to-b from-black/80 via-black/60 to-transparent">
+      {/* Netflix Style Navigation with Elegant Background */}
+      <nav className="absolute top-0 left-0 right-0 z-50 px-4 sm:px-6 lg:px-8 py-4 bg-gradient-to-b from-white/30 via-gray-100/20 to-transparent backdrop-blur-sm">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center space-x-8">
-            <div className="bg-white/95 backdrop-blur-sm rounded-lg p-2 shadow-lg">
-              <img 
-                src={logoTranservica} 
-                alt="TRANSERVICA" 
-                className="h-16 sm:h-20 lg:h-24 w-auto"
-              />
-            </div>
+            <img 
+              src={logoTranservica} 
+              alt="TRANSERVICA" 
+              className="h-16 sm:h-20 lg:h-24 w-auto drop-shadow-lg filter contrast-125 brightness-110"
+            />
             <div className="hidden md:flex space-x-6">
               <button 
                 onClick={() => scrollToSection('inicio')}
