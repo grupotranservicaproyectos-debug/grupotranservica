@@ -118,11 +118,11 @@ export default function HeroSection() {
             <div className="bg-black/70 rounded-xl border border-white/20 shadow-2xl p-4 w-fit">
               {/* Main Title Netflix Style - Very Small */}
               <h1 className="text-lg sm:text-xl lg:text-2xl font-bold mb-2 lg:mb-3 leading-tight drop-shadow-lg max-w-lg">
-                <span className="text-4xl lg:text-5xl bg-gradient-to-r from-transervica-green to-transervica-light-green bg-clip-text text-transparent">Transporte Cargas Excepcionales Venezuela - Especializados en Movilización de Cargas Pesada y Sobredimensionada</span>
+                <span className="bg-gradient-to-r from-transervica-green to-transervica-light-green bg-clip-text text-transparent">Transporte Cargas Excepcionales Venezuela - Especializados en Movilización de Cargas Pesada y Sobredimensionada</span>
               </h1>
               
               {/* Subtitle - Very Small */}
-              <h2 className="text-xs sm:text-sm lg:text-base font-bold mb-2 lg:mb-3 text-4xl lg:text-5xl bg-gradient-to-r from-transervica-green to-transervica-light-green bg-clip-text text-transparent drop-shadow-lg max-w-lg">
+              <h2 className="text-xs sm:text-sm lg:text-base font-bold mb-2 lg:mb-3 bg-gradient-to-r from-transervica-green to-transervica-light-green bg-clip-text text-transparent drop-shadow-lg max-w-lg">
                 CON 40 AÑOS TRANSPORTANDO EL FUTURO DE VENEZUELA
               </h2>
               
