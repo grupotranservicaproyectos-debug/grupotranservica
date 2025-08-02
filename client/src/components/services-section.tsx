@@ -1,96 +1,147 @@
-import { Truck, RotateCcw, Settings } from "lucide-react";
+import { FileText, Shield, Settings, MapPin, Globe, Truck } from "lucide-react";
 
 export default function ServicesSection() {
   const services = [
     {
       icon: Truck,
       title: "Transporte de Cargas Excepcionales",
-      description: "Capacidad hasta 1,100 toneladas con trailers modulares hidráulicos especializados",
-      equipment: "Trailers SCHEUERLE, Equipos COMETTO, Sistemas CAPPERI",
-      cta: "COTIZAR TRANSPORTE AHORA",
-      color: "bg-transervica-green"
-    },
-    {
-      icon: RotateCcw,
-      title: "Izamiento con Grúas Alemanas",
-      description: "Grúas móviles y sobre oruga alemanas Grove y Liebherr para proyectos de gran envergadura",
-      equipment: "Grúas móviles Grove, Grúas sobre oruga Grove, Grúas móviles Liebherr, Grúas sobre oruga Liebherr",
-      cta: "VER CAPACIDADES DE GRÚAS",
-      color: "bg-transervica-light-green"
+      description: "Movilización de cargas hasta 1,100 toneladas con trailers modulares hidráulicos SCHEUERLE y COMETTO de última generación.",
+      features: [
+        "Hasta 1,100 toneladas",
+        "Trailers modulares", 
+        "Rutas especializadas",
+        "Escolta especializada"
+      ]
     },
     {
       icon: Settings,
-      title: "Logística de Ingeniería",
-      description: "Planificación integral y gestión completa de proyectos",
-      equipment: "Estudios de factibilidad, Gestión de permisos INTT, Coordinación multimodal",
-      cta: "PLANIFICAR MI PROYECTO",
-      color: "bg-transervica-green"
+      title: "Izamiento con Grúas Especializadas",
+      description: "Servicios de izamiento con Grúas MovilesTelescópicas y Sobre Orugas para proyectos industriales complejos.",
+      features: [
+        "Grúas telescópicas",
+        "Grúas sobre orugas",
+        "Izamiento preciso",
+        "Operadores certificados"
+      ]
+    },
+    {
+      icon: Globe,
+      title: "Logística de Ingeniería Completa",
+      description: "Planificación integral de proyectos de transporte con estudios de factibilidad y coordinación multimodal.",
+      features: [
+        "Estudios de factibilidad",
+        "Planificación de rutas",
+        "Coordinación multimodal",
+        "Gestión de proyecto"
+      ]
+    },
+    {
+      icon: FileText,
+      title: "Gestión de Permisos INTT",
+      description: "Tramitación completa de permisos ante el Instituto Nacional de Transporte Terrestre y autoridades competentes.",
+      features: [
+        "Permisos INTT",
+        "Documentación completa",
+        "Gestión rápida",
+        "Cumplimiento normativo"
+      ]
+    },
+    {
+      icon: Shield,
+      title: "Estudios de Factibilidad Técnica", 
+      description: "Análisis detallado de viabilidad técnica para garantizar el éxito de proyectos de transporte especializado.",
+      features: [
+        "Análisis de rutas",
+        "Evaluación estructural",
+        "Estudios de carga",
+        "Recomendaciones técnicas"
+      ]
+    },
+    {
+      icon: MapPin,
+      title: "Coordinación Multimodal",
+      description: "Servicios integrados de transporte terrestre, marítimo y ferroviario para proyectos internacionales.",
+      features: [
+        "Transporte terrestre",
+        "Coordinación marítima",
+        "Transporte ferroviario", 
+        "Logística internacional"
+      ]
     }
   ];
 
-  const scrollToContact = () => {
-    const element = document.getElementById('contacto');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
-    <section id="servicios" className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-20 bg-gradient-to-br from-slate-50 to-gray-100">
+      <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-transervica-gray mb-4">Nuestros Servicios Especializados</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            40 años transportando el futuro de Venezuela con tecnología alemana de vanguardia
+          <h2 className="text-4xl font-bold text-slate-800 mb-6">
+            Nuestros Servicios
+          </h2>
+          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+            Ofrecemos soluciones integrales para el transporte de cargas excepcionales, 
+            respaldados por 40 años de experiencia y tecnología de vanguardia
           </p>
         </div>
-        
-        <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
-            <div key={index} className="bg-white rounded-xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
-              <div className={`w-20 h-20 ${service.color} rounded-xl flex items-center justify-center mb-6 mx-auto`}>
-                <service.icon className="w-10 h-10 text-white" />
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {services.map((service, index) => {
+            const IconComponent = service.icon;
+            return (
+              <div
+                key={index}
+                className="group relative bg-white border-l-4 border-emerald-500 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 hover:scale-105 overflow-hidden"
+              >
+                {/* Animated background gradient */}
+                <div className="absolute inset-0 bg-gradient-to-br from-emerald-50 via-white to-orange-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                
+                {/* Content */}
+                <div className="relative z-10">
+                  <div className="flex items-center mb-6">
+                    <div className="bg-gradient-to-br from-emerald-100 to-emerald-200 group-hover:from-emerald-500 group-hover:to-emerald-600 p-4 rounded-2xl transition-all duration-500 transform group-hover:scale-110 group-hover:rotate-3">
+                      <IconComponent className="w-8 h-8 text-emerald-600 group-hover:text-white transition-colors duration-500" />
+                    </div>
+                  </div>
+                  
+                  <h3 className="text-xl font-bold text-slate-800 mb-4 group-hover:text-emerald-700 transition-colors duration-300">
+                    {service.title}
+                  </h3>
+                  
+                  <p className="text-slate-600 mb-6 leading-relaxed">
+                    {service.description}
+                  </p>
+                  
+                  <ul className="space-y-3">
+                    {service.features.map((feature, featureIndex) => (
+                      <li key={featureIndex} className="flex items-center text-sm text-slate-600 group-hover:text-slate-700">
+                        <div className="w-2 h-2 bg-emerald-500 rounded-full mr-3 transform group-hover:scale-125 transition-transform duration-300"></div>
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Hover overlay border */}
+                <div className="absolute inset-0 border-2 border-emerald-300 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               </div>
-              <h3 className="text-2xl font-bold text-transervica-gray mb-4 text-center">{service.title}</h3>
-              <p className="text-gray-600 mb-4 text-center leading-relaxed">{service.description}</p>
-              <div className="text-sm text-transervica-green mb-6 text-center">
-                <strong>Equipos:</strong> {service.equipment}
-              </div>
-              <div className="text-center">
-                <button 
-                  onClick={scrollToContact}
-                  className="bg-transervica-green text-white px-6 py-3 rounded-lg font-bold hover:bg-transervica-light-green transition-colors shadow-lg"
-                >
-                  {service.cta}
-                </button>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
-        {/* Servicios Adicionales */}
-        <div className="mt-16 bg-white rounded-xl shadow-lg p-8">
-          <h3 className="text-2xl font-bold text-transervica-gray mb-6 text-center">Servicios Adicionales</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 text-center">
-            <div className="p-4">
-              <div className="text-lg font-semibold text-transervica-green mb-2">Gestión de Permisos INTT</div>
-              <p className="text-sm text-gray-600">Trámites completos ante el INTT</p>
-            </div>
-            <div className="p-4">
-              <div className="text-lg font-semibold text-transervica-green mb-2">Estudios de Factibilidad</div>
-              <p className="text-sm text-gray-600">Análisis técnico previo</p>
-            </div>
-            <div className="p-4">
-              <div className="text-lg font-semibold text-transervica-green mb-2">Coordinación Multimodal</div>
-              <p className="text-sm text-gray-600">Transporte terrestre y marítimo</p>
-            </div>
-            <div className="p-4">
-              <div className="text-lg font-semibold text-transervica-green mb-2">Asesoría Técnica Especializada</div>
-              <p className="text-sm text-gray-600">Consultoría en ingeniería</p>
-            </div>
-            <div className="p-4">
-              <div className="text-lg font-semibold text-transervica-green mb-2">Seguimiento 24/7</div>
-              <p className="text-sm text-gray-600">Monitoreo continuo</p>
+        <div className="text-center mt-16">
+          <div className="bg-gradient-to-r from-emerald-50 via-white to-orange-50 rounded-2xl p-8 md:p-12 shadow-xl border border-emerald-100">
+            <h3 className="text-2xl font-bold text-slate-800 mb-4">
+              ¿Necesita transportar cargas excepcionales?
+            </h3>
+            <p className="text-lg text-slate-600 mb-8 max-w-2xl mx-auto">
+              Permítanos evaluar su proyecto y ofrecerle la mejor solución de transporte especializado
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button className="bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
+                Solicitar Cotización Ahora
+              </button>
+              <button className="border-2 border-emerald-600 text-emerald-600 hover:bg-emerald-600 hover:text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105">
+                Hablar con un Especialista
+              </button>
             </div>
           </div>
         </div>
