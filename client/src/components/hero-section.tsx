@@ -1,4 +1,4 @@
-import backgroundImage from "@assets/22_1754164388997.png";
+import logoTranservica from "@assets/logo transervica sin fondo_1754163034585.png";
 
 export default function HeroSection() {
   const scrollToContact = () => {
@@ -8,104 +8,164 @@ export default function HeroSection() {
     }
   };
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
-    <section 
-      id="inicio" 
-      className="pt-20 text-white relative min-h-screen"
-      style={{
-        backgroundImage: `linear-gradient(rgba(94, 157, 40, 0.9), rgba(64, 64, 64, 0.8)), url(${backgroundImage})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        backgroundAttachment: 'fixed'
-      }}
-    >
-      {/* Botón WhatsApp tipo nube flotante */}
+    <section id="inicio" className="relative min-h-screen bg-black overflow-hidden">
+      {/* Video de fondo Netflix Style */}
+      <div className="absolute inset-0 z-0">
+        <iframe
+          className="w-full h-full"
+          src="https://www.youtube.com/embed/_LQbWkWlg6s?autoplay=1&mute=1&controls=0&showinfo=0&rel=0&loop=1&playlist=_LQbWkWlg6s&modestbranding=1&start=0&iv_load_policy=3&cc_load_policy=0&disablekb=1&fs=0"
+          title="Transervica Background Video"
+          allow="autoplay; encrypted-media"
+          style={{
+            pointerEvents: 'none',
+            border: 'none',
+            minWidth: '100%',
+            minHeight: '100%',
+            width: '100vw',
+            height: '100vh',
+            objectFit: 'cover'
+          }}
+        />
+        
+        {/* Gradient overlay Netflix style */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent z-10"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/40 z-10"></div>
+      </div>
+
+      {/* Netflix Style Navigation */}
+      <nav className="absolute top-0 left-0 right-0 z-50 px-4 sm:px-6 lg:px-8 py-6">
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
+          <div className="flex items-center space-x-8">
+            <img 
+              src={logoTranservica} 
+              alt="TRANSERVICA" 
+              className="h-12 w-auto"
+            />
+            <div className="hidden md:flex space-x-6">
+              <button 
+                onClick={() => scrollToSection('inicio')}
+                className="text-white hover:text-gray-300 text-sm font-medium transition"
+              >
+                Inicio
+              </button>
+              <button 
+                onClick={() => scrollToSection('servicios')}
+                className="text-white hover:text-gray-300 text-sm font-medium transition"
+              >
+                Servicios
+              </button>
+              <button 
+                onClick={() => scrollToSection('equipos')}
+                className="text-white hover:text-gray-300 text-sm font-medium transition"
+              >
+                Equipos
+              </button>
+              <button 
+                onClick={() => scrollToSection('proyectos')}
+                className="text-white hover:text-gray-300 text-sm font-medium transition"
+              >
+                Proyectos
+              </button>
+              <button 
+                onClick={() => scrollToSection('nosotros')}
+                className="text-white hover:text-gray-300 text-sm font-medium transition"
+              >
+                Nosotros
+              </button>
+            </div>
+          </div>
+          <button 
+            onClick={scrollToContact}
+            className="bg-transervica-green text-white px-4 py-2 rounded text-sm font-medium hover:bg-transervica-light-green transition"
+          >
+            Cotizar
+          </button>
+        </div>
+      </nav>
+
+      {/* WhatsApp Floating Button */}
       <a 
         href="https://wa.me/584142776340?text=Hola%2C%20necesito%20información%20sobre%20transporte%20de%20cargas%20excepcionales" 
-        target="_blank" 
+        target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-8 right-8 z-40 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-2xl transition-all duration-300 hover:scale-110"
-        style={{
-          boxShadow: '0 8px 32px rgba(34, 197, 94, 0.3)',
-        }}
+        className="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition z-50"
+        title="Contactar por WhatsApp"
       >
         <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
           <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 2.079.549 4.090 1.588 5.876L.029 24l6.203-1.539a11.952 11.952 0 005.785 1.539c6.621 0 11.988-5.367 11.988-11.988C23.973 5.367 18.638.001 12.017.001zm5.995 16.987c-.264.714-1.291 1.336-1.953 1.428-.663.094-1.526.141-2.438-.154-1.421-.458-3.025-1.609-4.222-3.003-1.197-1.394-1.967-3.045-2.033-3.192-.066-.147-.541-1.447-.541-2.748 0-1.301.341-1.947.463-2.215.122-.268.268-.335.357-.335h.268c.087 0 .201-.003.291.222.09.225.307.751.334.805.027.054.045.116.009.19-.036.074-.054.121-.108.184-.054.063-.113.14-.162.189-.063.049-.128.101-.055.199.073.098.325.537.697.869.481.427 1.055.705 1.206.784.151.079.239.067.327-.041.088-.108.378-.441.479-.592.101-.151.201-.126.338-.076.137.051.87.41 1.018.485.149.074.249.112.285.174.036.062.036.359-.228 1.073z"/>
         </svg>
       </a>
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
-        <div className="grid lg:grid-cols-5 gap-6 sm:gap-8 lg:gap-16 items-start lg:items-center">
-          <div className="lg:col-span-2 relative z-10 mb-8 lg:mb-0">
-            <div className="bg-transervica-dark-gray/60 backdrop-blur-md rounded-3xl p-6 sm:p-8 lg:p-10 border border-transervica-green/50 shadow-2xl">
-              <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 sm:mb-6 lg:mb-8 leading-tight text-white drop-shadow-lg text-left">
-                Transporte Cargas Excepcionales Venezuela - Especializados en Movilización de Cargas <span className="text-black bg-transervica-green px-2 py-1 rounded font-bold whitespace-nowrap">Pesada y Sobredimensionada</span>
-              </h1>
-              <h2 className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-bold mb-6 sm:mb-8 text-transervica-light-green drop-shadow-lg text-left">
-                CON 40 AÑOS TRANSPORTANDO EL FUTURO DE VENEZUELA
-              </h2>
-              <p className="text-sm sm:text-base lg:text-lg mb-6 sm:mb-8 lg:mb-10 text-white drop-shadow-md leading-relaxed text-justify">
-                Especializados en Movilización de Cargas Pesadas y Sobredimensionadas hasta 1,100 toneladas con trailers Modulares Hidráulicos de última generación. Contamos con tecnología alemana de vanguardia y un equipo técnico altamente especializado para garantizar el éxito de cada proyecto.
-              </p>
-              
-              {/* Estadísticas Visuales */}
-              <div className="grid grid-cols-3 gap-2 sm:gap-3 lg:gap-4 mb-6 sm:mb-8 lg:mb-10">
-                <div className="bg-white/25 backdrop-blur-sm rounded-xl p-3 sm:p-4 lg:p-5 text-center border border-transervica-green/50 hover:bg-white/35 transition-all duration-300 transform hover:scale-105 shadow-lg">
-                  <div className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold text-transervica-green mb-1">40</div>
-                  <div className="text-xs sm:text-sm lg:text-base text-white font-medium leading-tight">Años de Experiencia</div>
-                </div>
-                <div className="bg-white/25 backdrop-blur-sm rounded-xl p-3 sm:p-4 lg:p-5 text-center border border-transervica-green/50 hover:bg-white/35 transition-all duration-300 transform hover:scale-105 shadow-lg">
-                  <div className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold text-transervica-green mb-1">1,100</div>
-                  <div className="text-xs sm:text-sm lg:text-base text-white font-medium leading-tight">Toneladas Máximas</div>
-                </div>
-                <div className="bg-white/25 backdrop-blur-sm rounded-xl p-3 sm:p-4 lg:p-5 text-center border border-transervica-green/50 hover:bg-white/35 transition-all duration-300 transform hover:scale-105 shadow-lg">
-                  <div className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold text-transervica-green mb-1">100%</div>
-                  <div className="text-xs sm:text-sm lg:text-base text-white font-medium leading-tight">Confiable</div>
-                </div>
-              </div>
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 lg:gap-5 justify-stretch sm:justify-start">
-                <button 
-                  onClick={scrollToContact}
-                  className="bg-gradient-to-r from-white to-gray-100 text-transervica-green px-6 sm:px-7 lg:px-8 py-3 sm:py-4 lg:py-4 rounded-xl text-sm sm:text-base lg:text-lg font-bold hover:from-gray-100 hover:to-white transition-all duration-300 text-center shadow-xl hover:shadow-2xl transform hover:scale-105 border-2 border-transparent hover:border-transervica-green/30 flex-1 sm:flex-none whitespace-nowrap"
-                >
-                  Solicitar Cotización
-                </button>
-                <button 
-                  onClick={() => {
-                    const element = document.getElementById('equipos');
-                    if (element) {
-                      element.scrollIntoView({ behavior: 'smooth' });
-                    }
-                  }}
-                  className="border-2 border-white/90 text-white px-6 sm:px-7 lg:px-8 py-3 sm:py-4 lg:py-4 rounded-xl text-sm sm:text-base lg:text-lg font-bold hover:bg-white hover:text-transervica-green transition-all duration-300 text-center backdrop-blur-sm hover:shadow-xl transform hover:scale-105 flex-1 sm:flex-none whitespace-nowrap"
-                >
-                  Ver Equipos
-                </button>
-              </div>
+      {/* Netflix Style Content Container */}
+      <div className="absolute inset-0 z-20 flex items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <div className="max-w-2xl">
+            {/* Logo/Badge Style */}
+            <div className="mb-4">
+              <span className="inline-block bg-transervica-green text-black px-3 py-1 rounded text-sm font-bold">
+                TV-E  2024  Transporte Especializado  40 años
+              </span>
             </div>
-          </div>
+            
+            {/* Main Title Netflix Style */}
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 leading-tight text-white">
+              Transporte Cargas Excepcionales Venezuela - Especializados en Movilización de Cargas <span className="text-transervica-green">Pesada y Sobredimensionada</span>
+            </h1>
+            
+            {/* Subtitle */}
+            <h2 className="text-lg sm:text-xl lg:text-2xl font-bold mb-6 text-transervica-light-green">
+              CON 40 AÑOS TRANSPORTANDO EL FUTURO DE VENEZUELA
+            </h2>
+            
+            {/* Description */}
+            <p className="text-sm sm:text-base lg:text-lg mb-8 text-white/90 leading-relaxed max-w-xl">
+              Especializados en Movilización de Cargas Pesadas y Sobredimensionadas hasta 1,100 toneladas con trailers Modulares Hidráulicos de última generación. Contamos con tecnología alemana de vanguardia y un equipo técnico altamente especializado.
+            </p>
 
-          
-          {/* Video Corporativo */}
-          <div className="lg:col-span-3 relative">
-            <div className="aspect-video bg-black/50 backdrop-blur-sm rounded-3xl overflow-hidden border border-transervica-green/50 shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-[1.01]">
-              <iframe
-                className="w-full h-full"
-                src="https://www.youtube.com/embed/_LQbWkWlg6s?autoplay=1&mute=1&rel=0&showinfo=0&modestbranding=1&fs=1&controls=1&loop=1&playlist=_LQbWkWlg6s"
-                title="TRANSERVICA - 40 años transportando el futuro de Venezuela"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-                loading="eager"
-              />
+            {/* Stats Row */}
+            <div className="flex space-x-6 mb-8">
+              <div className="text-center">
+                <div className="text-2xl lg:text-3xl font-bold text-transervica-green">40</div>
+                <div className="text-xs text-white/80">Años</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl lg:text-3xl font-bold text-transervica-green">1,100</div>
+                <div className="text-xs text-white/80">Toneladas</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl lg:text-3xl font-bold text-transervica-green">100%</div>
+                <div className="text-xs text-white/80">Confiable</div>
+              </div>
             </div>
-            <div className="text-center mt-4 sm:mt-6 lg:mt-8 px-4">
-              <h3 className="text-base sm:text-lg lg:text-xl xl:text-2xl font-semibold text-white drop-shadow-lg mb-2">
-                TRANSERVICA - 40 años transportando el futuro de Venezuela
-              </h3>
-              <p className="text-sm sm:text-base lg:text-lg text-white/90 leading-relaxed">
-                Conoce nuestra trayectoria y capacidades técnicas especializadas
-              </p>
+            
+            {/* Netflix Style Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4">
+              <button 
+                onClick={scrollToContact}
+                className="flex items-center justify-center bg-white text-black px-8 py-3 rounded text-lg font-semibold hover:bg-gray-200 transition"
+              >
+                <svg className="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M8 5v14l11-7z"/>
+                </svg>
+                Solicitar Cotización
+              </button>
+              <button 
+                onClick={() => scrollToSection('servicios')}
+                className="flex items-center justify-center bg-gray-600/70 text-white px-8 py-3 rounded text-lg font-semibold hover:bg-gray-600/90 transition backdrop-blur-sm"
+              >
+                <svg className="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                Más Información
+              </button>
             </div>
           </div>
         </div>
