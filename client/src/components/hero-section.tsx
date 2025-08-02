@@ -41,13 +41,13 @@ export default function HeroSection() {
       </div>
 
       {/* Netflix Style Navigation */}
-      <nav className="absolute top-0 left-0 right-0 z-50 px-4 sm:px-6 lg:px-8 py-6">
+      <nav className="absolute top-0 left-0 right-0 z-50 px-4 sm:px-6 lg:px-8 py-4">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center space-x-8">
             <img 
               src={logoTranservica} 
               alt="TRANSERVICA" 
-              className="h-12 w-auto"
+              className="h-8 sm:h-10 w-auto"
             />
             <div className="hidden md:flex space-x-6">
               <button 
@@ -107,7 +107,7 @@ export default function HeroSection() {
       {/* Netflix Style Content Container */}
       <div className="absolute inset-0 z-20 flex items-center">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <div className="max-w-2xl">
+          <div className="max-w-2xl pt-20 pb-16">
             {/* Logo/Badge Style */}
             <div className="mb-4">
               <span className="inline-block bg-transervica-green text-black px-3 py-1 rounded text-sm font-bold">
@@ -116,52 +116,52 @@ export default function HeroSection() {
             </div>
             
             {/* Main Title Netflix Style */}
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 leading-tight text-white">
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 lg:mb-6 leading-tight text-white">
               Transporte Cargas Excepcionales Venezuela - Especializados en Movilización de Cargas <span className="text-transervica-green">Pesada y Sobredimensionada</span>
             </h1>
             
             {/* Subtitle */}
-            <h2 className="text-lg sm:text-xl lg:text-2xl font-bold mb-6 text-transervica-light-green">
+            <h2 className="text-base sm:text-lg lg:text-xl xl:text-2xl font-bold mb-4 lg:mb-6 text-transervica-light-green">
               CON 40 AÑOS TRANSPORTANDO EL FUTURO DE VENEZUELA
             </h2>
             
             {/* Description */}
-            <p className="text-sm sm:text-base lg:text-lg mb-8 text-white/90 leading-relaxed max-w-xl">
+            <p className="text-sm sm:text-base lg:text-lg mb-6 lg:mb-8 text-white/90 leading-relaxed max-w-xl">
               Especializados en Movilización de Cargas Pesadas y Sobredimensionadas hasta 1,100 toneladas con trailers Modulares Hidráulicos de última generación. Contamos con tecnología alemana de vanguardia y un equipo técnico altamente especializado.
             </p>
 
             {/* Stats Row */}
-            <div className="flex space-x-6 mb-8">
-              <div className="text-center">
-                <div className="text-2xl lg:text-3xl font-bold text-transervica-green">40</div>
-                <div className="text-xs text-white/80">Años</div>
+            <div className="flex space-x-4 sm:space-x-6 mb-6 lg:mb-8">
+              <div className="text-left">
+                <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-transervica-green">40</div>
+                <div className="text-xs sm:text-sm text-white/80">Años</div>
               </div>
-              <div className="text-center">
-                <div className="text-2xl lg:text-3xl font-bold text-transervica-green">1,100</div>
-                <div className="text-xs text-white/80">Toneladas</div>
+              <div className="text-left">
+                <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-transervica-green">1,100</div>
+                <div className="text-xs sm:text-sm text-white/80">Toneladas</div>
               </div>
-              <div className="text-center">
-                <div className="text-2xl lg:text-3xl font-bold text-transervica-green">100%</div>
-                <div className="text-xs text-white/80">Confiable</div>
+              <div className="text-left">
+                <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-transervica-green">100%</div>
+                <div className="text-xs sm:text-sm text-white/80">Confiable</div>
               </div>
             </div>
             
             {/* Netflix Style Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
               <button 
                 onClick={scrollToContact}
-                className="flex items-center justify-center bg-white text-black px-8 py-3 rounded text-lg font-semibold hover:bg-gray-200 transition"
+                className="flex items-center justify-center bg-white text-black px-6 sm:px-8 py-3 rounded text-base sm:text-lg font-semibold hover:bg-gray-200 transition"
               >
-                <svg className="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 sm:w-6 sm:h-6 mr-2" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M8 5v14l11-7z"/>
                 </svg>
                 Solicitar Cotización
               </button>
               <button 
                 onClick={() => scrollToSection('servicios')}
-                className="flex items-center justify-center bg-gray-600/70 text-white px-8 py-3 rounded text-lg font-semibold hover:bg-gray-600/90 transition backdrop-blur-sm"
+                className="flex items-center justify-center bg-gray-600/70 text-white px-6 sm:px-8 py-3 rounded text-base sm:text-lg font-semibold hover:bg-gray-600/90 transition backdrop-blur-sm"
               >
-                <svg className="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 sm:w-6 sm:h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
                 Más Información
