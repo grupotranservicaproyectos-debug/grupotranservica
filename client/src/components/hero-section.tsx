@@ -110,22 +110,22 @@ export default function HeroSection() {
         </svg>
       </a>
       
-      {/* Netflix Style Content Container with Perfect Spacing */}
+      {/* Netflix Style Content Container - Left Aligned */}
       <div className="absolute inset-0 z-20 flex items-center">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <div className="inline-block pt-32 sm:pt-36 lg:pt-40 pb-4 px-6 py-4 bg-black/70 rounded-2xl border border-white/20 shadow-2xl ml-0 sm:ml-4">
+        <div className="w-full px-4 sm:px-6 lg:px-8">
+          <div className="pt-32 sm:pt-36 lg:pt-40 pb-3 px-4 py-3 bg-black/70 rounded-xl border border-white/20 shadow-2xl w-fit">
             {/* Main Title Netflix Style - Very Small */}
-            <h1 className="text-lg sm:text-xl lg:text-2xl font-bold mb-2 lg:mb-3 leading-tight text-white drop-shadow-lg">
+            <h1 className="text-lg sm:text-xl lg:text-2xl font-bold mb-2 lg:mb-3 leading-tight text-white drop-shadow-lg max-w-lg">
               Transporte Cargas Excepcionales Venezuela - Especializados en Movilización de Cargas <span className="text-transervica-green">Pesada y Sobredimensionada</span>
             </h1>
             
             {/* Subtitle - Very Small */}
-            <h2 className="text-xs sm:text-sm lg:text-base font-bold mb-2 lg:mb-3 text-transervica-light-green drop-shadow-lg">
+            <h2 className="text-xs sm:text-sm lg:text-base font-bold mb-2 lg:mb-3 text-transervica-light-green drop-shadow-lg max-w-lg">
               CON 40 AÑOS TRANSPORTANDO EL FUTURO DE VENEZUELA
             </h2>
             
             {/* Description - Very Small */}
-            <p className="text-xs sm:text-sm mb-3 lg:mb-4 text-white/90 leading-relaxed max-w-sm drop-shadow-md">
+            <p className="text-xs sm:text-sm mb-3 lg:mb-4 text-white/90 leading-relaxed max-w-md drop-shadow-md">
               Especializados en Movilización de Cargas Pesadas y Sobredimensionadas hasta 1,100 toneladas con trailers Modulares Hidráulicos de última generación.
             </p>
 
