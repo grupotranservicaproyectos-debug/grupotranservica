@@ -81,7 +81,7 @@ export default function ContactSection() {
             
             <div className="space-y-6">
               <div className="flex items-center">
-                <div className="w-12 h-12 bg-transervica-orange rounded-lg flex items-center justify-center mr-4">
+                <div className="w-12 h-12 bg-transervica-light-green rounded-lg flex items-center justify-center mr-4">
                   <Phone className="w-6 h-6 text-white" />
                 </div>
                 <div>

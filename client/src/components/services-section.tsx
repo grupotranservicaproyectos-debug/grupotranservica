@@ -12,7 +12,7 @@ export default function ServicesSection() {
       icon: Zap,
       title: "Equipos Petroleros",
       description: "Transporte especializado de equipos para la industria petrolera y energética.",
-      color: "bg-transervica-orange"
+      color: "bg-transervica-light-green"
     },
     {
       icon: Ship,
@@ -24,7 +24,7 @@ export default function ServicesSection() {
       icon: Settings,
       title: "Turbinas y Generadores",
       description: "Manejo especializado de turbinas, generadores y equipos de alta precisión.",
-      color: "bg-transervica-orange"
+      color: "bg-transervica-light-green"
     },
     {
       icon: Shield,
@@ -36,7 +36,7 @@ export default function ServicesSection() {
       icon: MapPin,
       title: "Logística Nacional",
       description: "Cobertura completa en todo el territorio venezolano con rutas optimizadas.",
-      color: "bg-transervica-orange"
+      color: "bg-transervica-light-green"
     }
   ];
 

@@ -1,5 +1,5 @@
 import { Phone, Mail, MapPin } from "lucide-react";
-import logoTranservica from "@assets/logo transervica sin fondo_1754162248611.png";
+import logoTranservica from "@assets/logo transervica sin fondo_1754163034585.png";
 
 export default function Footer() {
   const scrollToSection = (sectionId: string) => {

@@ -51,7 +51,7 @@ export default function StatisticsSection() {
             <div className="text-gray-600">Líder en transporte especializado</div>
           </div>
           <div className="text-center">
-            <div className="text-5xl font-bold text-transervica-orange mb-2">{capacity.toLocaleString()}</div>
+            <div className="text-5xl font-bold text-transervica-light-green mb-2">{capacity.toLocaleString()}</div>
             <div className="text-xl font-semibold text-gray-700">Toneladas de Capacidad</div>
             <div className="text-gray-600">Equipos de última generación</div>
           </div>

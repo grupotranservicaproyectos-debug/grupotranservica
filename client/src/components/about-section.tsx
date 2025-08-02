@@ -35,7 +35,7 @@ export default function AboutSection() {
               </div>
               
               <div className="flex items-start">
-                <div className="flex-shrink-0 w-6 h-6 bg-transervica-orange rounded-full flex items-center justify-center mt-1">
+                <div className="flex-shrink-0 w-6 h-6 bg-transervica-light-green rounded-full flex items-center justify-center mt-1">
                   <Eye className="w-4 h-4 text-white" />
                 </div>
                 <div className="ml-3">
