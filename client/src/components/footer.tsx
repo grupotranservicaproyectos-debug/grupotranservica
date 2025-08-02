@@ -33,9 +33,8 @@ export default function Footer() {
               40 años transportando el futuro de Venezuela con tecnología alemana de vanguardia.
             </p>
             <div className="text-gray-400 text-sm space-y-1 mb-6">
-              <p>📞 +58 414 277 6340 / +58 412 441 8890</p>
+              <p>📞 +58 414 277 6340</p>
               <p>📧 direccioncomercialtvc@grupotranservica.com</p>
-              <p>📧 direccionejecutivatvc@grupotranservica.com</p>
               <p>📍 Carretera Nacional Maracay Mariara Km 9, Mariara, Edo. Carabobo</p>
             </div>
             <div className="mb-6 flex flex-col sm:flex-row gap-3">
@@ -117,15 +116,13 @@ export default function Footer() {
               <div className="flex items-center">
                 <Phone className="w-4 h-4 mr-2 flex-shrink-0" />
                 <div>
-                  <a href="tel:+584142776340" className="hover:text-white transition">+58 414 277 6340</a><br />
-                  <a href="tel:+584124418890" className="hover:text-white transition">+58 412 441 8890</a>
+                  <a href="tel:+584142776340" className="hover:text-white transition">+58 414 277 6340</a>
                 </div>
               </div>
               <div className="flex items-start">
                 <Mail className="w-4 h-4 mr-2 flex-shrink-0 mt-1" />
                 <div>
-                  <a href="mailto:direccioncomercialtvc@grupotranservica.com" className="hover:text-white transition text-sm">direccioncomercialtvc@grupotranservica.com</a><br />
-                  <a href="mailto:direccionejecutivatvc@grupotranservica.com" className="hover:text-white transition text-sm">direccionejecutivatvc@grupotranservica.com</a>
+                  <a href="mailto:direccioncomercialtvc@grupotranservica.com" className="hover:text-white transition text-sm">direccioncomercialtvc@grupotranservica.com</a>
                 </div>
               </div>
               <div className="flex items-start">
