@@ -36,54 +36,55 @@ export default function HeroSection() {
           }}
         />
         
-        {/* Elegant light overlay for professional logo visibility */}
-        <div className="absolute inset-0 bg-gradient-to-r from-white/20 via-gray-200/15 to-transparent z-10"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-white/25 z-10"></div>
+        {/* Minimal overlay only where needed */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent z-10"></div>
       </div>
 
-      {/* Netflix Style Navigation with Elegant Background */}
-      <nav className="absolute top-0 left-0 right-0 z-50 px-4 sm:px-6 lg:px-8 py-4 bg-gradient-to-b from-white/30 via-gray-100/20 to-transparent backdrop-blur-sm">
+      {/* Clean Netflix Style Navigation */}
+      <nav className="absolute top-0 left-0 right-0 z-50 px-4 sm:px-6 lg:px-8 py-4">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center space-x-8">
-            <img 
-              src={logoTranservica} 
-              alt="TRANSERVICA" 
-              className="h-16 sm:h-20 lg:h-24 w-auto drop-shadow-lg filter contrast-125 brightness-110"
-            />
+            <div className="bg-white/95 rounded-lg p-2 shadow-xl">
+              <img 
+                src={logoTranservica} 
+                alt="TRANSERVICA" 
+                className="h-16 sm:h-20 lg:h-24 w-auto"
+              />
+            </div>
             <div className="hidden md:flex space-x-6">
               <button 
                 onClick={() => scrollToSection('inicio')}
-                className="text-white hover:text-gray-300 text-sm font-medium transition"
+                className="text-white hover:text-transervica-green text-sm font-medium transition bg-black/40 px-3 py-1 rounded backdrop-blur-sm"
               >
                 Inicio
               </button>
               <button 
                 onClick={() => scrollToSection('nosotros')}
-                className="text-white hover:text-gray-300 text-sm font-medium transition"
+                className="text-white hover:text-transervica-green text-sm font-medium transition bg-black/40 px-3 py-1 rounded backdrop-blur-sm"
               >
                 Nosotros
               </button>
               <button 
                 onClick={() => scrollToSection('equipos')}
-                className="text-white hover:text-gray-300 text-sm font-medium transition"
+                className="text-white hover:text-transervica-green text-sm font-medium transition bg-black/40 px-3 py-1 rounded backdrop-blur-sm"
               >
                 Equipos
               </button>
               <button 
                 onClick={() => scrollToSection('servicios')}
-                className="text-white hover:text-gray-300 text-sm font-medium transition"
+                className="text-white hover:text-transervica-green text-sm font-medium transition bg-black/40 px-3 py-1 rounded backdrop-blur-sm"
               >
                 Servicios
               </button>
               <button 
                 onClick={() => scrollToSection('proyectos')}
-                className="text-white hover:text-gray-300 text-sm font-medium transition"
+                className="text-white hover:text-transervica-green text-sm font-medium transition bg-black/40 px-3 py-1 rounded backdrop-blur-sm"
               >
                 Proyectos
               </button>
               <button 
                 onClick={scrollToContact}
-                className="text-white hover:text-gray-300 text-sm font-medium transition"
+                className="text-white hover:text-transervica-green text-sm font-medium transition bg-black/40 px-3 py-1 rounded backdrop-blur-sm"
               >
                 Contacto
               </button>
@@ -114,7 +115,7 @@ export default function HeroSection() {
       {/* Netflix Style Content Container with Dark Background for Text */}
       <div className="absolute inset-0 z-20 flex items-center">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <div className="max-w-md pt-20 pb-12 bg-black/60 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+          <div className="max-w-md pt-20 pb-12 bg-black/70 rounded-2xl p-6 border border-white/20 shadow-2xl">
             {/* Main Title Netflix Style - Very Small */}
             <h1 className="text-lg sm:text-xl lg:text-2xl font-bold mb-2 lg:mb-3 leading-tight text-white drop-shadow-lg">
               Transporte Cargas Excepcionales Venezuela - Especializados en Movilización de Cargas <span className="text-transervica-green">Pesada y Sobredimensionada</span>
