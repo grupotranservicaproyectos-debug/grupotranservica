@@ -183,8 +183,8 @@ export default function ProjectsCarousel() {
     <section className="py-20 bg-gradient-to-br from-slate-50 to-gray-100">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-slate-800 mb-4">
-            Proyectos Realizados
+          <h2 className="text-4xl font-bold mb-4" style={{ color: '#155d29' }}>
+            Galería de Proyectos
           </h2>
           <p className="text-lg text-slate-600 max-w-3xl mx-auto">
             Más de 40 años transportando cargas excepcionales hasta 1,100 toneladas. 
