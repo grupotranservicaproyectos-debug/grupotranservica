@@ -1,7 +1,9 @@
 import { Mail, Phone, MapPin } from "lucide-react";
 import logoTranservica from "@assets/logo transervica sin fondo_1754163034585.png";
+import { useLanguage } from "../contexts/LanguageContext";
 
 export default function Footer() {
+  const { t } = useLanguage();
   const scrollToContact = () => {
     const element = document.getElementById('contacto');
     if (element) {
@@ -31,8 +33,7 @@ export default function Footer() {
               <p className="text-sm text-gray-400 mb-4">RIF: J-00207776-0</p>
             </div>
             <p className="text-gray-300 text-sm leading-relaxed mb-6">
-              Especializados en transporte de cargas excepcionales hasta 1,100 toneladas con trailers modulares hidráulicos. 
-              40 años transportando el futuro de Venezuela con tecnología alemana de vanguardia.
+              {t('footer.description')}
             </p>
             
             {/* Información de Contacto */}

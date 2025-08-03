@@ -11,6 +11,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
+import { useLanguage } from "../contexts/LanguageContext";
 
 const contactFormSchema = z.object({
   name: z.string().min(2, "El nombre debe tener al menos 2 caracteres"),
@@ -28,6 +29,7 @@ type ContactFormData = z.infer<typeof contactFormSchema>;
 
 export default function ContactSection() {
   const { toast } = useToast();
+  const { t } = useLanguage();
   
   const form = useForm<ContactFormData>({
     resolver: zodResolver(contactFormSchema),
@@ -74,9 +76,9 @@ export default function ContactSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12">
           <div>
-            <h2 className="text-4xl font-bold mb-6 text-white">Solicita tu Cotización</h2>
+            <h2 className="text-4xl font-bold mb-6 text-white">{t('contact.title')}</h2>
             <p className="text-xl text-white mb-8 leading-relaxed font-bold">
-              Cuéntanos sobre tu proyecto y te proporcionaremos una solución personalizada con la mejor propuesta del mercado.
+              {t('contact.subtitle')}
             </p>
             
             <div className="space-y-6">
@@ -85,7 +87,7 @@ export default function ContactSection() {
                   <Phone className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-white">Teléfonos Principales</h3>
+                  <h3 className="text-lg font-bold text-white">{t('contact.info.phones')}</h3>
                   <p className="text-white font-medium">+58 414 277 6340</p>
                   <p className="text-white font-medium">+58 412 441 8890</p>
                 </div>
@@ -96,7 +98,7 @@ export default function ContactSection() {
                   <Mail className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-white">Dirección Comercial</h3>
+                  <h3 className="text-lg font-bold text-white">{t('contact.info.email')}</h3>
                   <p className="text-white font-medium break-all">direccioncomercialtvc@grupotranservica.com</p>
                 </div>
               </div>
@@ -116,8 +118,8 @@ export default function ContactSection() {
                   <MapPin className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-white">Ubicación</h3>
-                  <p className="text-white font-medium">Carretera Nacional Maracay Mariara Km 9, Mariara, Edo. Carabobo</p>
+                  <h3 className="text-lg font-bold text-white">{t('contact.info.address')}</h3>
+                  <p className="text-white font-medium">{t('contact.address.full')}</p>
                 </div>
               </div>
               

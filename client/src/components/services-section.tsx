@@ -1,6 +1,8 @@
 import { FileText, Shield, Settings, MapPin, Globe, Truck } from "lucide-react";
+import { useLanguage } from '../contexts/LanguageContext';
 
 export default function ServicesSection() {
+  const { t } = useLanguage();
 
   const services = [
     {
@@ -76,11 +78,10 @@ export default function ServicesSection() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-6" style={{ color: '#155d29' }}>
-            Nuestros Servicios Logísticos
+            {t('services.title')}
           </h2>
           <p className="text-xl max-w-3xl mx-auto mb-8" style={{ color: 'hsl(0, 0%, 15%)' }}>
-            Ofrecemos soluciones integrales para el transporte de cargas excepcionales, 
-            respaldados por 40 años de experiencia y tecnología de vanguardia
+            {t('services.subtitle')}
           </p>
           
           {/* Corporate Video */}

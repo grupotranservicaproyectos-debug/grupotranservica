@@ -1,6 +1,8 @@
 import transportImage from "@assets/5_1754173669383.jpg";
+import { useLanguage } from '../contexts/LanguageContext';
 
 export default function AboutSection() {
+  const { t } = useLanguage();
   const scrollToContact = () => {
     const element = document.getElementById('contacto');
     if (element) {
@@ -23,17 +25,13 @@ export default function AboutSection() {
         {/* Header Section - TRANSERVICA Style */}
         <div className="text-center mb-16">
           <h2 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-4">
-            <span style={{ color: '#155d29' }}>TRANSERVICA, C.A.</span> SON MÁS DE
-            <br />
-            <span className="text-4xl lg:text-5xl font-bold" style={{ color: '#155d29' }}>
-              40 AÑOS TRANSPORTANDO EL FUTURO DE VENEZUELA
-            </span>
+            <span style={{ color: '#155d29' }}>{t('about.title')}</span>
           </h2>
-          <p className="text-2xl lg:text-3xl font-bold mb-6 italic" style={{ color: '#155d29' }}>
-            "Nada es Demasiado Pesado para Nosotros"
+          <p className="text-2xl lg:text-3xl font-bold mb-6" style={{ color: '#155d29' }}>
+            {t('about.subtitle')}
           </p>
           <p className="text-lg max-w-3xl mx-auto" style={{ color: 'hsl(0, 0%, 15%)' }}>
-            Especializados en transporte de cargas excepcionales hasta 1,100 toneladas con tecnología alemana de vanguardia
+            {t('about.description')}
           </p>
         </div>
 
@@ -71,8 +69,8 @@ export default function AboutSection() {
                 </div>
               </div>
               <div>
-                <h3 className="text-xl font-bold mb-2" style={{ color: '#155d29' }}>Capacidad excepcional hasta 1,100 toneladas</h3>
-                <p className="text-gray-600">Equipos modulares hidráulicos alemanes de última generación.</p>
+                <h3 className="text-xl font-bold mb-2" style={{ color: '#155d29' }}>{t('about.benefit1.title')}</h3>
+                <p className="text-gray-600">{t('about.benefit1.desc')}</p>
               </div>
             </div>
 
@@ -86,8 +84,8 @@ export default function AboutSection() {
                 </div>
               </div>
               <div>
-                <h3 className="text-xl font-bold mb-2" style={{ color: '#155d29' }}>Cobertura nacional con experiencia comprobada</h3>
-                <p className="text-gray-600">40 años transportando el futuro de Venezuela con éxito.</p>
+                <h3 className="text-xl font-bold mb-2" style={{ color: '#155d29' }}>{t('about.benefit2.title')}</h3>
+                <p className="text-gray-600">{t('about.benefit2.desc')}</p>
               </div>
             </div>
 
@@ -101,8 +99,8 @@ export default function AboutSection() {
                 </div>
               </div>
               <div>
-                <h3 className="text-xl font-bold mb-2" style={{ color: '#155d29' }}>Plataforma integral con soporte 24/7</h3>
-                <p className="text-gray-600">Seguimiento completo y especialistas disponibles siempre.</p>
+                <h3 className="text-xl font-bold mb-2" style={{ color: '#155d29' }}>{t('about.benefit3.title')}</h3>
+                <p className="text-gray-600">{t('about.benefit3.desc')}</p>
               </div>
             </div>
 
@@ -116,8 +114,8 @@ export default function AboutSection() {
                 </div>
               </div>
               <div>
-                <h3 className="text-xl font-bold mb-2" style={{ color: '#155d29' }}>Soporte personalizado con humanos reales</h3>
-                <p className="text-gray-600">Especialistas en logística dedicados disponibles en cualquier momento.</p>
+                <h3 className="text-xl font-bold mb-2" style={{ color: '#155d29' }}>{t('about.benefit4.title')}</h3>
+                <p className="text-gray-600">{t('about.benefit4.desc')}</p>
               </div>
             </div>
           </div>
