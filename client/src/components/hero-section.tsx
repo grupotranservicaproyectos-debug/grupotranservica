@@ -27,8 +27,9 @@ export default function HeroSection() {
         <iframe
           className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
           src="https://www.youtube.com/embed/_LQbWkWlg6s?autoplay=1&mute=1&controls=0&showinfo=0&rel=0&loop=1&playlist=_LQbWkWlg6s&modestbranding=1&start=7&iv_load_policy=3&cc_load_policy=0&disablekb=1&fs=0&vq=hd1080&hd=1&quality=hd1080"
-          title="Transervica Background Video"
+          title="Transervica Background Video - Transporte de Cargas Excepcionales"
           allow="autoplay; encrypted-media"
+          loading="eager"
           style={{
             pointerEvents: 'none',
             border: 'none',
@@ -42,13 +43,13 @@ export default function HeroSection() {
         {/* Minimal overlay only where needed */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent z-10"></div>
       </div>
-      {/* Transportes Montejo Style Navigation */}
+      {/* Transportes Montejo Style Navigation - Optimized for Mobile */}
       <nav className="absolute top-0 left-0 right-0 z-50 bg-white shadow-md">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Top bar with contact info */}
-          <div className="flex items-center justify-between py-2 border-b border-gray-200">
+        <div className="max-w-7xl mx-auto mobile-padding">
+          {/* Top bar with contact info - Hidden on mobile for better UX */}
+          <div className="hidden lg:flex items-center justify-between py-2 border-b border-gray-200">
             <div className="flex-1"></div>
-            <div className="hidden md:flex items-center space-x-6 text-sm text-gray-600">
+            <div className="flex items-center space-x-6 text-sm text-gray-600">
               <div className="flex items-center space-x-2">
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M6.62 10.79a15.91 15.91 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.27 11.25 11.25 0 003.48.56 1 1 0 011 1V20a1 1 0 01-1 1A18 18 0 013 3a1 1 0 011-1h3.5a1 1 0 011 1 11.25 11.25 0 00.56 3.48 1 1 0 01-.27 1.11l-2.2 2.2z" />
@@ -66,8 +67,18 @@ export default function HeroSection() {
             </div>
           </div>
           
-          {/* Main navigation menu */}
+          {/* Main navigation menu - Mobile responsive */}
           <div className="flex items-center justify-between py-3">
+            {/* Mobile logo - always visible */}
+            <div className="lg:hidden">
+              <img 
+                src={logoTranservica} 
+                alt="TRANSERVICA" 
+                className="h-16 sm:h-20 w-auto cursor-pointer hover:scale-105 transition-all duration-300 filter brightness-110 contrast-125 drop-shadow-lg"
+                onClick={() => scrollToSection('inicio')}
+              />
+            </div>
+            
             <div className="hidden lg:flex items-center space-x-8">
               {/* Logo next to navigation */}
               <img 
@@ -133,22 +144,15 @@ export default function HeroSection() {
                 {t('nav.quote')}
               </button>
               
-              {/* Mobile logo and menu button */}
-              <div className="lg:hidden flex items-center space-x-4">
-                <img 
-                  src={logoTranservica} 
-                  alt="TRANSERVICA" 
-                  className="h-16 sm:h-18 w-auto cursor-pointer hover:scale-105 transition-all duration-300 filter brightness-110 contrast-125 drop-shadow-lg"
-                  style={{ 
-                    filter: 'brightness(1.1) contrast(1.25) drop-shadow(0 2px 4px rgba(0,0,0,0.2))'
-                  }}
-                  onClick={() => scrollToSection('inicio')}
-                />
+              {/* Enhanced mobile menu button with better accessibility */}
+              <div className="lg:hidden">
                 <button
                   onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                  className="flex items-center justify-center w-10 h-10 rounded-md text-gray-700 hover:text-transervica-green hover:bg-gray-100 transition"
+                  className="flex items-center justify-center w-12 h-12 rounded-lg text-gray-700 hover:text-[#155d29] hover:bg-gray-100 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#155d29] focus:ring-offset-2"
+                  aria-expanded={isMobileMenuOpen}
+                  aria-label={isMobileMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
                 >
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     {isMobileMenuOpen ? (
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                     ) : (
@@ -161,45 +165,53 @@ export default function HeroSection() {
           </div>
         </div>
         
-        {/* Mobile Menu Overlay */}
+        {/* Enhanced Mobile Menu Overlay with better UX */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden absolute top-full left-0 right-0 bg-white shadow-lg border-t border-gray-200 z-50">
-            <div className="px-4 py-4 space-y-3">
+          <div className="lg:hidden absolute top-full left-0 right-0 bg-white shadow-xl border-t border-gray-200 z-50 mobile-menu-transition animate-fade-in">
+            <div className="mobile-padding py-6 space-y-4">
               <button 
                 onClick={() => { scrollToSection('inicio'); setIsMobileMenuOpen(false); }}
-                className="block w-full text-left text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide py-2"
+                className="block w-full text-left text-gray-700 hover:text-[#155d29] hover:bg-gray-50 text-base font-bold transition-all duration-200 uppercase tracking-wide py-4 px-4 rounded-lg"
               >
                 {t('nav.home')}
               </button>
               <button 
                 onClick={() => { scrollToSection('servicios'); setIsMobileMenuOpen(false); }}
-                className="block w-full text-left text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide py-2"
+                className="block w-full text-left text-gray-700 hover:text-[#155d29] hover:bg-gray-50 text-base font-bold transition-all duration-200 uppercase tracking-wide py-4 px-4 rounded-lg"
               >
                 {t('nav.services')}
               </button>
               <button 
                 onClick={() => { scrollToSection('proyectos'); setIsMobileMenuOpen(false); }}
-                className="block w-full text-left text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide py-2"
+                className="block w-full text-left text-gray-700 hover:text-[#155d29] hover:bg-gray-50 text-base font-bold transition-all duration-200 uppercase tracking-wide py-4 px-4 rounded-lg"
               >
                 {t('nav.projects')}
               </button>
               <button 
                 onClick={() => { scrollToSection('nosotros'); setIsMobileMenuOpen(false); }}
-                className="block w-full text-left text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide py-2"
+                className="block w-full text-left text-gray-700 hover:text-[#155d29] hover:bg-gray-50 text-base font-bold transition-all duration-200 uppercase tracking-wide py-4 px-4 rounded-lg"
               >
                 {t('nav.company')}
               </button>
               <button 
                 onClick={() => { scrollToSection('equipos'); setIsMobileMenuOpen(false); }}
-                className="block w-full text-left text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide py-2"
+                className="block w-full text-left text-gray-700 hover:text-[#155d29] hover:bg-gray-50 text-base font-bold transition-all duration-200 uppercase tracking-wide py-4 px-4 rounded-lg"
               >
                 EQUIPOS
               </button>
               <button 
                 onClick={() => { scrollToContact(); setIsMobileMenuOpen(false); }}
-                className="block w-full text-left text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide py-2"
+                className="block w-full text-left text-gray-700 hover:text-[#155d29] hover:bg-gray-50 text-base font-bold transition-all duration-200 uppercase tracking-wide py-4 px-4 rounded-lg"
               >
                 {t('nav.contact')}
+              </button>
+              
+              {/* Call-to-Action button in mobile menu */}
+              <button 
+                onClick={() => { scrollToContact(); setIsMobileMenuOpen(false); }}
+                className="w-full bg-[#155d29] text-white mobile-button rounded-lg text-base font-semibold hover-lift shadow-lg mt-4"
+              >
+                {t('nav.quote')}
               </button>
               <div className="pt-4 mt-4 border-t border-gray-200">
                 <div className="space-y-2 text-sm text-gray-600 mb-3">
@@ -238,23 +250,23 @@ export default function HeroSection() {
           <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 2.079.549 4.090 1.588 5.876L.029 24l6.203-1.539a11.952 11.952 0 005.785 1.539c6.621 0 11.988-5.367 11.988-11.988C23.973 5.367 18.638.001 12.017.001zm5.995 16.987c-.264.714-1.291 1.336-1.953 1.428-.663.094-1.526.141-2.438-.154-1.421-.458-3.025-1.609-4.222-3.003-1.197-1.394-1.967-3.045-2.033-3.192-.066-.147-.541-1.447-.541-2.748 0-1.301.341-1.947.463-2.215.122-.268.268-.335.357-.335h.268c.087 0 .201-.003.291.222.09.225.307.751.334.805.027.054.045.116.009.19-.036.074-.054.121-.108.184-.054.063-.113.14-.162.189-.063.049-.128.101-.055.199.073.098.325.537.697.869.481.427 1.055.705 1.206.784.151.079.239.067.327-.041.088-.108.378-.441.479-.592.101-.151.201-.126.338-.076.137.051.87.41 1.018.485.149.074.249.112.285.174.036.062.036.359-.228 1.073z"/>
         </svg>
       </a>
-      {/* Content Container - Bottom Aligned */}
+      {/* Content Container - Mobile-optimized positioning */}
       <div className="absolute inset-0 z-20 flex items-end">
-        <div className="w-full px-4 sm:px-6 lg:px-8">
-          <div className="pb-4 sm:pb-6 lg:pb-8">
-            <div className="bg-black/70 rounded-xl border border-white/20 shadow-2xl p-4 w-fit">
-              {/* Main Title Netflix Style - Very Small */}
-              <h1 className="text-lg sm:text-xl lg:text-2xl font-bold mb-2 lg:mb-3 leading-tight drop-shadow-lg max-w-lg text-[#155d29]" style={{ color: '#155d29' }}>
+        <div className="w-full mobile-padding">
+          <div className="pb-6 sm:pb-8 lg:pb-12">
+            <div className="bg-black/75 backdrop-blur-sm rounded-xl border border-white/20 shadow-2xl p-4 sm:p-6 lg:p-8 w-fit max-w-full sm:max-w-2xl animate-slide-up">
+              {/* Main Title - Responsive typography */}
+              <h1 className="text-xl sm:text-2xl lg:text-4xl xl:text-5xl font-bold mb-3 sm:mb-4 lg:mb-6 leading-tight text-[#155d29] text-wrap-balance" style={{ color: '#155d29' }}>
                 {t('hero.title')}
               </h1>
               
-              {/* Subtitle - Very Small */}
-              <h2 className="text-xs sm:text-sm lg:text-base font-bold mb-2 lg:mb-3 drop-shadow-lg max-w-lg" style={{ color: '#155d29' }}>
+              {/* Subtitle - Responsive typography */}
+              <h2 className="text-sm sm:text-lg lg:text-xl xl:text-2xl font-bold mb-3 sm:mb-4 lg:mb-6 text-[#a8e6a8] text-wrap-balance">
                 {t('hero.subtitle')}
               </h2>
               
-              {/* Description - Very Small */}
-              <p className="text-xs sm:text-sm mb-3 lg:mb-4 text-white leading-relaxed max-w-md drop-shadow-md">
+              {/* Description - Responsive typography */}
+              <p className="text-sm sm:text-base lg:text-lg mb-4 sm:mb-6 lg:mb-8 text-white leading-relaxed max-w-md sm:max-w-lg lg:max-w-xl text-wrap-pretty">
                 {t('hero.description')}
               </p>
               

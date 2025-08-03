@@ -74,73 +74,74 @@ export default function ServicesSection() {
   ];
 
   return (
-    <section id="servicios" className="py-20 bg-gradient-to-br from-slate-50 to-gray-100">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-6" style={{ color: '#155d29' }}>
+    <section id="servicios" className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-slate-50 to-gray-100">
+      <div className="container mx-auto mobile-padding">
+        <div className="text-center mb-12 sm:mb-14 lg:mb-16">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 sm:mb-6 text-wrap-balance" style={{ color: '#155d29' }}>
             {t('services.title')}
           </h2>
-          <p className="text-xl max-w-3xl mx-auto mb-8" style={{ color: 'hsl(0, 0%, 15%)' }}>
+          <p className="mobile-text lg:text-xl max-w-3xl mx-auto mb-6 sm:mb-8 text-wrap-pretty" style={{ color: 'hsl(0, 0%, 15%)' }}>
             {t('services.subtitle')}
           </p>
           
-          {/* Corporate Video */}
-          <div className="max-w-4xl mx-auto mb-12">
-            <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl bg-black">
+          {/* Corporate Video - Mobile Responsive */}
+          <div className="max-w-4xl mx-auto mb-8 sm:mb-10 lg:mb-12">
+            <div className="video-responsive rounded-xl sm:rounded-2xl overflow-hidden shadow-xl sm:shadow-2xl bg-black animate-scale-in">
               <iframe
                 src="https://www.youtube.com/embed/PF8SuO_3ZLU?autoplay=1&mute=1&start=23&end=147&controls=1&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&vq=hd1080&hd=1&quality=hd1080"
-                title="TRANSERVICA - Servicios Logísticos"
+                title="TRANSERVICA - Servicios Logísticos Profesionales - Transporte de Cargas Excepcionales"
                 className="absolute inset-0 w-full h-full"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
+                loading="lazy"
               />
             </div>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {services.map((service, index) => {
             const IconComponent = service.icon;
             return (
               <div
                 key={index}
-                className="group relative bg-white border-l-4 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 hover:scale-105 overflow-hidden flex flex-col h-full"
-                style={{ borderLeftColor: '#155d29' }}
+                className="group relative bg-white border-l-4 rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 sm:hover:-translate-y-3 hover:scale-105 overflow-hidden flex flex-col h-full animate-fade-in hover-lift"
+                style={{ borderLeftColor: '#155d29', animationDelay: `${index * 100}ms` }}
               >
                 {/* Animated background gradient */}
                 <div className="absolute inset-0 bg-gradient-to-br from-green-50 via-white to-orange-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 
                 {/* Content */}
                 <div className="relative z-10 flex flex-col h-full">
-                  <div className="flex items-center mb-6">
-                    <div className="p-4 rounded-2xl transition-all duration-500 transform group-hover:scale-110 group-hover:rotate-3" style={{ backgroundColor: 'rgba(21, 93, 41, 0.1)' }}>
-                      <IconComponent className="w-8 h-8 group-hover:text-white transition-colors duration-500" style={{ color: '#155d29' }} />
+                  <div className="flex items-center mb-4 sm:mb-6">
+                    <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl transition-all duration-500 transform group-hover:scale-110 group-hover:rotate-3" style={{ backgroundColor: 'rgba(21, 93, 41, 0.1)' }}>
+                      <IconComponent className="w-6 h-6 sm:w-8 sm:h-8 group-hover:text-white transition-colors duration-500" style={{ color: '#155d29' }} />
                     </div>
                   </div>
                   
-                  <h3 className="text-xl font-bold mb-4 transition-colors duration-300" style={{ color: '#155d29' }}>
+                  <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 transition-colors duration-300 text-wrap-balance" style={{ color: '#155d29' }}>
                     {service.title}
                   </h3>
                   
-                  <p className="text-slate-600 mb-6 leading-relaxed">
+                  <p className="text-slate-600 mb-4 sm:mb-6 leading-relaxed mobile-text text-wrap-pretty">
                     {service.description}
                   </p>
                   
-                  <ul className="space-y-3 mb-6">
+                  <ul className="space-y-2 sm:space-y-3 mb-4 sm:mb-6">
                     {service.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center text-sm text-slate-600 group-hover:text-slate-700">
-                        <div className="w-2 h-2 rounded-full mr-3 transform group-hover:scale-125 transition-transform duration-300" style={{ backgroundColor: '#155d29' }}></div>
-                        {feature}
+                      <li key={featureIndex} className="flex items-start text-xs sm:text-sm text-slate-600 group-hover:text-slate-700">
+                        <div className="w-2 h-2 rounded-full mr-3 mt-1 flex-shrink-0 transform group-hover:scale-125 transition-transform duration-300" style={{ backgroundColor: '#155d29' }}></div>
+                        <span className="text-wrap-pretty">{feature}</span>
                       </li>
                     ))}
                   </ul>
                   
-                  {/* Call to Action Buttons */}
-                  <div className="flex flex-col sm:flex-row gap-2 mt-auto pt-4">
+                  {/* Call to Action Buttons - Mobile optimized */}
+                  <div className="flex flex-col sm:flex-row gap-2 mt-auto pt-3 sm:pt-4">
                     <button 
                       onClick={() => window.open('https://wa.me/584142776340?text=Hola%2C%20necesito%20información%20sobre%20' + encodeURIComponent(service.title), '_blank')}
-                      className="flex-1 text-white font-semibold py-2 px-4 rounded-lg text-sm transition-all duration-300 transform hover:scale-105 hover:shadow-md"
+                      className="w-full mobile-button text-white font-semibold rounded-lg text-sm transition-all duration-300 hover-lift shadow-md"
                       style={{ backgroundColor: '#155d29' }}
                       onMouseEnter={(e) => (e.target as HTMLElement).style.backgroundColor = '#0f4a21'}
                       onMouseLeave={(e) => (e.target as HTMLElement).style.backgroundColor = '#155d29'}

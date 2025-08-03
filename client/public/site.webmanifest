@@ -1,0 +1,24 @@
+{
+  "name": "TRANSERVICA - Transporte Cargas Excepcionales Venezuela",
+  "short_name": "TRANSERVICA",
+  "description": "Líderes en transporte de cargas excepcionales en Venezuela. 40 años de experiencia, grúas alemanas Grove y Liebherr, trailers SCHEUERLE hasta 1,100 toneladas.",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png", 
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#155d29",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "start_url": "/",
+  "orientation": "portrait-primary",
+  "categories": ["business", "transportation"],
+  "lang": "es-VE"
+}

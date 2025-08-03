@@ -15,9 +15,9 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-gray-900 text-white py-16">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+    <footer className="bg-gray-900 text-white py-12 sm:py-16 lg:py-20">
+      <div className="container mx-auto mobile-padding">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-12">
           
           {/* Company Info with High Resolution Logo */}
           <div className="lg:col-span-1">

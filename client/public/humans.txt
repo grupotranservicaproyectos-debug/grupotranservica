@@ -1,0 +1,43 @@
+# TRANSERVICA - Transporte de Cargas Excepcionales Venezuela
+
+/* TEAM */
+    
+    Developed by: Replit AI Assistant
+    Site Design: Professional Corporate Design
+    Location: Venezuela
+    
+/* SITE */
+
+    Last update: 2025/01/03
+    Language: Spanish / English
+    Doctype: HTML5
+    IDE: Replit
+    
+/* COMPANY */
+
+    Company: TRANSERVICA, C.A.
+    Industry: Heavy Cargo Transportation
+    Experience: 40+ years
+    Specialization: Exceptional loads up to 1,100 tons
+    Equipment: German cranes Grove & Liebherr, SCHEUERLE trailers
+    Coverage: National Venezuelan territory
+    
+/* CONTACT */
+
+    Phone: +58 414-277-6340 / +58 412-441-8890
+    Email: direccioncomercialtvc@grupotranservica.com
+    Address: Carretera Nacional Maracay Mariara Km 9
+             Mariara, Edo. Carabobo, Venezuela
+    
+/* SOCIAL MEDIA */
+
+    Instagram: @grupotranservica
+    Facebook: Grupotranservica
+    YouTube: @transervicac.a.3092
+    
+/* STANDARDS & TECHNOLOGIES */
+
+    React.js, TypeScript, Tailwind CSS
+    Express.js, PostgreSQL, Drizzle ORM
+    SEO Optimized, Mobile Responsive
+    HTTPS Ready, Performance Optimized
