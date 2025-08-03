@@ -296,13 +296,21 @@ export default function BlogSection() {
                                 <span className="bg-gray-100 px-2 py-1 rounded-full">{post.readTime}</span>
                               </div>
                               
-                              <a
-                                href="/blog"
+                              <button
+                                onClick={() => {
+                                  window.location.href = '/blog#blog-main';
+                                  setTimeout(() => {
+                                    const element = document.getElementById('blog-main');
+                                    if (element) {
+                                      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                    }
+                                  }, 200);
+                                }}
                                 className="flex items-center gap-1 text-[#155d29] font-bold text-sm hover:gap-2 transition-all duration-300 group-hover:text-[#0f4a21] bg-green-50 hover:bg-[#155d29] hover:text-white px-3 py-2 rounded-lg"
                               >
                                 Leer Artículo Completo
                                 <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-                              </a>
+                              </button>
                             </div>
                           </div>
                         </article>
