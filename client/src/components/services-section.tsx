@@ -1,31 +1,6 @@
 import { FileText, Shield, Settings, MapPin, Globe, Truck } from "lucide-react";
-import { useEffect, useRef, useState } from 'react';
 
 export default function ServicesSection() {
-  const videoRef = useRef<HTMLIFrameElement>(null);
-  const sectionRef = useRef<HTMLElement>(null);
-  const [isVideoVisible, setIsVideoVisible] = useState(false);
-  const [hasAutoPlayed, setHasAutoPlayed] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && !hasAutoPlayed) {
-            setIsVideoVisible(true);
-            setHasAutoPlayed(true);
-          }
-        });
-      },
-      { threshold: 0.3 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, [hasAutoPlayed]);
 
   const services = [
     {
@@ -97,7 +72,7 @@ export default function ServicesSection() {
   ];
 
   return (
-    <section ref={sectionRef} className="py-20 bg-gradient-to-br from-slate-50 to-gray-100">
+    <section className="py-20 bg-gradient-to-br from-slate-50 to-gray-100">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-6" style={{ color: '#155d29' }}>
@@ -112,11 +87,7 @@ export default function ServicesSection() {
           <div className="max-w-4xl mx-auto mb-12">
             <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl bg-black">
               <iframe
-                ref={videoRef}
-                src={isVideoVisible ? 
-                  "https://www.youtube.com/embed/PF8SuO_3ZLU?autoplay=1&mute=1&start=23&end=147&controls=1&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3" :
-                  "https://www.youtube.com/embed/PF8SuO_3ZLU?mute=1&start=23&end=147&controls=1&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3"
-                }
+                src="https://www.youtube.com/embed/PF8SuO_3ZLU?autoplay=1&mute=1&start=23&end=147&controls=1&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3"
                 title="TRANSERVICA - Servicios Logísticos"
                 className="absolute inset-0 w-full h-full"
                 frameBorder="0"
