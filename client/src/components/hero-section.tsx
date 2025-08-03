@@ -50,13 +50,13 @@ export default function HeroSection() {
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M6.62 10.79a15.91 15.91 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.27 11.25 11.25 0 003.48.56 1 1 0 011 1V20a1 1 0 01-1 1A18 18 0 013 3a1 1 0 011-1h3.5a1 1 0 011 1 11.25 11.25 0 00.56 3.48 1 1 0 01-.27 1.11l-2.2 2.2z" />
                 </svg>
-                <span>(+58) 414-277-6340</span>
+                <span className="font-bold">(+58) 414-277-6340</span>
               </div>
               <div className="flex items-center space-x-2">
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M3 8l4 4 4-4m0 6l4-4 4 4m-8-8v14" />
                 </svg>
-                <span>direccioncomercialtvc@grupotranservica.com</span>
+                <span className="font-bold">direccioncomercialtvc@grupotranservica.com</span>
               </div>
               
               
@@ -75,14 +75,14 @@ export default function HeroSection() {
               />
               <button 
                 onClick={() => scrollToSection('inicio')}
-                className="text-gray-700 hover:text-transervica-green text-sm font-medium transition uppercase tracking-wide"
+                className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide"
               >
                 HOME
               </button>
               <div className="relative group">
                 <button 
                   onClick={() => scrollToSection('servicios')}
-                  className="text-gray-700 hover:text-transervica-green text-sm font-medium transition uppercase tracking-wide flex items-center"
+                  className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide flex items-center"
                 >
                   SERVICIOS
                   <svg className="w-3 h-3 ml-1" fill="currentColor" viewBox="0 0 20 20">
@@ -92,25 +92,25 @@ export default function HeroSection() {
               </div>
               <button 
                 onClick={() => scrollToSection('proyectos')}
-                className="text-gray-700 hover:text-transervica-green text-sm font-medium transition uppercase tracking-wide"
+                className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide"
               >
                 PROYECTOS
               </button>
               <button 
                 onClick={() => scrollToSection('nosotros')}
-                className="text-gray-700 hover:text-transervica-green text-sm font-medium transition uppercase tracking-wide"
+                className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide"
               >
                 COMPAÑÍA
               </button>
               <button 
                 onClick={() => scrollToSection('equipos')}
-                className="text-gray-700 hover:text-transervica-green text-sm font-medium transition uppercase tracking-wide"
+                className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide"
               >
                 EQUIPOS
               </button>
               <button 
                 onClick={scrollToContact}
-                className="text-gray-700 hover:text-transervica-green text-sm font-medium transition uppercase tracking-wide"
+                className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide"
               >
                 CONTACTO
               </button>
@@ -123,7 +123,7 @@ export default function HeroSection() {
                   alt="Español"
                   className="w-6 h-4"
                 />
-                <span className="text-sm text-gray-600">ESPAÑOL</span>
+                <span className="text-sm text-gray-600 font-bold">ESPAÑOL</span>
                 <svg className="w-3 h-3 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
                 </svg>
@@ -166,37 +166,37 @@ export default function HeroSection() {
             <div className="px-4 py-4 space-y-3">
               <button 
                 onClick={() => { scrollToSection('inicio'); setIsMobileMenuOpen(false); }}
-                className="block w-full text-left text-gray-700 hover:text-transervica-green text-sm font-medium transition uppercase tracking-wide py-2"
+                className="block w-full text-left text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide py-2"
               >
                 HOME
               </button>
               <button 
                 onClick={() => { scrollToSection('servicios'); setIsMobileMenuOpen(false); }}
-                className="block w-full text-left text-gray-700 hover:text-transervica-green text-sm font-medium transition uppercase tracking-wide py-2"
+                className="block w-full text-left text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide py-2"
               >
                 SERVICIOS
               </button>
               <button 
                 onClick={() => { scrollToSection('proyectos'); setIsMobileMenuOpen(false); }}
-                className="block w-full text-left text-gray-700 hover:text-transervica-green text-sm font-medium transition uppercase tracking-wide py-2"
+                className="block w-full text-left text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide py-2"
               >
                 PROYECTOS
               </button>
               <button 
                 onClick={() => { scrollToSection('nosotros'); setIsMobileMenuOpen(false); }}
-                className="block w-full text-left text-gray-700 hover:text-transervica-green text-sm font-medium transition uppercase tracking-wide py-2"
+                className="block w-full text-left text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide py-2"
               >
                 COMPAÑÍA
               </button>
               <button 
                 onClick={() => { scrollToSection('equipos'); setIsMobileMenuOpen(false); }}
-                className="block w-full text-left text-gray-700 hover:text-transervica-green text-sm font-medium transition uppercase tracking-wide py-2"
+                className="block w-full text-left text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide py-2"
               >
                 EQUIPOS
               </button>
               <button 
                 onClick={() => { scrollToContact(); setIsMobileMenuOpen(false); }}
-                className="block w-full text-left text-gray-700 hover:text-transervica-green text-sm font-medium transition uppercase tracking-wide py-2"
+                className="block w-full text-left text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide py-2"
               >
                 CONTACTO
               </button>
@@ -206,13 +206,13 @@ export default function HeroSection() {
                     <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M6.62 10.79a15.91 15.91 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.27 11.25 11.25 0 003.48.56 1 1 0 011 1V20a1 1 0 01-1 1A18 18 0 013 3a1 1 0 011-1h3.5a1 1 0 011 1 11.25 11.25 0 00.56 3.48 1 1 0 01-.27 1.11l-2.2 2.2z" />
                     </svg>
-                    <span>(+58) 414-277-6340</span>
+                    <span className="font-bold">(+58) 414-277-6340</span>
                   </div>
                   <div className="flex items-center space-x-2">
                     <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M3 8l4 4 4-4m0 6l4-4 4 4m-8-8v14" />
                     </svg>
-                    <span className="text-xs">direccioncomercialtvc@grupotranservica.com</span>
+                    <span className="text-xs font-bold">direccioncomercialtvc@grupotranservica.com</span>
                   </div>
                 </div>
                 
