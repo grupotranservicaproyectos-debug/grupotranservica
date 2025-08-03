@@ -132,9 +132,6 @@ export default function Footer() {
             <h4 className="text-lg font-bold mb-6" style={{ color: '#155d29' }}>
               {t('footer.newsletter.title')}
             </h4>
-            <p className="text-gray-300 text-sm mb-4">
-              {t('footer.newsletter.description')}
-            </p>
             
             <form onSubmit={handleSubmit} className="space-y-3">
               <input
