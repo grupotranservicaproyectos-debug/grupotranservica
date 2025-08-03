@@ -285,6 +285,8 @@ const translations = {
     'footer.legal.privacy': 'Política de Privacidad',
     'footer.legal.cookies': 'Acuerdo de Cookies',
     'footer.legal.security': 'Política de Seguridad',
+    
+    'footer.social.title': 'Síguenos en',
     'footer.quote.button': 'SOLICITAR COTIZACIÓN',
     'footer.maps.button': 'VER EN GOOGLE MAPS',
     'footer.services.title': 'Servicios',
@@ -584,6 +586,8 @@ const translations = {
     'footer.legal.privacy': 'Privacy Policy',
     'footer.legal.cookies': 'Cookie Agreement',
     'footer.legal.security': 'Security Policy',
+    
+    'footer.social.title': 'Follow us on',
     'footer.quote.button': 'REQUEST QUOTE',
     'footer.maps.button': 'VIEW ON GOOGLE MAPS',
     'footer.services.title': 'Services',

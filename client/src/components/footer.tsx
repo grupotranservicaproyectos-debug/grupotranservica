@@ -158,71 +158,91 @@ export default function Footer() {
         </div>
 
         {/* Social Media Section */}
-        <div className="mt-12 pt-8 border-t border-gray-800">
-          <div className="mb-8">
-            <h4 className="text-xl font-bold mb-6" style={{ color: '#155d29' }}>
+        <div className="mt-16 pt-12 border-t border-gray-700">
+          <div className="text-center mb-12">
+            <h4 className="text-2xl font-bold mb-4" style={{ color: '#155d29' }}>
               {t('footer.social.title')}
             </h4>
-            <div className="flex space-x-4">
+            <div className="w-24 h-1 mx-auto mb-8 rounded-full" style={{ backgroundColor: '#155d29' }}></div>
+            
+            {/* Enhanced Social Media Icons */}
+            <div className="flex justify-center space-x-6 mb-12">
               <a 
                 href="https://www.facebook.com/people/Grupotranservica/100093036004743" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 bg-white rounded-lg flex items-center justify-center transition-all duration-200 hover:scale-110 hover:shadow-lg"
+                className="group relative w-16 h-16 bg-gradient-to-br from-gray-100 to-white rounded-2xl flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:bg-[#1877F2]"
                 aria-label="Facebook"
               >
-                <Facebook className="w-6 h-6 text-[#1877F2]" />
+                <Facebook className="w-7 h-7 text-[#1877F2] group-hover:text-white transition-colors duration-300" />
+                <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <span className="text-xs text-gray-400 font-medium">Facebook</span>
+                </div>
               </a>
+              
               <a 
                 href="https://www.instagram.com/grupotranservica" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 bg-white rounded-lg flex items-center justify-center transition-all duration-200 hover:scale-110 hover:shadow-lg"
+                className="group relative w-16 h-16 bg-gradient-to-br from-gray-100 to-white rounded-2xl flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:bg-gradient-to-br hover:from-[#E4405F] hover:to-[#C13584]"
                 aria-label="Instagram"
               >
-                <Instagram className="w-6 h-6 text-[#E4405F]" />
+                <Instagram className="w-7 h-7 text-[#E4405F] group-hover:text-white transition-colors duration-300" />
+                <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <span className="text-xs text-gray-400 font-medium">Instagram</span>
+                </div>
               </a>
+              
               <a 
                 href="https://www.youtube.com/@transervicac.a.3092" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 bg-white rounded-lg flex items-center justify-center transition-all duration-200 hover:scale-110 hover:shadow-lg"
+                className="group relative w-16 h-16 bg-gradient-to-br from-gray-100 to-white rounded-2xl flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:bg-[#FF0000]"
                 aria-label="YouTube"
               >
-                <Youtube className="w-6 h-6 text-[#FF0000]" />
+                <Youtube className="w-7 h-7 text-[#FF0000] group-hover:text-white transition-colors duration-300" />
+                <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <span className="text-xs text-gray-400 font-medium">YouTube</span>
+                </div>
               </a>
+              
               <a 
                 href="#" 
-                className="w-12 h-12 bg-white rounded-lg flex items-center justify-center transition-all duration-200 hover:scale-110 hover:shadow-lg"
+                className="group relative w-16 h-16 bg-gradient-to-br from-gray-100 to-white rounded-2xl flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:bg-black"
                 aria-label="TikTok"
               >
-                <SiTiktok className="w-6 h-6 text-black" />
+                <SiTiktok className="w-7 h-7 text-black group-hover:text-white transition-colors duration-300" />
+                <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <span className="text-xs text-gray-400 font-medium">TikTok</span>
+                </div>
               </a>
             </div>
             
-            {/* Policy Links with Red Icons */}
-            <div className="mt-8 space-y-3">
-              <div className="flex items-center">
-                <div className="w-8 h-8 bg-red-600 rounded flex items-center justify-center mr-3">
-                  <span className="text-white font-bold text-sm">i</span>
+            {/* Enhanced Policy Links */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+              <div className="group flex items-center p-4 bg-gray-800 rounded-xl hover:bg-gray-750 transition-all duration-300 hover:scale-105">
+                <div className="w-10 h-10 bg-red-600 rounded-lg flex items-center justify-center mr-4 group-hover:bg-red-500 transition-colors duration-300">
+                  <span className="text-white font-bold">i</span>
                 </div>
-                <a href="#privacy" className="text-white hover:text-gray-300 transition-colors duration-200">
+                <a href="#privacy" className="text-white hover:text-gray-300 transition-colors duration-200 font-medium">
                   {t('footer.policies.privacy')}
                 </a>
               </div>
-              <div className="flex items-center">
-                <div className="w-8 h-8 bg-red-600 rounded flex items-center justify-center mr-3">
-                  <span className="text-white font-bold text-sm">i</span>
+              
+              <div className="group flex items-center p-4 bg-gray-800 rounded-xl hover:bg-gray-750 transition-all duration-300 hover:scale-105">
+                <div className="w-10 h-10 bg-red-600 rounded-lg flex items-center justify-center mr-4 group-hover:bg-red-500 transition-colors duration-300">
+                  <span className="text-white font-bold">i</span>
                 </div>
-                <a href="#security" className="text-white hover:text-gray-300 transition-colors duration-200">
+                <a href="#security" className="text-white hover:text-gray-300 transition-colors duration-200 font-medium">
                   {t('footer.policies.security')}
                 </a>
               </div>
-              <div className="flex items-center">
-                <div className="w-8 h-8 bg-red-600 rounded flex items-center justify-center mr-3">
-                  <span className="text-white font-bold text-sm">i</span>
+              
+              <div className="group flex items-center p-4 bg-gray-800 rounded-xl hover:bg-gray-750 transition-all duration-300 hover:scale-105">
+                <div className="w-10 h-10 bg-red-600 rounded-lg flex items-center justify-center mr-4 group-hover:bg-red-500 transition-colors duration-300">
+                  <span className="text-white font-bold">i</span>
                 </div>
-                <a href="#management" className="text-white hover:text-gray-300 transition-colors duration-200">
+                <a href="#management" className="text-white hover:text-gray-300 transition-colors duration-200 font-medium">
                   {t('footer.policies.management')}
                 </a>
               </div>
