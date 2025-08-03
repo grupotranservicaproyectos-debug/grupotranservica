@@ -236,10 +236,10 @@ export default function HeroSection() {
           <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 2.079.549 4.090 1.588 5.876L.029 24l6.203-1.539a11.952 11.952 0 005.785 1.539c6.621 0 11.988-5.367 11.988-11.988C23.973 5.367 18.638.001 12.017.001zm5.995 16.987c-.264.714-1.291 1.336-1.953 1.428-.663.094-1.526.141-2.438-.154-1.421-.458-3.025-1.609-4.222-3.003-1.197-1.394-1.967-3.045-2.033-3.192-.066-.147-.541-1.447-.541-2.748 0-1.301.341-1.947.463-2.215.122-.268.268-.335.357-.335h.268c.087 0 .201-.003.291.222.09.225.307.751.334.805.027.054.045.116.009.19-.036.074-.054.121-.108.184-.054.063-.113.14-.162.189-.063.049-.128.101-.055.199.073.098.325.537.697.869.481.427 1.055.705 1.206.784.151.079.239.067.327-.041.088-.108.378-.441.479-.592.101-.151.201-.126.338-.076.137.051.87.41 1.018.485.149.074.249.112.285.174.036.062.036.359-.228 1.073z"/>
         </svg>
       </a>
-      {/* Content Container - Left Aligned */}
-      <div className="absolute inset-0 z-20 flex items-center">
+      {/* Content Container - Bottom Aligned */}
+      <div className="absolute inset-0 z-20 flex items-end">
         <div className="w-full px-4 sm:px-6 lg:px-8">
-          <div className="pt-40 sm:pt-44 lg:pt-48">
+          <div className="pb-16 sm:pb-20 lg:pb-24">
             <div className="bg-black/70 rounded-xl border border-white/20 shadow-2xl p-4 w-fit">
               {/* Main Title Netflix Style - Very Small */}
               <h1 className="text-lg sm:text-xl lg:text-2xl font-bold mb-2 lg:mb-3 leading-tight drop-shadow-lg max-w-lg text-[#155d29]" style={{ color: '#155d29' }}>
