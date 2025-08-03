@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 120" width="300" height="120">
+  <defs>
+    <!-- Gradientes corporativos -->
+    <linearGradient id="primaryGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#155d29;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0f4a21;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ff6b35;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f7941d;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Filtro de sombra -->
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-color="#000000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Fondo del logo -->
+  <rect x="5" y="5" width="290" height="110" rx="15" fill="url(#primaryGradient)" filter="url(#shadow)"/>
+  
+  <!-- Símbolo T estilizado -->
+  <g transform="translate(25, 25)">
+    <!-- Base de la T -->
+    <rect x="0" y="0" width="60" height="12" rx="6" fill="white"/>
+    <!-- Línea vertical de la T -->
+    <rect x="24" y="0" width="12" height="70" rx="6" fill="white"/>
+    <!-- Elemento decorativo (rueda de trailer) -->
+    <circle cx="15" cy="55" r="8" fill="url(#accentGradient)" stroke="white" stroke-width="2"/>
+    <circle cx="45" cy="55" r="8" fill="url(#accentGradient)" stroke="white" stroke-width="2"/>
+    <!-- Línea conectora (chasis del trailer) -->
+    <rect x="12" y="52" width="36" height="6" rx="3" fill="white"/>
+  </g>
+  
+  <!-- Texto TRANSERVICA -->
+  <text x="105" y="45" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="white">
+    TRANSERVICA
+  </text>
+  
+  <!-- Subtítulo -->
+  <text x="105" y="65" font-family="Arial, sans-serif" font-size="12" font-weight="normal" fill="#e0f2e7">
+    TRANSPORTE ESPECIALIZADO
+  </text>
+  
+  <!-- Línea decorativa -->
+  <rect x="105" y="75" width="160" height="2" rx="1" fill="url(#accentGradient)"/>
+  
+  <!-- Años de experiencia -->
+  <text x="105" y="95" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="url(#accentGradient)">
+    40 AÑOS DE EXPERIENCIA
+  </text>
+  
+  <!-- Elementos decorativos adicionales -->
+  <circle cx="270" cy="30" r="3" fill="url(#accentGradient)" opacity="0.7"/>
+  <circle cx="280" cy="45" r="2" fill="white" opacity="0.5"/>
+  <circle cx="275" cy="60" r="2.5" fill="url(#accentGradient)" opacity="0.6"/>
+</svg>

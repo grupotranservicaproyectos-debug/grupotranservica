@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Calendar, User, Clock, ArrowRight, Search, Filter, ChevronLeft, ChevronRight, Tag, Eye, Menu, X, Home, Briefcase, Users, FileText, Phone, Mail, MapPin } from 'lucide-react';
 import { Link } from 'wouter';
 import Footer from '@/components/footer';
+import TransservicaLogo from '@/assets/transervica-logo.svg';
 
 // Blog post data with complete content
 const blogPosts = [
@@ -126,13 +127,11 @@ export default function BlogPage() {
             {/* Top Bar */}
             <div className="flex items-center justify-between py-4 border-b border-gray-100">
               <Link href="/" className="flex items-center gap-3">
-                <div className="w-12 h-12 bg-gradient-to-br from-[#155d29] to-[#0f4a21] rounded-full flex items-center justify-center shadow-lg">
-                  <span className="text-white font-bold text-xl">T</span>
-                </div>
-                <div>
-                  <span className="text-2xl font-bold" style={{ color: '#155d29' }}>TRANSERVICA</span>
-                  <p className="text-sm text-gray-600">Blog Corporativo</p>
-                </div>
+                <img 
+                  src={TransservicaLogo}
+                  alt="TRANSERVICA - Transporte Especializado"
+                  className="h-14 w-auto hover:scale-105 transition-transform duration-300"
+                />
               </Link>
               
               {/* Desktop Contact Info */}
@@ -308,13 +307,11 @@ export default function BlogPage() {
           {/* Top Bar */}
           <div className="flex items-center justify-between py-4 border-b border-gray-100">
             <Link href="/" className="flex items-center gap-3">
-              <div className="w-12 h-12 bg-gradient-to-br from-[#155d29] to-[#0f4a21] rounded-full flex items-center justify-center shadow-lg">
-                <span className="text-white font-bold text-xl">T</span>
-              </div>
-              <div>
-                <span className="text-2xl font-bold" style={{ color: '#155d29' }}>TRANSERVICA</span>
-                <p className="text-sm text-gray-600">Blog Corporativo</p>
-              </div>
+              <img 
+                src={TransservicaLogo}
+                alt="TRANSERVICA - Transporte Especializado"
+                className="h-14 w-auto hover:scale-105 transition-transform duration-300"
+              />
             </Link>
             
             {/* Desktop Contact Info */}
@@ -401,19 +398,34 @@ export default function BlogPage() {
       </header>
 
       {/* Hero Section */}
-      <section className="py-16 bg-gradient-to-r from-[#155d29] to-[#0f4a21] text-white relative overflow-hidden">
+      <section className="py-20 bg-gradient-to-r from-[#155d29] to-[#0f4a21] text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-10 right-10 w-32 h-32 border border-white/20 rounded-full"></div>
           <div className="absolute bottom-10 left-10 w-24 h-24 border border-white/20 rounded-full"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 border border-white/10 rounded-full"></div>
         </div>
         <div className="container mx-auto px-4 text-center relative z-10">
+          <div className="mb-8">
+            <img 
+              src={TransservicaLogo}
+              alt="TRANSERVICA Blog Corporativo"
+              className="h-20 w-auto mx-auto mb-6 filter brightness-0 invert"
+            />
+          </div>
           <h1 className="text-4xl lg:text-6xl font-bold mb-6">
-            Blog Corporativo TRANSERVICA
+            Blog Corporativo
           </h1>
-          <p className="text-xl lg:text-2xl mb-8 max-w-3xl mx-auto">
+          <p className="text-xl lg:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed">
             Noticias, proyectos y conocimiento especializado en transporte de cargas excepcionales
           </p>
-          <div className="w-32 h-1 mx-auto rounded-full bg-white/50"></div>
+          <div className="flex items-center justify-center gap-4 mb-6">
+            <div className="w-16 h-1 rounded-full bg-white/50"></div>
+            <div className="w-3 h-3 rounded-full bg-[#ff6b35]"></div>
+            <div className="w-16 h-1 rounded-full bg-white/50"></div>
+          </div>
+          <p className="text-lg text-white/80 font-medium">
+            40 años de experiencia en Venezuela
+          </p>
         </div>
       </section>
 
