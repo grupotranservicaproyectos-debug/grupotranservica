@@ -90,8 +90,8 @@ export default function ContactSection() {
             
             <div className="space-y-4 sm:space-y-6">
               <div className="flex items-center">
-                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center mr-3 sm:mr-4 border-2 border-white/40 shadow-lg">
-                  <Phone className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-emerald-400/30 backdrop-blur-sm rounded-xl flex items-center justify-center mr-3 sm:mr-4 border-2 border-emerald-300/50 shadow-lg">
+                  <Phone className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-300" />
                 </div>
                 <div>
                   <h3 className="text-base sm:text-lg font-bold text-white">{t('contact.info.phones')}</h3>
@@ -101,8 +101,8 @@ export default function ContactSection() {
               </div>
               
               <div className="flex items-center">
-                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center mr-3 sm:mr-4 border-2 border-white/40 shadow-lg">
-                  <Mail className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-emerald-400/30 backdrop-blur-sm rounded-xl flex items-center justify-center mr-3 sm:mr-4 border-2 border-emerald-300/50 shadow-lg">
+                  <Mail className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-300" />
                 </div>
                 <div className="min-w-0 flex-1">
                   <h3 className="text-base sm:text-lg font-bold text-white">{t('contact.info.email')}</h3>
@@ -111,8 +111,8 @@ export default function ContactSection() {
               </div>
 
               <div className="flex items-center">
-                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center mr-3 sm:mr-4 border-2 border-white/40 shadow-lg">
-                  <Mail className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-emerald-400/30 backdrop-blur-sm rounded-xl flex items-center justify-center mr-3 sm:mr-4 border-2 border-emerald-300/50 shadow-lg">
+                  <Mail className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-300" />
                 </div>
                 <div className="min-w-0 flex-1">
                   <h3 className="text-base sm:text-lg font-bold text-white">{t('contact.info.executive')}</h3>
@@ -121,8 +121,8 @@ export default function ContactSection() {
               </div>
               
               <div className="flex items-start">
-                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center mr-3 sm:mr-4 border-2 border-white/40 shadow-lg mt-1">
-                  <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-emerald-400/30 backdrop-blur-sm rounded-xl flex items-center justify-center mr-3 sm:mr-4 border-2 border-emerald-300/50 shadow-lg mt-1">
+                  <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-300" />
                 </div>
                 <div className="min-w-0 flex-1">
                   <h3 className="text-base sm:text-lg font-bold text-white">{t('contact.info.address')}</h3>
@@ -134,12 +134,13 @@ export default function ContactSection() {
                 href="https://wa.me/584142776340?text=Hola%2C%20necesito%20información%20sobre%20transporte%20de%20cargas%20excepcionales" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center w-full sm:w-auto bg-white/25 backdrop-blur-sm text-white mobile-button rounded-xl font-bold hover:bg-white/40 transition-all duration-300 hover-lift border-2 border-white/50 shadow-xl"
+                className="inline-flex items-center justify-center w-full bg-gradient-to-r from-emerald-400 to-green-400 text-gray-900 px-6 sm:px-8 py-4 sm:py-5 rounded-2xl text-lg sm:text-xl font-bold hover:from-emerald-300 hover:to-green-300 transition-all duration-500 transform hover:scale-110 hover:shadow-2xl border-2 border-emerald-300 animate-pulse hover:animate-none shadow-xl hover:shadow-emerald-400/50"
+                style={{ boxShadow: '0 0 30px rgba(16, 185, 129, 0.4)' }}
               >
-                <svg className="w-5 h-5 sm:w-6 sm:h-6 mr-2 sm:mr-3" fill="currentColor" viewBox="0 0 24 24">
+                <svg className="w-7 h-7 sm:w-8 sm:h-8 mr-3 sm:mr-4 animate-bounce" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 2.079.549 4.090 1.588 5.876L.029 24l6.203-1.539a11.952 11.952 0 005.785 1.539c6.621 0 11.988-5.367 11.988-11.988C23.973 5.367 18.638.001 12.017.001zm5.995 16.987c-.264.714-1.291 1.336-1.953 1.428-.663.094-1.526.141-2.438-.154-1.421-.458-3.025-1.609-4.222-3.003-1.197-1.394-1.967-3.045-2.033-3.192-.066-.147-.541-1.447-.541-2.748 0-1.301.341-1.947.463-2.215.122-.268.268-.335.357-.335h.268c.087 0 .201-.003.291.222.09.225.307.751.334.805.027.054.045.116.009.19-.036.074-.054.121-.108.184-.054.063-.113.14-.162.189-.063.049-.128.101-.055.199.073.098.325.537.697.869.481.427 1.055.705 1.206.784.151.079.239.067.327-.041.088-.108.378-.441.479-.592.101-.151.201-.126.338-.076.137.051.87.41 1.018.485.149.074.249.112.285.174.036.062.036.359-.228 1.073z"/>
                 </svg>
-                <span className="text-sm sm:text-base">{t('contact.whatsapp')}</span>
+                <span className="font-extrabold">{t('contact.whatsapp')}</span>
               </a>
             </div>
             </div>
