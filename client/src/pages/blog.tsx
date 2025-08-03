@@ -720,35 +720,82 @@ export default function BlogPage() {
         )}
       </nav>
 
-      {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-r from-[#155d29] to-[#0f4a21] text-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-10 right-10 w-32 h-32 border border-white/20 rounded-full"></div>
-          <div className="absolute bottom-10 left-10 w-24 h-24 border border-white/20 rounded-full"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 border border-white/10 rounded-full"></div>
+      {/* Elegant Hero Section */}
+      <section className="relative py-24 bg-gradient-to-br from-gray-50 via-white to-green-50/30 overflow-hidden">
+        {/* Sophisticated Background Pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-20 right-20 w-72 h-72 bg-[#155d29] rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 left-20 w-96 h-96 bg-[#ff6b35] rounded-full blur-3xl"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-r from-[#155d29] to-[#ff6b35] rounded-full blur-2xl"></div>
         </div>
+        
+        {/* Geometric Decorations */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-16 right-32 w-4 h-4 bg-[#155d29] rotate-45"></div>
+          <div className="absolute bottom-32 left-32 w-6 h-6 border-2 border-[#ff6b35] rotate-12"></div>
+          <div className="absolute top-1/3 left-16 w-2 h-2 bg-[#ff6b35] rounded-full"></div>
+          <div className="absolute bottom-1/3 right-16 w-3 h-3 bg-[#155d29] rounded-full"></div>
+        </div>
+
         <div className="container mx-auto px-4 text-center relative z-10">
-          <div className="mb-8">
-            <img 
-              src={logoTranservica}
-              alt="TRANSERVICA Blog Corporativo"
-              className="h-20 w-auto mx-auto mb-6 filter brightness-0 invert"
-            />
+          {/* Logo Section */}
+          <div className="mb-12">
+            <div className="inline-flex items-center justify-center w-24 h-24 bg-white rounded-2xl shadow-2xl mb-8 border border-gray-100">
+              <img 
+                src={logoTranservica}
+                alt="TRANSERVICA Blog Corporativo"
+                className="h-16 w-auto filter contrast-125 brightness-110"
+              />
+            </div>
           </div>
-          <h1 className="text-4xl lg:text-6xl font-bold mb-6">
-            Blog Corporativo
-          </h1>
-          <p className="text-xl lg:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed">
-            Noticias, proyectos y conocimiento especializado en transporte de cargas excepcionales
-          </p>
-          <div className="flex items-center justify-center gap-4 mb-6">
-            <div className="w-16 h-1 rounded-full bg-white/50"></div>
-            <div className="w-3 h-3 rounded-full bg-[#ff6b35]"></div>
-            <div className="w-16 h-1 rounded-full bg-white/50"></div>
+
+          {/* Main Content */}
+          <div className="max-w-4xl mx-auto">
+            <div className="inline-flex items-center gap-3 bg-[#155d29]/10 backdrop-blur-sm rounded-full px-6 py-3 mb-8 border border-[#155d29]/20">
+              <div className="w-2 h-2 bg-[#155d29] rounded-full animate-pulse"></div>
+              <span className="text-[#155d29] font-semibold text-sm uppercase tracking-wider">Blog Corporativo</span>
+            </div>
+            
+            <h1 className="text-5xl lg:text-7xl font-bold mb-8 bg-gradient-to-r from-[#155d29] via-[#1a6b30] to-[#ff6b35] bg-clip-text text-transparent leading-tight">
+              Centro de Conocimiento
+            </h1>
+            
+            <p className="text-xl lg:text-2xl text-gray-700 mb-10 max-w-3xl mx-auto leading-relaxed font-light">
+              Noticias exclusivas, proyectos emblemáticos y expertise técnico en 
+              <span className="font-semibold text-[#155d29]"> transporte de cargas excepcionales</span>
+            </p>
+
+            {/* Stats Section */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+              <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 border border-gray-200/50 shadow-lg">
+                <div className="text-3xl font-bold text-[#155d29] mb-2">40+</div>
+                <div className="text-sm text-gray-600 font-medium">Años de Experiencia</div>
+              </div>
+              <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 border border-gray-200/50 shadow-lg">
+                <div className="text-3xl font-bold text-[#ff6b35] mb-2">1,100</div>
+                <div className="text-sm text-gray-600 font-medium">Toneladas Máximas</div>
+              </div>
+              <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 border border-gray-200/50 shadow-lg">
+                <div className="text-3xl font-bold text-[#155d29] mb-2">15K+</div>
+                <div className="text-sm text-gray-600 font-medium">Proyectos Exitosos</div>
+              </div>
+              <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 border border-gray-200/50 shadow-lg">
+                <div className="text-3xl font-bold text-[#ff6b35] mb-2">99.8%</div>
+                <div className="text-sm text-gray-600 font-medium">Récord de Seguridad</div>
+              </div>
+            </div>
+
+            {/* Elegant Divider */}
+            <div className="flex items-center justify-center gap-6 mb-8">
+              <div className="w-20 h-px bg-gradient-to-r from-transparent via-[#155d29] to-transparent"></div>
+              <div className="w-3 h-3 bg-[#ff6b35] rounded-full shadow-lg"></div>
+              <div className="w-20 h-px bg-gradient-to-r from-transparent via-[#ff6b35] to-transparent"></div>
+            </div>
+
+            <p className="text-lg text-gray-600 font-medium">
+              Líder en Venezuela en transporte especializado y logística de cargas excepcionales
+            </p>
           </div>
-          <p className="text-lg text-white/80 font-medium">
-            40 años de experiencia en Venezuela
-          </p>
         </div>
       </section>
 
