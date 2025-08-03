@@ -150,7 +150,7 @@ export default function Footer() {
               <li>
                 <a href="#equipos" className="text-slate-600 hover:text-white transition-all duration-300 font-medium flex items-center group">
                   <div className="w-2 h-2 rounded-full mr-3 group-hover:scale-125 transition-transform duration-300" style={{ backgroundColor: '#155d29' }}></div>
-                  Equipos SCHEUERLE
+                  Modulares Hidráulicos
                 </a>
               </li>
               <li>
