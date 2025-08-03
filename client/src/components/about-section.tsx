@@ -164,26 +164,31 @@ export default function AboutSection() {
 
         {/* CTA Section - TRANSERVICA Style */}
         <div className="text-center">
-          <div className="bg-white/90 backdrop-blur-sm rounded-3xl p-12 border border-transervica-green/30 shadow-xl">
-            <h3 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-6">
-              Múltiples <span className="text-transervica-green">Cargas Excepcionales</span>. Una Plataforma. Cero Complicaciones.
+          <div className="rounded-3xl p-12 border border-transervica-green/30 shadow-xl" style={{ backgroundColor: '#155d29' }}>
+            <h3 className="text-3xl lg:text-4xl font-bold text-white mb-6">
+              Múltiples <span className="text-white">Cargas Excepcionales</span>. Una Plataforma. Cero Complicaciones.
             </h3>
-            <p className="text-lg text-gray-700 mb-8 max-w-3xl mx-auto">
+            <p className="text-lg text-white mb-8 max-w-3xl mx-auto">
               Compare cotizaciones de transporte pesado y sobredimensionado, reserve al instante y rastree en tiempo real — todo con 
-              <span className="text-transervica-green font-bold"> TRANSERVICA</span>.
+              <span className="text-white font-bold"> TRANSERVICA</span>.
             </p>
             
             <div className="flex flex-col lg:flex-row gap-6 justify-center items-center max-w-2xl mx-auto">
               <button 
                 onClick={scrollToContact}
-                className="group relative px-10 py-4 bg-gradient-to-r from-transervica-green to-transervica-light-green text-white font-bold text-lg rounded-xl hover:shadow-2xl hover:shadow-transervica-green/40 transition-all duration-300 transform hover:scale-105 w-full lg:w-auto"
+                className="group relative px-10 py-4 bg-white text-black font-bold text-lg rounded-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 w-full lg:w-auto"
+                style={{ color: '#155d29' }}
+                onMouseEnter={(e) => { (e.target as HTMLElement).style.backgroundColor = '#f0f9f0'; (e.target as HTMLElement).style.color = '#0f4a21'; }}
+                onMouseLeave={(e) => { (e.target as HTMLElement).style.backgroundColor = 'white'; (e.target as HTMLElement).style.color = '#155d29'; }}
               >
                 OBTENER COTIZACIÓN INSTANTÁNEA
               </button>
               
               <a 
                 href="tel:+584142776340"
-                className="px-10 py-4 bg-transparent border-2 border-transervica-green text-transervica-green font-bold text-lg rounded-xl hover:bg-transervica-green hover:text-white transition-all duration-300 transform hover:scale-105 w-full lg:w-auto"
+                className="px-10 py-4 bg-transparent border-2 border-white text-white font-bold text-lg rounded-xl transition-all duration-300 transform hover:scale-105 w-full lg:w-auto"
+                onMouseEnter={(e) => { (e.target as HTMLElement).style.backgroundColor = 'white'; (e.target as HTMLElement).style.color = '#155d29'; }}
+                onMouseLeave={(e) => { (e.target as HTMLElement).style.backgroundColor = 'transparent'; (e.target as HTMLElement).style.color = 'white'; }}
               >
                 HABLAR CON UN ESPECIALISTA
               </a>
