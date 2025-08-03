@@ -247,7 +247,7 @@ export default function ProjectsCarousel() {
 
                 {/* CTA Button */}
                 <div className="mb-6">
-                  <button className="w-full md:w-auto text-white font-bold py-4 px-8 rounded-xl transform transition-all duration-200 hover:scale-105 hover:shadow-lg" style={{ backgroundColor: '#155d29' }} onMouseEnter={(e) => (e.target as HTMLElement).style.backgroundColor = '#0f4a21'} onMouseLeave={(e) => (e.target as HTMLElement).style.backgroundColor = '#155d29'}>
+                  <button className="w-full md:w-auto text-white font-bold py-4 px-8 rounded-xl transform transition-all duration-200 hover:scale-105 hover:shadow-lg" style={{ backgroundColor: '#155d29' }} onMouseEnter={(e) => (e.target as HTMLElement).style.backgroundColor = '#a8e6a8'} onMouseLeave={(e) => (e.target as HTMLElement).style.backgroundColor = '#155d29'}>
                     {currentCTA}
                   </button>
                 </div>
