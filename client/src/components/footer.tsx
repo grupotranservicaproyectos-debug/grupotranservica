@@ -182,6 +182,17 @@ export default function Footer() {
                 </a>
               </li>
               <li>
+                <a 
+                  href="/blog" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-slate-600 hover:text-white transition-all duration-300 font-medium flex items-center group"
+                >
+                  <div className="w-2 h-2 rounded-full mr-3 group-hover:scale-125 transition-transform duration-300" style={{ backgroundColor: '#155d29' }}></div>
+                  Blog Corporativo
+                </a>
+              </li>
+              <li>
                 <a href="#" className="text-slate-600 hover:text-white transition-all duration-300 font-medium flex items-center group">
                   <div className="w-2 h-2 rounded-full mr-3 group-hover:scale-125 transition-transform duration-300" style={{ backgroundColor: '#155d29' }}></div>
                   Centro de Ayuda

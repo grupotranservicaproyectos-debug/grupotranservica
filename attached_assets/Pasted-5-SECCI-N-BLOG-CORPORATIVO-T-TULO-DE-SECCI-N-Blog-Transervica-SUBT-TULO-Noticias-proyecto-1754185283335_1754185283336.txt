@@ -1,0 +1,56 @@
+5. SECCIÓN BLOG CORPORATIVO
+
+TÍTULO DE SECCIÓN: "Blog Transervica"
+SUBTÍTULO: "Noticias, proyectos y novedades del sector transporte"
+
+ESTRUCTURA DEL BLOG:
+• Página dedicada: /blog/
+• Categorías principales:
+  - Proyectos Ejecutados
+  - Noticias del Sector
+  - Tecnología y Equipos
+  - Casos de Éxito
+  - Normativas INTT
+
+ARTÍCULOS SUGERIDOS PARA LANZAMIENTO:
+
+ARTÍCULO 1: "Transporte de Transformador 333 MVA: Un Hito en Venezuela"
+• Categoría: Proyectos Ejecutados
+• Contenido: Detalles técnicos del proyecto, desafíos superados
+• Palabras clave: "transporte transformador Venezuela", "333 MVA"
+• CTA: "Solicita cotización para tu proyecto"
+
+ARTÍCULO 2: "Grúas Alemanas Grove y Liebherr: Tecnología de Vanguardia"
+• Categoría: Tecnología y Equipos
+• Contenido: Especificaciones técnicas, ventajas competitivas
+• Palabras clave: "grúas alemanas Venezuela", "Grove Liebherr"
+• CTA: "Conoce nuestros equipos"
+
+ARTÍCULO 3: "40 Años Transportando el Futuro de Venezuela"
+• Categoría: Historia Corporativa
+• Contenido: Evolución de la empresa, hitos importantes
+• Palabras clave: "historia Transervica", "40 años experiencia"
+• CTA: "Conoce nuestra trayectoria"
+
+ARTÍCULO 4: "Normativas INTT para Transporte de Cargas Excepcionales"
+• Categoría: Normativas INTT
+• Contenido: Guía completa de permisos y regulaciones
+• Palabras clave: "permisos INTT Venezuela", "cargas excepcionales"
+• CTA: "Gestiona tus permisos con nosotros"
+
+ARTÍCULO 5: "Trailers Modulares Hidráulicos: La Clave del Éxito"
+• Categoría: Tecnología y Equipos
+• Contenido: Ventajas de la tecnología modular hidráulica
+• Palabras clave: "trailers modulares hidráulicos", "SCHEUERLE Venezuela"
+• CTA: "Solicita información técnica"
+
+DISEÑO DEL BLOG:
+• Layout de tarjetas con imagen destacada
+• Extracto de 150 caracteres por artículo
+• Fecha de publicación visible
+• Autor del artículo
+• Tiempo estimado de lectura
+• Botones de compartir en redes sociales
+• Comentarios habilitados
+• Sidebar con artículos relacionados
+• Buscador interno del blog
