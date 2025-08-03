@@ -22,20 +22,22 @@ export default function LanguageSwitcher() {
 
   const VenezuelaFlag = () => (
     <svg className="w-6 h-4" viewBox="0 0 21 14" xmlns="http://www.w3.org/2000/svg">
-      <rect width="21" height="14" fill="#FFCC00"/>
-      <rect width="21" height="4.67" fill="#CF142B"/>
-      <rect y="9.33" width="21" height="4.67" fill="#00247D"/>
-      <g transform="translate(6.5,7)">
-        <circle r="1.5" fill="#FFFFFF"/>
-        <g transform="scale(0.7)">
-          <polygon points="0,-2 0.6,-0.6 2,0 0.6,0.6 0,2 -0.6,0.6 -2,0 -0.6,-0.6" fill="#FFCC00"/>
-          <polygon points="1.5,-1 1.8,-0.3 2.5,0 1.8,0.3 1.5,1 1.2,0.3 0.5,0 1.2,-0.3" fill="#FFCC00"/>
-          <polygon points="-1.5,-1 -1.2,-0.3 -0.5,0 -1.2,0.3 -1.5,1 -1.8,0.3 -2.5,0 -1.8,-0.3" fill="#FFCC00"/>
-          <polygon points="1.5,1 1.8,1.7 2.5,2 1.8,2.3 1.5,3 1.2,2.3 0.5,2 1.2,1.7" fill="#FFCC00"/>
-          <polygon points="-1.5,1 -1.2,1.7 -0.5,2 -1.2,2.3 -1.5,3 -1.8,2.3 -2.5,2 -1.8,1.7" fill="#FFCC00"/>
-          <polygon points="0,1.5 0.3,2.2 1,2.5 0.3,2.8 0,3.5 -0.3,2.8 -1,2.5 -0.3,2.2" fill="#FFCC00"/>
-          <polygon points="0,-1.5 0.3,-0.8 1,-0.5 0.3,-0.2 0,0.5 -0.3,-0.2 -1,-0.5 -0.3,-0.8" fill="#FFCC00"/>
-          <polygon points="2.5,-0.5 2.8,0.2 3.5,0.5 2.8,0.8 2.5,1.5 2.2,0.8 1.5,0.5 2.2,0.2" fill="#FFCC00"/>
+      {/* Venezuelan flag: Yellow, Blue, Red horizontal stripes */}
+      <rect width="21" height="4.67" fill="#FFCC00" y="0"/>
+      <rect width="21" height="4.67" fill="#00247D" y="4.67"/>
+      <rect width="21" height="4.67" fill="#CF142B" y="9.33"/>
+      {/* Stars arc in the blue stripe */}
+      <g transform="translate(10.5,7)" fill="#FFFFFF">
+        <g transform="scale(0.4)">
+          <polygon points="0,-3 0.9,-0.9 3,0 0.9,0.9 0,3 -0.9,0.9 -3,0 -0.9,-0.9" transform="translate(-6,0)"/>
+          <polygon points="0,-3 0.9,-0.9 3,0 0.9,0.9 0,3 -0.9,0.9 -3,0 -0.9,-0.9" transform="translate(-3,0)"/>
+          <polygon points="0,-3 0.9,-0.9 3,0 0.9,0.9 0,3 -0.9,0.9 -3,0 -0.9,-0.9" transform="translate(0,0)"/>
+          <polygon points="0,-3 0.9,-0.9 3,0 0.9,0.9 0,3 -0.9,0.9 -3,0 -0.9,-0.9" transform="translate(3,0)"/>
+          <polygon points="0,-3 0.9,-0.9 3,0 0.9,0.9 0,3 -0.9,0.9 -3,0 -0.9,-0.9" transform="translate(6,0)"/>
+          <polygon points="0,-3 0.9,-0.9 3,0 0.9,0.9 0,3 -0.9,0.9 -3,0 -0.9,-0.9" transform="translate(-4.5,2)"/>
+          <polygon points="0,-3 0.9,-0.9 3,0 0.9,0.9 0,3 -0.9,0.9 -3,0 -0.9,-0.9" transform="translate(-1.5,2)"/>
+          <polygon points="0,-3 0.9,-0.9 3,0 0.9,0.9 0,3 -0.9,0.9 -3,0 -0.9,-0.9" transform="translate(1.5,2)"/>
+          <polygon points="0,-3 0.9,-0.9 3,0 0.9,0.9 0,3 -0.9,0.9 -3,0 -0.9,-0.9" transform="translate(4.5,2)"/>
         </g>
       </g>
     </svg>
