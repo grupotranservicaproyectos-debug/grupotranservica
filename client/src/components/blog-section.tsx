@@ -315,30 +315,8 @@ export default function BlogSection() {
           </div>
         </div>
 
-        {/* Categories and Newsletter */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
-          
-          {/* Categories */}
-          <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
-            <h3 className="text-xl font-bold mb-6 flex items-center gap-3" style={{ color: '#155d29' }}>
-              <div className="w-8 h-8 bg-gradient-to-br from-[#155d29] to-[#0f4a21] rounded-full flex items-center justify-center">
-                <Truck className="w-4 h-4 text-white" />
-              </div>
-              Categorías Especializadas
-            </h3>
-            <div className="grid grid-cols-2 gap-3">
-              {categories.slice(1).map((category) => (
-                <button
-                  key={category}
-                  className="px-4 py-3 rounded-xl border border-gray-200 text-sm font-medium hover:border-[#155d29] hover:bg-[#155d29] hover:text-white transition-all duration-300 hover:shadow-md text-left"
-                >
-                  {category}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Newsletter Subscription */}
+        {/* Newsletter Subscription */}
+        <div className="max-w-lg mx-auto mb-16">
           <div className="bg-gradient-to-br from-[#155d29] to-[#0f4a21] rounded-2xl p-6 text-white shadow-xl relative overflow-hidden">
             {/* Background pattern for contrast */}
             <div className="absolute inset-0 opacity-15">
