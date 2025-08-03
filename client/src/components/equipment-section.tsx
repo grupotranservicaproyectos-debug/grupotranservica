@@ -182,29 +182,29 @@ export default function EquipmentSection() {
         </div>
 
         <div className="text-center mt-16">
-          <div className="bg-gradient-to-r from-green-50 via-white to-green-50 rounded-2xl p-8 md:p-12 shadow-xl border" style={{ borderColor: 'rgba(21, 93, 41, 0.1)' }}>
-            <h3 className="text-2xl font-bold mb-4" style={{ color: '#155d29' }}>
+          <div className="rounded-2xl p-8 md:p-12 shadow-xl border" style={{ backgroundColor: '#155d29', borderColor: 'rgba(21, 93, 41, 0.1)' }}>
+            <h3 className="text-2xl font-bold mb-4 text-white">
               ¿Necesita equipos especializados para su proyecto?
             </h3>
-            <p className="text-lg text-slate-600 mb-8 max-w-2xl mx-auto">
+            <p className="text-lg text-white mb-8 max-w-2xl mx-auto">
               Consulte nuestra disponibilidad de equipos y obtenga una cotización personalizada para su operación
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button 
                 onClick={() => window.open('https://wa.me/584142776340?text=Hola%2C%20necesito%20consultar%20disponibilidad%20de%20equipos%20especializados', '_blank')}
-                className="text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
-                style={{ backgroundColor: '#155d29' }}
-                onMouseEnter={(e) => (e.target as HTMLElement).style.backgroundColor = '#0f4a21'}
-                onMouseLeave={(e) => (e.target as HTMLElement).style.backgroundColor = '#155d29'}
+                className="font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg bg-white"
+                style={{ color: '#155d29' }}
+                onMouseEnter={(e) => { (e.target as HTMLElement).style.backgroundColor = '#f0f9f0'; (e.target as HTMLElement).style.color = '#0f4a21'; }}
+                onMouseLeave={(e) => { (e.target as HTMLElement).style.backgroundColor = 'white'; (e.target as HTMLElement).style.color = '#155d29'; }}
               >
                 Consultar Disponibilidad
               </button>
               <button 
                 onClick={scrollToContact}
-                className="border-2 font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 hover:text-white"
-                style={{ borderColor: '#155d29', color: '#155d29' }}
-                onMouseEnter={(e) => { (e.target as HTMLElement).style.backgroundColor = '#155d29'; (e.target as HTMLElement).style.color = 'white'; }}
-                onMouseLeave={(e) => { (e.target as HTMLElement).style.backgroundColor = 'transparent'; (e.target as HTMLElement).style.color = '#155d29'; }}
+                className="border-2 font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 bg-transparent text-white"
+                style={{ borderColor: 'white' }}
+                onMouseEnter={(e) => { (e.target as HTMLElement).style.backgroundColor = 'white'; (e.target as HTMLElement).style.color = '#155d29'; }}
+                onMouseLeave={(e) => { (e.target as HTMLElement).style.backgroundColor = 'transparent'; (e.target as HTMLElement).style.color = 'white'; }}
               >
                 Solicitar Especificaciones
               </button>
