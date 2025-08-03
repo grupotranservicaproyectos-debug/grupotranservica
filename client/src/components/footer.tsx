@@ -218,35 +218,7 @@ export default function Footer() {
               </a>
             </div>
             
-            {/* Enhanced Policy Links */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
-              <div className="group flex items-center p-4 bg-gray-800 rounded-xl hover:bg-gray-750 transition-all duration-300 hover:scale-105">
-                <div className="w-10 h-10 bg-red-600 rounded-lg flex items-center justify-center mr-4 group-hover:bg-red-500 transition-colors duration-300">
-                  <span className="text-white font-bold">i</span>
-                </div>
-                <a href="#privacy" className="text-white hover:text-gray-300 transition-colors duration-200 font-medium">
-                  {t('footer.policies.privacy')}
-                </a>
-              </div>
-              
-              <div className="group flex items-center p-4 bg-gray-800 rounded-xl hover:bg-gray-750 transition-all duration-300 hover:scale-105">
-                <div className="w-10 h-10 bg-red-600 rounded-lg flex items-center justify-center mr-4 group-hover:bg-red-500 transition-colors duration-300">
-                  <span className="text-white font-bold">i</span>
-                </div>
-                <a href="#security" className="text-white hover:text-gray-300 transition-colors duration-200 font-medium">
-                  {t('footer.policies.security')}
-                </a>
-              </div>
-              
-              <div className="group flex items-center p-4 bg-gray-800 rounded-xl hover:bg-gray-750 transition-all duration-300 hover:scale-105">
-                <div className="w-10 h-10 bg-red-600 rounded-lg flex items-center justify-center mr-4 group-hover:bg-red-500 transition-colors duration-300">
-                  <span className="text-white font-bold">i</span>
-                </div>
-                <a href="#management" className="text-white hover:text-gray-300 transition-colors duration-200 font-medium">
-                  {t('footer.policies.management')}
-                </a>
-              </div>
-            </div>
+            
           </div>
         </div>
 
