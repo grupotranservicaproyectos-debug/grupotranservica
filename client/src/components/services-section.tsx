@@ -150,26 +150,29 @@ export default function ServicesSection() {
         </div>
 
         <div className="text-center mt-16">
-          <div className="rounded-2xl p-8 md:p-12 shadow-xl border border-gray-100" style={{ backgroundColor: '#155d29' }}>
-            <h3 className="text-2xl font-bold mb-4 text-white">¿Necesita Transportar Cargas Excepcionales?</h3>
-            <p className="text-lg text-white mb-8 max-w-2xl mx-auto">
+          <div className="rounded-2xl p-8 md:p-12 shadow-xl border border-gray-100" style={{ background: 'linear-gradient(135deg, #f0f9f0 0%, #ffffff 50%, #f0f9f0 100%)' }}>
+            <h3 className="text-2xl font-bold mb-4" style={{ color: '#155d29' }}>
+              ¿Necesita transportar cargas excepcionales?
+            </h3>
+            <p className="text-lg text-slate-600 mb-8 max-w-2xl mx-auto">
               Permítanos evaluar su proyecto y ofrecerle la mejor solución de transporte especializado
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button 
                 onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                className="bg-white font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
-                style={{ color: '#155d29' }}
-                onMouseEnter={(e) => { (e.target as HTMLElement).style.backgroundColor = '#f0f9f0'; }}
-                onMouseLeave={(e) => { (e.target as HTMLElement).style.backgroundColor = 'white'; }}
+                className="text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
+                style={{ backgroundColor: '#155d29' }}
+                onMouseEnter={(e) => (e.target as HTMLElement).style.backgroundColor = '#0f4a21'}
+                onMouseLeave={(e) => (e.target as HTMLElement).style.backgroundColor = '#155d29'}
               >
                 Solicitar Cotización Ahora
               </button>
               <button 
                 onClick={() => window.open('https://wa.me/584142776340?text=Hola%2C%20necesito%20hablar%20con%20un%20especialista%20sobre%20transporte%20de%20cargas%20excepcionales', '_blank')}
-                className="border-2 border-white text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105"
-                onMouseEnter={(e) => { (e.target as HTMLElement).style.backgroundColor = 'white'; (e.target as HTMLElement).style.color = '#155d29'; }}
-                onMouseLeave={(e) => { (e.target as HTMLElement).style.backgroundColor = 'transparent'; (e.target as HTMLElement).style.color = 'white'; }}
+                className="border-2 font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105"
+                style={{ borderColor: '#155d29', color: '#155d29' }}
+                onMouseEnter={(e) => { (e.target as HTMLElement).style.backgroundColor = '#155d29'; (e.target as HTMLElement).style.color = 'white'; }}
+                onMouseLeave={(e) => { (e.target as HTMLElement).style.backgroundColor = 'transparent'; (e.target as HTMLElement).style.color = '#155d29'; }}
               >
                 Hablar con un Especialista
               </button>
