@@ -124,32 +124,87 @@ export default function Footer() {
           
           {/* Servicios */}
           <div>
-            <h3 className="text-lg font-semibold mb-6" style={{ color: '#155d29' }}>Servicios</h3>
-            <ul className="space-y-3 text-sm">
-              <li><a href="#servicios" className="text-gray-300 hover:text-white transition">Transporte Cargas Excepcionales</a></li>
-              <li><a href="#servicios" className="text-gray-300 hover:text-white transition">Izamiento con Grúas Alemanas</a></li>
-              <li><a href="#servicios" className="text-gray-300 hover:text-white transition">Logística de Ingeniería</a></li>
-              <li><a href="#equipos" className="text-gray-300 hover:text-white transition">Equipos SCHEUERLE</a></li>
-              <li><a href="#equipos" className="text-gray-300 hover:text-white transition">Grúas Grove y Liebherr</a></li>
+            <h3 className="text-xl font-bold mb-6" style={{ color: '#155d29' }}>Servicios</h3>
+            <ul className="space-y-4 text-sm">
+              <li>
+                <a href="#servicios" className="text-slate-600 hover:text-white transition-all duration-300 font-medium flex items-center group">
+                  <div className="w-2 h-2 rounded-full mr-3 group-hover:scale-125 transition-transform duration-300" style={{ backgroundColor: '#155d29' }}></div>
+                  Transporte Cargas Excepcionales
+                </a>
+              </li>
+              <li>
+                <a href="#servicios" className="text-slate-600 hover:text-white transition-all duration-300 font-medium flex items-center group">
+                  <div className="w-2 h-2 rounded-full mr-3 group-hover:scale-125 transition-transform duration-300" style={{ backgroundColor: '#155d29' }}></div>
+                  Izamiento con Grúas Alemanas
+                </a>
+              </li>
+              <li>
+                <a href="#servicios" className="text-slate-600 hover:text-white transition-all duration-300 font-medium flex items-center group">
+                  <div className="w-2 h-2 rounded-full mr-3 group-hover:scale-125 transition-transform duration-300" style={{ backgroundColor: '#155d29' }}></div>
+                  Logística de Ingeniería
+                </a>
+              </li>
+              <li>
+                <a href="#equipos" className="text-slate-600 hover:text-white transition-all duration-300 font-medium flex items-center group">
+                  <div className="w-2 h-2 rounded-full mr-3 group-hover:scale-125 transition-transform duration-300" style={{ backgroundColor: '#155d29' }}></div>
+                  Equipos SCHEUERLE
+                </a>
+              </li>
+              <li>
+                <a href="#equipos" className="text-slate-600 hover:text-white transition-all duration-300 font-medium flex items-center group">
+                  <div className="w-2 h-2 rounded-full mr-3 group-hover:scale-125 transition-transform duration-300" style={{ backgroundColor: '#155d29' }}></div>
+                  Grúas Grove y Liebherr
+                </a>
+              </li>
             </ul>
           </div>
 
           {/* Recursos */}
           <div>
-            <h3 className="text-lg font-semibold mb-6" style={{ color: '#155d29' }}>Recursos</h3>
-            <ul className="space-y-3 text-sm">
-              <li><a href="#nosotros" className="text-gray-300 hover:text-white transition">Nosotros</a></li>
-              <li><a href="#equipos" className="text-gray-300 hover:text-white transition">Nuestros Equipos</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition">Casos de Estudio</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition">Centro de Ayuda</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition">Documentación Técnica</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition">FAQs</a></li>
+            <h3 className="text-xl font-bold mb-6" style={{ color: '#155d29' }}>Recursos</h3>
+            <ul className="space-y-4 text-sm">
+              <li>
+                <a href="#nosotros" className="text-slate-600 hover:text-white transition-all duration-300 font-medium flex items-center group">
+                  <div className="w-2 h-2 rounded-full mr-3 group-hover:scale-125 transition-transform duration-300" style={{ backgroundColor: '#155d29' }}></div>
+                  Nosotros
+                </a>
+              </li>
+              <li>
+                <a href="#equipos" className="text-slate-600 hover:text-white transition-all duration-300 font-medium flex items-center group">
+                  <div className="w-2 h-2 rounded-full mr-3 group-hover:scale-125 transition-transform duration-300" style={{ backgroundColor: '#155d29' }}></div>
+                  Nuestros Equipos
+                </a>
+              </li>
+              <li>
+                <a href="#" className="text-slate-600 hover:text-white transition-all duration-300 font-medium flex items-center group">
+                  <div className="w-2 h-2 rounded-full mr-3 group-hover:scale-125 transition-transform duration-300" style={{ backgroundColor: '#155d29' }}></div>
+                  Casos de Estudio
+                </a>
+              </li>
+              <li>
+                <a href="#" className="text-slate-600 hover:text-white transition-all duration-300 font-medium flex items-center group">
+                  <div className="w-2 h-2 rounded-full mr-3 group-hover:scale-125 transition-transform duration-300" style={{ backgroundColor: '#155d29' }}></div>
+                  Centro de Ayuda
+                </a>
+              </li>
+              <li>
+                <a href="#" className="text-slate-600 hover:text-white transition-all duration-300 font-medium flex items-center group">
+                  <div className="w-2 h-2 rounded-full mr-3 group-hover:scale-125 transition-transform duration-300" style={{ backgroundColor: '#155d29' }}></div>
+                  Documentación Técnica
+                </a>
+              </li>
+              <li>
+                <a href="#" className="text-slate-600 hover:text-white transition-all duration-300 font-medium flex items-center group">
+                  <div className="w-2 h-2 rounded-full mr-3 group-hover:scale-125 transition-transform duration-300" style={{ backgroundColor: '#155d29' }}></div>
+                  FAQs
+                </a>
+              </li>
             </ul>
           </div>
 
           {/* Newsletter */}
           <div>
-            <h3 className="text-lg font-semibold text-white mb-6">Suscríbete a nuestro newsletter</h3>
+            <h3 className="text-xl font-bold mb-6" style={{ color: '#155d29' }}>Suscríbete a nuestro newsletter</h3>
             <div className="mb-4">
               <input 
                 type="email" 
@@ -157,7 +212,12 @@ export default function Footer() {
                 className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-transervica-green transition"
               />
             </div>
-            <button className="w-full bg-transervica-green hover:bg-transervica-light-green text-white px-4 py-3 rounded-lg font-semibold transition-all duration-300">
+            <button 
+              className="w-full text-white px-4 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-md"
+              style={{ backgroundColor: '#155d29' }}
+              onMouseEnter={(e) => (e.target as HTMLElement).style.backgroundColor = '#0f4a21'}
+              onMouseLeave={(e) => (e.target as HTMLElement).style.backgroundColor = '#155d29'}
+            >
               →
             </button>
           </div>
@@ -191,7 +251,10 @@ export default function Footer() {
               </a>
               <button 
                 onClick={scrollToContact}
-                className="bg-transervica-green hover:bg-transervica-light-green text-white px-4 py-2 rounded-lg font-semibold transition text-sm"
+                className="text-white px-6 py-3 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 hover:shadow-lg text-sm"
+                style={{ backgroundColor: '#155d29' }}
+                onMouseEnter={(e) => (e.target as HTMLElement).style.backgroundColor = '#0f4a21'}
+                onMouseLeave={(e) => (e.target as HTMLElement).style.backgroundColor = '#155d29'}
               >
                 SEGUIR EN REDES
               </button>
