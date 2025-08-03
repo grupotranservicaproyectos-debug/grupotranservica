@@ -87,7 +87,7 @@ export default function ServicesSection() {
           <div className="max-w-4xl mx-auto mb-12">
             <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl bg-black">
               <iframe
-                src="https://www.youtube.com/embed/PF8SuO_3ZLU?autoplay=1&mute=1&start=23&end=147&controls=1&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&vq=hd1080"
+                src="https://www.youtube.com/embed/PF8SuO_3ZLU?autoplay=1&mute=1&start=23&end=147&controls=1&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&vq=hd1080&hd=1&quality=hd1080"
                 title="TRANSERVICA - Servicios Logísticos"
                 className="absolute inset-0 w-full h-full"
                 frameBorder="0"
