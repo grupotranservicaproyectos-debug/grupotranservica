@@ -41,7 +41,7 @@ export default function HeroSection() {
         />
         
         {/* Minimal overlay only where needed */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent z-10"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent z-10"></div>
       </div>
       {/* Transportes Montejo Style Navigation - Optimized for Mobile */}
       <nav className="absolute top-0 left-0 right-0 z-50 bg-white shadow-md">
@@ -254,19 +254,19 @@ export default function HeroSection() {
       <div className="absolute inset-0 z-20 flex items-end justify-start">
         <div className="w-full mobile-padding">
           <div className="pb-16 sm:pb-20 lg:pb-24">
-            <div className="bg-black/80 backdrop-blur-md rounded-xl border border-white/30 shadow-2xl p-5 sm:p-7 lg:p-9 w-fit max-w-full sm:max-w-2xl lg:max-w-3xl animate-slide-up">
-              {/* Main Title - Better contrast and positioning */}
-              <h1 className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold mb-3 sm:mb-4 lg:mb-5 leading-tight text-[#7dd87a] text-wrap-balance drop-shadow-lg">
+            <div className="bg-black/60 backdrop-blur-sm rounded-xl border border-white/20 shadow-xl p-5 sm:p-7 lg:p-9 w-fit max-w-full sm:max-w-2xl lg:max-w-3xl animate-slide-up">
+              {/* Main Title - Enhanced contrast */}
+              <h1 className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold mb-3 sm:mb-4 lg:mb-5 leading-tight text-[#7dd87a] text-wrap-balance" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8), 0 0 8px rgba(0,0,0,0.5)' }}>
                 {t('hero.title')}
               </h1>
               
-              {/* Subtitle - Better visibility */}
-              <h2 className="text-sm sm:text-base lg:text-lg xl:text-xl font-bold mb-3 sm:mb-4 lg:mb-5 text-[#a8e6a8] text-wrap-balance drop-shadow-md">
+              {/* Subtitle - Enhanced visibility */}
+              <h2 className="text-sm sm:text-base lg:text-lg xl:text-xl font-bold mb-3 sm:mb-4 lg:mb-5 text-[#a8e6a8] text-wrap-balance" style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.8), 0 0 6px rgba(0,0,0,0.5)' }}>
                 {t('hero.subtitle')}
               </h2>
               
-              {/* Description - Better readability */}
-              <p className="text-sm sm:text-base lg:text-base mb-4 sm:mb-5 lg:mb-6 text-white leading-relaxed max-w-md sm:max-w-lg lg:max-w-2xl text-wrap-pretty drop-shadow-sm">
+              {/* Description - Enhanced readability */}
+              <p className="text-sm sm:text-base lg:text-base mb-4 sm:mb-5 lg:mb-6 text-white leading-relaxed max-w-md sm:max-w-lg lg:max-w-2xl text-wrap-pretty" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8), 0 0 4px rgba(0,0,0,0.6)' }}>
                 {t('hero.description')}
               </p>
               
@@ -274,7 +274,7 @@ export default function HeroSection() {
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                 <button 
                   onClick={scrollToContact}
-                  className="flex items-center justify-center bg-white text-black px-5 sm:px-6 py-3 sm:py-3.5 rounded-lg text-sm sm:text-base font-bold hover:bg-gray-100 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:scale-105"
+                  className="flex items-center justify-center bg-white/95 text-black px-5 sm:px-6 py-3 sm:py-3.5 rounded-lg text-sm sm:text-base font-bold hover:bg-white transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:scale-105 backdrop-blur-sm"
                 >
                   <svg className="w-4 h-4 sm:w-5 sm:h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M8 5v14l11-7z"/>
@@ -283,7 +283,7 @@ export default function HeroSection() {
                 </button>
                 <button 
                   onClick={() => scrollToSection('servicios')}
-                  className="flex items-center justify-center bg-gray-800/80 text-white px-5 sm:px-6 py-3 sm:py-3.5 rounded-lg text-sm sm:text-base font-bold hover:bg-gray-700/90 transition-all duration-300 backdrop-blur-sm shadow-xl border border-white/20 hover:border-white/40 transform hover:scale-105"
+                  className="flex items-center justify-center bg-gray-900/70 text-white px-5 sm:px-6 py-3 sm:py-3.5 rounded-lg text-sm sm:text-base font-bold hover:bg-gray-800/80 transition-all duration-300 backdrop-blur-sm shadow-xl border border-white/30 hover:border-white/50 transform hover:scale-105"
                 >
                   <svg className="w-4 h-4 sm:w-5 sm:h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
