@@ -54,12 +54,7 @@ export default function AboutSection() {
                     allowFullScreen
                   />
                 </div>
-                <div className="absolute bottom-4 left-4 right-4 z-10">
-                  <div className="bg-white/95 backdrop-blur-sm rounded-xl p-4 border border-transervica-green/60 shadow-lg">
-                    <p className="font-bold text-lg" style={{ color: '#155d29' }}>40 Años de Experiencia</p>
-                    <p className="text-sm" style={{ color: 'hsl(0, 0%, 15%)' }}>Líderes en Venezuela</p>
-                  </div>
-                </div>
+                
               </div>
             </div>
           </div>
