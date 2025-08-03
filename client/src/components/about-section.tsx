@@ -44,7 +44,7 @@ export default function AboutSection() {
               <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-black">
                 <div className="relative aspect-video">
                   <iframe
-                    src="https://www.youtube.com/embed/0-vWA7PJp3s?autoplay=1&mute=1&start=32&controls=1&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&vq=hd1080&hd=1&quality=hd1080"
+                    src="https://www.youtube.com/embed/0-vWA7PJp3s?autoplay=1&mute=1&start=32&controls=1&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&vq=hd1080&quality=hd1080&hd=1&fmt=22"
                     title="TRANSERVICA - 40 Años de Experiencia"
                     className="absolute inset-0 w-full h-full"
                     frameBorder="0"
