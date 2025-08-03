@@ -23,7 +23,7 @@ export default function HeroSection() {
       <div className="absolute inset-0 z-0 overflow-hidden">
         <iframe
           className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
-          src="https://www.youtube.com/embed/_LQbWkWlg6s?autoplay=1&mute=1&controls=0&showinfo=0&rel=0&loop=1&playlist=_LQbWkWlg6s&modestbranding=1&start=7&iv_load_policy=3&cc_load_policy=0&disablekb=1&fs=0"
+          src="https://www.youtube.com/embed/_LQbWkWlg6s?autoplay=1&mute=1&controls=0&showinfo=0&rel=0&loop=1&playlist=_LQbWkWlg6s&modestbranding=1&start=7&iv_load_policy=3&cc_load_policy=0&disablekb=1&fs=0&vq=hd1080"
           title="Transervica Background Video"
           allow="autoplay; encrypted-media"
           style={{
