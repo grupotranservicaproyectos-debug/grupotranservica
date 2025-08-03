@@ -261,6 +261,30 @@ const translations = {
     
     // Footer
     'footer.description': 'Especializados en transporte de cargas excepcionales hasta 1,100 toneladas con trailers modulares hidráulicos. 40 años transportando el futuro de Venezuela con tecnología alemana de vanguardia.',
+    
+    // Footer sections
+    'footer.pages.title': 'Páginas',
+    'footer.pages.home': 'Inicio',
+    'footer.pages.about': 'Nosotros',
+    'footer.pages.services': 'Servicios',
+    'footer.pages.projects': 'Proyectos',
+    'footer.pages.contact': 'Contacto',
+    
+    'footer.resources.title': 'Recursos',
+    'footer.resources.blog': 'Blog',
+    'footer.resources.equipment': 'Equipos',
+    'footer.resources.help': 'Centro de Ayuda',
+    'footer.resources.specifications': 'Especificaciones',
+    'footer.resources.testimonials': 'Testimonios',
+    
+    'footer.policies.privacy': 'Política de Protección de Datos',
+    'footer.policies.security': 'Política de Seguridad Vial Integral',
+    'footer.policies.management': 'Política Integrada de Gestión',
+    
+    'footer.legal.terms': 'Términos de Servicio',
+    'footer.legal.privacy': 'Política de Privacidad',
+    'footer.legal.cookies': 'Acuerdo de Cookies',
+    'footer.legal.security': 'Política de Seguridad',
     'footer.quote.button': 'SOLICITAR COTIZACIÓN',
     'footer.maps.button': 'VER EN GOOGLE MAPS',
     'footer.services.title': 'Servicios',
@@ -536,6 +560,30 @@ const translations = {
     
     // Footer
     'footer.description': 'Specialized in exceptional cargo transportation up to 1,100 tons with hydraulic modular trailers. 40 years transporting Venezuela\'s future with cutting-edge German technology.',
+    
+    // Footer sections
+    'footer.pages.title': 'Pages',
+    'footer.pages.home': 'Home',
+    'footer.pages.about': 'About',
+    'footer.pages.services': 'Services',
+    'footer.pages.projects': 'Projects',
+    'footer.pages.contact': 'Contact',
+    
+    'footer.resources.title': 'Resources',
+    'footer.resources.blog': 'Blog',
+    'footer.resources.equipment': 'Equipment',
+    'footer.resources.help': 'Help Center',
+    'footer.resources.specifications': 'Specifications',
+    'footer.resources.testimonials': 'Testimonials',
+    
+    'footer.policies.privacy': 'Data Protection Policy',
+    'footer.policies.security': 'Comprehensive Road Safety Policy',
+    'footer.policies.management': 'Integrated Management Policy',
+    
+    'footer.legal.terms': 'Terms of Service',
+    'footer.legal.privacy': 'Privacy Policy',
+    'footer.legal.cookies': 'Cookie Agreement',
+    'footer.legal.security': 'Security Policy',
     'footer.quote.button': 'REQUEST QUOTE',
     'footer.maps.button': 'VIEW ON GOOGLE MAPS',
     'footer.services.title': 'Services',
