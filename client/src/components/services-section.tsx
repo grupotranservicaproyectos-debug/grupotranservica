@@ -4,21 +4,20 @@ import { useEffect, useRef, useState } from 'react';
 export default function ServicesSection() {
   const videoRef = useRef<HTMLIFrameElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
-  const [hasPlayed, setHasPlayed] = useState(false);
+  const [isVideoVisible, setIsVideoVisible] = useState(false);
+  const [hasAutoPlayed, setHasAutoPlayed] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting && !hasPlayed && videoRef.current) {
-            // Start video from 23 seconds and stop at 2:27 (147 seconds)
-            const iframe = videoRef.current;
-            iframe.src = "https://www.youtube.com/embed/PF8SuO_3ZLU?autoplay=1&mute=1&start=23&end=147&controls=1&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3";
-            setHasPlayed(true);
+          if (entry.isIntersecting && !hasAutoPlayed) {
+            setIsVideoVisible(true);
+            setHasAutoPlayed(true);
           }
         });
       },
-      { threshold: 0.5 }
+      { threshold: 0.3 }
     );
 
     if (sectionRef.current) {
@@ -26,7 +25,7 @@ export default function ServicesSection() {
     }
 
     return () => observer.disconnect();
-  }, [hasPlayed]);
+  }, [hasAutoPlayed]);
 
   const services = [
     {
@@ -114,7 +113,10 @@ export default function ServicesSection() {
             <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl bg-black">
               <iframe
                 ref={videoRef}
-                src="https://www.youtube.com/embed/PF8SuO_3ZLU?mute=1&controls=1&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3"
+                src={isVideoVisible ? 
+                  "https://www.youtube.com/embed/PF8SuO_3ZLU?autoplay=1&mute=1&start=23&end=147&controls=1&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3" :
+                  "https://www.youtube.com/embed/PF8SuO_3ZLU?mute=1&start=23&end=147&controls=1&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3"
+                }
                 title="TRANSERVICA - Servicios Logísticos"
                 className="absolute inset-0 w-full h-full"
                 frameBorder="0"
