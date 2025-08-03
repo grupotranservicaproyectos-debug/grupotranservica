@@ -214,7 +214,7 @@ export default function Footer() {
         <div className="border-t border-gray-800 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-gray-400 text-sm">
-              © 2024 TRANSERVICA C.A. {t('footer.rights')}
+              © 2025 TRANSERVICA C.A. - Todos los Derechos Reservados.
             </div>
             <div className="flex space-x-6 text-sm">
               <a href="#terms" className="text-gray-400 hover:text-white transition-colors duration-200">
