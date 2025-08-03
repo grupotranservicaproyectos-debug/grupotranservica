@@ -1,5 +1,14 @@
-import { Calendar, User, ArrowRight, Eye, MessageCircle } from "lucide-react";
+import { useState } from "react";
+import { Calendar, User, ArrowRight, Eye, MessageCircle, ChevronLeft, ChevronRight, Truck, Settings, Shield, Award } from "lucide-react";
 import { useLanguage } from '../contexts/LanguageContext';
+import transportImage1 from "@assets/1_1754173669382.jpeg";
+import transportImage2 from "@assets/2_1754173669382.jpg";
+import transportImage3 from "@assets/3_1754173669382.jpg";
+import transportImage4 from "@assets/4_1754173669383.jpg";
+import transportImage5 from "@assets/5_1754173669383.jpg";
+import equipmentImage1 from "@assets/7_1754162276863.png";
+import equipmentImage2 from "@assets/8_1754162276863.png";
+import equipmentImage3 from "@assets/9_1754162276864.png";
 
 interface BlogPost {
   id: number;
@@ -19,6 +28,8 @@ interface BlogPost {
 export default function BlogSection() {
   const { t } = useLanguage();
 
+  const [currentSlide, setCurrentSlide] = useState(0);
+
   const blogPosts: BlogPost[] = [
     {
       id: 1,
@@ -31,7 +42,7 @@ export default function BlogSection() {
       views: 2456,
       comments: 23,
       category: "Proyectos Destacados",
-      image: "/api/placeholder/600/400",
+      image: transportImage1,
       featured: true
     },
     {
@@ -45,7 +56,7 @@ export default function BlogSection() {
       views: 1834,
       comments: 15,
       category: "Equipos y Tecnología",
-      image: "/api/placeholder/600/400",
+      image: equipmentImage1,
       featured: true
     },
     {
@@ -59,7 +70,7 @@ export default function BlogSection() {
       views: 3245,
       comments: 41,
       category: "Normativas y Seguridad",
-      image: "/api/placeholder/600/400",
+      image: transportImage2,
       featured: false
     },
     {
@@ -73,7 +84,7 @@ export default function BlogSection() {
       views: 1967,
       comments: 28,
       category: "Logística Integral",
-      image: "/api/placeholder/600/400",
+      image: equipmentImage2,
       featured: false
     },
     {
@@ -87,7 +98,7 @@ export default function BlogSection() {
       views: 4521,
       comments: 67,
       category: "Historia Corporativa",
-      image: "/api/placeholder/600/400",
+      image: transportImage3,
       featured: true
     },
     {
@@ -101,7 +112,7 @@ export default function BlogSection() {
       views: 2103,
       comments: 19,
       category: "Mantenimiento",
-      image: "/api/placeholder/600/400",
+      image: equipmentImage3,
       featured: false
     }
   ];
@@ -117,144 +128,209 @@ export default function BlogSection() {
   ];
 
   const featuredPosts = blogPosts.filter(post => post.featured);
-  const recentPosts = blogPosts.slice(0, 4);
+  const itemsPerSlide = 3;
+  const totalSlides = Math.ceil(blogPosts.length / itemsPerSlide);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % totalSlides);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides);
+  };
+
+  const goToSlide = (index: number) => {
+    setCurrentSlide(index);
+  };
+
+  const getCurrentSlideItems = () => {
+    const startIndex = currentSlide * itemsPerSlide;
+    return blogPosts.slice(startIndex, startIndex + itemsPerSlide);
+  };
+
+  const getCategoryIcon = (category: string) => {
+    switch (category) {
+      case "Proyectos Destacados":
+        return Award;
+      case "Equipos y Tecnología":
+        return Settings;
+      case "Normativas y Seguridad":
+        return Shield;
+      default:
+        return Truck;
+    }
+  };
 
   return (
-    <section id="blog" className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-gray-50 to-white">
-      <div className="container mx-auto mobile-padding">
+    <section id="blog" className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-white via-gray-50 to-green-50/30">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-20 left-20 w-32 h-32 bg-[#155d29] rounded-full blur-3xl"></div>
+        <div className="absolute bottom-40 right-32 w-48 h-48 bg-[#155d29] rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="relative container mx-auto mobile-padding">
         
         {/* Header Section */}
         <div className="text-center mb-12 sm:mb-16">
+          <div className="inline-flex items-center gap-3 mb-6 px-6 py-3 bg-white/80 backdrop-blur-sm rounded-full border border-[#155d29]/20 shadow-lg">
+            <div className="w-8 h-8 bg-gradient-to-br from-[#155d29] to-[#0f4a21] rounded-full flex items-center justify-center">
+              <Calendar className="w-4 h-4 text-white" />
+            </div>
+            <span className="text-sm font-medium text-[#155d29]">Blog Corporativo</span>
+          </div>
+
           <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 sm:mb-6 text-wrap-balance" style={{ color: '#155d29' }}>
             {t('blog.title')}
           </h2>
           <p className="mobile-text lg:text-xl max-w-3xl mx-auto mb-6 sm:mb-8 text-gray-600 text-wrap-pretty">
             {t('blog.subtitle')}
           </p>
-          <div className="w-24 h-1 mx-auto rounded-full" style={{ backgroundColor: '#155d29' }}></div>
+          <div className="w-24 h-1 mx-auto rounded-full bg-gradient-to-r from-[#155d29] to-[#0f4a21]"></div>
         </div>
 
-        {/* Featured Posts Section */}
+        {/* Manual Carousel */}
         <div className="mb-16">
-          <h3 className="text-xl sm:text-2xl font-bold mb-8" style={{ color: '#155d29' }}>
-            Artículos Destacados
-          </h3>
-          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8">
-            {featuredPosts.map((post) => (
-              <article key={post.id} className="group bg-white rounded-xl sm:rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover:scale-105 border border-gray-100">
-                <div className="relative">
-                  <div className="aspect-video bg-gradient-to-br from-gray-200 to-gray-300 relative overflow-hidden">
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="text-center">
-                        <div className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center" style={{ backgroundColor: '#155d29' }}>
-                          <Calendar className="w-8 h-8 text-white" />
-                        </div>
-                        <p className="text-sm text-gray-600">Imagen del Proyecto</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="absolute top-4 left-4">
-                    <span className="bg-gradient-to-r from-emerald-500 to-green-500 text-white px-3 py-1 rounded-full text-xs font-medium">
-                      {post.category}
-                    </span>
-                  </div>
-                  <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full px-2 py-1">
-                    <span className="text-xs font-medium text-gray-700">Destacado</span>
-                  </div>
-                </div>
-                
-                <div className="p-6">
-                  <div className="flex items-center gap-4 mb-4 text-sm text-gray-500">
-                    <div className="flex items-center gap-1">
-                      <User className="w-4 h-4" />
-                      <span>{post.author}</span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <Calendar className="w-4 h-4" />
-                      <span>{new Date(post.date).toLocaleDateString('es-ES')}</span>
-                    </div>
-                  </div>
-                  
-                  <h4 className="text-lg font-bold mb-3 text-gray-900 group-hover:text-[#155d29] transition-colors duration-300 text-wrap-balance line-clamp-2">
-                    {post.title}
-                  </h4>
-                  
-                  <p className="text-gray-600 mb-4 text-sm leading-relaxed text-wrap-pretty line-clamp-3">
-                    {post.excerpt}
-                  </p>
-                  
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-4 text-xs text-gray-500">
-                      <div className="flex items-center gap-1">
-                        <Eye className="w-3 h-3" />
-                        <span>{post.views.toLocaleString()}</span>
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <MessageCircle className="w-3 h-3" />
-                        <span>{post.comments}</span>
-                      </div>
-                      <span>{post.readTime}</span>
-                    </div>
-                    
-                    <button className="flex items-center gap-1 text-[#155d29] font-medium text-sm hover:gap-2 transition-all duration-300 group-hover:text-[#0f4a21]">
-                      Leer más
-                      <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-                    </button>
-                  </div>
-                </div>
-              </article>
-            ))}
+          <div className="flex items-center justify-between mb-8">
+            <h3 className="text-xl sm:text-2xl font-bold" style={{ color: '#155d29' }}>
+              Noticias y Proyectos Destacados
+            </h3>
+            
+            {/* Carousel Controls */}
+            <div className="flex items-center gap-4">
+              <div className="flex gap-2">
+                {Array.from({ length: totalSlides }).map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => goToSlide(index)}
+                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                      currentSlide === index 
+                        ? 'bg-[#155d29] scale-125' 
+                        : 'bg-gray-300 hover:bg-gray-400'
+                    }`}
+                  />
+                ))}
+              </div>
+              
+              <div className="flex gap-2">
+                <button
+                  onClick={prevSlide}
+                  className="p-2 rounded-full bg-white border border-gray-200 hover:border-[#155d29] hover:bg-[#155d29] hover:text-white transition-all duration-300 shadow-md hover:shadow-lg group"
+                >
+                  <ChevronLeft className="w-5 h-5" />
+                </button>
+                <button
+                  onClick={nextSlide}
+                  className="p-2 rounded-full bg-white border border-gray-200 hover:border-[#155d29] hover:bg-[#155d29] hover:text-white transition-all duration-300 shadow-md hover:shadow-lg group"
+                >
+                  <ChevronRight className="w-5 h-5" />
+                </button>
+              </div>
+            </div>
           </div>
-        </div>
-
-        {/* Recent Posts Section */}
-        <div className="mb-16">
-          <h3 className="text-xl sm:text-2xl font-bold mb-8" style={{ color: '#155d29' }}>
-            Publicaciones Recientes
-          </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {recentPosts.map((post) => (
-              <article key={post.id} className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-gray-200">
-                <div className="aspect-video bg-gradient-to-br from-gray-200 to-gray-300 relative">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <Calendar className="w-8 h-8 text-gray-500" />
+          
+          {/* Carousel Items */}
+          <div className="overflow-hidden">
+            <div 
+              className="flex transition-transform duration-500 ease-in-out"
+              style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+            >
+              {Array.from({ length: totalSlides }).map((_, slideIndex) => (
+                <div key={slideIndex} className="w-full flex-shrink-0">
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                    {blogPosts.slice(slideIndex * itemsPerSlide, (slideIndex + 1) * itemsPerSlide).map((post) => {
+                      const CategoryIcon = getCategoryIcon(post.category);
+                      return (
+                        <article key={post.id} className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 hover:scale-105 border border-gray-100 hover:border-[#155d29]/30">
+                          <div className="relative">
+                            <div className="aspect-video overflow-hidden">
+                              <img 
+                                src={post.image} 
+                                alt={post.title}
+                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                              />
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            </div>
+                            
+                            <div className="absolute top-4 left-4">
+                              <div className="flex items-center gap-2 bg-gradient-to-r from-[#155d29] to-[#0f4a21] text-white px-3 py-2 rounded-full text-xs font-medium shadow-lg">
+                                <CategoryIcon className="w-3 h-3" />
+                                <span>{post.category}</span>
+                              </div>
+                            </div>
+                            
+                            {post.featured && (
+                              <div className="absolute top-4 right-4 bg-gradient-to-r from-orange-500 to-red-500 text-white px-3 py-1 rounded-full text-xs font-medium shadow-lg">
+                                Destacado
+                              </div>
+                            )}
+                          </div>
+                          
+                          <div className="p-6">
+                            <div className="flex items-center gap-4 mb-4 text-sm text-gray-500">
+                              <div className="flex items-center gap-1">
+                                <User className="w-4 h-4" />
+                                <span className="font-medium">{post.author}</span>
+                              </div>
+                              <div className="flex items-center gap-1">
+                                <Calendar className="w-4 h-4" />
+                                <span>{new Date(post.date).toLocaleDateString('es-ES')}</span>
+                              </div>
+                            </div>
+                            
+                            <h4 className="text-lg font-bold mb-3 text-gray-900 group-hover:text-[#155d29] transition-colors duration-300 text-wrap-balance line-clamp-2 leading-tight">
+                              {post.title}
+                            </h4>
+                            
+                            <p className="text-gray-600 mb-4 text-sm leading-relaxed text-wrap-pretty line-clamp-3">
+                              {post.excerpt}
+                            </p>
+                            
+                            <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+                              <div className="flex items-center gap-4 text-xs text-gray-500">
+                                <div className="flex items-center gap-1">
+                                  <Eye className="w-3 h-3" />
+                                  <span>{post.views.toLocaleString()}</span>
+                                </div>
+                                <div className="flex items-center gap-1">
+                                  <MessageCircle className="w-3 h-3" />
+                                  <span>{post.comments}</span>
+                                </div>
+                                <span className="bg-gray-100 px-2 py-1 rounded-full">{post.readTime}</span>
+                              </div>
+                              
+                              <button className="flex items-center gap-1 text-[#155d29] font-bold text-sm hover:gap-2 transition-all duration-300 group-hover:text-[#0f4a21] bg-green-50 hover:bg-[#155d29] hover:text-white px-3 py-2 rounded-lg">
+                                Leer más
+                                <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                              </button>
+                            </div>
+                          </div>
+                        </article>
+                      );
+                    })}
                   </div>
                 </div>
-                
-                <div className="p-4">
-                  <div className="mb-3">
-                    <span className="text-xs font-medium px-2 py-1 rounded-full bg-gray-100 text-gray-600">
-                      {post.category}
-                    </span>
-                  </div>
-                  
-                  <h4 className="text-sm font-bold mb-2 text-gray-900 group-hover:text-[#155d29] transition-colors duration-300 line-clamp-2">
-                    {post.title}
-                  </h4>
-                  
-                  <div className="flex items-center justify-between text-xs text-gray-500">
-                    <span>{new Date(post.date).toLocaleDateString('es-ES')}</span>
-                    <span>{post.readTime}</span>
-                  </div>
-                </div>
-              </article>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
 
         {/* Categories and Newsletter */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 sm:gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
           
           {/* Categories */}
-          <div className="lg:col-span-2">
-            <h3 className="text-xl font-bold mb-6" style={{ color: '#155d29' }}>
-              Categorías
+          <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
+            <h3 className="text-xl font-bold mb-6 flex items-center gap-3" style={{ color: '#155d29' }}>
+              <div className="w-8 h-8 bg-gradient-to-br from-[#155d29] to-[#0f4a21] rounded-full flex items-center justify-center">
+                <Truck className="w-4 h-4 text-white" />
+              </div>
+              Categorías Especializadas
             </h3>
-            <div className="flex flex-wrap gap-3">
-              {categories.map((category) => (
+            <div className="grid grid-cols-2 gap-3">
+              {categories.slice(1).map((category) => (
                 <button
                   key={category}
-                  className="px-4 py-2 rounded-full border border-gray-300 text-sm font-medium hover:border-[#155d29] hover:text-[#155d29] transition-all duration-300 hover:shadow-md"
+                  className="px-4 py-3 rounded-xl border border-gray-200 text-sm font-medium hover:border-[#155d29] hover:bg-[#155d29] hover:text-white transition-all duration-300 hover:shadow-md text-left"
                 >
                   {category}
                 </button>
@@ -263,40 +339,70 @@ export default function BlogSection() {
           </div>
 
           {/* Newsletter Subscription */}
-          <div className="bg-gradient-to-br from-[#155d29] to-[#0f4a21] rounded-2xl p-6 text-white">
-            <h3 className="text-xl font-bold mb-4">
-              Suscríbete a Nuestro Blog
-            </h3>
+          <div className="bg-gradient-to-br from-[#155d29] to-[#0f4a21] rounded-2xl p-6 text-white shadow-lg">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
+                <Calendar className="w-4 h-4 text-white" />
+              </div>
+              <h3 className="text-xl font-bold">
+                Newsletter TRANSERVICA
+              </h3>
+            </div>
             <p className="text-sm mb-6 text-green-100">
-              Recibe las últimas noticias del sector de transporte especializado
+              Recibe noticias exclusivas sobre proyectos de transporte especializado, equipos de última generación y normativas del sector
             </p>
             <div className="space-y-3">
               <input
                 type="email"
-                placeholder="Tu email"
-                className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-green-200 focus:outline-none focus:ring-2 focus:ring-white/50 backdrop-blur-sm"
+                placeholder="Ingresa tu email corporativo"
+                className="w-full px-4 py-3 rounded-xl bg-white/20 border border-white/30 text-white placeholder-green-200 focus:outline-none focus:ring-2 focus:ring-white/50 backdrop-blur-sm transition-all duration-300"
               />
-              <button className="w-full bg-white text-[#155d29] font-bold py-3 px-4 rounded-lg hover:bg-green-50 transition-all duration-300 transform hover:scale-105">
-                Suscribirse
+              <button className="w-full bg-white text-[#155d29] font-bold py-3 px-4 rounded-xl hover:bg-green-50 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                Suscribirse al Blog
               </button>
             </div>
           </div>
         </div>
 
         {/* Call to Action */}
-        <div className="text-center mt-16 p-8 bg-gradient-to-r from-[#155d29] to-[#0f4a21] rounded-2xl text-white">
-          <h3 className="text-2xl font-bold mb-4">
-            ¿Tienes un Proyecto de Transporte Especializado?
-          </h3>
-          <p className="mb-6 text-green-100 max-w-2xl mx-auto">
-            Nuestro equipo de expertos está listo para asesorarte y desarrollar la mejor solución logística para tu empresa
-          </p>
-          <button 
-            onClick={() => document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth' })}
-            className="bg-white text-[#155d29] font-bold py-4 px-8 rounded-xl hover:bg-green-50 transition-all duration-300 transform hover:scale-105 shadow-lg"
-          >
-            Consultar Proyecto
-          </button>
+        <div className="text-center mt-16 relative">
+          <div className="bg-gradient-to-r from-[#155d29] to-[#0f4a21] rounded-3xl p-8 sm:p-12 text-white shadow-2xl overflow-hidden">
+            {/* Background pattern */}
+            <div className="absolute inset-0 opacity-10">
+              <div className="absolute top-4 right-4 w-32 h-32 border border-white/20 rounded-full"></div>
+              <div className="absolute bottom-4 left-4 w-24 h-24 border border-white/20 rounded-full"></div>
+            </div>
+            
+            <div className="relative z-10">
+              <div className="flex items-center justify-center gap-3 mb-6">
+                <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+                  <Truck className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-2xl sm:text-3xl font-bold">
+                  ¿Tienes un Proyecto Especializado?
+                </h3>
+              </div>
+              <p className="mb-8 text-green-100 max-w-2xl mx-auto text-lg">
+                40 años de experiencia nos respaldan. Nuestro equipo de ingenieros está listo para desarrollar la mejor solución logística para tu empresa
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <button 
+                  onClick={() => document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="bg-white text-[#155d29] font-bold py-4 px-8 rounded-xl hover:bg-green-50 transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center gap-2"
+                >
+                  <ArrowRight className="w-5 h-5" />
+                  Consultar Proyecto
+                </button>
+                <button 
+                  onClick={() => document.getElementById('servicios')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="bg-white/20 backdrop-blur-sm text-white font-bold py-4 px-8 rounded-xl hover:bg-white/30 transition-all duration-300 transform hover:scale-105 border border-white/30 flex items-center justify-center gap-2"
+                >
+                  <Eye className="w-5 h-5" />
+                  Ver Servicios
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
