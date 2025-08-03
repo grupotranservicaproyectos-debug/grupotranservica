@@ -107,7 +107,7 @@ export default function EquipmentSection() {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-slate-50 to-gray-100">
+    <section id="equipos" className="py-20 bg-gradient-to-br from-slate-50 to-gray-100">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-6" style={{ color: '#155d29' }}>{t('equipment.title')}</h2>
