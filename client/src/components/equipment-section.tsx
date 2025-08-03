@@ -112,7 +112,6 @@ export default function EquipmentSection() {
           <p className="text-xl text-slate-600 max-w-4xl mx-auto mb-4">
             Contamos con la Flota más Moderna y Especializada de Venezuela para el Transporte de Cargas Excepcionales, con Equipos de las Marcas más Reconocidas Mundialmente
           </p>
-          <h3 className="text-2xl font-semibold mb-4" style={{ color: '#155d29' }}>Nuestros Equipos</h3>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
