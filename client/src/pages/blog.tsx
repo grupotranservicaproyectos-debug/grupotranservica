@@ -308,7 +308,7 @@ export default function BlogPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-green-50/30">
-      {/* Original Header from Home Page */}
+      {/* Exact Header from Home Page */}
       <nav className="bg-white shadow-md sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Top bar with contact info - Hidden on mobile for better UX */}
@@ -361,15 +361,17 @@ export default function BlogPage() {
               >
                 {t('nav.home')}
               </Link>
-              <button 
-                onClick={() => scrollToSection('servicios')}
-                className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide flex items-center"
-              >
-                {t('nav.services')}
-                <svg className="w-3 h-3 ml-1" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
-                </svg>
-              </button>
+              <div className="relative group">
+                <button 
+                  onClick={() => scrollToSection('servicios')}
+                  className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide flex items-center"
+                >
+                  {t('nav.services')}
+                  <svg className="w-3 h-3 ml-1" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+                  </svg>
+                </button>
+              </div>
               <button 
                 onClick={() => scrollToSection('proyectos')}
                 className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide"
@@ -381,6 +383,12 @@ export default function BlogPage() {
                 className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide"
               >
                 {t('nav.company')}
+              </button>
+              <button 
+                onClick={() => scrollToSection('equipos')}
+                className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide"
+              >
+                EQUIPOS
               </button>
               <Link 
                 href="/blog"
@@ -394,79 +402,116 @@ export default function BlogPage() {
               >
                 {t('nav.contact')}
               </button>
-              <LanguageSwitcher />
             </div>
-
-            {/* Mobile menu toggle */}
-            <div className="lg:hidden flex items-center space-x-4">
-              <LanguageSwitcher />
-              <button
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="text-gray-700 hover:text-[#155d29] p-2"
+            
+            <div className="flex items-center space-x-4">
+              <div className="hidden lg:flex">
+                <LanguageSwitcher />
+              </div>
+              <button 
+                onClick={() => scrollToSection('contacto')}
+                className="bg-transervica-green text-white px-6 py-2 rounded-md text-sm font-semibold hover:bg-transervica-light-green transition shadow-md"
               >
-                {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                {t('nav.quote')}
               </button>
-            </div>
-          </div>
-
-          {/* Mobile Navigation Menu */}
-          {mobileMenuOpen && (
-            <div className="lg:hidden py-4 border-t border-gray-200 bg-white">
-              <div className="flex flex-col space-y-4">
-                <Link 
-                  href="/"
-                  className="text-gray-700 hover:text-[#155d29] text-sm font-bold uppercase tracking-wide px-4 py-2"
-                  onClick={() => setMobileMenuOpen(false)}
+              
+              {/* Enhanced mobile menu button with better accessibility */}
+              <div className="lg:hidden">
+                <button
+                  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                  className="flex items-center justify-center w-12 h-12 rounded-lg text-gray-700 hover:text-[#155d29] hover:bg-gray-100 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#155d29] focus:ring-offset-2"
+                  aria-expanded={mobileMenuOpen}
+                  aria-label={mobileMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
                 >
-                  {t('nav.home')}
-                </Link>
-                <button 
-                  onClick={() => {
-                    scrollToSection('servicios');
-                    setMobileMenuOpen(false);
-                  }}
-                  className="text-left text-gray-700 hover:text-[#155d29] text-sm font-bold uppercase tracking-wide px-4 py-2"
-                >
-                  {t('nav.services')}
-                </button>
-                <button 
-                  onClick={() => {
-                    scrollToSection('proyectos');
-                    setMobileMenuOpen(false);
-                  }}
-                  className="text-left text-gray-700 hover:text-[#155d29] text-sm font-bold uppercase tracking-wide px-4 py-2"
-                >
-                  {t('nav.projects')}
-                </button>
-                <button 
-                  onClick={() => {
-                    scrollToSection('nosotros');
-                    setMobileMenuOpen(false);
-                  }}
-                  className="text-left text-gray-700 hover:text-[#155d29] text-sm font-bold uppercase tracking-wide px-4 py-2"
-                >
-                  {t('nav.company')}
-                </button>
-                <Link 
-                  href="/blog"
-                  className="text-[#155d29] text-sm font-bold uppercase tracking-wide px-4 py-2 border-l-4 border-[#155d29]"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  BLOG
-                </Link>
-                <button 
-                  onClick={() => {
-                    scrollToSection('contacto');
-                    setMobileMenuOpen(false);
-                  }}
-                  className="text-left text-gray-700 hover:text-[#155d29] text-sm font-bold uppercase tracking-wide px-4 py-2"
-                >
-                  {t('nav.contact')}
+                  <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    {mobileMenuOpen ? (
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    ) : (
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                    )}
+                  </svg>
                 </button>
               </div>
             </div>
-          )}
+          </div>
         </div>
+        
+        {/* Enhanced Mobile Menu Overlay with better UX */}
+        {mobileMenuOpen && (
+          <div className="lg:hidden absolute top-full left-0 right-0 bg-white shadow-xl border-t border-gray-200 z-50 mobile-menu-transition animate-fade-in">
+            <div className="px-4 py-6 space-y-4">
+              <Link 
+                href="/"
+                onClick={() => setMobileMenuOpen(false)}
+                className="block w-full text-left text-gray-700 hover:text-[#155d29] hover:bg-gray-50 text-base font-bold transition-all duration-200 uppercase tracking-wide py-4 px-4 rounded-lg"
+              >
+                {t('nav.home')}
+              </Link>
+              <button 
+                onClick={() => { scrollToSection('servicios'); setMobileMenuOpen(false); }}
+                className="block w-full text-left text-gray-700 hover:text-[#155d29] hover:bg-gray-50 text-base font-bold transition-all duration-200 uppercase tracking-wide py-4 px-4 rounded-lg"
+              >
+                {t('nav.services')}
+              </button>
+              <button 
+                onClick={() => { scrollToSection('proyectos'); setMobileMenuOpen(false); }}
+                className="block w-full text-left text-gray-700 hover:text-[#155d29] hover:bg-gray-50 text-base font-bold transition-all duration-200 uppercase tracking-wide py-4 px-4 rounded-lg"
+              >
+                {t('nav.projects')}
+              </button>
+              <button 
+                onClick={() => { scrollToSection('nosotros'); setMobileMenuOpen(false); }}
+                className="block w-full text-left text-gray-700 hover:text-[#155d29] hover:bg-gray-50 text-base font-bold transition-all duration-200 uppercase tracking-wide py-4 px-4 rounded-lg"
+              >
+                {t('nav.company')}
+              </button>
+              <button 
+                onClick={() => { scrollToSection('equipos'); setMobileMenuOpen(false); }}
+                className="block w-full text-left text-gray-700 hover:text-[#155d29] hover:bg-gray-50 text-base font-bold transition-all duration-200 uppercase tracking-wide py-4 px-4 rounded-lg"
+              >
+                EQUIPOS
+              </button>
+              <Link 
+                href="/blog"
+                className="block w-full text-left text-[#155d29] hover:bg-gray-50 text-base font-bold transition-all duration-200 uppercase tracking-wide py-4 px-4 rounded-lg border-l-4 border-[#155d29]"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                BLOG
+              </Link>
+              <button 
+                onClick={() => { scrollToSection('contacto'); setMobileMenuOpen(false); }}
+                className="block w-full text-left text-gray-700 hover:text-[#155d29] hover:bg-gray-50 text-base font-bold transition-all duration-200 uppercase tracking-wide py-4 px-4 rounded-lg"
+              >
+                {t('nav.contact')}
+              </button>
+              
+              {/* Call-to-Action button in mobile menu */}
+              <button 
+                onClick={() => { scrollToSection('contacto'); setMobileMenuOpen(false); }}
+                className="w-full bg-[#155d29] text-white py-4 px-6 rounded-lg text-base font-semibold hover-lift shadow-lg mt-4"
+              >
+                {t('nav.quote')}
+              </button>
+              <div className="pt-4 mt-4 border-t border-gray-200">
+                <div className="space-y-2 text-sm text-gray-600 mb-3">
+                  <div className="flex items-center space-x-2">
+                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M6.62 10.79a15.91 15.91 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.27 11.25 11.25 0 003.48.56 1 1 0 011 1V20a1 1 0 01-1 1A18 18 0 013 3a1 1 0 011-1h3.5a1 1 0 011 1 11.25 11.25 0 00.56 3.48 1 1 0 01-.27 1.11l-2.2 2.2z" />
+                    </svg>
+                    <span className="font-bold">(+58) 414-277-6340 / +58 412-441-8890</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M3 8l4 4 4-4m0 6l4-4 4 4m-8-8v14" />
+                    </svg>
+                    <span className="font-bold">direccioncomercialtvc@grupotranservica.com</span>
+                  </div>
+                </div>
+                <LanguageSwitcher />
+              </div>
+            </div>
+          </div>
+        )}
       </nav>
 
       {/* Hero Section */}
