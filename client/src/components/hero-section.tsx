@@ -20,21 +20,19 @@ export default function HeroSection() {
   return (
     <section id="inicio" className="relative min-h-screen bg-black overflow-hidden">
       {/* Video de fondo Netflix Style */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 overflow-hidden">
         <iframe
-          className="w-full h-full"
+          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
           src="https://www.youtube.com/embed/_LQbWkWlg6s?autoplay=1&mute=1&controls=0&showinfo=0&rel=0&loop=1&playlist=_LQbWkWlg6s&modestbranding=1&start=3&iv_load_policy=3&cc_load_policy=0&disablekb=1&fs=0"
           title="Transervica Background Video"
           allow="autoplay; encrypted-media"
           style={{
             pointerEvents: 'none',
             border: 'none',
-            minWidth: '100%',
-            minHeight: '100%',
-            width: '100vw',
-            height: '100vh',
-            objectFit: 'cover',
-            transform: 'scale(1.1)'
+            width: 'max(100vw, 177.77vh)',
+            height: 'max(100vh, 56.25vw)',
+            minWidth: '100vw',
+            minHeight: '100vh'
           }}
         />
         
