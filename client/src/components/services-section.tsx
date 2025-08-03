@@ -151,9 +151,7 @@ export default function ServicesSection() {
 
         <div className="text-center mt-16">
           <div className="rounded-2xl p-8 md:p-12 shadow-xl border border-gray-100" style={{ background: 'linear-gradient(135deg, #f0f9f0 0%, #ffffff 50%, #f0f9f0 100%)' }}>
-            <h3 className="text-2xl font-bold mb-4" style={{ color: '#155d29' }}>
-              ¿Necesita transportar cargas excepcionales?
-            </h3>
+            <h3 className="text-2xl font-bold mb-4" style={{ color: '#155d29' }}>¿Necesita Transportar Cargas Excepcionales?</h3>
             <p className="text-lg text-slate-600 mb-8 max-w-2xl mx-auto">
               Permítanos evaluar su proyecto y ofrecerle la mejor solución de transporte especializado
             </p>
