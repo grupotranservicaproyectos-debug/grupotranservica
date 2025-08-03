@@ -375,14 +375,22 @@ export default function BlogSection() {
 
         {/* Ver Todos los Artículos */}
         <div className="text-center mt-12">
-          <Link
-            href="/blog"
+          <button
+            onClick={() => {
+              window.location.href = '/blog#blog-main';
+              setTimeout(() => {
+                const element = document.getElementById('blog-main');
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+              }, 200);
+            }}
             className="inline-flex items-center gap-3 bg-white border-2 border-[#155d29] text-[#155d29] font-bold py-4 px-8 rounded-xl hover:bg-[#155d29] hover:text-white transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
           >
             <Calendar className="w-5 h-5" />
             Ver Todos los Artículos del Blog
             <ArrowRight className="w-5 h-5" />
-          </Link>
+          </button>
         </div>
 
         {/* Call to Action */}

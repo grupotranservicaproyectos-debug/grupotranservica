@@ -117,6 +117,45 @@ export default function BlogPage() {
   const { t } = useLanguage();
   const postsPerPage = 9;
 
+  // Handle scroll to blog main section on page load
+  React.useEffect(() => {
+    const hash = window.location.hash;
+    if (hash === '#blog-main') {
+      // Multiple attempts to ensure scroll works
+      const scrollToMain = () => {
+        const element = document.getElementById('blog-main');
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      };
+      
+      // Immediate attempt
+      scrollToMain();
+      
+      // Fallback attempts for slower loading
+      setTimeout(scrollToMain, 100);
+      setTimeout(scrollToMain, 300);
+      setTimeout(scrollToMain, 600);
+    }
+  }, []);
+
+  // Listen for hash changes during navigation
+  React.useEffect(() => {
+    const handleHashChange = () => {
+      if (window.location.hash === '#blog-main') {
+        setTimeout(() => {
+          const element = document.getElementById('blog-main');
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }, 100);
+      }
+    };
+
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
   const scrollToSection = (sectionId: string) => {
     // Navigate to home page and scroll to specific section
     window.location.href = `/#${sectionId}`;
@@ -818,7 +857,7 @@ export default function BlogPage() {
         </div>
       </section>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
+      <div id="blog-main" className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
         {/* Mobile-Optimized Search and Filters */}
         <div className="mb-8 lg:mb-12">
           <div className="bg-white rounded-xl lg:rounded-2xl shadow-md lg:shadow-lg p-4 lg:p-6 border border-gray-100">
