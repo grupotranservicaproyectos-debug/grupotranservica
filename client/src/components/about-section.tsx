@@ -43,7 +43,7 @@ export default function AboutSection() {
           <div className="relative">
             <div className="relative group">
               <div className="absolute -inset-4 bg-gradient-to-r from-transervica-green via-transervica-light-green to-transervica-green rounded-3xl blur opacity-30 group-hover:opacity-60 transition duration-1000"></div>
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-transervica-green/40 bg-white">
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-transervica-green/40" style={{ backgroundColor: '#155d29' }}>
                 <img 
                   src={transportImage} 
                   alt="TRANSERVICA Transporte de Cargas Excepcionales - 40 años de experiencia" 
