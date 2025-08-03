@@ -259,11 +259,7 @@ export default function BlogSection() {
                               </div>
                             </div>
                             
-                            {post.featured && (
-                              <div className="absolute top-4 right-4 bg-gradient-to-r from-orange-500 to-red-500 text-white px-3 py-1 rounded-full text-xs font-medium shadow-lg">
-                                Destacado
-                              </div>
-                            )}
+                            
                           </div>
                           
                           <div className="p-6">
