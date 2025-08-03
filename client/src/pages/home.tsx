@@ -1,5 +1,4 @@
 // import Navigation from "@/components/navigation"; // Netflix style navigation now in hero
-import Header from "@/components/header";
 import HeroSection from "@/components/hero-section";
 import StatisticsSection from "@/components/statistics-section";
 import ServicesSection from "@/components/services-section";
@@ -14,7 +13,7 @@ import Footer from "@/components/footer";
 export default function Home() {
   return (
     <div className="min-h-screen bg-white">
-      <Header />
+      {/* <Navigation /> Netflix style navigation now integrated in hero */}
       <main>
         <HeroSection />
         <StatisticsSection />

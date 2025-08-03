@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import { Calendar, User, Clock, ArrowRight, Search, Filter, ChevronLeft, ChevronRight, Tag, Eye } from 'lucide-react';
 import { Link } from 'wouter';
-import Header from '../components/header';
-import Footer from '../components/footer';
 
 // Blog post data with complete content
 const blogPosts = [
@@ -16,7 +14,7 @@ const blogPosts = [
     readTime: "8 min",
     category: "Proyectos Especiales",
     tags: ["Turbinas", "SCHEUERLE", "Zulia", "380 Toneladas"],
-    image: "/attached_assets/7_1754167186025.png",
+    image: "/attached_assets/1_1754173669382.jpeg",
     featured: true
   },
   {
@@ -29,7 +27,7 @@ const blogPosts = [
     readTime: "6 min",
     category: "Equipos y Tecnología",
     tags: ["Grove GMK6400", "Grúas", "Inversión", "Tecnología"],
-    image: "/attached_assets/8_1754167186025.png",
+    image: "/attached_assets/2_1754173669382.jpg",
     featured: true
   },
   {
@@ -42,7 +40,7 @@ const blogPosts = [
     readTime: "12 min",
     category: "Normativas y Seguridad",
     tags: ["INTT", "Normativas", "Seguridad", "Permisos"],
-    image: "/attached_assets/9_1754167186025.png",
+    image: "/attached_assets/3_1754173669382.jpg",
     featured: false
   },
   {
@@ -55,7 +53,7 @@ const blogPosts = [
     readTime: "10 min",
     category: "Logística Multimodal",
     tags: ["Multimodal", "Logística", "Puertos", "Optimización"],
-    image: "/attached_assets/10_1754167186025.png",
+    image: "/attached_assets/4_1754173669383.jpg",
     featured: false
   },
   {
@@ -68,7 +66,7 @@ const blogPosts = [
     readTime: "15 min",
     category: "Historia Corporativa",
     tags: ["Historia", "40 Años", "TRANSERVICA", "Evolución"],
-    image: "/attached_assets/11_1754167186026.png",
+    image: "/attached_assets/5_1754173669383.jpg",
     featured: true
   },
   {
@@ -81,7 +79,7 @@ const blogPosts = [
     readTime: "7 min",
     category: "Mantenimiento",
     tags: ["Mantenimiento", "SCHEUERLE", "Protocolos", "Seguridad"],
-    image: "/attached_assets/12_1754167186026.png",
+    image: "/attached_assets/23_1754185586556.png",
     featured: false
   }
 ];
@@ -120,20 +118,26 @@ export default function BlogPage() {
   if (selectedPost) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-green-50/30">
-        <Header />
-        
-        {/* Article Navigation */}
-        <div className="bg-white border-b border-gray-100">
-          <div className="container mx-auto px-4 py-4">
-            <button
-              onClick={() => setSelectedPost(null)}
-              className="flex items-center gap-2 px-4 py-2 bg-[#155d29] text-white rounded-lg hover:bg-[#0f4a21] transition-colors"
-            >
-              <ChevronLeft className="w-4 h-4" />
-              Volver al Blog
-            </button>
+        {/* Header */}
+        <header className="bg-white shadow-sm border-b border-gray-100">
+          <div className="container mx-auto px-4 py-6">
+            <div className="flex items-center justify-between">
+              <Link href="/" className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-gradient-to-br from-[#155d29] to-[#0f4a21] rounded-full flex items-center justify-center">
+                  <span className="text-white font-bold text-lg">T</span>
+                </div>
+                <span className="text-2xl font-bold" style={{ color: '#155d29' }}>TRANSERVICA</span>
+              </Link>
+              <button
+                onClick={() => setSelectedPost(null)}
+                className="flex items-center gap-2 px-4 py-2 bg-[#155d29] text-white rounded-lg hover:bg-[#0f4a21] transition-colors"
+              >
+                <ChevronLeft className="w-4 h-4" />
+                Volver al Blog
+              </button>
+            </div>
           </div>
-        </div>
+        </header>
 
         {/* Article Content */}
         <article className="container mx-auto px-4 py-12 max-w-4xl">
@@ -198,15 +202,28 @@ export default function BlogPage() {
             </div>
           </div>
         </article>
-        
-        <Footer />
       </div>
     );
   }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-green-50/30">
-      <Header />
+      {/* Header */}
+      <header className="bg-white shadow-sm border-b border-gray-100">
+        <div className="container mx-auto px-4 py-6">
+          <div className="flex items-center justify-between">
+            <Link href="/" className="flex items-center gap-3">
+              <div className="w-10 h-10 bg-gradient-to-br from-[#155d29] to-[#0f4a21] rounded-full flex items-center justify-center">
+                <span className="text-white font-bold text-lg">T</span>
+              </div>
+              <span className="text-2xl font-bold" style={{ color: '#155d29' }}>TRANSERVICA</span>
+            </Link>
+            <Link href="/" className="text-[#155d29] hover:text-[#0f4a21] font-medium">
+              Volver al Inicio
+            </Link>
+          </div>
+        </div>
+      </header>
 
       {/* Hero Section */}
       <section className="py-16 bg-gradient-to-r from-[#155d29] to-[#0f4a21] text-white relative overflow-hidden">
@@ -413,8 +430,6 @@ export default function BlogPage() {
           )}
         </section>
       </div>
-      
-      <Footer />
     </div>
   );
 }

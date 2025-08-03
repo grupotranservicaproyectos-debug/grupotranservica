@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { Facebook, Instagram, Youtube, Mail, Phone, MapPin, Truck, Award, Clock, Globe, ArrowRight } from 'lucide-react';
+import { Facebook, Instagram, Youtube, Mail, Phone, MapPin } from 'lucide-react';
 import logoTranservica from "@assets/logo transervica sin fondo_1754163034585.png";
 import { useLanguage } from '../contexts/LanguageContext';
-import { Link } from 'wouter';
 
 export default function Footer() {
   const { t } = useLanguage();
@@ -16,48 +15,8 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-[#155d29]/20 text-white py-12 sm:py-16 lg:py-20 relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-20 left-20 w-40 h-40 bg-[#155d29] rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-20 w-32 h-32 bg-orange-500 rounded-full blur-3xl"></div>
-      </div>
-      
-      <div className="container mx-auto mobile-padding relative z-10">
-        {/* Company Stats Section */}
-        <div className="bg-gradient-to-r from-[#155d29] to-[#0f4a21] rounded-2xl p-8 mb-12 shadow-2xl">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
-            <div className="flex flex-col items-center">
-              <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mb-3">
-                <Clock className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold text-white">40+</h3>
-              <p className="text-green-100 text-sm">Años de Experiencia</p>
-            </div>
-            <div className="flex flex-col items-center">
-              <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mb-3">
-                <Truck className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold text-white">1,100</h3>
-              <p className="text-green-100 text-sm">Toneladas Máximas</p>
-            </div>
-            <div className="flex flex-col items-center">
-              <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mb-3">
-                <Award className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold text-white">15,000+</h3>
-              <p className="text-green-100 text-sm">Proyectos Exitosos</p>
-            </div>
-            <div className="flex flex-col items-center">
-              <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mb-3">
-                <Globe className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold text-white">99.8%</h3>
-              <p className="text-green-100 text-sm">Éxito en Seguridad</p>
-            </div>
-          </div>
-        </div>
-
+    <footer className="bg-gray-900 text-white py-12 sm:py-16 lg:py-20">
+      <div className="container mx-auto mobile-padding">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-12">
           
           {/* Company Info with High Resolution Logo */}
@@ -110,38 +69,27 @@ export default function Footer() {
             </h4>
             <ul className="space-y-3">
               <li>
-                <a href="#inicio" className="text-gray-300 hover:text-[#155d29] text-sm transition-colors duration-200 flex items-center gap-2 group">
-                  <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+                <a href="#inicio" className="text-gray-300 hover:text-white text-sm transition-colors duration-200">
                   {t('footer.pages.home')}
                 </a>
               </li>
               <li>
-                <a href="#nosotros" className="text-gray-300 hover:text-[#155d29] text-sm transition-colors duration-200 flex items-center gap-2 group">
-                  <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+                <a href="#nosotros" className="text-gray-300 hover:text-white text-sm transition-colors duration-200">
                   {t('footer.pages.about')}
                 </a>
               </li>
               <li>
-                <a href="#servicios" className="text-gray-300 hover:text-[#155d29] text-sm transition-colors duration-200 flex items-center gap-2 group">
-                  <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+                <a href="#servicios" className="text-gray-300 hover:text-white text-sm transition-colors duration-200">
                   {t('footer.pages.services')}
                 </a>
               </li>
               <li>
-                <a href="#proyectos" className="text-gray-300 hover:text-[#155d29] text-sm transition-colors duration-200 flex items-center gap-2 group">
-                  <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+                <a href="#proyectos" className="text-gray-300 hover:text-white text-sm transition-colors duration-200">
                   {t('footer.pages.projects')}
                 </a>
               </li>
               <li>
-                <Link href="/blog" className="text-gray-300 hover:text-[#155d29] text-sm transition-colors duration-200 flex items-center gap-2 group">
-                  <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
-                  Blog Corporativo
-                </Link>
-              </li>
-              <li>
-                <a href="#contacto" className="text-gray-300 hover:text-[#155d29] text-sm transition-colors duration-200 flex items-center gap-2 group">
-                  <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+                <a href="#contacto" className="text-gray-300 hover:text-white text-sm transition-colors duration-200">
                   {t('footer.pages.contact')}
                 </a>
               </li>
@@ -155,30 +103,25 @@ export default function Footer() {
             </h4>
             <ul className="space-y-3">
               <li>
-                <Link 
-                  href="/blog" 
-                  className="text-gray-300 hover:text-[#155d29] text-sm transition-colors duration-200 flex items-center gap-2 group"
+                <a 
+                  href="#blog" 
+                  className="text-gray-300 hover:text-white text-sm transition-colors duration-200 cursor-pointer"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById('blog')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
                 >
-                  <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
                   {t('footer.resources.blog')}
-                </Link>
+                </a>
               </li>
               <li>
-                <a href="#servicios" className="text-gray-300 hover:text-[#155d29] text-sm transition-colors duration-200 flex items-center gap-2 group">
-                  <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+                <a href="#equipos" className="text-gray-300 hover:text-white text-sm transition-colors duration-200">
                   {t('footer.resources.equipment')}
                 </a>
               </li>
               <li>
-                <a href="#contacto" className="text-gray-300 hover:text-[#155d29] text-sm transition-colors duration-200 flex items-center gap-2 group">
-                  <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
-                  Centro de Ayuda
-                </a>
-              </li>
-              <li>
-                <a href="#nosotros" className="text-gray-300 hover:text-[#155d29] text-sm transition-colors duration-200 flex items-center gap-2 group">
-                  <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
-                  Certificaciones ISO
+                <a href="#contacto" className="text-gray-300 hover:text-white text-sm transition-colors duration-200">
+                  {t('footer.resources.help')}
                 </a>
               </li>
               
