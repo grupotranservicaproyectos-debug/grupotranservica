@@ -127,16 +127,16 @@ export default function AboutSection() {
         {/* Mission & Vision Cards */}
         <div className="grid lg:grid-cols-2 gap-8 mb-20">
           {/* Misión */}
-          <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-transervica-green/20 hover:border-transervica-green/40 transition duration-500 shadow-lg">
+          <div className="rounded-3xl p-8 border border-transervica-green/20 hover:border-transervica-green/40 transition duration-500 shadow-lg" style={{ backgroundColor: '#155d29' }}>
             <div className="flex items-center mb-6">
-              <div className="w-16 h-16 bg-gradient-to-br from-transervica-green to-transervica-light-green rounded-2xl flex items-center justify-center mr-6">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mr-6">
+                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: '#155d29' }}>
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h3 className="text-3xl font-bold text-transervica-green">Misión</h3>
+              <h3 className="text-3xl font-bold text-white">Misión</h3>
             </div>
-            <p className="text-gray-700 leading-relaxed text-lg">
+            <p className="text-white leading-relaxed text-lg">
               Prestación del servicio de movilización e izamiento de cargas sobredimensionadas mediante el cumplimiento 
               de criterios de seguridad, garantía y confiabilidad, anticipando y respondiendo eficazmente las necesidades 
               de nuestros clientes, procurando el bienestar de nuestros trabajadores y maximizando la productividad.
