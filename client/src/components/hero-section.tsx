@@ -46,12 +46,7 @@ export default function HeroSection() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Top bar with contact info */}
           <div className="flex items-center justify-between py-2 border-b border-gray-200">
-            <img 
-              src={logoTranservica} 
-              alt="TRANSERVICA" 
-              className="h-12 w-auto cursor-pointer hover:scale-105 transition-transform"
-              onClick={() => scrollToSection('inicio')}
-            />
+            <div className="flex-1"></div>
             <div className="hidden md:flex items-center space-x-6 text-sm text-gray-600">
               <div className="flex items-center space-x-2">
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -73,6 +68,13 @@ export default function HeroSection() {
           {/* Main navigation menu */}
           <div className="flex items-center justify-between py-3">
             <div className="hidden lg:flex items-center space-x-8">
+              {/* Logo next to navigation */}
+              <img 
+                src={logoTranservica} 
+                alt="TRANSERVICA" 
+                className="h-20 w-auto cursor-pointer hover:scale-105 transition-all duration-300 mr-6 filter drop-shadow-sm"
+                onClick={() => scrollToSection('inicio')}
+              />
               <button 
                 onClick={() => scrollToSection('inicio')}
                 className="text-gray-700 hover:text-transervica-green text-sm font-medium transition uppercase tracking-wide"
@@ -135,19 +137,27 @@ export default function HeroSection() {
                 COTIZAR
               </button>
               
-              {/* Mobile menu button */}
-              <button
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="lg:hidden flex items-center justify-center w-10 h-10 rounded-md text-gray-700 hover:text-transervica-green hover:bg-gray-100 transition"
-              >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  {isMobileMenuOpen ? (
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  ) : (
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                  )}
-                </svg>
-              </button>
+              {/* Mobile logo and menu button */}
+              <div className="lg:hidden flex items-center space-x-4">
+                <img 
+                  src={logoTranservica} 
+                  alt="TRANSERVICA" 
+                  className="h-14 w-auto cursor-pointer hover:scale-105 transition-all duration-300 filter drop-shadow-sm"
+                  onClick={() => scrollToSection('inicio')}
+                />
+                <button
+                  onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                  className="flex items-center justify-center w-10 h-10 rounded-md text-gray-700 hover:text-transervica-green hover:bg-gray-100 transition"
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    {isMobileMenuOpen ? (
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    ) : (
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                    )}
+                  </svg>
+                </button>
+              </div>
             </div>
           </div>
         </div>
