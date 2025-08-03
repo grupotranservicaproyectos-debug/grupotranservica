@@ -113,7 +113,7 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#faq" className="text-gray-300 hover:text-white text-sm transition-colors duration-200">
+                <a href="#contacto" className="text-gray-300 hover:text-white text-sm transition-colors duration-200">
                   {t('footer.resources.help')}
                 </a>
               </li>
