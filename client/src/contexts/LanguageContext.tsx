@@ -151,6 +151,23 @@ const translations = {
     // Projects Gallery  
     'projects.title': 'Galería de Proyectos',
     'projects.subtitle': 'Más de 40 años transportando cargas excepcionales hasta 1,100 toneladas. Conoce algunos de nuestros proyectos más destacados realizados con equipos especializados y tecnología de vanguardia.',
+    'equipment.title': 'Nuestros Equipos Especializados para Izamiento y Transportes de Carga Excepcionales y Sobredimensionadas',
+    'equipment.subtitle': 'Equipos de última generación para transporte especializado con tecnología alemana',
+    'equipment.cta.title': '¿Necesita Equipos Especializados para su Proyecto?',
+    'equipment.cta.subtitle': 'Contamos con la flota más moderna de Venezuela para transporte de cargas excepcionales',
+    'equipment.cta.button': 'SOLICITAR COTIZACIÓN',
+    
+    // FAQ Section
+    'faq.title': 'Preguntas Frecuentes',
+    'faq.subtitle': 'Resuelve tus dudas sobre nuestros servicios de transporte especializado',
+    'faq.q1': '¿Cuál es la capacidad máxima de carga que pueden transportar?',
+    'faq.a1': 'Nuestra flota especializada puede transportar hasta 1,100 toneladas utilizando remolques modulares hidráulicos de última generación.',
+    'faq.q2': '¿Qué tipo de permisos necesito para mi carga?',
+    'faq.a2': 'Nosotros nos encargamos de toda la gestión de permisos especiales, documentación y coordinación con autoridades competentes.',
+    'faq.q3': '¿Cubren todo el territorio venezolano?',
+    'faq.a3': 'Sí, ofrecemos servicios de transporte especializado en todo el territorio nacional con rutas optimizadas y logística integral.',
+    'faq.q4': '¿Qué incluye el servicio de transporte?',
+    'faq.a4': 'Incluye planificación de ruta, permisos, seguros, carga/descarga, escolta especializada y monitoreo en tiempo real.',
     'contact.info.address': 'Ubicación',
     'contact.whatsapp': 'Contactar por WhatsApp',
     'contact.address.full': 'Carretera Nacional Maracay Mariara Km 9, Mariara, Edo. Carabobo',
@@ -325,6 +342,23 @@ const translations = {
     'hero.stats.reliability.subtitle': 'Successful projects',
     'projects.title': 'Project Gallery',
     'projects.subtitle': 'Over 40 years transporting exceptional cargo up to 1,100 tons. Learn about some of our most outstanding projects carried out with specialized equipment and cutting-edge technology.',
+    'equipment.title': 'Our Specialized Equipment for Lifting and Transportation of Exceptional and Oversized Cargo',
+    'equipment.subtitle': 'State-of-the-art equipment for specialized transportation with German technology',
+    'equipment.cta.title': 'Need Specialized Equipment for Your Project?',
+    'equipment.cta.subtitle': 'We have Venezuela\'s most modern fleet for exceptional cargo transportation',
+    'equipment.cta.button': 'REQUEST QUOTE',
+    
+    // FAQ Section
+    'faq.title': 'Frequently Asked Questions',
+    'faq.subtitle': 'Solve your doubts about our specialized transportation services',
+    'faq.q1': 'What is the maximum load capacity you can transport?',
+    'faq.a1': 'Our specialized fleet can transport up to 1,100 tons using state-of-the-art hydraulic modular trailers.',
+    'faq.q2': 'What type of permits do I need for my cargo?',
+    'faq.a2': 'We handle all the management of special permits, documentation and coordination with competent authorities.',
+    'faq.q3': 'Do you cover the entire Venezuelan territory?',
+    'faq.a3': 'Yes, we offer specialized transportation services throughout the national territory with optimized routes and comprehensive logistics.',
+    'faq.q4': 'What does the transportation service include?',
+    'faq.a4': 'It includes route planning, permits, insurance, loading/unloading, specialized escort and real-time monitoring.',
     
     // Footer
     'footer.description': 'Specialized in exceptional cargo transportation up to 1,100 tons with hydraulic modular trailers. 40 years transporting Venezuela\'s future with cutting-edge German technology.',

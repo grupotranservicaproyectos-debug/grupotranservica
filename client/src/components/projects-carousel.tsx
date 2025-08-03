@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight, Play, Pause } from "lucide-react";
+import { useLanguage } from '../contexts/LanguageContext';
 import image1 from "@assets/2_1754167186023.jpg";
 import image2 from "@assets/3_1754167186023.jpg";
 import image3 from "@assets/4_1754167186024.jpg";
@@ -150,6 +151,7 @@ const ctaButtons = [
 ];
 
 export default function ProjectsCarousel() {
+  const { t } = useLanguage();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoplay, setIsAutoplay] = useState(true);
   const [isPaused, setIsPaused] = useState(false);
@@ -184,12 +186,10 @@ export default function ProjectsCarousel() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold mb-4" style={{ color: '#155d29' }}>
-            Galería de Proyectos
+            {t('projects.title')}
           </h2>
           <p className="text-lg text-slate-600 max-w-3xl mx-auto">
-            Más de 40 años transportando cargas excepcionales hasta 1,100 toneladas. 
-            Conoce algunos de nuestros proyectos más destacados realizados con equipos 
-            especializados y tecnología de vanguardia.
+            {t('projects.subtitle')}
           </p>
         </div>
 

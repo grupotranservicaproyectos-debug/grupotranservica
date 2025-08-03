@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
+import { useLanguage } from '../contexts/LanguageContext';
 
 export default function StatisticsSection() {
+  const { t } = useLanguage();
   const [years, setYears] = useState(0);
   const [capacity, setCapacity] = useState(0);
   const [reliability, setReliability] = useState(0);
@@ -47,18 +49,18 @@ export default function StatisticsSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="text-center">
             <div className="text-5xl font-bold text-white mb-2">{years}</div>
-            <div className="text-xl font-semibold text-white">Años de Experiencia</div>
-            <div className="text-white">Líder en transporte especializado</div>
+            <div className="text-xl font-semibold text-white">{t('hero.stats.years.title')}</div>
+            <div className="text-white">{t('hero.stats.years.subtitle')}</div>
           </div>
           <div className="text-center">
             <div className="text-5xl font-bold text-white mb-2">{capacity.toLocaleString()}</div>
-            <div className="text-xl font-semibold text-white">Toneladas de Capacidad</div>
-            <div className="text-white">Equipos de última generación</div>
+            <div className="text-xl font-semibold text-white">{t('hero.stats.capacity.title')}</div>
+            <div className="text-white">{t('hero.stats.capacity.subtitle')}</div>
           </div>
           <div className="text-center">
             <div className="text-5xl font-bold text-white mb-2">{reliability}%</div>
-            <div className="text-xl font-semibold text-white">Confiabilidad</div>
-            <div className="text-white">Proyectos exitosos</div>
+            <div className="text-xl font-semibold text-white">{t('hero.stats.reliability.title')}</div>
+            <div className="text-white">{t('hero.stats.reliability.subtitle')}</div>
           </div>
         </div>
       </div>

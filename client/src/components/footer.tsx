@@ -145,19 +145,19 @@ export default function Footer() {
               <li>
                 <a href="#servicios" className="text-slate-600 hover:text-white transition-all duration-300 font-medium flex items-center group">
                   <div className="w-2 h-2 rounded-full mr-3 group-hover:scale-125 transition-transform duration-300" style={{ backgroundColor: '#155d29' }}></div>
-                  Logística de Ingeniería
+{t('footer.services.engineering')}
                 </a>
               </li>
               <li>
                 <a href="#equipos" className="text-slate-600 hover:text-white transition-all duration-300 font-medium flex items-center group">
                   <div className="w-2 h-2 rounded-full mr-3 group-hover:scale-125 transition-transform duration-300" style={{ backgroundColor: '#155d29' }}></div>
-                  Modulares Hidráulicos
+{t('footer.services.hydraulic')}
                 </a>
               </li>
               <li>
                 <a href="#equipos" className="text-slate-600 hover:text-white transition-all duration-300 font-medium flex items-center group">
                   <div className="w-2 h-2 rounded-full mr-3 group-hover:scale-125 transition-transform duration-300" style={{ backgroundColor: '#155d29' }}></div>
-                  Grúas Grove y Liebherr
+{t('footer.services.cranes')}
                 </a>
               </li>
             </ul>
@@ -165,18 +165,18 @@ export default function Footer() {
 
           {/* Recursos */}
           <div>
-            <h3 className="text-xl font-bold mb-6" style={{ color: '#155d29' }}>Recursos</h3>
+            <h3 className="text-xl font-bold mb-6" style={{ color: '#155d29' }}>{t('footer.resources.title')}</h3>
             <ul className="space-y-4 text-sm">
               <li>
                 <a href="#nosotros" className="text-slate-600 hover:text-white transition-all duration-300 font-medium flex items-center group">
                   <div className="w-2 h-2 rounded-full mr-3 group-hover:scale-125 transition-transform duration-300" style={{ backgroundColor: '#155d29' }}></div>
-                  Nosotros
+{t('footer.resources.about')}
                 </a>
               </li>
               <li>
                 <a href="#equipos" className="text-slate-600 hover:text-white transition-all duration-300 font-medium flex items-center group">
                   <div className="w-2 h-2 rounded-full mr-3 group-hover:scale-125 transition-transform duration-300" style={{ backgroundColor: '#155d29' }}></div>
-                  Nuestros Equipos
+{t('footer.resources.equipment')}
                 </a>
               </li>
               
@@ -188,25 +188,25 @@ export default function Footer() {
                   className="text-slate-600 hover:text-white transition-all duration-300 font-medium flex items-center group"
                 >
                   <div className="w-2 h-2 rounded-full mr-3 group-hover:scale-125 transition-transform duration-300" style={{ backgroundColor: '#155d29' }}></div>
-                  Blog Corporativo
+{t('footer.resources.blog')}
                 </a>
               </li>
               <li>
                 <a href="#" className="text-slate-600 hover:text-white transition-all duration-300 font-medium flex items-center group">
                   <div className="w-2 h-2 rounded-full mr-3 group-hover:scale-125 transition-transform duration-300" style={{ backgroundColor: '#155d29' }}></div>
-                  Centro de Ayuda
+{t('footer.resources.help')}
                 </a>
               </li>
               <li>
                 <a href="#" className="text-slate-600 hover:text-white transition-all duration-300 font-medium flex items-center group">
                   <div className="w-2 h-2 rounded-full mr-3 group-hover:scale-125 transition-transform duration-300" style={{ backgroundColor: '#155d29' }}></div>
-                  Documentación Técnica
+{t('footer.resources.docs')}
                 </a>
               </li>
               <li>
                 <a href="#" className="text-slate-600 hover:text-white transition-all duration-300 font-medium flex items-center group">
                   <div className="w-2 h-2 rounded-full mr-3 group-hover:scale-125 transition-transform duration-300" style={{ backgroundColor: '#155d29' }}></div>
-                  FAQs
+{t('footer.resources.faq')}
                 </a>
               </li>
             </ul>
@@ -214,11 +214,11 @@ export default function Footer() {
 
           {/* Newsletter */}
           <div>
-            <h3 className="text-xl font-bold mb-6" style={{ color: '#155d29' }}>Suscríbete a nuestro newsletter</h3>
+            <h3 className="text-xl font-bold mb-6" style={{ color: '#155d29' }}>{t('footer.newsletter.title')}</h3>
             <div className="mb-4">
               <input 
                 type="email" 
-                placeholder="Work Email" 
+placeholder={t('footer.newsletter.placeholder')} 
                 className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-transervica-green transition"
               />
             </div>

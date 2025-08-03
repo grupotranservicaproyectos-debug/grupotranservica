@@ -1,3 +1,6 @@
+import { useState } from 'react';
+import { Truck, Crane, Settings, Award, ChevronDown, ChevronUp } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 import image15 from "@assets/15_1754168567957.png";
 import image16 from "@assets/16_1754168567957.png"; 
 import image17 from "@assets/17_1754168567957.png";
@@ -15,6 +18,7 @@ interface EquipmentItem {
 }
 
 export default function EquipmentSection() {
+  const { t } = useLanguage();
   const equipmentItems: EquipmentItem[] = [
     {
       name: "Trailers Modulares Hidráulicos 1,100 toneladas",
@@ -106,9 +110,9 @@ export default function EquipmentSection() {
     <section className="py-20 bg-gradient-to-br from-slate-50 to-gray-100">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-6" style={{ color: '#155d29' }}>Nuestros Equipos Especializados para Izamiento y Transportes de Carga Excepcionales y Sobredimensionadas</h2>
+          <h2 className="text-4xl font-bold mb-6" style={{ color: '#155d29' }}>{t('equipment.title')}</h2>
           <p className="text-xl text-slate-600 max-w-4xl mx-auto mb-4">
-            Contamos con la Flota más Moderna y Especializada de Venezuela para el Transporte de Cargas Excepcionales, con Equipos de las Marcas más Reconocidas Mundialmente
+            {t('equipment.subtitle')}
           </p>
         </div>
 
@@ -180,8 +184,8 @@ export default function EquipmentSection() {
 
         <div className="text-center mt-16">
           <div className="rounded-2xl p-8 md:p-12 shadow-xl border" style={{ backgroundColor: '#155d29', borderColor: 'rgba(21, 93, 41, 0.1)' }}>
-            <h3 className="text-2xl font-bold mb-4 text-white">¿Necesita Equipos Especializados para su Proyecto?</h3>
-            <p className="text-lg text-white mb-8 max-w-2xl mx-auto">Consulte Nuestra Disponibilidad de Equipos y Obtenga una Cotización Personalizada para su Operación</p>
+            <h3 className="text-2xl font-bold mb-4 text-white">{t('equipment.cta.title')}</h3>
+            <p className="text-lg text-white mb-8 max-w-2xl mx-auto">{t('equipment.cta.subtitle')}</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button 
                 onClick={() => window.open('https://wa.me/584142776340?text=Hola%2C%20necesito%20consultar%20disponibilidad%20de%20equipos%20especializados', '_blank')}
@@ -190,7 +194,7 @@ export default function EquipmentSection() {
                 onMouseEnter={(e) => { (e.target as HTMLElement).style.backgroundColor = '#f0f9f0'; (e.target as HTMLElement).style.color = '#0f4a21'; }}
                 onMouseLeave={(e) => { (e.target as HTMLElement).style.backgroundColor = 'white'; (e.target as HTMLElement).style.color = '#155d29'; }}
               >
-                Consultar Disponibilidad
+{t('equipment.cta.button')}
               </button>
               <button 
                 onClick={scrollToContact}
@@ -199,7 +203,7 @@ export default function EquipmentSection() {
                 onMouseEnter={(e) => { (e.target as HTMLElement).style.backgroundColor = 'white'; (e.target as HTMLElement).style.color = '#155d29'; }}
                 onMouseLeave={(e) => { (e.target as HTMLElement).style.backgroundColor = 'transparent'; (e.target as HTMLElement).style.color = 'white'; }}
               >
-                Solicitar Especificaciones
+{t('equipment.cta.button')}
               </button>
             </div>
           </div>
