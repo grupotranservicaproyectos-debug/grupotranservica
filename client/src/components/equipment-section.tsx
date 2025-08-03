@@ -106,9 +106,7 @@ export default function EquipmentSection() {
     <section className="py-20 bg-gradient-to-br from-slate-50 to-gray-100">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-6" style={{ color: '#155d29' }}>
-            Nuestros Equipos Especializados para Izamiento y Transportes Excepcionales
-          </h2>
+          <h2 className="text-4xl font-bold mb-6" style={{ color: '#155d29' }}>Nuestros Equipos Especializados para Izamiento y Transportes de Carga Excepcionales y Sobredimensionadas</h2>
           <p className="text-xl text-slate-600 max-w-4xl mx-auto mb-4">
             Contamos con la Flota más Moderna y Especializada de Venezuela para el Transporte de Cargas Excepcionales, con Equipos de las Marcas más Reconocidas Mundialmente
           </p>
