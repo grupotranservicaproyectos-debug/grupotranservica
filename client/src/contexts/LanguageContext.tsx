@@ -333,7 +333,14 @@ const translations = {
     'legal.cookies.title': 'Acuerdo de Cookies',
     'legal.cookies.description': 'Información sobre el uso de cookies y tecnologías similares en nuestro sitio web',
     'legal.security.title': 'Política de Seguridad',
-    'legal.security.description': 'Compromiso integral con la seguridad en transporte de cargas excepcionales'
+    'legal.security.description': 'Compromiso integral con la seguridad en transporte de cargas excepcionales',
+    
+    // Footer
+    'footer.copyright': '© 2025 TRANSERVICA C.A. - Todos los Derechos Reservados.',
+    'footer.legal.terms': 'Términos de Servicio',
+    'footer.legal.privacy': 'Política de Privacidad',
+    'footer.legal.cookies': 'Acuerdo de Cookies',
+    'footer.legal.security': 'Política de Seguridad'
   },
   en: {
     // Navigation
@@ -655,7 +662,14 @@ const translations = {
     'legal.cookies.title': 'Cookie Agreement',
     'legal.cookies.description': 'Information about the use of cookies and similar technologies on our website',
     'legal.security.title': 'Security Policy',
-    'legal.security.description': 'Comprehensive commitment to safety in exceptional cargo transportation'
+    'legal.security.description': 'Comprehensive commitment to safety in exceptional cargo transportation',
+    
+    // Footer
+    'footer.copyright': '© 2025 TRANSERVICA C.A. - All Rights Reserved.',
+    'footer.legal.terms': 'Terms of Service',
+    'footer.legal.privacy': 'Privacy Policy',
+    'footer.legal.cookies': 'Cookie Agreement',
+    'footer.legal.security': 'Security Policy'
   }
 };
 
