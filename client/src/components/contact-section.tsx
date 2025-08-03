@@ -86,8 +86,8 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <h3 className="text-lg font-bold text-white">Teléfonos Principales</h3>
-                  <p className="text-white/80 font-medium">+58 414 277 6340</p>
-                  <p className="text-white/80 font-medium">+58 412 441 8890</p>
+                  <p className="text-white font-medium">+58 414 277 6340</p>
+                  <p className="text-white font-medium">+58 412 441 8890</p>
                 </div>
               </div>
               
@@ -97,7 +97,7 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <h3 className="text-lg font-bold text-white">Dirección Comercial</h3>
-                  <p className="text-white/80 font-medium break-all">direccioncomercialtvc@grupotranservica.com</p>
+                  <p className="text-white font-medium break-all">direccioncomercialtvc@grupotranservica.com</p>
                 </div>
               </div>
 
@@ -107,7 +107,7 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <h3 className="text-lg font-bold text-white">Dirección Ejecutiva</h3>
-                  <p className="text-white/80 font-medium break-all">direccionejecutivatvc@grupotranservica.com</p>
+                  <p className="text-white font-medium break-all">direccionejecutivatvc@grupotranservica.com</p>
                 </div>
               </div>
               
@@ -117,7 +117,7 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <h3 className="text-lg font-bold text-white">Ubicación</h3>
-                  <p className="text-white/80 font-medium">Carretera Nacional Maracay Mariara Km 9, Mariara, Edo. Carabobo</p>
+                  <p className="text-white font-medium">Carretera Nacional Maracay Mariara Km 9, Mariara, Edo. Carabobo</p>
                 </div>
               </div>
               
