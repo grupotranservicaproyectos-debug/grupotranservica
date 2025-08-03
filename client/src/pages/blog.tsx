@@ -2,7 +2,9 @@ import { useState } from 'react';
 import { Calendar, User, Clock, ArrowRight, Search, Filter, ChevronLeft, ChevronRight, Tag, Eye, Menu, X, Home, Briefcase, Users, FileText, Phone, Mail, MapPin } from 'lucide-react';
 import { Link } from 'wouter';
 import Footer from '@/components/footer';
-import TransservicaLogo from '@/assets/transervica-logo.svg';
+import { useLanguage } from '../contexts/LanguageContext';
+import LanguageSwitcher from '@/components/LanguageSwitcher';
+import logoTranservica from "@assets/logo transervica sin fondo_1754163034585.png";
 
 // Blog post data with complete content
 const blogPosts = [
@@ -102,7 +104,12 @@ export default function BlogPage() {
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedPost, setSelectedPost] = useState<any>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { t } = useLanguage();
   const postsPerPage = 6;
+
+  const scrollToSection = (sectionId: string) => {
+    window.location.href = `/#${sectionId}`;
+  };
 
   // Filter posts
   const filteredPosts = blogPosts.filter(post => {
@@ -128,7 +135,7 @@ export default function BlogPage() {
             <div className="flex items-center justify-between py-4 border-b border-gray-100">
               <Link href="/" className="flex items-center gap-3">
                 <img 
-                  src={TransservicaLogo}
+                  src={logoTranservica}
                   alt="TRANSERVICA - Transporte Especializado"
                   className="h-14 w-auto hover:scale-105 transition-transform duration-300"
                 />
@@ -301,101 +308,166 @@ export default function BlogPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-green-50/30">
-      {/* Professional Header */}
-      <header className="bg-white shadow-lg border-b border-gray-100 sticky top-0 z-50">
-        <div className="container mx-auto px-4">
-          {/* Top Bar */}
-          <div className="flex items-center justify-between py-4 border-b border-gray-100">
-            <Link href="/" className="flex items-center gap-3">
-              <img 
-                src={TransservicaLogo}
-                alt="TRANSERVICA - Transporte Especializado"
-                className="h-14 w-auto hover:scale-105 transition-transform duration-300"
-              />
-            </Link>
-            
-            {/* Desktop Contact Info */}
-            <div className="hidden lg:flex items-center gap-6 text-sm text-gray-600">
-              <div className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-[#155d29]" />
-                <span>+58 243-223-8400</span>
+      {/* Original Header from Home Page */}
+      <nav className="bg-white shadow-md sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Top bar with contact info - Hidden on mobile for better UX */}
+          <div className="hidden lg:flex items-center justify-between py-2 border-b border-gray-200">
+            <div className="flex-1"></div>
+            <div className="flex items-center space-x-6 text-sm text-gray-600">
+              <div className="flex items-center space-x-2">
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M6.62 10.79a15.91 15.91 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.27 11.25 11.25 0 003.48.56 1 1 0 011 1V20a1 1 0 01-1 1A18 18 0 013 3a1 1 0 011-1h3.5a1 1 0 011 1 11.25 11.25 0 00.56 3.48 1 1 0 01-.27 1.11l-2.2 2.2z" />
+                </svg>
+                <span className="font-bold">(+58) 414-277-6340 / +58 412-441-8890</span>
               </div>
-              <div className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-[#155d29]" />
-                <span>info@transervica.com</span>
+              <div className="flex items-center space-x-2">
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M3 8l4 4 4-4m0 6l4-4 4 4m-8-8v14" />
+                </svg>
+                <span className="font-bold">direccioncomercialtvc@grupotranservica.com</span>
               </div>
             </div>
+          </div>
+          
+          {/* Main navigation menu - Mobile responsive */}
+          <div className="flex items-center justify-between py-3">
+            {/* Mobile logo - always visible */}
+            <div className="lg:hidden">
+              <Link href="/">
+                <img 
+                  src={logoTranservica} 
+                  alt="TRANSERVICA" 
+                  className="h-16 sm:h-20 w-auto cursor-pointer hover:scale-105 transition-all duration-300 filter brightness-110 contrast-125 drop-shadow-lg"
+                />
+              </Link>
+            </div>
             
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 rounded-lg hover:bg-gray-100"
-            >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
+            <div className="hidden lg:flex items-center space-x-8">
+              {/* Logo next to navigation */}
+              <Link href="/">
+                <img 
+                  src={logoTranservica} 
+                  alt="TRANSERVICA" 
+                  className="h-24 lg:h-28 xl:h-32 w-auto cursor-pointer hover:scale-105 transition-all duration-300 mr-8 filter brightness-110 contrast-125 drop-shadow-lg"
+                  style={{ 
+                    filter: 'brightness(1.1) contrast(1.25) drop-shadow(0 2px 4px rgba(0,0,0,0.2))'
+                  }}
+                />
+              </Link>
+              <Link 
+                href="/"
+                className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide"
+              >
+                {t('nav.home')}
+              </Link>
+              <button 
+                onClick={() => scrollToSection('servicios')}
+                className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide flex items-center"
+              >
+                {t('nav.services')}
+                <svg className="w-3 h-3 ml-1" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+                </svg>
+              </button>
+              <button 
+                onClick={() => scrollToSection('proyectos')}
+                className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide"
+              >
+                {t('nav.projects')}
+              </button>
+              <button 
+                onClick={() => scrollToSection('nosotros')}
+                className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide"
+              >
+                {t('nav.company')}
+              </button>
+              <Link 
+                href="/blog"
+                className="text-[#155d29] text-sm font-bold transition uppercase tracking-wide border-b-2 border-[#155d29] pb-1"
+              >
+                BLOG
+              </Link>
+              <button 
+                onClick={() => scrollToSection('contacto')}
+                className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide"
+              >
+                {t('nav.contact')}
+              </button>
+              <LanguageSwitcher />
+            </div>
+
+            {/* Mobile menu toggle */}
+            <div className="lg:hidden flex items-center space-x-4">
+              <LanguageSwitcher />
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="text-gray-700 hover:text-[#155d29] p-2"
+              >
+                {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              </button>
+            </div>
           </div>
 
-          {/* Navigation */}
-          <nav className="hidden lg:flex items-center gap-8 py-4">
-            <Link href="/" className="flex items-center gap-2 text-gray-700 hover:text-[#155d29] font-medium transition-colors">
-              <Home className="w-4 h-4" />
-              Inicio
-            </Link>
-            <a href="/#nosotros" className="flex items-center gap-2 text-gray-700 hover:text-[#155d29] font-medium transition-colors">
-              <Users className="w-4 h-4" />
-              Nosotros
-            </a>
-            <a href="/#servicios" className="flex items-center gap-2 text-gray-700 hover:text-[#155d29] font-medium transition-colors">
-              <Briefcase className="w-4 h-4" />
-              Servicios
-            </a>
-            <a href="/#proyectos" className="flex items-center gap-2 text-gray-700 hover:text-[#155d29] font-medium transition-colors">
-              <FileText className="w-4 h-4" />
-              Proyectos
-            </a>
-            <Link href="/blog" className="flex items-center gap-2 text-[#155d29] font-bold border-b-2 border-[#155d29] pb-1">
-              <Calendar className="w-4 h-4" />
-              Blog
-            </Link>
-            <a href="/#contacto" className="flex items-center gap-2 text-gray-700 hover:text-[#155d29] font-medium transition-colors">
-              <Phone className="w-4 h-4" />
-              Contacto
-            </a>
-          </nav>
-
-          {/* Mobile Navigation */}
+          {/* Mobile Navigation Menu */}
           {mobileMenuOpen && (
-            <div className="lg:hidden py-4 border-t border-gray-100">
-              <div className="flex flex-col gap-4">
-                <Link href="/" className="flex items-center gap-2 text-gray-700 hover:text-[#155d29] font-medium">
-                  <Home className="w-4 h-4" />
-                  Inicio
+            <div className="lg:hidden py-4 border-t border-gray-200 bg-white">
+              <div className="flex flex-col space-y-4">
+                <Link 
+                  href="/"
+                  className="text-gray-700 hover:text-[#155d29] text-sm font-bold uppercase tracking-wide px-4 py-2"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {t('nav.home')}
                 </Link>
-                <a href="/#nosotros" className="flex items-center gap-2 text-gray-700 hover:text-[#155d29] font-medium">
-                  <Users className="w-4 h-4" />
-                  Nosotros
-                </a>
-                <a href="/#servicios" className="flex items-center gap-2 text-gray-700 hover:text-[#155d29] font-medium">
-                  <Briefcase className="w-4 h-4" />
-                  Servicios
-                </a>
-                <a href="/#proyectos" className="flex items-center gap-2 text-gray-700 hover:text-[#155d29] font-medium">
-                  <FileText className="w-4 h-4" />
-                  Proyectos
-                </a>
-                <Link href="/blog" className="flex items-center gap-2 text-[#155d29] font-bold">
-                  <Calendar className="w-4 h-4" />
-                  Blog
+                <button 
+                  onClick={() => {
+                    scrollToSection('servicios');
+                    setMobileMenuOpen(false);
+                  }}
+                  className="text-left text-gray-700 hover:text-[#155d29] text-sm font-bold uppercase tracking-wide px-4 py-2"
+                >
+                  {t('nav.services')}
+                </button>
+                <button 
+                  onClick={() => {
+                    scrollToSection('proyectos');
+                    setMobileMenuOpen(false);
+                  }}
+                  className="text-left text-gray-700 hover:text-[#155d29] text-sm font-bold uppercase tracking-wide px-4 py-2"
+                >
+                  {t('nav.projects')}
+                </button>
+                <button 
+                  onClick={() => {
+                    scrollToSection('nosotros');
+                    setMobileMenuOpen(false);
+                  }}
+                  className="text-left text-gray-700 hover:text-[#155d29] text-sm font-bold uppercase tracking-wide px-4 py-2"
+                >
+                  {t('nav.company')}
+                </button>
+                <Link 
+                  href="/blog"
+                  className="text-[#155d29] text-sm font-bold uppercase tracking-wide px-4 py-2 border-l-4 border-[#155d29]"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  BLOG
                 </Link>
-                <a href="/#contacto" className="flex items-center gap-2 text-gray-700 hover:text-[#155d29] font-medium">
-                  <Phone className="w-4 h-4" />
-                  Contacto
-                </a>
+                <button 
+                  onClick={() => {
+                    scrollToSection('contacto');
+                    setMobileMenuOpen(false);
+                  }}
+                  className="text-left text-gray-700 hover:text-[#155d29] text-sm font-bold uppercase tracking-wide px-4 py-2"
+                >
+                  {t('nav.contact')}
+                </button>
               </div>
             </div>
           )}
         </div>
-      </header>
+      </nav>
 
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-r from-[#155d29] to-[#0f4a21] text-white relative overflow-hidden">
@@ -407,7 +479,7 @@ export default function BlogPage() {
         <div className="container mx-auto px-4 text-center relative z-10">
           <div className="mb-8">
             <img 
-              src={TransservicaLogo}
+              src={logoTranservica}
               alt="TRANSERVICA Blog Corporativo"
               className="h-20 w-auto mx-auto mb-6 filter brightness-0 invert"
             />
