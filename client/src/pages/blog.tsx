@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { Calendar, User, Clock, ArrowRight, Search, Filter, ChevronLeft, ChevronRight, Tag, Eye } from 'lucide-react';
+import { Calendar, User, Clock, ArrowRight, Search, Filter, ChevronLeft, ChevronRight, Tag, Eye, Menu, X, Home, Briefcase, Users, FileText, Phone, Mail, MapPin } from 'lucide-react';
 import { Link } from 'wouter';
+import Footer from '@/components/footer';
 
 // Blog post data with complete content
 const blogPosts = [
@@ -99,6 +100,7 @@ export default function BlogPage() {
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedPost, setSelectedPost] = useState<any>(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const postsPerPage = 6;
 
   // Filter posts
@@ -118,24 +120,116 @@ export default function BlogPage() {
   if (selectedPost) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-green-50/30">
-        {/* Header */}
-        <header className="bg-white shadow-sm border-b border-gray-100">
-          <div className="container mx-auto px-4 py-6">
-            <div className="flex items-center justify-between">
+        {/* Professional Header */}
+        <header className="bg-white shadow-lg border-b border-gray-100 sticky top-0 z-50">
+          <div className="container mx-auto px-4">
+            {/* Top Bar */}
+            <div className="flex items-center justify-between py-4 border-b border-gray-100">
               <Link href="/" className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-gradient-to-br from-[#155d29] to-[#0f4a21] rounded-full flex items-center justify-center">
-                  <span className="text-white font-bold text-lg">T</span>
+                <div className="w-12 h-12 bg-gradient-to-br from-[#155d29] to-[#0f4a21] rounded-full flex items-center justify-center shadow-lg">
+                  <span className="text-white font-bold text-xl">T</span>
                 </div>
-                <span className="text-2xl font-bold" style={{ color: '#155d29' }}>TRANSERVICA</span>
+                <div>
+                  <span className="text-2xl font-bold" style={{ color: '#155d29' }}>TRANSERVICA</span>
+                  <p className="text-sm text-gray-600">Blog Corporativo</p>
+                </div>
               </Link>
+              
+              {/* Desktop Contact Info */}
+              <div className="hidden lg:flex items-center gap-6 text-sm text-gray-600">
+                <div className="flex items-center gap-2">
+                  <Phone className="w-4 h-4 text-[#155d29]" />
+                  <span>+58 243-223-8400</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Mail className="w-4 h-4 text-[#155d29]" />
+                  <span>info@transervica.com</span>
+                </div>
+              </div>
+              
+              {/* Mobile Menu Button */}
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="lg:hidden p-2 rounded-lg hover:bg-gray-100"
+              >
+                {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              </button>
+            </div>
+
+            {/* Navigation */}
+            <nav className="hidden lg:flex items-center gap-8 py-4">
+              <Link href="/" className="flex items-center gap-2 text-gray-700 hover:text-[#155d29] font-medium transition-colors">
+                <Home className="w-4 h-4" />
+                Inicio
+              </Link>
+              <a href="/#nosotros" className="flex items-center gap-2 text-gray-700 hover:text-[#155d29] font-medium transition-colors">
+                <Users className="w-4 h-4" />
+                Nosotros
+              </a>
+              <a href="/#servicios" className="flex items-center gap-2 text-gray-700 hover:text-[#155d29] font-medium transition-colors">
+                <Briefcase className="w-4 h-4" />
+                Servicios
+              </a>
+              <a href="/#proyectos" className="flex items-center gap-2 text-gray-700 hover:text-[#155d29] font-medium transition-colors">
+                <FileText className="w-4 h-4" />
+                Proyectos
+              </a>
+              <Link href="/blog" className="flex items-center gap-2 text-[#155d29] font-bold border-b-2 border-[#155d29] pb-1">
+                <Calendar className="w-4 h-4" />
+                Blog
+              </Link>
+              <a href="/#contacto" className="flex items-center gap-2 text-gray-700 hover:text-[#155d29] font-medium transition-colors">
+                <Phone className="w-4 h-4" />
+                Contacto
+              </a>
+              
               <button
                 onClick={() => setSelectedPost(null)}
-                className="flex items-center gap-2 px-4 py-2 bg-[#155d29] text-white rounded-lg hover:bg-[#0f4a21] transition-colors"
+                className="ml-auto flex items-center gap-2 px-4 py-2 bg-[#155d29] text-white rounded-lg hover:bg-[#0f4a21] transition-colors shadow-md"
               >
                 <ChevronLeft className="w-4 h-4" />
                 Volver al Blog
               </button>
-            </div>
+            </nav>
+
+            {/* Mobile Navigation */}
+            {mobileMenuOpen && (
+              <div className="lg:hidden py-4 border-t border-gray-100">
+                <div className="flex flex-col gap-4">
+                  <Link href="/" className="flex items-center gap-2 text-gray-700 hover:text-[#155d29] font-medium">
+                    <Home className="w-4 h-4" />
+                    Inicio
+                  </Link>
+                  <a href="/#nosotros" className="flex items-center gap-2 text-gray-700 hover:text-[#155d29] font-medium">
+                    <Users className="w-4 h-4" />
+                    Nosotros
+                  </a>
+                  <a href="/#servicios" className="flex items-center gap-2 text-gray-700 hover:text-[#155d29] font-medium">
+                    <Briefcase className="w-4 h-4" />
+                    Servicios
+                  </a>
+                  <a href="/#proyectos" className="flex items-center gap-2 text-gray-700 hover:text-[#155d29] font-medium">
+                    <FileText className="w-4 h-4" />
+                    Proyectos
+                  </a>
+                  <Link href="/blog" className="flex items-center gap-2 text-[#155d29] font-bold">
+                    <Calendar className="w-4 h-4" />
+                    Blog
+                  </Link>
+                  <a href="/#contacto" className="flex items-center gap-2 text-gray-700 hover:text-[#155d29] font-medium">
+                    <Phone className="w-4 h-4" />
+                    Contacto
+                  </a>
+                  <button
+                    onClick={() => setSelectedPost(null)}
+                    className="flex items-center gap-2 px-4 py-2 bg-[#155d29] text-white rounded-lg hover:bg-[#0f4a21] transition-colors w-fit"
+                  >
+                    <ChevronLeft className="w-4 h-4" />
+                    Volver al Blog
+                  </button>
+                </div>
+              </div>
+            )}
           </div>
         </header>
 
@@ -208,20 +302,101 @@ export default function BlogPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-green-50/30">
-      {/* Header */}
-      <header className="bg-white shadow-sm border-b border-gray-100">
-        <div className="container mx-auto px-4 py-6">
-          <div className="flex items-center justify-between">
+      {/* Professional Header */}
+      <header className="bg-white shadow-lg border-b border-gray-100 sticky top-0 z-50">
+        <div className="container mx-auto px-4">
+          {/* Top Bar */}
+          <div className="flex items-center justify-between py-4 border-b border-gray-100">
             <Link href="/" className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-gradient-to-br from-[#155d29] to-[#0f4a21] rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-lg">T</span>
+              <div className="w-12 h-12 bg-gradient-to-br from-[#155d29] to-[#0f4a21] rounded-full flex items-center justify-center shadow-lg">
+                <span className="text-white font-bold text-xl">T</span>
               </div>
-              <span className="text-2xl font-bold" style={{ color: '#155d29' }}>TRANSERVICA</span>
+              <div>
+                <span className="text-2xl font-bold" style={{ color: '#155d29' }}>TRANSERVICA</span>
+                <p className="text-sm text-gray-600">Blog Corporativo</p>
+              </div>
             </Link>
-            <Link href="/" className="text-[#155d29] hover:text-[#0f4a21] font-medium">
-              Volver al Inicio
-            </Link>
+            
+            {/* Desktop Contact Info */}
+            <div className="hidden lg:flex items-center gap-6 text-sm text-gray-600">
+              <div className="flex items-center gap-2">
+                <Phone className="w-4 h-4 text-[#155d29]" />
+                <span>+58 243-223-8400</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Mail className="w-4 h-4 text-[#155d29]" />
+                <span>info@transervica.com</span>
+              </div>
+            </div>
+            
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="lg:hidden p-2 rounded-lg hover:bg-gray-100"
+            >
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
           </div>
+
+          {/* Navigation */}
+          <nav className="hidden lg:flex items-center gap-8 py-4">
+            <Link href="/" className="flex items-center gap-2 text-gray-700 hover:text-[#155d29] font-medium transition-colors">
+              <Home className="w-4 h-4" />
+              Inicio
+            </Link>
+            <a href="/#nosotros" className="flex items-center gap-2 text-gray-700 hover:text-[#155d29] font-medium transition-colors">
+              <Users className="w-4 h-4" />
+              Nosotros
+            </a>
+            <a href="/#servicios" className="flex items-center gap-2 text-gray-700 hover:text-[#155d29] font-medium transition-colors">
+              <Briefcase className="w-4 h-4" />
+              Servicios
+            </a>
+            <a href="/#proyectos" className="flex items-center gap-2 text-gray-700 hover:text-[#155d29] font-medium transition-colors">
+              <FileText className="w-4 h-4" />
+              Proyectos
+            </a>
+            <Link href="/blog" className="flex items-center gap-2 text-[#155d29] font-bold border-b-2 border-[#155d29] pb-1">
+              <Calendar className="w-4 h-4" />
+              Blog
+            </Link>
+            <a href="/#contacto" className="flex items-center gap-2 text-gray-700 hover:text-[#155d29] font-medium transition-colors">
+              <Phone className="w-4 h-4" />
+              Contacto
+            </a>
+          </nav>
+
+          {/* Mobile Navigation */}
+          {mobileMenuOpen && (
+            <div className="lg:hidden py-4 border-t border-gray-100">
+              <div className="flex flex-col gap-4">
+                <Link href="/" className="flex items-center gap-2 text-gray-700 hover:text-[#155d29] font-medium">
+                  <Home className="w-4 h-4" />
+                  Inicio
+                </Link>
+                <a href="/#nosotros" className="flex items-center gap-2 text-gray-700 hover:text-[#155d29] font-medium">
+                  <Users className="w-4 h-4" />
+                  Nosotros
+                </a>
+                <a href="/#servicios" className="flex items-center gap-2 text-gray-700 hover:text-[#155d29] font-medium">
+                  <Briefcase className="w-4 h-4" />
+                  Servicios
+                </a>
+                <a href="/#proyectos" className="flex items-center gap-2 text-gray-700 hover:text-[#155d29] font-medium">
+                  <FileText className="w-4 h-4" />
+                  Proyectos
+                </a>
+                <Link href="/blog" className="flex items-center gap-2 text-[#155d29] font-bold">
+                  <Calendar className="w-4 h-4" />
+                  Blog
+                </Link>
+                <a href="/#contacto" className="flex items-center gap-2 text-gray-700 hover:text-[#155d29] font-medium">
+                  <Phone className="w-4 h-4" />
+                  Contacto
+                </a>
+              </div>
+            </div>
+          )}
         </div>
       </header>
 
@@ -430,6 +605,9 @@ export default function BlogPage() {
           )}
         </section>
       </div>
+      
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }
