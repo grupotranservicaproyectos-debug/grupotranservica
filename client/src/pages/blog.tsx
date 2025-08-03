@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'wouter';
-import { Calendar, Clock, User, ArrowRight, Tag } from 'lucide-react';
+import { Calendar, Clock, User, ArrowRight, Tag, Phone, Mail, MapPin } from 'lucide-react';
+import transervicaLogoPath from '@assets/logo transervica sin fondo_1754162248611.png';
 
 interface BlogPost {
   id: string;
@@ -50,7 +51,7 @@ const blogPosts: BlogPost[] = [
     author: 'Ing. Carlos Rodríguez',
     publishDate: '2024-01-15',
     readTime: 8,
-    featuredImage: '/api/placeholder/800/400',
+    featuredImage: '@assets/27_1754185586558.png',
     keywords: ['transporte transformador Venezuela', '333 MVA', 'cargas excepcionales'],
     cta: {
       text: 'Solicita cotización para tu proyecto',
@@ -96,7 +97,7 @@ const blogPosts: BlogPost[] = [
     author: 'Ing. María González',
     publishDate: '2024-01-22',
     readTime: 6,
-    featuredImage: '/api/placeholder/800/400',
+    featuredImage: '@assets/31-copia-copia_1754185586561.png',
     keywords: ['grúas alemanas Venezuela', 'Grove Liebherr', 'tecnología izamiento'],
     cta: {
       text: 'Conoce nuestros equipos',
@@ -148,7 +149,7 @@ const blogPosts: BlogPost[] = [
     author: 'Fundadores TRANSERVICA',
     publishDate: '2024-02-01',
     readTime: 10,
-    featuredImage: '/api/placeholder/800/400',
+    featuredImage: '@assets/30 - copia_1754185586560.png',
     keywords: ['historia Transervica', '40 años experiencia', 'transporte Venezuela'],
     cta: {
       text: 'Conoce nuestra trayectoria',
@@ -216,7 +217,7 @@ const blogPosts: BlogPost[] = [
     author: 'Depto. Legal TRANSERVICA',
     publishDate: '2024-02-10',
     readTime: 12,
-    featuredImage: '/api/placeholder/800/400',
+    featuredImage: '@assets/24_1754185586556.png',
     keywords: ['permisos INTT Venezuela', 'cargas excepcionales', 'normativas transporte'],
     cta: {
       text: 'Gestiona tus permisos con nosotros',
@@ -299,7 +300,7 @@ const blogPosts: BlogPost[] = [
     author: 'Ing. Pedro Martínez',
     publishDate: '2024-02-18',
     readTime: 9,
-    featuredImage: '/api/placeholder/800/400',
+    featuredImage: '@assets/29_1754185586560.png',
     keywords: ['trailers modulares hidráulicos', 'SCHEUERLE Venezuela', 'tecnología transporte'],
     cta: {
       text: 'Solicita información técnica',
@@ -480,6 +481,56 @@ export default function BlogPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      {/* Header with Logo and Navigation */}
+      <header className="bg-white shadow-lg sticky top-0 z-50">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-between h-20">
+            {/* Logo */}
+            <Link to="/" className="flex items-center space-x-3">
+              <img 
+                src={transervicaLogoPath} 
+                alt="TRANSERVICA Logo" 
+                className="h-12 w-auto"
+              />
+              <div className="text-2xl font-bold" style={{ color: '#155d29' }}>
+                TRANSERVICA
+              </div>
+            </Link>
+
+            {/* Navigation */}
+            <nav className="hidden md:flex items-center space-x-8">
+              <Link to="/" className="text-gray-700 hover:text-white transition-all duration-300 font-bold px-4 py-2 rounded-lg hover:bg-transervica-green">
+                Inicio
+              </Link>
+              <Link to="/#services" className="text-gray-700 hover:text-white transition-all duration-300 font-bold px-4 py-2 rounded-lg hover:bg-transervica-green">
+                Servicios
+              </Link>
+              <Link to="/#about" className="text-gray-700 hover:text-white transition-all duration-300 font-bold px-4 py-2 rounded-lg hover:bg-transervica-green">
+                Nosotros
+              </Link>
+              <Link to="/#contact" className="text-gray-700 hover:text-white transition-all duration-300 font-bold px-4 py-2 rounded-lg hover:bg-transervica-green">
+                Contacto
+              </Link>
+              <div className="text-white font-bold px-4 py-2 rounded-lg" style={{ backgroundColor: '#155d29' }}>
+                Blog
+              </div>
+            </nav>
+
+            {/* Contact Info */}
+            <div className="hidden lg:flex items-center space-x-4 text-sm">
+              <div className="flex items-center space-x-2">
+                <Phone className="w-4 h-4" style={{ color: '#155d29' }} />
+                <span className="font-semibold">+58 212-555-0123</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Mail className="w-4 h-4" style={{ color: '#155d29' }} />
+                <span className="font-semibold">direccioncomercialtvc@grupotranservica.com</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
       {/* Hero Section */}
       <div className="bg-[#155d29] text-white py-20">
         <div className="container mx-auto px-4 text-center">
@@ -572,6 +623,140 @@ export default function BlogPage() {
           </button>
         </div>
       </div>
+
+      {/* Complete Footer */}
+      <footer className="bg-gray-900 text-gray-300">
+        <div className="container mx-auto px-4 py-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {/* Company Info */}
+            <div>
+              <div className="flex items-center space-x-3 mb-6">
+                <img 
+                  src={transervicaLogoPath} 
+                  alt="TRANSERVICA Logo" 
+                  className="h-10 w-auto"
+                />
+                <div className="text-xl font-bold text-white">
+                  TRANSERVICA
+                </div>
+              </div>
+              <p className="text-gray-400 mb-6 leading-relaxed">
+                Líderes en transporte de cargas excepcionales en Venezuela con más de 40 años de experiencia. 
+                Especializados en el manejo de cargas hasta 380 toneladas.
+              </p>
+              <div className="flex items-center space-x-2 mb-2">
+                <MapPin className="w-4 h-4" style={{ color: '#155d29' }} />
+                <span className="text-sm">Caracas, Venezuela</span>
+              </div>
+              <div className="flex items-center space-x-2 mb-2">
+                <Phone className="w-4 h-4" style={{ color: '#155d29' }} />
+                <span className="text-sm">+58 212-555-0123</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Mail className="w-4 h-4" style={{ color: '#155d29' }} />
+                <span className="text-sm">direccioncomercialtvc@grupotranservica.com</span>
+              </div>
+            </div>
+
+            {/* Services */}
+            <div>
+              <h3 className="text-xl font-bold mb-6" style={{ color: '#155d29' }}>Nuestros Servicios</h3>
+              <ul className="space-y-3">
+                <li>
+                  <a href="/#services" className="text-slate-600 hover:text-white transition-all duration-300 font-medium flex items-center group">
+                    <div className="w-2 h-2 rounded-full mr-3 group-hover:scale-125 transition-transform duration-300" style={{ backgroundColor: '#155d29' }}></div>
+                    Transporte Especializado
+                  </a>
+                </li>
+                <li>
+                  <a href="/#services" className="text-slate-600 hover:text-white transition-all duration-300 font-medium flex items-center group">
+                    <div className="w-2 h-2 rounded-full mr-3 group-hover:scale-125 transition-transform duration-300" style={{ backgroundColor: '#155d29' }}></div>
+                    Grúas de Gran Capacidad
+                  </a>
+                </li>
+                <li>
+                  <a href="/#services" className="text-slate-600 hover:text-white transition-all duration-300 font-medium flex items-center group">
+                    <div className="w-2 h-2 rounded-full mr-3 group-hover:scale-125 transition-transform duration-300" style={{ backgroundColor: '#155d29' }}></div>
+                    Trailers Modulares
+                  </a>
+                </li>
+                <li>
+                  <a href="/#services" className="text-slate-600 hover:text-white transition-all duration-300 font-medium flex items-center group">
+                    <div className="w-2 h-2 rounded-full mr-3 group-hover:scale-125 transition-transform duration-300" style={{ backgroundColor: '#155d29' }}></div>
+                    Logística Integral
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            {/* Company */}
+            <div>
+              <h3 className="text-xl font-bold mb-6" style={{ color: '#155d29' }}>Empresa</h3>
+              <ul className="space-y-3">
+                <li>
+                  <Link to="/#about" className="text-slate-600 hover:text-white transition-all duration-300 font-medium flex items-center group">
+                    <div className="w-2 h-2 rounded-full mr-3 group-hover:scale-125 transition-transform duration-300" style={{ backgroundColor: '#155d29' }}></div>
+                    Sobre Nosotros
+                  </Link>
+                </li>
+                <li>
+                  <a href="#" className="text-slate-600 hover:text-white transition-all duration-300 font-medium flex items-center group">
+                    <div className="w-2 h-2 rounded-full mr-3 group-hover:scale-125 transition-transform duration-300" style={{ backgroundColor: '#155d29' }}></div>
+                    Nuestro Equipo
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="text-slate-600 hover:text-white transition-all duration-300 font-medium flex items-center group">
+                    <div className="w-2 h-2 rounded-full mr-3 group-hover:scale-125 transition-transform duration-300" style={{ backgroundColor: '#155d29' }}></div>
+                    Casos de Estudio
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="text-slate-600 hover:text-white transition-all duration-300 font-medium flex items-center group">
+                    <div className="w-2 h-2 rounded-full mr-3 group-hover:scale-125 transition-transform duration-300" style={{ backgroundColor: '#155d29' }}></div>
+                    Centro de Ayuda
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            {/* Newsletter */}
+            <div>
+              <h3 className="text-xl font-bold mb-6" style={{ color: '#155d29' }}>Suscríbete a nuestro newsletter</h3>
+              <div className="mb-4">
+                <input 
+                  type="email" 
+                  placeholder="Work Email" 
+                  className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-transervica-green transition"
+                />
+              </div>
+              <button 
+                className="w-full text-white px-4 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-md"
+                style={{ backgroundColor: '#155d29' }}
+              >
+                Suscribirse
+              </button>
+              <p className="text-xs text-gray-500 mt-3">
+                Al suscribirte, aceptas recibir emails de marketing de TRANSERVICA
+              </p>
+            </div>
+          </div>
+
+          {/* Bottom Footer */}
+          <div className="border-t border-gray-700 mt-12 pt-8">
+            <div className="flex flex-col md:flex-row justify-between items-center">
+              <div className="text-sm text-gray-400 mb-4 md:mb-0">
+                © 2024 TRANSERVICA C.A. Todos los derechos reservados.
+              </div>
+              <div className="flex space-x-6 text-sm">
+                <a href="#" className="hover:text-white transition">Política de Privacidad</a>
+                <a href="#" className="hover:text-white transition">Términos de Servicio</a>
+                <a href="#" className="hover:text-white transition">Acuerdo de Cliente</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
