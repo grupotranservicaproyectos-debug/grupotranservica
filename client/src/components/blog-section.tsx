@@ -35,7 +35,7 @@ export default function BlogSection() {
       id: 1,
       title: "Transporte de Turbinas de 380 Toneladas: Proyecto Exitoso en el Estado Zulia",
       excerpt: "Completamos con éxito el transporte de turbinas industriales de 380 toneladas desde el Puerto de Maracaibo hasta la Planta Termoeléctrica de La Concepción, utilizando nuestros trailers modulares hidráulicos SCHEUERLE.",
-      content: "Este proyecto representó uno de los mayores desafíos logísticos del año 2024...",
+      content: "Este proyecto representó uno de los mayores desafíos logísticos del año 2024. Durante tres meses de planificación detallada, nuestro equipo de ingenieros especializados desarrolló una estrategia integral que incluyó análisis de rutas, reforzamiento de puentes y coordinación con autoridades locales. El transporte se realizó durante horas nocturnas para minimizar el impacto en el tráfico vehicular, utilizando nuestros trailers modulares SCHEUERLE de última generación con capacidad para 500 toneladas. El proyecto requirió la movilización de 40 técnicos especializados, 8 vehículos de escolta y coordinación con CORPOELEC para garantizar el suministro eléctrico continuo durante la instalación. Esta operación consolida a TRANSERVICA como líder en transporte de cargas excepcionales en Venezuela, demostrando nuestra capacidad para ejecutar proyectos de infraestructura crítica con los más altos estándares de seguridad y eficiencia.",
       author: "Ing. Carlos Rodríguez",
       date: "2024-12-15",
       readTime: "8 min",
@@ -49,7 +49,7 @@ export default function BlogSection() {
       id: 2,
       title: "Nuevas Grúas Grove GMK6400 se Incorporan a Nuestra Flota Especializada",
       excerpt: "Ampliamos nuestra capacidad operativa con la adquisición de dos nuevas grúas Grove GMK6400 de 400 toneladas, fortaleciendo nuestro liderazgo en el sector de cargas excepcionales en Venezuela.",
-      content: "La inversión en equipos de última generación es fundamental para mantener...",
+      content: "La inversión en equipos de última generación es fundamental para mantener nuestro liderazgo en el sector de transporte especializado. Las nuevas grúas Grove GMK6400 representan una inversión de 2.8 millones de dólares y cuentan con tecnología de vanguardia incluyendo sistema de control computerizado, pluma telescópica de 60 metros y capacidad de elevación de 400 toneladas a 3 metros de radio. Estos equipos están equipados con sistemas de seguridad avanzados como limitadores de momento, indicadores de ángulo y sistemas anti-vuelco, garantizando operaciones seguras en los proyectos más exigentes. La flota modernizada permite a TRANSERVICA atender simultáneamente múltiples proyectos de infraestructura, reduciendo tiempos de ejecución y optimizando costos para nuestros clientes. Con estas incorporaciones, nuestra empresa consolida su posición como la única en Venezuela capaz de manejar cargas de hasta 1,100 toneladas con estándares internacionales de calidad y seguridad.",
       author: "Ing. María Fernández",
       date: "2024-11-28",
       readTime: "6 min",
@@ -63,7 +63,7 @@ export default function BlogSection() {
       id: 3,
       title: "Normativas de Seguridad para Transporte de Cargas Sobredimensionadas en Venezuela",
       excerpt: "Guía completa sobre las regulaciones vigentes del INTT para el transporte de cargas excepcionales, permisos especiales y mejores prácticas de seguridad vial.",
-      content: "El cumplimiento de las normativas de seguridad es prioritario...",
+      content: "El cumplimiento de las normativas de seguridad es prioritario en todas nuestras operaciones. En Venezuela, el Instituto Nacional de Transporte Terrestre (INTT) regula el transporte de cargas excepcionales mediante la Resolución 349, que establece los requisitos para permisos especiales. Las cargas que excedan 2.5 metros de ancho, 3.5 metros de alto, 18 metros de largo o 48 toneladas de peso requieren autorización especial. TRANSERVICA cuenta con personal certificado en gestión de permisos especiales y mantiene alianzas estratégicas con el INTT para agilizar los procesos administrativos. Nuestros operadores están capacitados en las mejores prácticas internacionales incluyendo señalización preventiva, escolta especializada, análisis de rutas críticas y protocolos de emergencia. Cumplimos estrictamente con las normativas de tránsito nocturno, restricciones en días festivos y coordinación con autoridades locales para garantizar la seguridad de todos los usuarios de las vías públicas.",
       author: "Lic. Ana Pérez",
       date: "2024-11-10",
       readTime: "12 min",
@@ -77,7 +77,7 @@ export default function BlogSection() {
       id: 4,
       title: "Transporte Multimodal: Integrando Vías Terrestres, Marítimas y Fluviales",
       excerpt: "Casos de estudio sobre proyectos que requieren coordinación entre diferentes modalidades de transporte para optimizar costos y tiempos de entrega.",
-      content: "La logística multimodal representa el futuro del transporte...",
+      content: "La logística multimodal representa el futuro del transporte especializado en Venezuela. TRANSERVICA ha desarrollado capacidades únicas para coordinar operaciones que combinan transporte terrestre, marítimo y fluvial, optimizando rutas y reduciendo costos operativos hasta en 35%. Un ejemplo destacado fue el proyecto de transporte de equipos petroquímicos desde Houston hasta la Refinería de Paraguaná, que incluyó transporte marítimo internacional, descarga en Puerto Cabello, traslado terrestre de 380 kilómetros y instalación final. La operación requirió coordinación con autoridades portuarias, aduanales, de tránsito terrestre y ambientales. Nuestro equipo de planificación logística utiliza software especializado para optimizar rutas multimodales, considerando factores como restricciones de peso en puentes, limitaciones de altura en túneles, disponibilidad de equipos de izaje en puertos y condiciones climáticas estacionales. Esta capacidad integral posiciona a TRANSERVICA como el único operador logístico en Venezuela capaz de ejecutar proyectos multimodales de gran complejidad.",
       author: "Ing. Roberto Silva",
       date: "2024-10-22",
       readTime: "10 min",
@@ -91,7 +91,7 @@ export default function BlogSection() {
       id: 5,
       title: "40 Años Transportando el Futuro: Historia de TRANSERVICA",
       excerpt: "Un recorrido por cuatro décadas de liderazgo en transporte especializado, desde nuestros inicios hasta convertirnos en la empresa líder del sector en Venezuela.",
-      content: "TRANSERVICA fue fundada en 1984 con la visión de...",
+      content: "TRANSERVICA fue fundada en 1984 con la visión de revolucionar el transporte de cargas excepcionales en Venezuela. Iniciamos operaciones con una flota de 3 trailers convencionales y un equipo de 12 profesionales, enfocados en atender las necesidades del sector petrolero nacional. Durante los años 90, invertimos en tecnología europea adquiriendo nuestros primeros trailers modulares SCHEUERLE, convirtiéndonos en pioneros del transporte especializado. En la década del 2000, expandimos servicios hacia los sectores petroquímico, siderúrgico y de infraestructura, participando en proyectos emblemáticos como el transporte de equipos para el Metro de Caracas y la ampliación de refinerías. Los años 2010 marcaron nuestra consolidación internacional con certificaciones ISO 9001, ISO 14001 y OHSAS 18001. Hoy, con 40 años de experiencia, operamos la flota más moderna de Sudamérica con capacidad para transportar hasta 1,100 toneladas, manteniendo un record de seguridad del 99.8% y habiendo ejecutado más de 15,000 proyectos exitosos.",
       author: "Dirección General",
       date: "2024-10-05",
       readTime: "15 min",
@@ -105,7 +105,7 @@ export default function BlogSection() {
       id: 6,
       title: "Mantenimiento Preventivo de Trailers Modulares: Claves del Éxito Operativo",
       excerpt: "Protocolo detallado de mantenimiento para trailers modulares hidráulicos, garantizando máxima disponibilidad y seguridad en operaciones críticas.",
-      content: "El mantenimiento preventivo es esencial para garantizar...",
+      content: "El mantenimiento preventivo es esencial para garantizar la operatividad continua de nuestros trailers modulares SCHEUERLE. TRANSERVICA implementa un protocolo riguroso de mantenimiento basado en estándares internacionales que incluye inspecciones diarias, semanales, mensuales y anuales. Cada trailer cuenta con un historial digital completo que registra horas de operación, cargas transportadas, rutas utilizadas y todas las intervenciones de mantenimiento. Los sistemas hidráulicos reciben atención especial con cambios de fluido cada 1,000 horas, inspección de cilindros cada 500 horas y calibración de válvulas cada 250 horas. Los sistemas de dirección y suspensión se revisan cada 100 horas de operación, mientras que los neumáticos especializados se inspeccionan antes de cada proyecto. Nuestro taller cuenta con equipos de diagnóstico computarizados, banco de pruebas hidráulicas y personal certificado por SCHEUERLE. Este protocolo nos permite mantener una disponibilidad operativa del 98.5% y garantizar la seguridad en cada transporte, cumpliendo con las más exigentes normas internacionales de calidad.",
       author: "Ing. Luis Martínez",
       date: "2024-09-18",
       readTime: "9 min",
@@ -295,8 +295,14 @@ export default function BlogSection() {
                                 <span className="bg-gray-100 px-2 py-1 rounded-full">{post.readTime}</span>
                               </div>
                               
-                              <button className="flex items-center gap-1 text-[#155d29] font-bold text-sm hover:gap-2 transition-all duration-300 group-hover:text-[#0f4a21] bg-green-50 hover:bg-[#155d29] hover:text-white px-3 py-2 rounded-lg">
-                                Leer más
+                              <button 
+                                onClick={() => {
+                                  // Create a modal or detailed view for the full article
+                                  alert(`Artículo Completo: ${post.title}\n\n${post.content}`);
+                                }}
+                                className="flex items-center gap-1 text-[#155d29] font-bold text-sm hover:gap-2 transition-all duration-300 group-hover:text-[#0f4a21] bg-green-50 hover:bg-[#155d29] hover:text-white px-3 py-2 rounded-lg"
+                              >
+                                Leer Artículo Completo
                                 <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
                               </button>
                             </div>
