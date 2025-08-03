@@ -184,7 +184,7 @@ export default function BlogSection() {
             NOTICIAS TRANSERVICA
           </h2>
           <p className="mobile-text lg:text-xl max-w-3xl mx-auto mb-6 sm:mb-8 text-gray-600 text-wrap-pretty">
-            {t('blog.subtitle')}
+            Noticias y proyectos de Transporte de Carga Especializado
           </p>
           <div className="w-24 h-1 mx-auto rounded-full bg-gradient-to-r from-[#155d29] to-[#0f4a21]"></div>
         </div>
