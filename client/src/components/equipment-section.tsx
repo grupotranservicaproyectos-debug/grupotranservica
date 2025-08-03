@@ -113,9 +113,6 @@ export default function EquipmentSection() {
             Contamos con la Flota más Moderna y Especializada de Venezuela para el Transporte de Cargas Excepcionales, con Equipos de las Marcas más Reconocidas Mundialmente
           </p>
           <h3 className="text-2xl font-semibold mb-4" style={{ color: '#155d29' }}>Nuestros Equipos</h3>
-          <p className="text-lg text-slate-600 max-w-3xl mx-auto">
-            Contamos con la flota más moderna y especializada de Venezuela para el transporte de cargas excepcionales, con equipos de las marcas más reconocidas mundialmente
-          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
