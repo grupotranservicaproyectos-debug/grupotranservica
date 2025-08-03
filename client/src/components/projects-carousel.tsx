@@ -153,6 +153,47 @@ const ctaButtons = [
 export default function ProjectsCarousel() {
   const { t } = useLanguage();
   const [currentSlide, setCurrentSlide] = useState(0);
+  
+  // Dynamic projects array using translations
+  const projectsData: Project[] = [
+    {
+      id: 1,
+      title: t('projects.1.title'),
+      weight: t('projects.1.weight'),
+      sector: t('projects.1.sector'),
+      location: t('projects.1.location'),
+      image: image1,
+      description: t('projects.1.description')
+    },
+    {
+      id: 2,
+      title: t('projects.2.title'),
+      weight: t('projects.2.weight'),
+      sector: t('projects.2.sector'),
+      location: t('projects.2.location'),
+      image: image2,
+      description: t('projects.2.description')
+    },
+    {
+      id: 3,
+      title: t('projects.3.title'),
+      weight: t('projects.3.weight'),
+      sector: t('projects.3.sector'),
+      location: t('projects.3.location'),
+      image: image3,
+      description: t('projects.3.description')
+    },
+    {
+      id: 4,
+      title: t('projects.4.title'),
+      weight: t('projects.4.weight'),
+      sector: t('projects.4.sector'),
+      location: t('projects.4.location'),
+      image: image4,
+      description: t('projects.4.description')
+    },
+    ...projects.slice(4) // Keep remaining projects as is for now
+  ];
   const [isAutoplay, setIsAutoplay] = useState(true);
   const [isPaused, setIsPaused] = useState(false);
 
@@ -160,25 +201,25 @@ export default function ProjectsCarousel() {
     if (!isAutoplay || isPaused) return;
 
     const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % projects.length);
+      setCurrentSlide((prev) => (prev + 1) % projectsData.length);
     }, 4000);
 
     return () => clearInterval(interval);
   }, [isAutoplay, isPaused]);
 
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % projects.length);
+    setCurrentSlide((prev) => (prev + 1) % projectsData.length);
   };
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + projects.length) % projects.length);
+    setCurrentSlide((prev) => (prev - 1 + projectsData.length) % projectsData.length);
   };
 
   const toggleAutoplay = () => {
     setIsAutoplay(!isAutoplay);
   };
 
-  const currentProject = projects[currentSlide];
+  const currentProject = projectsData[currentSlide];
   const currentCTA = ctaButtons[currentSlide % ctaButtons.length];
 
   return (

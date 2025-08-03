@@ -21,80 +21,80 @@ export default function EquipmentSection() {
   const { t } = useLanguage();
   const equipmentItems: EquipmentItem[] = [
     {
-      name: "Trailers Modulares Hidráulicos 1,100 toneladas",
+      name: t('equipment.item1.name'),
       image: image15,
-      description: "Equipos de última generación para el transporte de cargas excepcionales",
-      capacity: "1,100 toneladas",
+      description: t('equipment.item1.description'),
+      capacity: t('equipment.item1.capacity'),
       brand: "SCHEUERLE",
       features: [
-        "Sistemas hidráulicos avanzados",
-        "Configuración modular", 
-        "Control remoto",
-        "Suspensión adaptativa"
+        t('equipment.item1.feature1'),
+        t('equipment.item1.feature2'),
+        t('equipment.item1.feature3'),
+        t('equipment.item1.feature4')
       ]
     },
     {
-      name: "Sistemas Especializados hasta 1100 toneladas",
+      name: t('equipment.item2.name'),
       image: image16,
-      description: "Plataformas autopropulsadas de alta precisión para cargas críticas",
-      capacity: "hasta 1100 toneladas", 
+      description: t('equipment.item2.description'),
+      capacity: t('equipment.item2.capacity'),
       brand: "COMETTO",
       features: [
-        "Autopropulsado",
-        "Control de precisión",
-        "Sistemas de navegación",
-        "Operación remota"
+        t('equipment.item2.feature1'),
+        t('equipment.item2.feature2'),
+        t('equipment.item2.feature3'),
+        t('equipment.item2.feature4')
       ]
     },
     {
-      name: "Grúas Móviles Telescópicas hasta 500 toneladas",
+      name: t('equipment.item3.name'),
       image: image20,
-      description: "Grúas Móviles de Alta Capacidad para Operaciones de Izamiento Especializado",
-      capacity: "hasta 500 toneladas",
+      description: t('equipment.item3.description'),
+      capacity: t('equipment.item3.capacity'),
       brand: "GROVE", 
       features: [
-        "Alta movilidad",
-        "Controles digitales",
-        "Operadores certificados"
+        t('equipment.item3.feature1'),
+        t('equipment.item3.feature2'),
+        t('equipment.item3.feature3')
       ]
     },
     {
-      name: "Grúas sobre Orugas hasta 800 toneladas",
+      name: t('equipment.item4.name'),
       image: image17,
-      description: "Equipos Especializados para Izamiento en Terrenos Difíciles",
-      capacity: "hasta 800 toneladas",
+      description: t('equipment.item4.description'),
+      capacity: t('equipment.item4.capacity'),
       brand: "P&H",
       features: [
-        "Base sobre orugas",
-        "Estabilidad superior", 
-        "Alcance extendido",
-        "Configuración versátil"
+        t('equipment.item4.feature1'),
+        t('equipment.item4.feature2'),
+        t('equipment.item4.feature3'),
+        t('equipment.item4.feature4')
       ]
     },
     {
-      name: "Camiones Especializados Variable",  
+      name: t('equipment.item5.name'),
       image: image21,
-      description: "Alquiler de Flota de Camiones Especializados para Diferentes Tipos de Carga",
-      capacity: "Variable",
+      description: t('equipment.item5.description'),
+      capacity: t('equipment.item5.capacity'),
       brand: "MAN / MACK",
       features: [
-        "Alta potencia",
-        "Transmisión especializada",
-        "Sistemas de seguridad", 
-        "Mantenimiento preventivo"
+        t('equipment.item5.feature1'),
+        t('equipment.item5.feature2'),
+        t('equipment.item5.feature3'),
+        t('equipment.item5.feature4')
       ]
     },
     {
-      name: "Equipos de Apoyo Diversas",
+      name: t('equipment.item6.name'),
       image: image24,
-      description: "Sistemas complementarios para operaciones complejas de transporte", 
-      capacity: "Diversas",
+      description: t('equipment.item6.description'),
+      capacity: t('equipment.item6.capacity'),
       brand: "CATERPILLAR",
       features: [
-        "Sistemas de apoyo",
-        "Equipos auxiliares",
-        "Herramientas especializadas",
-        "Soporte técnico"
+        t('equipment.item6.feature1'),
+        t('equipment.item6.feature2'),
+        t('equipment.item6.feature3'),
+        t('equipment.item6.feature4')
       ]
     }
   ];
@@ -150,7 +150,7 @@ export default function EquipmentSection() {
                       onMouseEnter={(e) => (e.target as HTMLElement).style.backgroundColor = '#0f4a21'}
                       onMouseLeave={(e) => (e.target as HTMLElement).style.backgroundColor = '#155d29'}
                     >
-                      Ver Especificaciones
+    {t('equipment.specs.button')}
                     </button>
                   </div>
                 </div>
