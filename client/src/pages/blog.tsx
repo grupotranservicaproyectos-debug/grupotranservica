@@ -968,30 +968,39 @@ export default function BlogPage() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
-            {currentPosts.map((post) => (
-              <article
-                key={post.id}
-                className="bg-white rounded-xl shadow-md lg:shadow-lg overflow-hidden hover:shadow-lg lg:hover:shadow-xl transition-all duration-300 group cursor-pointer mx-2 sm:mx-0"
-                onClick={() => setSelectedPost(post)}
-              >
-                <div className="aspect-video overflow-hidden">
-                  <img
-                    src={post.image}
-                    alt={post.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    loading="lazy"
-                  />
-                </div>
-                <div className="p-4 lg:p-6">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-3 gap-2">
-                    <span className="px-2 lg:px-3 py-1 bg-[#155d29] text-white text-xs font-medium rounded-full w-fit">
-                      {post.category}
-                    </span>
-                    <div className="flex items-center gap-1 text-gray-500">
-                      <Calendar className="w-3 h-3" />
-                      <span className="text-xs">{post.date}</span>
-                    </div>
+            {currentPosts.map((post, index) => {
+              // Calculate global article number based on pagination
+              const globalIndex = (currentPage - 1) * postsPerPage + index + 1;
+              
+              return (
+                <article
+                  key={post.id}
+                  className="bg-white rounded-xl shadow-md lg:shadow-lg overflow-hidden hover:shadow-lg lg:hover:shadow-xl transition-all duration-300 group cursor-pointer mx-2 sm:mx-0 relative"
+                  onClick={() => setSelectedPost(post)}
+                >
+                  {/* Article Number Badge */}
+                  <div className="absolute top-3 left-3 z-10 bg-[#155d29] text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold shadow-lg">
+                    {globalIndex}
                   </div>
+                  
+                  <div className="aspect-video overflow-hidden">
+                    <img
+                      src={post.image}
+                      alt={post.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="p-4 lg:p-6">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-3 gap-2">
+                      <span className="px-2 lg:px-3 py-1 bg-[#155d29] text-white text-xs font-medium rounded-full w-fit">
+                        {post.category}
+                      </span>
+                      <div className="flex items-center gap-1 text-gray-500">
+                        <Calendar className="w-3 h-3" />
+                        <span className="text-xs">{post.date}</span>
+                      </div>
+                    </div>
                   
                   <h3 className="text-base lg:text-lg font-bold mb-3 group-hover:text-[#155d29] transition-colors line-clamp-2">
                     {post.title}
@@ -1040,7 +1049,8 @@ export default function BlogPage() {
                   </div>
                 </div>
               </article>
-            ))}
+              );
+            })}
           </div>
 
           {/* Mobile-Optimized Pagination */}
