@@ -515,6 +515,25 @@ const translations = {
     'projects.4.location': 'National Routes',
     'projects.4.description': 'Exceptional cargo transport convoy on Venezuelan highways',
     
+    // Project CTA buttons
+    'projects.cta.1': 'QUOTE SIMILAR PROJECT',
+    'projects.cta.2': 'VIEW MORE PROJECTS',
+    'projects.cta.3': 'REQUEST INFORMATION',
+    'projects.cta.4': 'CONTACT SPECIALIST',
+    'projects.cta.5': 'KNOW CAPABILITIES',
+    'projects.cta.6': 'EVALUATE MY CARGO',
+    'projects.cta.7': 'PLAN TRANSPORT',
+    'projects.cta.8': 'CHECK AVAILABILITY',
+    'projects.cta.9': 'GET BUDGET',
+    'projects.cta.10': 'FREE TECHNICAL ADVICE',
+    'projects.cta.11': 'FEASIBILITY STUDIES',
+    'projects.cta.12': 'LOGISTICS COORDINATION',
+    
+    // Project stats
+    'projects.stats.of': 'of',
+    'projects.stats.projects': 'projects',
+    'projects.stats.years': 'years experience',
+    
     // Footer
     'footer.description': 'Specialized in exceptional cargo transportation up to 1,100 tons with hydraulic modular trailers. 40 years transporting Venezuela\'s future with cutting-edge German technology.',
     'footer.quote.button': 'REQUEST QUOTE',

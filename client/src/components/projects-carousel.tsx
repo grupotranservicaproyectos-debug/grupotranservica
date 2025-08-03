@@ -135,20 +135,7 @@ const projects: Project[] = [
   }
 ];
 
-const ctaButtons = [
-  "COTIZAR PROYECTO SIMILAR",
-  "VER MÁS PROYECTOS",
-  "SOLICITAR INFORMACIÓN",
-  "CONTACTAR ESPECIALISTA",
-  "CONOCER CAPACIDADES",
-  "EVALUAR MI CARGA",
-  "PLANIFICAR TRANSPORTE",
-  "CONSULTAR DISPONIBILIDAD",
-  "OBTENER PRESUPUESTO",
-  "ASESORÍA TÉCNICA GRATIS",
-  "ESTUDIOS DE FACTIBILIDAD",
-  "COORDINACIÓN LOGÍSTICA"
-];
+// CTA buttons will be handled dynamically in the component
 
 export default function ProjectsCarousel() {
   const { t } = useLanguage();
@@ -220,7 +207,7 @@ export default function ProjectsCarousel() {
   };
 
   const currentProject = projectsData[currentSlide];
-  const currentCTA = ctaButtons[currentSlide % ctaButtons.length];
+  const currentCTA = t(`projects.cta.${((currentSlide % 12) + 1)}`);
 
   return (
     <section className="py-20 bg-gradient-to-br from-slate-50 to-gray-100">
@@ -297,11 +284,11 @@ export default function ProjectsCarousel() {
                 <div className="grid grid-cols-2 gap-4 text-center">
                   <div className="bg-slate-50 rounded-lg p-3">
                     <div className="text-2xl font-bold" style={{ color: '#155d29' }}>{currentSlide + 1}</div>
-                    <div className="text-sm text-slate-600">de {projects.length} proyectos</div>
+                    <div className="text-sm text-slate-600">{t('projects.stats.of')} {projectsData.length} {t('projects.stats.projects')}</div>
                   </div>
                   <div className="bg-slate-50 rounded-lg p-3">
                     <div className="text-2xl font-bold" style={{ color: '#155d29' }}>40+</div>
-                    <div className="text-sm text-slate-600">años experiencia</div>
+                    <div className="text-sm text-slate-600">{t('projects.stats.years')}</div>
                   </div>
                 </div>
               </div>
@@ -345,7 +332,7 @@ export default function ProjectsCarousel() {
 
           {/* Slide Indicators */}
           <div className="flex justify-center mt-6 space-x-2">
-            {projects.map((_, index) => (
+            {projectsData.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentSlide(index)}
