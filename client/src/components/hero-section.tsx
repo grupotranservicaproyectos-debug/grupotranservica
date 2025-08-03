@@ -250,42 +250,42 @@ export default function HeroSection() {
           <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 2.079.549 4.090 1.588 5.876L.029 24l6.203-1.539a11.952 11.952 0 005.785 1.539c6.621 0 11.988-5.367 11.988-11.988C23.973 5.367 18.638.001 12.017.001zm5.995 16.987c-.264.714-1.291 1.336-1.953 1.428-.663.094-1.526.141-2.438-.154-1.421-.458-3.025-1.609-4.222-3.003-1.197-1.394-1.967-3.045-2.033-3.192-.066-.147-.541-1.447-.541-2.748 0-1.301.341-1.947.463-2.215.122-.268.268-.335.357-.335h.268c.087 0 .201-.003.291.222.09.225.307.751.334.805.027.054.045.116.009.19-.036.074-.054.121-.108.184-.054.063-.113.14-.162.189-.063.049-.128.101-.055.199.073.098.325.537.697.869.481.427 1.055.705 1.206.784.151.079.239.067.327-.041.088-.108.378-.441.479-.592.101-.151.201-.126.338-.076.137.051.87.41 1.018.485.149.074.249.112.285.174.036.062.036.359-.228 1.073z"/>
         </svg>
       </a>
-      {/* Content Container - Mobile-optimized positioning */}
-      <div className="absolute inset-0 z-20 flex items-end">
+      {/* Content Container - Positioned closer to bottom green bar */}
+      <div className="absolute inset-0 z-20 flex items-end justify-start">
         <div className="w-full mobile-padding">
-          <div className="pb-6 sm:pb-8 lg:pb-12">
-            <div className="bg-black/75 backdrop-blur-sm rounded-xl border border-white/20 shadow-2xl p-4 sm:p-6 lg:p-8 w-fit max-w-full sm:max-w-2xl animate-slide-up">
-              {/* Main Title - Responsive typography */}
-              <h1 className="text-xl sm:text-2xl lg:text-4xl xl:text-5xl font-bold mb-3 sm:mb-4 lg:mb-6 leading-tight text-[#155d29] text-wrap-balance" style={{ color: '#155d29' }}>
+          <div className="pb-16 sm:pb-20 lg:pb-24">
+            <div className="bg-black/80 backdrop-blur-md rounded-xl border border-white/30 shadow-2xl p-5 sm:p-7 lg:p-9 w-fit max-w-full sm:max-w-2xl lg:max-w-3xl animate-slide-up">
+              {/* Main Title - Better contrast and positioning */}
+              <h1 className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold mb-3 sm:mb-4 lg:mb-5 leading-tight text-[#7dd87a] text-wrap-balance drop-shadow-lg">
                 {t('hero.title')}
               </h1>
               
-              {/* Subtitle - Responsive typography */}
-              <h2 className="text-sm sm:text-lg lg:text-xl xl:text-2xl font-bold mb-3 sm:mb-4 lg:mb-6 text-[#a8e6a8] text-wrap-balance">
+              {/* Subtitle - Better visibility */}
+              <h2 className="text-sm sm:text-base lg:text-lg xl:text-xl font-bold mb-3 sm:mb-4 lg:mb-5 text-[#a8e6a8] text-wrap-balance drop-shadow-md">
                 {t('hero.subtitle')}
               </h2>
               
-              {/* Description - Responsive typography */}
-              <p className="text-sm sm:text-base lg:text-lg mb-4 sm:mb-6 lg:mb-8 text-white leading-relaxed max-w-md sm:max-w-lg lg:max-w-xl text-wrap-pretty">
+              {/* Description - Better readability */}
+              <p className="text-sm sm:text-base lg:text-base mb-4 sm:mb-5 lg:mb-6 text-white leading-relaxed max-w-md sm:max-w-lg lg:max-w-2xl text-wrap-pretty drop-shadow-sm">
                 {t('hero.description')}
               </p>
               
-              {/* Netflix Style Buttons - Very Small */}
-              <div className="flex flex-col sm:flex-row gap-2">
+              {/* Call to Action Buttons - Optimized size and positioning */}
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                 <button 
                   onClick={scrollToContact}
-                  className="flex items-center justify-center bg-white text-black px-4 py-2 rounded text-xs sm:text-sm font-semibold hover:bg-gray-200 transition shadow-lg"
+                  className="flex items-center justify-center bg-white text-black px-5 sm:px-6 py-3 sm:py-3.5 rounded-lg text-sm sm:text-base font-bold hover:bg-gray-100 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:scale-105"
                 >
-                  <svg className="w-3 h-3 sm:w-4 sm:h-4 mr-1" fill="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M8 5v14l11-7z"/>
                   </svg>
                   {t('hero.cta')}
                 </button>
                 <button 
                   onClick={() => scrollToSection('servicios')}
-                  className="flex items-center justify-center bg-gray-600/70 text-white px-4 py-2 rounded text-xs sm:text-sm font-semibold hover:bg-gray-600/90 transition backdrop-blur-sm shadow-lg"
+                  className="flex items-center justify-center bg-gray-800/80 text-white px-5 sm:px-6 py-3 sm:py-3.5 rounded-lg text-sm sm:text-base font-bold hover:bg-gray-700/90 transition-all duration-300 backdrop-blur-sm shadow-xl border border-white/20 hover:border-white/40 transform hover:scale-105"
                 >
-                  <svg className="w-3 h-3 sm:w-4 sm:h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                   {t('hero.video')}
