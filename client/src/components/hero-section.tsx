@@ -61,6 +61,12 @@ export default function HeroSection() {
               </div>
               <div className="flex items-center space-x-2">
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M3 8l4 4 4-4m0 6l4-4 4 4m-8-8v14" />
+                </svg>
+                <span>direccioncomercialtvc@grupotranservica.com</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
                 </svg>
                 <span>Lunes a Viernes 8:00AM - 6PM</span>
@@ -197,12 +203,18 @@ export default function HeroSection() {
                 CONTACTO
               </button>
               <div className="pt-4 mt-4 border-t border-gray-200">
-                <div className="flex items-center space-x-6 text-sm text-gray-600 mb-3">
+                <div className="space-y-2 text-sm text-gray-600 mb-3">
                   <div className="flex items-center space-x-2">
                     <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M6.62 10.79a15.91 15.91 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.27 11.25 11.25 0 003.48.56 1 1 0 011 1V20a1 1 0 01-1 1A18 18 0 013 3a1 1 0 011-1h3.5a1 1 0 011 1 11.25 11.25 0 00.56 3.48 1 1 0 01-.27 1.11l-2.2 2.2z" />
                     </svg>
                     <span>(+58) 414-277-6340</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M3 8l4 4 4-4m0 6l4-4 4 4m-8-8v14" />
+                    </svg>
+                    <span className="text-xs">direccioncomercialtvc@grupotranservica.com</span>
                   </div>
                 </div>
                 <div className="text-sm text-gray-600 mb-2">
