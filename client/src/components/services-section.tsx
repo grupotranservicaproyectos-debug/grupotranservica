@@ -1,6 +1,36 @@
 import { FileText, Shield, Settings, MapPin, Globe, Truck } from "lucide-react";
+import { useEffect, useRef, useState } from 'react';
 
 export default function ServicesSection() {
+  const videoRef = useRef<HTMLIFrameElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+  const [hasPlayed, setHasPlayed] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasPlayed && videoRef.current) {
+            // Start video from 23 seconds and stop at 2:27 (147 seconds)
+            const iframe = videoRef.current;
+            const src = iframe.src;
+            if (!src.includes('autoplay=1')) {
+              iframe.src = src + '&autoplay=1&start=23&end=147';
+              setHasPlayed(true);
+            }
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [hasPlayed]);
+
   const services = [
     {
       icon: Truck,
@@ -71,16 +101,31 @@ export default function ServicesSection() {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-slate-50 to-gray-100">
+    <section ref={sectionRef} className="py-20 bg-gradient-to-br from-slate-50 to-gray-100">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-6" style={{ color: '#155d29' }}>
-            Nuestros Servicios
+            Nuestros Servicios Logísticos
           </h2>
-          <p className="text-xl max-w-3xl mx-auto" style={{ color: 'hsl(0, 0%, 15%)' }}>
+          <p className="text-xl max-w-3xl mx-auto mb-8" style={{ color: 'hsl(0, 0%, 15%)' }}>
             Ofrecemos soluciones integrales para el transporte de cargas excepcionales, 
             respaldados por 40 años de experiencia y tecnología de vanguardia
           </p>
+          
+          {/* Corporate Video */}
+          <div className="max-w-4xl mx-auto mb-12">
+            <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl bg-black">
+              <iframe
+                ref={videoRef}
+                src="https://www.youtube.com/embed/PF8SuO_3ZLU?mute=1&controls=1&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3"
+                title="TRANSERVICA - Servicios Logísticos"
+                className="absolute inset-0 w-full h-full"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
