@@ -44,17 +44,14 @@ export default function CookiePolicy() {
               <div className="mb-12">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-8 h-8 bg-[#155d29] text-white rounded-full flex items-center justify-center font-bold">1</div>
-                  <h2 className="text-2xl font-bold text-[#155d29]">¿Qué son las Cookies?</h2>
+                  <h2 className="text-2xl font-bold text-[#155d29]">{t('cookies.what.title')}</h2>
                 </div>
                 <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
                   <p className="mb-4">
-                    Las cookies son pequeños archivos de texto que se almacenan en su dispositivo cuando visita 
-                    nuestro sitio web. Estas tecnologías nos permiten reconocer su navegador y dispositivo, 
-                    recordar sus preferencias y mejorar su experiencia de navegación.
+                    {t('cookies.what.content1')}
                   </p>
                   <p>
-                    TRANSERVICA, C.A. utiliza cookies para proporcionar una experiencia web optimizada, 
-                    analizar el uso del sitio y personalizar el contenido según las necesidades de nuestros visitantes.
+                    {t('cookies.what.content2')}
                   </p>
                 </div>
               </div>
@@ -63,51 +60,50 @@ export default function CookiePolicy() {
               <div className="mb-12">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-8 h-8 bg-[#155d29] text-white rounded-full flex items-center justify-center font-bold">2</div>
-                  <h2 className="text-2xl font-bold text-[#155d29]">Tipos de Cookies que Utilizamos</h2>
+                  <h2 className="text-2xl font-bold text-[#155d29]">{t('cookies.types.title')}</h2>
                 </div>
                 <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
                   
                   <h4 className="text-lg font-semibold text-[#155d29] mt-6 mb-3 flex items-center gap-2">
                     <Settings className="w-5 h-5" />
-                    Cookies Esenciales
+                    {t('cookies.types.essential.title')}
                   </h4>
                   <p className="mb-4">
-                    Estas cookies son necesarias para el funcionamiento básico del sitio web y no pueden 
-                    ser desactivadas. Incluyen:
+                    {t('cookies.types.essential.content')}
                   </p>
                   <ul className="list-disc pl-6 mb-4 space-y-2">
-                    <li>Cookies de sesión para mantener la funcionalidad durante su visita</li>
-                    <li>Cookies de seguridad para proteger contra ataques maliciosos</li>
-                    <li>Cookies de preferencias de idioma y configuración regional</li>
-                    <li>Cookies de formularios para recordar información ingresada</li>
+                    <li>{t('cookies.types.essential.item1')}</li>
+                    <li>{t('cookies.types.essential.item2')}</li>
+                    <li>{t('cookies.types.essential.item3')}</li>
+                    <li>{t('cookies.types.essential.item4')}</li>
                   </ul>
 
                   <h4 className="text-lg font-semibold text-[#155d29] mt-6 mb-3 flex items-center gap-2">
                     <BarChart className="w-5 h-5" />
-                    Cookies Analíticas
+                    {t('cookies.types.analytics.title')}
                   </h4>
                   <p className="mb-4">
-                    Nos ayudan a entender cómo los visitantes interactúan con nuestro sitio web:
+                    {t('cookies.types.analytics.content')}
                   </p>
                   <ul className="list-disc pl-6 mb-4 space-y-2">
-                    <li>Google Analytics para análisis de tráfico y comportamiento</li>
-                    <li>Seguimiento de páginas visitadas y tiempo de permanencia</li>
-                    <li>Identificación de contenido más popular y relevante</li>
-                    <li>Análisis de rutas de navegación y puntos de salida</li>
+                    <li>{t('cookies.types.analytics.item1')}</li>
+                    <li>{t('cookies.types.analytics.item2')}</li>
+                    <li>{t('cookies.types.analytics.item3')}</li>
+                    <li>{t('cookies.types.analytics.item4')}</li>
                   </ul>
 
                   <h4 className="text-lg font-semibold text-[#155d29] mt-6 mb-3 flex items-center gap-2">
                     <Eye className="w-5 h-5" />
-                    Cookies de Funcionalidad
+                    {t('cookies.types.functional.title')}
                   </h4>
                   <p className="mb-4">
-                    Mejoran la funcionalidad y personalización del sitio:
+                    {t('cookies.types.functional.content')}
                   </p>
                   <ul className="list-disc pl-6 mb-4 space-y-2">
-                    <li>Recordar preferencias de idioma y región</li>
-                    <li>Mantener configuraciones de accesibilidad</li>
-                    <li>Personalizar contenido basado en interacciones previas</li>
-                    <li>Facilitar el uso de formularios de contacto</li>
+                    <li>{t('cookies.types.functional.item1')}</li>
+                    <li>{t('cookies.types.functional.item2')}</li>
+                    <li>{t('cookies.types.functional.item3')}</li>
+                    <li>{t('cookies.types.functional.item4')}</li>
                   </ul>
                 </div>
               </div>
@@ -116,33 +112,31 @@ export default function CookiePolicy() {
               <div className="mb-12">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-8 h-8 bg-[#155d29] text-white rounded-full flex items-center justify-center font-bold">3</div>
-                  <h2 className="text-2xl font-bold text-[#155d29]">Gestión de Cookies</h2>
+                  <h2 className="text-2xl font-bold text-[#155d29]">{t('cookies.management.title')}</h2>
                 </div>
                 <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
                   <p className="mb-4">
-                    Usted tiene control total sobre las cookies utilizadas en nuestro sitio web. 
-                    Puede gestionar sus preferencias de las siguientes maneras:
+                    {t('cookies.management.content')}
                   </p>
                   
-                  <h4 className="text-lg font-semibold text-[#155d29] mt-6 mb-3">Configuración del Navegador</h4>
+                  <h4 className="text-lg font-semibold text-[#155d29] mt-6 mb-3">{t('cookies.management.browser.title')}</h4>
                   <ul className="list-disc pl-6 mb-4 space-y-2">
-                    <li><strong>Chrome:</strong> Configuración → Privacidad y seguridad → Cookies y otros datos de sitios</li>
-                    <li><strong>Firefox:</strong> Opciones → Privacidad y seguridad → Cookies y datos del sitio</li>
-                    <li><strong>Safari:</strong> Preferencias → Privacidad → Gestionar datos del sitio web</li>
-                    <li><strong>Edge:</strong> Configuración → Cookies y permisos del sitio</li>
+                    <li><strong>Chrome:</strong> {t('cookies.management.browser.chrome')}</li>
+                    <li><strong>Firefox:</strong> {t('cookies.management.browser.firefox')}</li>
+                    <li><strong>Safari:</strong> {t('cookies.management.browser.safari')}</li>
+                    <li><strong>Edge:</strong> {t('cookies.management.browser.edge')}</li>
                   </ul>
 
-                  <h4 className="text-lg font-semibold text-[#155d29] mt-6 mb-3">Herramientas de Opt-out</h4>
+                  <h4 className="text-lg font-semibold text-[#155d29] mt-6 mb-3">{t('cookies.management.optout.title')}</h4>
                   <ul className="list-disc pl-6 mb-4 space-y-2">
-                    <li>Google Analytics: <a href="https://tools.google.com/dlpage/gaoptout" className="text-[#155d29] hover:underline">Complemento de exclusión</a></li>
-                    <li>Configuración de cookies al ingresar al sitio</li>
-                    <li>Herramientas de privacidad del navegador</li>
+                    <li>Google Analytics: <a href="https://tools.google.com/dlpage/gaoptout" className="text-[#155d29] hover:underline">{t('cookies.management.optout.item1')}</a></li>
+                    <li>{t('cookies.management.optout.item2')}</li>
+                    <li>{t('cookies.management.optout.item3')}</li>
                   </ul>
 
                   <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 mt-4">
                     <p className="text-amber-800 text-sm">
-                      <strong>Nota:</strong> Deshabilitar ciertas cookies puede afectar la funcionalidad 
-                      del sitio web y su experiencia de navegación.
+                      <strong>Nota:</strong> {t('cookies.management.note')}
                     </p>
                   </div>
                 </div>
@@ -152,22 +146,20 @@ export default function CookiePolicy() {
               <div className="mb-12">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-8 h-8 bg-[#155d29] text-white rounded-full flex items-center justify-center font-bold">4</div>
-                  <h2 className="text-2xl font-bold text-[#155d29]">Servicios de Terceros</h2>
+                  <h2 className="text-2xl font-bold text-[#155d29]">{t('cookies.thirdparty.title')}</h2>
                 </div>
                 <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
                   <p className="mb-4">
-                    Nuestro sitio web puede incluir servicios proporcionados por terceros que establecen 
-                    sus propias cookies:
+                    {t('cookies.thirdparty.content1')}
                   </p>
                   <ul className="list-disc pl-6 mb-4 space-y-2">
-                    <li><strong>Google Analytics:</strong> Para análisis de tráfico web y comportamiento de usuarios</li>
-                    <li><strong>YouTube:</strong> Para reproducir videos corporativos embebidos</li>
-                    <li><strong>Google Maps:</strong> Para mostrar ubicaciones y facilitar navegación</li>
-                    <li><strong>Redes Sociales:</strong> Botones de compartir y widgets de redes sociales</li>
+                    <li><strong>Google Analytics:</strong> {t('cookies.thirdparty.google')}</li>
+                    <li><strong>YouTube:</strong> {t('cookies.thirdparty.youtube')}</li>
+                    <li><strong>Google Maps:</strong> {t('cookies.thirdparty.maps')}</li>
+                    <li><strong>Redes Sociales:</strong> {t('cookies.thirdparty.social')}</li>
                   </ul>
                   <p>
-                    Cada servicio de terceros tiene sus propias políticas de cookies y privacidad. 
-                    Le recomendamos revisar estas políticas para entender cómo manejan sus datos.
+                    {t('cookies.thirdparty.content2')}
                   </p>
                 </div>
               </div>

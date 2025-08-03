@@ -48,42 +48,37 @@ export default function SecurityPolicy() {
               <div className="mb-12">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-8 h-8 bg-[#155d29] text-white rounded-full flex items-center justify-center font-bold">1</div>
-                  <h2 className="text-2xl font-bold text-[#155d29]">Compromiso con la Seguridad</h2>
+                  <h2 className="text-2xl font-bold text-[#155d29]">{t('security.commitment.title')}</h2>
                 </div>
                 <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
                   <p className="mb-4">
-                    En TRANSERVICA, C.A., la seguridad no es solo una prioridad, es el fundamento de todas nuestras 
-                    operaciones. Con 40 años de experiencia en transporte de cargas excepcionales, hemos desarrollado 
-                    un sistema integral de gestión de seguridad que protege a nuestros empleados, clientes, 
-                    comunidades y el medio ambiente.
+                    {t('security.commitment.content1')}
                   </p>
                   <p className="mb-4">
-                    Nuestro compromiso se basa en el principio de "Cero Accidentes" y el cumplimiento estricto 
-                    de normativas nacionales e internacionales, manteniendo un récord de seguridad del 99.8% 
-                    en más de 15,000 proyectos ejecutados.
+                    {t('security.commitment.content2')}
                   </p>
                   
                   <div className="bg-green-50 border border-green-200 rounded-lg p-6 mt-6">
                     <div className="flex items-center gap-3 mb-3">
                       <CheckCircle className="w-6 h-6 text-green-600" />
-                      <h4 className="text-lg font-semibold text-green-800">Nuestro Record de Seguridad</h4>
+                      <h4 className="text-lg font-semibold text-green-800">{t('security.commitment.record.title')}</h4>
                     </div>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
                       <div>
                         <div className="text-2xl font-bold text-green-700">99.8%</div>
-                        <div className="text-sm text-green-600">Índice de Seguridad</div>
+                        <div className="text-sm text-green-600">{t('security.commitment.record.safety')}</div>
                       </div>
                       <div>
                         <div className="text-2xl font-bold text-green-700">15,000+</div>
-                        <div className="text-sm text-green-600">Proyectos Seguros</div>
+                        <div className="text-sm text-green-600">{t('security.commitment.record.projects')}</div>
                       </div>
                       <div>
                         <div className="text-2xl font-bold text-green-700">40</div>
-                        <div className="text-sm text-green-600">Años de Experiencia</div>
+                        <div className="text-sm text-green-600">{t('security.commitment.record.experience')}</div>
                       </div>
                       <div>
                         <div className="text-2xl font-bold text-green-700">1,100</div>
-                        <div className="text-sm text-green-600">Tons. Capacidad Max.</div>
+                        <div className="text-sm text-green-600">{t('security.commitment.record.capacity')}</div>
                       </div>
                     </div>
                   </div>
@@ -94,40 +89,40 @@ export default function SecurityPolicy() {
               <div className="mb-12">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-8 h-8 bg-[#155d29] text-white rounded-full flex items-center justify-center font-bold">2</div>
-                  <h2 className="text-2xl font-bold text-[#155d29]">Sistema de Gestión de Seguridad</h2>
+                  <h2 className="text-2xl font-bold text-[#155d29]">{t('security.management.title')}</h2>
                 </div>
                 <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
                   <p className="mb-4">
-                    Nuestro Sistema Integrado de Gestión (SIG) está certificado bajo las normas:
+                    {t('security.management.content')}
                   </p>
                   
                   <div className="grid md:grid-cols-3 gap-6 mb-6">
                     <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
                       <h4 className="font-semibold text-blue-800 mb-2">ISO 45001:2018</h4>
-                      <p className="text-sm text-blue-700">Sistemas de Gestión de Seguridad y Salud Ocupacional</p>
+                      <p className="text-sm text-blue-700">{t('security.management.iso45001')}</p>
                     </div>
                     <div className="bg-green-50 border border-green-200 rounded-lg p-4">
                       <h4 className="font-semibold text-green-800 mb-2">ISO 14001:2015</h4>
-                      <p className="text-sm text-green-700">Sistemas de Gestión Ambiental</p>
+                      <p className="text-sm text-green-700">{t('security.management.iso14001')}</p>
                     </div>
                     <div className="bg-purple-50 border border-purple-200 rounded-lg p-4">
                       <h4 className="font-semibold text-purple-800 mb-2">ISO 9001:2015</h4>
-                      <p className="text-sm text-purple-700">Sistemas de Gestión de Calidad</p>
+                      <p className="text-sm text-purple-700">{t('security.management.iso9001')}</p>
                     </div>
                   </div>
 
                   <h4 className="text-lg font-semibold text-[#155d29] mt-6 mb-3 flex items-center gap-2">
                     <Truck className="w-5 h-5" />
-                    Componentes del Sistema
+                    {t('security.management.components.title')}
                   </h4>
                   <ul className="list-disc pl-6 mb-4 space-y-2">
-                    <li>Identificación y evaluación continua de riesgos operacionales</li>
-                    <li>Procedimientos de trabajo seguro para cada tipo de operación</li>
-                    <li>Programas de capacitación y certificación del personal</li>
-                    <li>Inspecciones regulares de equipos y herramientas</li>
-                    <li>Auditorías internas y externas del sistema de gestión</li>
-                    <li>Investigación y análisis de incidentes y casi-accidentes</li>
-                    <li>Planes de respuesta ante emergencias y contingencias</li>
+                    <li>{t('security.management.components.item1')}</li>
+                    <li>{t('security.management.components.item2')}</li>
+                    <li>{t('security.management.components.item3')}</li>
+                    <li>{t('security.management.components.item4')}</li>
+                    <li>{t('security.management.components.item5')}</li>
+                    <li>{t('security.management.components.item6')}</li>
+                    <li>{t('security.management.components.item7')}</li>
                   </ul>
                 </div>
               </div>
@@ -136,38 +131,38 @@ export default function SecurityPolicy() {
               <div className="mb-12">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-8 h-8 bg-[#155d29] text-white rounded-full flex items-center justify-center font-bold">3</div>
-                  <h2 className="text-2xl font-bold text-[#155d29]">Seguridad de Equipos</h2>
+                  <h2 className="text-2xl font-bold text-[#155d29]">{t('security.equipment.title')}</h2>
                 </div>
                 <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
                   <p className="mb-4">
-                    Nuestra flota de equipos especializados cumple con los más altos estándares de seguridad:
+                    {t('security.equipment.content')}
                   </p>
                   
-                  <h4 className="text-lg font-semibold text-[#155d29] mt-6 mb-3">Trailers Modulares Hidráulicos</h4>
+                  <h4 className="text-lg font-semibold text-[#155d29] mt-6 mb-3">{t('security.equipment.trailers.title')}</h4>
                   <ul className="list-disc pl-6 mb-4 space-y-2">
-                    <li>Sistemas de control hidráulico con redundancia de seguridad</li>
-                    <li>Monitoreo en tiempo real de presiones y temperaturas</li>
-                    <li>Sistemas de frenado de emergencia automático</li>
-                    <li>Configuraciones modulares adaptables a cada carga</li>
-                    <li>Certificaciones CE y homologaciones internacionales</li>
+                    <li>{t('security.equipment.trailers.item1')}</li>
+                    <li>{t('security.equipment.trailers.item2')}</li>
+                    <li>{t('security.equipment.trailers.item3')}</li>
+                    <li>{t('security.equipment.trailers.item4')}</li>
+                    <li>{t('security.equipment.trailers.item5')}</li>
                   </ul>
 
-                  <h4 className="text-lg font-semibold text-[#155d29] mt-6 mb-3">Grúas y Equipos de Izamiento</h4>
+                  <h4 className="text-lg font-semibold text-[#155d29] mt-6 mb-3">{t('security.equipment.cranes.title')}</h4>
                   <ul className="list-disc pl-6 mb-4 space-y-2">
-                    <li>Sistemas de control de cargas con limitadores automáticos</li>
-                    <li>Dispositivos de seguridad anti-vuelco y estabilización</li>
-                    <li>Mantenimiento preventivo según especificaciones del fabricante</li>
-                    <li>Certificaciones anuales de capacidad y seguridad</li>
-                    <li>Operadores certificados y especializados</li>
+                    <li>{t('security.equipment.cranes.item1')}</li>
+                    <li>{t('security.equipment.cranes.item2')}</li>
+                    <li>{t('security.equipment.cranes.item3')}</li>
+                    <li>{t('security.equipment.cranes.item4')}</li>
+                    <li>{t('security.equipment.cranes.item5')}</li>
                   </ul>
 
-                  <h4 className="text-lg font-semibold text-[#155d29] mt-6 mb-3">Programa de Mantenimiento</h4>
+                  <h4 className="text-lg font-semibold text-[#155d29] mt-6 mb-3">{t('security.equipment.maintenance.title')}</h4>
                   <ul className="list-disc pl-6 mb-4 space-y-2">
-                    <li>Inspecciones diarias antes de cada operación</li>
-                    <li>Mantenimiento preventivo cada 250, 500 y 1,000 horas</li>
-                    <li>Calibración periódica de sistemas de control</li>
-                    <li>Renovación de componentes críticos según especificaciones</li>
-                    <li>Registro digital completo de historial de mantenimiento</li>
+                    <li>{t('security.equipment.maintenance.item1')}</li>
+                    <li>{t('security.equipment.maintenance.item2')}</li>
+                    <li>{t('security.equipment.maintenance.item3')}</li>
+                    <li>{t('security.equipment.maintenance.item4')}</li>
+                    <li>{t('security.equipment.maintenance.item5')}</li>
                   </ul>
                 </div>
               </div>
