@@ -239,7 +239,7 @@ export default function HeroSection() {
       {/* Content Container - Bottom Aligned */}
       <div className="absolute inset-0 z-20 flex items-end">
         <div className="w-full px-4 sm:px-6 lg:px-8">
-          <div className="pb-16 sm:pb-20 lg:pb-24">
+          <div className="pb-4 sm:pb-6 lg:pb-8">
             <div className="bg-black/70 rounded-xl border border-white/20 shadow-2xl p-4 w-fit">
               {/* Main Title Netflix Style - Very Small */}
               <h1 className="text-lg sm:text-xl lg:text-2xl font-bold mb-2 lg:mb-3 leading-tight drop-shadow-lg max-w-lg text-[#155d29]" style={{ color: '#155d29' }}>
