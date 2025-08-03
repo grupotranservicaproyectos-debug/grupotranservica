@@ -178,14 +178,14 @@ export default function BlogSection() {
             <div className="w-8 h-8 bg-gradient-to-br from-[#155d29] to-[#0f4a21] rounded-full flex items-center justify-center">
               <Calendar className="w-4 h-4 text-white" />
             </div>
-            <span className="text-sm font-medium text-[#155d29]">Blog Corporativo</span>
+            <span className="text-sm font-medium text-[#155d29]">{t('blog.section.badge')}</span>
           </div>
 
           <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 sm:mb-6 text-wrap-balance" style={{ color: '#155d29' }}>
-            NOTICIAS TRANSERVICA
+            {t('blog.section.title')}
           </h2>
           <p className="mobile-text lg:text-xl max-w-3xl mx-auto mb-6 sm:mb-8 text-gray-600 text-wrap-pretty">
-            Noticias y proyectos de Transporte de Carga Especializado
+            {t('blog.section.description')}
           </p>
           <div className="w-24 h-1 mx-auto rounded-full bg-gradient-to-r from-[#155d29] to-[#0f4a21]"></div>
         </div>
@@ -194,7 +194,7 @@ export default function BlogSection() {
         <div className="mb-16">
           <div className="flex items-center justify-between mb-8">
             <h3 className="text-xl sm:text-2xl font-bold" style={{ color: '#155d29' }}>
-              Noticias y Proyectos Destacados
+              {t('blog.section.featured')}
             </h3>
             
             {/* Carousel Controls */}
@@ -308,7 +308,7 @@ export default function BlogSection() {
                                 }}
                                 className="flex items-center gap-1 text-[#155d29] font-bold text-sm hover:gap-2 transition-all duration-300 group-hover:text-[#0f4a21] bg-green-50 hover:bg-[#155d29] hover:text-white px-3 py-2 rounded-lg"
                               >
-                                Leer Artículo Completo
+                                {t('blog.section.readFullArticle')}
                                 <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
                               </button>
                             </div>
@@ -339,20 +339,20 @@ export default function BlogSection() {
                   <Calendar className="w-4 h-4 text-white drop-shadow-lg" />
                 </div>
                 <h3 className="text-xl font-bold text-white drop-shadow-lg">
-                  Newsletter TRANSERVICA
+                  {t('blog.section.newsletter.title')}
                 </h3>
               </div>
               <p className="text-sm mb-6 text-white/90 drop-shadow-sm">
-                Recibe noticias exclusivas sobre proyectos de transporte especializado, equipos de última generación y normativas del sector
+                {t('blog.section.newsletter.description')}
               </p>
               <div className="space-y-3">
                 <input
                   type="email"
-                  placeholder="Ingresa tu email corporativo"
+                  placeholder={t('blog.section.newsletter.placeholder')}
                   className="w-full px-4 py-3 rounded-xl bg-white/25 border-2 border-white/40 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/60 focus:border-white/70 backdrop-blur-sm transition-all duration-300 drop-shadow-sm"
                 />
                 <button className="w-full bg-white text-[#155d29] font-bold py-3 px-4 rounded-xl hover:bg-green-50 transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl border-2 border-white">
-                  Suscribirse al Blog
+                  {t('blog.section.newsletter.subscribe')}
                 </button>
               </div>
             </div>
@@ -374,7 +374,7 @@ export default function BlogSection() {
             className="inline-flex items-center gap-3 bg-white border-2 border-[#155d29] text-[#155d29] font-bold py-4 px-8 rounded-xl hover:bg-[#155d29] hover:text-white transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
           >
             <Calendar className="w-5 h-5" />
-            Ver Todos los Artículos del Blog
+            {t('blog.section.viewAll')}
             <ArrowRight className="w-5 h-5" />
           </button>
         </div>
@@ -396,11 +396,11 @@ export default function BlogSection() {
                   <Truck className="w-6 h-6 text-white drop-shadow-lg" />
                 </div>
                 <h3 className="text-2xl sm:text-3xl font-bold text-white drop-shadow-lg">
-                  ¿Tienes un Proyecto Especializado?
+                  {t('blog.section.cta.title')}
                 </h3>
               </div>
               <p className="mb-8 text-white/90 max-w-2xl mx-auto text-lg drop-shadow-md">
-                40 años de experiencia nos respaldan. Nuestro equipo de ingenieros está listo para desarrollar la mejor solución logística para tu empresa
+                {t('blog.section.cta.description')}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button 
@@ -408,14 +408,14 @@ export default function BlogSection() {
                   className="bg-white text-[#155d29] font-bold py-4 px-8 rounded-xl hover:bg-green-50 transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl flex items-center justify-center gap-2 border-2 border-white"
                 >
                   <ArrowRight className="w-5 h-5" />
-                  Consultar Proyecto
+                  {t('blog.section.cta.consult')}
                 </button>
                 <button 
                   onClick={() => document.getElementById('servicios')?.scrollIntoView({ behavior: 'smooth' })}
                   className="bg-white/30 backdrop-blur-sm text-white font-bold py-4 px-8 rounded-xl hover:bg-white/40 transition-all duration-300 transform hover:scale-105 border-2 border-white/60 hover:border-white flex items-center justify-center gap-2 shadow-lg"
                 >
                   <Eye className="w-5 h-5" />
-                  Ver Servicios
+                  {t('blog.section.cta.services')}
                 </button>
               </div>
             </div>
