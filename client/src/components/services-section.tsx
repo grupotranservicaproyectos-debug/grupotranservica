@@ -148,7 +148,7 @@ export default function ServicesSection() {
                       {t('services.consult')}
                     </button>
                     <button 
-                      onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                      onClick={() => document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth' })}
                       className="flex-1 border border-gray-300 text-gray-700 hover:text-white font-semibold py-2 px-4 rounded-lg text-sm transition-all duration-300 transform hover:scale-105"
                       onMouseEnter={(e) => { (e.target as HTMLElement).style.backgroundColor = '#155d29'; (e.target as HTMLElement).style.borderColor = '#155d29'; (e.target as HTMLElement).style.color = 'white'; }}
                       onMouseLeave={(e) => { (e.target as HTMLElement).style.backgroundColor = 'transparent'; (e.target as HTMLElement).style.borderColor = '#d1d5db'; (e.target as HTMLElement).style.color = '#374151'; }}
@@ -171,7 +171,7 @@ export default function ServicesSection() {
             <p className="text-lg text-white mb-8 max-w-2xl mx-auto">{t('services.cta.subtitle')}</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button 
-                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth' })}
                 className="font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg bg-white"
                 style={{ color: '#155d29' }}
                 onMouseEnter={(e) => { (e.target as HTMLElement).style.backgroundColor = '#f0f9f0'; (e.target as HTMLElement).style.color = '#0f4a21'; }}
