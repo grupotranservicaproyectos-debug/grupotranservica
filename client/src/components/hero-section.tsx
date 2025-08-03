@@ -1,8 +1,11 @@
 import { useState } from 'react';
+import { useLanguage } from '../contexts/LanguageContext';
+import LanguageSwitcher from './LanguageSwitcher';
 import logoTranservica from "@assets/logo transervica sin fondo_1754163034585.png";
 
 export default function HeroSection() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { t } = useLanguage();
   const scrollToContact = () => {
     const element = document.getElementById('contacto');
     if (element) {
@@ -77,14 +80,14 @@ export default function HeroSection() {
                 onClick={() => scrollToSection('inicio')}
                 className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide"
               >
-                HOME
+                {t('nav.home')}
               </button>
               <div className="relative group">
                 <button 
                   onClick={() => scrollToSection('servicios')}
                   className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide flex items-center"
                 >
-                  SERVICIOS
+                  {t('nav.services')}
                   <svg className="w-3 h-3 ml-1" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
                   </svg>
@@ -94,13 +97,13 @@ export default function HeroSection() {
                 onClick={() => scrollToSection('proyectos')}
                 className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide"
               >
-                PROYECTOS
+                {t('nav.projects')}
               </button>
               <button 
                 onClick={() => scrollToSection('nosotros')}
                 className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide"
               >
-                COMPAÑÍA
+                {t('nav.company')}
               </button>
               <button 
                 onClick={() => scrollToSection('equipos')}
@@ -112,27 +115,19 @@ export default function HeroSection() {
                 onClick={scrollToContact}
                 className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide"
               >
-                CONTACTO
+                {t('nav.contact')}
               </button>
             </div>
             
             <div className="flex items-center space-x-4">
-              <div className="hidden lg:flex items-center space-x-2">
-                <img 
-                  src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMTgiIHZpZXdCb3g9IjAgMCAyNCAxOCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjI0IiBoZWlnaHQ9IjYiIGZpbGw9IiNGRkRBMDAiLz4KPHJlY3QgeT0iNiIgd2lkdGg9IjI0IiBoZWlnaHQ9IjYiIGZpbGw9IiMwMDMzQTAiLz4KPHJlY3QgeT0iMTIiIHdpZHRoPSIyNCIgaGVpZ2h0PSI2IiBmaWxsPSIjQ0UxMTI2Ii8+Cjwvc3ZnPgo="
-                  alt="Español"
-                  className="w-6 h-4"
-                />
-                <span className="text-sm text-gray-600 font-bold">ESPAÑOL</span>
-                <svg className="w-3 h-3 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
-                </svg>
+              <div className="hidden lg:flex">
+                <LanguageSwitcher />
               </div>
               <button 
                 onClick={scrollToContact}
                 className="bg-transervica-green text-white px-6 py-2 rounded-md text-sm font-semibold hover:bg-transervica-light-green transition shadow-md"
               >
-                COTIZAR
+                {t('nav.quote')}
               </button>
               
               {/* Mobile logo and menu button */}
@@ -168,25 +163,25 @@ export default function HeroSection() {
                 onClick={() => { scrollToSection('inicio'); setIsMobileMenuOpen(false); }}
                 className="block w-full text-left text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide py-2"
               >
-                HOME
+                {t('nav.home')}
               </button>
               <button 
                 onClick={() => { scrollToSection('servicios'); setIsMobileMenuOpen(false); }}
                 className="block w-full text-left text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide py-2"
               >
-                SERVICIOS
+                {t('nav.services')}
               </button>
               <button 
                 onClick={() => { scrollToSection('proyectos'); setIsMobileMenuOpen(false); }}
                 className="block w-full text-left text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide py-2"
               >
-                PROYECTOS
+                {t('nav.projects')}
               </button>
               <button 
                 onClick={() => { scrollToSection('nosotros'); setIsMobileMenuOpen(false); }}
                 className="block w-full text-left text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide py-2"
               >
-                COMPAÑÍA
+                {t('nav.company')}
               </button>
               <button 
                 onClick={() => { scrollToSection('equipos'); setIsMobileMenuOpen(false); }}
@@ -198,7 +193,7 @@ export default function HeroSection() {
                 onClick={() => { scrollToContact(); setIsMobileMenuOpen(false); }}
                 className="block w-full text-left text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide py-2"
               >
-                CONTACTO
+                {t('nav.contact')}
               </button>
               <div className="pt-4 mt-4 border-t border-gray-200">
                 <div className="space-y-2 text-sm text-gray-600 mb-3">
@@ -216,7 +211,10 @@ export default function HeroSection() {
                   </div>
                 </div>
                 
-                
+                {/* Mobile Language Switcher */}
+                <div className="pt-3 border-t border-gray-200">
+                  <LanguageSwitcher />
+                </div>
               </div>
             </div>
           </div>
@@ -241,17 +239,17 @@ export default function HeroSection() {
             <div className="bg-black/70 rounded-xl border border-white/20 shadow-2xl p-4 w-fit">
               {/* Main Title Netflix Style - Very Small */}
               <h1 className="text-lg sm:text-xl lg:text-2xl font-bold mb-2 lg:mb-3 leading-tight drop-shadow-lg max-w-lg text-[#155d29]" style={{ color: '#155d29' }}>
-                Transporte Cargas Excepcionales Venezuela - Especializados en Movilización de Cargas Pesada y Sobredimensionada
+                {t('hero.title')}
               </h1>
               
               {/* Subtitle - Very Small */}
               <h2 className="text-xs sm:text-sm lg:text-base font-bold mb-2 lg:mb-3 drop-shadow-lg max-w-lg" style={{ color: '#155d29' }}>
-                CON 40 AÑOS TRANSPORTANDO EL FUTURO DE VENEZUELA
+                {t('hero.subtitle')}
               </h2>
               
               {/* Description - Very Small */}
               <p className="text-xs sm:text-sm mb-3 lg:mb-4 text-white leading-relaxed max-w-md drop-shadow-md">
-                Especializados en Movilización de Cargas Pesadas y Sobredimensionadas hasta 1,100 toneladas con trailers Modulares Hidráulicos de última generación.
+                {t('hero.description')}
               </p>
               
               {/* Netflix Style Buttons - Very Small */}
@@ -263,7 +261,7 @@ export default function HeroSection() {
                   <svg className="w-3 h-3 sm:w-4 sm:h-4 mr-1" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M8 5v14l11-7z"/>
                   </svg>
-                  Solicitar Cotización
+                  {t('hero.cta')}
                 </button>
                 <button 
                   onClick={() => scrollToSection('servicios')}
@@ -272,7 +270,7 @@ export default function HeroSection() {
                   <svg className="w-3 h-3 sm:w-4 sm:h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
-                  Más Información
+                  {t('hero.video')}
                 </button>
               </div>
             </div>
