@@ -7,68 +7,68 @@ export default function ServicesSection() {
   const services = [
     {
       icon: Truck,
-      title: "Transporte de Cargas Excepcionales",
-      description: "Movilización de cargas hasta 1,100 toneladas con trailers modulares hidráulicos SCHEUERLE y COMETTO de última generación.",
+      title: t('services.transport.title'),
+      description: t('services.transport.description'),
       features: [
-        "Hasta 1,100 toneladas",
-        "Trailers modulares", 
-        "Rutas especializadas",
-        "Escolta especializada"
+        t('services.transport.feature1'),
+        t('services.transport.feature2'),
+        t('services.transport.feature3'),
+        t('services.transport.feature4')
       ]
     },
     {
       icon: Settings,
-      title: "Izamiento con Grúas Especializadas",
-      description: "Servicios de izamiento con Grúas MovilesTelescópicas y Sobre Orugas para proyectos industriales complejos.",
+      title: t('services.cranes.title'),
+      description: t('services.cranes.description'),
       features: [
-        "Grúas telescópicas",
-        "Grúas sobre orugas",
-        "Izamiento preciso",
-        "Operadores certificados"
+        t('services.cranes.feature1'),
+        t('services.cranes.feature2'),
+        t('services.cranes.feature3'),
+        t('services.cranes.feature4')
       ]
     },
     {
       icon: Globe,
-      title: "Logística de Ingeniería Completa",
-      description: "Planificación integral de proyectos de transporte con estudios de factibilidad y coordinación multimodal.",
+      title: t('services.logistics.title'),
+      description: t('services.logistics.description'),
       features: [
-        "Estudios de factibilidad",
-        "Planificación de rutas",
-        "Coordinación multimodal",
-        "Gestión de proyecto"
+        t('services.logistics.feature1'),
+        t('services.logistics.feature2'),
+        t('services.logistics.feature3'),
+        t('services.logistics.feature4')
       ]
     },
     {
       icon: FileText,
-      title: "Gestión de Permisos INTT",
-      description: "Tramitación completa de permisos ante el Instituto Nacional de Transporte Terrestre y autoridades competentes.",
+      title: t('services.permits.title'),
+      description: t('services.permits.description'),
       features: [
-        "Permisos INTT",
-        "Documentación completa",
-        "Gestión rápida",
-        "Cumplimiento normativo"
+        t('services.permits.feature1'),
+        t('services.permits.feature2'),
+        t('services.permits.feature3'),
+        t('services.permits.feature4')
       ]
     },
     {
       icon: Shield,
-      title: "Estudios de Factibilidad Técnica", 
-      description: "Análisis detallado de viabilidad técnica para garantizar el éxito de proyectos de transporte especializado.",
+      title: t('services.feasibility.title'), 
+      description: t('services.feasibility.description'),
       features: [
-        "Análisis de rutas",
-        "Evaluación estructural",
-        "Estudios de carga",
-        "Recomendaciones técnicas"
+        t('services.feasibility.feature1'),
+        t('services.feasibility.feature2'),
+        t('services.feasibility.feature3'),
+        t('services.feasibility.feature4')
       ]
     },
     {
       icon: MapPin,
-      title: "Coordinación Multimodal",
-      description: "Servicios integrados de transporte terrestre, marítimo y ferroviario para proyectos internacionales.",
+      title: t('services.multimodal.title'),
+      description: t('services.multimodal.description'),
       features: [
-        "Transporte terrestre",
-        "Coordinación marítima",
-        "Transporte ferroviario", 
-        "Logística internacional"
+        t('services.multimodal.feature1'),
+        t('services.multimodal.feature2'),
+        t('services.multimodal.feature3'), 
+        t('services.multimodal.feature4')
       ]
     }
   ];
@@ -145,7 +145,7 @@ export default function ServicesSection() {
                       onMouseEnter={(e) => (e.target as HTMLElement).style.backgroundColor = '#0f4a21'}
                       onMouseLeave={(e) => (e.target as HTMLElement).style.backgroundColor = '#155d29'}
                     >
-                      Consultar
+                      {t('services.consult')}
                     </button>
                     <button 
                       onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
@@ -153,7 +153,7 @@ export default function ServicesSection() {
                       onMouseEnter={(e) => { (e.target as HTMLElement).style.backgroundColor = '#155d29'; (e.target as HTMLElement).style.borderColor = '#155d29'; (e.target as HTMLElement).style.color = 'white'; }}
                       onMouseLeave={(e) => { (e.target as HTMLElement).style.backgroundColor = 'transparent'; (e.target as HTMLElement).style.borderColor = '#d1d5db'; (e.target as HTMLElement).style.color = '#374151'; }}
                     >
-                      Cotizar
+                      {t('services.quote')}
                     </button>
                   </div>
                 </div>
@@ -167,8 +167,8 @@ export default function ServicesSection() {
 
         <div className="text-center mt-16">
           <div className="rounded-2xl p-8 md:p-12 shadow-xl border border-gray-100" style={{ backgroundColor: '#155d29' }}>
-            <h3 className="text-2xl font-bold mb-4 text-white">¿Necesita Transportar Cargas Excepcionales?</h3>
-            <p className="text-lg text-white mb-8 max-w-2xl mx-auto">Permítanos Evaluar su Proyecto y Ofrecerle la Mejor Solución de Transporte de Carga Especializado</p>
+            <h3 className="text-2xl font-bold mb-4 text-white">{t('services.cta.title')}</h3>
+            <p className="text-lg text-white mb-8 max-w-2xl mx-auto">{t('services.cta.subtitle')}</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button 
                 onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
@@ -177,7 +177,7 @@ export default function ServicesSection() {
                 onMouseEnter={(e) => { (e.target as HTMLElement).style.backgroundColor = '#f0f9f0'; (e.target as HTMLElement).style.color = '#0f4a21'; }}
                 onMouseLeave={(e) => { (e.target as HTMLElement).style.backgroundColor = 'white'; (e.target as HTMLElement).style.color = '#155d29'; }}
               >
-                Solicitar Cotización Ahora
+                {t('services.cta.quote')}
               </button>
               <button 
                 onClick={() => window.open('https://wa.me/584142776340?text=Hola%2C%20necesito%20hablar%20con%20un%20especialista%20sobre%20transporte%20de%20cargas%20excepcionales', '_blank')}
@@ -186,7 +186,7 @@ export default function ServicesSection() {
                 onMouseEnter={(e) => { (e.target as HTMLElement).style.backgroundColor = '#a8e6a8'; (e.target as HTMLElement).style.color = '#155d29'; (e.target as HTMLElement).style.borderColor = '#a8e6a8'; }}
                 onMouseLeave={(e) => { (e.target as HTMLElement).style.backgroundColor = 'transparent'; (e.target as HTMLElement).style.color = 'white'; (e.target as HTMLElement).style.borderColor = 'white'; }}
               >
-                Hablar con un Especialista
+                {t('services.cta.call')}
               </button>
             </div>
           </div>
