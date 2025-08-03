@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Calendar, User, Clock, ArrowRight, Search, Filter, ChevronLeft, ChevronRight, Tag, Eye, Menu, X, Home, Briefcase, Users, FileText, Phone, Mail, MapPin } from 'lucide-react';
+import { Calendar, User, Clock, ArrowRight, Search, Filter, ChevronLeft, ChevronRight, Tag, Eye, Menu, X, Home, Briefcase, Users, FileText, Phone, Mail, MapPin, Facebook, Twitter, Linkedin, Share2, MessageSquare, ThumbsUp, Bookmark, Send } from 'lucide-react';
 import { Link } from 'wouter';
 import Footer from '@/components/footer';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -16,6 +16,8 @@ const blogPosts = [
     author: "Ing. Carlos Rodríguez",
     date: "2024-12-15",
     readTime: "8 min",
+    views: 2847,
+    comments: 24,
     category: "Proyectos Especiales",
     tags: ["Turbinas", "SCHEUERLE", "Zulia", "380 Toneladas"],
     image: "/attached_assets/1_1754173669382.jpeg",
@@ -29,6 +31,8 @@ const blogPosts = [
     author: "Ing. María Fernández",
     date: "2024-11-28",
     readTime: "6 min",
+    views: 1652,
+    comments: 18,
     category: "Equipos y Tecnología",
     tags: ["Grove GMK6400", "Grúas", "Inversión", "Tecnología"],
     image: "/attached_assets/2_1754173669382.jpg",
@@ -42,6 +46,8 @@ const blogPosts = [
     author: "Lic. Ana Pérez",
     date: "2024-11-10",
     readTime: "12 min",
+    views: 3120,
+    comments: 31,
     category: "Normativas y Seguridad",
     tags: ["INTT", "Normativas", "Seguridad", "Permisos"],
     image: "/attached_assets/3_1754173669382.jpg",
@@ -55,6 +61,8 @@ const blogPosts = [
     author: "Ing. Roberto Silva",
     date: "2024-10-22",
     readTime: "10 min",
+    views: 1893,
+    comments: 15,
     category: "Logística Multimodal",
     tags: ["Multimodal", "Logística", "Puertos", "Optimización"],
     image: "/attached_assets/4_1754173669383.jpg",
@@ -68,6 +76,8 @@ const blogPosts = [
     author: "Dirección General",
     date: "2024-10-05",
     readTime: "15 min",
+    views: 4567,
+    comments: 42,
     category: "Historia Corporativa",
     tags: ["Historia", "40 Años", "TRANSERVICA", "Evolución"],
     image: "/attached_assets/5_1754173669383.jpg",
@@ -239,69 +249,265 @@ export default function BlogPage() {
           </div>
         </header>
 
-        {/* Article Content */}
-        <article className="container mx-auto px-4 py-12 max-w-4xl">
-          <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
-            <div className="aspect-video overflow-hidden">
-              <img
-                src={selectedPost.image}
-                alt={selectedPost.title}
-                className="w-full h-full object-cover"
-              />
-            </div>
-            
-            <div className="p-8 lg:p-12">
-              <div className="flex items-center gap-4 mb-6">
-                <span className="px-3 py-1 bg-[#155d29] text-white text-sm font-medium rounded-full">
-                  {selectedPost.category}
-                </span>
-                <div className="flex items-center gap-2 text-gray-600">
-                  <Calendar className="w-4 h-4" />
-                  <span className="text-sm">{selectedPost.date}</span>
+        {/* Article Content with Sidebar Layout */}
+        <div className="container mx-auto px-4 py-12">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {/* Main Article Content */}
+            <article className="lg:col-span-2">
+              <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
+                <div className="aspect-video overflow-hidden">
+                  <img
+                    src={selectedPost.image}
+                    alt={selectedPost.title}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
-                <div className="flex items-center gap-2 text-gray-600">
-                  <Clock className="w-4 h-4" />
-                  <span className="text-sm">{selectedPost.readTime}</span>
-                </div>
-              </div>
-
-              <h1 className="text-3xl lg:text-4xl font-bold mb-6" style={{ color: '#155d29' }}>
-                {selectedPost.title}
-              </h1>
-
-              <div className="flex items-center gap-3 mb-8">
-                <div className="w-10 h-10 bg-gradient-to-br from-[#155d29] to-[#0f4a21] rounded-full flex items-center justify-center">
-                  <User className="w-5 h-5 text-white" />
-                </div>
-                <div>
-                  <p className="font-medium text-gray-900">{selectedPost.author}</p>
-                  <p className="text-sm text-gray-600">Autor del artículo</p>
-                </div>
-              </div>
-
-              <div className="prose prose-lg max-w-none">
-                <p className="text-lg leading-relaxed text-gray-700 whitespace-pre-line">
-                  {selectedPost.content}
-                </p>
-              </div>
-
-              <div className="mt-8 pt-8 border-t border-gray-200">
-                <h3 className="text-lg font-bold mb-4" style={{ color: '#155d29' }}>Tags:</h3>
-                <div className="flex flex-wrap gap-2">
-                  {selectedPost.tags.map((tag: string) => (
-                    <span
-                      key={tag}
-                      className="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full flex items-center gap-1"
-                    >
-                      <Tag className="w-3 h-3" />
-                      {tag}
+                
+                <div className="p-8">
+                  {/* Article Header */}
+                  <div className="flex items-center gap-4 mb-6">
+                    <span className="px-3 py-1 bg-[#155d29] text-white text-sm font-medium rounded-full">
+                      {selectedPost.category}
                     </span>
+                    <div className="flex items-center gap-2 text-gray-600">
+                      <Calendar className="w-4 h-4" />
+                      <span className="text-sm">{selectedPost.date}</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-gray-600">
+                      <Clock className="w-4 h-4" />
+                      <span className="text-sm">{selectedPost.readTime}</span>
+                    </div>
+                  </div>
+
+                  <h1 className="text-3xl lg:text-4xl font-bold mb-6" style={{ color: '#155d29' }}>
+                    {selectedPost.title}
+                  </h1>
+
+                  {/* Author Info */}
+                  <div className="flex items-center gap-3 mb-8 p-4 bg-gray-50 rounded-xl">
+                    <div className="w-12 h-12 bg-gradient-to-br from-[#155d29] to-[#0f4a21] rounded-full flex items-center justify-center">
+                      <User className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <p className="font-medium text-gray-900">{selectedPost.author}</p>
+                      <p className="text-sm text-gray-600">Ingeniero Especialista en Logística</p>
+                    </div>
+                  </div>
+
+                  {/* Article Content */}
+                  <div className="prose prose-lg max-w-none mb-8">
+                    <p className="text-lg leading-relaxed text-gray-700 whitespace-pre-line">
+                      {selectedPost.content}
+                    </p>
+                  </div>
+
+                  {/* Social Share Buttons */}
+                  <div className="border-t border-gray-200 pt-6 mb-8">
+                    <h3 className="text-lg font-bold mb-4" style={{ color: '#155d29' }}>Compartir artículo:</h3>
+                    <div className="flex gap-3">
+                      <button className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                        <Facebook className="w-4 h-4" />
+                        Facebook
+                      </button>
+                      <button className="flex items-center gap-2 px-4 py-2 bg-blue-400 text-white rounded-lg hover:bg-blue-500 transition-colors">
+                        <Twitter className="w-4 h-4" />
+                        Twitter
+                      </button>
+                      <button className="flex items-center gap-2 px-4 py-2 bg-blue-700 text-white rounded-lg hover:bg-blue-800 transition-colors">
+                        <Linkedin className="w-4 h-4" />
+                        LinkedIn
+                      </button>
+                      <button className="flex items-center gap-2 px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors">
+                        <Share2 className="w-4 h-4" />
+                        Copiar enlace
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Tags */}
+                  <div className="border-t border-gray-200 pt-6">
+                    <h3 className="text-lg font-bold mb-4" style={{ color: '#155d29' }}>Tags:</h3>
+                    <div className="flex flex-wrap gap-2">
+                      {selectedPost.tags?.map((tag: string) => (
+                        <span
+                          key={tag}
+                          className="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full flex items-center gap-1 hover:bg-[#155d29] hover:text-white transition-colors cursor-pointer"
+                        >
+                          <Tag className="w-3 h-3" />
+                          {tag}
+                        </span>
+                      )) || []}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Comments Section */}
+              <div className="bg-white rounded-2xl shadow-xl p-8 mt-8">
+                <h3 className="text-2xl font-bold mb-6" style={{ color: '#155d29' }}>
+                  Comentarios (3)
+                </h3>
+                
+                {/* Comment Form */}
+                <div className="bg-gray-50 rounded-xl p-6 mb-8">
+                  <h4 className="text-lg font-semibold mb-4">Deja tu comentario</h4>
+                  <div className="space-y-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <input
+                        type="text"
+                        placeholder="Tu nombre"
+                        className="px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#155d29]"
+                      />
+                      <input
+                        type="email"
+                        placeholder="Tu email"
+                        className="px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#155d29]"
+                      />
+                    </div>
+                    <textarea
+                      placeholder="Escribe tu comentario..."
+                      rows={4}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#155d29] resize-none"
+                    ></textarea>
+                    <button className="bg-[#155d29] text-white px-6 py-3 rounded-lg hover:bg-[#0f4a21] transition-colors flex items-center gap-2">
+                      <Send className="w-4 h-4" />
+                      Publicar comentario
+                    </button>
+                  </div>
+                </div>
+
+                {/* Sample Comments */}
+                <div className="space-y-6">
+                  <div className="border-b border-gray-200 pb-6">
+                    <div className="flex items-start gap-4">
+                      <div className="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center">
+                        <User className="w-5 h-5 text-gray-600" />
+                      </div>
+                      <div className="flex-1">
+                        <div className="flex items-center gap-2 mb-2">
+                          <span className="font-semibold">María González</span>
+                          <span className="text-sm text-gray-500">hace 2 días</span>
+                        </div>
+                        <p className="text-gray-700">Excelente artículo sobre transporte especializado. Muy útil para nuestras operaciones logísticas.</p>
+                        <div className="flex items-center gap-4 mt-3">
+                          <button className="flex items-center gap-1 text-gray-500 hover:text-[#155d29] transition-colors">
+                            <ThumbsUp className="w-4 h-4" />
+                            <span className="text-sm">12</span>
+                          </button>
+                          <button className="text-sm text-gray-500 hover:text-[#155d29] transition-colors">
+                            Responder
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            {/* Sidebar */}
+            <aside className="lg:col-span-1 space-y-8">
+              {/* Search Widget */}
+              <div className="bg-white rounded-2xl shadow-lg p-6">
+                <h3 className="text-lg font-bold mb-4" style={{ color: '#155d29' }}>Buscar en el Blog</h3>
+                <div className="relative">
+                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+                  <input
+                    type="text"
+                    placeholder="Buscar artículos..."
+                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#155d29]"
+                  />
+                </div>
+              </div>
+
+              {/* Related Articles */}
+              <div className="bg-white rounded-2xl shadow-lg p-6">
+                <h3 className="text-lg font-bold mb-6" style={{ color: '#155d29' }}>Artículos Relacionados</h3>
+                <div className="space-y-4">
+                  {blogPosts.filter(post => post.id !== selectedPost.id && post.category === selectedPost.category).slice(0, 3).map((post) => (
+                    <div
+                      key={post.id}
+                      className="flex gap-3 cursor-pointer group"
+                      onClick={() => setSelectedPost(post)}
+                    >
+                      <img
+                        src={post.image}
+                        alt={post.title}
+                        className="w-16 h-16 object-cover rounded-lg"
+                      />
+                      <div className="flex-1">
+                        <h4 className="text-sm font-semibold group-hover:text-[#155d29] transition-colors line-clamp-2">
+                          {post.title}
+                        </h4>
+                        <p className="text-xs text-gray-500 mt-1">{post.date}</p>
+                      </div>
+                    </div>
                   ))}
                 </div>
               </div>
-            </div>
+
+              {/* Contact Form */}
+              <div className="bg-gradient-to-br from-[#155d29] to-[#0f4a21] rounded-2xl p-6 text-white">
+                <h3 className="text-lg font-bold mb-4">¿Necesitas Transporte Especializado?</h3>
+                <p className="text-sm mb-6 text-white/90">Contáctanos para una cotización personalizada de tu proyecto</p>
+                <div className="space-y-3">
+                  <input
+                    type="text"
+                    placeholder="Tu nombre"
+                    className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50"
+                  />
+                  <input
+                    type="email"
+                    placeholder="Tu email"
+                    className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50"
+                  />
+                  <textarea
+                    placeholder="Describe tu proyecto..."
+                    rows={3}
+                    className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50 resize-none"
+                  ></textarea>
+                  <button className="w-full bg-white text-[#155d29] font-bold py-3 px-4 rounded-lg hover:bg-gray-100 transition-colors">
+                    Enviar Consulta
+                  </button>
+                </div>
+              </div>
+
+              {/* Categories */}
+              <div className="bg-white rounded-2xl shadow-lg p-6">
+                <h3 className="text-lg font-bold mb-4" style={{ color: '#155d29' }}>Categorías</h3>
+                <div className="space-y-2">
+                  {categories.filter(cat => cat !== "Todos los Artículos").map((category) => (
+                    <button
+                      key={category}
+                      className="block w-full text-left px-3 py-2 rounded-lg hover:bg-gray-100 transition-colors text-sm"
+                    >
+                      {category}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Newsletter */}
+              <div className="bg-gray-50 rounded-2xl p-6">
+                <h3 className="text-lg font-bold mb-4" style={{ color: '#155d29' }}>Newsletter TRANSERVICA</h3>
+                <p className="text-sm text-gray-600 mb-4">Recibe las últimas noticias sobre transporte especializado</p>
+                <div className="space-y-3">
+                  <input
+                    type="email"
+                    placeholder="Tu email"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#155d29]"
+                  />
+                  <button className="w-full bg-[#155d29] text-white font-bold py-3 px-4 rounded-lg hover:bg-[#0f4a21] transition-colors">
+                    Suscribirse
+                  </button>
+                </div>
+              </div>
+            </aside>
           </div>
-        </article>
+        </div>
+        
+        {/* Footer */}
+        <Footer />
       </div>
     );
   }
@@ -665,28 +871,51 @@ export default function BlogPage() {
                   />
                 </div>
                 <div className="p-6">
-                  <div className="flex items-center gap-4 mb-3">
-                    <span className="px-2 py-1 bg-[#155d29] text-white text-xs font-medium rounded-full">
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="px-3 py-1 bg-[#155d29] text-white text-xs font-medium rounded-full">
                       {post.category}
                     </span>
                     <div className="flex items-center gap-1 text-gray-500">
-                      <Clock className="w-3 h-3" />
-                      <span className="text-xs">{post.readTime}</span>
+                      <Calendar className="w-3 h-3" />
+                      <span className="text-xs">{post.date}</span>
                     </div>
                   </div>
+                  
                   <h3 className="text-lg font-bold mb-3 group-hover:text-[#155d29] transition-colors line-clamp-2">
                     {post.title}
                   </h3>
-                  <p className="text-gray-600 text-sm mb-4 line-clamp-3">
-                    {post.excerpt}
+                  
+                  <p className="text-gray-600 text-sm mb-4 line-clamp-3" title={post.excerpt}>
+                    {post.excerpt.length > 150 ? post.excerpt.substring(0, 150) + '...' : post.excerpt}
                   </p>
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2 text-gray-500">
+                  
+                  <div className="flex items-center gap-3 mb-4 text-gray-500 text-xs">
+                    <div className="flex items-center gap-1">
                       <User className="w-3 h-3" />
-                      <span className="text-xs">{post.author}</span>
+                      <span>{post.author}</span>
                     </div>
-                    <div className="flex items-center gap-1 text-[#155d29] font-medium">
-                      <Eye className="w-4 h-4" />
+                    <div className="flex items-center gap-1">
+                      <Clock className="w-3 h-3" />
+                      <span>{post.readTime} lectura</span>
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <Eye className="w-3 h-3" />
+                      <span>{post.views}</span>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center justify-between border-t border-gray-100 pt-4">
+                    <div className="flex items-center gap-1">
+                      <MessageSquare className="w-4 h-4 text-gray-400" />
+                      <span className="text-xs text-gray-500">{post.comments} comentarios</span>
+                    </div>
+                    <div className="flex gap-2">
+                      <button className="p-1 rounded-full hover:bg-gray-100 transition-colors" title="Compartir">
+                        <Share2 className="w-4 h-4 text-gray-400" />
+                      </button>
+                      <button className="p-1 rounded-full hover:bg-gray-100 transition-colors" title="Guardar">
+                        <Bookmark className="w-4 h-4 text-gray-400" />
+                      </button>
                     </div>
                   </div>
                 </div>
