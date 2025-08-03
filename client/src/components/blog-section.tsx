@@ -181,7 +181,7 @@ export default function BlogSection() {
           </div>
 
           <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 sm:mb-6 text-wrap-balance" style={{ color: '#155d29' }}>
-            {t('blog.title')}
+            NOTICIAS TRANSERVICA
           </h2>
           <p className="mobile-text lg:text-xl max-w-3xl mx-auto mb-6 sm:mb-8 text-gray-600 text-wrap-pretty">
             {t('blog.subtitle')}
