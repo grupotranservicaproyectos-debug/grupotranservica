@@ -123,10 +123,7 @@ export default function EquipmentSection() {
                 {equipment.capacity}
               </div>
 
-              {/* Brand badge */}  
-              <div className="absolute top-4 right-4 z-20 text-white px-3 py-1 rounded-full text-xs font-semibold" style={{ backgroundColor: '#155d29' }}>
-                {equipment.brand}
-              </div>
+              
 
               {/* Image container */}
               <div className="relative h-64 overflow-hidden">
