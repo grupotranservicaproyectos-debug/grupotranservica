@@ -117,16 +117,7 @@ export default function Footer() {
                   {t('footer.resources.help')}
                 </a>
               </li>
-              <li>
-                <a href="#specifications" className="text-gray-300 hover:text-white text-sm transition-colors duration-200">
-                  {t('footer.resources.specifications')}
-                </a>
-              </li>
-              <li>
-                <a href="#testimonials" className="text-gray-300 hover:text-white text-sm transition-colors duration-200">
-                  {t('footer.resources.testimonials')}
-                </a>
-              </li>
+              
             </ul>
           </div>
 
