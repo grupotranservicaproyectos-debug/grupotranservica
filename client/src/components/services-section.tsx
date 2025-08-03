@@ -13,15 +13,12 @@ export default function ServicesSection() {
           if (entry.isIntersecting && !hasPlayed && videoRef.current) {
             // Start video from 23 seconds and stop at 2:27 (147 seconds)
             const iframe = videoRef.current;
-            const src = iframe.src;
-            if (!src.includes('autoplay=1')) {
-              iframe.src = src + '&autoplay=1&start=23&end=147';
-              setHasPlayed(true);
-            }
+            iframe.src = "https://www.youtube.com/embed/PF8SuO_3ZLU?autoplay=1&mute=1&start=23&end=147&controls=1&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3";
+            setHasPlayed(true);
           }
         });
       },
-      { threshold: 0.3 }
+      { threshold: 0.5 }
     );
 
     if (sectionRef.current) {
