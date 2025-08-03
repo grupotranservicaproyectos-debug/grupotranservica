@@ -720,81 +720,93 @@ export default function BlogPage() {
         )}
       </nav>
 
-      {/* Elegant Hero Section */}
-      <section className="relative py-24 bg-gradient-to-br from-gray-50 via-white to-green-50/30 overflow-hidden">
-        {/* Sophisticated Background Pattern */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-20 right-20 w-72 h-72 bg-[#155d29] rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 left-20 w-96 h-96 bg-[#ff6b35] rounded-full blur-3xl"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-r from-[#155d29] to-[#ff6b35] rounded-full blur-2xl"></div>
+      {/* Corporate Hero Section with TRANSERVICA Brand Colors */}
+      <section className="relative py-20 bg-gradient-to-br from-[#155d29] via-[#1a6b30] to-[#0f4a21] text-white overflow-hidden">
+        {/* Corporate Background Pattern */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-16 left-16 w-64 h-64 border-2 border-white/20 rounded-full"></div>
+          <div className="absolute bottom-16 right-16 w-48 h-48 border border-[#ff6b35]/30 rounded-full"></div>
+          <div className="absolute top-1/2 right-1/4 w-32 h-32 bg-white/5 rounded-full blur-xl"></div>
+          <div className="absolute bottom-1/3 left-1/4 w-40 h-40 bg-[#ff6b35]/10 rounded-full blur-2xl"></div>
         </div>
-        
-        {/* Geometric Decorations */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-16 right-32 w-4 h-4 bg-[#155d29] rotate-45"></div>
-          <div className="absolute bottom-32 left-32 w-6 h-6 border-2 border-[#ff6b35] rotate-12"></div>
-          <div className="absolute top-1/3 left-16 w-2 h-2 bg-[#ff6b35] rounded-full"></div>
-          <div className="absolute bottom-1/3 right-16 w-3 h-3 bg-[#155d29] rounded-full"></div>
+
+        {/* Truck Pattern Background */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-20 right-32 w-8 h-8 transform rotate-45">
+            <div className="w-full h-full bg-gradient-to-br from-white to-[#ff6b35] rounded-sm"></div>
+          </div>
+          <div className="absolute bottom-32 left-32 w-6 h-6 bg-white/20 transform rotate-12"></div>
+          <div className="absolute top-1/3 left-20 w-4 h-4 bg-[#ff6b35]/30 rounded-full"></div>
+          <div className="absolute bottom-1/4 right-20 w-5 h-5 border border-white/30 transform rotate-45"></div>
         </div>
 
         <div className="container mx-auto px-4 text-center relative z-10">
-          {/* Logo Section */}
-          <div className="mb-12">
-            <div className="inline-flex items-center justify-center w-24 h-24 bg-white rounded-2xl shadow-2xl mb-8 border border-gray-100">
+          {/* TRANSERVICA Logo Header */}
+          <div className="mb-8">
+            <div className="inline-flex items-center justify-center w-28 h-28 bg-white/15 backdrop-blur-sm rounded-3xl shadow-2xl mb-6 border border-white/20">
               <img 
                 src={logoTranservica}
-                alt="TRANSERVICA Blog Corporativo"
-                className="h-16 w-auto filter contrast-125 brightness-110"
+                alt="TRANSERVICA - Transporte Especializado"
+                className="h-20 w-auto filter brightness-0 invert drop-shadow-lg"
               />
+            </div>
+            <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-full px-8 py-3 border border-white/20">
+              <div className="w-2 h-2 bg-[#ff6b35] rounded-full animate-pulse"></div>
+              <span className="text-white/90 font-bold text-sm uppercase tracking-widest">Blog Corporativo</span>
             </div>
           </div>
 
-          {/* Main Content */}
-          <div className="max-w-4xl mx-auto">
-            <div className="inline-flex items-center gap-3 bg-[#155d29]/10 backdrop-blur-sm rounded-full px-6 py-3 mb-8 border border-[#155d29]/20">
-              <div className="w-2 h-2 bg-[#155d29] rounded-full animate-pulse"></div>
-              <span className="text-[#155d29] font-semibold text-sm uppercase tracking-wider">Blog Corporativo</span>
-            </div>
-            
-            <h1 className="text-5xl lg:text-7xl font-bold mb-8 bg-gradient-to-r from-[#155d29] via-[#1a6b30] to-[#ff6b35] bg-clip-text text-transparent leading-tight">
-              Centro de Conocimiento
+          {/* Main Corporate Title */}
+          <div className="max-w-5xl mx-auto">
+            <h1 className="text-5xl lg:text-8xl font-black mb-8 leading-none">
+              <span className="block text-white drop-shadow-2xl">CENTRO DE</span>
+              <span className="block bg-gradient-to-r from-[#ff6b35] via-[#ff8c5a] to-[#ffb084] bg-clip-text text-transparent drop-shadow-xl">
+                CONOCIMIENTO
+              </span>
             </h1>
             
-            <p className="text-xl lg:text-2xl text-gray-700 mb-10 max-w-3xl mx-auto leading-relaxed font-light">
-              Noticias exclusivas, proyectos emblemáticos y expertise técnico en 
-              <span className="font-semibold text-[#155d29]"> transporte de cargas excepcionales</span>
+            <p className="text-xl lg:text-3xl text-white/90 mb-12 max-w-4xl mx-auto leading-relaxed font-light drop-shadow-lg">
+              Noticias exclusivas, proyectos emblemáticos y expertise técnico de
+              <span className="font-bold text-[#ff6b35]"> 40 años</span> en 
+              <span className="font-bold"> transporte de cargas excepcionales</span>
             </p>
 
-            {/* Stats Section */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
-              <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 border border-gray-200/50 shadow-lg">
-                <div className="text-3xl font-bold text-[#155d29] mb-2">40+</div>
-                <div className="text-sm text-gray-600 font-medium">Años de Experiencia</div>
+            {/* Corporate Stats Cards */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+              <div className="bg-white/15 backdrop-blur-sm rounded-2xl p-6 border border-white/20 shadow-2xl group hover:bg-white/20 transition-all duration-300">
+                <div className="text-4xl font-black text-[#ff6b35] mb-3 drop-shadow-lg group-hover:scale-110 transition-transform">40+</div>
+                <div className="text-sm text-white/80 font-bold uppercase tracking-wide">Años de Experiencia</div>
               </div>
-              <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 border border-gray-200/50 shadow-lg">
-                <div className="text-3xl font-bold text-[#ff6b35] mb-2">1,100</div>
-                <div className="text-sm text-gray-600 font-medium">Toneladas Máximas</div>
+              <div className="bg-white/15 backdrop-blur-sm rounded-2xl p-6 border border-white/20 shadow-2xl group hover:bg-white/20 transition-all duration-300">
+                <div className="text-4xl font-black text-white mb-3 drop-shadow-lg group-hover:scale-110 transition-transform">1,100</div>
+                <div className="text-sm text-white/80 font-bold uppercase tracking-wide">Toneladas Máximas</div>
               </div>
-              <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 border border-gray-200/50 shadow-lg">
-                <div className="text-3xl font-bold text-[#155d29] mb-2">15K+</div>
-                <div className="text-sm text-gray-600 font-medium">Proyectos Exitosos</div>
+              <div className="bg-white/15 backdrop-blur-sm rounded-2xl p-6 border border-white/20 shadow-2xl group hover:bg-white/20 transition-all duration-300">
+                <div className="text-4xl font-black text-[#ff6b35] mb-3 drop-shadow-lg group-hover:scale-110 transition-transform">15K+</div>
+                <div className="text-sm text-white/80 font-bold uppercase tracking-wide">Proyectos Exitosos</div>
               </div>
-              <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 border border-gray-200/50 shadow-lg">
-                <div className="text-3xl font-bold text-[#ff6b35] mb-2">99.8%</div>
-                <div className="text-sm text-gray-600 font-medium">Récord de Seguridad</div>
+              <div className="bg-white/15 backdrop-blur-sm rounded-2xl p-6 border border-white/20 shadow-2xl group hover:bg-white/20 transition-all duration-300">
+                <div className="text-4xl font-black text-white mb-3 drop-shadow-lg group-hover:scale-110 transition-transform">99.8%</div>
+                <div className="text-sm text-white/80 font-bold uppercase tracking-wide">Récord de Seguridad</div>
               </div>
             </div>
 
-            {/* Elegant Divider */}
-            <div className="flex items-center justify-center gap-6 mb-8">
-              <div className="w-20 h-px bg-gradient-to-r from-transparent via-[#155d29] to-transparent"></div>
-              <div className="w-3 h-3 bg-[#ff6b35] rounded-full shadow-lg"></div>
-              <div className="w-20 h-px bg-gradient-to-r from-transparent via-[#ff6b35] to-transparent"></div>
+            {/* Corporate Divider */}
+            <div className="flex items-center justify-center gap-8 mb-10">
+              <div className="w-24 h-1 bg-gradient-to-r from-transparent via-white/50 to-transparent rounded-full"></div>
+              <div className="w-4 h-4 bg-[#ff6b35] rounded-full shadow-2xl border-2 border-white/30"></div>
+              <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#ff6b35]/70 to-transparent rounded-full"></div>
             </div>
 
-            <p className="text-lg text-gray-600 font-medium">
-              Líder en Venezuela en transporte especializado y logística de cargas excepcionales
-            </p>
+            {/* Corporate Tagline */}
+            <div className="bg-gradient-to-r from-[#ff6b35]/20 via-[#ff6b35]/10 to-transparent backdrop-blur-sm rounded-2xl p-8 border border-[#ff6b35]/30 shadow-2xl">
+              <p className="text-2xl lg:text-3xl font-bold text-white drop-shadow-lg mb-2">
+                TRANSERVICA, C.A.
+              </p>
+              <p className="text-lg text-white/90 font-medium">
+                Líder absoluto en Venezuela en transporte especializado y logística de cargas excepcionales
+              </p>
+            </div>
           </div>
         </div>
       </section>
