@@ -108,7 +108,7 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#equipment" className="text-gray-300 hover:text-white text-sm transition-colors duration-200">
+                <a href="#equipos" className="text-gray-300 hover:text-white text-sm transition-colors duration-200">
                   {t('footer.resources.equipment')}
                 </a>
               </li>
