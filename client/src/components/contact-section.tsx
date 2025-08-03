@@ -75,13 +75,13 @@ export default function ContactSection() {
         <div className="grid lg:grid-cols-2 gap-12">
           <div>
             <h2 className="text-4xl font-bold mb-6 text-white">Solicita tu Cotización</h2>
-            <p className="text-xl text-white/90 mb-8 leading-relaxed font-bold">
+            <p className="text-xl text-white mb-8 leading-relaxed font-bold">
               Cuéntanos sobre tu proyecto y te proporcionaremos una solución personalizada con la mejor propuesta del mercado.
             </p>
             
             <div className="space-y-6">
               <div className="flex items-center">
-                <div className="w-14 h-14 bg-white/15 backdrop-blur-sm rounded-xl flex items-center justify-center mr-4 border border-white/20">
+                <div className="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center mr-4 border-2 border-white/40 shadow-lg">
                   <Phone className="w-6 h-6 text-white" />
                 </div>
                 <div>
@@ -92,7 +92,7 @@ export default function ContactSection() {
               </div>
               
               <div className="flex items-center">
-                <div className="w-14 h-14 bg-white/15 backdrop-blur-sm rounded-xl flex items-center justify-center mr-4 border border-white/20">
+                <div className="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center mr-4 border-2 border-white/40 shadow-lg">
                   <Mail className="w-6 h-6 text-white" />
                 </div>
                 <div>
@@ -102,7 +102,7 @@ export default function ContactSection() {
               </div>
 
               <div className="flex items-center">
-                <div className="w-14 h-14 bg-white/15 backdrop-blur-sm rounded-xl flex items-center justify-center mr-4 border border-white/20">
+                <div className="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center mr-4 border-2 border-white/40 shadow-lg">
                   <Mail className="w-6 h-6 text-white" />
                 </div>
                 <div>
@@ -112,7 +112,7 @@ export default function ContactSection() {
               </div>
               
               <div className="flex items-center">
-                <div className="w-14 h-14 bg-white/15 backdrop-blur-sm rounded-xl flex items-center justify-center mr-4 border border-white/20">
+                <div className="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center mr-4 border-2 border-white/40 shadow-lg">
                   <MapPin className="w-6 h-6 text-white" />
                 </div>
                 <div>
@@ -125,7 +125,7 @@ export default function ContactSection() {
                 href="https://wa.me/584142776340?text=Hola%2C%20necesito%20información%20sobre%20transporte%20de%20cargas%20excepcionales" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="inline-flex items-center bg-white/20 backdrop-blur-sm text-white px-8 py-4 rounded-xl text-lg font-bold hover:bg-white/30 transition-all duration-300 transform hover:scale-105 border border-white/30 shadow-lg"
+                className="inline-flex items-center bg-white/25 backdrop-blur-sm text-white px-8 py-4 rounded-xl text-lg font-bold hover:bg-white/40 transition-all duration-300 transform hover:scale-105 border-2 border-white/50 shadow-xl"
               >
                 <svg className="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 2.079.549 4.090 1.588 5.876L.029 24l6.203-1.539a11.952 11.952 0 005.785 1.539c6.621 0 11.988-5.367 11.988-11.988C23.973 5.367 18.638.001 12.017.001zm5.995 16.987c-.264.714-1.291 1.336-1.953 1.428-.663.094-1.526.141-2.438-.154-1.421-.458-3.025-1.609-4.222-3.003-1.197-1.394-1.967-3.045-2.033-3.192-.066-.147-.541-1.447-.541-2.748 0-1.301.341-1.947.463-2.215.122-.268.268-.335.357-.335h.268c.087 0 .201-.003.291.222.09.225.307.751.334.805.027.054.045.116.009.19-.036.074-.054.121-.108.184-.054.063-.113.14-.162.189-.063.049-.128.101-.055.199.073.098.325.537.697.869.481.427 1.055.705 1.206.784.151.079.239.067.327-.041.088-.108.378-.441.479-.592.101-.151.201-.126.338-.076.137.051.87.41 1.018.485.149.074.249.112.285.174.036.062.036.359-.228 1.073z"/>
@@ -135,7 +135,7 @@ export default function ContactSection() {
             </div>
           </div>
           
-          <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-8 text-gray-800 shadow-2xl border border-white/20">
+          <div className="bg-white rounded-2xl p-8 text-gray-800 shadow-2xl border-2 border-white/30">
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-4">
@@ -291,7 +291,10 @@ export default function ContactSection() {
                 
                 <Button 
                   type="submit" 
-                  className="w-full bg-transervica-green text-white px-6 py-4 rounded-lg text-lg font-semibold hover:bg-green-800 transition"
+                  className="w-full text-white px-6 py-4 rounded-xl text-lg font-bold transition-all duration-300 transform hover:scale-105 shadow-lg"
+                  style={{ backgroundColor: '#155d29' }}
+                  onMouseEnter={(e) => { (e.target as HTMLElement).style.backgroundColor = '#0f4a21'; }}
+                  onMouseLeave={(e) => { (e.target as HTMLElement).style.backgroundColor = '#155d29'; }}
                   disabled={contactMutation.isPending}
                 >
                   {contactMutation.isPending ? "Enviando..." : "Solicitar Cotización Gratuita"}
