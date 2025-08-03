@@ -21,7 +21,7 @@ export default function Footer() {
           
           {/* Company Info with High Resolution Logo */}
           <div className="lg:col-span-1">
-            <div className="mb-6">
+            <div className="mb-8">
               <button 
                 onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                 className="focus:outline-none mb-4"
@@ -29,8 +29,11 @@ export default function Footer() {
                 <img 
                   src={logoTranservica} 
                   alt="TRANSERVICA Logo" 
-                  className="h-16 w-auto max-w-full hover:scale-105 transition-transform duration-300 filter brightness-125 contrast-110"
-                  style={{ imageRendering: 'crisp-edges' }}
+                  className="h-24 md:h-28 lg:h-32 w-auto max-w-full hover:scale-105 transition-transform duration-300 filter brightness-150 contrast-125 drop-shadow-lg"
+                  style={{ 
+                    imageRendering: 'crisp-edges',
+                    filter: 'brightness(1.5) contrast(1.25) drop-shadow(0 4px 8px rgba(0,0,0,0.3))'
+                  }}
                 />
               </button>
             </div>
