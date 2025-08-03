@@ -236,6 +236,25 @@ const translations = {
     'projects.4.sector': 'Logística Industrial',
     'projects.4.location': 'Rutas Nacionales',
     'projects.4.description': 'Convoy de transporte de cargas excepcionales por carreteras venezolanas',
+    
+    // Project CTA buttons
+    'projects.cta.1': 'COTIZAR PROYECTO SIMILAR',
+    'projects.cta.2': 'VER MÁS PROYECTOS', 
+    'projects.cta.3': 'SOLICITAR INFORMACIÓN',
+    'projects.cta.4': 'CONTACTAR ESPECIALISTA',
+    'projects.cta.5': 'CONOCER CAPACIDADES',
+    'projects.cta.6': 'EVALUAR MI CARGA',
+    'projects.cta.7': 'PLANIFICAR TRANSPORTE',
+    'projects.cta.8': 'CONSULTAR DISPONIBILIDAD',
+    'projects.cta.9': 'OBTENER PRESUPUESTO',
+    'projects.cta.10': 'ASESORÍA TÉCNICA GRATIS',
+    'projects.cta.11': 'ESTUDIOS DE FACTIBILIDAD',
+    'projects.cta.12': 'COORDINACIÓN LOGÍSTICA',
+    
+    // Project stats
+    'projects.stats.of': 'de',
+    'projects.stats.projects': 'proyectos',
+    'projects.stats.years': 'años experiencia',
     'contact.info.address': 'Ubicación',
     'contact.whatsapp': 'Contactar por WhatsApp',
     'contact.address.full': 'Carretera Nacional Maracay Mariara Km 9, Mariara, Edo. Carabobo',
