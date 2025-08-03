@@ -370,34 +370,36 @@ export default function BlogSection() {
         <div className="text-center mt-16 relative">
           <div className="bg-gradient-to-r from-[#155d29] to-[#0f4a21] rounded-3xl p-8 sm:p-12 text-white shadow-2xl overflow-hidden">
             {/* Background pattern */}
-            <div className="absolute inset-0 opacity-10">
-              <div className="absolute top-4 right-4 w-32 h-32 border border-white/20 rounded-full"></div>
-              <div className="absolute bottom-4 left-4 w-24 h-24 border border-white/20 rounded-full"></div>
+            <div className="absolute inset-0 opacity-20">
+              <div className="absolute top-4 right-4 w-32 h-32 border-2 border-white/40 rounded-full"></div>
+              <div className="absolute bottom-4 left-4 w-24 h-24 border-2 border-white/40 rounded-full"></div>
+              <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-white/10 rounded-full blur-xl"></div>
+              <div className="absolute bottom-1/3 right-1/3 w-20 h-20 bg-white/10 rounded-full blur-xl"></div>
             </div>
             
             <div className="relative z-10">
               <div className="flex items-center justify-center gap-3 mb-6">
-                <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
-                  <Truck className="w-6 h-6 text-white" />
+                <div className="w-12 h-12 bg-white/30 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/50">
+                  <Truck className="w-6 h-6 text-white drop-shadow-lg" />
                 </div>
-                <h3 className="text-2xl sm:text-3xl font-bold">
+                <h3 className="text-2xl sm:text-3xl font-bold text-white drop-shadow-lg">
                   ¿Tienes un Proyecto Especializado?
                 </h3>
               </div>
-              <p className="mb-8 text-green-100 max-w-2xl mx-auto text-lg">
+              <p className="mb-8 text-white/90 max-w-2xl mx-auto text-lg drop-shadow-md">
                 40 años de experiencia nos respaldan. Nuestro equipo de ingenieros está listo para desarrollar la mejor solución logística para tu empresa
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button 
                   onClick={() => document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="bg-white text-[#155d29] font-bold py-4 px-8 rounded-xl hover:bg-green-50 transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center gap-2"
+                  className="bg-white text-[#155d29] font-bold py-4 px-8 rounded-xl hover:bg-green-50 transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl flex items-center justify-center gap-2 border-2 border-white"
                 >
                   <ArrowRight className="w-5 h-5" />
                   Consultar Proyecto
                 </button>
                 <button 
                   onClick={() => document.getElementById('servicios')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="bg-white/20 backdrop-blur-sm text-white font-bold py-4 px-8 rounded-xl hover:bg-white/30 transition-all duration-300 transform hover:scale-105 border border-white/30 flex items-center justify-center gap-2"
+                  className="bg-white/30 backdrop-blur-sm text-white font-bold py-4 px-8 rounded-xl hover:bg-white/40 transition-all duration-300 transform hover:scale-105 border-2 border-white/60 hover:border-white flex items-center justify-center gap-2 shadow-lg"
                 >
                   <Eye className="w-5 h-5" />
                   Ver Servicios
