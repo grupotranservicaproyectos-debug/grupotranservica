@@ -115,7 +115,7 @@ export default function BlogPage() {
   const [selectedPost, setSelectedPost] = useState<any>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { t } = useLanguage();
-  const postsPerPage = 6;
+  const postsPerPage = 9;
 
   const scrollToSection = (sectionId: string) => {
     // Navigate to home page and scroll to specific section
@@ -728,88 +728,89 @@ export default function BlogPage() {
         )}
       </nav>
 
-      {/* Professional Blog Banner with High Contrast */}
-      <section className="relative py-24 bg-gradient-to-br from-gray-50 via-white to-gray-100 overflow-hidden">
-        {/* Elegant Background Pattern */}
-        <div className="absolute inset-0 opacity-8">
-          <div className="absolute top-20 left-20 w-96 h-96 border-2 border-gray-200/50 rounded-full"></div>
-          <div className="absolute bottom-20 right-20 w-64 h-64 border border-gray-300/30 rounded-full"></div>
-          <div className="absolute top-1/2 right-1/3 w-48 h-48 bg-[#155d29]/5 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-1/3 left-1/3 w-56 h-56 bg-gray-200/40 rounded-full blur-2xl"></div>
+      {/* Mobile-Optimized Professional Blog Banner */}
+      <section className="relative py-12 sm:py-16 lg:py-24 bg-gradient-to-br from-gray-50 via-white to-gray-100 overflow-hidden">
+        {/* Optimized Background Pattern for Mobile */}
+        <div className="absolute inset-0 opacity-5 lg:opacity-8">
+          <div className="absolute top-10 left-10 lg:top-20 lg:left-20 w-48 lg:w-96 h-48 lg:h-96 border border-gray-200/30 lg:border-2 lg:border-gray-200/50 rounded-full"></div>
+          <div className="absolute bottom-10 right-10 lg:bottom-20 lg:right-20 w-32 lg:w-64 h-32 lg:h-64 border border-gray-300/20 lg:border-gray-300/30 rounded-full"></div>
+          <div className="hidden lg:block absolute top-1/2 right-1/3 w-48 h-48 bg-[#155d29]/5 rounded-full blur-3xl"></div>
+          <div className="hidden lg:block absolute bottom-1/3 left-1/3 w-56 h-56 bg-gray-200/40 rounded-full blur-2xl"></div>
         </div>
 
-        {/* Professional Geometric Elements */}
-        <div className="absolute inset-0 opacity-15">
-          <div className="absolute top-24 right-40 w-6 h-6 bg-[#155d29] transform rotate-45"></div>
-          <div className="absolute bottom-40 left-40 w-8 h-8 border-2 border-[#155d29] transform rotate-12"></div>
-          <div className="absolute top-1/3 left-24 w-3 h-3 bg-[#155d29] rounded-full"></div>
-          <div className="absolute bottom-1/4 right-24 w-4 h-4 border border-[#155d29] transform rotate-45"></div>
+        {/* Simplified Geometric Elements for Mobile */}
+        <div className="absolute inset-0 opacity-10 lg:opacity-15">
+          <div className="absolute top-12 right-12 lg:top-24 lg:right-40 w-4 lg:w-6 h-4 lg:h-6 bg-[#155d29] transform rotate-45"></div>
+          <div className="absolute bottom-20 left-12 lg:bottom-40 lg:left-40 w-6 lg:w-8 h-6 lg:h-8 border lg:border-2 border-[#155d29] transform rotate-12"></div>
+          <div className="hidden lg:block absolute top-1/3 left-24 w-3 h-3 bg-[#155d29] rounded-full"></div>
+          <div className="hidden lg:block absolute bottom-1/4 right-24 w-4 h-4 border border-[#155d29] transform rotate-45"></div>
         </div>
 
-        <div className="container mx-auto px-4 text-center relative z-10">
-          {/* TRANSERVICA Professional Header */}
-          <div className="mb-12">
-            <div className="inline-flex items-center justify-center w-32 h-32 bg-white rounded-3xl shadow-2xl mb-8 border border-gray-200">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          {/* Mobile-Optimized Header */}
+          <div className="mb-8 lg:mb-12">
+            <div className="inline-flex items-center justify-center w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 bg-white rounded-2xl lg:rounded-3xl shadow-xl lg:shadow-2xl mb-6 lg:mb-8 border border-gray-200">
               <img 
                 src={logoTranservica}
                 alt="TRANSERVICA - Blog Corporativo"
-                className="h-24 w-auto filter contrast-125 brightness-105"
+                className="h-16 sm:h-20 lg:h-24 w-auto filter contrast-125 brightness-105"
+                loading="eager"
               />
             </div>
-            <div className="inline-flex items-center gap-3 bg-[#155d29]/10 backdrop-blur-sm rounded-full px-8 py-4 border border-[#155d29]/20">
-              <div className="w-3 h-3 bg-[#155d29] rounded-full"></div>
-              <span className="text-[#155d29] font-bold text-sm uppercase tracking-widest">Blog Corporativo</span>
+            <div className="inline-flex items-center gap-2 lg:gap-3 bg-[#155d29]/10 backdrop-blur-sm rounded-full px-4 sm:px-6 lg:px-8 py-2 sm:py-3 lg:py-4 border border-[#155d29]/20">
+              <div className="w-2 lg:w-3 h-2 lg:h-3 bg-[#155d29] rounded-full"></div>
+              <span className="text-[#155d29] font-bold text-xs sm:text-sm uppercase tracking-wide lg:tracking-widest">Blog Corporativo</span>
             </div>
           </div>
 
-          {/* Main Title with High Contrast */}
+          {/* Responsive Main Title */}
           <div className="max-w-6xl mx-auto">
-            <h1 className="text-6xl lg:text-9xl font-black mb-10 leading-none text-[#155d29]">
-              <span className="block drop-shadow-lg">CENTRO DE</span>
-              <span className="block text-gray-800 drop-shadow-md">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-9xl font-black mb-6 lg:mb-10 leading-tight lg:leading-none text-[#155d29]">
+              <span className="block drop-shadow-md lg:drop-shadow-lg">CENTRO DE</span>
+              <span className="block text-gray-800 drop-shadow-sm lg:drop-shadow-md">
                 CONOCIMIENTO
               </span>
             </h1>
             
-            <p className="text-2xl lg:text-3xl text-gray-700 mb-14 max-w-5xl mx-auto leading-relaxed font-light">
+            <p className="text-lg sm:text-xl lg:text-2xl xl:text-3xl text-gray-700 mb-8 lg:mb-14 max-w-4xl lg:max-w-5xl mx-auto leading-relaxed font-light px-4 lg:px-0">
               Noticias exclusivas, proyectos emblemáticos y expertise técnico de
               <span className="font-bold text-[#155d29]"> 40 años</span> en 
               <span className="font-bold text-[#155d29]"> transporte de cargas excepcionales</span>
             </p>
 
-            {/* Professional Stats Cards */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-              <div className="bg-white rounded-2xl p-8 border border-gray-200 shadow-xl group hover:shadow-2xl transition-all duration-300 hover:border-[#155d29]/30">
-                <div className="text-5xl font-black text-[#155d29] mb-4 group-hover:scale-105 transition-transform">40+</div>
-                <div className="text-sm text-gray-600 font-bold uppercase tracking-wide">Años de Experiencia</div>
+            {/* Mobile-Optimized Stats Cards */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 mb-10 lg:mb-16 px-2 sm:px-0">
+              <div className="bg-white rounded-xl lg:rounded-2xl p-4 sm:p-6 lg:p-8 border border-gray-200 shadow-lg lg:shadow-xl group hover:shadow-xl lg:hover:shadow-2xl transition-all duration-300 hover:border-[#155d29]/30">
+                <div className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#155d29] mb-2 lg:mb-4 group-hover:scale-105 transition-transform">40+</div>
+                <div className="text-xs sm:text-sm text-gray-600 font-bold uppercase tracking-wide">Años de Experiencia</div>
               </div>
-              <div className="bg-white rounded-2xl p-8 border border-gray-200 shadow-xl group hover:shadow-2xl transition-all duration-300 hover:border-[#155d29]/30">
-                <div className="text-5xl font-black text-gray-800 mb-4 group-hover:scale-105 transition-transform">1,100</div>
-                <div className="text-sm text-gray-600 font-bold uppercase tracking-wide">Toneladas Máximas</div>
+              <div className="bg-white rounded-xl lg:rounded-2xl p-4 sm:p-6 lg:p-8 border border-gray-200 shadow-lg lg:shadow-xl group hover:shadow-xl lg:hover:shadow-2xl transition-all duration-300 hover:border-[#155d29]/30">
+                <div className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-800 mb-2 lg:mb-4 group-hover:scale-105 transition-transform">1,100</div>
+                <div className="text-xs sm:text-sm text-gray-600 font-bold uppercase tracking-wide">Toneladas Máximas</div>
               </div>
-              <div className="bg-white rounded-2xl p-8 border border-gray-200 shadow-xl group hover:shadow-2xl transition-all duration-300 hover:border-[#155d29]/30">
-                <div className="text-5xl font-black text-[#155d29] mb-4 group-hover:scale-105 transition-transform">15K+</div>
-                <div className="text-sm text-gray-600 font-bold uppercase tracking-wide">Proyectos Exitosos</div>
+              <div className="bg-white rounded-xl lg:rounded-2xl p-4 sm:p-6 lg:p-8 border border-gray-200 shadow-lg lg:shadow-xl group hover:shadow-xl lg:hover:shadow-2xl transition-all duration-300 hover:border-[#155d29]/30">
+                <div className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#155d29] mb-2 lg:mb-4 group-hover:scale-105 transition-transform">15K+</div>
+                <div className="text-xs sm:text-sm text-gray-600 font-bold uppercase tracking-wide">Proyectos Exitosos</div>
               </div>
-              <div className="bg-white rounded-2xl p-8 border border-gray-200 shadow-xl group hover:shadow-2xl transition-all duration-300 hover:border-[#155d29]/30">
-                <div className="text-5xl font-black text-gray-800 mb-4 group-hover:scale-105 transition-transform">99.8%</div>
-                <div className="text-sm text-gray-600 font-bold uppercase tracking-wide">Récord de Seguridad</div>
+              <div className="bg-white rounded-xl lg:rounded-2xl p-4 sm:p-6 lg:p-8 border border-gray-200 shadow-lg lg:shadow-xl group hover:shadow-xl lg:hover:shadow-2xl transition-all duration-300 hover:border-[#155d29]/30">
+                <div className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-800 mb-2 lg:mb-4 group-hover:scale-105 transition-transform">99.8%</div>
+                <div className="text-xs sm:text-sm text-gray-600 font-bold uppercase tracking-wide">Récord de Seguridad</div>
               </div>
             </div>
 
-            {/* Professional Divider */}
-            <div className="flex items-center justify-center gap-8 mb-12">
-              <div className="w-32 h-1 bg-gradient-to-r from-transparent via-[#155d29] to-transparent rounded-full"></div>
-              <div className="w-5 h-5 bg-[#155d29] rounded-full shadow-lg"></div>
-              <div className="w-32 h-1 bg-gradient-to-r from-transparent via-gray-400 to-transparent rounded-full"></div>
+            {/* Responsive Divider */}
+            <div className="flex items-center justify-center gap-4 lg:gap-8 mb-8 lg:mb-12">
+              <div className="w-16 lg:w-32 h-0.5 lg:h-1 bg-gradient-to-r from-transparent via-[#155d29] to-transparent rounded-full"></div>
+              <div className="w-3 lg:w-5 h-3 lg:h-5 bg-[#155d29] rounded-full shadow-lg"></div>
+              <div className="w-16 lg:w-32 h-0.5 lg:h-1 bg-gradient-to-r from-transparent via-gray-400 to-transparent rounded-full"></div>
             </div>
 
-            {/* Corporate Information */}
-            <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-10 border border-gray-200 shadow-2xl">
-              <p className="text-3xl lg:text-4xl font-black text-[#155d29] mb-4">
+            {/* Mobile-Optimized Corporate Information */}
+            <div className="bg-white/90 lg:bg-white/80 backdrop-blur-sm rounded-2xl lg:rounded-3xl p-6 lg:p-10 border border-gray-200 shadow-xl lg:shadow-2xl mx-2 sm:mx-0">
+              <p className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#155d29] mb-3 lg:mb-4">
                 TRANSERVICA, C.A.
               </p>
-              <p className="text-xl text-gray-700 font-medium leading-relaxed">
+              <p className="text-base sm:text-lg lg:text-xl text-gray-700 font-medium leading-relaxed">
                 Líder absoluto en Venezuela en transporte especializado y logística de cargas excepcionales
               </p>
             </div>
@@ -817,33 +818,33 @@ export default function BlogPage() {
         </div>
       </section>
 
-      <div className="container mx-auto px-4 py-12">
-        {/* Search and Filters */}
-        <div className="mb-12">
-          <div className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
-            <div className="flex flex-col lg:flex-row gap-6">
-              {/* Search */}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
+        {/* Mobile-Optimized Search and Filters */}
+        <div className="mb-8 lg:mb-12">
+          <div className="bg-white rounded-xl lg:rounded-2xl shadow-md lg:shadow-lg p-4 lg:p-6 border border-gray-100">
+            <div className="flex flex-col lg:flex-row gap-4 lg:gap-6">
+              {/* Mobile-Optimized Search */}
               <div className="flex-1">
                 <div className="relative">
-                  <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                  <Search className="absolute left-3 lg:left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 lg:w-5 h-4 lg:h-5" />
                   <input
                     type="text"
                     placeholder="Buscar artículos, proyectos, equipos..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    className="w-full pl-12 pr-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#155d29] focus:border-transparent"
+                    className="w-full pl-10 lg:pl-12 pr-4 py-3 border border-gray-200 rounded-lg lg:rounded-xl focus:outline-none focus:ring-2 focus:ring-[#155d29] focus:border-transparent text-sm lg:text-base"
                   />
                 </div>
               </div>
 
-              {/* Category Filter */}
+              {/* Mobile-Optimized Category Filter */}
               <div className="lg:w-80">
                 <div className="relative">
-                  <Filter className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                  <Filter className="absolute left-3 lg:left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 lg:w-5 h-4 lg:h-5" />
                   <select
                     value={selectedCategory}
                     onChange={(e) => setSelectedCategory(e.target.value)}
-                    className="w-full pl-12 pr-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#155d29] focus:border-transparent appearance-none bg-white"
+                    className="w-full pl-10 lg:pl-12 pr-4 py-3 border border-gray-200 rounded-lg lg:rounded-xl focus:outline-none focus:ring-2 focus:ring-[#155d29] focus:border-transparent appearance-none bg-white text-sm lg:text-base"
                   >
                     {categories.map((category) => (
                       <option key={category} value={category}>
@@ -851,23 +852,28 @@ export default function BlogPage() {
                       </option>
                     ))}
                   </select>
+                  <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                    <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Featured Posts */}
+        {/* Mobile-Optimized Featured Posts */}
         {selectedCategory === "Todos los Artículos" && (
-          <section className="mb-12">
-            <h2 className="text-3xl font-bold mb-8" style={{ color: '#155d29' }}>
+          <section className="mb-8 lg:mb-12">
+            <h2 className="text-2xl lg:text-3xl font-bold mb-6 lg:mb-8 text-[#155d29] px-2 lg:px-0">
               Artículos Destacados
             </h2>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
               {blogPosts.filter(post => post.featured).slice(0, 2).map((post) => (
                 <article
                   key={post.id}
-                  className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group cursor-pointer"
+                  className="bg-white rounded-xl lg:rounded-2xl shadow-md lg:shadow-lg overflow-hidden hover:shadow-lg lg:hover:shadow-xl transition-all duration-300 group cursor-pointer mx-2 lg:mx-0"
                   onClick={() => setSelectedPost(post)}
                 >
                   <div className="aspect-video overflow-hidden">
@@ -875,32 +881,33 @@ export default function BlogPage() {
                       src={post.image}
                       alt={post.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      loading="lazy"
                     />
                   </div>
-                  <div className="p-6">
-                    <div className="flex items-center gap-4 mb-4">
-                      <span className="px-3 py-1 bg-[#155d29] text-white text-sm font-medium rounded-full">
+                  <div className="p-4 lg:p-6">
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-3 lg:mb-4">
+                      <span className="px-2 lg:px-3 py-1 bg-[#155d29] text-white text-xs lg:text-sm font-medium rounded-full w-fit">
                         {post.category}
                       </span>
                       <div className="flex items-center gap-2 text-gray-600">
-                        <Calendar className="w-4 h-4" />
-                        <span className="text-sm">{post.date}</span>
+                        <Calendar className="w-3 lg:w-4 h-3 lg:h-4" />
+                        <span className="text-xs lg:text-sm">{post.date}</span>
                       </div>
                     </div>
-                    <h3 className="text-xl font-bold mb-3 group-hover:text-[#155d29] transition-colors">
+                    <h3 className="text-lg lg:text-xl font-bold mb-3 group-hover:text-[#155d29] transition-colors line-clamp-2">
                       {post.title}
                     </h3>
-                    <p className="text-gray-600 mb-4 line-clamp-3">
+                    <p className="text-gray-600 mb-4 line-clamp-3 text-sm lg:text-base">
                       {post.excerpt}
                     </p>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2 text-gray-600">
-                        <User className="w-4 h-4" />
-                        <span className="text-sm">{post.author}</span>
+                        <User className="w-3 lg:w-4 h-3 lg:h-4" />
+                        <span className="text-xs lg:text-sm">{post.author}</span>
                       </div>
                       <div className="flex items-center gap-1 text-[#155d29] font-medium">
-                        <span className="text-sm">Leer más</span>
-                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                        <span className="text-xs lg:text-sm">Leer más</span>
+                        <ArrowRight className="w-3 lg:w-4 h-3 lg:h-4 group-hover:translate-x-1 transition-transform" />
                       </div>
                     </div>
                   </div>
@@ -910,22 +917,22 @@ export default function BlogPage() {
           </section>
         )}
 
-        {/* All Posts Grid */}
+        {/* Mobile-Optimized All Posts Grid */}
         <section>
-          <div className="flex items-center justify-between mb-8">
-            <h2 className="text-3xl font-bold" style={{ color: '#155d29' }}>
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 lg:mb-8 px-2 lg:px-0 gap-2">
+            <h2 className="text-2xl lg:text-3xl font-bold text-[#155d29]">
               {selectedCategory === "Todos los Artículos" ? "Todos los Artículos" : selectedCategory}
             </h2>
-            <span className="text-gray-600">
+            <span className="text-sm lg:text-base text-gray-600">
               {filteredPosts.length} artículo{filteredPosts.length !== 1 ? 's' : ''}
             </span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
             {currentPosts.map((post) => (
               <article
                 key={post.id}
-                className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group cursor-pointer"
+                className="bg-white rounded-xl shadow-md lg:shadow-lg overflow-hidden hover:shadow-lg lg:hover:shadow-xl transition-all duration-300 group cursor-pointer mx-2 sm:mx-0"
                 onClick={() => setSelectedPost(post)}
               >
                 <div className="aspect-video overflow-hidden">
@@ -933,11 +940,12 @@ export default function BlogPage() {
                     src={post.image}
                     alt={post.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    loading="lazy"
                   />
                 </div>
-                <div className="p-6">
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="px-3 py-1 bg-[#155d29] text-white text-xs font-medium rounded-full">
+                <div className="p-4 lg:p-6">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-3 gap-2">
+                    <span className="px-2 lg:px-3 py-1 bg-[#155d29] text-white text-xs font-medium rounded-full w-fit">
                       {post.category}
                     </span>
                     <div className="flex items-center gap-1 text-gray-500">
@@ -946,22 +954,22 @@ export default function BlogPage() {
                     </div>
                   </div>
                   
-                  <h3 className="text-lg font-bold mb-3 group-hover:text-[#155d29] transition-colors line-clamp-2">
+                  <h3 className="text-base lg:text-lg font-bold mb-3 group-hover:text-[#155d29] transition-colors line-clamp-2">
                     {post.title}
                   </h3>
                   
                   <p className="text-gray-600 text-sm mb-4 line-clamp-3" title={post.excerpt}>
-                    {post.excerpt.length > 150 ? post.excerpt.substring(0, 150) + '...' : post.excerpt}
+                    {post.excerpt.length > 120 ? post.excerpt.substring(0, 120) + '...' : post.excerpt}
                   </p>
                   
-                  <div className="flex items-center gap-3 mb-4 text-gray-500 text-xs">
+                  <div className="flex flex-wrap items-center gap-2 lg:gap-3 mb-4 text-gray-500 text-xs">
                     <div className="flex items-center gap-1">
                       <User className="w-3 h-3" />
-                      <span>{post.author}</span>
+                      <span className="truncate max-w-20">{post.author}</span>
                     </div>
                     <div className="flex items-center gap-1">
                       <Clock className="w-3 h-3" />
-                      <span>{post.readTime} lectura</span>
+                      <span>{post.readTime}</span>
                     </div>
                     <div className="flex items-center gap-1">
                       <Eye className="w-3 h-3" />
@@ -969,17 +977,25 @@ export default function BlogPage() {
                     </div>
                   </div>
                   
-                  <div className="flex items-center justify-between border-t border-gray-100 pt-4">
+                  <div className="flex items-center justify-between border-t border-gray-100 pt-3 lg:pt-4">
                     <div className="flex items-center gap-1">
-                      <MessageSquare className="w-4 h-4 text-gray-400" />
-                      <span className="text-xs text-gray-500">{post.comments} comentarios</span>
+                      <MessageSquare className="w-3 lg:w-4 h-3 lg:h-4 text-gray-400" />
+                      <span className="text-xs text-gray-500">{post.comments}</span>
                     </div>
-                    <div className="flex gap-2">
-                      <button className="p-1 rounded-full hover:bg-gray-100 transition-colors" title="Compartir">
-                        <Share2 className="w-4 h-4 text-gray-400" />
+                    <div className="flex gap-1 lg:gap-2">
+                      <button 
+                        className="p-1 lg:p-1.5 rounded-full hover:bg-gray-100 transition-colors" 
+                        title="Compartir"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <Share2 className="w-3 lg:w-4 h-3 lg:h-4 text-gray-400" />
                       </button>
-                      <button className="p-1 rounded-full hover:bg-gray-100 transition-colors" title="Guardar">
-                        <Bookmark className="w-4 h-4 text-gray-400" />
+                      <button 
+                        className="p-1 lg:p-1.5 rounded-full hover:bg-gray-100 transition-colors" 
+                        title="Guardar"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <Bookmark className="w-3 lg:w-4 h-3 lg:h-4 text-gray-400" />
                       </button>
                     </div>
                   </div>
@@ -988,38 +1004,62 @@ export default function BlogPage() {
             ))}
           </div>
 
-          {/* Pagination */}
+          {/* Mobile-Optimized Pagination */}
           {totalPages > 1 && (
-            <div className="flex items-center justify-center gap-4 mt-12">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 lg:gap-4 mt-8 lg:mt-12 px-2 lg:px-0">
               <button
                 onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
                 disabled={currentPage === 1}
-                className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-lg hover:border-[#155d29] hover:text-[#155d29] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                className="flex items-center gap-2 px-3 lg:px-4 py-2 border border-gray-300 rounded-lg hover:border-[#155d29] hover:text-[#155d29] transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm lg:text-base w-full sm:w-auto justify-center"
               >
                 <ChevronLeft className="w-4 h-4" />
                 Anterior
               </button>
 
-              <div className="flex gap-2">
-                {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
-                  <button
-                    key={page}
-                    onClick={() => setCurrentPage(page)}
-                    className={`w-10 h-10 rounded-lg font-medium transition-colors ${
-                      currentPage === page
-                        ? 'bg-[#155d29] text-white'
-                        : 'border border-gray-300 hover:border-[#155d29] hover:text-[#155d29]'
-                    }`}
-                  >
-                    {page}
-                  </button>
-                ))}
+              <div className="flex gap-1 lg:gap-2 overflow-x-auto max-w-full">
+                {Array.from({ length: Math.min(totalPages, 5) }, (_, i) => {
+                  let page;
+                  if (totalPages <= 5) {
+                    page = i + 1;
+                  } else if (currentPage <= 3) {
+                    page = i + 1;
+                  } else if (currentPage >= totalPages - 2) {
+                    page = totalPages - 4 + i;
+                  } else {
+                    page = currentPage - 2 + i;
+                  }
+                  
+                  return (
+                    <button
+                      key={page}
+                      onClick={() => setCurrentPage(page)}
+                      className={`w-8 lg:w-10 h-8 lg:h-10 rounded-lg font-medium transition-colors text-sm lg:text-base ${
+                        currentPage === page
+                          ? 'bg-[#155d29] text-white'
+                          : 'border border-gray-300 hover:border-[#155d29] hover:text-[#155d29]'
+                      }`}
+                    >
+                      {page}
+                    </button>
+                  );
+                })}
+                {totalPages > 5 && currentPage < totalPages - 2 && (
+                  <>
+                    <span className="flex items-center px-2 text-gray-400">...</span>
+                    <button
+                      onClick={() => setCurrentPage(totalPages)}
+                      className="w-8 lg:w-10 h-8 lg:h-10 rounded-lg font-medium transition-colors text-sm lg:text-base border border-gray-300 hover:border-[#155d29] hover:text-[#155d29]"
+                    >
+                      {totalPages}
+                    </button>
+                  </>
+                )}
               </div>
 
               <button
                 onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 1))}
                 disabled={currentPage === totalPages}
-                className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-lg hover:border-[#155d29] hover:text-[#155d29] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                className="flex items-center gap-2 px-3 lg:px-4 py-2 border border-gray-300 rounded-lg hover:border-[#155d29] hover:text-[#155d29] transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm lg:text-base w-full sm:w-auto justify-center"
               >
                 Siguiente
                 <ChevronRight className="w-4 h-4" />
