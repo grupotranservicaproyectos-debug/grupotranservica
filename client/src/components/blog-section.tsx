@@ -341,27 +341,36 @@ export default function BlogSection() {
           </div>
 
           {/* Newsletter Subscription */}
-          <div className="bg-gradient-to-br from-[#155d29] to-[#0f4a21] rounded-2xl p-6 text-white shadow-lg">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
-                <Calendar className="w-4 h-4 text-white" />
-              </div>
-              <h3 className="text-xl font-bold">
-                Newsletter TRANSERVICA
-              </h3>
+          <div className="bg-gradient-to-br from-[#155d29] to-[#0f4a21] rounded-2xl p-6 text-white shadow-xl relative overflow-hidden">
+            {/* Background pattern for contrast */}
+            <div className="absolute inset-0 opacity-15">
+              <div className="absolute top-2 right-2 w-16 h-16 border border-white/30 rounded-full"></div>
+              <div className="absolute bottom-2 left-2 w-12 h-12 border border-white/30 rounded-full"></div>
+              <div className="absolute top-1/2 left-1/2 w-8 h-8 bg-white/10 rounded-full blur-lg"></div>
             </div>
-            <p className="text-sm mb-6 text-green-100">
-              Recibe noticias exclusivas sobre proyectos de transporte especializado, equipos de última generación y normativas del sector
-            </p>
-            <div className="space-y-3">
-              <input
-                type="email"
-                placeholder="Ingresa tu email corporativo"
-                className="w-full px-4 py-3 rounded-xl bg-white/20 border border-white/30 text-white placeholder-green-200 focus:outline-none focus:ring-2 focus:ring-white/50 backdrop-blur-sm transition-all duration-300"
-              />
-              <button className="w-full bg-white text-[#155d29] font-bold py-3 px-4 rounded-xl hover:bg-green-50 transition-all duration-300 transform hover:scale-105 shadow-lg">
-                Suscribirse al Blog
-              </button>
+            
+            <div className="relative z-10">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-8 h-8 bg-white/30 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/40">
+                  <Calendar className="w-4 h-4 text-white drop-shadow-lg" />
+                </div>
+                <h3 className="text-xl font-bold text-white drop-shadow-lg">
+                  Newsletter TRANSERVICA
+                </h3>
+              </div>
+              <p className="text-sm mb-6 text-white/90 drop-shadow-sm">
+                Recibe noticias exclusivas sobre proyectos de transporte especializado, equipos de última generación y normativas del sector
+              </p>
+              <div className="space-y-3">
+                <input
+                  type="email"
+                  placeholder="Ingresa tu email corporativo"
+                  className="w-full px-4 py-3 rounded-xl bg-white/25 border-2 border-white/40 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/60 focus:border-white/70 backdrop-blur-sm transition-all duration-300 drop-shadow-sm"
+                />
+                <button className="w-full bg-white text-[#155d29] font-bold py-3 px-4 rounded-xl hover:bg-green-50 transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl border-2 border-white">
+                  Suscribirse al Blog
+                </button>
+              </div>
             </div>
           </div>
         </div>
