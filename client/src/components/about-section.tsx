@@ -9,7 +9,7 @@ export default function AboutSection() {
   };
 
   return (
-    <section id="nosotros" className="relative py-20 overflow-hidden" style={{ backgroundColor: '#155d29' }}>
+    <section id="nosotros" className="relative py-20 bg-gradient-to-br from-white via-gray-50 to-gray-100 overflow-hidden">
       {/* Background Decorative Elements - TRANSERVICA Corporate Colors */}
       <div className="absolute inset-0">
         <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-transervica-green/15 to-transparent"></div>
@@ -22,17 +22,17 @@ export default function AboutSection() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section - TRANSERVICA Style */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
-            <span className="text-yellow-300">TRANSERVICA, C.A.</span> SON MÁS DE
+          <h2 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-4">
+            <span style={{ color: '#155d29' }}>TRANSERVICA, C.A.</span> SON MÁS DE
             <br />
-            <span className="text-4xl lg:text-5xl font-bold text-yellow-300">
+            <span className="text-4xl lg:text-5xl font-bold" style={{ color: '#155d29' }}>
               40 AÑOS TRANSPORTANDO EL FUTURO DE VENEZUELA
             </span>
           </h2>
-          <p className="text-2xl lg:text-3xl font-bold mb-6 italic text-yellow-300">
+          <p className="text-2xl lg:text-3xl font-bold mb-6 italic" style={{ color: '#155d29' }}>
             "Nada es Demasiado Pesado para Nosotros"
           </p>
-          <p className="text-lg max-w-3xl mx-auto text-white">
+          <p className="text-lg max-w-3xl mx-auto" style={{ color: 'hsl(0, 0%, 15%)' }}>
             Especializados en transporte de cargas excepcionales hasta 1,100 toneladas con tecnología alemana de vanguardia
           </p>
         </div>
@@ -72,8 +72,8 @@ export default function AboutSection() {
                 </div>
               </div>
               <div>
-                <h3 className="text-xl font-bold mb-2 text-yellow-300">Capacidad excepcional hasta 1,100 toneladas</h3>
-                <p className="text-white">Equipos modulares hidráulicos alemanes de última generación.</p>
+                <h3 className="text-xl font-bold mb-2" style={{ color: '#155d29' }}>Capacidad excepcional hasta 1,100 toneladas</h3>
+                <p className="text-gray-600">Equipos modulares hidráulicos alemanes de última generación.</p>
               </div>
             </div>
 
@@ -87,38 +87,38 @@ export default function AboutSection() {
                 </div>
               </div>
               <div>
-                <h3 className="text-xl font-bold mb-2 text-yellow-300">Cobertura nacional con experiencia comprobada</h3>
-                <p className="text-white">40 años transportando el futuro de Venezuela con éxito.</p>
+                <h3 className="text-xl font-bold mb-2" style={{ color: '#155d29' }}>Cobertura nacional con experiencia comprobada</h3>
+                <p className="text-gray-600">40 años transportando el futuro de Venezuela con éxito.</p>
               </div>
             </div>
 
             {/* Benefit 3 */}
             <div className="flex items-start space-x-4">
               <div className="flex-shrink-0">
-                <div className="w-12 h-12 rounded-full flex items-center justify-center bg-yellow-300">
-                  <svg className="w-6 h-6 text-green-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ background: '#155d29' }}>
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                   </svg>
                 </div>
               </div>
               <div>
-                <h3 className="text-xl font-bold mb-2 text-yellow-300">Plataforma integral con soporte 24/7</h3>
-                <p className="text-white">Seguimiento completo y especialistas disponibles siempre.</p>
+                <h3 className="text-xl font-bold mb-2" style={{ color: '#155d29' }}>Plataforma integral con soporte 24/7</h3>
+                <p className="text-gray-600">Seguimiento completo y especialistas disponibles siempre.</p>
               </div>
             </div>
 
             {/* Benefit 4 */}
             <div className="flex items-start space-x-4">
               <div className="flex-shrink-0">
-                <div className="w-12 h-12 rounded-full flex items-center justify-center bg-yellow-300">
-                  <svg className="w-6 h-6 text-green-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ background: '#155d29' }}>
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z" />
                   </svg>
                 </div>
               </div>
               <div>
-                <h3 className="text-xl font-bold mb-2 text-yellow-300">Soporte personalizado con humanos reales</h3>
-                <p className="text-white">Especialistas en logística dedicados disponibles en cualquier momento.</p>
+                <h3 className="text-xl font-bold mb-2" style={{ color: '#155d29' }}>Soporte personalizado con humanos reales</h3>
+                <p className="text-gray-600">Especialistas en logística dedicados disponibles en cualquier momento.</p>
               </div>
             </div>
           </div>
