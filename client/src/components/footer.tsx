@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Facebook, Instagram, Youtube, Mail, Phone, MapPin } from 'lucide-react';
 import logoTranservica from "@assets/logo transervica sin fondo_1754163034585.png";
 import { useLanguage } from '../contexts/LanguageContext';
+import { Link } from 'wouter';
 
 export default function Footer() {
   const { t } = useLanguage();
@@ -246,18 +247,18 @@ export default function Footer() {
               © 2025 TRANSERVICA C.A. - Todos los Derechos Reservados.
             </div>
             <div className="flex space-x-6 text-sm">
-              <a href="#terms" className="text-gray-400 hover:text-white transition-colors duration-200">
+              <Link href="/terms" className="text-gray-400 hover:text-white transition-colors duration-200">
                 {t('footer.legal.terms')}
-              </a>
-              <a href="#privacy" className="text-gray-400 hover:text-white transition-colors duration-200">
+              </Link>
+              <Link href="/privacy" className="text-gray-400 hover:text-white transition-colors duration-200">
                 {t('footer.legal.privacy')}
-              </a>
-              <a href="#cookies" className="text-gray-400 hover:text-white transition-colors duration-200">
+              </Link>
+              <Link href="/cookies" className="text-gray-400 hover:text-white transition-colors duration-200">
                 {t('footer.legal.cookies')}
-              </a>
-              <a href="#security" className="text-gray-400 hover:text-white transition-colors duration-200">
+              </Link>
+              <Link href="/security" className="text-gray-400 hover:text-white transition-colors duration-200">
                 {t('footer.legal.security')}
-              </a>
+              </Link>
             </div>
           </div>
         </div>

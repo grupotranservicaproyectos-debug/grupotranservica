@@ -309,7 +309,17 @@ const translations = {
     'blog.title': 'TRANSERVICA BLOG',
     'blog.subtitle': 'Noticias y proyectos de transporte especializado',
     'blog.readMore': 'LEER MÁS',
-    'blog.backToHome': 'VOLVER AL INICIO'
+    'blog.backToHome': 'VOLVER AL INICIO',
+    
+    // Legal Pages
+    'legal.terms.title': 'Términos de Servicio',
+    'legal.terms.description': 'Condiciones generales que rigen los servicios de transporte especializado de TRANSERVICA, C.A.',
+    'legal.privacy.title': 'Política de Privacidad',
+    'legal.privacy.description': 'Protección y tratamiento de datos personales en TRANSERVICA, C.A.',
+    'legal.cookies.title': 'Acuerdo de Cookies',
+    'legal.cookies.description': 'Información sobre el uso de cookies y tecnologías similares en nuestro sitio web',
+    'legal.security.title': 'Política de Seguridad',
+    'legal.security.description': 'Compromiso integral con la seguridad en transporte de cargas excepcionales'
   },
   en: {
     // Navigation
@@ -607,7 +617,17 @@ const translations = {
     'blog.title': 'TRANSERVICA BLOG',
     'blog.subtitle': 'News and specialized transportation projects',
     'blog.readMore': 'READ MORE',
-    'blog.backToHome': 'BACK TO HOME'
+    'blog.backToHome': 'BACK TO HOME',
+    
+    // Legal Pages
+    'legal.terms.title': 'Terms of Service',
+    'legal.terms.description': 'General conditions governing specialized transportation services of TRANSERVICA, C.A.',
+    'legal.privacy.title': 'Privacy Policy',
+    'legal.privacy.description': 'Protection and treatment of personal data at TRANSERVICA, C.A.',
+    'legal.cookies.title': 'Cookie Agreement',
+    'legal.cookies.description': 'Information about the use of cookies and similar technologies on our website',
+    'legal.security.title': 'Security Policy',
+    'legal.security.description': 'Comprehensive commitment to safety in exceptional cargo transportation'
   }
 };
 
