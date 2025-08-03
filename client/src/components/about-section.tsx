@@ -43,14 +43,18 @@ export default function AboutSection() {
           <div className="relative">
             <div className="relative group">
               <div className="absolute -inset-4 bg-gradient-to-r from-transervica-green via-transervica-light-green to-transervica-green rounded-3xl blur opacity-30 group-hover:opacity-60 transition duration-1000"></div>
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-transervica-green/40" style={{ backgroundColor: '#155d29' }}>
-                <img 
-                  src={transportImage} 
-                  alt="TRANSERVICA Transporte de Cargas Excepcionales - 40 años de experiencia" 
-                  className="w-full h-[500px] object-contain p-4"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-transervica-green/20 via-transparent to-transparent"></div>
-                <div className="absolute bottom-4 left-4 right-4">
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-black">
+                <div className="relative aspect-video">
+                  <iframe
+                    src="https://www.youtube.com/embed/0-vWA7PJp3s?autoplay=1&mute=1&start=32&controls=1&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3"
+                    title="TRANSERVICA - 40 Años de Experiencia"
+                    className="absolute inset-0 w-full h-full"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+                <div className="absolute bottom-4 left-4 right-4 z-10">
                   <div className="bg-white/95 backdrop-blur-sm rounded-xl p-4 border border-transervica-green/60 shadow-lg">
                     <p className="font-bold text-lg" style={{ color: '#155d29' }}>40 Años de Experiencia</p>
                     <p className="text-sm" style={{ color: 'hsl(0, 0%, 15%)' }}>Líderes en Venezuela</p>
