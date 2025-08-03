@@ -50,7 +50,7 @@ export default function HeroSection() {
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M6.62 10.79a15.91 15.91 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.27 11.25 11.25 0 003.48.56 1 1 0 011 1V20a1 1 0 01-1 1A18 18 0 013 3a1 1 0 011-1h3.5a1 1 0 011 1 11.25 11.25 0 00.56 3.48 1 1 0 01-.27 1.11l-2.2 2.2z" />
                 </svg>
-                <span className="font-bold">(+58) 414-277-6340</span>
+                <span className="font-bold">(+58) 414-277-6340 / +58 412-441-8890</span>
               </div>
               <div className="flex items-center space-x-2">
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -206,7 +206,7 @@ export default function HeroSection() {
                     <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M6.62 10.79a15.91 15.91 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.27 11.25 11.25 0 003.48.56 1 1 0 011 1V20a1 1 0 01-1 1A18 18 0 013 3a1 1 0 011-1h3.5a1 1 0 011 1 11.25 11.25 0 00.56 3.48 1 1 0 01-.27 1.11l-2.2 2.2z" />
                     </svg>
-                    <span className="font-bold">(+58) 414-277-6340</span>
+                    <span className="font-bold">(+58) 414-277-6340 / +58 412-441-8890</span>
                   </div>
                   <div className="flex items-center space-x-2">
                     <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">

@@ -39,7 +39,10 @@ export default function Footer() {
             <div className="space-y-3 mb-6">
               <div className="flex items-center text-sm">
                 <Phone className="w-4 h-4 mr-3 flex-shrink-0" style={{ color: '#155d29' }} />
-                <a href="tel:+584142776340" className="text-gray-300 hover:text-white transition">+58 414 277 6340</a>
+                <div className="space-y-1">
+                  <a href="tel:+584142776340" className="text-gray-300 hover:text-white transition block">+58 414 277 6340</a>
+                  <a href="tel:+584124418890" className="text-gray-300 hover:text-white transition block">+58 412 441 8890</a>
+                </div>
               </div>
               <div className="flex items-start text-sm">
                 <Mail className="w-4 h-4 mr-3 flex-shrink-0 mt-0.5" style={{ color: '#155d29' }} />

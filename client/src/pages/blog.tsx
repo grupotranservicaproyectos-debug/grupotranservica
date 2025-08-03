@@ -461,7 +461,7 @@ export default function BlogPage() {
             <div className="hidden lg:flex items-center space-x-4 text-sm">
               <div className="flex items-center space-x-2" style={{ color: '#155d29' }}>
                 <Phone className="w-4 h-4" />
-                <span>+58 414 277 6340</span>
+                <span>+58 414 277 6340 / +58 412 441 8890</span>
               </div>
             </div>
           </div>
@@ -612,7 +612,10 @@ export default function BlogPage() {
               <div className="space-y-2">
                 <div className="flex items-center space-x-3">
                   <Phone className="w-4 h-4" style={{ color: '#155d29' }} />
-                  <span>+58 414 277 6340</span>
+                  <div className="space-y-1">
+                    <div>+58 414 277 6340</div>
+                    <div>+58 412 441 8890</div>
+                  </div>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Mail className="w-4 h-4" style={{ color: '#155d29' }} />
