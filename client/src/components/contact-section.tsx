@@ -75,7 +75,7 @@ export default function ContactSection() {
         <div className="grid lg:grid-cols-2 gap-12">
           <div>
             <h2 className="text-4xl font-bold mb-6 text-white">Solicita tu Cotización</h2>
-            <p className="text-xl text-white/90 mb-8 leading-relaxed">
+            <p className="text-xl text-white/90 mb-8 leading-relaxed font-bold">
               Cuéntanos sobre tu proyecto y te proporcionaremos una solución personalizada con la mejor propuesta del mercado.
             </p>
             
