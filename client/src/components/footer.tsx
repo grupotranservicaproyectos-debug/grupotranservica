@@ -103,7 +103,14 @@ export default function Footer() {
             </h4>
             <ul className="space-y-3">
               <li>
-                <a href="#blog" className="text-gray-300 hover:text-white text-sm transition-colors duration-200">
+                <a 
+                  href="#blog" 
+                  className="text-gray-300 hover:text-white text-sm transition-colors duration-200 cursor-pointer"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById('blog')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                >
                   {t('footer.resources.blog')}
                 </a>
               </li>
