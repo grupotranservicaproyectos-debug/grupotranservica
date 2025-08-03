@@ -75,7 +75,14 @@ export default function ContactSection() {
     <section id="contacto" className="py-20 text-white bg-[#155d29]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12">
-          <div>
+          <div className="relative bg-gradient-to-br from-slate-900/80 via-slate-800/70 to-slate-700/60 backdrop-blur-sm rounded-2xl p-8 border border-white/10 shadow-2xl">
+            {/* Elegant background pattern */}
+            <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-black/10 rounded-2xl"></div>
+            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-radial from-white/10 to-transparent rounded-full blur-2xl"></div>
+            <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-radial from-emerald-400/20 to-transparent rounded-full blur-xl"></div>
+            
+            {/* Content with relative positioning */}
+            <div className="relative z-10">
             <h2 className="text-4xl font-bold mb-6 text-white">{t('contact.title')}</h2>
             <p className="text-xl text-white mb-8 leading-relaxed font-bold">
               {t('contact.subtitle')}
@@ -134,6 +141,7 @@ export default function ContactSection() {
                 </svg>
                 {t('contact.whatsapp')}
               </a>
+            </div>
             </div>
           </div>
           
