@@ -61,7 +61,7 @@ export default function Footer() {
                 onClick={scrollToContact}
                 className="bg-transervica-green hover:bg-transervica-light-green text-white px-6 py-3 rounded-lg font-bold transition-all duration-300 text-sm"
               >
-                SOLICITAR COTIZACIÓN
+                {t('footer.quote.button')}
               </button>
               <a 
                 href="https://maps.google.com/?q=Carretera+Nacional+Maracay+Mariara+Km+9+Parcela+6+Sector+Las+Vueltas+Mariara+Carabobo+Venezuela"
@@ -69,7 +69,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="border-2 border-transervica-green text-transervica-green hover:bg-transervica-green hover:text-white px-6 py-3 rounded-lg font-bold transition-all duration-300 text-center text-sm"
               >
-                VER EN GOOGLE MAPS
+                {t('footer.maps.button')}
               </a>
             </div>
 
@@ -128,18 +128,18 @@ export default function Footer() {
           
           {/* Servicios */}
           <div>
-            <h3 className="text-xl font-bold mb-6" style={{ color: '#155d29' }}>Servicios</h3>
+            <h3 className="text-xl font-bold mb-6" style={{ color: '#155d29' }}>{t('footer.services.title')}</h3>
             <ul className="space-y-4 text-sm">
               <li>
                 <a href="#servicios" className="text-slate-600 hover:text-white transition-all duration-300 font-medium flex items-center group">
                   <div className="w-2 h-2 rounded-full mr-3 group-hover:scale-125 transition-transform duration-300" style={{ backgroundColor: '#155d29' }}></div>
-                  Transporte Cargas Excepcionales
+                  {t('footer.services.transport')}
                 </a>
               </li>
               <li>
                 <a href="#servicios" className="text-slate-600 hover:text-white transition-all duration-300 font-medium flex items-center group">
                   <div className="w-2 h-2 rounded-full mr-3 group-hover:scale-125 transition-transform duration-300" style={{ backgroundColor: '#155d29' }}></div>
-                  Izamiento con Grúas Alemanas
+                  {t('footer.services.cranes')}
                 </a>
               </li>
               <li>

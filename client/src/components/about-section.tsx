@@ -131,12 +131,10 @@ export default function AboutSection() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h3 className="text-3xl font-bold text-white">Misión</h3>
+              <h3 className="text-3xl font-bold text-white">{t('about.mission.title')}</h3>
             </div>
             <p className="text-white leading-relaxed text-lg">
-              Prestación del servicio de movilización e izamiento de cargas sobredimensionadas mediante el cumplimiento 
-              de criterios de seguridad, garantía y confiabilidad, anticipando y respondiendo eficazmente las necesidades 
-              de nuestros clientes, procurando el bienestar de nuestros trabajadores y maximizando la productividad.
+              {t('about.mission.text')}
             </p>
           </div>
 
@@ -149,12 +147,10 @@ export default function AboutSection() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                 </svg>
               </div>
-              <h3 className="text-3xl font-bold text-transervica-green">Visión</h3>
+              <h3 className="text-3xl font-bold text-transervica-green">{t('about.vision.title')}</h3>
             </div>
             <p className="text-gray-700 leading-relaxed text-lg">
-              Ser una empresa reconocida nacional e internacionalmente en la prestación de servicios de movilización 
-              e izamiento de cargas sobredimensionadas, con personal calificado, mejoramiento continuo, aprovechamiento 
-              de oportunidades y satisfacción permanente de clientes.
+              {t('about.vision.text')}
             </p>
           </div>
         </div>
@@ -163,11 +159,10 @@ export default function AboutSection() {
         <div className="text-center">
           <div className="rounded-3xl p-12 border border-transervica-green/30 shadow-xl" style={{ backgroundColor: '#155d29' }}>
             <h3 className="text-3xl lg:text-4xl font-bold text-white mb-6">
-              Múltiples <span className="text-white">Cargas Excepcionales</span>. Una Plataforma. Cero Complicaciones.
+              {t('about.cta.title')}
             </h3>
             <p className="text-lg text-white mb-8 max-w-3xl mx-auto">
-              Compare cotizaciones de transporte pesado y sobredimensionado, reserve al instante y rastree en tiempo real — todo con 
-              <span className="text-white font-bold"> TRANSERVICA</span>.
+              {t('about.cta.subtitle')}
             </p>
             
             <div className="flex flex-col lg:flex-row gap-6 justify-center items-center max-w-2xl mx-auto">
@@ -178,7 +173,7 @@ export default function AboutSection() {
                 onMouseEnter={(e) => { (e.target as HTMLElement).style.backgroundColor = '#f0f9f0'; (e.target as HTMLElement).style.color = '#0f4a21'; }}
                 onMouseLeave={(e) => { (e.target as HTMLElement).style.backgroundColor = 'white'; (e.target as HTMLElement).style.color = '#155d29'; }}
               >
-                OBTENER COTIZACIÓN INSTANTÁNEA
+                {t('about.cta.quote')}
               </button>
               
               <a 
@@ -187,7 +182,7 @@ export default function AboutSection() {
                 onMouseEnter={(e) => { (e.target as HTMLElement).style.backgroundColor = 'white'; (e.target as HTMLElement).style.color = '#155d29'; }}
                 onMouseLeave={(e) => { (e.target as HTMLElement).style.backgroundColor = 'transparent'; (e.target as HTMLElement).style.color = 'white'; }}
               >
-                HABLAR CON UN ESPECIALISTA
+                {t('about.cta.call')}
               </a>
             </div>
           </div>

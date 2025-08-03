@@ -108,7 +108,7 @@ export default function ContactSection() {
                   <Mail className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-white">Dirección Ejecutiva</h3>
+                  <h3 className="text-lg font-bold text-white">{t('contact.info.executive')}</h3>
                   <p className="text-white font-medium break-all">direccionejecutivatvc@grupotranservica.com</p>
                 </div>
               </div>
@@ -132,7 +132,7 @@ export default function ContactSection() {
                 <svg className="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 2.079.549 4.090 1.588 5.876L.029 24l6.203-1.539a11.952 11.952 0 005.785 1.539c6.621 0 11.988-5.367 11.988-11.988C23.973 5.367 18.638.001 12.017.001zm5.995 16.987c-.264.714-1.291 1.336-1.953 1.428-.663.094-1.526.141-2.438-.154-1.421-.458-3.025-1.609-4.222-3.003-1.197-1.394-1.967-3.045-2.033-3.192-.066-.147-.541-1.447-.541-2.748 0-1.301.341-1.947.463-2.215.122-.268.268-.335.357-.335h.268c.087 0 .201-.003.291.222.09.225.307.751.334.805.027.054.045.116.009.19-.036.074-.054.121-.108.184-.054.063-.113.14-.162.189-.063.049-.128.101-.055.199.073.098.325.537.697.869.481.427 1.055.705 1.206.784.151.079.239.067.327-.041.088-.108.378-.441.479-.592.101-.151.201-.126.338-.076.137.051.87.41 1.018.485.149.074.249.112.285.174.036.062.036.359-.228 1.073z"/>
                 </svg>
-                Contactar por WhatsApp
+                {t('contact.whatsapp')}
               </a>
             </div>
           </div>
@@ -146,9 +146,9 @@ export default function ContactSection() {
                     name="name"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Nombre *</FormLabel>
+                        <FormLabel>{t('contact.form.name')} *</FormLabel>
                         <FormControl>
-                          <Input placeholder="Tu nombre completo" {...field} />
+                          <Input placeholder={t('contact.form.name.placeholder')} {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -159,9 +159,9 @@ export default function ContactSection() {
                     name="company"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Empresa</FormLabel>
+                        <FormLabel>{t('contact.form.company')}</FormLabel>
                         <FormControl>
-                          <Input placeholder="Nombre de la empresa" {...field} />
+                          <Input placeholder={t('contact.form.company.placeholder')} {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -175,9 +175,9 @@ export default function ContactSection() {
                     name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Email *</FormLabel>
+                        <FormLabel>{t('contact.form.email')} *</FormLabel>
                         <FormControl>
-                          <Input type="email" placeholder="tu@email.com" {...field} />
+                          <Input type="email" placeholder={t('contact.form.email.placeholder')} {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -188,9 +188,9 @@ export default function ContactSection() {
                     name="phone"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Teléfono *</FormLabel>
+                        <FormLabel>{t('contact.form.phone')} *</FormLabel>
                         <FormControl>
-                          <Input type="tel" placeholder="+58 424 123 4567" {...field} />
+                          <Input type="tel" placeholder={t('contact.form.phone.placeholder')} {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -204,20 +204,20 @@ export default function ContactSection() {
                     name="cargoType"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Tipo de Carga</FormLabel>
+                        <FormLabel>{t('contact.form.cargo')}</FormLabel>
                         <Select onValueChange={field.onChange} defaultValue={field.value}>
                           <FormControl>
                             <SelectTrigger>
-                              <SelectValue placeholder="Seleccionar tipo" />
+                              <SelectValue placeholder={t('contact.form.cargo.placeholder')} />
                             </SelectTrigger>
                           </FormControl>
                           <SelectContent>
-                            <SelectItem value="equipos-industriales">Equipos Industriales</SelectItem>
-                            <SelectItem value="maquinaria-pesada">Maquinaria Pesada</SelectItem>
-                            <SelectItem value="turbinas">Turbinas</SelectItem>
-                            <SelectItem value="equipos-petroleros">Equipos Petroleros</SelectItem>
-                            <SelectItem value="construccion-naval">Construcción Naval</SelectItem>
-                            <SelectItem value="otros">Otros</SelectItem>
+                            <SelectItem value="equipos-industriales">{t('contact.form.cargo.industrial')}</SelectItem>
+                            <SelectItem value="maquinaria-pesada">{t('contact.form.cargo.machinery')}</SelectItem>
+                            <SelectItem value="turbinas">{t('contact.form.cargo.turbines')}</SelectItem>
+                            <SelectItem value="equipos-petroleros">{t('contact.form.cargo.oil')}</SelectItem>
+                            <SelectItem value="construccion-naval">{t('contact.form.cargo.naval')}</SelectItem>
+                            <SelectItem value="otros">{t('contact.form.cargo.others')}</SelectItem>
                           </SelectContent>
                         </Select>
                         <FormMessage />
@@ -229,11 +229,11 @@ export default function ContactSection() {
                     name="estimatedWeight"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Peso Estimado (Toneladas)</FormLabel>
+                        <FormLabel>{t('contact.form.weight')}</FormLabel>
                         <FormControl>
                           <Input 
                             type="number" 
-                            placeholder="100" 
+                            placeholder={t('contact.form.weight.placeholder')} 
                             {...field}
                             onChange={(e) => field.onChange(e.target.value ? Number(e.target.value) : undefined)}
                           />
@@ -250,9 +250,9 @@ export default function ContactSection() {
                     name="origin"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Origen</FormLabel>
+                        <FormLabel>{t('contact.form.origin')}</FormLabel>
                         <FormControl>
-                          <Input placeholder="Ciudad de origen" {...field} />
+                          <Input placeholder={t('contact.form.origin.placeholder')} {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -263,9 +263,9 @@ export default function ContactSection() {
                     name="destination"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Destino</FormLabel>
+                        <FormLabel>{t('contact.form.destination')}</FormLabel>
                         <FormControl>
-                          <Input placeholder="Ciudad de destino" {...field} />
+                          <Input placeholder={t('contact.form.destination.placeholder')} {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -278,11 +278,11 @@ export default function ContactSection() {
                   name="description"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Descripción del Proyecto *</FormLabel>
+                      <FormLabel>{t('contact.form.description')} *</FormLabel>
                       <FormControl>
                         <Textarea 
                           rows={4} 
-                          placeholder="Describe tu proyecto, dimensiones, características especiales, fecha requerida, etc."
+                          placeholder={t('contact.form.description.placeholder')}
                           {...field}
                         />
                       </FormControl>
@@ -299,7 +299,7 @@ export default function ContactSection() {
                   onMouseLeave={(e) => { (e.target as HTMLElement).style.backgroundColor = '#155d29'; }}
                   disabled={contactMutation.isPending}
                 >
-                  {contactMutation.isPending ? "Enviando..." : "Solicitar Cotización Gratuita"}
+                  {contactMutation.isPending ? t('contact.form.sending') : t('contact.form.submit')}
                 </Button>
               </form>
             </Form>
