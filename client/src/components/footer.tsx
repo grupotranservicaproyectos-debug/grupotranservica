@@ -165,21 +165,27 @@ export default function Footer() {
             </h4>
             <div className="flex space-x-4">
               <a 
-                href="#" 
+                href="https://www.facebook.com/people/Grupotranservica/100093036004743" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-12 h-12 bg-white rounded-lg flex items-center justify-center transition-all duration-200 hover:scale-110 hover:shadow-lg"
                 aria-label="Facebook"
               >
                 <Facebook className="w-6 h-6 text-[#1877F2]" />
               </a>
               <a 
-                href="#" 
+                href="https://www.instagram.com/grupotranservica" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-12 h-12 bg-white rounded-lg flex items-center justify-center transition-all duration-200 hover:scale-110 hover:shadow-lg"
                 aria-label="Instagram"
               >
                 <Instagram className="w-6 h-6 text-[#E4405F]" />
               </a>
               <a 
-                href="#" 
+                href="https://www.youtube.com/@transervicac.a.3092" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-12 h-12 bg-white rounded-lg flex items-center justify-center transition-all duration-200 hover:scale-110 hover:shadow-lg"
                 aria-label="YouTube"
               >
