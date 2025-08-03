@@ -383,7 +383,7 @@ export default function BlogPage() {
               <div className="max-w-6xl mx-auto">
                 <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl">
                   <iframe
-                    src={`https://www.youtube.com/embed/${selectedPost.videoId}?controls=1&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&vq=hd1080&hd=1&quality=hd1080`}
+                    src={`https://www.youtube.com/embed/${selectedPost.videoId}?controls=1&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&vq=hd1080&quality=hd1080&hd=1&fmt=22`}
                     title={selectedPost.title}
                     className="absolute inset-0 w-full h-full"
                     frameBorder="0"
