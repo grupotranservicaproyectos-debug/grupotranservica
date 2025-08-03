@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Facebook, Instagram, Youtube, Mail, Phone, MapPin } from 'lucide-react';
-import { SiTiktok } from 'react-icons/si';
 import logoTranservica from "@assets/logo transervica sin fondo_1754163034585.png";
 import { useLanguage } from '../contexts/LanguageContext';
 
@@ -165,16 +164,16 @@ export default function Footer() {
             </h4>
             <div className="w-24 h-1 mx-auto mb-8 rounded-full" style={{ backgroundColor: '#155d29' }}></div>
             
-            {/* Enhanced Social Media Icons */}
-            <div className="flex justify-center space-x-6 mb-12">
+            {/* Clean Social Media Icons */}
+            <div className="flex justify-center space-x-8 mb-12">
               <a 
                 href="https://www.facebook.com/people/Grupotranservica/100093036004743" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative w-16 h-16 bg-gradient-to-br from-gray-100 to-white rounded-2xl flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:bg-[#1877F2]"
+                className="group relative flex items-center justify-center transition-all duration-300 hover:scale-110"
                 aria-label="Facebook"
               >
-                <Facebook className="w-7 h-7 text-[#1877F2] group-hover:text-white transition-colors duration-300" />
+                <Facebook className="w-8 h-8 text-[#1877F2] transition-all duration-300 hover:scale-110" />
                 <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <span className="text-xs text-gray-400 font-medium">Facebook</span>
                 </div>
@@ -184,10 +183,10 @@ export default function Footer() {
                 href="https://www.instagram.com/grupotranservica" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative w-16 h-16 bg-gradient-to-br from-gray-100 to-white rounded-2xl flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:bg-gradient-to-br hover:from-[#E4405F] hover:to-[#C13584]"
+                className="group relative flex items-center justify-center transition-all duration-300 hover:scale-110"
                 aria-label="Instagram"
               >
-                <Instagram className="w-7 h-7 text-[#E4405F] group-hover:text-white transition-colors duration-300" />
+                <Instagram className="w-8 h-8 text-[#E4405F] transition-all duration-300 hover:scale-110" />
                 <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <span className="text-xs text-gray-400 font-medium">Instagram</span>
                 </div>
@@ -197,23 +196,12 @@ export default function Footer() {
                 href="https://www.youtube.com/@transervicac.a.3092" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative w-16 h-16 bg-gradient-to-br from-gray-100 to-white rounded-2xl flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:bg-[#FF0000]"
+                className="group relative flex items-center justify-center transition-all duration-300 hover:scale-110"
                 aria-label="YouTube"
               >
-                <Youtube className="w-7 h-7 text-[#FF0000] group-hover:text-white transition-colors duration-300" />
+                <Youtube className="w-8 h-8 text-[#FF0000] transition-all duration-300 hover:scale-110" />
                 <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <span className="text-xs text-gray-400 font-medium">YouTube</span>
-                </div>
-              </a>
-              
-              <a 
-                href="#" 
-                className="group relative w-16 h-16 bg-gradient-to-br from-gray-100 to-white rounded-2xl flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:bg-black"
-                aria-label="TikTok"
-              >
-                <SiTiktok className="w-7 h-7 text-black group-hover:text-white transition-colors duration-300" />
-                <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <span className="text-xs text-gray-400 font-medium">TikTok</span>
                 </div>
               </a>
             </div>
