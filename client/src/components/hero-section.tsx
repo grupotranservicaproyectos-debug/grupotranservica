@@ -65,12 +65,7 @@ export default function HeroSection() {
                 </svg>
                 <span>direccioncomercialtvc@grupotranservica.com</span>
               </div>
-              <div className="flex items-center space-x-2">
-                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
-                </svg>
-                <span>Lunes a Viernes 8:00AM - 6PM</span>
-              </div>
+              
               
             </div>
           </div>
@@ -212,9 +207,7 @@ export default function HeroSection() {
                     <span className="text-xs">direccioncomercialtvc@grupotranservica.com</span>
                   </div>
                 </div>
-                <div className="text-sm text-gray-600 mb-2">
-                  <span>Lunes a Viernes 8:00AM - 6PM</span>
-                </div>
+                
                 
               </div>
             </div>
