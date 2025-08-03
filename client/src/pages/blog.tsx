@@ -118,7 +118,15 @@ export default function BlogPage() {
   const postsPerPage = 6;
 
   const scrollToSection = (sectionId: string) => {
+    // Navigate to home page and scroll to specific section
     window.location.href = `/#${sectionId}`;
+    // Add a small delay to ensure the page loads before scrolling
+    setTimeout(() => {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
   };
 
   // Filter posts

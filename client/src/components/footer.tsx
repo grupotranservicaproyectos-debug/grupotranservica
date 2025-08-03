@@ -14,6 +14,20 @@ export default function Footer() {
     setEmail('');
   };
 
+  // Enhanced navigation function for better performance
+  const navigateToSection = (sectionId: string) => {
+    if (window.location.pathname === '/blog') {
+      // If we're on the blog page, navigate to home with section
+      window.location.href = `/#${sectionId}`;
+    } else {
+      // If we're on the home page, scroll directly
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
+
   return (
     <footer className="bg-gray-900 text-white py-12 sm:py-16 lg:py-20">
       <div className="container mx-auto mobile-padding">
@@ -23,7 +37,7 @@ export default function Footer() {
           <div className="lg:col-span-1">
             <div className="mb-8">
               <button 
-                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                onClick={() => navigateToSection('inicio')}
                 className="focus:outline-none mb-4"
               >
                 <img 
@@ -69,29 +83,44 @@ export default function Footer() {
             </h4>
             <ul className="space-y-3">
               <li>
-                <a href="#inicio" className="text-gray-300 hover:text-white text-sm transition-colors duration-200">
+                <button 
+                  onClick={() => navigateToSection('inicio')}
+                  className="text-gray-300 hover:text-white text-sm transition-colors duration-200 text-left"
+                >
                   {t('footer.pages.home')}
-                </a>
+                </button>
               </li>
               <li>
-                <a href="#nosotros" className="text-gray-300 hover:text-white text-sm transition-colors duration-200">
+                <button 
+                  onClick={() => navigateToSection('nosotros')}
+                  className="text-gray-300 hover:text-white text-sm transition-colors duration-200 text-left"
+                >
                   {t('footer.pages.about')}
-                </a>
+                </button>
               </li>
               <li>
-                <a href="#servicios" className="text-gray-300 hover:text-white text-sm transition-colors duration-200">
+                <button 
+                  onClick={() => navigateToSection('servicios')}
+                  className="text-gray-300 hover:text-white text-sm transition-colors duration-200 text-left"
+                >
                   {t('footer.pages.services')}
-                </a>
+                </button>
               </li>
               <li>
-                <a href="#proyectos" className="text-gray-300 hover:text-white text-sm transition-colors duration-200">
+                <button 
+                  onClick={() => navigateToSection('proyectos')}
+                  className="text-gray-300 hover:text-white text-sm transition-colors duration-200 text-left"
+                >
                   {t('footer.pages.projects')}
-                </a>
+                </button>
               </li>
               <li>
-                <a href="#contacto" className="text-gray-300 hover:text-white text-sm transition-colors duration-200">
+                <button 
+                  onClick={() => navigateToSection('contacto')}
+                  className="text-gray-300 hover:text-white text-sm transition-colors duration-200 text-left"
+                >
                   {t('footer.pages.contact')}
-                </a>
+                </button>
               </li>
             </ul>
           </div>
@@ -111,14 +140,20 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#equipos" className="text-gray-300 hover:text-white text-sm transition-colors duration-200">
+                <button 
+                  onClick={() => navigateToSection('equipos')}
+                  className="text-gray-300 hover:text-white text-sm transition-colors duration-200 text-left"
+                >
                   {t('footer.resources.equipment')}
-                </a>
+                </button>
               </li>
               <li>
-                <a href="#contacto" className="text-gray-300 hover:text-white text-sm transition-colors duration-200">
+                <button 
+                  onClick={() => navigateToSection('contacto')}
+                  className="text-gray-300 hover:text-white text-sm transition-colors duration-200 text-left"
+                >
                   {t('footer.resources.help')}
-                </a>
+                </button>
               </li>
               
             </ul>
