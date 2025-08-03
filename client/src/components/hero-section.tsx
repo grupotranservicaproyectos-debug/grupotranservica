@@ -73,7 +73,10 @@ export default function HeroSection() {
               <img 
                 src={logoTranservica} 
                 alt="TRANSERVICA" 
-                className="h-20 w-auto cursor-pointer hover:scale-105 transition-all duration-300 mr-6 filter drop-shadow-sm"
+                className="h-24 lg:h-28 xl:h-32 w-auto cursor-pointer hover:scale-105 transition-all duration-300 mr-8 filter brightness-110 contrast-125 drop-shadow-lg"
+                style={{ 
+                  filter: 'brightness(1.1) contrast(1.25) drop-shadow(0 2px 4px rgba(0,0,0,0.2))'
+                }}
                 onClick={() => scrollToSection('inicio')}
               />
               <button 
@@ -135,7 +138,10 @@ export default function HeroSection() {
                 <img 
                   src={logoTranservica} 
                   alt="TRANSERVICA" 
-                  className="h-14 w-auto cursor-pointer hover:scale-105 transition-all duration-300 filter drop-shadow-sm"
+                  className="h-16 sm:h-18 w-auto cursor-pointer hover:scale-105 transition-all duration-300 filter brightness-110 contrast-125 drop-shadow-lg"
+                  style={{ 
+                    filter: 'brightness(1.1) contrast(1.25) drop-shadow(0 2px 4px rgba(0,0,0,0.2))'
+                  }}
                   onClick={() => scrollToSection('inicio')}
                 />
                 <button
