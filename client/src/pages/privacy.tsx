@@ -44,18 +44,14 @@ export default function PrivacyPolicy() {
               <div className="mb-12">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-8 h-8 bg-[#155d29] text-white rounded-full flex items-center justify-center font-bold">1</div>
-                  <h2 className="text-2xl font-bold text-[#155d29]">Introducción</h2>
+                  <h2 className="text-2xl font-bold text-[#155d29]">{t('privacy.introduction.title')}</h2>
                 </div>
                 <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
                   <p className="mb-4">
-                    TRANSERVICA, C.A., empresa especializada en transporte de cargas excepcionales, reconoce la importancia 
-                    de proteger la privacidad y los datos personales de nuestros clientes, proveedores, empleados y visitantes 
-                    de nuestro sitio web.
+                    {t('privacy.introduction.content1')}
                   </p>
                   <p>
-                    Esta Política de Privacidad establece cómo recopilamos, utilizamos, almacenamos y protegemos la información 
-                    personal que nos proporciona, en cumplimiento con las leyes venezolanas aplicables y las mejores prácticas 
-                    internacionales.
+                    {t('privacy.introduction.content2')}
                   </p>
                 </div>
               </div>
@@ -64,31 +60,31 @@ export default function PrivacyPolicy() {
               <div className="mb-12">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-8 h-8 bg-[#155d29] text-white rounded-full flex items-center justify-center font-bold">2</div>
-                  <h2 className="text-2xl font-bold text-[#155d29]">Recopilación de Información</h2>
+                  <h2 className="text-2xl font-bold text-[#155d29]">{t('privacy.collection.title')}</h2>
                 </div>
                 <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
-                  <p className="mb-4">Recopilamos información personal de las siguientes maneras:</p>
+                  <p className="mb-4">{t('privacy.collection.content1')}</p>
                   
                   <h4 className="text-lg font-semibold text-[#155d29] mt-6 mb-3 flex items-center gap-2">
                     <Database className="w-5 h-5" />
-                    Información Directa
+                    {t('privacy.collection.direct.title')}
                   </h4>
                   <ul className="list-disc pl-6 mb-4 space-y-2">
-                    <li>Datos proporcionados en formularios de contacto y cotizaciones</li>
-                    <li>Información comercial para la prestación de servicios</li>
-                    <li>Datos de empleados y colaboradores</li>
-                    <li>Registros de comunicaciones telefónicas y por email</li>
+                    <li>{t('privacy.collection.direct.item1')}</li>
+                    <li>{t('privacy.collection.direct.item2')}</li>
+                    <li>{t('privacy.collection.direct.item3')}</li>
+                    <li>{t('privacy.collection.direct.item4')}</li>
                   </ul>
 
                   <h4 className="text-lg font-semibold text-[#155d29] mt-6 mb-3 flex items-center gap-2">
                     <Eye className="w-5 h-5" />
-                    Información Automática
+                    {t('privacy.collection.automatic.title')}
                   </h4>
                   <ul className="list-disc pl-6 mb-4 space-y-2">
-                    <li>Dirección IP y datos de navegación en nuestro sitio web</li>
-                    <li>Cookies y tecnologías similares</li>
-                    <li>Información de dispositivos y preferencias de navegación</li>
-                    <li>Registros de acceso y uso del sitio web</li>
+                    <li>{t('privacy.collection.automatic.item1')}</li>
+                    <li>{t('privacy.collection.automatic.item2')}</li>
+                    <li>{t('privacy.collection.automatic.item3')}</li>
+                    <li>{t('privacy.collection.automatic.item4')}</li>
                   </ul>
                 </div>
               </div>
@@ -97,22 +93,21 @@ export default function PrivacyPolicy() {
               <div className="mb-12">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-8 h-8 bg-[#155d29] text-white rounded-full flex items-center justify-center font-bold">3</div>
-                  <h2 className="text-2xl font-bold text-[#155d29]">Uso de la Información</h2>
+                  <h2 className="text-2xl font-bold text-[#155d29]">{t('privacy.usage.title')}</h2>
                 </div>
                 <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
-                  <p className="mb-4">Utilizamos la información recopilada para los siguientes propósitos:</p>
+                  <p className="mb-4">{t('privacy.usage.content1')}</p>
                   <ul className="list-disc pl-6 mb-4 space-y-2">
-                    <li>Prestación de servicios de transporte especializado</li>
-                    <li>Comunicación con clientes y seguimiento de proyectos</li>
-                    <li>Procesamiento de cotizaciones y facturación</li>
-                    <li>Mejora de nuestros servicios y experiencia del usuario</li>
-                    <li>Cumplimiento de obligaciones legales y regulatorias</li>
-                    <li>Marketing directo y comunicaciones comerciales (con consentimiento)</li>
-                    <li>Análisis estadísticos y estudios de mercado internos</li>
+                    <li>{t('privacy.usage.item1')}</li>
+                    <li>{t('privacy.usage.item2')}</li>
+                    <li>{t('privacy.usage.item3')}</li>
+                    <li>{t('privacy.usage.item4')}</li>
+                    <li>{t('privacy.usage.item5')}</li>
+                    <li>{t('privacy.usage.item6')}</li>
+                    <li>{t('privacy.usage.item7')}</li>
                   </ul>
                   <p>
-                    No utilizamos la información personal para fines distintos a los mencionados sin obtener 
-                    el consentimiento expreso del titular de los datos.
+                    {t('privacy.usage.content2')}
                   </p>
                 </div>
               </div>
@@ -121,29 +116,28 @@ export default function PrivacyPolicy() {
               <div className="mb-12">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-8 h-8 bg-[#155d29] text-white rounded-full flex items-center justify-center font-bold">4</div>
-                  <h2 className="text-2xl font-bold text-[#155d29]">Protección de Datos</h2>
+                  <h2 className="text-2xl font-bold text-[#155d29]">{t('privacy.protection.title')}</h2>
                 </div>
                 <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
                   <p className="mb-4">
-                    TRANSERVICA implementa medidas técnicas y organizativas apropiadas para proteger 
-                    los datos personales contra:
+                    {t('privacy.protection.content1')}
                   </p>
                   <ul className="list-disc pl-6 mb-4 space-y-2">
-                    <li>Acceso no autorizado, alteración, divulgación o destrucción</li>
-                    <li>Pérdida accidental o tratamiento ilícito</li>
-                    <li>Transferencias no autorizadas</li>
+                    <li>{t('privacy.protection.item1')}</li>
+                    <li>{t('privacy.protection.item2')}</li>
+                    <li>{t('privacy.protection.item3')}</li>
                   </ul>
                   
                   <h4 className="text-lg font-semibold text-[#155d29] mt-6 mb-3 flex items-center gap-2">
                     <Lock className="w-5 h-5" />
-                    Medidas de Seguridad
+                    {t('privacy.protection.security.title')}
                   </h4>
                   <ul className="list-disc pl-6 mb-4 space-y-2">
-                    <li>Cifrado de datos sensibles en tránsito y almacenamiento</li>
-                    <li>Control de acceso basado en roles y necesidad de conocer</li>
-                    <li>Monitoreo continuo de sistemas y detección de anomalías</li>
-                    <li>Capacitación regular del personal en protección de datos</li>
-                    <li>Respaldo seguro y planes de continuidad del negocio</li>
+                    <li>{t('privacy.protection.security.item1')}</li>
+                    <li>{t('privacy.protection.security.item2')}</li>
+                    <li>{t('privacy.protection.security.item3')}</li>
+                    <li>{t('privacy.protection.security.item4')}</li>
+                    <li>{t('privacy.protection.security.item5')}</li>
                   </ul>
                 </div>
               </div>
@@ -152,23 +146,21 @@ export default function PrivacyPolicy() {
               <div className="mb-12">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-8 h-8 bg-[#155d29] text-white rounded-full flex items-center justify-center font-bold">5</div>
-                  <h2 className="text-2xl font-bold text-[#155d29]">Compartir Información</h2>
+                  <h2 className="text-2xl font-bold text-[#155d29]">{t('privacy.sharing.title')}</h2>
                 </div>
                 <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
                   <p className="mb-4">
-                    TRANSERVICA no vende, alquila o comparte información personal con terceros, 
-                    excepto en las siguientes circunstancias:
+                    {t('privacy.sharing.content1')}
                   </p>
                   <ul className="list-disc pl-6 mb-4 space-y-2">
-                    <li>Con proveedores de servicios que requieren la información para completar proyectos</li>
-                    <li>Cuando sea requerido por autoridades legales competentes</li>
-                    <li>Para proteger los derechos, propiedad o seguridad de la empresa</li>
-                    <li>Con el consentimiento explícito del titular de los datos</li>
-                    <li>En caso de fusión, adquisición o transferencia de activos empresariales</li>
+                    <li>{t('privacy.sharing.item1')}</li>
+                    <li>{t('privacy.sharing.item2')}</li>
+                    <li>{t('privacy.sharing.item3')}</li>
+                    <li>{t('privacy.sharing.item4')}</li>
+                    <li>{t('privacy.sharing.item5')}</li>
                   </ul>
                   <p>
-                    Cualquier tercero que acceda a información personal debe comprometerse a mantener 
-                    el mismo nivel de protección establecido en esta política.
+                    {t('privacy.sharing.content2')}
                   </p>
                 </div>
               </div>
@@ -177,21 +169,20 @@ export default function PrivacyPolicy() {
               <div className="mb-12">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-8 h-8 bg-[#155d29] text-white rounded-full flex items-center justify-center font-bold">6</div>
-                  <h2 className="text-2xl font-bold text-[#155d29]">Derechos del Titular</h2>
+                  <h2 className="text-2xl font-bold text-[#155d29]">{t('privacy.rights.title')}</h2>
                 </div>
                 <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
-                  <p className="mb-4">Usted tiene derecho a:</p>
+                  <p className="mb-4">{t('privacy.rights.content1')}</p>
                   <ul className="list-disc pl-6 mb-4 space-y-2">
-                    <li>Acceder a sus datos personales que mantenemos</li>
-                    <li>Rectificar información inexacta o incompleta</li>
-                    <li>Solicitar la eliminación de sus datos personales</li>
-                    <li>Oponerse al tratamiento de sus datos para marketing directo</li>
-                    <li>Solicitar la portabilidad de sus datos</li>
-                    <li>Presentar quejas ante autoridades de protección de datos</li>
+                    <li>{t('privacy.rights.item1')}</li>
+                    <li>{t('privacy.rights.item2')}</li>
+                    <li>{t('privacy.rights.item3')}</li>
+                    <li>{t('privacy.rights.item4')}</li>
+                    <li>{t('privacy.rights.item5')}</li>
+                    <li>{t('privacy.rights.item6')}</li>
                   </ul>
                   <p>
-                    Para ejercer estos derechos, puede contactarnos a través de los medios proporcionados 
-                    al final de esta política.
+                    {t('privacy.rights.content2')}
                   </p>
                 </div>
               </div>
@@ -200,18 +191,17 @@ export default function PrivacyPolicy() {
               <div className="mb-12">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-8 h-8 bg-[#155d29] text-white rounded-full flex items-center justify-center font-bold">7</div>
-                  <h2 className="text-2xl font-bold text-[#155d29]">Retención de Datos</h2>
+                  <h2 className="text-2xl font-bold text-[#155d29]">{t('privacy.retention.title')}</h2>
                 </div>
                 <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
                   <p className="mb-4">
-                    Conservamos los datos personales durante el tiempo necesario para cumplir con los 
-                    propósitos establecidos en esta política, considerando:
+                    {t('privacy.retention.content1')}
                   </p>
                   <ul className="list-disc pl-6 mb-4 space-y-2">
-                    <li>Duración de la relación comercial o contractual</li>
-                    <li>Obligaciones legales de conservación de registros</li>
-                    <li>Necesidades de defensa legal y resolución de disputas</li>
-                    <li>Propósitos estadísticos o de archivo de interés público</li>
+                    <li>{t('privacy.retention.item1')}</li>
+                    <li>{t('privacy.retention.item2')}</li>
+                    <li>{t('privacy.retention.item3')}</li>
+                    <li>{t('privacy.retention.item4')}</li>
                   </ul>
                 </div>
               </div>
@@ -220,13 +210,11 @@ export default function PrivacyPolicy() {
               <div className="mb-12">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-8 h-8 bg-[#155d29] text-white rounded-full flex items-center justify-center font-bold">8</div>
-                  <h2 className="text-2xl font-bold text-[#155d29]">Actualizaciones</h2>
+                  <h2 className="text-2xl font-bold text-[#155d29]">{t('privacy.updates.title')}</h2>
                 </div>
                 <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
                   <p>
-                    Esta Política de Privacidad puede ser actualizada periódicamente para reflejar cambios 
-                    en nuestras prácticas, servicios o requisitos legales. Las modificaciones significativas 
-                    serán notificadas a través de nuestro sitio web y otros medios apropiados.
+                    {t('privacy.updates.content')}
                   </p>
                 </div>
               </div>
@@ -235,7 +223,7 @@ export default function PrivacyPolicy() {
               <div className="bg-gray-50 rounded-xl p-8 mt-12">
                 <h3 className="text-xl font-bold text-[#155d29] mb-4 flex items-center gap-2">
                   <Users className="w-5 h-5" />
-                  Contacto para Asuntos de Privacidad
+                  {t('privacy.contact.title')}
                 </h3>
                 <div className="grid md:grid-cols-2 gap-6 text-gray-700">
                   <div>
