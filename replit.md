@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is a professional corporate website for TRANSERVICA, C.A., Venezuela's leading specialized heavy cargo transportation company with 40 years of experience. The site showcases their capabilities in transporting exceptional loads up to 1,100 tons using hydraulic modular trailers and specialized equipment. Built as a modern React single-page application with Express.js backend, the website features corporate video integration, project galleries, contact forms, and is optimized for search engines targeting "transporte cargas excepcionales Venezuela."
+This is a professional corporate website for TRANSERVICA, C.A., Venezuela's leading specialized heavy cargo transportation company with 40 years of experience. The site showcases their capabilities in transporting exceptional loads up to 1,100 tons using hydraulic modular trailers and specialized equipment. Built as a modern React single-page application with Express.js backend, the website features corporate video integration, project galleries, contact forms, comprehensive blog section with dedicated page, and is optimized for search engines targeting "transporte cargas excepcionales Venezuela."
 
 ## User Preferences
 
@@ -13,7 +13,7 @@ Preferred communication style: Simple, everyday language.
 ### Frontend Architecture
 The frontend is built with **React 18** using **TypeScript** and **Vite** as the build tool. The application follows a component-based architecture with:
 
-- **Routing**: Wouter for lightweight client-side routing
+- **Routing**: Wouter for lightweight client-side routing (Home `/` and Blog `/blog` pages)
 - **Styling**: Tailwind CSS with custom Transervica brand colors (green and orange theme)
 - **UI Components**: Radix UI primitives with shadcn/ui component system for consistent design
 - **State Management**: TanStack Query (React Query) for server state management
@@ -55,10 +55,21 @@ The project uses a modern development stack:
 The application implements a comprehensive design system:
 
 - **Component Library**: Complete set of reusable UI components (buttons, forms, dialogs, etc.)
+- **Blog System**: Dedicated blog page with professional layout, search/filter functionality, pagination, and article detail views
 - **Theming**: CSS variables for consistent colors and spacing
 - **Accessibility**: Radix UI primitives ensure proper ARIA attributes and keyboard navigation
 - **Responsive Design**: Mobile-first approach with Tailwind's responsive utilities
 - **Brand Integration**: Custom Transervica colors and typography
+
+### Blog Architecture
+The blog system features a complete corporate blog implementation:
+
+- **Blog Homepage**: Professional carousel showcase with manual navigation controls and article previews
+- **Dedicated Blog Page**: Full-featured blog page (`/blog`) with search, categories, pagination, and article management
+- **Article Categories**: Organized by "Proyectos Especiales", "Equipos y Tecnología", "Normativas y Seguridad", "Logística Multimodal", "Historia Corporativa", and "Mantenimiento"
+- **Content Management**: Complete articles with real company projects, equipment updates, safety regulations, and corporate history
+- **Navigation Integration**: Blog access from footer navigation and dedicated "Ver Todos los Artículos" button
+- **Professional Design**: Consistent with corporate branding using green color scheme (#155d29) and high-contrast elements
 
 ## External Dependencies
 

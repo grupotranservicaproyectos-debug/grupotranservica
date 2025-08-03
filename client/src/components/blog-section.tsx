@@ -295,16 +295,13 @@ export default function BlogSection() {
                                 <span className="bg-gray-100 px-2 py-1 rounded-full">{post.readTime}</span>
                               </div>
                               
-                              <button 
-                                onClick={() => {
-                                  // Create a modal or detailed view for the full article
-                                  alert(`Artículo Completo: ${post.title}\n\n${post.content}`);
-                                }}
+                              <a
+                                href="/blog"
                                 className="flex items-center gap-1 text-[#155d29] font-bold text-sm hover:gap-2 transition-all duration-300 group-hover:text-[#0f4a21] bg-green-50 hover:bg-[#155d29] hover:text-white px-3 py-2 rounded-lg"
                               >
                                 Leer Artículo Completo
                                 <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-                              </button>
+                              </a>
                             </div>
                           </div>
                         </article>
@@ -373,6 +370,18 @@ export default function BlogSection() {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Ver Todos los Artículos */}
+        <div className="text-center mt-12">
+          <a
+            href="/blog"
+            className="inline-flex items-center gap-3 bg-white border-2 border-[#155d29] text-[#155d29] font-bold py-4 px-8 rounded-xl hover:bg-[#155d29] hover:text-white transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+          >
+            <Calendar className="w-5 h-5" />
+            Ver Todos los Artículos del Blog
+            <ArrowRight className="w-5 h-5" />
+          </a>
         </div>
 
         {/* Call to Action */}

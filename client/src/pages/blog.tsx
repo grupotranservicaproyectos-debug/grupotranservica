@@ -1,668 +1,435 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import { Calendar, User, Clock, ArrowRight, Search, Filter, ChevronLeft, ChevronRight, Tag, Eye } from 'lucide-react';
 import { Link } from 'wouter';
-import { Calendar, Clock, User, ArrowRight, Tag, Phone, Mail, MapPin, Home } from 'lucide-react';
 
-interface BlogPost {
-  id: string;
-  title: string;
-  excerpt: string;
-  content: string;
-  category: string;
-  author: string;
-  publishDate: string;
-  readTime: number;
-  keywords: string[];
-  videoId?: string;
-  cta: {
-    text: string;
-    action: string;
-  };
-}
-
-const blogPosts: BlogPost[] = [
+// Blog post data with complete content
+const blogPosts = [
   {
-    id: 'transformador-333-mva',
-    title: 'Transporte de Transformador 333 MVA: Un Hito en Venezuela',
-    excerpt: 'Detalles técnicos del proyecto más desafiante ejecutado por TRANSERVICA, superando obstáculos logísticos únicos en el país.',
-    content: `El transporte de un transformador de 333 MVA representa uno de los proyectos más complejos ejecutados por TRANSERVICA en sus 40 años de experiencia. Este proyecto requirió una planificación meticulosa y el uso de nuestra tecnología más avanzada.
-
-## Especificaciones del Proyecto
-
-- **Peso total**: 380 toneladas
-- **Dimensiones**: 12m x 4.5m x 5.2m
-- **Ruta**: Desde Puerto de La Guaira hasta Complejo Petroquímico
-- **Distancia**: 420 kilómetros
-- **Tiempo de ejecución**: 72 horas continuas
-
-## Desafíos Técnicos Superados
-
-El transporte requirió modificaciones de infraestructura en 15 puentes y la coordinación con 8 instituciones gubernamentales diferentes. Nuestros trailers modulares hidráulicos SCHEUERLE fueron fundamentales para distribuir el peso de manera segura.
-
-## Equipos Utilizados
-
-- 24 ejes modulares hidráulicos SCHEUERLE
-- Grúas Grove de 500 toneladas para el posicionamiento
-- Vehículos de escolta especializados
-- Sistema de monitoreo GPS en tiempo real
-
-Este proyecto consolidó a TRANSERVICA como líder indiscutible en el transporte de cargas excepcionales en Venezuela, demostrando nuestra capacidad para ejecutar proyectos de cualquier complejidad.`,
-    category: 'Proyectos Ejecutados',
-    author: 'Ing. Carlos Rodríguez',
-    publishDate: '2024-01-15',
-    readTime: 8,
-    keywords: ['transporte transformador Venezuela', '333 MVA', 'cargas excepcionales'],
-    videoId: '_LQbWkWlg6s',
-    cta: {
-      text: 'Solicita cotización para tu proyecto',
-      action: 'contact'
-    }
+    id: 1,
+    title: "Transporte de Turbinas de 380 Toneladas: Proyecto Exitoso en el Estado Zulia",
+    excerpt: "Completamos con éxito el transporte de turbinas industriales de 380 toneladas desde el Puerto de Maracaibo hasta la Planta Termoeléctrica de La Concepción, utilizando nuestros trailers modulares hidráulicos SCHEUERLE.",
+    content: "Este proyecto representó uno de los mayores desafíos logísticos del año 2024. Durante tres meses de planificación detallada, nuestro equipo de ingenieros especializados desarrolló una estrategia integral que incluyó análisis de rutas, reforzamiento de puentes y coordinación con autoridades locales. El transporte se realizó durante horas nocturnas para minimizar el impacto en el tráfico vehicular, utilizando nuestros trailers modulares SCHEUERLE de última generación con capacidad para 500 toneladas. El proyecto requirió la movilización de 40 técnicos especializados, 8 vehículos de escolta y coordinación con CORPOELEC para garantizar el suministro eléctrico continuo durante la instalación. Esta operación consolida a TRANSERVICA como líder en transporte de cargas excepcionales en Venezuela, demostrando nuestra capacidad para ejecutar proyectos de infraestructura crítica con los más altos estándares de seguridad y eficiencia.",
+    author: "Ing. Carlos Rodríguez",
+    date: "2024-12-15",
+    readTime: "8 min",
+    category: "Proyectos Especiales",
+    tags: ["Turbinas", "SCHEUERLE", "Zulia", "380 Toneladas"],
+    image: "/attached_assets/1_1754173669382.jpeg",
+    featured: true
   },
   {
-    id: 'gruas-alemanas-grove-liebherr',
-    title: 'Grúas Alemanas Grove y Liebherr: Tecnología de Vanguardia',
-    excerpt: 'Conoce las especificaciones técnicas y ventajas competitivas de nuestras grúas alemanas de última generación.',
-    content: `Las grúas alemanas Grove y Liebherr representan el estándar más alto en tecnología de izamiento, ofreciendo precisión, seguridad y capacidad incomparables para proyectos de gran envergadura.
-
-## Especificaciones Técnicas Grove
-
-- **Capacidad máxima**: 500 toneladas
-- **Altura máxima**: 84 metros
-- **Radio de trabajo**: 52 metros
-- **Tecnología**: Sistema hidráulico computarizado
-- **Certificaciones**: CE, ANSI, ISO 9001
-
-## Ventajas Liebherr
-
-- **Precisión micrométrica**: Control de posicionamiento ±2mm
-- **Eficiencia energética**: 30% menos consumo de combustible
-- **Mantenimiento predictivo**: Sensores IoT integrados
-- **Seguridad avanzada**: Sistema de detección de obstáculos
-
-## Aplicaciones Principales
-
-Nuestras grúas alemanas son ideales para:
-- Instalación de equipos industriales pesados
-- Construcción de plantas petroquímicas
-- Montaje de turbinas generadoras
-- Proyectos de construcción naval
-- Izamiento de estructuras metálicas
-
-La inversión en tecnología alemana nos permite ofrecer servicios de izamiento con los más altos estándares de calidad y seguridad en Venezuela.`,
-    category: 'Tecnología y Equipos',
-    author: 'Ing. María González',
-    publishDate: '2024-01-22',
-    readTime: 6,
-    keywords: ['grúas alemanas Venezuela', 'Grove Liebherr', 'tecnología izamiento'],
-    videoId: 'PF8SuO_3ZLU',
-    cta: {
-      text: 'Conoce nuestros equipos',
-      action: 'equipos'
-    }
+    id: 2,
+    title: "Nuevas Grúas Grove GMK6400 se Incorporan a Nuestra Flota Especializada",
+    excerpt: "Ampliamos nuestra capacidad operativa con la adquisición de dos nuevas grúas Grove GMK6400 de 400 toneladas, fortaleciendo nuestro liderazgo en el sector de cargas excepcionales en Venezuela.",
+    content: "La inversión en equipos de última generación es fundamental para mantener nuestro liderazgo en el sector de transporte especializado. Las nuevas grúas Grove GMK6400 representan una inversión de 2.8 millones de dólares y cuentan con tecnología de vanguardia incluyendo sistema de control computerizado, pluma telescópica de 60 metros y capacidad de elevación de 400 toneladas a 3 metros de radio. Estos equipos están equipados con sistemas de seguridad avanzados como limitadores de momento, indicadores de ángulo y sistemas anti-vuelco, garantizando operaciones seguras en los proyectos más exigentes. La flota modernizada permite a TRANSERVICA atender simultáneamente múltiples proyectos de infraestructura, reduciendo tiempos de ejecución y optimizando costos para nuestros clientes. Con estas incorporaciones, nuestra empresa consolida su posición como la única en Venezuela capaz de manejar cargas de hasta 1,100 toneladas con estándares internacionales de calidad y seguridad.",
+    author: "Ing. María Fernández",
+    date: "2024-11-28",
+    readTime: "6 min",
+    category: "Equipos y Tecnología",
+    tags: ["Grove GMK6400", "Grúas", "Inversión", "Tecnología"],
+    image: "/attached_assets/2_1754173669382.jpg",
+    featured: true
   },
   {
-    id: '40-anos-transportando-futuro',
-    title: '40 Años Transportando el Futuro de Venezuela',
-    excerpt: 'Un recorrido por la evolución de TRANSERVICA desde sus inicios hasta convertirse en líder del sector logístico nacional.',
-    content: `Desde 1984, TRANSERVICA ha sido protagonista del desarrollo industrial de Venezuela, transportando los equipos y maquinarias que han construido el país.
-
-## Los Primeros Años (1984-1994)
-
-Fundada por visionarios del sector logístico, TRANSERVICA comenzó con una flota modesta pero con la ambición de revolucionar el transporte de cargas especiales en Venezuela. Los primeros proyectos incluyeron:
-
-- Transporte de equipos para refinería El Palito
-- Maquinaria pesada para Sidor
-- Turbinas para centrales hidroeléctricas
-
-## Expansión y Modernización (1995-2010)
-
-La década de los 90 marcó el crecimiento exponencial de la empresa:
-- Adquisición de la primera flota SCHEUERLE
-- Certificación ISO 9001:2000
-- Expansión a proyectos internacionales
-- Creación del departamento de ingeniería logística
-
-## Era Digital y Tecnológica (2011-2024)
-
-Los últimos años han estado marcados por la innovación:
-- Implementación de sistemas GPS de monitoreo
-- Flota 100% renovada con tecnología europea
-- Servicios de logística integral 4.0
-- Sostenibilidad ambiental certificada
-
-## Hitos Más Importantes
-
-- **1987**: Primer transporte de 200+ toneladas
-- **1995**: Certificación internacional
-- **2003**: Proyecto Complejo Criogénico de Oriente
-- **2012**: Récord nacional: 380 toneladas
-- **2024**: 40 años de excelencia operativa
-
-Con la mirada puesta en el futuro, TRANSERVICA continúa invirtiendo en tecnología, capacitación y sostenibilidad para seguir siendo el socio estratégico preferido de las principales industrias venezolanas.`,
-    category: 'Historia Corporativa',
-    author: 'Fundadores TRANSERVICA',
-    publishDate: '2024-02-01',
-    readTime: 10,
-    keywords: ['historia Transervica', '40 años experiencia', 'transporte Venezuela'],
-    videoId: '0-vWA7PJp3s',
-    cta: {
-      text: 'Conoce nuestra trayectoria',
-      action: 'nosotros'
-    }
+    id: 3,
+    title: "Normativas de Seguridad para Transporte de Cargas Sobredimensionadas en Venezuela",
+    excerpt: "Guía completa sobre las regulaciones vigentes del INTT para el transporte de cargas excepcionales, permisos especiales y mejores prácticas de seguridad vial.",
+    content: "El cumplimiento de las normativas de seguridad es prioritario en todas nuestras operaciones. En Venezuela, el Instituto Nacional de Transporte Terrestre (INTT) regula el transporte de cargas excepcionales mediante la Resolución 349, que establece los requisitos para permisos especiales. Las cargas que excedan 2.5 metros de ancho, 3.5 metros de alto, 18 metros de largo o 48 toneladas de peso requieren autorización especial. TRANSERVICA cuenta con personal certificado en gestión de permisos especiales y mantiene alianzas estratégicas con el INTT para agilizar los procesos administrativos. Nuestros operadores están capacitados en las mejores prácticas internacionales incluyendo señalización preventiva, escolta especializada, análisis de rutas críticas y protocolos de emergencia. Cumplimos estrictamente con las normativas de tránsito nocturno, restricciones en días festivos y coordinación con autoridades locales para garantizar la seguridad de todos los usuarios de las vías públicas.",
+    author: "Lic. Ana Pérez",
+    date: "2024-11-10",
+    readTime: "12 min",
+    category: "Normativas y Seguridad",
+    tags: ["INTT", "Normativas", "Seguridad", "Permisos"],
+    image: "/attached_assets/3_1754173669382.jpg",
+    featured: false
   },
   {
-    id: 'normativas-intt-cargas-excepcionales',
-    title: 'Normativas INTT para Transporte de Cargas Excepcionales',
-    excerpt: 'Guía completa actualizada sobre permisos, regulaciones y procedimientos del INTT para el transporte de cargas excepcionales.',
-    content: `El Instituto Nacional de Transporte Terrestre (INTT) regula estrictamente el transporte de cargas excepcionales en Venezuela. Conoce todos los requisitos actualizados.
-
-## Definición de Carga Excepcional
-
-Según el INTT, se considera carga excepcional aquella que excede:
-- **Peso**: 48 toneladas brutas
-- **Ancho**: 2.60 metros
-- **Alto**: 4.30 metros  
-- **Largo**: 20 metros
-
-## Documentación Requerida
-
-### Permisos Básicos
-- Solicitud formal dirigida al INTT
-- Planos detallados de la carga
-- Especificaciones del vehículo transportador
-- Ruta propuesta con alternativas
-- Póliza de seguro por daños a terceros
-
-### Documentación Técnica
-- Análisis estructural de puentes en la ruta
-- Estudio de impacto vial
-- Plan de contingencia y seguridad
-- Certificado de operadores especializados
-- Evaluación ambiental (casos específicos)
-
-## Proceso de Aprobación
-
-### Tiempos Estimados
-- **Evaluación inicial**: 15 días hábiles
-- **Inspección técnica**: 10 días hábiles
-- **Aprobación final**: 20 días hábiles
-- **Total promedio**: 45 días hábiles
-
-### Costos Asociados (2024)
-- Permiso básico: 50-150 Petros
-- Inspección técnica: 25-75 Petros
-- Escolta policial: Variable según ruta
-- Reparaciones viales (si aplica): Variable
-
-## Servicios TRANSERVICA
-
-Como empresa certificada por el INTT, TRANSERVICA gestiona todos los permisos y documentación requerida, garantizando el cumplimiento total de las normativas vigentes.`,
-    category: 'Normativas INTT',
-    author: 'Depto. Legal TRANSERVICA',
-    publishDate: '2024-02-10',
-    readTime: 12,
-    keywords: ['permisos INTT Venezuela', 'cargas excepcionales', 'normativas transporte'],
-    cta: {
-      text: 'Gestiona tus permisos con nosotros',
-      action: 'contact'
-    }
+    id: 4,
+    title: "Transporte Multimodal: Integrando Vías Terrestres, Marítimas y Fluviales",
+    excerpt: "Casos de estudio sobre proyectos que requieren coordinación entre diferentes modalidades de transporte para optimizar costos y tiempos de entrega.",
+    content: "La logística multimodal representa el futuro del transporte especializado en Venezuela. TRANSERVICA ha desarrollado capacidades únicas para coordinar operaciones que combinan transporte terrestre, marítimo y fluvial, optimizando rutas y reduciendo costos operativos hasta en 35%. Un ejemplo destacado fue el proyecto de transporte de equipos petroquímicos desde Houston hasta la Refinería de Paraguaná, que incluyó transporte marítimo internacional, descarga en Puerto Cabello, traslado terrestre de 380 kilómetros y instalación final. La operación requirió coordinación con autoridades portuarias, aduanales, de tránsito terrestre y ambientales. Nuestro equipo de planificación logística utiliza software especializado para optimizar rutas multimodales, considerando factores como restricciones de peso en puentes, limitaciones de altura en túneles, disponibilidad de equipos de izaje en puertos y condiciones climáticas estacionales. Esta capacidad integral posiciona a TRANSERVICA como el único operador logístico en Venezuela capaz de ejecutar proyectos multimodales de gran complejidad.",
+    author: "Ing. Roberto Silva",
+    date: "2024-10-22",
+    readTime: "10 min",
+    category: "Logística Multimodal",
+    tags: ["Multimodal", "Logística", "Puertos", "Optimización"],
+    image: "/attached_assets/4_1754173669383.jpg",
+    featured: false
   },
   {
-    id: 'trailers-modulares-hidraulicos',
-    title: 'Trailers Modulares Hidráulicos: La Clave del Éxito',
-    excerpt: 'Descubre las ventajas técnicas de la tecnología modular hidráulica SCHEUERLE y por qué es esencial para cargas excepcionales.',
-    content: `Los trailers modulares hidráulicos representan la tecnología más avanzada para el transporte de cargas excepcionales, ofreciendo flexibilidad, precisión y seguridad incomparables.
-
-## Tecnología SCHEUERLE
-
-### Características Técnicas Principales
-- **Sistema hidráulico**: Distribución automática de peso
-- **Suspensión adaptativa**: Ajuste en tiempo real
-- **Dirección total**: Maniobrabilidad excepcional
-- **Capacidad modular**: 40-80 toneladas por eje
-- **Control remoto**: Operación a distancia
-
-## Ventajas Competitivas
-
-### Flexibilidad Operativa
-- Configuración variable según la carga
-- Combinación de múltiples módulos
-- Adaptación a diferentes alturas
-- Capacidad de rotación 360°
-
-### Seguridad Avanzada
-- Distribución uniforme del peso
-- Estabilidad en curvas y pendientes
-- Sistema de frenado independiente
-- Monitoreo electrónico continuo
-
-### Eficiencia Económica
-- Reducción de costos operativos
-- Menor desgaste de pavimento
-- Optimización de rutas
-- Mantenimiento predictivo
-
-## Aplicaciones Específicas
-
-### Industria Petroquímica
-- Reactores de refinería
-- Torres de destilación
-- Intercambiadores de calor
-- Compresores industriales
-
-### Sector Energético
-- Transformadores de potencia
-- Turbinas generadoras
-- Rotores de centrales
-- Equipos de subestaciones
-
-La inversión en tecnología alemana nos permite ofrecer servicios de transporte con los más altos estándares de calidad, seguridad y eficiencia en Venezuela y la región.`,
-    category: 'Tecnología y Equipos',
-    author: 'Ing. Pedro Martínez',
-    publishDate: '2024-02-18',
-    readTime: 9,
-    keywords: ['trailers modulares hidráulicos', 'SCHEUERLE Venezuela', 'tecnología transporte'],
-    videoId: 'PF8SuO_3ZLU',
-    cta: {
-      text: 'Solicita información técnica',
-      action: 'contact'
-    }
+    id: 5,
+    title: "40 Años Transportando el Futuro: Historia de TRANSERVICA",
+    excerpt: "Un recorrido por cuatro décadas de liderazgo en transporte especializado, desde nuestros inicios hasta convertirnos en la empresa líder del sector en Venezuela.",
+    content: "TRANSERVICA fue fundada en 1984 con la visión de revolucionar el transporte de cargas excepcionales en Venezuela. Iniciamos operaciones con una flota de 3 trailers convencionales y un equipo de 12 profesionales, enfocados en atender las necesidades del sector petrolero nacional. Durante los años 90, invertimos en tecnología europea adquiriendo nuestros primeros trailers modulares SCHEUERLE, convirtiéndonos en pioneros del transporte especializado. En la década del 2000, expandimos servicios hacia los sectores petroquímico, siderúrgico y de infraestructura, participando en proyectos emblemáticos como el transporte de equipos para el Metro de Caracas y la ampliación de refinerías. Los años 2010 marcaron nuestra consolidación internacional con certificaciones ISO 9001, ISO 14001 y OHSAS 18001. Hoy, con 40 años de experiencia, operamos la flota más moderna de Sudamérica con capacidad para transportar hasta 1,100 toneladas, manteniendo un record de seguridad del 99.8% y habiendo ejecutado más de 15,000 proyectos exitosos.",
+    author: "Dirección General",
+    date: "2024-10-05",
+    readTime: "15 min",
+    category: "Historia Corporativa",
+    tags: ["Historia", "40 Años", "TRANSERVICA", "Evolución"],
+    image: "/attached_assets/5_1754173669383.jpg",
+    featured: true
+  },
+  {
+    id: 6,
+    title: "Mantenimiento Preventivo de Trailers Modulares: Claves del Éxito Operativo",
+    excerpt: "Protocolo detallado de mantenimiento para trailers modulares hidráulicos, garantizando máxima disponibilidad y seguridad en operaciones críticas.",
+    content: "El mantenimiento preventivo es esencial para garantizar la operatividad continua de nuestros trailers modulares SCHEUERLE. TRANSERVICA implementa un protocolo riguroso de mantenimiento basado en estándares internacionales que incluye inspecciones diarias, semanales, mensuales y anuales. Cada trailer cuenta con un historial digital completo que registra horas de operación, cargas transportadas, rutas utilizadas y todas las intervenciones de mantenimiento. Los sistemas hidráulicos reciben atención especial con cambios de fluido cada 1,000 horas, inspección de cilindros cada 500 horas y calibración de válvulas cada 250 horas. Los sistemas de dirección y suspensión se revisan cada 100 horas de operación, mientras que los neumáticos especializados se inspeccionan antes de cada proyecto. Nuestro taller cuenta con equipos de diagnóstico computarizados, banco de pruebas hidráulicas y personal certificado por SCHEUERLE. Este protocolo nos permite mantener una disponibilidad operativa del 98.5% y garantizar la seguridad en cada transporte, cumpliendo con las más exigentes normas internacionales de calidad.",
+    author: "Ing. Luis Martínez",
+    date: "2024-09-18",
+    readTime: "7 min",
+    category: "Mantenimiento",
+    tags: ["Mantenimiento", "SCHEUERLE", "Protocolos", "Seguridad"],
+    image: "/attached_assets/23_1754185586556.png",
+    featured: false
   }
 ];
 
 const categories = [
-  'Todos',
-  'Proyectos Ejecutados',
-  'Tecnología y Equipos',
-  'Historia Corporativa',
-  'Normativas INTT'
+  "Todos los Artículos",
+  "Proyectos Especiales",
+  "Equipos y Tecnología", 
+  "Normativas y Seguridad",
+  "Logística Multimodal",
+  "Historia Corporativa",
+  "Mantenimiento"
 ];
 
 export default function BlogPage() {
-  const [selectedCategory, setSelectedCategory] = useState('Todos');
-  const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState("Todos los Artículos");
+  const [searchTerm, setSearchTerm] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [selectedPost, setSelectedPost] = useState<any>(null);
+  const postsPerPage = 6;
 
-  // SEO Meta Tags
-  useEffect(() => {
-    if (selectedPost) {
-      document.title = `${selectedPost.title} | Blog TRANSERVICA`;
-      
-      let metaDescription = document.querySelector('meta[name="description"]');
-      if (!metaDescription) {
-        metaDescription = document.createElement('meta');
-        metaDescription.setAttribute('name', 'description');
-        document.head.appendChild(metaDescription);
-      }
-      metaDescription.setAttribute('content', selectedPost.excerpt);
+  // Filter posts
+  const filteredPosts = blogPosts.filter(post => {
+    const matchesCategory = selectedCategory === "Todos los Artículos" || post.category === selectedCategory;
+    const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                         post.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                         post.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
+    return matchesCategory && matchesSearch;
+  });
 
-      let metaKeywords = document.querySelector('meta[name="keywords"]');
-      if (!metaKeywords) {
-        metaKeywords = document.createElement('meta');
-        metaKeywords.setAttribute('name', 'keywords');
-        document.head.appendChild(metaKeywords);
-      }
-      metaKeywords.setAttribute('content', selectedPost.keywords.join(', '));
-    } else {
-      document.title = 'Blog TRANSERVICA | Noticias y Proyectos de Transporte de Cargas Excepcionales';
-      
-      let metaDescription = document.querySelector('meta[name="description"]');
-      if (!metaDescription) {
-        metaDescription = document.createElement('meta');
-        metaDescription.setAttribute('name', 'description');
-        document.head.appendChild(metaDescription);
-      }
-      metaDescription.setAttribute('content', 'Descubre las últimas noticias, proyectos ejecutados y avances tecnológicos de TRANSERVICA, líder en transporte de cargas excepcionales en Venezuela.');
-    }
-  }, [selectedPost]);
-
-  const filteredPosts = selectedCategory === 'Todos' 
-    ? blogPosts 
-    : blogPosts.filter(post => post.category === selectedCategory);
-
-  const handleCTAClick = (action: string) => {
-    if (action === 'contact' || action === 'equipos' || action === 'nosotros') {
-      window.parent.postMessage({ type: 'navigateToSection', section: action }, '*');
-      window.close();
-    }
-  };
+  // Pagination
+  const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
+  const startIndex = (currentPage - 1) * postsPerPage;
+  const currentPosts = filteredPosts.slice(startIndex, startIndex + postsPerPage);
 
   if (selectedPost) {
     return (
-      <div className="min-h-screen bg-white">
-        {/* Header with Navigation */}
-        <header className="bg-white shadow-lg sticky top-0 z-50">
-          <div className="container mx-auto px-4">
-            <div className="flex items-center justify-between h-20">
-              <div className="flex items-center space-x-4">
-                <button 
-                  onClick={() => setSelectedPost(null)}
-                  className="flex items-center space-x-2 text-gray-600 hover:text-[#155d29] transition"
-                >
-                  <ArrowRight className="w-5 h-5 rotate-180" />
-                  <span>Volver al Blog</span>
-                </button>
-              </div>
-              <div className="text-2xl font-bold" style={{ color: '#155d29' }}>
-                TRANSERVICA BLOG
-              </div>
+      <div className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-green-50/30">
+        {/* Header */}
+        <header className="bg-white shadow-sm border-b border-gray-100">
+          <div className="container mx-auto px-4 py-6">
+            <div className="flex items-center justify-between">
+              <Link href="/" className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-gradient-to-br from-[#155d29] to-[#0f4a21] rounded-full flex items-center justify-center">
+                  <span className="text-white font-bold text-lg">T</span>
+                </div>
+                <span className="text-2xl font-bold" style={{ color: '#155d29' }}>TRANSERVICA</span>
+              </Link>
+              <button
+                onClick={() => setSelectedPost(null)}
+                className="flex items-center gap-2 px-4 py-2 bg-[#155d29] text-white rounded-lg hover:bg-[#0f4a21] transition-colors"
+              >
+                <ChevronLeft className="w-4 h-4" />
+                Volver al Blog
+              </button>
             </div>
           </div>
         </header>
 
-        {/* Article Header */}
-        <div className="bg-gradient-to-r from-[#155d29] to-green-600 text-white py-20">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center">
-              <div className="mb-4">
-                <span className="bg-white/20 text-white px-4 py-2 rounded-full text-sm font-medium">
+        {/* Article Content */}
+        <article className="container mx-auto px-4 py-12 max-w-4xl">
+          <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
+            <div className="aspect-video overflow-hidden">
+              <img
+                src={selectedPost.image}
+                alt={selectedPost.title}
+                className="w-full h-full object-cover"
+              />
+            </div>
+            
+            <div className="p-8 lg:p-12">
+              <div className="flex items-center gap-4 mb-6">
+                <span className="px-3 py-1 bg-[#155d29] text-white text-sm font-medium rounded-full">
                   {selectedPost.category}
                 </span>
+                <div className="flex items-center gap-2 text-gray-600">
+                  <Calendar className="w-4 h-4" />
+                  <span className="text-sm">{selectedPost.date}</span>
+                </div>
+                <div className="flex items-center gap-2 text-gray-600">
+                  <Clock className="w-4 h-4" />
+                  <span className="text-sm">{selectedPost.readTime}</span>
+                </div>
               </div>
-              <h1 className="text-5xl font-bold mb-6">{selectedPost.title}</h1>
-              <div className="flex items-center justify-center gap-8 text-lg opacity-90">
-                <div className="flex items-center gap-2">
-                  <User className="w-5 h-5" />
-                  {selectedPost.author}
+
+              <h1 className="text-3xl lg:text-4xl font-bold mb-6" style={{ color: '#155d29' }}>
+                {selectedPost.title}
+              </h1>
+
+              <div className="flex items-center gap-3 mb-8">
+                <div className="w-10 h-10 bg-gradient-to-br from-[#155d29] to-[#0f4a21] rounded-full flex items-center justify-center">
+                  <User className="w-5 h-5 text-white" />
                 </div>
-                <div className="flex items-center gap-2">
-                  <Calendar className="w-5 h-5" />
-                  {new Date(selectedPost.publishDate).toLocaleDateString('es-ES')}
+                <div>
+                  <p className="font-medium text-gray-900">{selectedPost.author}</p>
+                  <p className="text-sm text-gray-600">Autor del artículo</p>
                 </div>
-                <div className="flex items-center gap-2">
-                  <Clock className="w-5 h-5" />
-                  {selectedPost.readTime} min lectura
+              </div>
+
+              <div className="prose prose-lg max-w-none">
+                <p className="text-lg leading-relaxed text-gray-700 whitespace-pre-line">
+                  {selectedPost.content}
+                </p>
+              </div>
+
+              <div className="mt-8 pt-8 border-t border-gray-200">
+                <h3 className="text-lg font-bold mb-4" style={{ color: '#155d29' }}>Tags:</h3>
+                <div className="flex flex-wrap gap-2">
+                  {selectedPost.tags.map((tag: string) => (
+                    <span
+                      key={tag}
+                      className="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full flex items-center gap-1"
+                    >
+                      <Tag className="w-3 h-3" />
+                      {tag}
+                    </span>
+                  ))}
                 </div>
               </div>
             </div>
           </div>
-        </div>
-
-        {/* Video Section */}
-        {selectedPost.videoId && (
-          <div className="bg-black py-12">
-            <div className="container mx-auto px-4">
-              <div className="max-w-6xl mx-auto">
-                <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl">
-                  <iframe
-                    src={`https://www.youtube.com/embed/${selectedPost.videoId}?controls=1&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&vq=hd1080&quality=hd1080&hd=1&fmt=22`}
-                    title={selectedPost.title}
-                    className="absolute inset-0 w-full h-full"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* Article Content */}
-        <div className="container mx-auto px-4 py-16">
-          <div className="max-w-4xl mx-auto">
-            <div className="prose prose-lg max-w-none">
-              <div className="whitespace-pre-line text-gray-700 leading-relaxed text-lg">
-                {selectedPost.content}
-              </div>
-            </div>
-
-            {/* CTA Section */}
-            <div className="mt-16 p-10 bg-gradient-to-r from-[#155d29] to-green-600 rounded-3xl text-white text-center">
-              <h3 className="text-3xl font-bold mb-6">¿Necesitas Nuestros Servicios?</h3>
-              <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-                Contacta con nuestros especialistas y obtén una solución personalizada para tu proyecto
-              </p>
-              <button
-                onClick={() => handleCTAClick(selectedPost.cta.action)}
-                className="bg-white text-[#155d29] px-10 py-4 rounded-xl font-bold text-xl hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 inline-flex items-center gap-3 shadow-lg"
-              >
-                {selectedPost.cta.text}
-                <ArrowRight className="w-6 h-6" />
-              </button>
-            </div>
-
-            {/* Keywords */}
-            <div className="mt-12 pt-8 border-t border-gray-200">
-              <h4 className="text-xl font-semibold mb-6" style={{ color: '#155d29' }}>Palabras clave:</h4>
-              <div className="flex flex-wrap gap-3">
-                {selectedPost.keywords.map((keyword, index) => (
-                  <span 
-                    key={index}
-                    className="bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-200 transition"
-                  >
-                    {keyword}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
+        </article>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Header with Navigation */}
-      <header className="bg-white shadow-lg sticky top-0 z-50">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-20">
-            <div className="flex items-center space-x-4">
-              <button 
-                onClick={() => window.close()}
-                className="flex items-center space-x-2 text-gray-600 hover:text-[#155d29] transition"
-              >
-                <Home className="w-5 h-5" />
-                <span>Volver a Inicio</span>
-              </button>
-            </div>
-            <div className="text-2xl font-bold" style={{ color: '#155d29' }}>
-              TRANSERVICA BLOG
-            </div>
-            <div className="hidden lg:flex items-center space-x-4 text-sm">
-              <div className="flex items-center space-x-2" style={{ color: '#155d29' }}>
-                <Phone className="w-4 h-4" />
-                <span>+58 414 277 6340 / +58 412 441 8890</span>
+    <div className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-green-50/30">
+      {/* Header */}
+      <header className="bg-white shadow-sm border-b border-gray-100">
+        <div className="container mx-auto px-4 py-6">
+          <div className="flex items-center justify-between">
+            <Link href="/" className="flex items-center gap-3">
+              <div className="w-10 h-10 bg-gradient-to-br from-[#155d29] to-[#0f4a21] rounded-full flex items-center justify-center">
+                <span className="text-white font-bold text-lg">T</span>
               </div>
-            </div>
+              <span className="text-2xl font-bold" style={{ color: '#155d29' }}>TRANSERVICA</span>
+            </Link>
+            <Link href="/" className="text-[#155d29] hover:text-[#0f4a21] font-medium">
+              Volver al Inicio
+            </Link>
           </div>
         </div>
       </header>
 
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-[#155d29] to-green-600 text-white py-24">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-6xl font-bold mb-8">Blog Transervica</h1>
-          <p className="text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed">
-            Noticias, proyectos y novedades del sector transporte de cargas excepcionales. 
-            Descubre nuestros casos de éxito y avances tecnológicos.
-          </p>
+      <section className="py-16 bg-gradient-to-r from-[#155d29] to-[#0f4a21] text-white relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-10 right-10 w-32 h-32 border border-white/20 rounded-full"></div>
+          <div className="absolute bottom-10 left-10 w-24 h-24 border border-white/20 rounded-full"></div>
         </div>
-      </div>
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <h1 className="text-4xl lg:text-6xl font-bold mb-6">
+            Blog Corporativo TRANSERVICA
+          </h1>
+          <p className="text-xl lg:text-2xl mb-8 max-w-3xl mx-auto">
+            Noticias, proyectos y conocimiento especializado en transporte de cargas excepcionales
+          </p>
+          <div className="w-32 h-1 mx-auto rounded-full bg-white/50"></div>
+        </div>
+      </section>
 
-      {/* Categories Filter */}
       <div className="container mx-auto px-4 py-12">
-        <div className="flex flex-wrap gap-4 justify-center">
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setSelectedCategory(category)}
-              className={`px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 transform hover:scale-105 ${
-                selectedCategory === category
-                  ? 'bg-[#155d29] text-white shadow-lg'
-                  : 'bg-white text-gray-700 hover:bg-gray-50 shadow-md'
-              }`}
-            >
-              {category}
-            </button>
-          ))}
-        </div>
-      </div>
+        {/* Search and Filters */}
+        <div className="mb-12">
+          <div className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
+            <div className="flex flex-col lg:flex-row gap-6">
+              {/* Search */}
+              <div className="flex-1">
+                <div className="relative">
+                  <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                  <input
+                    type="text"
+                    placeholder="Buscar artículos, proyectos, equipos..."
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    className="w-full pl-12 pr-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#155d29] focus:border-transparent"
+                  />
+                </div>
+              </div>
 
-      {/* Blog Grid */}
-      <div className="container mx-auto px-4 pb-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {filteredPosts.map((post) => (
-            <article 
-              key={post.id}
-              className="bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 cursor-pointer group"
-              onClick={() => setSelectedPost(post)}
-            >
-              {/* Video Thumbnail */}
-              <div className="relative h-80 bg-gradient-to-r from-[#155d29] to-green-600 overflow-hidden">
-                {post.videoId ? (
-                  <div className="relative h-full">
-                    <iframe
-                      src={`https://www.youtube.com/embed/${post.videoId}?controls=0&showinfo=0&rel=0&autoplay=0&mute=1&modestbranding=1&vq=hd720`}
-                      title={post.title}
-                      className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
-                      frameBorder="0"
-                      allow="encrypted-media"
+              {/* Category Filter */}
+              <div className="lg:w-80">
+                <div className="relative">
+                  <Filter className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                  <select
+                    value={selectedCategory}
+                    onChange={(e) => setSelectedCategory(e.target.value)}
+                    className="w-full pl-12 pr-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#155d29] focus:border-transparent appearance-none bg-white"
+                  >
+                    {categories.map((category) => (
+                      <option key={category} value={category}>
+                        {category}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Featured Posts */}
+        {selectedCategory === "Todos los Artículos" && (
+          <section className="mb-12">
+            <h2 className="text-3xl font-bold mb-8" style={{ color: '#155d29' }}>
+              Artículos Destacados
+            </h2>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              {blogPosts.filter(post => post.featured).slice(0, 2).map((post) => (
+                <article
+                  key={post.id}
+                  className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group cursor-pointer"
+                  onClick={() => setSelectedPost(post)}
+                >
+                  <div className="aspect-video overflow-hidden">
+                    <img
+                      src={post.image}
+                      alt={post.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500"></div>
                   </div>
-                ) : (
-                  <div className="h-full flex items-center justify-center">
-                    <div className="text-white text-center">
-                      <div className="text-6xl font-bold mb-4">TV</div>
-                      <div className="text-xl opacity-80">TRANSERVICA</div>
+                  <div className="p-6">
+                    <div className="flex items-center gap-4 mb-4">
+                      <span className="px-3 py-1 bg-[#155d29] text-white text-sm font-medium rounded-full">
+                        {post.category}
+                      </span>
+                      <div className="flex items-center gap-2 text-gray-600">
+                        <Calendar className="w-4 h-4" />
+                        <span className="text-sm">{post.date}</span>
+                      </div>
+                    </div>
+                    <h3 className="text-xl font-bold mb-3 group-hover:text-[#155d29] transition-colors">
+                      {post.title}
+                    </h3>
+                    <p className="text-gray-600 mb-4 line-clamp-3">
+                      {post.excerpt}
+                    </p>
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-2 text-gray-600">
+                        <User className="w-4 h-4" />
+                        <span className="text-sm">{post.author}</span>
+                      </div>
+                      <div className="flex items-center gap-1 text-[#155d29] font-medium">
+                        <span className="text-sm">Leer más</span>
+                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      </div>
                     </div>
                   </div>
-                )}
-                
-                {/* Category Badge */}
-                <div className="absolute top-6 left-6">
-                  <span className="bg-white/95 backdrop-blur-sm text-[#155d29] px-4 py-2 rounded-full text-sm font-bold shadow-lg">
-                    {post.category}
-                  </span>
-                </div>
-                
-                {/* Read Time */}
-                <div className="absolute top-6 right-6">
-                  <span className="bg-black/70 backdrop-blur-sm text-white px-3 py-2 rounded-full text-sm font-medium flex items-center gap-1">
-                    <Clock className="w-4 h-4" />
-                    {post.readTime} min
-                  </span>
-                </div>
-              </div>
-              
-              <div className="p-8">
-                <h2 className="text-2xl font-bold mb-4 text-gray-900 group-hover:text-[#155d29] transition-colors duration-300 leading-tight">
-                  {post.title}
-                </h2>
-                
-                <p className="text-gray-600 mb-6 leading-relaxed text-lg">
-                  {post.excerpt}
-                </p>
-                
-                <div className="flex items-center justify-between">
-                  <div className="text-sm text-gray-500 flex items-center gap-4">
-                    <div className="flex items-center gap-2">
-                      <Calendar className="w-4 h-4" />
-                      {new Date(post.publishDate).toLocaleDateString('es-ES')}
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <User className="w-4 h-4" />
-                      {post.author}
-                    </div>
-                  </div>
-                  
-                  <button className="text-[#155d29] hover:text-green-700 font-bold flex items-center gap-2 transition-all duration-300 transform group-hover:translate-x-2">
-                    Leer artículo
-                    <ArrowRight className="w-5 h-5" />
-                  </button>
-                </div>
-              </div>
-            </article>
-          ))}
-        </div>
-      </div>
-
-      {/* CTA Section */}
-      <div className="bg-gradient-to-r from-[#155d29] to-green-600 text-white py-20">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-8">¿Tienes un Proyecto en Mente?</h2>
-          <p className="text-xl text-white/90 mb-10 max-w-3xl mx-auto leading-relaxed">
-            Nuestros especialistas están listos para evaluar tu proyecto y ofrecerte la mejor solución 
-            en transporte de cargas excepcionales
-          </p>
-          <button
-            onClick={() => {
-              window.parent.postMessage({ type: 'navigateToSection', section: 'contact' }, '*');
-              window.close();
-            }}
-            className="bg-white text-[#155d29] px-10 py-5 rounded-xl font-bold text-xl hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 inline-flex items-center gap-3 shadow-lg"
-          >
-            Solicitar Cotización Gratuita
-            <ArrowRight className="w-6 h-6" />
-          </button>
-        </div>
-      </div>
-
-      {/* Footer */}
-      <footer className="bg-gray-900 text-gray-300 py-16">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div>
-              <div className="text-2xl font-bold text-white mb-4" style={{ color: '#155d29' }}>
-                TRANSERVICA
-              </div>
-              <p className="text-gray-400 mb-6 leading-relaxed">
-                Líderes en transporte de cargas excepcionales en Venezuela con más de 40 años de experiencia.
-              </p>
-              <div className="space-y-2">
-                <div className="flex items-center space-x-3">
-                  <Phone className="w-4 h-4" style={{ color: '#155d29' }} />
-                  <div className="space-y-1">
-                    <div>+58 414 277 6340</div>
-                    <div>+58 412 441 8890</div>
-                  </div>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <Mail className="w-4 h-4" style={{ color: '#155d29' }} />
-                  <span>direccioncomercialtvc@grupotranservica.com</span>
-                </div>
-              </div>
+                </article>
+              ))}
             </div>
-            
-            <div>
-              <h3 className="text-xl font-bold mb-6" style={{ color: '#155d29' }}>Categorías</h3>
-              <ul className="space-y-3">
-                {categories.slice(1).map((category) => (
-                  <li key={category}>
-                    <button 
-                      onClick={() => setSelectedCategory(category)}
-                      className="text-gray-400 hover:text-white transition flex items-center gap-2"
-                    >
-                      <div className="w-2 h-2 rounded-full" style={{ backgroundColor: '#155d29' }}></div>
-                      {category}
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            
-            <div>
-              <h3 className="text-xl font-bold mb-6" style={{ color: '#155d29' }}>Contacto</h3>
-              <button
-                onClick={() => {
-                  window.parent.postMessage({ type: 'navigateToSection', section: 'contact' }, '*');
-                  window.close();
-                }}
-                className="bg-[#155d29] hover:bg-green-700 text-white px-6 py-3 rounded-lg font-bold transition-all duration-300 transform hover:scale-105 inline-flex items-center gap-2"
+          </section>
+        )}
+
+        {/* All Posts Grid */}
+        <section>
+          <div className="flex items-center justify-between mb-8">
+            <h2 className="text-3xl font-bold" style={{ color: '#155d29' }}>
+              {selectedCategory === "Todos los Artículos" ? "Todos los Artículos" : selectedCategory}
+            </h2>
+            <span className="text-gray-600">
+              {filteredPosts.length} artículo{filteredPosts.length !== 1 ? 's' : ''}
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {currentPosts.map((post) => (
+              <article
+                key={post.id}
+                className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group cursor-pointer"
+                onClick={() => setSelectedPost(post)}
               >
-                Ir a Contacto
-                <ArrowRight className="w-4 h-4" />
+                <div className="aspect-video overflow-hidden">
+                  <img
+                    src={post.image}
+                    alt={post.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="p-6">
+                  <div className="flex items-center gap-4 mb-3">
+                    <span className="px-2 py-1 bg-[#155d29] text-white text-xs font-medium rounded-full">
+                      {post.category}
+                    </span>
+                    <div className="flex items-center gap-1 text-gray-500">
+                      <Clock className="w-3 h-3" />
+                      <span className="text-xs">{post.readTime}</span>
+                    </div>
+                  </div>
+                  <h3 className="text-lg font-bold mb-3 group-hover:text-[#155d29] transition-colors line-clamp-2">
+                    {post.title}
+                  </h3>
+                  <p className="text-gray-600 text-sm mb-4 line-clamp-3">
+                    {post.excerpt}
+                  </p>
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2 text-gray-500">
+                      <User className="w-3 h-3" />
+                      <span className="text-xs">{post.author}</span>
+                    </div>
+                    <div className="flex items-center gap-1 text-[#155d29] font-medium">
+                      <Eye className="w-4 h-4" />
+                    </div>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          {/* Pagination */}
+          {totalPages > 1 && (
+            <div className="flex items-center justify-center gap-4 mt-12">
+              <button
+                onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
+                disabled={currentPage === 1}
+                className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-lg hover:border-[#155d29] hover:text-[#155d29] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                <ChevronLeft className="w-4 h-4" />
+                Anterior
+              </button>
+
+              <div className="flex gap-2">
+                {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                  <button
+                    key={page}
+                    onClick={() => setCurrentPage(page)}
+                    className={`w-10 h-10 rounded-lg font-medium transition-colors ${
+                      currentPage === page
+                        ? 'bg-[#155d29] text-white'
+                        : 'border border-gray-300 hover:border-[#155d29] hover:text-[#155d29]'
+                    }`}
+                  >
+                    {page}
+                  </button>
+                ))}
+              </div>
+
+              <button
+                onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 1))}
+                disabled={currentPage === totalPages}
+                className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-lg hover:border-[#155d29] hover:text-[#155d29] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                Siguiente
+                <ChevronRight className="w-4 h-4" />
               </button>
             </div>
-          </div>
-          
-          <div className="border-t border-gray-700 mt-12 pt-8 text-center">
-            <p className="text-gray-400">
-              &copy; 2024 TRANSERVICA, C.A. Todos los derechos reservados. | 40 años transportando el futuro de Venezuela
-            </p>
-          </div>
-        </div>
-      </footer>
+          )}
+        </section>
+      </div>
     </div>
   );
 }
