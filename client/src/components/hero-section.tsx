@@ -26,7 +26,7 @@ export default function HeroSection() {
       <div className="absolute inset-0 z-0 overflow-hidden">
         <iframe
           className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
-          src="https://www.youtube.com/embed/_LQbWkWlg6s?autoplay=1&mute=1&controls=0&showinfo=0&rel=0&loop=1&playlist=_LQbWkWlg6s&modestbranding=1&start=7&iv_load_policy=3&cc_load_policy=0&disablekb=1&fs=0&vq=hd1080&quality=hd1080&hd=1&fmt=22"
+          src="https://www.youtube.com/embed/_LQbWkWlg6s?autoplay=1&mute=1&controls=0&showinfo=0&rel=0&loop=1&playlist=_LQbWkWlg6s&modestbranding=1&start=20&iv_load_policy=3&cc_load_policy=0&disablekb=1&fs=0&vq=hd1080&quality=hd1080&hd=1&fmt=22&enablejsapi=1"
           title="Transervica Background Video - Transporte de Cargas Excepcionales"
           allow="autoplay; encrypted-media"
           loading="eager"
