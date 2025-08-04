@@ -212,10 +212,6 @@ const translations = {
     'equipment.item6.feature3': 'Herramientas especializadas',
     'equipment.item6.feature4': 'Soporte técnico',
     'equipment.specs.button': 'Ver Especificaciones',
-    
-    // Projects
-    'projects.title': 'Proyectos Realizados',
-    'projects.subtitle': 'Experiencia comprobada en transporte de cargas excepcionales',
     'projects.1.title': 'Transporte Ferroviario Metro Caracas',
     'projects.1.weight': '280 toneladas',
     'projects.1.sector': 'Transporte Ferroviario',
@@ -297,7 +293,7 @@ const translations = {
     'footer.newsletter.title': 'Suscríbete a nuestro newsletter',
     'footer.newsletter.placeholder': 'Email de trabajo',
     'footer.newsletter.subscribe': 'Subscribirse',
-    'footer.copyright': '© 2024 TRANSERVICA, C.A. Todos los derechos reservados.',
+    'footer.copyright': '© 2025 TRANSERVICA C.A. - Todos los Derechos Reservados.',
     'footer.rif': 'RIF: J-00207776-0 | 40 años transportando el futuro de Venezuela',
     'footer.follow': 'SEGUIR EN REDES',
     
@@ -334,13 +330,6 @@ const translations = {
     'legal.cookies.description': 'Información sobre el uso de cookies y tecnologías similares en nuestro sitio web',
     'legal.security.title': 'Política de Seguridad',
     'legal.security.description': 'Compromiso integral con la seguridad en transporte de cargas excepcionales',
-    
-    // Footer
-    'footer.copyright': '© 2025 TRANSERVICA C.A. - Todos los Derechos Reservados.',
-    'footer.legal.terms': 'Términos de Servicio',
-    'footer.legal.privacy': 'Política de Privacidad',
-    'footer.legal.cookies': 'Acuerdo de Cookies',
-    'footer.legal.security': 'Política de Seguridad',
     
     // Terms of Service Content
     'terms.acceptance.title': 'Aceptación de los Términos',
@@ -729,10 +718,6 @@ const translations = {
     'equipment.item6.feature3': 'Specialized tools',
     'equipment.item6.feature4': 'Technical support',
     'equipment.specs.button': 'View Specifications',
-    
-    // Projects
-    'projects.title': 'Completed Projects',
-    'projects.subtitle': 'Proven experience in exceptional cargo transportation',
     'projects.1.title': 'Metro Caracas Railway Transport',
     'projects.1.weight': '280 tons',
     'projects.1.sector': 'Railway Transport',
@@ -851,13 +836,6 @@ const translations = {
     'legal.cookies.description': 'Information about the use of cookies and similar technologies on our website',
     'legal.security.title': 'Security Policy',
     'legal.security.description': 'Comprehensive commitment to safety in exceptional cargo transportation',
-    
-    // Footer
-    'footer.copyright': '© 2025 TRANSERVICA C.A. - All Rights Reserved.',
-    'footer.legal.terms': 'Terms of Service',
-    'footer.legal.privacy': 'Privacy Policy',
-    'footer.legal.cookies': 'Cookie Agreement',
-    'footer.legal.security': 'Security Policy',
     
     // Terms of Service Content
     'terms.acceptance.title': 'Terms Acceptance',
