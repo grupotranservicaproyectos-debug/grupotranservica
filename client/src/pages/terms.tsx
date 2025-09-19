@@ -180,8 +180,9 @@ export default function TermsOfService() {
                     <p className="text-sm">Mariara, Edo. Carabobo, Venezuela</p>
                   </div>
                   <div>
-                    <p className="text-sm mb-1">Teléfonos: +58 414-277-6340 / +58 412-441-8890</p>
+                    <p className="text-sm mb-1">Teléfonos: +58 412-367-5636 / +58 414-277-6340</p>
                     <p className="text-sm mb-1">Email: direccioncomercialtvc@grupotranservica.com</p>
+                    <p className="text-sm mb-1">Email Ejecutivo: direccionejecutivatvc@grupotranservica.com</p>
                     <p className="text-sm">Web: www.transervica.com</p>
                   </div>
                 </div>

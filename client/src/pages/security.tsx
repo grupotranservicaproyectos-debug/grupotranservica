@@ -316,7 +316,7 @@ export default function SecurityPolicy() {
                   <div>
                     <p className="text-sm mb-1">Email: seguridad@grupotranservica.com</p>
                     <p className="text-sm mb-1">Emergencias 24/7: +58 414-277-6340</p>
-                    <p className="text-sm mb-1">Control Operativo: +58 412-441-8890</p>
+                    <p className="text-sm mb-1">Control Operativo: +58 412-367-5636</p>
                     <p className="text-sm">Línea directa para reportes de seguridad</p>
                   </div>
                 </div>

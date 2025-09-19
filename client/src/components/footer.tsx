@@ -60,15 +60,19 @@ export default function Footer() {
             <div className="space-y-3">
               <div className="flex items-center">
                 <Phone className="w-4 h-4 mr-3" style={{ color: '#155d29' }} />
-                <span className="text-sm">+58 414-277-6340</span>
+                <span className="text-sm">+58 412-367-5636</span>
               </div>
               <div className="flex items-center">
                 <Phone className="w-4 h-4 mr-3" style={{ color: '#155d29' }} />
-                <span className="text-sm">+58 412-441-8890</span>
+                <span className="text-sm">+58 414-277-6340</span>
               </div>
               <div className="flex items-center">
                 <Mail className="w-4 h-4 mr-3" style={{ color: '#155d29' }} />
                 <span className="text-sm">direccioncomercialtvc@grupotranservica.com</span>
+              </div>
+              <div className="flex items-center">
+                <Mail className="w-4 h-4 mr-3" style={{ color: '#155d29' }} />
+                <span className="text-sm">direccionejecutivatvc@grupotranservica.com</span>
               </div>
               <div className="flex items-start">
                 <MapPin className="w-4 h-4 mr-3 mt-1" style={{ color: '#155d29' }} />

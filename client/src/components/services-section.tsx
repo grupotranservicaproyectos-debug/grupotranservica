@@ -139,7 +139,7 @@ export default function ServicesSection() {
                   {/* Call to Action Buttons - Mobile optimized */}
                   <div className="flex flex-col sm:flex-row gap-2 mt-auto pt-3 sm:pt-4">
                     <button 
-                      onClick={() => window.open('https://wa.me/584142776340?text=Hola%2C%20necesito%20información%20sobre%20' + encodeURIComponent(service.title), '_blank')}
+                      onClick={() => window.open('https://wa.me/584123675636?text=Hola%2C%20necesito%20información%20sobre%20' + encodeURIComponent(service.title), '_blank')}
                       className="w-full mobile-button text-white font-semibold rounded-lg text-sm transition-all duration-300 hover-lift shadow-md"
                       style={{ backgroundColor: '#155d29' }}
                       onMouseEnter={(e) => (e.target as HTMLElement).style.backgroundColor = '#0f4a21'}
@@ -180,7 +180,7 @@ export default function ServicesSection() {
                 {t('services.cta.quote')}
               </button>
               <button 
-                onClick={() => window.open('https://wa.me/584142776340?text=Hola%2C%20necesito%20hablar%20con%20un%20especialista%20sobre%20transporte%20de%20cargas%20excepcionales', '_blank')}
+                onClick={() => window.open('https://wa.me/584123675636?text=Hola%2C%20necesito%20hablar%20con%20un%20especialista%20sobre%20transporte%20de%20cargas%20excepcionales', '_blank')}
                 className="border-2 font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 bg-transparent text-white"
                 style={{ borderColor: 'white' }}
                 onMouseEnter={(e) => { (e.target as HTMLElement).style.backgroundColor = '#a8e6a8'; (e.target as HTMLElement).style.color = '#155d29'; (e.target as HTMLElement).style.borderColor = '#a8e6a8'; }}

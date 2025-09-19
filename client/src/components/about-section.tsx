@@ -177,7 +177,7 @@ export default function AboutSection() {
               </button>
               
               <a 
-                href="tel:+584142776340"
+                href="tel:+584123675636"
                 className="px-10 py-4 bg-transparent border-2 border-white text-white font-bold text-lg rounded-xl transition-all duration-300 transform hover:scale-105 w-full lg:w-auto"
                 onMouseEnter={(e) => { (e.target as HTMLElement).style.backgroundColor = 'white'; (e.target as HTMLElement).style.color = '#155d29'; }}
                 onMouseLeave={(e) => { (e.target as HTMLElement).style.backgroundColor = 'transparent'; (e.target as HTMLElement).style.color = 'white'; }}
