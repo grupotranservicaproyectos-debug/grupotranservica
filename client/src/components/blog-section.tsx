@@ -266,10 +266,6 @@ export default function BlogSection() {
                           <div className="p-6">
                             <div className="flex items-center gap-4 mb-4 text-sm text-gray-500">
                               <div className="flex items-center gap-1">
-                                <User className="w-4 h-4" />
-                                <span className="font-medium">{post.author}</span>
-                              </div>
-                              <div className="flex items-center gap-1">
                                 <Calendar className="w-4 h-4" />
                                 <span>{new Date(post.date).toLocaleDateString('es-ES')}</span>
                               </div>
