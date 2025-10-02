@@ -264,13 +264,6 @@ export default function BlogSection() {
                           </div>
                           
                           <div className="p-6">
-                            <div className="flex items-center gap-4 mb-4 text-sm text-gray-500">
-                              <div className="flex items-center gap-1">
-                                <Calendar className="w-4 h-4" />
-                                <span>{new Date(post.date).toLocaleDateString('es-ES')}</span>
-                              </div>
-                            </div>
-                            
                             <h4 className="text-lg font-bold mb-3 text-gray-900 group-hover:text-[#155d29] transition-colors duration-300 text-wrap-balance line-clamp-2 leading-tight">
                               {post.title}
                             </h4>
