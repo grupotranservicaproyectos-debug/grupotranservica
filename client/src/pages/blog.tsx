@@ -55,7 +55,7 @@ const blogPosts = [
   },
   {
     id: 4,
-    title: "Transporte Transformador 333MVA 180 Toneladas: Puerto Cabello a Miranda",
+    title: "Transporte Transformador 333 MVA 180 Toneladas: Puerto Cabello a Miranda",
     excerpt: "Proyecto de alta potencia: Transporte terrestre de transformador de 333MVA desde Puerto Cabello, estado Carabobo, hasta la Subestación eléctrica SUR, estado Miranda. Peso: 180 toneladas.",
     content: "Proyecto de Alta Potencia: Transporte terrestre de transformador de 333MVA desde Puerto Cabello, estado Carabobo, hasta la Subestación eléctrica SUR, estado Miranda.\n\n**Especificaciones del Transformador 333MVA:**\n\n• Potencia nominal: 333MVA (mega voltios amperios)\n• Peso total: 180 toneladas\n• Dimensiones: 6.42 x 4.67 x 4.40 metros\n• Equipo de transporte: Viga portante de 16 ejes\n• Destino: Subestación eléctrica SUR, estado Miranda\n\n**Viga Portante de Máxima Capacidad:**\n\nEste proyecto de gran envergadura requirió nuestra viga portante más robusta de 16 ejes, capaz de soportar y distribuir uniformemente las 180 toneladas del transformador 333MVA durante el trayecto desde Carabobo hasta Miranda.\n\n**Proyecto de Alta Tensión Completado:**\n\n✅ Transformador 333MVA transportado exitosamente\n✅ 180 toneladas con viga portante 16 ejes\n✅ Entrega segura en Subestación SUR, Miranda\n✅ Proyecto eléctrico de máxima complejidad\n\nLa ejecución exitosa de este proyecto de alta potencia consolida nuestra posición como líderes en transporte de equipos eléctricos de gran capacidad, demostrando nuestra expertise en proyectos críticos de infraestructura energética nacional.",
     author: "Ing. Alberto González",
