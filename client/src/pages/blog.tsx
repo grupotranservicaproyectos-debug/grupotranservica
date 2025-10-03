@@ -205,21 +205,6 @@ export default function BlogPage() {
                 </div>
                 
                 <div className="p-8">
-                  {/* Article Header */}
-                  <div className="flex items-center gap-4 mb-6">
-                    <span className="px-3 py-1 bg-[#155d29] text-white text-sm font-medium rounded-full">
-                      {selectedPost.category}
-                    </span>
-                    <div className="flex items-center gap-2 text-gray-600">
-                      <Calendar className="w-4 h-4" />
-                      <span className="text-sm">{selectedPost.date}</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-gray-600">
-                      <Clock className="w-4 h-4" />
-                      <span className="text-sm">{selectedPost.readTime}</span>
-                    </div>
-                  </div>
-
                   <h1 className="text-3xl lg:text-4xl font-bold mb-6" style={{ color: '#155d29' }}>
                     {selectedPost.title}
                   </h1>
