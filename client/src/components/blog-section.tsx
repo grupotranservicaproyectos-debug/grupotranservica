@@ -252,10 +252,6 @@ export default function BlogSection() {
                                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                               />
                             </div>
-                            
-                            
-                            
-                            
                           </div>
                           
                           <div className="p-6">

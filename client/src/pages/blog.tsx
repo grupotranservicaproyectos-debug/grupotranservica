@@ -10,16 +10,16 @@ import logoTranservica from "@assets/logo transervica sin fondo_1754163034585.pn
 const blogPosts = [
   {
     id: 1,
-    title: "Transporte de Turbinas de 380 Toneladas: Proyecto Exitoso en el Estado Zulia",
-    excerpt: "Completamos con éxito el transporte de turbinas industriales de 380 toneladas desde el Puerto de Maracaibo hasta la Planta Termoeléctrica de La Concepción, utilizando nuestros trailers modulares hidráulicos SCHEUERLE.",
-    content: "Este proyecto representó uno de los mayores desafíos logísticos del año 2024. Durante tres meses de planificación detallada, nuestro equipo de ingenieros especializados desarrolló una estrategia integral que incluyó análisis de rutas, reforzamiento de puentes y coordinación con autoridades locales. El transporte se realizó durante horas nocturnas para minimizar el impacto en el tráfico vehicular, utilizando nuestros trailers modulares SCHEUERLE de última generación con capacidad para 500 toneladas. El proyecto requirió la movilización de 40 técnicos especializados, 8 vehículos de escolta y coordinación con CORPOELEC para garantizar el suministro eléctrico continuo durante la instalación. Esta operación consolida a TRANSERVICA como líder en transporte de cargas excepcionales en Venezuela, demostrando nuestra capacidad para ejecutar proyectos de infraestructura crítica con los más altos estándares de seguridad y eficiencia.",
+    title: "Transporte Terrestre de Auto Transformador desde Puerto Cabello hasta Villa de Cura",
+    excerpt: "Completamos exitosamente el traslado de auto transformador de 170 toneladas y dimensiones excepcionales (6.76m x 5.30m) desde Puerto Cabello, Carabobo hasta Villa de Cura, Estado Aragua, mediante viga portante y equipo hidráulico de 16 ejes.",
+    content: "Proyecto: Transporte terrestre de auto transformador desde Puerto Cabello Carabobo hasta Villa de Cura Estado Aragua.\n\nTraslado de auto transformador de 6.76 metros de largo x 5.30 metros de alto y 170 toneladas aproximadas, mediante viga portante y equipo hidráulico de 16 ejes, posicionándose en las inmediaciones del antiguo peaje de Santa Clara, estado Carabobo.\n\nEste proyecto representó uno de los mayores desafíos logísticos del año. Durante meses de planificación detallada, nuestro equipo de ingenieros especializados desarrolló una estrategia integral que incluyó análisis de rutas críticas, evaluación estructural de puentes, coordinación con autoridades estadales y municipales, y estudios de impacto vial. El transporte requirió la utilización de nuestros trailers modulares hidráulicos de 16 ejes con viga portante especializada, diseñados específicamente para cargas de alto tonelaje y dimensiones excepcionales.\n\nLa operación involucró la movilización de 35 técnicos especializados, equipos de escolta, coordinación con CORPOELEC y autoridades de tránsito terrestre. El posicionamiento estratégico en las inmediaciones del antiguo peaje de Santa Clara requirió maniobras de precisión y supervisión constante por parte de nuestros ingenieros. Esta operación consolida a TRANSERVICA como líder indiscutible en transporte de cargas excepcionales en Venezuela, demostrando nuestra capacidad técnica y operativa para ejecutar proyectos de infraestructura eléctrica crítica con los más altos estándares de seguridad y eficiencia.",
     author: "Ing. Carlos Rodríguez",
     date: "2024-12-15",
     readTime: "8 min",
     views: 2847,
     comments: 24,
     category: "Proyectos Especiales",
-    tags: ["Turbinas", "SCHEUERLE", "Zulia", "380 Toneladas"],
+    tags: ["Auto Transformador", "170 Toneladas", "Puerto Cabello", "Villa de Cura", "16 Ejes"],
     image: "/attached_assets/1_1754173669382.jpeg",
     featured: true
   },
