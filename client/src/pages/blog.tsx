@@ -259,11 +259,7 @@ export default function BlogPage() {
                   <div className="flex flex-wrap items-center gap-4 mb-6 pb-6 border-b border-gray-200">
                     <div className="flex items-center gap-2 text-gray-600">
                       <User className="w-4 h-4" />
-                      <span className="text-sm">{selectedPost.author}</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-gray-600">
-                      <Calendar className="w-4 h-4" />
-                      <span className="text-sm">{selectedPost.date}</span>
+                      <span className="text-sm font-semibold">Creado por TRANSERVICA C.A</span>
                     </div>
                     <div className="flex items-center gap-2 text-gray-600">
                       <Eye className="w-4 h-4" />
