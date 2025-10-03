@@ -162,7 +162,7 @@ export default function BlogPage() {
                 <div className="aspect-video overflow-hidden">
                   {selectedPost.id === 1 ? (
                     <iframe
-                      src="https://www.youtube.com/embed/JnWnFe_QdnE?autoplay=1&mute=1&loop=1&playlist=JnWnFe_QdnE&hd=1"
+                      src="https://www.youtube.com/embed/JnWnFe_QdnE?autoplay=1&mute=1&loop=1&playlist=JnWnFe_QdnE&vq=hd2160"
                       title={selectedPost.title}
                       className="w-full h-full"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -170,7 +170,7 @@ export default function BlogPage() {
                     />
                   ) : selectedPost.id === 2 ? (
                     <iframe
-                      src="https://www.youtube.com/embed/4ZfZ5YFelkQ?autoplay=1&mute=1&loop=1&playlist=4ZfZ5YFelkQ&hd=1"
+                      src="https://www.youtube.com/embed/4ZfZ5YFelkQ?autoplay=1&mute=1&loop=1&playlist=4ZfZ5YFelkQ&vq=hd2160"
                       title={selectedPost.title}
                       className="w-full h-full"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -178,7 +178,7 @@ export default function BlogPage() {
                     />
                   ) : selectedPost.id === 3 ? (
                     <iframe
-                      src="https://www.youtube.com/embed/44lpgBO22qU?autoplay=1&mute=1&loop=1&playlist=44lpgBO22qU&hd=1"
+                      src="https://www.youtube.com/embed/44lpgBO22qU?autoplay=1&mute=1&loop=1&playlist=44lpgBO22qU&vq=hd2160"
                       title={selectedPost.title}
                       className="w-full h-full"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -186,7 +186,7 @@ export default function BlogPage() {
                     />
                   ) : selectedPost.id === 4 ? (
                     <iframe
-                      src="https://www.youtube.com/embed/54hazc90eNk?autoplay=1&mute=1&loop=1&playlist=54hazc90eNk&hd=1"
+                      src="https://www.youtube.com/embed/54hazc90eNk?autoplay=1&mute=1&loop=1&playlist=54hazc90eNk&vq=hd2160"
                       title={selectedPost.title}
                       className="w-full h-full"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -584,7 +584,7 @@ export default function BlogPage() {
                     <div className="aspect-video overflow-hidden">
                       {post.id === 1 ? (
                         <iframe
-                          src="https://www.youtube.com/embed/JnWnFe_QdnE?autoplay=1&mute=1&loop=1&playlist=JnWnFe_QdnE&hd=1"
+                          src="https://www.youtube.com/embed/JnWnFe_QdnE?autoplay=1&mute=1&loop=1&playlist=JnWnFe_QdnE&vq=hd2160"
                           title={post.title}
                           className="w-full h-full"
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -592,7 +592,7 @@ export default function BlogPage() {
                         />
                       ) : post.id === 2 ? (
                         <iframe
-                          src="https://www.youtube.com/embed/4ZfZ5YFelkQ?autoplay=1&mute=1&loop=1&playlist=4ZfZ5YFelkQ&hd=1"
+                          src="https://www.youtube.com/embed/4ZfZ5YFelkQ?autoplay=1&mute=1&loop=1&playlist=4ZfZ5YFelkQ&vq=hd2160"
                           title={post.title}
                           className="w-full h-full"
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -600,7 +600,7 @@ export default function BlogPage() {
                         />
                       ) : post.id === 3 ? (
                         <iframe
-                          src="https://www.youtube.com/embed/44lpgBO22qU?autoplay=1&mute=1&loop=1&playlist=44lpgBO22qU&hd=1"
+                          src="https://www.youtube.com/embed/44lpgBO22qU?autoplay=1&mute=1&loop=1&playlist=44lpgBO22qU&vq=hd2160"
                           title={post.title}
                           className="w-full h-full"
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -608,7 +608,7 @@ export default function BlogPage() {
                         />
                       ) : post.id === 4 ? (
                         <iframe
-                          src="https://www.youtube.com/embed/54hazc90eNk?autoplay=1&mute=1&loop=1&playlist=54hazc90eNk&hd=1"
+                          src="https://www.youtube.com/embed/54hazc90eNk?autoplay=1&mute=1&loop=1&playlist=54hazc90eNk&vq=hd2160"
                           title={post.title}
                           className="w-full h-full"
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -678,7 +678,7 @@ export default function BlogPage() {
                   <div className="aspect-video overflow-hidden">
                     {post.id === 1 ? (
                       <iframe
-                        src="https://www.youtube.com/embed/JnWnFe_QdnE?autoplay=1&mute=1&loop=1&playlist=JnWnFe_QdnE&hd=1"
+                        src="https://www.youtube.com/embed/JnWnFe_QdnE?autoplay=1&mute=1&loop=1&playlist=JnWnFe_QdnE&vq=hd2160"
                         title={post.title}
                         className="w-full h-full"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -686,7 +686,7 @@ export default function BlogPage() {
                       />
                     ) : post.id === 2 ? (
                       <iframe
-                        src="https://www.youtube.com/embed/4ZfZ5YFelkQ?autoplay=1&mute=1&loop=1&playlist=4ZfZ5YFelkQ&hd=1"
+                        src="https://www.youtube.com/embed/4ZfZ5YFelkQ?autoplay=1&mute=1&loop=1&playlist=4ZfZ5YFelkQ&vq=hd2160"
                         title={post.title}
                         className="w-full h-full"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -694,7 +694,7 @@ export default function BlogPage() {
                       />
                     ) : post.id === 3 ? (
                       <iframe
-                        src="https://www.youtube.com/embed/44lpgBO22qU?autoplay=1&mute=1&loop=1&playlist=44lpgBO22qU&hd=1"
+                        src="https://www.youtube.com/embed/44lpgBO22qU?autoplay=1&mute=1&loop=1&playlist=44lpgBO22qU&vq=hd2160"
                         title={post.title}
                         className="w-full h-full"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -702,7 +702,7 @@ export default function BlogPage() {
                       />
                     ) : post.id === 4 ? (
                       <iframe
-                        src="https://www.youtube.com/embed/54hazc90eNk?autoplay=1&mute=1&loop=1&playlist=54hazc90eNk&hd=1"
+                        src="https://www.youtube.com/embed/54hazc90eNk?autoplay=1&mute=1&loop=1&playlist=54hazc90eNk&vq=hd2160"
                         title={post.title}
                         className="w-full h-full"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
