@@ -13,6 +13,7 @@ const blogPosts = [
     title: "Transporte de Auto Transformador 170 Toneladas: Puerto Cabello a Villa de Cura",
     excerpt: "Proyecto ejecutado: Transporte terrestre de auto transformador desde Puerto Cabello, estado Carabobo, hasta Villa de Cura, estado Aragua. Peso: 170 toneladas, Dimensiones: 6.76m x 5.30m, Equipo: Viga portante 16 ejes hidráulicos.",
     content: "Proyecto Ejecutado: Transporte terrestre de auto transformador desde Puerto Cabello, estado Carabobo, hasta Villa de Cura, estado Aragua.\n\n**Especificaciones Técnicas Reales:**\n\n• Carga: Auto transformador eléctrico industrial\n• Peso aproximado: 170 toneladas\n• Dimensiones: 6.76 metros de largo x 5.30 metros de alto\n• Equipo especializado: Viga portante con sistema hidráulico de 16 ejes\n• Punto estratégico: Posicionamiento en inmediaciones del antiguo peaje de Santa Clara, estado Carabobo\n\n**Desafíos del Proyecto:**\n\nEste proyecto requirió una planificación meticulosa debido a las dimensiones excepcionales del transformador y las restricciones de infraestructura vial entre Carabobo y Aragua. Nuestros equipos SCHEUERLE de 16 ejes proporcionaron la distribución de peso necesaria para garantizar un transporte seguro.\n\n**Logros Destacados:**\n\n✅ Transporte exitoso de 170 toneladas sin incidentes\n✅ Coordinación inter-estadal Carabobo-Aragua\n✅ Uso de tecnología alemana SCHEUERLE\n✅ Cumplimiento total de normativas INTT\n\nEsta operación consolida a TRANSERVICA como líder en transporte de cargas excepcionales en Venezuela, demostrando nuestra capacidad técnica y operativa para ejecutar proyectos de infraestructura eléctrica crítica con los más altos estándares de seguridad.",
+    author: "Ing. Miguel Pérez",
     date: "2024-12-15",
     readTime: "8 min",
     views: 2847,
@@ -27,6 +28,7 @@ const blogPosts = [
     title: "Transporte Power House: 4 Módulos de 35 Toneladas en Estado Carabobo",
     excerpt: "Proyecto completado: Transporte terrestre de un Power House dividido en cuatro (04) módulos de caseta en el Estado Carabobo. Peso: 35 toneladas c/u (140 ton total), Dimensiones: 16.00 x 4.00 x 3.70 mts.",
     content: "Proyecto Completado: Transporte terrestre de un Power House dividido en cuatro (04) módulos de caseta en el Estado Carabobo.\n\n**Detalles del Proyecto Power House:**\n\n• Cantidad de módulos: 4 unidades de caseta Power House\n• Peso por módulo: 35 toneladas cada uno\n• Peso total del proyecto: 140 toneladas\n• Dimensiones unitarias: 16.00 x 4.00 x 3.70 metros\n• Equipo utilizado: Modular hidráulico de 8 ejes en línea\n\n**Configuración Especializada:**\n\nLa configuración de 8 ejes en línea de nuestros equipos modulares hidráulicos permitió el transporte simultáneo y eficiente de los módulos Power House, manteniendo la estabilidad y seguridad durante todo el proceso de movilización en territorio carabobeño.\n\n**Resultados del Proyecto:**\n\n✅ 4 módulos transportados exitosamente\n✅ 140 toneladas movilizadas sin incidentes\n✅ Equipos SCHEUERLE 8 ejes funcionando óptimamente\n✅ Coordinación perfecta en Estado Carabobo\n\nLa ejecución exitosa de este proyecto demuestra nuestra experiencia en el manejo de cargas modulares y nuestra capacidad para coordinar múltiples transportes especializados en proyectos de infraestructura industrial.",
+    author: "Ing. José Ramírez",
     date: "2024-11-28",
     readTime: "6 min",
     views: 1652,
@@ -41,6 +43,7 @@ const blogPosts = [
     title: "Transporte Reactor Monofásico 70 Toneladas: Puerto Cabello a Anzoátegui",
     excerpt: "Proyecto inter-estadal: Transporte terrestre de reactor monofásico de potencia desde Puerto Cabello, estado Carabobo, hasta la Subestación eléctrica San Gerónimo, estado Anzoátegui. Peso: 70 toneladas.",
     content: "Proyecto Inter-Estadal: Transporte terrestre de reactor monofásico de potencia desde Puerto Cabello, estado Carabobo, hasta la Subestación eléctrica San Gerónimo, estado Anzoátegui.\n\n**Especificaciones del Reactor Monofásico:**\n\n• Tipo de carga: Reactor monofásico de potencia industrial\n• Peso total: 70 toneladas\n• Dimensiones exactas: 3.93 x 4.40 x 4.35 metros\n• Configuración de transporte: Equipo modular hidráulico 3+3 con plataforma intermedia\n• Destino final: Subestación eléctrica San Gerónimo, Anzoátegui\n\n**Tecnología de Transporte Avanzada:**\n\nLa configuración 3+3 con plataforma intermedia de nuestros equipos SCHEUERLE proporcionó la flexibilidad necesaria para este transporte de larga distancia inter-estadal, garantizando la distribución óptima del peso y la estabilidad del reactor durante el trayecto.\n\n**Logro Inter-Estadal:**\n\n✅ Transporte exitoso Carabobo → Anzoátegui\n✅ 70 toneladas movilizadas con configuración 3+3\n✅ Entrega precisa en Subestación San Gerónimo\n✅ Coordinación multi-estadal efectiva\n\nEste proyecto demuestra nuestra capacidad para ejecutar transportes de larga distancia con equipos especializados, manteniendo los más altos estándares de seguridad en rutas inter-estadales complejas.",
+    author: "Ing. Fernando Silva",
     date: "2024-11-10",
     readTime: "7 min",
     views: 3120,
@@ -55,6 +58,7 @@ const blogPosts = [
     title: "Transporte Transformador 333MVA 180 Toneladas: Puerto Cabello a Miranda",
     excerpt: "Proyecto de alta potencia: Transporte terrestre de transformador de 333MVA desde Puerto Cabello, estado Carabobo, hasta la Subestación eléctrica SUR, estado Miranda. Peso: 180 toneladas.",
     content: "Proyecto de Alta Potencia: Transporte terrestre de transformador de 333MVA desde Puerto Cabello, estado Carabobo, hasta la Subestación eléctrica SUR, estado Miranda.\n\n**Especificaciones del Transformador 333MVA:**\n\n• Potencia nominal: 333MVA (mega voltios amperios)\n• Peso total: 180 toneladas\n• Dimensiones: 6.42 x 4.67 x 4.40 metros\n• Equipo de transporte: Viga portante de 16 ejes\n• Destino: Subestación eléctrica SUR, estado Miranda\n\n**Viga Portante de Máxima Capacidad:**\n\nEste proyecto de gran envergadura requirió nuestra viga portante más robusta de 16 ejes, capaz de soportar y distribuir uniformemente las 180 toneladas del transformador 333MVA durante el trayecto desde Carabobo hasta Miranda.\n\n**Proyecto de Alta Tensión Completado:**\n\n✅ Transformador 333MVA transportado exitosamente\n✅ 180 toneladas con viga portante 16 ejes\n✅ Entrega segura en Subestación SUR, Miranda\n✅ Proyecto eléctrico de máxima complejidad\n\nLa ejecución exitosa de este proyecto de alta potencia consolida nuestra posición como líderes en transporte de equipos eléctricos de gran capacidad, demostrando nuestra expertise en proyectos críticos de infraestructura energética nacional.",
+    author: "Ing. Alberto González",
     date: "2024-10-22",
     readTime: "8 min",
     views: 1893,
@@ -69,6 +73,7 @@ const blogPosts = [
     title: "Maniobra de Traslado de Vagones: Puerto Cabello - Charallave",
     excerpt: "Transporte especializado de vagones del Instituto de Ferrocarriles del Estado (IFE Charallave) utilizando equipo modular Cometto 4+4 y Cappon 4+4 con plataforma intermedia. Capacidad por eje: 25,000 kg.",
     content: "TRANSERVICA ejecutó exitosamente la maniobra de traslado de vagones ferroviarios del Instituto de Ferrocarriles del Estado (IFE Charallave) desde Puerto Cabello hasta Charallave. Este proyecto de logística especializada involucró el transporte de dos tipos de vagones con dimensiones excepcionales:\n\n✅ Vagón Tipo 1: 26.013m de largo × 3.326m de alto × 2.974m de ancho, con peso de 32 toneladas\n✅ Vagón Tipo 2: 25.866m de largo × 3.63m de alto × 2.974m de ancho, con peso de 32 toneladas\n\nLa operación se desarrolló durante cinco (5) días, ejecutando el traslado desde la Represa Macagua hasta la Represa Simón Bolívar-Guri en el estado Bolívar. Para garantizar la seguridad y estabilidad de las cargas, TRANSERVICA implementó equipos especializados de última generación:\n\n🔧 Operación a Costado de Buque para la carga inicial\n🔧 Cometto 4+4 con Plataforma Intermedia\n🔧 Cappon 4+4 con Plataforma Intermedia\n🔧 Capacidad por eje: 25,000 kg\n🔧 Traslado de Vagones con Cometto 2+2\n\nEste proyecto demostró la capacidad de TRANSERVICA para manejar cargas de gran longitud que requieren equipamiento modular hidráulico con configuraciones especiales. La coordinación logística incluyó permisos de tránsito especiales, escolta de seguridad, y planificación de rutas que consideraron las dimensiones excepcionales de los vagones. El traslado se completó exitosamente, cumpliendo con todos los estándares de seguridad del sector ferroviario y los tiempos establecidos con el cliente.",
+    author: "Ing. Carlos Rodríguez",
     date: "2024-12-20",
     readTime: "8 min",
     views: 1523,
@@ -249,6 +254,26 @@ export default function BlogPage() {
                   <h1 className="text-3xl lg:text-4xl font-bold mb-6" style={{ color: '#155d29' }}>
                     {selectedPost.title}
                   </h1>
+
+                  {/* Article Metadata */}
+                  <div className="flex flex-wrap items-center gap-4 mb-6 pb-6 border-b border-gray-200">
+                    <div className="flex items-center gap-2 text-gray-600">
+                      <User className="w-4 h-4" />
+                      <span className="text-sm">{selectedPost.author}</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-gray-600">
+                      <Calendar className="w-4 h-4" />
+                      <span className="text-sm">{selectedPost.date}</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-gray-600">
+                      <Eye className="w-4 h-4" />
+                      <span className="text-sm">{selectedPost.views} vistas</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-gray-600">
+                      <MessageSquare className="w-4 h-4" />
+                      <span className="text-sm">{selectedPost.comments} comentarios</span>
+                    </div>
+                  </div>
 
                   {/* Article Content */}
                   <div className="prose prose-lg max-w-none mb-8">
