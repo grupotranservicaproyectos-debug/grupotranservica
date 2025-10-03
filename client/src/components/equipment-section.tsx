@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Truck, Settings, Award, ChevronDown, ChevronUp } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { ChevronLeft, ChevronRight, Truck } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import image15 from "@assets/15_1754168567957.webp";
 import image16 from "@assets/16_1754168567957.webp"; 
@@ -20,6 +20,9 @@ interface EquipmentItem {
 
 export default function EquipmentSection() {
   const { t } = useLanguage();
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isAutoplay, setIsAutoplay] = useState(true);
+  
   const equipmentItems: EquipmentItem[] = [
     {
       name: t('equipment.item1.name'),
@@ -100,6 +103,24 @@ export default function EquipmentSection() {
     }
   ];
 
+  useEffect(() => {
+    if (!isAutoplay) return;
+
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % equipmentItems.length);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [isAutoplay, equipmentItems.length]);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % equipmentItems.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + equipmentItems.length) % equipmentItems.length);
+  };
+
   const scrollToContact = () => {
     const contactSection = document.getElementById('contact');
     if (contactSection) {
@@ -107,56 +128,116 @@ export default function EquipmentSection() {
     }
   };
 
+  const currentEquipment = equipmentItems[currentSlide];
+
   return (
     <section id="equipos" className="py-20 bg-gradient-to-br from-slate-50 to-gray-100">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-6" style={{ color: '#155d29' }}>{t('equipment.title')}</h2>
-          <p className="text-xl text-slate-600 max-w-4xl mx-auto mb-4">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-bold mb-4" style={{ color: '#155d29' }}>
+            {t('equipment.title')}
+          </h2>
+          <p className="text-lg text-slate-600 max-w-3xl mx-auto">
             {t('equipment.subtitle')}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {equipmentItems.map((equipment, index) => (
-            <div
-              key={index}
-              className="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 hover:scale-105 overflow-hidden"
-            >
-              {/* Image container */}
-              <div className="relative h-64 overflow-hidden">
-                <img
-                  src={equipment.image}
-                  alt={equipment.name}
-                  loading="lazy"
-                  className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
-                />
+        <div className="relative max-w-6xl mx-auto">
+          {/* Carousel Container */}
+          <div className="relative bg-white rounded-2xl shadow-xl overflow-hidden">
+            <div className="md:flex">
+              {/* Image Section */}
+              <div className="md:w-1/2 relative">
+                <div className="aspect-video md:aspect-square relative overflow-hidden">
+                  <img
+                    src={currentEquipment.image}
+                    alt={currentEquipment.name}
+                    loading="lazy"
+                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                  />
+                  
+                  {/* Image Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                  
+                  {/* Brand Badge */}
+                  <div className="absolute top-4 left-4">
+                    <span className="text-white px-3 py-1 rounded-full text-sm font-medium" style={{ backgroundColor: '#155d29' }}>
+                      {currentEquipment.brand}
+                    </span>
+                  </div>
+
+                  {/* Capacity Badge */}
+                  <div className="absolute top-4 right-4">
+                    <span className="text-white px-3 py-1 rounded-full text-sm font-medium bg-[#3ea30f]">
+                      {currentEquipment.capacity}
+                    </span>
+                  </div>
+                </div>
               </div>
 
-              {/* Equipment info */}
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-3 transition-colors duration-300" style={{ color: '#155d29' }}>
-                  {equipment.name}
-                </h3>
-                
-                <p className="text-slate-600 mb-4 leading-relaxed">
-                  {equipment.description}
-                </p>
-                
-                <ul className="space-y-2">
-                  {equipment.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-center text-sm text-slate-600">
-                      <div className="w-2 h-2 rounded-full mr-3 transform group-hover:scale-125 transition-transform duration-300" style={{ backgroundColor: '#155d29' }}></div>
-                      {feature}
-                    </li>
+              {/* Content Section */}
+              <div className="md:w-1/2 p-8 md:p-12 flex flex-col justify-center">
+                <div className="mb-6">
+                  <h3 className="text-2xl md:text-3xl font-bold text-slate-800 mb-3">
+                    {currentEquipment.name}
+                  </h3>
+                  
+                  <div className="flex items-center mb-4" style={{ color: '#155d29' }}>
+                    <Truck className="w-5 h-5 mr-2" />
+                    <span className="font-medium">{currentEquipment.brand}</span>
+                  </div>
+
+                  <p className="text-slate-600 mb-6 leading-relaxed">
+                    {currentEquipment.description}
+                  </p>
+
+                  <div className="space-y-3 mb-6">
+                    <h4 className="font-bold text-slate-800 mb-3">Características Principales:</h4>
+                    {currentEquipment.features.map((feature, index) => (
+                      <div key={index} className="flex items-start">
+                        <div className="w-2 h-2 rounded-full mt-2 mr-3 flex-shrink-0" style={{ backgroundColor: '#155d29' }}></div>
+                        <span className="text-slate-600">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Navigation Dots */}
+                <div className="flex justify-center gap-2 mb-6">
+                  {equipmentItems.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentSlide(index)}
+                      className={`h-2 rounded-full transition-all duration-300 ${
+                        currentSlide === index 
+                          ? 'bg-[#155d29] w-8' 
+                          : 'bg-gray-300 w-2 hover:bg-gray-400'
+                      }`}
+                      aria-label={`Go to equipment ${index + 1}`}
+                    />
                   ))}
-                </ul>
-              </div>
+                </div>
 
-              {/* Animated border */}
-              <div className="absolute inset-0 border-2 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ borderColor: '#155d29' }}></div>
+                {/* Navigation Buttons */}
+                <div className="flex justify-center gap-4">
+                  <button
+                    onClick={prevSlide}
+                    className="p-3 rounded-full bg-slate-100 hover:bg-[#155d29] hover:text-white transition-all duration-300 shadow-md hover:shadow-lg"
+                    aria-label="Previous equipment"
+                  >
+                    <ChevronLeft className="w-6 h-6" />
+                  </button>
+                  <button
+                    onClick={nextSlide}
+                    className="p-3 rounded-full bg-slate-100 hover:bg-[#155d29] hover:text-white transition-all duration-300 shadow-md hover:shadow-lg"
+                    aria-label="Next equipment"
+                  >
+                    <ChevronRight className="w-6 h-6" />
+                  </button>
+                </div>
+              </div>
             </div>
-          ))}
+          </div>
         </div>
 
         <div className="text-center mt-16">
@@ -171,7 +252,7 @@ export default function EquipmentSection() {
                 onMouseEnter={(e) => { (e.target as HTMLElement).style.backgroundColor = '#f0f9f0'; (e.target as HTMLElement).style.color = '#0f4a21'; }}
                 onMouseLeave={(e) => { (e.target as HTMLElement).style.backgroundColor = 'white'; (e.target as HTMLElement).style.color = '#155d29'; }}
               >
-{t('equipment.cta.button')}
+                {t('equipment.cta.button')}
               </button>
               <button 
                 onClick={scrollToContact}
@@ -180,7 +261,7 @@ export default function EquipmentSection() {
                 onMouseEnter={(e) => { (e.target as HTMLElement).style.backgroundColor = 'white'; (e.target as HTMLElement).style.color = '#155d29'; }}
                 onMouseLeave={(e) => { (e.target as HTMLElement).style.backgroundColor = 'transparent'; (e.target as HTMLElement).style.color = 'white'; }}
               >
-{t('equipment.cta.button')}
+                {t('equipment.cta.button')}
               </button>
             </div>
           </div>
