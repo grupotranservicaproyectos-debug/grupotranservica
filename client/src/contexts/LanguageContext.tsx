@@ -93,7 +93,7 @@ const translations = {
     'about.benefit2.desc': '40 años transportando el futuro de Venezuela con éxito.',
     'about.benefit3.title': 'Plataforma integral con soporte 24/7',
     'about.benefit3.desc': 'Seguimiento completo y especialistas disponibles siempre.',
-    'about.benefit4.title': 'Soporte personalizado con humanos reales',
+    'about.benefit4.title': 'Soporte Personalizado con Personal Calificado',
     'about.benefit4.desc': 'Especialistas en logística dedicados disponibles en cualquier momento.',
     'about.mission.title': 'Misión',
     'about.mission.text': 'Prestación del servicio de movilización e izamiento de cargas sobredimensionadas mediante el cumplimiento de criterios de seguridad, garantía y confiabilidad, anticipando y respondiendo eficazmente las necesidades de nuestros clientes, procurando el bienestar de nuestros trabajadores y maximizando la productividad.',
