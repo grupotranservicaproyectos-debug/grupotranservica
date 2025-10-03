@@ -647,10 +647,11 @@ export default function BlogPage() {
                 return (
                   <article
                     key={post.id}
-                    className="bg-white rounded-xl lg:rounded-2xl shadow-md lg:shadow-lg overflow-hidden hover:shadow-lg lg:hover:shadow-xl transition-all duration-300 group cursor-pointer mx-2 lg:mx-0 relative"
+                    className="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 hover:scale-105 overflow-hidden cursor-pointer mx-2 lg:mx-0"
                     onClick={() => setSelectedPost(post)}
                   >
-                    <div className="aspect-video overflow-hidden">
+                    {/* Video/Image container */}
+                    <div className="relative h-80 overflow-hidden">
                       {post.id === 1 ? (
                         <iframe
                           src="https://www.youtube.com/embed/JnWnFe_QdnE?autoplay=1&mute=1&loop=1&playlist=JnWnFe_QdnE&vq=hd2160"
@@ -703,35 +704,52 @@ export default function BlogPage() {
                         <img
                           src={post.image}
                           alt={post.title}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                          className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
                           loading="lazy"
                         />
                       )}
+                      
+                      {/* Gradient overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                      
+                      {/* Hover button */}
+                      <div className="absolute inset-0 flex items-end justify-center p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        <button 
+                          className="text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
+                          style={{ backgroundColor: '#155d29' }}
+                          onMouseEnter={(e) => (e.target as HTMLElement).style.backgroundColor = '#0f4a21'}
+                          onMouseLeave={(e) => (e.target as HTMLElement).style.backgroundColor = '#155d29'}
+                        >
+                          Leer Artículo
+                        </button>
+                      </div>
                     </div>
-                  <div className="p-4 lg:p-6">
-                    <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-3 lg:mb-4">
-                      <span className="px-2 lg:px-3 py-1 bg-[#155d29] text-white text-xs lg:text-sm font-medium rounded-full w-fit">
+
+                    {/* Article info */}
+                    <div className="p-6">
+                      <span className="px-3 py-1 bg-[#155d29] text-white text-xs font-medium rounded-full inline-block mb-3">
                         {post.category}
                       </span>
-                      <div className="flex items-center gap-2 text-gray-600">
-                        <Calendar className="w-3 lg:w-4 h-3 lg:h-4" />
-                        <span className="text-xs lg:text-sm">{post.date}</span>
+                      
+                      <h3 className="text-xl font-bold mb-3 transition-colors duration-300" style={{ color: '#155d29' }}>
+                        {post.title}
+                      </h3>
+                      
+                      <p className="text-slate-600 mb-4 leading-relaxed line-clamp-3">
+                        {post.excerpt}
+                      </p>
+                      
+                      <div className="flex items-center gap-4 text-sm text-gray-500">
+                        <div className="flex items-center gap-1">
+                          <Calendar className="w-4 h-4" />
+                          <span>{post.date}</span>
+                        </div>
                       </div>
                     </div>
-                    <h3 className="text-lg lg:text-xl font-bold mb-3 group-hover:text-[#155d29] transition-colors line-clamp-2">
-                      {post.title}
-                    </h3>
-                    <p className="text-gray-600 mb-4 line-clamp-3 text-sm lg:text-base">
-                      {post.excerpt}
-                    </p>
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-1 text-[#155d29] font-medium">
-                        <span className="text-xs lg:text-sm">Leer más</span>
-                        <ArrowRight className="w-3 lg:w-4 h-3 lg:h-4 group-hover:translate-x-1 transition-transform" />
-                      </div>
-                    </div>
-                  </div>
-                </article>
+
+                    {/* Animated border */}
+                    <div className="absolute inset-0 border-2 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ borderColor: '#155d29' }}></div>
+                  </article>
                 );
               })}
             </div>
@@ -757,10 +775,11 @@ export default function BlogPage() {
               return (
                 <article
                   key={post.id}
-                  className="bg-white rounded-xl shadow-md lg:shadow-lg overflow-hidden hover:shadow-lg lg:hover:shadow-xl transition-all duration-300 group cursor-pointer mx-2 sm:mx-0 relative"
+                  className="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 hover:scale-105 overflow-hidden cursor-pointer mx-2 sm:mx-0"
                   onClick={() => setSelectedPost(post)}
                 >
-                  <div className="aspect-video overflow-hidden">
+                  {/* Video/Image container */}
+                  <div className="relative h-64 overflow-hidden">
                     {post.id === 1 ? (
                       <iframe
                         src="https://www.youtube.com/embed/JnWnFe_QdnE?autoplay=1&mute=1&loop=1&playlist=JnWnFe_QdnE&vq=hd2160"
@@ -813,54 +832,56 @@ export default function BlogPage() {
                       <img
                         src={post.image}
                         alt={post.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
                         loading="lazy"
                       />
                     )}
+                    
+                    {/* Gradient overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    {/* Hover button */}
+                    <div className="absolute inset-0 flex items-end justify-center p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                      <button 
+                        className="text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
+                        style={{ backgroundColor: '#155d29' }}
+                        onMouseEnter={(e) => (e.target as HTMLElement).style.backgroundColor = '#0f4a21'}
+                        onMouseLeave={(e) => (e.target as HTMLElement).style.backgroundColor = '#155d29'}
+                      >
+                        Leer Artículo
+                      </button>
+                    </div>
                   </div>
-                  <div className="p-4 lg:p-6">
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-3 gap-2">
-                      <span className="px-2 lg:px-3 py-1 bg-[#155d29] text-white text-xs font-medium rounded-full w-fit">
-                        {post.category}
-                      </span>
-                      <div className="flex items-center gap-1 text-gray-500">
-                        <Calendar className="w-3 h-3" />
-                        <span className="text-xs">{post.date}</span>
+
+                  {/* Article info */}
+                  <div className="p-6">
+                    <span className="px-3 py-1 bg-[#155d29] text-white text-xs font-medium rounded-full inline-block mb-3">
+                      {post.category}
+                    </span>
+                    
+                    <h3 className="text-xl font-bold mb-3 transition-colors duration-300" style={{ color: '#155d29' }}>
+                      {post.title}
+                    </h3>
+                    
+                    <p className="text-slate-600 mb-4 leading-relaxed line-clamp-3">
+                      {post.excerpt}
+                    </p>
+                    
+                    <div className="flex items-center gap-4 text-sm text-gray-500">
+                      <div className="flex items-center gap-1">
+                        <Calendar className="w-4 h-4" />
+                        <span>{post.date}</span>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <MessageSquare className="w-4 h-4" />
+                        <span>{post.comments}</span>
                       </div>
                     </div>
-                  
-                  <h3 className="text-base lg:text-lg font-bold mb-3 group-hover:text-[#155d29] transition-colors line-clamp-2">
-                    {post.title}
-                  </h3>
-                  
-                  <p className="text-gray-600 text-sm mb-4 line-clamp-3" title={post.excerpt}>
-                    {post.excerpt.length > 120 ? post.excerpt.substring(0, 120) + '...' : post.excerpt}
-                  </p>
-                  
-                  <div className="flex items-center justify-between border-t border-gray-100 pt-3 lg:pt-4 mt-4">
-                    <div className="flex items-center gap-1">
-                      <MessageSquare className="w-3 lg:w-4 h-3 lg:h-4 text-gray-400" />
-                      <span className="text-xs text-gray-500">{post.comments}</span>
-                    </div>
-                    <div className="flex gap-1 lg:gap-2">
-                      <button 
-                        className="p-1 lg:p-1.5 rounded-full hover:bg-gray-100 transition-colors" 
-                        title="Compartir"
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        <Share2 className="w-3 lg:w-4 h-3 lg:h-4 text-gray-400" />
-                      </button>
-                      <button 
-                        className="p-1 lg:p-1.5 rounded-full hover:bg-gray-100 transition-colors" 
-                        title="Guardar"
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        <Bookmark className="w-3 lg:w-4 h-3 lg:h-4 text-gray-400" />
-                      </button>
-                    </div>
                   </div>
-                </div>
-              </article>
+
+                  {/* Animated border */}
+                  <div className="absolute inset-0 border-2 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ borderColor: '#155d29' }}></div>
+                </article>
               );
             })}
           </div>

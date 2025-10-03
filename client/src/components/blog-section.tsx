@@ -182,7 +182,7 @@ export default function BlogSection() {
           </div>
 
           <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 sm:mb-6 text-wrap-balance" style={{ color: '#155d29' }}>
-            {t('blog.section.title')}
+            BLOGS Y NOTICIAS TRANSERVICA C.A
           </h2>
           <p className="mobile-text lg:text-xl max-w-3xl mx-auto mb-6 sm:mb-8 text-gray-600 text-wrap-pretty">
             {t('blog.section.description')}
@@ -242,90 +242,72 @@ export default function BlogSection() {
                     {blogPosts.slice(slideIndex * itemsPerSlide, (slideIndex + 1) * itemsPerSlide).map((post) => {
                       const CategoryIcon = getCategoryIcon(post.category);
                       return (
-                        <article key={post.id} className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 hover:scale-105 border border-gray-100 hover:border-[#155d29]/30">
-                          <div className="relative">
-                            <div className="aspect-video overflow-hidden">
-                              {post.id === 1 ? (
-                                <iframe
-                                  src="https://www.youtube.com/embed/JnWnFe_QdnE?autoplay=1&mute=1&loop=1&playlist=JnWnFe_QdnE&vq=hd2160"
-                                  title={post.title}
-                                  className="w-full h-full"
-                                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                  allowFullScreen
-                                />
-                              ) : post.id === 2 ? (
-                                <iframe
-                                  src="https://www.youtube.com/embed/4ZfZ5YFelkQ?autoplay=1&mute=1&loop=1&playlist=4ZfZ5YFelkQ&vq=hd2160"
-                                  title={post.title}
-                                  className="w-full h-full"
-                                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                  allowFullScreen
-                                />
-                              ) : post.id === 3 ? (
-                                <iframe
-                                  src="https://www.youtube.com/embed/44lpgBO22qU?autoplay=1&mute=1&loop=1&playlist=44lpgBO22qU&vq=hd2160"
-                                  title={post.title}
-                                  className="w-full h-full"
-                                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                  allowFullScreen
-                                />
-                              ) : post.id === 4 ? (
-                                <iframe
-                                  src="https://www.youtube.com/embed/54hazc90eNk?autoplay=1&mute=1&loop=1&playlist=54hazc90eNk&vq=hd2160"
-                                  title={post.title}
-                                  className="w-full h-full"
-                                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                  allowFullScreen
-                                />
-                              ) : post.id === 7 ? (
-                                <iframe
-                                  src="https://www.youtube.com/embed/NW9Huszovqw?start=30&end=171&autoplay=1&mute=1&loop=1&playlist=NW9Huszovqw&vq=hd2160"
-                                  title={post.title}
-                                  className="w-full h-full"
-                                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                  allowFullScreen
-                                />
-                              ) : post.id === 8 ? (
-                                <iframe
-                                  src="https://www.youtube.com/embed/JJjJ6lF_4oI?start=22&end=86&autoplay=1&mute=1&loop=1&playlist=JJjJ6lF_4oI&vq=hd2160"
-                                  title={post.title}
-                                  className="w-full h-full"
-                                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                  allowFullScreen
-                                />
-                              ) : (
-                                <img 
-                                  src={post.image} 
-                                  alt={post.title}
-                                  loading="lazy"
-                                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                                />
-                              )}
-                            </div>
-                          </div>
-                          
-                          <div className="p-6">
-                            <h4 className="text-lg font-bold mb-3 text-gray-900 group-hover:text-[#155d29] transition-colors duration-300 text-wrap-balance line-clamp-2 leading-tight">
-                              {post.title}
-                            </h4>
+                        <article key={post.id} className="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 hover:scale-105 overflow-hidden">
+                          {/* Video/Image container */}
+                          <div className="relative h-64 overflow-hidden">
+                            {post.id === 1 ? (
+                              <iframe
+                                src="https://www.youtube.com/embed/JnWnFe_QdnE?autoplay=1&mute=1&loop=1&playlist=JnWnFe_QdnE&vq=hd2160"
+                                title={post.title}
+                                className="w-full h-full"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                              />
+                            ) : post.id === 2 ? (
+                              <iframe
+                                src="https://www.youtube.com/embed/4ZfZ5YFelkQ?autoplay=1&mute=1&loop=1&playlist=4ZfZ5YFelkQ&vq=hd2160"
+                                title={post.title}
+                                className="w-full h-full"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                              />
+                            ) : post.id === 3 ? (
+                              <iframe
+                                src="https://www.youtube.com/embed/44lpgBO22qU?autoplay=1&mute=1&loop=1&playlist=44lpgBO22qU&vq=hd2160"
+                                title={post.title}
+                                className="w-full h-full"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                              />
+                            ) : post.id === 4 ? (
+                              <iframe
+                                src="https://www.youtube.com/embed/54hazc90eNk?autoplay=1&mute=1&loop=1&playlist=54hazc90eNk&vq=hd2160"
+                                title={post.title}
+                                className="w-full h-full"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                              />
+                            ) : post.id === 7 ? (
+                              <iframe
+                                src="https://www.youtube.com/embed/NW9Huszovqw?start=30&end=171&autoplay=1&mute=1&loop=1&playlist=NW9Huszovqw&vq=hd2160"
+                                title={post.title}
+                                className="w-full h-full"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                              />
+                            ) : post.id === 8 ? (
+                              <iframe
+                                src="https://www.youtube.com/embed/JJjJ6lF_4oI?start=22&end=86&autoplay=1&mute=1&loop=1&playlist=JJjJ6lF_4oI&vq=hd2160"
+                                title={post.title}
+                                className="w-full h-full"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                              />
+                            ) : (
+                              <img 
+                                src={post.image} 
+                                alt={post.title}
+                                loading="lazy"
+                                className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                              />
+                            )}
                             
-                            <p className="text-gray-600 mb-4 text-sm leading-relaxed text-wrap-pretty line-clamp-3">
-                              {post.excerpt}
-                            </p>
+                            {/* Gradient overlay */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                             
-                            <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-                              <div className="flex items-center gap-4 text-xs text-gray-500">
-                                <div className="flex items-center gap-1">
-                                  <Eye className="w-3 h-3" />
-                                  <span>{post.views.toLocaleString()}</span>
-                                </div>
-                                <div className="flex items-center gap-1">
-                                  <MessageCircle className="w-3 h-3" />
-                                  <span>{post.comments}</span>
-                                </div>
-                              </div>
-                              
-                              <button
+                            {/* Hover button */}
+                            <div className="absolute inset-0 flex items-end justify-center p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                              <button 
                                 onClick={() => {
                                   window.location.href = '/blog#blog-main';
                                   setTimeout(() => {
@@ -335,13 +317,40 @@ export default function BlogSection() {
                                     }
                                   }, 200);
                                 }}
-                                className="flex items-center gap-1 text-[#155d29] font-bold text-sm hover:gap-2 transition-all duration-300 group-hover:text-[#0f4a21] bg-green-50 hover:bg-[#155d29] hover:text-white px-3 py-2 rounded-lg"
+                                className="text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
+                                style={{ backgroundColor: '#155d29' }}
+                                onMouseEnter={(e) => (e.target as HTMLElement).style.backgroundColor = '#0f4a21'}
+                                onMouseLeave={(e) => (e.target as HTMLElement).style.backgroundColor = '#155d29'}
                               >
                                 {t('blog.section.readFullArticle')}
-                                <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
                               </button>
                             </div>
                           </div>
+
+                          {/* Article info */}
+                          <div className="p-6">
+                            <h3 className="text-xl font-bold mb-3 transition-colors duration-300" style={{ color: '#155d29' }}>
+                              {post.title}
+                            </h3>
+                            
+                            <p className="text-slate-600 mb-4 leading-relaxed line-clamp-3">
+                              {post.excerpt}
+                            </p>
+                            
+                            <div className="flex items-center gap-4 text-sm text-gray-500">
+                              <div className="flex items-center gap-1">
+                                <Eye className="w-4 h-4" />
+                                <span>{post.views.toLocaleString()}</span>
+                              </div>
+                              <div className="flex items-center gap-1">
+                                <MessageCircle className="w-4 h-4" />
+                                <span>{post.comments}</span>
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Animated border */}
+                          <div className="absolute inset-0 border-2 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ borderColor: '#155d29' }}></div>
                         </article>
                       );
                     })}
