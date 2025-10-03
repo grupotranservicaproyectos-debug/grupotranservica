@@ -1,0 +1,107 @@
+# PROMPT TÉCNICO PARA DESARROLLADOR WEB
+## OPTIMIZACIÓN SEO COMPLETA - GRUPOTRANSERVICA.COM
+
+### CORRECCIONES CRÍTICAS INMEDIATAS:
+
+**1. CONTADORES PRINCIPALES (MÁXIMA PRIORIDAD):**
+```javascript
+// CAMBIAR INMEDIATAMENTE:
+// De: 0 años → 40+ años
+// De: 0 toneladas → 1,100 toneladas  
+// De: 0% → 100% confiabilidad
+
+// Implementar animación countUp.js:
+$('.counter-years').countUp(40);
+$('.counter-tons').countUp(1100);
+$('.counter-reliability').countUp(100);
+2. SEO ON-PAGE:
+
+Copy<!-- Meta Tags Optimizados -->
+<title>Transporte Cargas Excepcionales Venezuela | TRANSERVICA - Hasta 1,100 Toneladas</title>
+<meta name="description" content="✅ Líderes en transporte de cargas excepcionales Venezuela. 40+ años de experiencia, hasta 1,100 toneladas. Equipos SCHEUERLE alemanes. ☎️ Cotización gratuita 24/7.">
+<meta name="keywords" content="transporte carga pesada venezuela, cargas excepcionales, grúas especializadas, equipos SCHEUERLE, transporte industrial">
+
+<!-- Open Graph -->
+<meta property="og:title" content="TRANSERVICA - Transporte Cargas Excepcionales Venezuela">
+<meta property="og:description" content="40+ años transportando el futuro de Venezuela. Especialistas en cargas hasta 1,100 toneladas.">
+<meta property="og:image" content="/images/transervica-og-image.jpg">
+3. ESTRUCTURA HTML SEMÁNTICA:
+
+Copy<!-- Headers Jerárquicos -->
+<h1>Transporte de Cargas Excepcionales Venezuela - Hasta 1,100 Toneladas</h1>
+<h2>40+ Años Especializados en Movilización de Cargas Pesadas y Sobredimensionadas</h2>
+<h3>Servicios de Transporte Especializado con Equipos SCHEUERLE</h3>
+
+<!-- Schema Markup -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TransportationCompany",
+  "name": "TRANSERVICA",
+  "description": "Empresa venezolana especializada en transporte de cargas excepcionales hasta 1,100 toneladas con 40+ años de experiencia",
+  "url": "https://grupotranservica.com",
+  "logo": "https://grupotranservica.com/logo.jpg",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Carretera Nacional Maracay Mariara Km 9",
+    "addressLocality": "Mariara",
+    "addressRegion": "Carabobo",
+    "addressCountry": "VE"
+  },
+  "telephone": "+58-412-367-5636",
+  "email": "direccioncomercialtvc@grupotranservica.com",
+  "foundingDate": "1984",
+  "numberOfEmployees": "50-100",
+  "serviceArea": "Venezuela"
+}
+</script>
+4. OPTIMIZACIÓN DE VELOCIDAD:
+
+Copy// Lazy Loading Imágenes
+document.addEventListener("DOMContentLoaded", function() {
+    var lazyImages = [].slice.call(document.querySelectorAll("img[data-src]"));
+    
+    if ("IntersectionObserver" in window) {
+        let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    let lazyImage = entry.target;
+                    lazyImage.src = lazyImage.dataset.src;
+                    lazyImage.classList.remove("lazy");
+                    lazyImageObserver.unobserve(lazyImage);
+                }
+            });
+        });
+
+        lazyImages.forEach(function(lazyImage) {
+            lazyImageObserver.observe(lazyImage);
+        });
+    }
+});
+
+// Minificación CSS/JS
+// Implementar webpack o gulp para:
+// - Minificar CSS/JS
+// - Combinar archivos
+// - Optimizar imágenes a WebP
+// - Implementar critical CSS
+5. FORMULARIOS OPTIMIZADOS:
+
+Copy<!-- Formulario de Cotización SEO-Optimizado -->
+<form id="cotizacion-form" class="seo-form">
+    <h3>Solicite Cotización Gratuita - Transporte Cargas Excepcionales</h3>
+    
+    <label for="tipo-carga">Tipo de Carga *</label>
+    <select id="tipo-carga" name="tipo_carga" required>
+        <option value="">Seleccione tipo de carga</option>
+        <option value="maquinaria-pesada">Maquinaria Pesada</option>
+        <option value="estructuras-metalicas">Estructuras Metálicas</option>
+        <option value="equipos-industriales">Equipos Industriales</option>
+        <option value="cargas-sobredimensionadas">Cargas Sobredimensionadas</option>
+    </select>
+    
+    <label for="peso-carga">Peso Aproximado (Toneladas) *</label>
+    <input type="number" id="peso-carga" name="peso_carga" min="1" max="1100" required>
+    
+    <!-- Más campos optimizados para conversión -->
+</form>
