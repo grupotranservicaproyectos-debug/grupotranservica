@@ -89,34 +89,6 @@ export default function BlogSection() {
       featured: false
     },
     {
-      id: 5,
-      title: "40 Años Transportando el Futuro: Historia de TRANSERVICA",
-      excerpt: "Un recorrido por cuatro décadas de liderazgo en transporte especializado, desde nuestros inicios hasta convertirnos en la empresa líder del sector en Venezuela.",
-      content: "TRANSERVICA fue fundada en 1984 con la visión de revolucionar el transporte de cargas excepcionales en Venezuela. Iniciamos operaciones con una flota de 3 trailers convencionales y un equipo de 12 profesionales, enfocados en atender las necesidades del sector petrolero nacional. Durante los años 90, invertimos en tecnología europea adquiriendo nuestros primeros trailers modulares SCHEUERLE, convirtiéndonos en pioneros del transporte especializado. En la década del 2000, expandimos servicios hacia los sectores petroquímico, siderúrgico y de infraestructura, participando en proyectos emblemáticos como el transporte de equipos para el Metro de Caracas y la ampliación de refinerías. Los años 2010 marcaron nuestra consolidación internacional con certificaciones ISO 9001, ISO 14001 y OHSAS 18001. Hoy, con 40 años de experiencia, operamos la flota más moderna de Sudamérica con capacidad para transportar hasta 1,100 toneladas, manteniendo un record de seguridad del 99.8% y habiendo ejecutado más de 15,000 proyectos exitosos.",
-      author: "Dirección General",
-      date: "2024-10-05",
-      readTime: "15 min",
-      views: 4521,
-      comments: 67,
-      category: "Historia Corporativa",
-      image: transportImage3,
-      featured: true
-    },
-    {
-      id: 6,
-      title: "Mantenimiento Preventivo de Trailers Modulares: Claves del Éxito Operativo",
-      excerpt: "Protocolo detallado de mantenimiento para trailers modulares hidráulicos, garantizando máxima disponibilidad y seguridad en operaciones críticas.",
-      content: "El mantenimiento preventivo es esencial para garantizar la operatividad continua de nuestros trailers modulares SCHEUERLE. TRANSERVICA implementa un protocolo riguroso de mantenimiento basado en estándares internacionales que incluye inspecciones diarias, semanales, mensuales y anuales. Cada trailer cuenta con un historial digital completo que registra horas de operación, cargas transportadas, rutas utilizadas y todas las intervenciones de mantenimiento. Los sistemas hidráulicos reciben atención especial con cambios de fluido cada 1,000 horas, inspección de cilindros cada 500 horas y calibración de válvulas cada 250 horas. Los sistemas de dirección y suspensión se revisan cada 100 horas de operación, mientras que los neumáticos especializados se inspeccionan antes de cada proyecto. Nuestro taller cuenta con equipos de diagnóstico computarizados, banco de pruebas hidráulicas y personal certificado por SCHEUERLE. Este protocolo nos permite mantener una disponibilidad operativa del 98.5% y garantizar la seguridad en cada transporte, cumpliendo con las más exigentes normas internacionales de calidad.",
-      author: "Ing. Luis Martínez",
-      date: "2024-09-18",
-      readTime: "9 min",
-      views: 2103,
-      comments: 19,
-      category: "Mantenimiento",
-      image: equipmentImage3,
-      featured: false
-    },
-    {
       id: 7,
       title: "Maniobra de Traslado de Vagones: Puerto Cabello - Charallave",
       excerpt: "Transporte especializado de vagones del Instituto de Ferrocarriles del Estado (IFE Charallave) utilizando equipo modular Cometto 4+4 y Cappon 4+4 con plataforma intermedia. Capacidad por eje: 25,000 kg.",
