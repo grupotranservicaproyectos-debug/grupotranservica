@@ -313,6 +313,14 @@ export default function BlogSection() {
                                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                   allowFullScreen
                                 />
+                              ) : post.id === 8 ? (
+                                <iframe
+                                  src="https://www.youtube.com/embed/JJjJ6lF_4oI?start=22&end=86&autoplay=1&mute=1&loop=1&playlist=JJjJ6lF_4oI&vq=hd2160"
+                                  title={post.title}
+                                  className="w-full h-full"
+                                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                  allowFullScreen
+                                />
                               ) : (
                                 <img 
                                   src={post.image} 
