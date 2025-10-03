@@ -158,13 +158,6 @@ export default function EquipmentSection() {
                   
                   {/* Image Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-                  
-                  {/* Capacity Badge */}
-                  <div className="absolute top-4 right-4">
-                    <span className="text-white px-3 py-1 rounded-full text-sm font-medium bg-[#3ea30f]">
-                      {currentEquipment.capacity}
-                    </span>
-                  </div>
                 </div>
               </div>
 
