@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import { Truck, Crane, Settings, Award, ChevronDown, ChevronUp } from 'lucide-react';
+import { Truck, Settings, Award, ChevronDown, ChevronUp } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
-import image15 from "@assets/15_1754168567957.png";
-import image16 from "@assets/16_1754168567957.png"; 
-import image17 from "@assets/17_1754168567957.png";
-import image20 from "@assets/20_1754168567958.png";  
-import image21 from "@assets/21_1754168567958.png";
-import image24 from "@assets/24_1754168567959.png";
+import image15 from "@assets/15_1754168567957.webp";
+import image16 from "@assets/16_1754168567957.webp"; 
+import image17 from "@assets/17_1754168567957.webp";
+import image20 from "@assets/20_1754168567958.webp";  
+import image21 from "@assets/21_1754168567958.webp";
+import image24 from "@assets/24_1754168567959.webp";
 
 interface EquipmentItem {
   name: string;
@@ -134,6 +134,7 @@ export default function EquipmentSection() {
                 <img
                   src={equipment.image}
                   alt={equipment.name}
+                  loading="lazy"
                   className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
                 />
                 

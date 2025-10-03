@@ -2,14 +2,14 @@ import { useState } from "react";
 import { Calendar, User, ArrowRight, Eye, MessageCircle, ChevronLeft, ChevronRight, Truck, Settings, Shield, Award } from "lucide-react";
 import { Link } from 'wouter';
 import { useLanguage } from '../contexts/LanguageContext';
-import transportImage1 from "@assets/1_1754173669382.jpeg";
-import transportImage2 from "@assets/2_1754173669382.jpg";
-import transportImage3 from "@assets/3_1754173669382.jpg";
-import transportImage4 from "@assets/4_1754173669383.jpg";
-import transportImage5 from "@assets/5_1754173669383.jpg";
-import equipmentImage1 from "@assets/7_1754162276863.png";
-import equipmentImage2 from "@assets/8_1754162276863.png";
-import equipmentImage3 from "@assets/9_1754162276864.png";
+import transportImage1 from "@assets/1_1754173669382.webp";
+import transportImage2 from "@assets/2_1754173669382.webp";
+import transportImage3 from "@assets/3_1754173669382.webp";
+import transportImage4 from "@assets/4_1754173669383.webp";
+import transportImage5 from "@assets/5_1754173669383.webp";
+import equipmentImage1 from "@assets/7_1754162276863.webp";
+import equipmentImage2 from "@assets/8_1754162276863.webp";
+import equipmentImage3 from "@assets/9_1754162276864.webp";
 
 interface BlogPost {
   id: number;
@@ -248,6 +248,7 @@ export default function BlogSection() {
                               <img 
                                 src={post.image} 
                                 alt={post.title}
+                                loading="lazy"
                                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                               />
                             </div>

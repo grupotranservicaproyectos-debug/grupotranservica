@@ -1,0 +1,68 @@
+I need immediate assistance to optimize the loading speed and performance of two business websites that are now live:
+
+WEBSITES:
+
+gruasequiser.net (primary business site)
+grupotranservica.com (secondary business site)
+PERFORMANCE OBJECTIVES:
+
+Ultra-fast loading times - target under 2 seconds
+Maximum responsiveness - smooth navigation and interactions
+Mobile optimization - full-speed performance on all devices
+SEO-friendly speed - Google PageSpeed scores 90+
+SPECIFIC OPTIMIZATIONS NEEDED:
+
+IMAGE OPTIMIZATION:
+
+Compress and optimize all images (WebP format preferred)
+Implement lazy loading for images
+Create responsive image sets for different screen sizes
+Remove unused or oversized images
+CODE OPTIMIZATION:
+
+Minify CSS, JavaScript, and HTML
+Remove unused CSS and JavaScript
+Combine and compress files where possible
+Optimize critical rendering path
+CACHING STRATEGIES:
+
+Implement browser caching headers
+Set up CDN (Content Delivery Network) if not already active
+Enable server-side caching
+Optimize database queries (if applicable)
+TECHNICAL PERFORMANCE:
+
+Reduce HTTP requests
+Enable GZIP compression
+Optimize fonts loading (preload critical fonts)
+Remove render-blocking resources
+Implement prefetching for critical resources
+MOBILE PERFORMANCE:
+
+Ensure mobile-first optimization
+Touch-friendly interfaces with fast response times
+Optimize for various connection speeds
+Minimize redirects
+MONITORING & TESTING:
+
+Set up performance monitoring
+Test on multiple devices and browsers
+Verify Core Web Vitals compliance
+Create performance benchmarks
+PRIORITY AREAS:
+
+Homepage loading speed (most critical)
+Navigation responsiveness
+Form submission speed
+Image gallery performance (if applicable)
+Contact page optimization
+DELIVERABLES REQUESTED:
+
+Before/after performance reports
+PageSpeed Insights scores comparison
+GTmetrix analysis results
+Mobile performance metrics
+Recommendations for ongoing maintenance
+TIMELINE: This is urgent - business operations depend on these websites performing at maximum speed.
+
+Please provide an estimated timeline and approach for implementing these optimizations.

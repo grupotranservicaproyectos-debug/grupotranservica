@@ -1,4 +1,4 @@
-import transportImage from "@assets/5_1754173669383.jpg";
+import transportImage from "@assets/5_1754173669383.webp";
 import { useLanguage } from '../contexts/LanguageContext';
 
 export default function AboutSection() {

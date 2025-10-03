@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import LanguageSwitcher from './LanguageSwitcher';
-import logoTranservica from "@assets/logo transervica sin fondo_1754163034585.png";
+import logoTranservica from "@assets/logo transervica sin fondo_1754163034585.webp";
 
 export default function HeroSection() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);

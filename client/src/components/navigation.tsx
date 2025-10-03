@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import logoTranservica from "@assets/logo transervica sin fondo_1754163034585.png";
+import logoTranservica from "@assets/logo transervica sin fondo_1754163034585.webp";
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

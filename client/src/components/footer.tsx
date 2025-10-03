@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Facebook, Instagram, Youtube, Mail, Phone, MapPin } from 'lucide-react';
-import logoTranservica from "@assets/logo transervica sin fondo_1754163034585.png";
+import logoTranservica from "@assets/logo transervica sin fondo_1754163034585.webp";
 import { useLanguage } from '../contexts/LanguageContext';
 import { Link } from 'wouter';
 
@@ -43,7 +43,8 @@ export default function Footer() {
               >
                 <img 
                   src={logoTranservica} 
-                  alt="TRANSERVICA Logo" 
+                  alt="TRANSERVICA Logo"
+                  loading="lazy"
                   className="h-24 md:h-28 lg:h-32 w-auto max-w-full hover:scale-105 transition-transform duration-300 filter brightness-150 contrast-125 drop-shadow-lg"
                   style={{ 
                     imageRendering: 'crisp-edges',

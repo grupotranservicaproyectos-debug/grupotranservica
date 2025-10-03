@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-import project1 from "@assets/9_1754162276864.png";
-import project2 from "@assets/10_1754162276864.png";  
-import project3 from "@assets/11_1754162276864.png";
-import project4 from "@assets/12_1754162276864.png";
-import project5 from "@assets/13_1754162321563.png";
-import project6 from "@assets/14_1754162321564.png";
+import project1 from "@assets/9_1754162276864.webp";
+import project2 from "@assets/10_1754162276864.webp";  
+import project3 from "@assets/11_1754162276864.webp";
+import project4 from "@assets/12_1754162276864.webp";
+import project5 from "@assets/13_1754162321563.webp";
+import project6 from "@assets/14_1754162321564.webp";
 
 export default function ProjectsGallery() {
   const projects = [
