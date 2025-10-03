@@ -308,7 +308,7 @@ const translations = {
     'blog.backToHome': 'VOLVER AL INICIO',
     'blog.section.badge': 'Blog Corporativo',
     'blog.section.title': 'BLOGS Y NOTICIAS TRANSERVICA C.A',
-    'blog.section.description': 'Noticias y proyectos de Transporte de Carga Especializado',
+    'blog.section.description': 'Noticias y proyectos de Transporte de Carga Excepcionales y Especializado',
     'blog.section.featured': 'Noticias y Proyectos Destacados',
     'blog.section.readFullArticle': 'Leer Artículo Completo',
     'blog.section.newsletter.title': 'Newsletter TRANSERVICA',
