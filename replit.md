@@ -79,7 +79,7 @@ The blog system features a complete corporate blog implementation with real proj
   - Auto Transformador 170 Toneladas (video ID: JnWnFe_QdnE)
   - Power House 4 Módulos de 35 Toneladas (video ID: 4ZfZ5YFelkQ)
   - Videos display across all views: homepage carousel, blog featured section, blog grid, and article detail pages
-  - Configured with autoplay=1, mute=1, loop=1 for automatic playback and continuous replay
+  - Configured with autoplay=1, mute=1, loop=1, hd=1 for automatic playback, continuous replay, and highest quality available (4K/1080p/720p depending on video source)
 - **Clean UI Design**: Removed article number badges and read time badges for cleaner, more professional appearance while maintaining essential metadata (comment counts, categories, dates)
 - **Professional Layout**: Sidebar with search widget, related articles, contact form, categories, and newsletter subscription
 - **Social Integration**: Facebook, Twitter, LinkedIn, and generic share buttons for each article
