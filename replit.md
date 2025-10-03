@@ -75,7 +75,11 @@ The blog system features a complete corporate blog implementation with real proj
   - Reactor Monofásico 70 Toneladas (Puerto Cabello to Anzoátegui)
   - Transformador 333MVA 180 Toneladas (Puerto Cabello to Miranda)
 - **Article Features**: Technical specifications, project achievements with checkmarks (✅), publication dates, view counts, and comment counts
-- **YouTube Video Integration**: Auto Transformador 170 Toneladas project features embedded YouTube video (JnWnFe_QdnE) instead of static image across all views: homepage carousel, blog featured section, blog grid, and article detail page
+- **YouTube Video Integration**: Two flagship projects feature embedded YouTube videos with autoplay and continuous loop:
+  - Auto Transformador 170 Toneladas (video ID: JnWnFe_QdnE)
+  - Power House 4 Módulos de 35 Toneladas (video ID: 4ZfZ5YFelkQ)
+  - Videos display across all views: homepage carousel, blog featured section, blog grid, and article detail pages
+  - Configured with autoplay=1, mute=1, loop=1 for automatic playback and continuous replay
 - **Clean UI Design**: Removed article number badges and read time badges for cleaner, more professional appearance while maintaining essential metadata (comment counts, categories, dates)
 - **Professional Layout**: Sidebar with search widget, related articles, contact form, categories, and newsletter subscription
 - **Social Integration**: Facebook, Twitter, LinkedIn, and generic share buttons for each article
