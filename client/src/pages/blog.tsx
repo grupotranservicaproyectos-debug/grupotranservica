@@ -160,11 +160,21 @@ export default function BlogPage() {
             <article className="lg:col-span-2">
               <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
                 <div className="aspect-video overflow-hidden">
-                  <img
-                    src={selectedPost.image}
-                    alt={selectedPost.title}
-                    className="w-full h-full object-cover"
-                  />
+                  {selectedPost.id === 1 ? (
+                    <iframe
+                      src="https://www.youtube.com/embed/JnWnFe_QdnE"
+                      title={selectedPost.title}
+                      className="w-full h-full"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
+                  ) : (
+                    <img
+                      src={selectedPost.image}
+                      alt={selectedPost.title}
+                      className="w-full h-full object-cover"
+                    />
+                  )}
                 </div>
                 
                 <div className="p-8">
@@ -548,12 +558,22 @@ export default function BlogPage() {
                     onClick={() => setSelectedPost(post)}
                   >
                     <div className="aspect-video overflow-hidden">
-                      <img
-                        src={post.image}
-                        alt={post.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                        loading="lazy"
-                      />
+                      {post.id === 1 ? (
+                        <iframe
+                          src="https://www.youtube.com/embed/JnWnFe_QdnE"
+                          title={post.title}
+                          className="w-full h-full"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
+                        />
+                      ) : (
+                        <img
+                          src={post.image}
+                          alt={post.title}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                          loading="lazy"
+                        />
+                      )}
                     </div>
                   <div className="p-4 lg:p-6">
                     <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-3 lg:mb-4">
@@ -608,12 +628,22 @@ export default function BlogPage() {
                   onClick={() => setSelectedPost(post)}
                 >
                   <div className="aspect-video overflow-hidden">
-                    <img
-                      src={post.image}
-                      alt={post.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                      loading="lazy"
-                    />
+                    {post.id === 1 ? (
+                      <iframe
+                        src="https://www.youtube.com/embed/JnWnFe_QdnE"
+                        title={post.title}
+                        className="w-full h-full"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      />
+                    ) : (
+                      <img
+                        src={post.image}
+                        alt={post.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        loading="lazy"
+                      />
+                    )}
                   </div>
                   <div className="p-4 lg:p-6">
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-3 gap-2">
