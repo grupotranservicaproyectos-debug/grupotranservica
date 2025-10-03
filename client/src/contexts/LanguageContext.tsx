@@ -100,7 +100,7 @@ const translations = {
     'about.vision.title': 'Visión',
     'about.vision.text': 'Ser una empresa reconocida nacional e internacionalmente en la prestación de servicios de movilización e izamiento de cargas sobredimensionadas, con personal calificado, mejoramiento continuo, aprovechamiento de oportunidades y satisfacción permanente de clientes.',
     'about.cta.title': 'Múltiples Cargas Excepcionales. Una Plataforma. Cero Complicaciones.',
-    'about.cta.subtitle': 'Compare cotizaciones de transporte pesado y sobredimensionado, reserve al instante y rastree en tiempo real — todo con TRANSERVICA.',
+    'about.cta.subtitle': 'Compare cotizaciones de transporte pesado y sobredimensionado, reserve al instante y rastree en tiempo real — todo con GRUPO TRANSERVICA C.A',
     'about.cta.quote': 'OBTENER COTIZACIÓN INSTANTÁNEA',
     'about.cta.call': 'HABLAR CON UN ESPECIALISTA',
     
