@@ -245,12 +245,22 @@ export default function BlogSection() {
                         <article key={post.id} className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 hover:scale-105 border border-gray-100 hover:border-[#155d29]/30">
                           <div className="relative">
                             <div className="aspect-video overflow-hidden">
-                              <img 
-                                src={post.image} 
-                                alt={post.title}
-                                loading="lazy"
-                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                              />
+                              {post.id === 1 ? (
+                                <iframe
+                                  src="https://www.youtube.com/embed/JnWnFe_QdnE"
+                                  title={post.title}
+                                  className="w-full h-full"
+                                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                  allowFullScreen
+                                />
+                              ) : (
+                                <img 
+                                  src={post.image} 
+                                  alt={post.title}
+                                  loading="lazy"
+                                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                />
+                              )}
                             </div>
                           </div>
                           
