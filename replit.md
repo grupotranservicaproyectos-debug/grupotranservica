@@ -74,7 +74,9 @@ The blog system features a complete corporate blog implementation with real proj
   - Power House 4 Módulos de 35 Toneladas (Carabobo)
   - Reactor Monofásico 70 Toneladas (Puerto Cabello to Anzoátegui)
   - Transformador 333MVA 180 Toneladas (Puerto Cabello to Miranda)
-- **Article Features**: Technical specifications, project achievements with checkmarks (✅), publication dates, estimated read time, view counts, and comment counts
+- **Article Features**: Technical specifications, project achievements with checkmarks (✅), publication dates, view counts, and comment counts
+- **YouTube Video Integration**: Auto Transformador 170 Toneladas project features embedded YouTube video (JnWnFe_QdnE) instead of static image across all views: homepage carousel, blog featured section, blog grid, and article detail page
+- **Clean UI Design**: Removed article number badges and read time badges for cleaner, more professional appearance while maintaining essential metadata (comment counts, categories, dates)
 - **Professional Layout**: Sidebar with search widget, related articles, contact form, categories, and newsletter subscription
 - **Social Integration**: Facebook, Twitter, LinkedIn, and generic share buttons for each article
 - **Interactive Elements**: Comments section with form, article tags, bookmark functionality, and engagement metrics
