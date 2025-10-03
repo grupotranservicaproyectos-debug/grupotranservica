@@ -224,17 +224,6 @@ export default function BlogPage() {
                     {selectedPost.title}
                   </h1>
 
-                  {/* Author Info */}
-                  <div className="flex items-center gap-3 mb-8 p-4 bg-gray-50 rounded-xl">
-                    <div className="w-12 h-12 bg-gradient-to-br from-[#155d29] to-[#0f4a21] rounded-full flex items-center justify-center">
-                      <User className="w-6 h-6 text-white" />
-                    </div>
-                    <div>
-                      <p className="font-medium text-gray-900">{selectedPost.author}</p>
-                      <p className="text-sm text-gray-600">Ingeniero Especialista en Logística</p>
-                    </div>
-                  </div>
-
                   {/* Article Content */}
                   <div className="prose prose-lg max-w-none mb-8">
                     <p className="text-lg leading-relaxed text-gray-700 whitespace-pre-line">
