@@ -86,31 +86,30 @@ const getBlogPosts = (t: any) => [
     id: 8,
     title: t('blog.post8.title'),
     excerpt: t('blog.post8.excerpt'),
+    content: "TRANSERVICA ejecutó exitosamente uno de los proyectos de transporte eléctrico de mayor envergadura en el Estado Bolívar: el traslado de un transformador de 420 MVA desde la Represa Macagua hasta la Represa Simón Bolívar-Guri.\n\n**Especificaciones Técnicas del Transformador 420 MVA:**\n\n✅ Potencia nominal: 420 MVA (mega voltios amperios)\n✅ Peso total: 245 toneladas\n✅ Dimensiones: 8.45 metros de largo × 4.9 metros de alto × 4.55 metros de ancho\n✅ Destino: Represa Simón Bolívar-Guri, Estado Bolívar\n✅ Duración del proyecto: 5 días de traslado\n\n**Equipos Especializados de Alta Capacidad:**\n\nPara este proyecto de infraestructura crítica nacional, TRANSERVICA desplegó equipamiento de última generación:\n\n🔧 Marca: Cometto\n🔧 Configuración: Trailer modular hidráulico (8+8) ejes + Transpor Frame\n🔧 Capacidad por eje: 25,000 kg\n🔧 Capacidad total del sistema: 400,000 kg (400 toneladas)\n\n**Desafío Hidroeléctrico Nacional:**\n\nEste transporte representa uno de los proyectos más importantes para la infraestructura energética de Venezuela. El transformador de 420 MVA es esencial para la operación del Complejo Hidroeléctrico Simón Bolívar (Represa de Guri), la principal fuente de generación eléctrica del país.\n\nLa configuración especial de 16 ejes (8+8) con Transpor Frame permitió distribuir uniformemente las 245 toneladas del transformador, garantizando estabilidad y seguridad durante los cinco días de operación en territorio bolivarense.\n\n**Logros del Proyecto:**\n\n✅ Transformador 420 MVA transportado exitosamente\n✅ 245 toneladas movilizadas con sistema Cometto (8+8) ejes\n✅ Traslado Represa Macagua → Represa Guri completado\n✅ Proyecto hidroeléctrico de importancia nacional\n✅ Operación de 5 días ejecutada sin incidentes\n\nEste proyecto consolida a TRANSERVICA como el socio estratégico para proyectos de infraestructura energética de máxima complejidad en Venezuela, demostrando nuestra capacidad para movilizar equipos de potencia ultra-alta con los más altos estándares de seguridad y eficiencia operativa.",
     date: "2025-01-15",
     readTime: "9 min",
-    content: t('blog.post8.content'),
+    views: 2156,
     comments: 27,
-    author: t('blog.post8.author'),
-    category: t('blog.page.category'),
+    category: "Proyectos Especiales",
     tags: ["Transformador 420MVA", "Represa Guri", "Cometto 8+8", "Estado Bolívar", "245 Toneladas"],
     image: "/attached_assets/1_1754173669382.jpeg",
     featured: true
   }
 ];
 
+const categories = [
+  "Todos los Artículos",
+  "Proyectos Especiales"
+];
+
 export default function BlogPage() {
-  const { t, language } = useLanguage();
+  const [selectedCategory, setSelectedCategory] = useState("Todos los Artículos");
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedPost, setSelectedPost] = useState<any>(null);
+  const { t } = useLanguage();
   const postsPerPage = 9;
-  
-  // Get blog posts in current language
-  const blogPosts = getBlogPosts(t);
-  
-  // Get categories in current language  
-  const categories = [t('blog.page.allArticles'), t('blog.page.category')];
-  const [selectedCategory, setSelectedCategory] = useState(t('blog.page.allArticles'));
 
   // Handle scroll to blog main section or specific post on page load
   React.useEffect(() => {
@@ -187,7 +186,7 @@ export default function BlogPage() {
 
   // Filter posts
   const filteredPosts = blogPosts.filter(post => {
-    const matchesCategory = selectedCategory === t('blog.page.allArticles') || post.category === selectedCategory;
+    const matchesCategory = selectedCategory === "Todos los Artículos" || post.category === selectedCategory;
     const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          post.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          post.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
@@ -441,7 +440,7 @@ export default function BlogPage() {
                   <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
                   <input
                     type="text"
-                    placeholder={t('blog.page.search')}
+                    placeholder="Buscar artículos..."
                     className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#155d29]"
                   />
                 </div>
@@ -640,7 +639,7 @@ export default function BlogPage() {
                   <Search className="absolute left-3 lg:left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 lg:w-5 h-4 lg:h-5" />
                   <input
                     type="text"
-                    placeholder={t('blog.page.search')}
+                    placeholder="Buscar artículos, proyectos, equipos..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                     className="w-full pl-10 lg:pl-12 pr-4 py-3 border border-gray-200 rounded-lg lg:rounded-xl focus:outline-none focus:ring-2 focus:ring-[#155d29] focus:border-transparent text-sm lg:text-base"
@@ -764,7 +763,7 @@ export default function BlogPage() {
                           onMouseEnter={(e) => (e.target as HTMLElement).style.backgroundColor = '#0f4a21'}
                           onMouseLeave={(e) => (e.target as HTMLElement).style.backgroundColor = '#155d29'}
                         >
-                          {t('blog.page.readArticle')}
+                          Leer Artículo
                         </button>
                       </div>
                     </div>
@@ -895,7 +894,7 @@ export default function BlogPage() {
                         onMouseEnter={(e) => (e.target as HTMLElement).style.backgroundColor = '#0f4a21'}
                         onMouseLeave={(e) => (e.target as HTMLElement).style.backgroundColor = '#155d29'}
                       >
-                        {t('blog.page.readArticle')}
+                        Leer Artículo
                       </button>
                     </div>
                   </div>
