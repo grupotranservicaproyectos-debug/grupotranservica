@@ -261,6 +261,22 @@ export default function BlogSection() {
                                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                   allowFullScreen
                                 />
+                              ) : post.id === 3 ? (
+                                <iframe
+                                  src="https://www.youtube.com/embed/44lpgBO22qU?autoplay=1&mute=1&loop=1&playlist=44lpgBO22qU&hd=1"
+                                  title={post.title}
+                                  className="w-full h-full"
+                                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                  allowFullScreen
+                                />
+                              ) : post.id === 4 ? (
+                                <iframe
+                                  src="https://www.youtube.com/embed/54hazc90eNk?autoplay=1&mute=1&loop=1&playlist=54hazc90eNk&hd=1"
+                                  title={post.title}
+                                  className="w-full h-full"
+                                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                  allowFullScreen
+                                />
                               ) : (
                                 <img 
                                   src={post.image} 
