@@ -547,11 +547,6 @@ export default function BlogPage() {
                     className="bg-white rounded-xl lg:rounded-2xl shadow-md lg:shadow-lg overflow-hidden hover:shadow-lg lg:hover:shadow-xl transition-all duration-300 group cursor-pointer mx-2 lg:mx-0 relative"
                     onClick={() => setSelectedPost(post)}
                   >
-                    {/* Featured Article Number Badge */}
-                    <div className="absolute top-3 left-3 z-10 bg-[#155d29] text-white rounded-full w-10 h-10 flex items-center justify-center text-sm font-bold shadow-lg">
-                      {globalIndex}
-                    </div>
-                    
                     <div className="aspect-video overflow-hidden">
                       <img
                         src={post.image}
@@ -577,10 +572,6 @@ export default function BlogPage() {
                       {post.excerpt}
                     </p>
                     <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-2 text-gray-600">
-                        <Clock className="w-3 lg:w-4 h-3 lg:h-4" />
-                        <span className="text-xs lg:text-sm">{post.readTime}</span>
-                      </div>
                       <div className="flex items-center gap-1 text-[#155d29] font-medium">
                         <span className="text-xs lg:text-sm">Leer más</span>
                         <ArrowRight className="w-3 lg:w-4 h-3 lg:h-4 group-hover:translate-x-1 transition-transform" />
@@ -616,11 +607,6 @@ export default function BlogPage() {
                   className="bg-white rounded-xl shadow-md lg:shadow-lg overflow-hidden hover:shadow-lg lg:hover:shadow-xl transition-all duration-300 group cursor-pointer mx-2 sm:mx-0 relative"
                   onClick={() => setSelectedPost(post)}
                 >
-                  {/* Article Number Badge */}
-                  <div className="absolute top-3 left-3 z-10 bg-[#155d29] text-white rounded-full w-10 h-10 flex items-center justify-center text-sm font-bold shadow-lg">
-                    {globalIndex}
-                  </div>
-                  
                   <div className="aspect-video overflow-hidden">
                     <img
                       src={post.image}
