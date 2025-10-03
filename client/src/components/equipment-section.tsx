@@ -7,6 +7,7 @@ import image17 from "@assets/17_1754168567957.webp";
 import image20 from "@assets/20_1754168567958.webp";  
 import image21 from "@assets/21_1754168567958.webp";
 import image24 from "@assets/24_1754168567959.webp";
+import craneImage from "@assets/WhatsApp Image 2025-10-03 at 5.33.44 PM_1759532186202.jpeg";
 
 interface EquipmentItem {
   name: string;
@@ -60,7 +61,7 @@ export default function EquipmentSection() {
     },
     {
       name: t('equipment.item4.name'),
-      image: image17,
+      image: craneImage,
       description: t('equipment.item4.description'),
       capacity: t('equipment.item4.capacity'),
       brand: "P&H",

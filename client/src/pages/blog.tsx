@@ -4,7 +4,6 @@ import { Link } from 'wouter';
 import Footer from '@/components/footer';
 import BlogHeader from '@/components/blog-header';
 import { useLanguage } from '../contexts/LanguageContext';
-import logoTranservica from "@assets/logo transervica sin fondo_1754163034585.png";
 
 // Real project documentation - TRANSERVICA verified projects
 const blogPosts = [
