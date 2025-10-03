@@ -6,6 +6,23 @@ This is a professional corporate website for TRANSERVICA, C.A., Venezuela's lead
 
 The website is fully optimized for performance with sub-2-second load times, targeting PageSpeed scores of 90+ through comprehensive image optimization (WebP format), lazy loading, and strategic resource preloading.
 
+### SEO Optimization Strategy
+The website is strategically optimized to achieve #1 Google ranking in Venezuela for specialized heavy cargo transportation keywords:
+
+- **Primary Keywords**: transporte cargas excepcionales Venezuela, equipos alemanes Venezuela, SCHEUERLE Venezuela, transporte sobredimensionado Venezuela
+- **Secondary Keywords**: modulares hidráulicos Venezuela, grúas móviles Venezuela, izamiento especializado Venezuela, cargas críticas Venezuela
+- **Long-tail Keywords**: transporte cargas excepcionales Caracas, equipos alemanes SCHEUERLE Venezuela, grúas telescópicas 500 toneladas Venezuela
+
+**Optimization Implementation:**
+- Meta title optimized with primary keywords and brand presence
+- Meta description (160 chars) with natural keyword integration and call-to-action
+- Comprehensive meta keywords covering primary, secondary, and long-tail terms
+- Enhanced Schema.org structured data (LocalBusiness, TransportationCompany, Blog) with keyword-rich descriptions
+- Open Graph and Twitter Card tags optimized for social media sharing
+- Blog section title updated to "BLOGS Y NOTICIAS TRANSERVICA C.A" for brand reinforcement
+- Service types in structured data aligned with target keywords
+- Geographic targeting for Venezuela-specific searches (geo tags, areaServed)
+
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.
