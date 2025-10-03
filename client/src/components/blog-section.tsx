@@ -129,6 +129,20 @@ export default function BlogSection() {
       category: "Proyectos Destacados",
       image: transportImage5,
       featured: true
+    },
+    {
+      id: 8,
+      title: "Transporte Transformador 420 MVA: Represa Simón Bolívar-Guri",
+      excerpt: "Proyecto de máxima capacidad en el Estado Bolívar: Transporte de transformador de 420 MVA desde Represa Macagua hasta Represa Simón Bolívar-Guri. Peso: 245 toneladas, Equipo: Cometto modular (8+8) ejes.",
+      content: "TRANSERVICA ejecutó exitosamente uno de los proyectos de transporte eléctrico de mayor envergadura en el Estado Bolívar: el traslado de un transformador de 420 MVA desde la Represa Macagua hasta la Represa Simón Bolívar-Guri.\n\n**Especificaciones Técnicas del Transformador 420 MVA:**\n\n✅ Potencia nominal: 420 MVA (mega voltios amperios)\n✅ Peso total: 245 toneladas\n✅ Dimensiones: 8.45 metros de largo × 4.9 metros de alto × 4.55 metros de ancho\n✅ Destino: Represa Simón Bolívar-Guri, Estado Bolívar\n✅ Duración del proyecto: 5 días de traslado\n\n**Equipos Especializados de Alta Capacidad:**\n\nPara este proyecto de infraestructura crítica nacional, TRANSERVICA desplegó equipamiento de última generación:\n\n🔧 Marca: Cometto\n🔧 Configuración: Trailer modular hidráulico (8+8) ejes + Transpor Frame\n🔧 Capacidad por eje: 25,000 kg\n🔧 Capacidad total del sistema: 400,000 kg (400 toneladas)\n\n**Desafío Hidroeléctrico Nacional:**\n\nEste transporte representa uno de los proyectos más importantes para la infraestructura energética de Venezuela. El transformador de 420 MVA es esencial para la operación del Complejo Hidroeléctrico Simón Bolívar (Represa de Guri), la principal fuente de generación eléctrica del país.\n\nLa configuración especial de 16 ejes (8+8) con Transpor Frame permitió distribuir uniformemente las 245 toneladas del transformador, garantizando estabilidad y seguridad durante los cinco días de operación en territorio bolivarense.\n\n**Logros del Proyecto:**\n\n✅ Transformador 420 MVA transportado exitosamente\n✅ 245 toneladas movilizadas con sistema Cometto (8+8) ejes\n✅ Traslado Represa Macagua → Represa Guri completado\n✅ Proyecto hidroeléctrico de importancia nacional\n✅ Operación de 5 días ejecutada sin incidentes\n\nEste proyecto consolida a TRANSERVICA como el socio estratégico para proyectos de infraestructura energética de máxima complejidad en Venezuela, demostrando nuestra capacidad para movilizar equipos de potencia ultra-alta con los más altos estándares de seguridad y eficiencia operativa.",
+      author: "Ing. Roberto Mendoza",
+      date: "2025-01-15",
+      readTime: "9 min",
+      views: 2156,
+      comments: 27,
+      category: "Proyectos Destacados",
+      image: transportImage1,
+      featured: true
     }
   ];
 
