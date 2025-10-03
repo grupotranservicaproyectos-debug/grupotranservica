@@ -78,7 +78,7 @@ const translations = {
     'services.watch': 'VER SERVICIOS',
     
     // About Section
-    'about.title': 'SOBRE TRANSERVICA',
+    'about.title': 'SOBRE GRUPO TRANSERVICA C.A',
     'about.subtitle': '40 años Transportando El Futuro de Venezuela',
     'about.description': 'Somos una empresa venezolana especializada en transporte de cargas excepcionales con más de 4 décadas de experiencia. Contamos con tecnología alemana SCHEUERLE y un equipo altamente calificado para manejar los proyectos más desafiantes.',
     'about.experience': '40+ Años de Experiencia',
