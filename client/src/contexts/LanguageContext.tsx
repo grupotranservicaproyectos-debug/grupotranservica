@@ -149,7 +149,7 @@ const translations = {
     'hero.stats.reliability.title': 'Confiabilidad',
     'hero.stats.reliability.subtitle': 'Proyectos exitosos',
     // Projects Gallery  
-    'projects.title': 'Galería de Proyectos',
+    'projects.title': 'GRUPO TRANSERVICA C.A',
     'projects.subtitle': 'Más de 40 años transportando cargas excepcionales hasta 1,100 toneladas. Conoce algunos de nuestros proyectos más destacados realizados con equipos especializados y tecnología de vanguardia.',
     'equipment.title': 'Nuestros Equipos Especializados para Izamiento y Transportes de Carga Excepcionales y Sobredimensionadas',
     'equipment.subtitle': 'Tecnología especializada para transporte con equipos alemanes',

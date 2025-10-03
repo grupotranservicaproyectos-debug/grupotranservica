@@ -311,21 +311,6 @@ export default function BlogSection() {
                               />
                             )}
                             
-                            {/* Gradient overlay */}
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                            
-                            {/* Hover button */}
-                            <div className="absolute inset-0 flex items-end justify-center p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                              <Link 
-                                href={`/blog#post-${post.id}`}
-                                className="text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg inline-block"
-                                style={{ backgroundColor: '#155d29' }}
-                                onMouseEnter={(e) => (e.target as HTMLElement).style.backgroundColor = '#0f4a21'}
-                                onMouseLeave={(e) => (e.target as HTMLElement).style.backgroundColor = '#155d29'}
-                              >
-                                {t('blog.section.readFullArticle')}
-                              </Link>
-                            </div>
                           </div>
 
                           {/* Article info */}
