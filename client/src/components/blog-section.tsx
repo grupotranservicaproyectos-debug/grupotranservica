@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Calendar, User, ArrowRight, Eye, MessageCircle, ChevronLeft, ChevronRight, Truck, Settings, Shield, Award } from "lucide-react";
 import { Link } from 'wouter';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -131,6 +131,15 @@ export default function BlogSection() {
   const featuredPosts = blogPosts.filter(post => post.featured);
   const itemsPerSlide = 3;
   const totalSlides = Math.ceil(blogPosts.length / itemsPerSlide);
+
+  // Auto-advance carousel every 2 minutes
+  useEffect(() => {
+    const autoPlayInterval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % totalSlides);
+    }, 120000); // 2 minutes
+
+    return () => clearInterval(autoPlayInterval);
+  }, [totalSlides]);
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % totalSlides);
