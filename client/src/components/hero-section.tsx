@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'wouter';
 import { useLanguage } from '../contexts/LanguageContext';
 import LanguageSwitcher from './LanguageSwitcher';
 import logoTranservica from "@assets/logo transervica sin fondo_1754163034585.webp";
@@ -131,6 +132,12 @@ export default function HeroSection() {
               >
                 EQUIPOS
               </button>
+              <Link 
+                href="/blog"
+                className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide"
+              >
+                BLOG
+              </Link>
               <button 
                 onClick={scrollToContact}
                 className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide"
@@ -205,6 +212,13 @@ export default function HeroSection() {
               >
                 EQUIPOS
               </button>
+              <Link 
+                href="/blog"
+                className="block w-full text-left text-gray-700 hover:text-[#155d29] hover:bg-gray-50 text-base font-bold transition-all duration-200 uppercase tracking-wide py-4 px-4 rounded-lg"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                BLOG
+              </Link>
               <button 
                 onClick={() => { scrollToContact(); setIsMobileMenuOpen(false); }}
                 className="block w-full text-left text-gray-700 hover:text-[#155d29] hover:bg-gray-50 text-base font-bold transition-all duration-200 uppercase tracking-wide py-4 px-4 rounded-lg"
