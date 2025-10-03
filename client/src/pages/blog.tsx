@@ -56,15 +56,15 @@ const blogPosts = [
   {
     id: 4,
     title: "Transporte Transformador 333 MVA 180 Toneladas: Puerto Cabello a Miranda",
-    excerpt: "Proyecto de alta potencia: Transporte terrestre de transformador de 333MVA desde Puerto Cabello, estado Carabobo, hasta la Subestación eléctrica SUR, estado Miranda. Peso: 180 toneladas.",
-    content: "Proyecto de Alta Potencia: Transporte terrestre de transformador de 333MVA desde Puerto Cabello, estado Carabobo, hasta la Subestación eléctrica SUR, estado Miranda.\n\n**Especificaciones del Transformador 333MVA:**\n\n• Potencia nominal: 333MVA (mega voltios amperios)\n• Peso total: 180 toneladas\n• Dimensiones: 6.42 x 4.67 x 4.40 metros\n• Equipo de transporte: Viga portante de 16 ejes\n• Destino: Subestación eléctrica SUR, estado Miranda\n\n**Viga Portante de Máxima Capacidad:**\n\nEste proyecto de gran envergadura requirió nuestra viga portante más robusta de 16 ejes, capaz de soportar y distribuir uniformemente las 180 toneladas del transformador 333MVA durante el trayecto desde Carabobo hasta Miranda.\n\n**Proyecto de Alta Tensión Completado:**\n\n✅ Transformador 333MVA transportado exitosamente\n✅ 180 toneladas con viga portante 16 ejes\n✅ Entrega segura en Subestación SUR, Miranda\n✅ Proyecto eléctrico de máxima complejidad\n\nLa ejecución exitosa de este proyecto de alta potencia consolida nuestra posición como líderes en transporte de equipos eléctricos de gran capacidad, demostrando nuestra expertise en proyectos críticos de infraestructura energética nacional.",
+    excerpt: "Proyecto de alta potencia: Transporte terrestre de transformador de 333 MVA desde Puerto Cabello, estado Carabobo, hasta la Subestación eléctrica SUR, estado Miranda. Peso: 180 toneladas.",
+    content: "Proyecto de Alta Potencia: Transporte terrestre de transformador de 333 MVA desde Puerto Cabello, estado Carabobo, hasta la Subestación eléctrica SUR, estado Miranda.\n\n**Especificaciones del Transformador 333 MVA:**\n\n• Potencia nominal: 333 MVA (mega voltios amperios)\n• Peso total: 180 toneladas\n• Dimensiones: 6.42 x 4.67 x 4.40 metros\n• Equipo de transporte: Viga portante de 16 ejes\n• Destino: Subestación eléctrica SUR, estado Miranda\n\n**Viga Portante de Máxima Capacidad:**\n\nEste proyecto de gran envergadura requirió nuestra viga portante más robusta de 16 ejes, capaz de soportar y distribuir uniformemente las 180 toneladas del transformador 333 MVA durante el trayecto desde Carabobo hasta Miranda.\n\n**Proyecto de Alta Tensión Completado:**\n\n✅ Transformador 333 MVA transportado exitosamente\n✅ 180 toneladas con viga portante 16 ejes\n✅ Entrega segura en Subestación SUR, Miranda\n✅ Proyecto eléctrico de máxima complejidad\n\nLa ejecución exitosa de este proyecto de alta potencia consolida nuestra posición como líderes en transporte de equipos eléctricos de gran capacidad, demostrando nuestra expertise en proyectos críticos de infraestructura energética nacional.",
     author: "Ing. Alberto González",
     date: "2024-10-22",
     readTime: "8 min",
     views: 1893,
     comments: 15,
     category: "Proyectos Especiales",
-    tags: ["Transformador 333MVA", "180 Toneladas", "Miranda", "Viga Portante 16 Ejes", "Alta Potencia"],
+    tags: ["Transformador 333 MVA", "180 Toneladas", "Miranda", "Viga Portante 16 Ejes", "Alta Potencia"],
     image: "/attached_assets/4_1754173669383.jpg",
     featured: false
   },
@@ -280,34 +280,41 @@ export default function BlogPage() {
 
                   {/* Social Share Buttons */}
                   <div className="border-t border-gray-200 pt-6 mb-8">
-                    <h3 className="text-lg font-bold mb-4" style={{ color: '#155d29' }}>Compartir artículo:</h3>
+                    <h4 className="text-sm font-bold mb-3 text-gray-700">Síguenos en nuestras redes sociales:</h4>
                     <div className="flex flex-wrap gap-3">
                       <a
-                        href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`}
+                        href="https://www.facebook.com/people/Grupotranservica/100093036004743"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                        className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all hover:scale-105"
+                        title="Facebook TRANSERVICA"
                       >
                         <Facebook className="w-4 h-4" />
-                        Facebook
+                        <span className="text-sm">Facebook</span>
                       </a>
                       <a
-                        href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent(selectedPost.title)}`}
+                        href="https://www.instagram.com/grupotranservica"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 px-4 py-2 bg-blue-400 text-white rounded-lg hover:bg-blue-500 transition-colors"
+                        className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 text-white rounded-lg hover:from-purple-600 hover:via-pink-600 hover:to-orange-600 transition-all hover:scale-105"
+                        title="Instagram TRANSERVICA"
                       >
-                        <Twitter className="w-4 h-4" />
-                        Twitter
+                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                        <span className="text-sm">Instagram</span>
                       </a>
                       <a
-                        href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}`}
+                        href="https://www.youtube.com/@transervicac.a.3092"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 px-4 py-2 bg-blue-700 text-white rounded-lg hover:bg-blue-800 transition-colors"
+                        className="flex items-center gap-2 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-all hover:scale-105"
+                        title="YouTube TRANSERVICA"
                       >
-                        <Linkedin className="w-4 h-4" />
-                        LinkedIn
+                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                        </svg>
+                        <span className="text-sm">YouTube</span>
                       </a>
                       <button 
                         onClick={() => {
@@ -319,47 +326,6 @@ export default function BlogPage() {
                         <Share2 className="w-4 h-4" />
                         Copiar enlace
                       </button>
-                    </div>
-                    
-                    {/* Redes Sociales de Transervica */}
-                    <div className="mt-6 pt-6 border-t border-gray-200">
-                      <h4 className="text-sm font-bold mb-3 text-gray-700">Síguenos en nuestras redes sociales:</h4>
-                      <div className="flex gap-3">
-                        <a
-                          href="https://www.facebook.com/people/Grupotranservica/100093036004743"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all hover:scale-105"
-                          title="Facebook TRANSERVICA"
-                        >
-                          <Facebook className="w-4 h-4" />
-                          <span className="text-sm">Facebook</span>
-                        </a>
-                        <a
-                          href="https://www.instagram.com/grupotranservica"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 text-white rounded-lg hover:from-purple-600 hover:via-pink-600 hover:to-orange-600 transition-all hover:scale-105"
-                          title="Instagram TRANSERVICA"
-                        >
-                          <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                          </svg>
-                          <span className="text-sm">Instagram</span>
-                        </a>
-                        <a
-                          href="https://www.youtube.com/@transervicac.a.3092"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-2 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-all hover:scale-105"
-                          title="YouTube TRANSERVICA"
-                        >
-                          <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                          </svg>
-                          <span className="text-sm">YouTube</span>
-                        </a>
-                      </div>
                     </div>
                   </div>
 
