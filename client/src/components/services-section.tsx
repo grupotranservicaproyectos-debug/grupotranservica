@@ -84,17 +84,19 @@ export default function ServicesSection() {
             {t('services.subtitle')}
           </p>
           
-          {/* Corporate Video - Grúas Móviles Telescópicas y Sobre Oruga */}
+          {/* Grúas Móviles Telescópicas hasta 800 Toneladas */}
           <div className="max-w-4xl mx-auto mb-8 sm:mb-10 lg:mb-12">
-            <div className="relative aspect-video rounded-xl sm:rounded-2xl overflow-hidden shadow-xl sm:shadow-2xl bg-black">
-              <iframe
-                src="https://www.youtube.com/embed/17qCAJDlZuM?start=78&autoplay=1&mute=1&loop=1&playlist=17qCAJDlZuM&controls=1&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&vq=hd2160"
-                title="TRANSERVICA - Grúas Móviles Telescópicas y Sobre Oruga hasta 800 Toneladas"
-                className="absolute inset-0 w-full h-full"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
+            <div className="relative rounded-xl sm:rounded-2xl overflow-hidden shadow-xl sm:shadow-2xl bg-white">
+              <img
+                src="/attached_assets/Captura de pantalla 2025-10-03 173515_1759531158712.png"
+                alt="Gruas Moviles Telescopicas hasta 800 Toneladas - TRANSERVICA"
+                className="w-full h-auto object-contain"
               />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
+                <h3 className="text-white text-2xl sm:text-3xl font-bold drop-shadow-lg">
+                  Gruas Moviles Telescopicas hasta 800 Toneladas
+                </h3>
+              </div>
             </div>
           </div>
         </div>
