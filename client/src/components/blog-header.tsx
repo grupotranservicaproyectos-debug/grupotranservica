@@ -60,76 +60,78 @@ export default function BlogHeader({ showBackButton = false, onBackClick }: Blog
             </Link>
           </div>
           
-          <div className="hidden lg:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center">
             {/* Logo next to navigation */}
             <Link href="/">
               <img 
                 src={logoTranservica} 
                 alt="TRANSERVICA" 
-                className="h-24 lg:h-28 xl:h-32 w-auto cursor-pointer hover:scale-105 transition-all duration-300 mr-8 filter brightness-110 contrast-125 drop-shadow-lg"
+                className="h-24 w-auto cursor-pointer hover:scale-105 transition-all duration-300 filter brightness-110 contrast-125 drop-shadow-lg"
                 style={{ 
                   filter: 'brightness(1.1) contrast(1.25) drop-shadow(0 2px 4px rgba(0,0,0,0.2))'
                 }}
               />
             </Link>
-            <Link 
-              href="/"
-              className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide"
-            >
-              {t('nav.home')}
-            </Link>
-            <div className="relative group">
+            <div className="ml-10 flex items-baseline space-x-8">
+              <Link 
+                href="/"
+                className="text-gray-700 hover:text-[#155d29] px-3 py-2 text-sm font-bold transition uppercase tracking-wide"
+              >
+                {t('nav.home')}
+              </Link>
+              <div className="relative group">
+                <button 
+                  onClick={() => scrollToSection('servicios')}
+                  className="text-gray-700 hover:text-[#155d29] px-3 py-2 text-sm font-bold transition uppercase tracking-wide flex items-center"
+                >
+                  {t('nav.services')}
+                  <svg className="w-3 h-3 ml-1" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+                  </svg>
+                </button>
+              </div>
               <button 
-                onClick={() => scrollToSection('servicios')}
-                className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide flex items-center"
+                onClick={() => scrollToSection('proyectos')}
+                className="text-gray-700 hover:text-[#155d29] px-3 py-2 text-sm font-bold transition uppercase tracking-wide"
               >
-                {t('nav.services')}
-                <svg className="w-3 h-3 ml-1" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
-                </svg>
+                {t('nav.projects')}
               </button>
+              <button 
+                onClick={() => scrollToSection('nosotros')}
+                className="text-gray-700 hover:text-[#155d29] px-3 py-2 text-sm font-bold transition uppercase tracking-wide"
+              >
+                {t('nav.company')}
+              </button>
+              <button 
+                onClick={() => scrollToSection('equipos')}
+                className="text-gray-700 hover:text-[#155d29] px-3 py-2 text-sm font-bold transition uppercase tracking-wide"
+              >
+                EQUIPOS
+              </button>
+              <Link 
+                href="/blog"
+                className="text-[#155d29] px-3 py-2 text-sm font-bold transition uppercase tracking-wide border-b-2 border-[#155d29]"
+              >
+                BLOG
+              </Link>
+              <button 
+                onClick={() => scrollToSection('contacto')}
+                className="text-gray-700 hover:text-[#155d29] px-3 py-2 text-sm font-bold transition uppercase tracking-wide"
+              >
+                {t('nav.contact')}
+              </button>
+              
+              {/* Back button for article view */}
+              {showBackButton && onBackClick && (
+                <button
+                  onClick={onBackClick}
+                  className="ml-4 flex items-center gap-2 px-4 py-2 bg-[#155d29] text-white rounded-lg hover:bg-[#0f4a21] transition-colors shadow-md"
+                >
+                  <ChevronLeft className="w-4 h-4" />
+                  Volver al Blog
+                </button>
+              )}
             </div>
-            <button 
-              onClick={() => scrollToSection('proyectos')}
-              className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide"
-            >
-              {t('nav.projects')}
-            </button>
-            <button 
-              onClick={() => scrollToSection('nosotros')}
-              className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide"
-            >
-              {t('nav.company')}
-            </button>
-            <button 
-              onClick={() => scrollToSection('equipos')}
-              className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide"
-            >
-              EQUIPOS
-            </button>
-            <Link 
-              href="/blog"
-              className="text-[#155d29] text-sm font-bold transition uppercase tracking-wide border-b-2 border-[#155d29] pb-1"
-            >
-              BLOG
-            </Link>
-            <button 
-              onClick={() => scrollToSection('contacto')}
-              className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide"
-            >
-              {t('nav.contact')}
-            </button>
-            
-            {/* Back button for article view */}
-            {showBackButton && onBackClick && (
-              <button
-                onClick={onBackClick}
-                className="ml-auto flex items-center gap-2 px-4 py-2 bg-[#155d29] text-white rounded-lg hover:bg-[#0f4a21] transition-colors shadow-md"
-              >
-                <ChevronLeft className="w-4 h-4" />
-                Volver al Blog
-              </button>
-            )}
           </div>
           
           <div className="flex items-center space-x-4">
