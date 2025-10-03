@@ -307,23 +307,23 @@ export default function BlogSection() {
                             
                             {/* Hover button */}
                             <div className="absolute inset-0 flex items-end justify-center p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                              <button 
+                              <Link 
+                                href="/blog#blog-main"
+                                className="text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg inline-block"
+                                style={{ backgroundColor: '#155d29' }}
+                                onMouseEnter={(e) => (e.target as HTMLElement).style.backgroundColor = '#0f4a21'}
+                                onMouseLeave={(e) => (e.target as HTMLElement).style.backgroundColor = '#155d29'}
                                 onClick={() => {
-                                  window.location.href = '/blog#blog-main';
                                   setTimeout(() => {
                                     const element = document.getElementById('blog-main');
                                     if (element) {
                                       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
                                     }
-                                  }, 200);
+                                  }, 100);
                                 }}
-                                className="text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
-                                style={{ backgroundColor: '#155d29' }}
-                                onMouseEnter={(e) => (e.target as HTMLElement).style.backgroundColor = '#0f4a21'}
-                                onMouseLeave={(e) => (e.target as HTMLElement).style.backgroundColor = '#155d29'}
                               >
                                 {t('blog.section.readFullArticle')}
-                              </button>
+                              </Link>
                             </div>
                           </div>
 
@@ -399,22 +399,22 @@ export default function BlogSection() {
 
         {/* Ver Todos los Artículos */}
         <div className="text-center mt-12">
-          <button
+          <Link
+            href="/blog#blog-main"
+            className="inline-flex items-center gap-3 bg-white border-2 border-[#155d29] text-[#155d29] font-bold py-4 px-8 rounded-xl hover:bg-[#155d29] hover:text-white transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
             onClick={() => {
-              window.location.href = '/blog#blog-main';
               setTimeout(() => {
                 const element = document.getElementById('blog-main');
                 if (element) {
                   element.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
-              }, 200);
+              }, 100);
             }}
-            className="inline-flex items-center gap-3 bg-white border-2 border-[#155d29] text-[#155d29] font-bold py-4 px-8 rounded-xl hover:bg-[#155d29] hover:text-white transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
           >
             <Calendar className="w-5 h-5" />
             {t('blog.section.viewAll')}
             <ArrowRight className="w-5 h-5" />
-          </button>
+          </Link>
         </div>
 
         {/* Call to Action */}
