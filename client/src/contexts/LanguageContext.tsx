@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
+import { initializeAnalytics, trackLanguageChange } from '../lib/analytics';
 
 export type Language = 'es' | 'en';
 
@@ -1030,7 +1031,59 @@ const translations = {
 };
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguage] = useState<Language>('es');
+  // Initialize language with smart detection
+  const getInitialLanguage = (): Language => {
+    // 1. Check URL parameter first (?lang=en or ?lang=es)
+    const urlParams = new URLSearchParams(window.location.search);
+    const urlLang = urlParams.get('lang');
+    if (urlLang === 'en' || urlLang === 'es') {
+      return urlLang;
+    }
+
+    // 2. Check localStorage for saved preference
+    const savedLang = localStorage.getItem('transervica_language');
+    if (savedLang === 'en' || savedLang === 'es') {
+      return savedLang;
+    }
+
+    // 3. Auto-detect browser language
+    const browserLang = navigator.language || (navigator as any).userLanguage;
+    if (browserLang && browserLang.toLowerCase().startsWith('en')) {
+      return 'en';
+    }
+
+    // 4. Default to Spanish
+    return 'es';
+  };
+
+  const [language, setLanguage] = useState<Language>(getInitialLanguage);
+
+  // Initialize Google Analytics on mount (optional - add your GA4 Measurement ID)
+  React.useEffect(() => {
+    // Uncomment and add your Google Analytics 4 Measurement ID
+    // const GA_MEASUREMENT_ID = 'G-XXXXXXXXXX';
+    // initializeAnalytics(GA_MEASUREMENT_ID);
+  }, []);
+
+  // Update localStorage, URL, and HTML lang attribute when language changes
+  React.useEffect(() => {
+    // Save to localStorage
+    localStorage.setItem('transervica_language', language);
+
+    // Update HTML lang attribute for SEO and accessibility
+    document.documentElement.lang = language === 'es' ? 'es' : 'en';
+
+    // Update URL parameter without reloading page
+    const url = new URL(window.location.href);
+    url.searchParams.set('lang', language);
+    window.history.replaceState({}, '', url);
+
+    // Update meta tags dynamically
+    updateMetaTags(language);
+
+    // Track language changes in analytics
+    trackLanguageChange(language);
+  }, [language]);
 
   const t = (key: string): string => {
     return translations[language][key as keyof typeof translations['es']] || key;
@@ -1041,6 +1094,51 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
       {children}
     </LanguageContext.Provider>
   );
+}
+
+// Helper function to update meta tags based on language
+function updateMetaTags(lang: Language) {
+  // Update page title
+  const titles = {
+    es: 'TRANSERVICA C.A | Transporte Cargas Excepcionales Venezuela | Equipos Alemanes SCHEUERLE | 1,100 Toneladas',
+    en: 'TRANSERVICA C.A | Exceptional Load Transportation Venezuela | German SCHEUERLE Equipment | 1,100 Tons'
+  };
+
+  // Update descriptions
+  const descriptions = {
+    es: '🏆 Transporte cargas excepcionales Venezuela con equipos alemanes SCHEUERLE. Modulares hidráulicos 1,100 tons, grúas móviles 500 tons, izamiento especializado. 40 años experiencia. ¡Cotización 24/7!',
+    en: '🏆 Exceptional cargo transportation Venezuela with German SCHEUERLE equipment. Hydraulic modular 1,100 tons, mobile cranes 500 tons, specialized lifting. 40 years experience. Quote 24/7!'
+  };
+
+  document.title = titles[lang];
+  
+  // Update meta description
+  const metaDescription = document.querySelector('meta[name="description"]');
+  if (metaDescription) {
+    metaDescription.setAttribute('content', descriptions[lang]);
+  }
+
+  // Update Open Graph tags
+  const ogTitle = document.querySelector('meta[property="og:title"]');
+  if (ogTitle) {
+    ogTitle.setAttribute('content', titles[lang]);
+  }
+
+  const ogDescription = document.querySelector('meta[property="og:description"]');
+  if (ogDescription) {
+    ogDescription.setAttribute('content', descriptions[lang]);
+  }
+
+  // Update Twitter Card tags
+  const twitterTitle = document.querySelector('meta[name="twitter:title"]');
+  if (twitterTitle) {
+    twitterTitle.setAttribute('content', titles[lang]);
+  }
+
+  const twitterDescription = document.querySelector('meta[name="twitter:description"]');
+  if (twitterDescription) {
+    twitterDescription.setAttribute('content', descriptions[lang]);
+  }
 }
 
 export function useLanguage() {
