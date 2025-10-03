@@ -64,17 +64,22 @@ The application implements a comprehensive design system:
 - **Brand Integration**: Custom Transervica colors and typography
 
 ### Blog Architecture
-The blog system features a complete corporate blog implementation following professional standards:
+The blog system features a complete corporate blog implementation with real project documentation:
 
 - **Blog Homepage**: Professional carousel showcase with manual navigation controls and article previews
 - **Dedicated Blog Page**: Full-featured blog page (`/blog`) with search, categories, pagination, and article management
 - **Individual Article Pages**: Complete blog post layout with sidebar, social sharing, comments, and related articles
-- **Article Features**: 150-character excerpts, publication dates, author info, estimated read time, view counts, and comment counts
+- **Real Project Content**: 4 verified TRANSERVICA projects replacing generic placeholder content:
+  - Auto Transformador 170 Toneladas (Puerto Cabello to Villa de Cura)
+  - Power House 4 Módulos de 35 Toneladas (Carabobo)
+  - Reactor Monofásico 70 Toneladas (Puerto Cabello to Anzoátegui)
+  - Transformador 333MVA 180 Toneladas (Puerto Cabello to Miranda)
+- **Article Features**: Technical specifications, project achievements with checkmarks (✅), publication dates, estimated read time, view counts, and comment counts
 - **Professional Layout**: Sidebar with search widget, related articles, contact form, categories, and newsletter subscription
 - **Social Integration**: Facebook, Twitter, LinkedIn, and generic share buttons for each article
 - **Interactive Elements**: Comments section with form, article tags, bookmark functionality, and engagement metrics
-- **Article Categories**: Organized by "Proyectos Especiales", "Equipos y Tecnología", "Normativas y Seguridad", "Logística Multimodal", "Historia Corporativa", and "Mantenimiento"
-- **Content Management**: Complete articles with real company projects, equipment updates, safety regulations, and corporate history
+- **Article Categories**: Organized by "Proyectos Especiales" (all real projects focus on specialized transportation)
+- **SEO Optimization**: Schema.org Blog markup with keywords: "transporte transformador Venezuela", "SCHEUERLE", "cargas excepcionales", "transporte especializado"
 - **Navigation Integration**: Blog access from footer navigation and dedicated "Ver Todos los Artículos" button using React Router Link components
 - **Professional Design**: Consistent with corporate branding using green color scheme (#155d29) and high-contrast elements
 

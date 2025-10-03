@@ -578,8 +578,8 @@ export default function BlogPage() {
                     </p>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2 text-gray-600">
-                        <User className="w-3 lg:w-4 h-3 lg:h-4" />
-                        <span className="text-xs lg:text-sm">{post.author}</span>
+                        <Clock className="w-3 lg:w-4 h-3 lg:h-4" />
+                        <span className="text-xs lg:text-sm">{post.readTime}</span>
                       </div>
                       <div className="flex items-center gap-1 text-[#155d29] font-medium">
                         <span className="text-xs lg:text-sm">Leer más</span>
@@ -649,10 +649,6 @@ export default function BlogPage() {
                   </p>
                   
                   <div className="flex flex-wrap items-center gap-2 lg:gap-3 mb-4 text-gray-500 text-xs">
-                    <div className="flex items-center gap-1">
-                      <User className="w-3 h-3" />
-                      <span className="truncate max-w-20">{post.author}</span>
-                    </div>
                     <div className="flex items-center gap-1">
                       <Clock className="w-3 h-3" />
                       <span>{post.readTime}</span>
