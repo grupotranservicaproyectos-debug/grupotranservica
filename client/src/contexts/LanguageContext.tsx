@@ -152,7 +152,7 @@ const translations = {
     'projects.title': 'GRUPO TRANSERVICA C.A',
     'projects.subtitle': 'Más de 40 años transportando cargas excepcionales hasta 1,100 toneladas. Conoce algunos de nuestros proyectos más destacados realizados con equipos especializados y tecnología de vanguardia.',
     'equipment.title': 'Nuestros Equipos Especializados para Izamiento y Transportes de Carga Excepcionales y Sobredimensionadas',
-    'equipment.subtitle': 'Tecnología especializada para transporte con equipos alemanes',
+    'equipment.subtitle': 'Especializada para Transporte de Carga Excepcionales y Sobredimensionados',
     'equipment.cta.title': '¿Necesita Equipos Especializados para su Proyecto?',
     'equipment.cta.subtitle': 'Contamos con la flota más moderna de Venezuela para transporte de cargas excepcionales',
     'equipment.cta.button': 'SOLICITAR COTIZACIÓN',
