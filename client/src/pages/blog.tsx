@@ -634,18 +634,7 @@ export default function BlogPage() {
                     {post.excerpt.length > 120 ? post.excerpt.substring(0, 120) + '...' : post.excerpt}
                   </p>
                   
-                  <div className="flex flex-wrap items-center gap-2 lg:gap-3 mb-4 text-gray-500 text-xs">
-                    <div className="flex items-center gap-1">
-                      <Clock className="w-3 h-3" />
-                      <span>{post.readTime}</span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <Eye className="w-3 h-3" />
-                      <span>{post.views}</span>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-center justify-between border-t border-gray-100 pt-3 lg:pt-4">
+                  <div className="flex items-center justify-between border-t border-gray-100 pt-3 lg:pt-4 mt-4">
                     <div className="flex items-center gap-1">
                       <MessageSquare className="w-3 lg:w-4 h-3 lg:h-4 text-gray-400" />
                       <span className="text-xs text-gray-500">{post.comments}</span>

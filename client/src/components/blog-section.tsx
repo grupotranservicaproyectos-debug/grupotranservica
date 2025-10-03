@@ -273,7 +273,6 @@ export default function BlogSection() {
                                   <MessageCircle className="w-3 h-3" />
                                   <span>{post.comments}</span>
                                 </div>
-                                <span className="bg-gray-100 px-2 py-1 rounded-full">{post.readTime}</span>
                               </div>
                               
                               <button
