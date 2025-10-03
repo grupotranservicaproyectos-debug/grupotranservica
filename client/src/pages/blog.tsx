@@ -112,10 +112,20 @@ export default function BlogPage() {
   const { t } = useLanguage();
   const postsPerPage = 9;
 
-  // Handle scroll to blog main section on page load
+  // Handle scroll to blog main section or specific post on page load
   React.useEffect(() => {
     const hash = window.location.hash;
-    if (hash === '#blog-main') {
+    
+    // Check if navigating to a specific post (e.g., #post-1, #post-2)
+    if (hash.startsWith('#post-')) {
+      const postId = parseInt(hash.replace('#post-', ''));
+      const post = blogPosts.find(p => p.id === postId);
+      if (post) {
+        setSelectedPost(post);
+        // Scroll to top after setting post
+        setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 100);
+      }
+    } else if (hash === '#blog-main') {
       // Multiple attempts to ensure scroll works
       const scrollToMain = () => {
         const element = document.getElementById('blog-main');
@@ -137,7 +147,19 @@ export default function BlogPage() {
   // Listen for hash changes during navigation
   React.useEffect(() => {
     const handleHashChange = () => {
-      if (window.location.hash === '#blog-main') {
+      const hash = window.location.hash;
+      
+      // Check if navigating to a specific post
+      if (hash.startsWith('#post-')) {
+        const postId = parseInt(hash.replace('#post-', ''));
+        const post = blogPosts.find(p => p.id === postId);
+        if (post) {
+          setSelectedPost(post);
+          // Scroll to top after setting post
+          setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 100);
+        }
+      } else if (hash === '#blog-main') {
+        setSelectedPost(null); // Clear selected post when going back to main
         setTimeout(() => {
           const element = document.getElementById('blog-main');
           if (element) {

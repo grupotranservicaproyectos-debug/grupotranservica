@@ -317,19 +317,11 @@ export default function BlogSection() {
                             {/* Hover button */}
                             <div className="absolute inset-0 flex items-end justify-center p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                               <Link 
-                                href="/blog#blog-main"
+                                href={`/blog#post-${post.id}`}
                                 className="text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg inline-block"
                                 style={{ backgroundColor: '#155d29' }}
                                 onMouseEnter={(e) => (e.target as HTMLElement).style.backgroundColor = '#0f4a21'}
                                 onMouseLeave={(e) => (e.target as HTMLElement).style.backgroundColor = '#155d29'}
-                                onClick={() => {
-                                  setTimeout(() => {
-                                    const element = document.getElementById('blog-main');
-                                    if (element) {
-                                      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                                    }
-                                  }, 100);
-                                }}
                               >
                                 {t('blog.section.readFullArticle')}
                               </Link>
