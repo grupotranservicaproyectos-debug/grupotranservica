@@ -23,14 +23,14 @@ const translations = {
     'nav.blog': 'BLOG',
     
     // Hero Section
-    'hero.title': 'Transporte Cargas Excepcionales Venezuela - Especializados en Movilización de Cargas Pesada y Sobredimensionada',
-    'hero.subtitle': 'CON 40 AÑOS TRANSPORTANDO EL FUTURO DE VENEZUELA',
+    'hero.title': 'Transporte de Cargas Excepcionales Venezuela - Hasta 1,100 Toneladas',
+    'hero.subtitle': '40+ Años Especializados en Movilización de Cargas Pesadas y Sobredimensionadas',
     'hero.description': 'Especializados en Movilización de Cargas Pesadas y Sobredimensionadas hasta 1,100 toneladas con trailers Modulares Hidráulicos de última generación.',
     'hero.cta': 'SOLICITAR COTIZACIÓN',
     'hero.video': 'VER VIDEO CORPORATIVO',
     
     // Services Section
-    'services.title': 'NUESTROS SERVICIOS',
+    'services.title': 'Servicios de Transporte Especializado en Venezuela',
     'services.subtitle': 'Soluciones especializadas en transporte de cargas excepcionales',
     'services.transport.title': 'Transporte de Cargas Excepcionales',
     'services.transport.description': 'Movilización de cargas hasta 1,100 toneladas con trailers modulares hidráulicos SCHEUERLE y COMETTO de última generación.',
@@ -530,14 +530,14 @@ const translations = {
     'nav.blog': 'BLOG',
     
     // Hero Section
-    'hero.title': 'Exceptional Heavy Cargo Transportation Venezuela - Specialized in Heavy and Oversized Load Movement',
-    'hero.subtitle': '40 YEARS TRANSPORTING VENEZUELA\'S FUTURE',
+    'hero.title': 'Exceptional Heavy Cargo Transportation Venezuela - Up to 1,100 Tons',
+    'hero.subtitle': '40+ Years Specialized in Heavy and Oversized Load Movement',
     'hero.description': 'Specialized in Heavy and Oversized Load Movement up to 1,100 tons with latest generation Hydraulic Modular trailers.',
     'hero.cta': 'REQUEST QUOTE',
     'hero.video': 'WATCH CORPORATE VIDEO',
     
     // Services Section
-    'services.title': 'OUR SERVICES',
+    'services.title': 'Specialized Transportation Services in Venezuela',
     'services.subtitle': 'Specialized solutions for exceptional cargo transportation',
     'services.transport.title': 'Exceptional Cargo Transportation',
     'services.transport.description': 'Mobilization of cargo up to 1,100 tons with state-of-the-art hydraulic modular trailers SCHEUERLE and COMETTO.',
