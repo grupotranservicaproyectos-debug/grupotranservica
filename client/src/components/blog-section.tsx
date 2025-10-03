@@ -115,6 +115,20 @@ export default function BlogSection() {
       category: "Mantenimiento",
       image: equipmentImage3,
       featured: false
+    },
+    {
+      id: 7,
+      title: "Maniobra de Traslado de Vagones: Puerto Cabello - Charallave",
+      excerpt: "Transporte especializado de vagones del Instituto de Ferrocarriles del Estado (IFE Charallave) utilizando equipo modular Cometto 4+4 y Cappon 4+4 con plataforma intermedia. Capacidad por eje: 25,000 kg.",
+      content: "TRANSERVICA ejecutó exitosamente la maniobra de traslado de vagones ferroviarios del Instituto de Ferrocarriles del Estado (IFE Charallave) desde Puerto Cabello hasta Charallave. Este proyecto de logística especializada involucró el transporte de dos tipos de vagones con dimensiones excepcionales:\n\n✅ Vagón Tipo 1: 26.013m de largo × 3.326m de alto × 2.974m de ancho, con peso de 32 toneladas\n✅ Vagón Tipo 2: 25.866m de largo × 3.63m de alto × 2.974m de ancho, con peso de 32 toneladas\n\nLa operación se desarrolló durante cinco (5) días, ejecutando el traslado desde la Represa Macagua hasta la Represa Simón Bolívar-Guri en el estado Bolívar. Para garantizar la seguridad y estabilidad de las cargas, TRANSERVICA implementó equipos especializados de última generación:\n\n🔧 Operación a Costado de Buque para la carga inicial\n🔧 Cometto 4+4 con Plataforma Intermedia\n🔧 Cappon 4+4 con Plataforma Intermedia\n🔧 Capacidad por eje: 25,000 kg\n🔧 Traslado de Vagones con Cometto 2+2\n\nEste proyecto demostró la capacidad de TRANSERVICA para manejar cargas de gran longitud que requieren equipamiento modular hidráulico con configuraciones especiales. La coordinación logística incluyó permisos de tránsito especiales, escolta de seguridad, y planificación de rutas que consideraron las dimensiones excepcionales de los vagones. El traslado se completó exitosamente, cumpliendo con todos los estándares de seguridad del sector ferroviario y los tiempos establecidos con el cliente.",
+      author: "Ing. Carlos Rodríguez",
+      date: "2024-12-20",
+      readTime: "8 min",
+      views: 1523,
+      comments: 18,
+      category: "Proyectos Destacados",
+      image: transportImage5,
+      featured: true
     }
   ];
 
