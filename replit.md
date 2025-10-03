@@ -69,17 +69,22 @@ The blog system features a complete corporate blog implementation with real proj
 - **Blog Homepage**: Professional carousel showcase with manual navigation controls and article previews
 - **Dedicated Blog Page**: Full-featured blog page (`/blog`) with search, categories, pagination, and article management
 - **Individual Article Pages**: Complete blog post layout with sidebar, social sharing, comments, and related articles
-- **Real Project Content**: 4 verified TRANSERVICA projects replacing generic placeholder content:
+- **Real Project Content**: 5 verified TRANSERVICA projects replacing generic placeholder content:
   - Auto Transformador 170 Toneladas (Puerto Cabello to Villa de Cura)
   - Power House 4 Módulos de 35 Toneladas (Carabobo)
   - Reactor Monofásico 70 Toneladas (Puerto Cabello to Anzoátegui)
   - Transformador 333MVA 180 Toneladas (Puerto Cabello to Miranda)
+  - Maniobra de Traslado de Vagones (Puerto Cabello to Charallave) - IFE Railway wagons transport
 - **Article Features**: Technical specifications, project achievements with checkmarks (✅), publication dates, view counts, and comment counts
-- **YouTube Video Integration**: Two flagship projects feature embedded YouTube videos with autoplay and continuous loop:
+- **YouTube Video Integration**: Five flagship projects feature embedded YouTube videos with autoplay and continuous loop:
   - Auto Transformador 170 Toneladas (video ID: JnWnFe_QdnE)
   - Power House 4 Módulos de 35 Toneladas (video ID: 4ZfZ5YFelkQ)
+  - Reactor Monofásico 70 Toneladas (video ID: 44lpgBO22qU)
+  - Transformador 333MVA 180 Toneladas (video ID: 54hazc90eNk)
+  - Maniobra de Traslado de Vagones (video ID: NW9Huszovqw with timing: start=30s, end=2:51)
   - Videos display across all views: homepage carousel, blog featured section, blog grid, and article detail pages
-  - Configured with autoplay=1, mute=1, loop=1, hd=1 for automatic playback, continuous replay, and highest quality available (4K/1080p/720p depending on video source)
+  - Configured with autoplay=1, mute=1, loop=1, vq=hd2160 for automatic playback, continuous replay, and highest quality available (4K/1080p/720p depending on video source)
+  - Custom timing controls available for specific video segments (e.g., wagon project starts at 0:30 and ends at 2:51)
 - **Clean UI Design**: Removed article number badges and read time badges for cleaner, more professional appearance while maintaining essential metadata (comment counts, categories, dates)
 - **Professional Layout**: Sidebar with search widget, related articles, contact form, categories, and newsletter subscription
 - **Social Integration**: Facebook, Twitter, LinkedIn, and generic share buttons for each article
