@@ -178,7 +178,6 @@ export default function BlogSection() {
         <div className="absolute top-20 left-20 w-32 h-32 bg-[#155d29] rounded-full blur-3xl"></div>
         <div className="absolute bottom-40 right-32 w-48 h-48 bg-[#155d29] rounded-full blur-3xl"></div>
       </div>
-
       <div className="relative container mx-auto mobile-padding">
         
         {/* Header Section */}
@@ -190,9 +189,7 @@ export default function BlogSection() {
             <span className="text-sm font-medium text-[#155d29]">{t('blog.section.badge')}</span>
           </div>
 
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 sm:mb-6 text-wrap-balance" style={{ color: '#155d29' }}>
-            BLOGS Y NOTICIAS TRANSERVICA C.A
-          </h2>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 sm:mb-6 text-wrap-balance" style={{ color: '#155d29' }}>BLOGS Y NOTICIAS  GRUPO TRANSERVICA C.A</h2>
           <p className="mobile-text lg:text-xl max-w-3xl mx-auto mb-6 sm:mb-8 text-gray-600 text-wrap-pretty">
             {t('blog.section.description')}
           </p>
