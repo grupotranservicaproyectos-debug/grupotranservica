@@ -192,6 +192,14 @@ export default function BlogPage() {
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen
                     />
+                  ) : selectedPost.id === 7 ? (
+                    <iframe
+                      src="https://www.youtube.com/embed/NW9Huszovqw?start=30&end=171&autoplay=1&mute=1&loop=1&playlist=NW9Huszovqw&vq=hd2160"
+                      title={selectedPost.title}
+                      className="w-full h-full"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
                   ) : (
                     <img
                       src={selectedPost.image}
@@ -614,6 +622,14 @@ export default function BlogPage() {
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                           allowFullScreen
                         />
+                      ) : post.id === 7 ? (
+                        <iframe
+                          src="https://www.youtube.com/embed/NW9Huszovqw?start=30&end=171&autoplay=1&mute=1&loop=1&playlist=NW9Huszovqw&vq=hd2160"
+                          title={post.title}
+                          className="w-full h-full"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
+                        />
                       ) : (
                         <img
                           src={post.image}
@@ -703,6 +719,14 @@ export default function BlogPage() {
                     ) : post.id === 4 ? (
                       <iframe
                         src="https://www.youtube.com/embed/54hazc90eNk?autoplay=1&mute=1&loop=1&playlist=54hazc90eNk&vq=hd2160"
+                        title={post.title}
+                        className="w-full h-full"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      />
+                    ) : post.id === 7 ? (
+                      <iframe
+                        src="https://www.youtube.com/embed/NW9Huszovqw?start=30&end=171&autoplay=1&mute=1&loop=1&playlist=NW9Huszovqw&vq=hd2160"
                         title={post.title}
                         className="w-full h-full"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
