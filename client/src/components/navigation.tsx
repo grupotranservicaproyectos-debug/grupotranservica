@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { Link } from "wouter";
 import logoTranservica from "@assets/logo transervica sin fondo_1754163034585.webp";
 
 export default function Navigation() {
@@ -58,6 +59,18 @@ export default function Navigation() {
                 Nosotros
               </button>
               <button 
+                onClick={() => scrollToSection('equipos')}
+                className="text-transervica-gray hover:text-transervica-green px-3 py-2 text-sm font-medium transition"
+              >
+                Equipos
+              </button>
+              <Link 
+                href="/blog"
+                className="text-transervica-gray hover:text-transervica-green px-3 py-2 text-sm font-medium transition"
+              >
+                Blog
+              </Link>
+              <button 
                 onClick={() => scrollToSection('contacto')}
                 className="bg-transervica-green text-white px-6 py-2 rounded-lg text-sm font-medium hover:bg-transervica-light-green transition"
               >
@@ -105,6 +118,19 @@ export default function Navigation() {
               >
                 Nosotros
               </button>
+              <button 
+                onClick={() => scrollToSection('equipos')}
+                className="text-transervica-gray hover:text-transervica-green block px-3 py-2 text-base font-medium w-full text-left"
+              >
+                Equipos
+              </button>
+              <Link 
+                href="/blog"
+                className="text-transervica-gray hover:text-transervica-green block px-3 py-2 text-base font-medium w-full text-left"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Blog
+              </Link>
               <button 
                 onClick={() => scrollToSection('contacto')}
                 className="bg-transervica-green text-white block px-3 py-2 rounded-lg text-base font-medium hover:bg-transervica-light-green transition w-full text-left"
