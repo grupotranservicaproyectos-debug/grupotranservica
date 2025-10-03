@@ -585,9 +585,9 @@ const translations = {
     'services.watch': 'WATCH SERVICES',
     
     // About Section
-    'about.title': 'ABOUT TRANSERVICA',
-    'about.subtitle': '40 years transporting Venezuela\'s future',
-    'about.description': 'We are a Venezuelan company specialized in exceptional cargo transportation with over 4 decades of experience. We feature German SCHEUERLE technology and a highly qualified team to handle the most challenging projects.',
+    'about.title': 'ABOUT GRUPO TRANSERVICA C.A',
+    'about.subtitle': '40 Years Transporting The Future of Venezuela',
+    'about.description': 'We are a Venezuelan Company Specialized in Exceptional Cargo Transportation with over 4 decades of experience. We feature German SCHEUERLE and COMETTO technology and a highly qualified team to handle the most challenging projects.',
     'about.experience': '40+ Years of Experience',
     'about.projects': '1000+ Successful Projects',
     'about.capacity': '1,100 Tons Capacity',
@@ -600,7 +600,7 @@ const translations = {
     'about.benefit2.desc': '40 years successfully transporting Venezuela\'s future.',
     'about.benefit3.title': 'Comprehensive platform with 24/7 support',
     'about.benefit3.desc': 'Complete tracking and specialists always available.',
-    'about.benefit4.title': 'Personalized support with real humans',
+    'about.benefit4.title': 'Personalized Support with Qualified Personnel',
     'about.benefit4.desc': 'Dedicated logistics specialists available at any time.',
     'about.mission.title': 'Mission',
     'about.mission.text': 'Providing mobilization and lifting services for oversized cargo through compliance with safety, guarantee and reliability criteria, anticipating and effectively responding to our clients\' needs, ensuring the welfare of our workers and maximizing productivity.',

@@ -454,7 +454,10 @@ export default function BlogPage() {
                     <div
                       key={post.id}
                       className="flex gap-3 cursor-pointer group"
-                      onClick={() => setSelectedPost(post)}
+                      onClick={() => {
+                        setSelectedPost(post);
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                      }}
                     >
                       <img
                         src={post.image}
@@ -685,7 +688,10 @@ export default function BlogPage() {
                   <article
                     key={post.id}
                     className="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 hover:scale-105 overflow-hidden cursor-pointer mx-2 lg:mx-0"
-                    onClick={() => setSelectedPost(post)}
+                    onClick={() => {
+                      setSelectedPost(post);
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }}
                   >
                     {/* Video/Image container */}
                     <div className="relative h-80 overflow-hidden">
@@ -813,7 +819,10 @@ export default function BlogPage() {
                 <article
                   key={post.id}
                   className="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 hover:scale-105 overflow-hidden cursor-pointer mx-2 sm:mx-0"
-                  onClick={() => setSelectedPost(post)}
+                  onClick={() => {
+                    setSelectedPost(post);
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }}
                 >
                   {/* Video/Image container */}
                   <div className="relative h-64 overflow-hidden">
