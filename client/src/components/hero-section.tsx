@@ -130,7 +130,7 @@ export default function HeroSection() {
                 onClick={() => scrollToSection('equipos')}
                 className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide"
               >
-                EQUIPOS
+                {t('nav.equipment')}
               </button>
               <Link 
                 href="/blog"
@@ -210,7 +210,7 @@ export default function HeroSection() {
                 onClick={() => { scrollToSection('equipos'); setIsMobileMenuOpen(false); }}
                 className="block w-full text-left text-gray-700 hover:text-[#155d29] hover:bg-gray-50 text-base font-bold transition-all duration-200 uppercase tracking-wide py-4 px-4 rounded-lg"
               >
-                EQUIPOS
+                {t('nav.equipment')}
               </button>
               <Link 
                 href="/blog"
