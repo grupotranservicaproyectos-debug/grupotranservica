@@ -27,12 +27,16 @@ A comprehensive design system includes reusable UI components, a dedicated blog 
 The blog system features a professional layout with a carousel showcase, a dedicated blog page with search, categories, pagination, and individual article pages. It includes real project documentation with technical specifications, project achievements, publication dates, view/comment counts, and embedded YouTube videos for flagship projects. Articles are categorized under "Proyectos Especiales" / "Special Projects" and optimized with Schema.org markup and relevant keywords. **The entire blog system is fully bilingual** - all 6 blog posts (IDs: 1, 2, 3, 4, 7, 8) include complete Spanish and English translations for titles, excerpts, and full content. Language switching works seamlessly in both blog list view and article detail view, with automatic category filter synchronization and selectedPost updates.
 
 ### Performance Optimizations
-The website implements extensive performance optimizations including:
-- **Image Optimization**: All images converted to WebP format, significantly compressed, and lazy-loaded for below-the-fold content.
+The website implements extensive performance optimizations targeting <1.5s desktop, <2s mobile, PageSpeed >95:
+- **Image Optimization**: All images converted to WebP format, significantly compressed, and lazy-loaded for below-the-fold content. Critical above-the-fold images (logos) load eagerly.
+- **YouTube Lazy Loading**: Custom YouTubeLazy component (client/src/components/youtube-lazy.tsx) displays thumbnails initially and loads iframes only on user interaction. Applied to about-section and blog-section videos. Hero background video uses eager loading for UX.
+- **Server Compression**: GZIP compression enabled (level 6, 1KB threshold) for all text-based responses via compression middleware.
+- **Aggressive Caching**: Static assets cached for 1 year (max-age=31536000, immutable) including images, JS, CSS. HTML cached for 1 hour with must-revalidate.
+- **Security Headers**: X-Content-Type-Options, X-Frame-Options, X-XSS-Protection, Referrer-Policy applied to all responses.
 - **Resource Preloading**: Strategic `preconnect`, `dns-prefetch`, `preload`, and `prefetch` directives for critical resources like Google Fonts, YouTube embeds, and main logo.
-- **Font Optimization**: `font-display: swap` for Google Fonts.
-- **Static Asset Serving**: Efficient serving of static assets with correct MIME types.
-- **Build Optimizations**: Vite automatically handles minification, code splitting, tree shaking, and asset optimization.
+- **Font Optimization**: Preload directive for Google Fonts with `font-display: swap` for instant text rendering.
+- **Static Asset Serving**: Efficient serving with correct MIME types and immutable cache headers.
+- **Build Optimizations**: Vite handles minification, code splitting, tree shaking, and asset optimization automatically.
 
 ## External Dependencies
 
