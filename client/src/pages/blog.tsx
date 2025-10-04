@@ -585,42 +585,40 @@ export default function BlogPage() {
           <div className="mb-8 lg:mb-12">
             <div className="inline-flex items-center gap-2 lg:gap-3 bg-[#155d29]/10 backdrop-blur-sm rounded-full px-4 sm:px-6 lg:px-8 py-2 sm:py-3 lg:py-4 border border-[#155d29]/20">
               <div className="w-2 lg:w-3 h-2 lg:h-3 bg-[#155d29] rounded-full"></div>
-              <span className="text-[#155d29] font-bold text-xs sm:text-sm uppercase tracking-wide lg:tracking-widest">Blog Corporativo</span>
+              <span className="text-[#155d29] font-bold text-xs sm:text-sm uppercase tracking-wide lg:tracking-widest">{t('blog.header.badge')}</span>
             </div>
           </div>
 
           {/* Responsive Main Title */}
           <div className="max-w-6xl mx-auto">
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-9xl font-black mb-6 lg:mb-10 leading-tight lg:leading-none text-[#155d29]">
-              <span className="block drop-shadow-md lg:drop-shadow-lg">CENTRO DE</span>
-              <span className="block text-gray-800 drop-shadow-sm lg:drop-shadow-md">
-                CONOCIMIENTO
-              </span>
+              <span className="block drop-shadow-md lg:drop-shadow-lg">{t('blog.header.title1')}</span>
+              <span className="block text-gray-800 drop-shadow-sm lg:drop-shadow-md">{t('blog.header.title2')}</span>
             </h1>
             
             <p className="text-lg sm:text-xl lg:text-2xl xl:text-3xl text-gray-700 mb-8 lg:mb-14 max-w-4xl lg:max-w-5xl mx-auto leading-relaxed font-light px-4 lg:px-0">
-              Noticias exclusivas, proyectos emblemáticos y expertise técnico de
-              <span className="font-bold text-[#155d29]"> 40 años</span> en 
-              <span className="font-bold text-[#155d29]"> transporte de cargas excepcionales</span>
+              {t('blog.header.description')}
+              <span className="font-bold text-[#155d29]"> {t('blog.header.description.years')}</span> {language === 'es' ? 'en' : 'of'} 
+              <span className="font-bold text-[#155d29]"> {t('blog.header.description.transport')}</span>
             </p>
 
             {/* Mobile-Optimized Stats Cards */}
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 mb-10 lg:mb-16 px-2 sm:px-0">
               <div className="bg-white rounded-xl lg:rounded-2xl p-4 sm:p-6 lg:p-8 border border-gray-200 shadow-lg lg:shadow-xl group hover:shadow-xl lg:hover:shadow-2xl transition-all duration-300 hover:border-[#155d29]/30">
                 <div className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#155d29] mb-2 lg:mb-4 group-hover:scale-105 transition-transform">40+</div>
-                <div className="text-xs sm:text-sm text-gray-600 font-bold uppercase tracking-wide">Años de Experiencia</div>
+                <div className="text-xs sm:text-sm text-gray-600 font-bold uppercase tracking-wide">{t('blog.header.stats.experience')}</div>
               </div>
               <div className="bg-white rounded-xl lg:rounded-2xl p-4 sm:p-6 lg:p-8 border border-gray-200 shadow-lg lg:shadow-xl group hover:shadow-xl lg:hover:shadow-2xl transition-all duration-300 hover:border-[#155d29]/30">
                 <div className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-800 mb-2 lg:mb-4 group-hover:scale-105 transition-transform">1,100</div>
-                <div className="text-xs sm:text-sm text-gray-600 font-bold uppercase tracking-wide">Toneladas Máximas</div>
+                <div className="text-xs sm:text-sm text-gray-600 font-bold uppercase tracking-wide">{t('blog.header.stats.maxTonnage')}</div>
               </div>
               <div className="bg-white rounded-xl lg:rounded-2xl p-4 sm:p-6 lg:p-8 border border-gray-200 shadow-lg lg:shadow-xl group hover:shadow-xl lg:hover:shadow-2xl transition-all duration-300 hover:border-[#155d29]/30">
                 <div className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#155d29] mb-2 lg:mb-4 group-hover:scale-105 transition-transform">15K+</div>
-                <div className="text-xs sm:text-sm text-gray-600 font-bold uppercase tracking-wide">Proyectos Exitosos</div>
+                <div className="text-xs sm:text-sm text-gray-600 font-bold uppercase tracking-wide">{t('blog.header.stats.projects')}</div>
               </div>
               <div className="bg-white rounded-xl lg:rounded-2xl p-4 sm:p-6 lg:p-8 border border-gray-200 shadow-lg lg:shadow-xl group hover:shadow-xl lg:hover:shadow-2xl transition-all duration-300 hover:border-[#155d29]/30">
                 <div className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-800 mb-2 lg:mb-4 group-hover:scale-105 transition-transform">99.8%</div>
-                <div className="text-xs sm:text-sm text-gray-600 font-bold uppercase tracking-wide">Récord de Seguridad</div>
+                <div className="text-xs sm:text-sm text-gray-600 font-bold uppercase tracking-wide">{t('blog.header.stats.safety')}</div>
               </div>
             </div>
 
@@ -637,7 +635,7 @@ export default function BlogPage() {
                 TRANSERVICA, C.A.
               </p>
               <p className="text-base sm:text-lg lg:text-xl text-gray-700 font-medium leading-relaxed">
-                Líder absoluto en Venezuela en transporte especializado y logística de cargas excepcionales
+                {t('blog.header.company.tagline')}
               </p>
             </div>
           </div>

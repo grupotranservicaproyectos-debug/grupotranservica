@@ -330,6 +330,19 @@ const translations = {
     'blog.page.articlesCount': 'artículos',
     'blog.page.category': 'Proyectos Especiales',
     
+    // Blog Header
+    'blog.header.badge': 'Blog Corporativo',
+    'blog.header.title1': 'CENTRO DE ',
+    'blog.header.title2': 'CONOCIMIENTO',
+    'blog.header.description': 'Noticias exclusivas, proyectos emblemáticos y expertise técnico de',
+    'blog.header.description.years': '40 años',
+    'blog.header.description.transport': 'transporte de cargas excepcionales',
+    'blog.header.stats.experience': 'Años de Experiencia',
+    'blog.header.stats.maxTonnage': 'Toneladas Máximas',
+    'blog.header.stats.projects': 'Proyectos Exitosos',
+    'blog.header.stats.safety': 'Récord de Seguridad',
+    'blog.header.company.tagline': 'Líder absoluto en Venezuela en transporte especializado y logística de cargas excepcionales',
+    
     // Blog Post 1 - Auto Transformer 170 Tons
     'blog.post1.title': 'Transporte de Auto Transformador 170 Toneladas: Puerto Cabello a Villa de Cura',
     'blog.post1.excerpt': 'Proyecto ejecutado: Transporte terrestre de auto transformador desde Puerto Cabello, estado Carabobo, hasta Villa de Cura, estado Aragua. Peso: 170 toneladas, Dimensiones: 6.76m x 5.30m, Equipo: Viga portante 16 ejes hidráulicos.',
@@ -881,6 +894,19 @@ const translations = {
     'blog.page.readArticle': 'Read Article',
     'blog.page.articlesCount': 'articles',
     'blog.page.category': 'Special Projects',
+    
+    // Blog Header
+    'blog.header.badge': 'Corporate Blog',
+    'blog.header.title1': 'KNOWLEDGE ',
+    'blog.header.title2': 'CENTER',
+    'blog.header.description': 'Exclusive news, flagship projects and technical expertise from',
+    'blog.header.description.years': '40 years',
+    'blog.header.description.transport': 'exceptional cargo transportation',
+    'blog.header.stats.experience': 'Years of Experience',
+    'blog.header.stats.maxTonnage': 'Maximum Tonnage',
+    'blog.header.stats.projects': 'Successful Projects',
+    'blog.header.stats.safety': 'Safety Record',
+    'blog.header.company.tagline': 'Venezuela\'s absolute leader in specialized transportation and exceptional cargo logistics',
     
     // Blog Post 1 - Auto Transformer 170 Tons
     'blog.post1.title': '170-Ton Auto Transformer Transportation: Puerto Cabello to Villa de Cura',
