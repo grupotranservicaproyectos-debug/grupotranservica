@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Link } from "wouter";
-import logoTranservica from "@assets/logo transervica sin fondo_1754163034585.webp";
+import { useLanguage } from "@/contexts/LanguageContext";
+
+const LOGO_URL = "https://page.gensparksite.com/v1/base64_upload/effd6e03d44742614215e90a841dd3a8";
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { t } = useLanguage();
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -24,7 +27,7 @@ export default function Navigation() {
               className="focus:outline-none"
             >
               <img 
-                src={logoTranservica} 
+                src={LOGO_URL} 
                 alt="TRANSERVICA Logo" 
                 className="h-24 w-auto hover:scale-105 transition-transform duration-300"
               />
@@ -38,43 +41,43 @@ export default function Navigation() {
                 onClick={() => scrollToSection('inicio')}
                 className="text-transervica-green hover:text-transervica-light-green px-3 py-2 text-sm font-medium transition"
               >
-                Inicio
+                {t('nav.home')}
               </button>
               <button 
                 onClick={() => scrollToSection('servicios')}
                 className="text-transervica-gray hover:text-transervica-green px-3 py-2 text-sm font-medium transition"
               >
-                Servicios
+                {t('nav.services')}
               </button>
               <button 
                 onClick={() => scrollToSection('proyectos')}
                 className="text-transervica-gray hover:text-transervica-green px-3 py-2 text-sm font-medium transition"
               >
-                Proyectos
+                {t('nav.projects')}
               </button>
               <button 
                 onClick={() => scrollToSection('nosotros')}
                 className="text-transervica-gray hover:text-transervica-green px-3 py-2 text-sm font-medium transition"
               >
-                Nosotros
+                {t('nav.company')}
               </button>
               <button 
                 onClick={() => scrollToSection('equipos')}
                 className="text-transervica-gray hover:text-transervica-green px-3 py-2 text-sm font-medium transition"
               >
-                Equipos
+                {t('nav.equipment')}
               </button>
               <Link 
                 href="/blog"
                 className="text-transervica-gray hover:text-transervica-green px-3 py-2 text-sm font-medium transition"
               >
-                Blog
+                {t('nav.blog')}
               </Link>
               <button 
                 onClick={() => scrollToSection('contacto')}
                 className="bg-transervica-green text-white px-6 py-2 rounded-lg text-sm font-medium hover:bg-transervica-light-green transition"
               >
-                Cotizar
+                {t('nav.quote')}
               </button>
             </div>
           </div>
@@ -98,44 +101,44 @@ export default function Navigation() {
                 onClick={() => scrollToSection('inicio')}
                 className="text-transervica-green hover:text-transervica-light-green block px-3 py-2 text-base font-medium w-full text-left"
               >
-                Inicio
+                {t('nav.home')}
               </button>
               <button 
                 onClick={() => scrollToSection('servicios')}
                 className="text-transervica-gray hover:text-transervica-green block px-3 py-2 text-base font-medium w-full text-left"
               >
-                Servicios
+                {t('nav.services')}
               </button>
               <button 
                 onClick={() => scrollToSection('proyectos')}
                 className="text-transervica-gray hover:text-transervica-green block px-3 py-2 text-base font-medium w-full text-left"
               >
-                Proyectos
+                {t('nav.projects')}
               </button>
               <button 
                 onClick={() => scrollToSection('nosotros')}
                 className="text-transervica-gray hover:text-transervica-green block px-3 py-2 text-base font-medium w-full text-left"
               >
-                Nosotros
+                {t('nav.company')}
               </button>
               <button 
                 onClick={() => scrollToSection('equipos')}
                 className="text-transervica-gray hover:text-transervica-green block px-3 py-2 text-base font-medium w-full text-left"
               >
-                Equipos
+                {t('nav.equipment')}
               </button>
               <Link 
                 href="/blog"
                 className="text-transervica-gray hover:text-transervica-green block px-3 py-2 text-base font-medium w-full text-left"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Blog
+                {t('nav.blog')}
               </Link>
               <button 
                 onClick={() => scrollToSection('contacto')}
                 className="bg-transervica-green text-white block px-3 py-2 rounded-lg text-base font-medium hover:bg-transervica-light-green transition w-full text-left"
               >
-                Cotizar
+                {t('nav.quote')}
               </button>
             </div>
           </div>

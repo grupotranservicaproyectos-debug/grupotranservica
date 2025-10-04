@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Facebook, Instagram, Youtube, Mail, Phone, MapPin } from 'lucide-react';
-import logoTranservica from "@assets/logo transervica sin fondo_1754163034585.webp";
 import { useLanguage } from '../contexts/LanguageContext';
 import { Link } from 'wouter';
+
+const LOGO_URL = "https://page.gensparksite.com/v1/base64_upload/effd6e03d44742614215e90a841dd3a8";
 
 export default function Footer() {
   const { t } = useLanguage();
@@ -42,7 +43,7 @@ export default function Footer() {
                 className="focus:outline-none mb-4"
               >
                 <img 
-                  src={logoTranservica} 
+                  src={LOGO_URL} 
                   alt="TRANSERVICA Logo"
                   loading="lazy"
                   className="h-24 md:h-28 lg:h-32 w-auto max-w-full hover:scale-105 transition-transform duration-300 filter brightness-150 contrast-125 drop-shadow-lg"

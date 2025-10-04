@@ -22,6 +22,7 @@ const translations = {
     'nav.contact': 'CONTACTO',
     'nav.quote': 'COTIZAR',
     'nav.blog': 'BLOG',
+    'nav.equipment': 'EQUIPOS',
     
     // Hero Section
     'hero.title': 'Transporte de Cargas Excepcionales Venezuela - Hasta 1,100 Toneladas',
@@ -586,6 +587,7 @@ const translations = {
     'nav.contact': 'CONTACT',
     'nav.quote': 'QUOTE',
     'nav.blog': 'BLOG',
+    'nav.equipment': 'EQUIPMENT',
     
     // Hero Section
     'hero.title': 'Exceptional Heavy Cargo Transportation Venezuela - Up to 1,100 Tons',

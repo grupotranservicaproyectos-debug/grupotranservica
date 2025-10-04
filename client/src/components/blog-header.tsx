@@ -3,7 +3,8 @@ import { Link } from 'wouter';
 import { Menu, X, Home, Briefcase, Users, FileText, Phone, Calendar, ChevronLeft } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
-import logoTranservica from "@assets/logo transervica sin fondo_1754163034585.png";
+
+const LOGO_URL = "https://page.gensparksite.com/v1/base64_upload/effd6e03d44742614215e90a841dd3a8";
 
 interface BlogHeaderProps {
   showBackButton?: boolean;
@@ -53,7 +54,7 @@ export default function BlogHeader({ showBackButton = false, onBackClick }: Blog
           <div className="lg:hidden">
             <Link href="/">
               <img 
-                src={logoTranservica} 
+                src={LOGO_URL} 
                 alt="TRANSERVICA" 
                 className="h-16 sm:h-20 w-auto cursor-pointer hover:scale-105 transition-all duration-300 filter brightness-110 contrast-125 drop-shadow-lg"
               />
@@ -64,7 +65,7 @@ export default function BlogHeader({ showBackButton = false, onBackClick }: Blog
             {/* Logo next to navigation */}
             <Link href="/">
               <img 
-                src={logoTranservica} 
+                src={LOGO_URL} 
                 alt="TRANSERVICA" 
                 className="h-24 lg:h-28 xl:h-32 w-auto cursor-pointer hover:scale-105 transition-all duration-300 mr-8 filter brightness-110 contrast-125 drop-shadow-lg"
                 style={{ 
@@ -105,7 +106,7 @@ export default function BlogHeader({ showBackButton = false, onBackClick }: Blog
               onClick={() => scrollToSection('equipos')}
               className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide"
             >
-              EQUIPOS
+              {t('nav.equipment')}
             </button>
             <Link 
               href="/blog"
