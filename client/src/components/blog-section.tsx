@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Calendar, User, ArrowRight, Eye, MessageCircle, ChevronLeft, ChevronRight, Truck, Settings, Shield, Award } from "lucide-react";
 import { Link } from 'wouter';
 import { useLanguage } from '../contexts/LanguageContext';
+import YouTubeLazy from './youtube-lazy';
 import transportImage1 from "@assets/1_1754173669382.webp";
 import transportImage2 from "@assets/2_1754173669382.webp";
 import transportImage3 from "@assets/3_1754173669382.webp";
@@ -241,52 +242,52 @@ export default function BlogSection() {
                           {/* Video/Image container */}
                           <div className="relative h-64 overflow-hidden">
                             {post.id === 1 ? (
-                              <iframe
-                                src="https://www.youtube.com/embed/JnWnFe_QdnE?autoplay=1&mute=1&loop=1&playlist=JnWnFe_QdnE&vq=hd2160"
+                              <YouTubeLazy
+                                videoId="JnWnFe_QdnE"
                                 title={post.title}
                                 className="w-full h-full"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowFullScreen
+                                params="mute=1&loop=1&playlist=JnWnFe_QdnE&vq=hd2160"
+                                thumbnailQuality="maxresdefault"
                               />
                             ) : post.id === 2 ? (
-                              <iframe
-                                src="https://www.youtube.com/embed/4ZfZ5YFelkQ?autoplay=1&mute=1&loop=1&playlist=4ZfZ5YFelkQ&vq=hd2160"
+                              <YouTubeLazy
+                                videoId="4ZfZ5YFelkQ"
                                 title={post.title}
                                 className="w-full h-full"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowFullScreen
+                                params="mute=1&loop=1&playlist=4ZfZ5YFelkQ&vq=hd2160"
+                                thumbnailQuality="maxresdefault"
                               />
                             ) : post.id === 3 ? (
-                              <iframe
-                                src="https://www.youtube.com/embed/44lpgBO22qU?autoplay=1&mute=1&loop=1&playlist=44lpgBO22qU&vq=hd2160"
+                              <YouTubeLazy
+                                videoId="44lpgBO22qU"
                                 title={post.title}
                                 className="w-full h-full"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowFullScreen
+                                params="mute=1&loop=1&playlist=44lpgBO22qU&vq=hd2160"
+                                thumbnailQuality="maxresdefault"
                               />
                             ) : post.id === 4 ? (
-                              <iframe
-                                src="https://www.youtube.com/embed/54hazc90eNk?autoplay=1&mute=1&loop=1&playlist=54hazc90eNk&vq=hd2160"
+                              <YouTubeLazy
+                                videoId="54hazc90eNk"
                                 title={post.title}
                                 className="w-full h-full"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowFullScreen
+                                params="mute=1&loop=1&playlist=54hazc90eNk&vq=hd2160"
+                                thumbnailQuality="maxresdefault"
                               />
                             ) : post.id === 7 ? (
-                              <iframe
-                                src="https://www.youtube.com/embed/NW9Huszovqw?start=30&end=171&autoplay=1&mute=1&loop=1&playlist=NW9Huszovqw&vq=hd2160"
+                              <YouTubeLazy
+                                videoId="NW9Huszovqw"
                                 title={post.title}
                                 className="w-full h-full"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowFullScreen
+                                params="start=30&end=171&mute=1&loop=1&playlist=NW9Huszovqw&vq=hd2160"
+                                thumbnailQuality="maxresdefault"
                               />
                             ) : post.id === 8 ? (
-                              <iframe
-                                src="https://www.youtube.com/embed/JJjJ6lF_4oI?start=22&end=86&autoplay=1&mute=1&loop=1&playlist=JJjJ6lF_4oI&vq=hd2160"
+                              <YouTubeLazy
+                                videoId="JJjJ6lF_4oI"
                                 title={post.title}
                                 className="w-full h-full"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowFullScreen
+                                params="start=22&end=86&mute=1&loop=1&playlist=JJjJ6lF_4oI&vq=hd2160"
+                                thumbnailQuality="maxresdefault"
                               />
                             ) : (
                               <img 

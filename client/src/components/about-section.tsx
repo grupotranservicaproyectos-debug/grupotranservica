@@ -1,5 +1,6 @@
 import transportImage from "@assets/5_1754173669383.webp";
 import { useLanguage } from '../contexts/LanguageContext';
+import YouTubeLazy from './youtube-lazy';
 
 export default function AboutSection() {
   const { t } = useLanguage();
@@ -43,13 +44,12 @@ export default function AboutSection() {
               <div className="absolute -inset-4 bg-gradient-to-r from-transervica-green via-transervica-light-green to-transervica-green rounded-3xl blur opacity-30 group-hover:opacity-60 transition duration-1000"></div>
               <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-black">
                 <div className="relative aspect-video">
-                  <iframe
-                    src="https://www.youtube.com/embed/0-vWA7PJp3s?autoplay=1&mute=1&start=32&controls=1&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&vq=hd1080&quality=hd1080&hd=1&fmt=22"
+                  <YouTubeLazy
+                    videoId="0-vWA7PJp3s"
                     title="TRANSERVICA - 40 Años de Experiencia"
                     className="absolute inset-0 w-full h-full"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
+                    params="mute=1&start=32&controls=1&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&vq=hd1080&quality=hd1080&hd=1&fmt=22"
+                    thumbnailQuality="maxresdefault"
                   />
                 </div>
                 
