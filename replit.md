@@ -24,7 +24,7 @@ The project uses **Vite** for fast development and optimized production builds, 
 A comprehensive design system includes reusable UI components, a dedicated blog system, CSS variables for theming, **Radix UI** for accessibility, and a mobile-first responsive design.
 
 ### Blog Architecture
-The blog system features a professional layout with a carousel showcase, a dedicated blog page with search, categories, pagination, and individual article pages. It includes real project documentation with technical specifications, project achievements, publication dates, view/comment counts, and embedded YouTube videos for flagship projects. Articles are categorized under "Proyectos Especiales" and optimized with Schema.org markup and relevant keywords.
+The blog system features a professional layout with a carousel showcase, a dedicated blog page with search, categories, pagination, and individual article pages. It includes real project documentation with technical specifications, project achievements, publication dates, view/comment counts, and embedded YouTube videos for flagship projects. Articles are categorized under "Proyectos Especiales" / "Special Projects" and optimized with Schema.org markup and relevant keywords. **The entire blog system is fully bilingual** - all 6 blog posts (IDs: 1, 2, 3, 4, 7, 8) include complete Spanish and English translations for titles, excerpts, and full content. Language switching works seamlessly in both blog list view and article detail view, with automatic category filter synchronization and selectedPost updates.
 
 ### Performance Optimizations
 The website implements extensive performance optimizations including:
