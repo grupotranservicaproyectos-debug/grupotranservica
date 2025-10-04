@@ -2,8 +2,7 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Link } from "wouter";
 import { useLanguage } from "@/contexts/LanguageContext";
-
-const LOGO_URL = "https://page.gensparksite.com/v1/base64_upload/effd6e03d44742614215e90a841dd3a8";
+import logoTranservica from "@assets/logo transervica sin fondo_1754163034585.webp";
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -27,7 +26,7 @@ export default function Navigation() {
               className="focus:outline-none"
             >
               <img 
-                src={LOGO_URL} 
+                src={logoTranservica} 
                 alt="TRANSERVICA Logo" 
                 className="h-24 w-auto hover:scale-105 transition-transform duration-300"
               />
