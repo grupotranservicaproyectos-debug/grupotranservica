@@ -29,7 +29,7 @@ The blog system features a professional layout with a carousel showcase, a dedic
 ### Performance Optimizations
 The website implements extensive performance optimizations targeting <1.5s desktop, <2s mobile, PageSpeed >95:
 - **Image Optimization**: All images converted to WebP format, significantly compressed, and lazy-loaded for below-the-fold content. Critical above-the-fold images (logos) load eagerly.
-- **YouTube Lazy Loading**: Custom YouTubeLazy component (client/src/components/youtube-lazy.tsx) displays thumbnails initially and loads iframes only on user interaction. Applied to about-section and blog-section videos. Hero background video uses eager loading for UX.
+- **YouTube Lazy Loading**: Custom YouTubeLazy component (client/src/components/youtube-lazy.tsx) with intersection observer support. Videos display thumbnails initially and load iframes automatically when entering viewport (autoLoad mode). This maintains autoplay functionality while reducing initial page weight. Applied to about-section and blog-section videos. Hero background video uses eager loading for UX.
 - **Server Compression**: GZIP compression enabled (level 6, 1KB threshold) for all text-based responses via compression middleware.
 - **Aggressive Caching**: Static assets cached for 1 year (max-age=31536000, immutable) including images, JS, CSS. HTML cached for 1 hour with must-revalidate.
 - **Security Headers**: X-Content-Type-Options, X-Frame-Options, X-XSS-Protection, Referrer-Policy applied to all responses.
