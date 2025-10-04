@@ -48,8 +48,9 @@ export default function AboutSection() {
                     videoId="0-vWA7PJp3s"
                     title="TRANSERVICA - 40 Años de Experiencia"
                     className="absolute inset-0 w-full h-full"
-                    params="mute=1&start=32&controls=1&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&vq=hd1080&quality=hd1080&hd=1&fmt=22"
+                    params="autoplay=1&mute=1&start=32&controls=1&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&vq=hd1080&quality=hd1080&hd=1&fmt=22"
                     thumbnailQuality="maxresdefault"
+                    autoLoad={true}
                   />
                 </div>
                 

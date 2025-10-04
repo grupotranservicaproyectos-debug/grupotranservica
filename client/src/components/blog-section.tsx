@@ -246,48 +246,54 @@ export default function BlogSection() {
                                 videoId="JnWnFe_QdnE"
                                 title={post.title}
                                 className="w-full h-full"
-                                params="mute=1&loop=1&playlist=JnWnFe_QdnE&vq=hd2160"
+                                params="autoplay=1&mute=1&loop=1&playlist=JnWnFe_QdnE&vq=hd2160"
                                 thumbnailQuality="maxresdefault"
+                                autoLoad={true}
                               />
                             ) : post.id === 2 ? (
                               <YouTubeLazy
                                 videoId="4ZfZ5YFelkQ"
                                 title={post.title}
                                 className="w-full h-full"
-                                params="mute=1&loop=1&playlist=4ZfZ5YFelkQ&vq=hd2160"
+                                params="autoplay=1&mute=1&loop=1&playlist=4ZfZ5YFelkQ&vq=hd2160"
                                 thumbnailQuality="maxresdefault"
+                                autoLoad={true}
                               />
                             ) : post.id === 3 ? (
                               <YouTubeLazy
                                 videoId="44lpgBO22qU"
                                 title={post.title}
                                 className="w-full h-full"
-                                params="mute=1&loop=1&playlist=44lpgBO22qU&vq=hd2160"
+                                params="autoplay=1&mute=1&loop=1&playlist=44lpgBO22qU&vq=hd2160"
                                 thumbnailQuality="maxresdefault"
+                                autoLoad={true}
                               />
                             ) : post.id === 4 ? (
                               <YouTubeLazy
                                 videoId="54hazc90eNk"
                                 title={post.title}
                                 className="w-full h-full"
-                                params="mute=1&loop=1&playlist=54hazc90eNk&vq=hd2160"
+                                params="autoplay=1&mute=1&loop=1&playlist=54hazc90eNk&vq=hd2160"
                                 thumbnailQuality="maxresdefault"
+                                autoLoad={true}
                               />
                             ) : post.id === 7 ? (
                               <YouTubeLazy
                                 videoId="NW9Huszovqw"
                                 title={post.title}
                                 className="w-full h-full"
-                                params="start=30&end=171&mute=1&loop=1&playlist=NW9Huszovqw&vq=hd2160"
+                                params="autoplay=1&start=30&end=171&mute=1&loop=1&playlist=NW9Huszovqw&vq=hd2160"
                                 thumbnailQuality="maxresdefault"
+                                autoLoad={true}
                               />
                             ) : post.id === 8 ? (
                               <YouTubeLazy
                                 videoId="JJjJ6lF_4oI"
                                 title={post.title}
                                 className="w-full h-full"
-                                params="start=22&end=86&mute=1&loop=1&playlist=JJjJ6lF_4oI&vq=hd2160"
+                                params="autoplay=1&start=22&end=86&mute=1&loop=1&playlist=JJjJ6lF_4oI&vq=hd2160"
                                 thumbnailQuality="maxresdefault"
+                                autoLoad={true}
                               />
                             ) : (
                               <img 
