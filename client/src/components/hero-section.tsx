@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { Link } from 'wouter';
 import { useLanguage } from '../contexts/LanguageContext';
 import LanguageSwitcher from './LanguageSwitcher';
-import logoTranservica from "@assets/logo transervica sin fondo_1754163034585.webp";
+
+const LOGO_URL = "https://page.gensparksite.com/v1/base64_upload/effd6e03d44742614215e90a841dd3a8";
 
 export default function HeroSection() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -77,26 +78,41 @@ export default function HeroSection() {
           {/* Main navigation menu - Mobile responsive */}
           <div className="flex items-center justify-between py-3">
             {/* Mobile logo - always visible */}
-            <div className="lg:hidden">
-              <img 
-                src={logoTranservica} 
-                alt="TRANSERVICA" 
-                className="h-16 sm:h-20 w-auto cursor-pointer hover:scale-105 transition-all duration-300 filter brightness-110 contrast-125 drop-shadow-lg"
-                onClick={() => scrollToSection('inicio')}
-              />
+            <div className="lg:hidden logo-container">
+              <Link 
+                href="/"
+                className="logo-link"
+                aria-label="TRANSERVICA - Inicio"
+                data-testid="logo-link-home-mobile"
+              >
+                <img 
+                  src={LOGO_URL}
+                  alt="TRANSERVICA - Transporte de Cargas Excepcionales Venezuela" 
+                  className="transervica-logo"
+                  loading="eager"
+                  data-testid="img-logo-transervica-mobile"
+                />
+              </Link>
             </div>
             
             <div className="hidden lg:flex items-center space-x-8">
               {/* Logo next to navigation */}
-              <img 
-                src={logoTranservica} 
-                alt="TRANSERVICA" 
-                className="h-24 lg:h-28 xl:h-32 w-auto cursor-pointer hover:scale-105 transition-all duration-300 mr-8 filter brightness-110 contrast-125 drop-shadow-lg"
-                style={{ 
-                  filter: 'brightness(1.1) contrast(1.25) drop-shadow(0 2px 4px rgba(0,0,0,0.2))'
-                }}
-                onClick={() => scrollToSection('inicio')}
-              />
+              <div className="logo-container mr-8">
+                <Link 
+                  href="/"
+                  className="logo-link"
+                  aria-label="TRANSERVICA - Inicio"
+                  data-testid="logo-link-home"
+                >
+                  <img 
+                    src={LOGO_URL}
+                    alt="TRANSERVICA - Transporte de Cargas Excepcionales Venezuela" 
+                    className="transervica-logo"
+                    loading="eager"
+                    data-testid="img-logo-transervica"
+                  />
+                </Link>
+              </div>
               <button 
                 onClick={() => scrollToSection('inicio')}
                 className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide"
