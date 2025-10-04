@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Link } from "wouter";
-import logoTranservica from "@assets/logo transervica sin fondo_1754163034585.webp";
+
+const LOGO_URL = "https://page.gensparksite.com/v1/base64_upload/effd6e03d44742614215e90a841dd3a8";
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -18,17 +19,21 @@ export default function Navigation() {
     <nav className="bg-white shadow-lg fixed w-full z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-24">
-          <div className="flex items-center">
-            <button 
-              onClick={() => scrollToSection('inicio')}
-              className="focus:outline-none"
+          <div className="flex items-center logo-container">
+            <Link 
+              href="/"
+              className="logo-link focus:outline-none focus:ring-2 focus:ring-[#155d29] focus:ring-offset-2 rounded"
+              aria-label="TRANSERVICA - Inicio"
+              data-testid="logo-link-home"
             >
               <img 
-                src={logoTranservica} 
-                alt="TRANSERVICA Logo" 
-                className="h-24 w-auto hover:scale-105 transition-transform duration-300"
+                src={LOGO_URL}
+                alt="TRANSERVICA - Transporte de Cargas Excepcionales Venezuela"
+                className="transervica-logo"
+                loading="eager"
+                data-testid="img-logo-transervica"
               />
-            </button>
+            </Link>
           </div>
           
           {/* Desktop Menu */}
