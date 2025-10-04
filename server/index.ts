@@ -1,8 +1,31 @@
 import express, { type Request, Response, NextFunction } from "express";
+import compression from "compression";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
 
 const app = express();
+
+// Enable GZIP compression for all responses
+app.use(compression({
+  level: 6,
+  threshold: 1024,
+  filter: (req, res) => {
+    if (req.headers['x-no-compression']) {
+      return false;
+    }
+    return compression.filter(req, res);
+  }
+}));
+
+// Security headers
+app.use((req, res, next) => {
+  res.setHeader('X-Content-Type-Options', 'nosniff');
+  res.setHeader('X-Frame-Options', 'SAMEORIGIN');
+  res.setHeader('X-XSS-Protection', '1; mode=block');
+  res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
+  next();
+});
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
@@ -47,8 +70,16 @@ app.use((req, res, next) => {
     throw err;
   });
 
-  // Serve attached_assets directory for static files (images, etc.)
-  app.use('/attached_assets', express.static('attached_assets'));
+  // Serve attached_assets directory for static files (images, etc.) with aggressive caching
+  app.use('/attached_assets', express.static('attached_assets', {
+    maxAge: '1y',
+    immutable: true,
+    setHeaders: (res, path) => {
+      if (path.endsWith('.webp') || path.endsWith('.jpg') || path.endsWith('.jpeg') || path.endsWith('.png')) {
+        res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+      }
+    }
+  }));
 
   // importantly only setup vite in development and after
   // setting up all the other routes so the catch-all route
