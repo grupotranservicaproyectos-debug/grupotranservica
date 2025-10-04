@@ -173,6 +173,21 @@ export default function BlogPage() {
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
+  // Update selected post when language changes
+  React.useEffect(() => {
+    if (selectedPost) {
+      const updatedPost = blogPosts.find(p => p.id === selectedPost.id);
+      if (updatedPost) {
+        setSelectedPost(updatedPost);
+      }
+    }
+  }, [language]);
+
+  // Update selected category when language changes
+  React.useEffect(() => {
+    setSelectedCategory(t('blog.page.allArticles'));
+  }, [language]);
+
   const scrollToSection = (sectionId: string) => {
     // Navigate to home page and scroll to specific section
     window.location.href = `/#${sectionId}`;
