@@ -34,98 +34,88 @@ export default function BlogSection() {
   const blogPosts: BlogPost[] = [
     {
       id: 1,
-      title: "Transporte de Autotransformador de 170 Toneladas desde Puerto Cabello hasta Villa de Cura",
-      excerpt: "Traslado exitoso de autotransformador de grandes dimensiones (6.76m x 5.30m x 170 ton) mediante viga portante y equipo hidráulico de 16 ejes, posicionándose en las inmediaciones del antiguo peaje de Santa Clara, Carabobo.",
-      content: "Este proyecto representó un desafío técnico significativo en el transporte de equipamiento eléctrico de alta capacidad. El autotransformador, con dimensiones de 6.76 metros de largo por 5.30 metros de alto y un peso aproximado de 170 toneladas, fue transportado desde Puerto Cabello, estado Carabobo, hasta Villa de Cura, estado Aragua. TRANSERVICA utilizó viga portante especializada con equipo modular hidráulico de 16 ejes para garantizar la estabilidad y seguridad de la carga durante todo el recorrido. La operación incluyó un posicionamiento estratégico en las inmediaciones del antiguo peaje de Santa Clara para realizar ajustes técnicos y verificaciones de seguridad. El proyecto requirió planificación detallada de la ruta, coordinación con autoridades de tránsito y análisis estructural de puentes y viaductos. El transporte se ejecutó con éxito cumpliendo todos los protocolos de seguridad y tiempos establecidos, consolidando nuestra experiencia en el manejo de equipos eléctricos de alta tensión.",
-      author: "Ing. Carlos Rodríguez",
+      title: t('blog.post1.title'),
+      excerpt: t('blog.post1.excerpt'),
+      content: t('blog.post1.content'),
+      author: t('blog.post1.author'),
       date: "2024-12-15",
       readTime: "8 min",
       views: 2456,
       comments: 23,
-      category: "Proyectos Destacados",
+      category: t('blog.page.category'),
       image: transportImage1,
       featured: true
     },
     {
       id: 2,
-      title: "Transporte de Power House Modular en Estado Carabobo: 4 Módulos de 35 Toneladas",
-      excerpt: "Movilización exitosa de Power House dividido en 4 módulos de caseta utilizando equipo modular hidráulico de 8 ejes en línea. Dimensiones por módulo: 16.00 x 4.00 x 3.70 metros, peso 35 toneladas cada uno.",
-      content: "TRANSERVICA completó con éxito el transporte terrestre de un Power House completo dividido en cuatro módulos de caseta en el estado Carabobo. Cada módulo presentaba dimensiones considerables de 16.00 metros de largo por 4.00 metros de ancho y 3.70 metros de alto, con un peso individual de 35 toneladas. Para esta operación especializada, se utilizó equipo modular hidráulico de 8 ejes dispuestos en línea, lo que permitió una distribución óptima del peso y máxima maniobrabilidad en las rutas seleccionadas. El proyecto demandó coordinación sincronizada para el transporte de los cuatro módulos, asegurando que cada unidad llegara en perfectas condiciones al sitio de instalación. La operación incluyó estudios de factibilidad de ruta, análisis de restricciones de altura en puntos críticos, y coordinación con servicios públicos para el manejo temporal de cableado eléctrico y señalización. Este proyecto demuestra la capacidad de TRANSERVICA para manejar proyectos modulares complejos que requieren múltiples movilizaciones coordinadas con precisión milimétrica.",
-      author: "Ing. María Fernández",
+      title: t('blog.post2.title'),
+      excerpt: t('blog.post2.excerpt'),
+      content: t('blog.post2.content'),
+      author: t('blog.post2.author'),
       date: "2024-11-28",
       readTime: "7 min",
       views: 1834,
       comments: 15,
-      category: "Proyectos Destacados",
+      category: t('blog.page.category'),
       image: transportImage2,
       featured: true
     },
     {
       id: 3,
-      title: "Reactor Monofásico de 70 Toneladas: Puerto Cabello a Subestación San Gerónimo, Anzoátegui",
-      excerpt: "Transporte terrestre especializado de reactor monofásico de potencia con equipo modular hidráulico 3+3 y plataforma intermedia. Dimensiones: 3.93 x 4.40 x 4.35 metros, peso 70 toneladas.",
-      content: "TRANSERVICA ejecutó exitosamente el transporte de un reactor monofásico de potencia de 70 toneladas desde Puerto Cabello, estado Carabobo, hasta la Subestación Eléctrica San Gerónimo, estado Anzoátegui. Este proyecto requirió equipamiento especializado, utilizando configuración modular hidráulica 3+3 con plataforma intermedia, especialmente diseñada para distribuir el peso del reactor de manera óptima. Las dimensiones del reactor (3.93m x 4.40m x 4.35m) presentaron desafíos específicos en términos de altura y centro de gravedad, requiriendo cálculos precisos de estabilidad. El recorrido de varios cientos de kilómetros atravesó múltiples estados, demandando permisos especiales del INTT, coordinación con autoridades estadales y municipales, y planificación detallada de puntos de control y descanso. La operación incluyó escolta especializada, monitoreo GPS en tiempo real y comunicación constante con el equipo técnico de la subestación receptora. El reactor fue entregado en perfectas condiciones, cumpliendo con los estrictos estándares de la industria eléctrica y demostrando la capacidad de TRANSERVICA para proyectos de largo recorrido con cargas sensibles.",
-      author: "Ing. Roberto Silva",
+      title: t('blog.post3.title'),
+      excerpt: t('blog.post3.excerpt'),
+      content: t('blog.post3.content'),
+      author: t('blog.post3.author'),
       date: "2024-11-10",
       readTime: "9 min",
       views: 3245,
       comments: 41,
-      category: "Proyectos Destacados",
+      category: t('blog.page.category'),
       image: transportImage3,
       featured: false
     },
     {
       id: 4,
-      title: "Transformador 333MVA de 180 Toneladas: Puerto Cabello a Subestación SUR, Miranda",
-      excerpt: "Transporte especializado de transformador de alta capacidad utilizando viga portante de 16 ejes. Dimensiones: 6.42 x 4.67 x 4.40 metros, peso 180 toneladas.",
-      content: "En uno de los proyectos más exigentes del año, TRANSERVICA transportó un transformador de 333MVA con peso de 180 toneladas desde Puerto Cabello, estado Carabobo, hasta la Subestación Eléctrica SUR en el estado Miranda. El transformador presentaba dimensiones críticas de 6.42 metros de largo, 4.67 metros de ancho y 4.40 metros de alto, requiriendo el uso de viga portante de 16 ejes para garantizar la distribución adecuada del peso y máxima estabilidad durante el transporte. La operación atravesó zonas urbanas densamente pobladas, incluyendo el área metropolitana de Caracas, lo que demandó coordinación exhaustiva con múltiples autoridades municipales y estatales. El proyecto incluyó estudios estructurales de puentes y viaductos en la ruta, análisis de restricciones de altura en pasos a desnivel, y planificación de horarios de tránsito nocturno para minimizar el impacto en el flujo vehicular. El equipo de TRANSERVICA trabajó en estrecha colaboración con ingenieros de la empresa eléctrica nacional para asegurar que el transformador llegara en condiciones óptimas para su instalación inmediata. Este proyecto consolida la posición de TRANSERVICA como líder en transporte de equipamiento eléctrico de alta capacidad en Venezuela.",
-      author: "Ing. Luis Martínez",
+      title: t('blog.post4.title'),
+      excerpt: t('blog.post4.excerpt'),
+      content: t('blog.post4.content'),
+      author: t('blog.post4.author'),
       date: "2024-10-22",
       readTime: "10 min",
       views: 1967,
       comments: 28,
-      category: "Proyectos Destacados",
+      category: t('blog.page.category'),
       image: transportImage4,
       featured: false
     },
     {
       id: 7,
-      title: "Maniobra de Traslado de Vagones: Puerto Cabello - Charallave",
-      excerpt: "Transporte especializado de vagones del Instituto de Ferrocarriles del Estado (IFE Charallave) utilizando equipo modular Cometto 4+4 y Cappon 4+4 con plataforma intermedia. Capacidad por eje: 25,000 kg.",
-      content: "TRANSERVICA ejecutó exitosamente la maniobra de traslado de vagones ferroviarios del Instituto de Ferrocarriles del Estado (IFE Charallave) desde Puerto Cabello hasta Charallave. Este proyecto de logística especializada involucró el transporte de dos tipos de vagones con dimensiones excepcionales:\n\n✅ Vagón Tipo 1: 26.013m de largo × 3.326m de alto × 2.974m de ancho, con peso de 32 toneladas\n✅ Vagón Tipo 2: 25.866m de largo × 3.63m de alto × 2.974m de ancho, con peso de 32 toneladas\n\nLa operación se desarrolló durante cinco (5) días, ejecutando el traslado desde la Represa Macagua hasta la Represa Simón Bolívar-Guri en el estado Bolívar. Para garantizar la seguridad y estabilidad de las cargas, TRANSERVICA implementó equipos especializados de última generación:\n\n🔧 Operación a Costado de Buque para la carga inicial\n🔧 Cometto 4+4 con Plataforma Intermedia\n🔧 Cappon 4+4 con Plataforma Intermedia\n🔧 Capacidad por eje: 25,000 kg\n🔧 Traslado de Vagones con Cometto 2+2\n\nEste proyecto demostró la capacidad de TRANSERVICA para manejar cargas de gran longitud que requieren equipamiento modular hidráulico con configuraciones especiales. La coordinación logística incluyó permisos de tránsito especiales, escolta de seguridad, y planificación de rutas que consideraron las dimensiones excepcionales de los vagones. El traslado se completó exitosamente, cumpliendo con todos los estándares de seguridad del sector ferroviario y los tiempos establecidos con el cliente.",
-      author: "Ing. Carlos Rodríguez",
+      title: t('blog.post7.title'),
+      excerpt: t('blog.post7.excerpt'),
+      content: t('blog.post7.content'),
+      author: t('blog.post7.author'),
       date: "2024-12-20",
       readTime: "8 min",
       views: 1523,
       comments: 18,
-      category: "Proyectos Destacados",
+      category: t('blog.page.category'),
       image: transportImage5,
       featured: true
     },
     {
       id: 8,
-      title: "Transporte Transformador 420 MVA: Represa Simón Bolívar-Guri",
-      excerpt: "Proyecto de máxima capacidad en el Estado Bolívar: Transporte de transformador de 420 MVA desde Represa Macagua hasta Represa Simón Bolívar-Guri. Peso: 245 toneladas, Equipo: Cometto modular (8+8) ejes.",
-      content: "TRANSERVICA ejecutó exitosamente uno de los proyectos de transporte eléctrico de mayor envergadura en el Estado Bolívar: el traslado de un transformador de 420 MVA desde la Represa Macagua hasta la Represa Simón Bolívar-Guri.\n\n**Especificaciones Técnicas del Transformador 420 MVA:**\n\n✅ Potencia nominal: 420 MVA (mega voltios amperios)\n✅ Peso total: 245 toneladas\n✅ Dimensiones: 8.45 metros de largo × 4.9 metros de alto × 4.55 metros de ancho\n✅ Destino: Represa Simón Bolívar-Guri, Estado Bolívar\n✅ Duración del proyecto: 5 días de traslado\n\n**Equipos Especializados de Alta Capacidad:**\n\nPara este proyecto de infraestructura crítica nacional, TRANSERVICA desplegó equipamiento de última generación:\n\n🔧 Marca: Cometto\n🔧 Configuración: Trailer modular hidráulico (8+8) ejes + Transpor Frame\n🔧 Capacidad por eje: 25,000 kg\n🔧 Capacidad total del sistema: 400,000 kg (400 toneladas)\n\n**Desafío Hidroeléctrico Nacional:**\n\nEste transporte representa uno de los proyectos más importantes para la infraestructura energética de Venezuela. El transformador de 420 MVA es esencial para la operación del Complejo Hidroeléctrico Simón Bolívar (Represa de Guri), la principal fuente de generación eléctrica del país.\n\nLa configuración especial de 16 ejes (8+8) con Transpor Frame permitió distribuir uniformemente las 245 toneladas del transformador, garantizando estabilidad y seguridad durante los cinco días de operación en territorio bolivarense.\n\n**Logros del Proyecto:**\n\n✅ Transformador 420 MVA transportado exitosamente\n✅ 245 toneladas movilizadas con sistema Cometto (8+8) ejes\n✅ Traslado Represa Macagua → Represa Guri completado\n✅ Proyecto hidroeléctrico de importancia nacional\n✅ Operación de 5 días ejecutada sin incidentes\n\nEste proyecto consolida a TRANSERVICA como el socio estratégico para proyectos de infraestructura energética de máxima complejidad en Venezuela, demostrando nuestra capacidad para movilizar equipos de potencia ultra-alta con los más altos estándares de seguridad y eficiencia operativa.",
-      author: "Ing. Roberto Mendoza",
+      title: t('blog.post8.title'),
+      excerpt: t('blog.post8.excerpt'),
+      content: t('blog.post8.content'),
+      author: t('blog.post8.author'),
       date: "2025-01-15",
       readTime: "9 min",
       views: 2156,
       comments: 27,
-      category: "Proyectos Destacados",
+      category: t('blog.page.category'),
       image: transportImage1,
       featured: true
     }
-  ];
-
-  const categories = [
-    "Todos",
-    "Proyectos Destacados", 
-    "Equipos y Tecnología",
-    "Normativas y Seguridad",
-    "Logística Integral",
-    "Historia Corporativa",
-    "Mantenimiento"
   ];
 
   const featuredPosts = blogPosts.filter(post => post.featured);
@@ -159,16 +149,15 @@ export default function BlogSection() {
   };
 
   const getCategoryIcon = (category: string) => {
-    switch (category) {
-      case "Proyectos Destacados":
-        return Award;
-      case "Equipos y Tecnología":
-        return Settings;
-      case "Normativas y Seguridad":
-        return Shield;
-      default:
-        return Truck;
+    const categoryKey = category.toLowerCase();
+    if (categoryKey.includes('project') || categoryKey.includes('proyecto')) {
+      return Award;
+    } else if (categoryKey.includes('equipment') || categoryKey.includes('equipo')) {
+      return Settings;
+    } else if (categoryKey.includes('security') || categoryKey.includes('seguridad')) {
+      return Shield;
     }
+    return Truck;
   };
 
   return (
@@ -189,7 +178,7 @@ export default function BlogSection() {
             <span className="text-sm font-medium text-[#155d29]">{t('blog.section.badge')}</span>
           </div>
 
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 sm:mb-6 text-wrap-balance" style={{ color: '#155d29' }}>BLOGS Y NOTICIAS  GRUPO TRANSERVICA C.A</h2>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 sm:mb-6 text-wrap-balance" style={{ color: '#155d29' }}>{t('blog.section.title')}</h2>
           <p className="mobile-text lg:text-xl max-w-3xl mx-auto mb-6 sm:mb-8 text-gray-600 text-wrap-pretty">
             {t('blog.section.description')}
           </p>
