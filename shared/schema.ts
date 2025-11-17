@@ -23,6 +23,19 @@ export const contactRequests = pgTable("contact_requests", {
   createdAt: timestamp("created_at").defaultNow(),
 });
 
+export const contactosRecibidos = pgTable("contactos_recibidos", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  fechaRecibido: timestamp("fecha_recibido").defaultNow().notNull(),
+  nombre: text("nombre").notNull(),
+  correoContacto: text("correo_contacto").notNull(),
+  telefono: text("telefono").notNull(),
+  asunto: text("asunto").notNull(),
+  mensaje: text("mensaje").notNull(),
+  canal: text("canal").notNull().default("web"),
+  estado: text("estado").notNull().default("pendiente"),
+  correosNotificados: text("correos_notificados").array().notNull(),
+});
+
 export const insertUserSchema = createInsertSchema(users).pick({
   username: true,
   password: true,
@@ -33,7 +46,14 @@ export const insertContactRequestSchema = createInsertSchema(contactRequests).om
   createdAt: true,
 });
 
+export const insertContactoRecibidoSchema = createInsertSchema(contactosRecibidos).omit({
+  id: true,
+  fechaRecibido: true,
+});
+
 export type InsertUser = z.infer<typeof insertUserSchema>;
 export type User = typeof users.$inferSelect;
 export type InsertContactRequest = z.infer<typeof insertContactRequestSchema>;
 export type ContactRequest = typeof contactRequests.$inferSelect;
+export type InsertContactoRecibido = z.infer<typeof insertContactoRecibidoSchema>;
+export type ContactoRecibido = typeof contactosRecibidos.$inferSelect;
