@@ -68,3 +68,27 @@ The website implements extensive performance optimizations targeting <1.5s deskt
 - **YouTube**: Video embedding.
 - **Google Fonts**: Typography.
 - **WhatsApp**: Direct messaging integration.
+
+## Recent Changes (November 17, 2025)
+
+### Contact Information Update
+All contact information across the website has been updated to reflect the new primary contact number and WhatsApp link:
+
+**Primary Contact Number**: +58 422-6361047 (now listed first in all locations)
+- Secondary numbers preserved: +58 412-367-5636, +58 414-277-6340
+
+**WhatsApp Direct Message Link**: https://wa.me/message/WAKKACM55ESHC1
+- Replaced all previous WhatsApp links with the new direct message URL
+- Updated across all CTA buttons and contact sections
+
+**Updated Components and Pages**:
+- Hero section (desktop top bar and mobile menu)
+- Equipment section (WhatsApp CTA button)
+- Services section (2 WhatsApp CTA buttons)
+- Contact section (primary WhatsApp button and contact information display)
+- Footer (contact information)
+- Blog header (top bar contact info)
+- About section (tel: link)
+- All legal pages (Terms, Privacy, Cookies, Security)
+
+All changes maintain consistency across Spanish and English versions.
