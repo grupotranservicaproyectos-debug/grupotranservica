@@ -227,7 +227,7 @@ export default function EquipmentSection() {
             <p className="text-lg text-white mb-8 max-w-2xl mx-auto">{t('equipment.cta.subtitle')}</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button 
-                onClick={() => window.open('https://wa.me/584123675636?text=Hola%2C%20necesito%20consultar%20disponibilidad%20de%20equipos%20especializados', '_blank')}
+                onClick={() => window.open('https://wa.me/message/WAKKACM55ESHC1', '_blank')}
                 className="font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg bg-white"
                 style={{ color: '#155d29' }}
                 onMouseEnter={(e) => { (e.target as HTMLElement).style.backgroundColor = '#f0f9f0'; (e.target as HTMLElement).style.color = '#0f4a21'; }}

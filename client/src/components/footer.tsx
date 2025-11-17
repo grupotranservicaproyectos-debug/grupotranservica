@@ -61,6 +61,10 @@ export default function Footer() {
             <div className="space-y-3">
               <div className="flex items-center">
                 <Phone className="w-4 h-4 mr-3" style={{ color: '#155d29' }} />
+                <span className="text-sm">+58 422-6361047</span>
+              </div>
+              <div className="flex items-center">
+                <Phone className="w-4 h-4 mr-3" style={{ color: '#155d29' }} />
                 <span className="text-sm">+58 412-367-5636</span>
               </div>
               <div className="flex items-center">

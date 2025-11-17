@@ -95,6 +95,7 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <h3 className="text-base sm:text-lg font-bold text-white">{t('contact.info.phones')}</h3>
+                  <p className="text-white font-medium text-sm sm:text-base">+58 422-6361047</p>
                   <p className="text-white font-medium text-sm sm:text-base">+58 412-367-5636</p>
                   <p className="text-white font-medium text-sm sm:text-base">+58 414-277-6340</p>
                 </div>
@@ -131,7 +132,7 @@ export default function ContactSection() {
               </div>
               
               <a 
-                href="https://wa.me/584123675636?text=Hola%2C%20necesito%20información%20sobre%20transporte%20de%20cargas%20excepcionales" 
+                href="https://wa.me/message/WAKKACM55ESHC1" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center w-full bg-gradient-to-r from-emerald-400 to-green-400 text-gray-900 px-6 sm:px-8 py-4 sm:py-5 rounded-2xl text-lg sm:text-xl font-bold hover:from-emerald-300 hover:to-green-300 transition-all duration-500 transform hover:scale-110 hover:shadow-2xl border-2 border-emerald-300 animate-pulse hover:animate-none shadow-xl hover:shadow-emerald-400/50"

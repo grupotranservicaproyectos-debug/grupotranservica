@@ -234,7 +234,7 @@ export default function PrivacyPolicy() {
                   </div>
                   <div>
                     <p className="text-sm mb-1">Email: privacidad@grupotranservica.com</p>
-                    <p className="text-sm mb-1">Teléfono: +58 414-277-6340</p>
+                    <p className="text-sm mb-1">Teléfono: +58 422-6361047 / +58 414-277-6340</p>
                     <p className="text-sm">Horario de atención: Lunes a Viernes, 8:00 AM - 5:00 PM</p>
                   </div>
                 </div>

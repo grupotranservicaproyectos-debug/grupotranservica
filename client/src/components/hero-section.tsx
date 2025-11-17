@@ -55,7 +55,7 @@ export default function HeroSection() {
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M6.62 10.79a15.91 15.91 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.27 11.25 11.25 0 003.48.56 1 1 0 011 1V20a1 1 0 01-1 1A18 18 0 013 3a1 1 0 011-1h3.5a1 1 0 011 1 11.25 11.25 0 00.56 3.48 1 1 0 01-.27 1.11l-2.2 2.2z" />
                 </svg>
-                <span className="font-bold">+58 412-367-5636 / +58 414-277-6340</span>
+                <span className="font-bold">+58 422-6361047 / +58 412-367-5636 / +58 414-277-6340</span>
               </div>
               <div className="flex items-center space-x-2">
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -239,7 +239,7 @@ export default function HeroSection() {
                     <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M6.62 10.79a15.91 15.91 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.27 11.25 11.25 0 003.48.56 1 1 0 011 1V20a1 1 0 01-1 1A18 18 0 013 3a1 1 0 011-1h3.5a1 1 0 011 1 11.25 11.25 0 00.56 3.48 1 1 0 01-.27 1.11l-2.2 2.2z" />
                     </svg>
-                    <span className="font-bold">+58 412-367-5636 / +58 414-277-6340</span>
+                    <span className="font-bold">+58 422-6361047 / +58 412-367-5636 / +58 414-277-6340</span>
                   </div>
                   <div className="flex items-center space-x-2">
                     <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -260,7 +260,7 @@ export default function HeroSection() {
       </nav>
       {/* WhatsApp Floating Button */}
       <a 
-        href="https://wa.me/584123675636?text=Hola%2C%20necesito%20información%20sobre%20transporte%20de%20cargas%20excepcionales" 
+        href="https://wa.me/message/WAKKACM55ESHC1" 
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition z-50"

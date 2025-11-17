@@ -234,7 +234,7 @@ export default function CookiePolicy() {
                   </div>
                   <div>
                     <p className="text-sm mb-1">Email: web@grupotranservica.com</p>
-                    <p className="text-sm mb-1">Teléfono: +58 414-277-6340</p>
+                    <p className="text-sm mb-1">Teléfono: +58 422-6361047 / +58 414-277-6340</p>
                     <p className="text-sm">Para consultas sobre cookies y privacidad web</p>
                   </div>
                 </div>
