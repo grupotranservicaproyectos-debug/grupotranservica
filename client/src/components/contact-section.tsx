@@ -25,7 +25,19 @@ const contactFormSchema = z.object({
   description: z.string().min(10, "La descripción debe tener al menos 10 caracteres")
 });
 
+const contactoFormSchema = z.object({
+  nombre: z.string().min(2, "El nombre debe tener al menos 2 caracteres"),
+  correoContacto: z.string().email("Email inválido"),
+  telefono: z.string().min(10, "El teléfono debe tener al menos 10 dígitos"),
+  asunto: z.string().min(3, "El asunto debe tener al menos 3 caracteres"),
+  mensaje: z.string().min(10, "El mensaje debe tener al menos 10 caracteres"),
+  canal: z.string().default("web"),
+  estado: z.string().default("pendiente"),
+  correosNotificados: z.array(z.string()).default([])
+});
+
 type ContactFormData = z.infer<typeof contactFormSchema>;
+type ContactoFormData = z.infer<typeof contactoFormSchema>;
 
 export default function ContactSection() {
   const { toast } = useToast();
@@ -48,12 +60,30 @@ export default function ContactSection() {
 
   const contactMutation = useMutation({
     mutationFn: async (data: ContactFormData) => {
-      const response = await apiRequest("POST", "/api/contact", data);
+      // Transform to new endpoint format
+      const contactoData: Omit<ContactoFormData, 'canal' | 'estado' | 'correosNotificados'> = {
+        nombre: data.name,
+        correoContacto: data.email,
+        telefono: data.phone,
+        asunto: data.cargoType || "Solicitud de cotización",
+        mensaje: `
+Empresa: ${data.company || "No especificada"}
+Tipo de carga: ${data.cargoType || "No especificado"}
+Peso estimado: ${data.estimatedWeight ? `${data.estimatedWeight} kg` : "No especificado"}
+Origen: ${data.origin || "No especificado"}
+Destino: ${data.destination || "No especificado"}
+
+Descripción:
+${data.description}
+        `.trim()
+      };
+
+      const response = await apiRequest("POST", "/api/contacto", contactoData);
       return response.json();
     },
     onSuccess: (data) => {
       toast({
-        title: "¡Solicitud enviada!",
+        title: "¡Mensaje enviado!",
         description: data.message,
       });
       form.reset();
@@ -61,7 +91,7 @@ export default function ContactSection() {
     onError: (error: any) => {
       toast({
         title: "Error",
-        description: error.message || "Hubo un error al enviar la solicitud. Inténtalo de nuevo.",
+        description: error.message || "Hubo un error al enviar el mensaje. Inténtalo de nuevo.",
         variant: "destructive",
       });
     }
