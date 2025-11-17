@@ -49,6 +49,9 @@ export const insertContactRequestSchema = createInsertSchema(contactRequests).om
 export const insertContactoRecibidoSchema = createInsertSchema(contactosRecibidos).omit({
   id: true,
   fechaRecibido: true,
+  correosNotificados: true,
+}).extend({
+  correosNotificados: z.array(z.string()).optional(),
 });
 
 export type InsertUser = z.infer<typeof insertUserSchema>;

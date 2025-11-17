@@ -68,6 +68,7 @@ export class MemStorage implements IStorage {
       ...insertContacto,
       canal: insertContacto.canal ?? "web",
       estado: insertContacto.estado ?? "pendiente",
+      correosNotificados: insertContacto.correosNotificados ?? [],
       id,
       fechaRecibido: new Date()
     };
