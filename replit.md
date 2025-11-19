@@ -9,16 +9,8 @@ Preferred communication style: Simple, everyday language.
 ## System Architecture
 
 ### Frontend Architecture
-The frontend uses **React 18** with **TypeScript** and **Vite**. It follows a component-based architecture with **Wouter** for routing, **Tailwind CSS** for styling (custom Transervica red and blue corporate theme), **Radix UI** primitives and **shadcn/ui** for UI components, **TanStack Query** for server state management, and **React Hook Form** with **Zod** for form handling. Corporate videos are integrated via YouTube iframes. The design system is responsive and mobile-first, using CSS variables for brand consistency.
+The frontend uses **React 18** with **TypeScript** and **Vite**. It follows a component-based architecture with **Wouter** for routing, **Tailwind CSS** for styling (custom Transervica green and orange theme), **Radix UI** primitives and **shadcn/ui** for UI components, **TanStack Query** for server state management, and **React Hook Form** with **Zod** for form handling. Corporate videos are integrated via YouTube iframes. The design system is responsive and mobile-first, using CSS variables for brand consistency.
 
-### Corporate Brand Colors
-The website uses the official TRANSERVICA corporate color palette matching grupotranservica.com:
-- **Primary Red**: #DC2626 (main brand color for CTAs, headings, and key elements)
-- **Secondary Blue**: #1E3A8A (supporting color for accents and secondary elements)
-- **Accent Yellow**: #FFC107 (limited use for highlights and special accents)
-- **Grays**: #374151 (text), #1F2937 (dark), #F3F4F6 (light backgrounds)
-
-All colors are defined in `client/src/index.css` as CSS variables and extended in `tailwind.config.ts` for Tailwind utility classes.
 
 ### Backend Architecture
 The backend is built with **Express.js** and **TypeScript** (ESM format). It provides RESTful APIs for contact form submissions and data retrieval, with custom middleware for request logging, centralized error handling, and security measures like CORS.
@@ -79,16 +71,6 @@ The website implements extensive performance optimizations targeting <1.5s deskt
 - **WhatsApp**: Direct messaging integration.
 
 ## Recent Changes (November 19, 2025)
-
-### Corporate Color Palette Update
-Updated all brand colors to match the official grupotranservica.com corporate identity:
-- **Changed from**: Green (#155d29) and orange theme
-- **Changed to**: Red (#DC2626) and blue (#1E3A8A) corporate theme
-- Updated CSS variables in `client/src/index.css`
-- Extended Tailwind config in `tailwind.config.ts` with full color scales
-- All utility classes updated (.text-transervica-red, .bg-transervica-blue, etc.)
-- Primary color changed to red, accent color changed to blue
-- Headings now use corporate red instead of green
 
 ### Automated Contact Form System (November 17, 2025)
 Implemented complete automated contact form with database storage and email notifications:

@@ -60,27 +60,27 @@ export default function Footer() {
             
             <div className="space-y-3">
               <div className="flex items-center">
-                <Phone className="w-4 h-4 mr-3" style={{ color: '#DC2626' }} />
+                <Phone className="w-4 h-4 mr-3" style={{ color: '#155d29' }} />
                 <span className="text-sm">+58 422-6361047</span>
               </div>
               <div className="flex items-center">
-                <Phone className="w-4 h-4 mr-3" style={{ color: '#DC2626' }} />
+                <Phone className="w-4 h-4 mr-3" style={{ color: '#155d29' }} />
                 <span className="text-sm">+58 412-367-5636</span>
               </div>
               <div className="flex items-center">
-                <Phone className="w-4 h-4 mr-3" style={{ color: '#DC2626' }} />
+                <Phone className="w-4 h-4 mr-3" style={{ color: '#155d29' }} />
                 <span className="text-sm">+58 414-277-6340</span>
               </div>
               <div className="flex items-center">
-                <Mail className="w-4 h-4 mr-3" style={{ color: '#DC2626' }} />
+                <Mail className="w-4 h-4 mr-3" style={{ color: '#155d29' }} />
                 <span className="text-sm">direccioncomercialtvc@grupotranservica.com</span>
               </div>
               <div className="flex items-center">
-                <Mail className="w-4 h-4 mr-3" style={{ color: '#DC2626' }} />
+                <Mail className="w-4 h-4 mr-3" style={{ color: '#155d29' }} />
                 <span className="text-sm">direccionejecutivatvc@grupotranservica.com</span>
               </div>
               <div className="flex items-start">
-                <MapPin className="w-4 h-4 mr-3 mt-1" style={{ color: '#DC2626' }} />
+                <MapPin className="w-4 h-4 mr-3 mt-1" style={{ color: '#155d29' }} />
                 <span className="text-sm">Carretera Nacional Maracay Mariara Km 9, Mariara, Edo. Carabobo</span>
               </div>
             </div>
@@ -88,7 +88,7 @@ export default function Footer() {
 
           {/* Pages/Navigation */}
           <div>
-            <h4 className="text-lg font-bold mb-6" style={{ color: '#DC2626' }}>
+            <h4 className="text-lg font-bold mb-6" style={{ color: '#155d29' }}>
               {t('footer.pages.title')}
             </h4>
             <ul className="space-y-3">
@@ -137,7 +137,7 @@ export default function Footer() {
 
           {/* Resources/Services */}
           <div>
-            <h4 className="text-lg font-bold mb-6" style={{ color: '#DC2626' }}>
+            <h4 className="text-lg font-bold mb-6" style={{ color: '#155d29' }}>
               {t('footer.resources.title')}
             </h4>
             <ul className="space-y-3">
@@ -171,7 +171,7 @@ export default function Footer() {
 
           {/* Newsletter Subscription */}
           <div>
-            <h4 className="text-lg font-bold mb-6" style={{ color: '#DC2626' }}>
+            <h4 className="text-lg font-bold mb-6" style={{ color: '#155d29' }}>
               {t('footer.newsletter.title')}
             </h4>
             
@@ -181,13 +181,13 @@ export default function Footer() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder={t('footer.newsletter.placeholder')}
-                className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-[#DC2626] focus:ring-1 focus:ring-[#DC2626] transition-colors duration-200"
+                className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-[#155d29] focus:ring-1 focus:ring-[#155d29] transition-colors duration-200"
                 required
               />
               <button
                 type="submit"
                 className="w-full text-white font-bold py-3 px-4 rounded-lg transition-all duration-200 hover:opacity-90 transform hover:scale-[1.02]"
-                style={{ backgroundColor: '#DC2626' }}
+                style={{ backgroundColor: '#155d29' }}
               >
                 {t('footer.newsletter.subscribe')}
               </button>
@@ -198,10 +198,10 @@ export default function Footer() {
         {/* Social Media Section */}
         <div className="mt-16 pt-12 border-t border-gray-700">
           <div className="text-center mb-12">
-            <h4 className="text-2xl font-bold mb-4" style={{ color: '#DC2626' }}>
+            <h4 className="text-2xl font-bold mb-4" style={{ color: '#155d29' }}>
               {t('footer.social.title')}
             </h4>
-            <div className="w-24 h-1 mx-auto mb-8 rounded-full" style={{ backgroundColor: '#DC2626' }}></div>
+            <div className="w-24 h-1 mx-auto mb-8 rounded-full" style={{ backgroundColor: '#155d29' }}></div>
             
             {/* Clean Social Media Icons */}
             <div className="flex justify-center space-x-8 mb-12">

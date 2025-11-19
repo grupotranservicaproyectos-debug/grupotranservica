@@ -134,7 +134,7 @@ export default function EquipmentSection() {
     <section id="equipos" className="py-20 bg-gradient-to-br from-slate-50 to-gray-100">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold mb-4" style={{ color: '#DC2626' }}>
+          <h2 className="text-4xl font-bold mb-4" style={{ color: '#155d29' }}>
             {t('equipment.title')}
           </h2>
           <p className="text-lg text-slate-600 max-w-3xl mx-auto">
@@ -176,7 +176,7 @@ export default function EquipmentSection() {
                     <h4 className="font-bold text-slate-800 mb-3">Características Principales:</h4>
                     {currentEquipment.features.map((feature, index) => (
                       <div key={index} className="flex items-start">
-                        <div className="w-2 h-2 rounded-full mt-2 mr-3 flex-shrink-0" style={{ backgroundColor: '#DC2626' }}></div>
+                        <div className="w-2 h-2 rounded-full mt-2 mr-3 flex-shrink-0" style={{ backgroundColor: '#155d29' }}></div>
                         <span className="text-slate-600">{feature}</span>
                       </div>
                     ))}
@@ -191,7 +191,7 @@ export default function EquipmentSection() {
                       onClick={() => setCurrentSlide(index)}
                       className={`h-2 rounded-full transition-all duration-300 ${
                         currentSlide === index 
-                          ? 'bg-[#DC2626] w-8' 
+                          ? 'bg-[#155d29] w-8' 
                           : 'bg-gray-300 w-2 hover:bg-gray-400'
                       }`}
                       aria-label={`Go to equipment ${index + 1}`}
@@ -203,14 +203,14 @@ export default function EquipmentSection() {
                 <div className="flex justify-center gap-4">
                   <button
                     onClick={prevSlide}
-                    className="p-3 rounded-full bg-slate-100 hover:bg-[#DC2626] hover:text-white transition-all duration-300 shadow-md hover:shadow-lg"
+                    className="p-3 rounded-full bg-slate-100 hover:bg-[#155d29] hover:text-white transition-all duration-300 shadow-md hover:shadow-lg"
                     aria-label="Previous equipment"
                   >
                     <ChevronLeft className="w-6 h-6" />
                   </button>
                   <button
                     onClick={nextSlide}
-                    className="p-3 rounded-full bg-slate-100 hover:bg-[#DC2626] hover:text-white transition-all duration-300 shadow-md hover:shadow-lg"
+                    className="p-3 rounded-full bg-slate-100 hover:bg-[#155d29] hover:text-white transition-all duration-300 shadow-md hover:shadow-lg"
                     aria-label="Next equipment"
                   >
                     <ChevronRight className="w-6 h-6" />
@@ -222,16 +222,16 @@ export default function EquipmentSection() {
         </div>
 
         <div className="text-center mt-16">
-          <div className="rounded-2xl p-8 md:p-12 shadow-xl border" style={{ backgroundColor: '#DC2626', borderColor: 'rgba(21, 93, 41, 0.1)' }}>
+          <div className="rounded-2xl p-8 md:p-12 shadow-xl border" style={{ backgroundColor: '#155d29', borderColor: 'rgba(21, 93, 41, 0.1)' }}>
             <h3 className="text-2xl font-bold mb-4 text-white">{t('equipment.cta.title')}</h3>
             <p className="text-lg text-white mb-8 max-w-2xl mx-auto">{t('equipment.cta.subtitle')}</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button 
                 onClick={() => window.open('https://wa.me/message/WAKKACM55ESHC1', '_blank')}
                 className="font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg bg-white"
-                style={{ color: '#DC2626' }}
-                onMouseEnter={(e) => { (e.target as HTMLElement).style.backgroundColor = '#FEF2F2'; (e.target as HTMLElement).style.color = '#991B1B'; }}
-                onMouseLeave={(e) => { (e.target as HTMLElement).style.backgroundColor = 'white'; (e.target as HTMLElement).style.color = '#DC2626'; }}
+                style={{ color: '#155d29' }}
+                onMouseEnter={(e) => { (e.target as HTMLElement).style.backgroundColor = '#f0f9f0'; (e.target as HTMLElement).style.color = '#0f4a21'; }}
+                onMouseLeave={(e) => { (e.target as HTMLElement).style.backgroundColor = 'white'; (e.target as HTMLElement).style.color = '#155d29'; }}
               >
                 {t('equipment.cta.button')}
               </button>
@@ -239,7 +239,7 @@ export default function EquipmentSection() {
                 onClick={scrollToContact}
                 className="border-2 font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 bg-transparent text-white"
                 style={{ borderColor: 'white' }}
-                onMouseEnter={(e) => { (e.target as HTMLElement).style.backgroundColor = 'white'; (e.target as HTMLElement).style.color = '#DC2626'; }}
+                onMouseEnter={(e) => { (e.target as HTMLElement).style.backgroundColor = 'white'; (e.target as HTMLElement).style.color = '#155d29'; }}
                 onMouseLeave={(e) => { (e.target as HTMLElement).style.backgroundColor = 'transparent'; (e.target as HTMLElement).style.color = 'white'; }}
               >
                 {t('equipment.cta.button')}

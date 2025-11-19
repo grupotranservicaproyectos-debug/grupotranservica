@@ -74,14 +74,14 @@ export default function BlogHeader({ showBackButton = false, onBackClick }: Blog
             </Link>
             <Link 
               href="/"
-              className="text-gray-700 hover:text-[#DC2626] text-sm font-bold transition uppercase tracking-wide"
+              className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide"
             >
               {t('nav.home')}
             </Link>
             <div className="relative group">
               <button 
                 onClick={() => scrollToSection('servicios')}
-                className="text-gray-700 hover:text-[#DC2626] text-sm font-bold transition uppercase tracking-wide flex items-center"
+                className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide flex items-center"
               >
                 {t('nav.services')}
                 <svg className="w-3 h-3 ml-1" fill="currentColor" viewBox="0 0 20 20">
@@ -91,31 +91,31 @@ export default function BlogHeader({ showBackButton = false, onBackClick }: Blog
             </div>
             <button 
               onClick={() => scrollToSection('proyectos')}
-              className="text-gray-700 hover:text-[#DC2626] text-sm font-bold transition uppercase tracking-wide"
+              className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide"
             >
               {t('nav.projects')}
             </button>
             <button 
               onClick={() => scrollToSection('nosotros')}
-              className="text-gray-700 hover:text-[#DC2626] text-sm font-bold transition uppercase tracking-wide"
+              className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide"
             >
               {t('nav.company')}
             </button>
             <button 
               onClick={() => scrollToSection('equipos')}
-              className="text-gray-700 hover:text-[#DC2626] text-sm font-bold transition uppercase tracking-wide"
+              className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide"
             >
               {t('nav.equipment')}
             </button>
             <Link 
               href="/blog"
-              className="text-[#DC2626] text-sm font-bold transition uppercase tracking-wide border-b-2 border-[#DC2626] pb-1"
+              className="text-[#155d29] text-sm font-bold transition uppercase tracking-wide border-b-2 border-[#155d29] pb-1"
             >
               BLOG
             </Link>
             <button 
               onClick={() => scrollToSection('contacto')}
-              className="text-gray-700 hover:text-[#DC2626] text-sm font-bold transition uppercase tracking-wide"
+              className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide"
             >
               {t('nav.contact')}
             </button>
@@ -124,7 +124,7 @@ export default function BlogHeader({ showBackButton = false, onBackClick }: Blog
             {showBackButton && onBackClick && (
               <button
                 onClick={onBackClick}
-                className="ml-auto flex items-center gap-2 px-4 py-2 bg-[#DC2626] text-white rounded-lg hover:bg-[#991B1B] transition-colors shadow-md"
+                className="ml-auto flex items-center gap-2 px-4 py-2 bg-[#155d29] text-white rounded-lg hover:bg-[#0f4a21] transition-colors shadow-md"
               >
                 <ChevronLeft className="w-4 h-4" />
                 Volver al Blog
@@ -138,7 +138,7 @@ export default function BlogHeader({ showBackButton = false, onBackClick }: Blog
             </div>
             <button 
               onClick={() => scrollToSection('contacto')}
-              className="bg-transervica-red text-white px-6 py-2 rounded-md text-sm font-semibold hover:bg-transervica-blue-light transition shadow-md"
+              className="bg-transervica-green text-white px-6 py-2 rounded-md text-sm font-semibold hover:bg-transervica-light-green transition shadow-md"
             >
               {t('nav.quote')}
             </button>
@@ -147,7 +147,7 @@ export default function BlogHeader({ showBackButton = false, onBackClick }: Blog
             <div className="lg:hidden">
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="flex items-center justify-center w-12 h-12 rounded-lg text-gray-700 hover:text-[#DC2626] hover:bg-gray-100 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#DC2626] focus:ring-offset-2"
+                className="flex items-center justify-center w-12 h-12 rounded-lg text-gray-700 hover:text-[#155d29] hover:bg-gray-100 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#155d29] focus:ring-offset-2"
                 aria-expanded={mobileMenuOpen}
                 aria-label={mobileMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
               >
@@ -174,7 +174,7 @@ export default function BlogHeader({ showBackButton = false, onBackClick }: Blog
               
               <Link 
                 href="/"
-                className="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-700 hover:text-[#DC2626] hover:bg-gray-50 transition-all duration-200 font-semibold"
+                className="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-700 hover:text-[#155d29] hover:bg-gray-50 transition-all duration-200 font-semibold"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 <Home className="w-5 h-5" />
@@ -183,7 +183,7 @@ export default function BlogHeader({ showBackButton = false, onBackClick }: Blog
               
               <button 
                 onClick={() => { scrollToSection('servicios'); setMobileMenuOpen(false); }}
-                className="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-700 hover:text-[#DC2626] hover:bg-gray-50 transition-all duration-200 font-semibold w-full text-left"
+                className="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-700 hover:text-[#155d29] hover:bg-gray-50 transition-all duration-200 font-semibold w-full text-left"
               >
                 <Briefcase className="w-5 h-5" />
                 <span>{t('nav.services')}</span>
@@ -191,7 +191,7 @@ export default function BlogHeader({ showBackButton = false, onBackClick }: Blog
               
               <button 
                 onClick={() => { scrollToSection('proyectos'); setMobileMenuOpen(false); }}
-                className="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-700 hover:text-[#DC2626] hover:bg-gray-50 transition-all duration-200 font-semibold w-full text-left"
+                className="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-700 hover:text-[#155d29] hover:bg-gray-50 transition-all duration-200 font-semibold w-full text-left"
               >
                 <FileText className="w-5 h-5" />
                 <span>{t('nav.projects')}</span>
@@ -199,7 +199,7 @@ export default function BlogHeader({ showBackButton = false, onBackClick }: Blog
               
               <button 
                 onClick={() => { scrollToSection('nosotros'); setMobileMenuOpen(false); }}
-                className="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-700 hover:text-[#DC2626] hover:bg-gray-50 transition-all duration-200 font-semibold w-full text-left"
+                className="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-700 hover:text-[#155d29] hover:bg-gray-50 transition-all duration-200 font-semibold w-full text-left"
               >
                 <Users className="w-5 h-5" />
                 <span>{t('nav.company')}</span>
@@ -207,7 +207,7 @@ export default function BlogHeader({ showBackButton = false, onBackClick }: Blog
               
               <button 
                 onClick={() => { scrollToSection('equipos'); setMobileMenuOpen(false); }}
-                className="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-700 hover:text-[#DC2626] hover:bg-gray-50 transition-all duration-200 font-semibold w-full text-left"
+                className="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-700 hover:text-[#155d29] hover:bg-gray-50 transition-all duration-200 font-semibold w-full text-left"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M19 7h-3V6a4 4 0 0 0-8 0v1H5a1 1 0 0 0-1 1v11a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V8a1 1 0 0 0-1-1zM10 6a2 2 0 0 1 4 0v1h-4V6zm8 13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V9h2v1a1 1 0 0 0 2 0V9h4v1a1 1 0 0 0 2 0V9h2v10z"/>
@@ -217,7 +217,7 @@ export default function BlogHeader({ showBackButton = false, onBackClick }: Blog
               
               <Link 
                 href="/blog"
-                className="flex items-center space-x-3 px-4 py-3 rounded-lg text-[#DC2626] bg-red-50 border border-[#DC2626] transition-all duration-200 font-bold"
+                className="flex items-center space-x-3 px-4 py-3 rounded-lg text-[#155d29] bg-green-50 border border-[#155d29] transition-all duration-200 font-bold"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 <Calendar className="w-5 h-5" />
@@ -226,7 +226,7 @@ export default function BlogHeader({ showBackButton = false, onBackClick }: Blog
               
               <button 
                 onClick={() => { scrollToSection('contacto'); setMobileMenuOpen(false); }}
-                className="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-700 hover:text-[#DC2626] hover:bg-gray-50 transition-all duration-200 font-semibold w-full text-left"
+                className="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-700 hover:text-[#155d29] hover:bg-gray-50 transition-all duration-200 font-semibold w-full text-left"
               >
                 <Phone className="w-5 h-5" />
                 <span>{t('nav.contact')}</span>
@@ -236,7 +236,7 @@ export default function BlogHeader({ showBackButton = false, onBackClick }: Blog
               {showBackButton && onBackClick && (
                 <button
                   onClick={() => { onBackClick(); setMobileMenuOpen(false); }}
-                  className="flex items-center space-x-3 px-4 py-3 rounded-lg bg-[#DC2626] text-white hover:bg-[#991B1B] transition-all duration-200 font-semibold w-full"
+                  className="flex items-center space-x-3 px-4 py-3 rounded-lg bg-[#155d29] text-white hover:bg-[#0f4a21] transition-all duration-200 font-semibold w-full"
                 >
                   <ChevronLeft className="w-5 h-5" />
                   <span>Volver al Blog</span>
@@ -246,7 +246,7 @@ export default function BlogHeader({ showBackButton = false, onBackClick }: Blog
               {/* Mobile quote button */}
               <button 
                 onClick={() => { scrollToSection('contacto'); setMobileMenuOpen(false); }}
-                className="w-full bg-[#DC2626] text-white px-6 py-3 rounded-lg text-sm font-semibold hover:bg-[#991B1B] transition-all duration-200 shadow-md mt-4"
+                className="w-full bg-[#155d29] text-white px-6 py-3 rounded-lg text-sm font-semibold hover:bg-[#0f4a21] transition-all duration-200 shadow-md mt-4"
               >
                 {t('nav.quote')}
               </button>

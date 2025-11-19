@@ -24,32 +24,23 @@
   --ring: hsl(20, 14.3%, 4.1%);
   --radius: 0.5rem;
   
-  /* Transervica Brand Colors - Corporate Red and Blue */
-  --transervica-red: #DC2626;
-  --transervica-red-dark: #991B1B;
-  --transervica-red-light: #FEE2E2;
-  --transervica-red-hover: #B91C1C;
-  
-  --transervica-blue: #1E3A8A;
-  --transervica-blue-dark: #1E40AF;
-  --transervica-blue-light: #DBEAFE;
-  --transervica-blue-hover: #1E40AF;
-  
-  --transervica-gray: #374151;
-  --transervica-gray-dark: #1F2937;
-  --transervica-gray-light: #F3F4F6;
-  
-  --transervica-yellow: #FFC107;
+  /* Transervica Brand Colors - Only Green Corporate Colors */
+  --transervica-green: #155d29;
+  --transervica-dark-green: #0f4a21;
+  --transervica-light-green: #a8e6a8;
+  --transervica-hover-green: #1a6b2f;
+  --transervica-gray: hsl(210, 6%, 25%);
+  --transervica-dark-gray: hsl(210, 8%, 15%);
+  --transervica-light-gray: hsl(210, 4%, 60%);
   
   /* Performance-optimized gradients */
-  --gradient-primary: linear-gradient(135deg, #DC2626 0%, #991B1B 100%);
-  --gradient-secondary: linear-gradient(135deg, #1E3A8A 0%, #1E40AF 100%);
-  --gradient-light: linear-gradient(135deg, #FEF2F2 0%, #DBEAFE 100%);
+  --gradient-primary: linear-gradient(135deg, #155d29 0%, #0f4a21 100%);
+  --gradient-light: linear-gradient(135deg, #f8fffe 0%, #e8f5e8 100%);
   
-  /* Update primary colors to match Transervica red/blue branding */
-  --primary: #DC2626;
+  /* Update primary colors to match Transervica green branding */
+  --primary: #155d29;
   --primary-foreground: hsl(0, 0%, 100%);
-  --accent: #1E3A8A;
+  --accent: #a8e6a8;
   --accent-foreground: hsl(0, 0%, 100%);
 }
 
@@ -192,7 +183,7 @@
   /* Improved button focus states for accessibility */
   button:focus-visible,
   a:focus-visible {
-    outline: 2px solid #DC2626;
+    outline: 2px solid #155d29;
     outline-offset: 2px;
   }
 
@@ -210,9 +201,9 @@
     }
   }
 
-  /* Transervica red for titles */
+  /* Transervica green only for titles */
   h1, h2, h3, h4, h5, h6 {
-    color: var(--transervica-red);
+    color: var(--transervica-green);
   }
   
   /* Elegant black for all other text */
@@ -232,123 +223,79 @@
 }
 
 @layer utilities {
-  /* Red utilities */
-  .text-transervica-red {
-    color: var(--transervica-red);
+  .text-transervica-green {
+    color: hsl(135, 65%, 35%);
   }
   
-  .text-transervica-red-dark {
-    color: var(--transervica-red-dark);
+  .text-transervica-dark-green {
+    color: hsl(135, 65%, 25%);
   }
   
-  .text-transervica-red-light {
-    color: var(--transervica-red-light);
+  .text-transervica-light-green {
+    color: hsl(135, 65%, 45%);
   }
   
-  .bg-transervica-red {
-    background-color: var(--transervica-red);
-  }
-  
-  .bg-transervica-red-dark {
-    background-color: var(--transervica-red-dark);
-  }
-  
-  .bg-transervica-red-light {
-    background-color: var(--transervica-red-light);
-  }
-  
-  .border-transervica-red {
-    border-color: var(--transervica-red);
-  }
-  
-  .hover\:bg-transervica-red:hover {
-    background-color: var(--transervica-red);
-  }
-  
-  .hover\:bg-transervica-red-dark:hover {
-    background-color: var(--transervica-red-dark);
-  }
-  
-  .hover\:text-transervica-red:hover {
-    color: var(--transervica-red);
-  }
-  
-  /* Blue utilities */
-  .text-transervica-blue {
-    color: var(--transervica-blue);
-  }
-  
-  .text-transervica-blue-dark {
-    color: var(--transervica-blue-dark);
-  }
-  
-  .text-transervica-blue-light {
-    color: var(--transervica-blue-light);
-  }
-  
-  .bg-transervica-blue {
-    background-color: var(--transervica-blue);
-  }
-  
-  .bg-transervica-blue-dark {
-    background-color: var(--transervica-blue-dark);
-  }
-  
-  .bg-transervica-blue-light {
-    background-color: var(--transervica-blue-light);
-  }
-  
-  .border-transervica-blue {
-    border-color: var(--transervica-blue);
-  }
-  
-  .hover\:bg-transervica-blue:hover {
-    background-color: var(--transervica-blue);
-  }
-  
-  .hover\:bg-transervica-blue-dark:hover {
-    background-color: var(--transervica-blue-dark);
-  }
-  
-  .hover\:text-transervica-blue:hover {
-    color: var(--transervica-blue);
-  }
-  
-  /* Gray utilities */
   .text-transervica-gray {
-    color: var(--transervica-gray);
+    color: hsl(210, 6%, 25%);
   }
   
-  .text-transervica-gray-dark {
-    color: var(--transervica-gray-dark);
+  .text-transervica-dark-gray {
+    color: hsl(210, 8%, 15%);
   }
   
-  .text-transervica-gray-light {
-    color: var(--transervica-gray-light);
+  .text-transervica-light-gray {
+    color: hsl(210, 4%, 60%);
+  }
+  
+  .bg-transervica-green {
+    background-color: hsl(135, 65%, 35%);
+  }
+  
+  .bg-transervica-dark-green {
+    background-color: hsl(135, 65%, 25%);
+  }
+  
+  .bg-transervica-light-green {
+    background-color: hsl(135, 65%, 45%);
   }
   
   .bg-transervica-gray {
-    background-color: var(--transervica-gray);
+    background-color: hsl(210, 6%, 25%);
   }
   
-  .bg-transervica-gray-dark {
-    background-color: var(--transervica-gray-dark);
+  .bg-transervica-dark-gray {
+    background-color: hsl(210, 8%, 15%);
   }
   
-  .bg-transervica-gray-light {
-    background-color: var(--transervica-gray-light);
+  .bg-transervica-light-gray {
+    background-color: hsl(210, 4%, 60%);
+  }
+  
+  .border-transervica-green {
+    border-color: hsl(135, 65%, 35%);
   }
   
   .border-transervica-gray {
-    border-color: var(--transervica-gray);
+    border-color: hsl(210, 6%, 25%);
   }
   
-  /* Yellow utilities (for accents) */
-  .text-transervica-yellow {
-    color: var(--transervica-yellow);
+  .hover\:bg-transervica-green:hover {
+    background-color: hsl(135, 65%, 35%);
   }
   
-  .bg-transervica-yellow {
-    background-color: var(--transervica-yellow);
+  .hover\:bg-transervica-light-green:hover {
+    background-color: hsl(135, 65%, 45%);
+  }
+  
+  .hover\:bg-transervica-light-green:hover {
+    background-color: hsl(94, 35%, 55%);
+  }
+  
+  .hover\:text-transervica-green:hover {
+    color: hsl(94, 60%, 45%);
+  }
+  
+  .hover\:text-transervica-dark-green:hover {
+    color: hsl(94, 47%, 17%);
   }
 }

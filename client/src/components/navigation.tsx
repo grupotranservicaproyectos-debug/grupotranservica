@@ -38,43 +38,43 @@ export default function Navigation() {
             <div className="ml-10 flex items-baseline space-x-8">
               <button 
                 onClick={() => scrollToSection('inicio')}
-                className="text-transervica-red hover:text-transervica-blue-light px-3 py-2 text-sm font-medium transition"
+                className="text-transervica-green hover:text-transervica-light-green px-3 py-2 text-sm font-medium transition"
               >
                 {t('nav.home')}
               </button>
               <button 
                 onClick={() => scrollToSection('servicios')}
-                className="text-transervica-gray hover:text-transervica-red px-3 py-2 text-sm font-medium transition"
+                className="text-transervica-gray hover:text-transervica-green px-3 py-2 text-sm font-medium transition"
               >
                 {t('nav.services')}
               </button>
               <button 
                 onClick={() => scrollToSection('proyectos')}
-                className="text-transervica-gray hover:text-transervica-red px-3 py-2 text-sm font-medium transition"
+                className="text-transervica-gray hover:text-transervica-green px-3 py-2 text-sm font-medium transition"
               >
                 {t('nav.projects')}
               </button>
               <button 
                 onClick={() => scrollToSection('nosotros')}
-                className="text-transervica-gray hover:text-transervica-red px-3 py-2 text-sm font-medium transition"
+                className="text-transervica-gray hover:text-transervica-green px-3 py-2 text-sm font-medium transition"
               >
                 {t('nav.company')}
               </button>
               <button 
                 onClick={() => scrollToSection('equipos')}
-                className="text-transervica-gray hover:text-transervica-red px-3 py-2 text-sm font-medium transition"
+                className="text-transervica-gray hover:text-transervica-green px-3 py-2 text-sm font-medium transition"
               >
                 {t('nav.equipment')}
               </button>
               <Link 
                 href="/blog"
-                className="text-transervica-gray hover:text-transervica-red px-3 py-2 text-sm font-medium transition"
+                className="text-transervica-gray hover:text-transervica-green px-3 py-2 text-sm font-medium transition"
               >
                 {t('nav.blog')}
               </Link>
               <button 
                 onClick={() => scrollToSection('contacto')}
-                className="bg-transervica-red text-white px-6 py-2 rounded-lg text-sm font-medium hover:bg-transervica-blue-light transition"
+                className="bg-transervica-green text-white px-6 py-2 rounded-lg text-sm font-medium hover:bg-transervica-light-green transition"
               >
                 {t('nav.quote')}
               </button>
@@ -85,7 +85,7 @@ export default function Navigation() {
           <div className="md:hidden">
             <button 
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-700 hover:text-transervica-red"
+              className="text-gray-700 hover:text-transervica-green"
             >
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -98,44 +98,44 @@ export default function Navigation() {
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
               <button 
                 onClick={() => scrollToSection('inicio')}
-                className="text-transervica-red hover:text-transervica-blue-light block px-3 py-2 text-base font-medium w-full text-left"
+                className="text-transervica-green hover:text-transervica-light-green block px-3 py-2 text-base font-medium w-full text-left"
               >
                 {t('nav.home')}
               </button>
               <button 
                 onClick={() => scrollToSection('servicios')}
-                className="text-transervica-gray hover:text-transervica-red block px-3 py-2 text-base font-medium w-full text-left"
+                className="text-transervica-gray hover:text-transervica-green block px-3 py-2 text-base font-medium w-full text-left"
               >
                 {t('nav.services')}
               </button>
               <button 
                 onClick={() => scrollToSection('proyectos')}
-                className="text-transervica-gray hover:text-transervica-red block px-3 py-2 text-base font-medium w-full text-left"
+                className="text-transervica-gray hover:text-transervica-green block px-3 py-2 text-base font-medium w-full text-left"
               >
                 {t('nav.projects')}
               </button>
               <button 
                 onClick={() => scrollToSection('nosotros')}
-                className="text-transervica-gray hover:text-transervica-red block px-3 py-2 text-base font-medium w-full text-left"
+                className="text-transervica-gray hover:text-transervica-green block px-3 py-2 text-base font-medium w-full text-left"
               >
                 {t('nav.company')}
               </button>
               <button 
                 onClick={() => scrollToSection('equipos')}
-                className="text-transervica-gray hover:text-transervica-red block px-3 py-2 text-base font-medium w-full text-left"
+                className="text-transervica-gray hover:text-transervica-green block px-3 py-2 text-base font-medium w-full text-left"
               >
                 {t('nav.equipment')}
               </button>
               <Link 
                 href="/blog"
-                className="text-transervica-gray hover:text-transervica-red block px-3 py-2 text-base font-medium w-full text-left"
+                className="text-transervica-gray hover:text-transervica-green block px-3 py-2 text-base font-medium w-full text-left"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {t('nav.blog')}
               </Link>
               <button 
                 onClick={() => scrollToSection('contacto')}
-                className="bg-transervica-red text-white block px-3 py-2 rounded-lg text-base font-medium hover:bg-transervica-blue-light transition w-full text-left"
+                className="bg-transervica-green text-white block px-3 py-2 rounded-lg text-base font-medium hover:bg-transervica-light-green transition w-full text-left"
               >
                 {t('nav.quote')}
               </button>

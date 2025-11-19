@@ -68,7 +68,7 @@ export default function ProjectsGallery() {
     <section id="proyectos" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-transervica-red mb-4">Proyectos Destacados</h2>
+          <h2 className="text-4xl font-bold text-transervica-green mb-4">Proyectos Destacados</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Más de 40 años transportando lo imposible con éxito garantizado
           </p>
@@ -87,8 +87,8 @@ export default function ProjectsGallery() {
                 <h3 className="text-xl font-bold text-gray-800 mb-2">{project.title}</h3>
                 <p className="text-gray-600 mb-4">{project.description}</p>
                 <div className="flex justify-between items-center">
-                  <span className="text-transervica-red font-semibold">{project.weight}</span>
-                  <span className="bg-red-100 text-transervica-red px-3 py-1 rounded-full text-sm">
+                  <span className="text-transervica-green font-semibold">{project.weight}</span>
+                  <span className="bg-green-100 text-transervica-green px-3 py-1 rounded-full text-sm">
                     {project.status}
                   </span>
                 </div>
@@ -116,8 +116,8 @@ export default function ProjectsGallery() {
                       <h3 className="text-xl font-bold text-gray-800 mb-2">{project.title}</h3>
                       <p className="text-gray-600 mb-4">{project.description}</p>
                       <div className="flex justify-between items-center">
-                        <span className="text-transervica-red font-semibold">{project.weight}</span>
-                        <span className="bg-red-100 text-transervica-red px-3 py-1 rounded-full text-sm">
+                        <span className="text-transervica-green font-semibold">{project.weight}</span>
+                        <span className="bg-green-100 text-transervica-green px-3 py-1 rounded-full text-sm">
                           {project.status}
                         </span>
                       </div>
@@ -133,13 +133,13 @@ export default function ProjectsGallery() {
             onClick={prevSlide}
             className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-lg hover:bg-gray-50"
           >
-            <ChevronLeft className="w-6 h-6 text-transervica-red" />
+            <ChevronLeft className="w-6 h-6 text-transervica-green" />
           </button>
           <button 
             onClick={nextSlide}
             className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-lg hover:bg-gray-50"
           >
-            <ChevronRight className="w-6 h-6 text-transervica-red" />
+            <ChevronRight className="w-6 h-6 text-transervica-green" />
           </button>
 
           {/* Carousel Indicators */}
@@ -149,7 +149,7 @@ export default function ProjectsGallery() {
                 key={index}
                 onClick={() => setCurrentIndex(index)}
                 className={`w-3 h-3 rounded-full transition ${
-                  index === currentIndex ? 'bg-transervica-red' : 'bg-gray-300'
+                  index === currentIndex ? 'bg-transervica-green' : 'bg-gray-300'
                 }`}
               />
             ))}

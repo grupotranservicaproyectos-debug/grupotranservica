@@ -99,14 +99,14 @@ export default function HeroSection() {
               />
               <button 
                 onClick={() => scrollToSection('inicio')}
-                className="text-gray-700 hover:text-[#DC2626] text-sm font-bold transition uppercase tracking-wide"
+                className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide"
               >
                 {t('nav.home')}
               </button>
               <div className="relative group">
                 <button 
                   onClick={() => scrollToSection('servicios')}
-                  className="text-gray-700 hover:text-[#DC2626] text-sm font-bold transition uppercase tracking-wide flex items-center"
+                  className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide flex items-center"
                 >
                   {t('nav.services')}
                   <svg className="w-3 h-3 ml-1" fill="currentColor" viewBox="0 0 20 20">
@@ -116,31 +116,31 @@ export default function HeroSection() {
               </div>
               <button 
                 onClick={() => scrollToSection('proyectos')}
-                className="text-gray-700 hover:text-[#DC2626] text-sm font-bold transition uppercase tracking-wide"
+                className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide"
               >
                 {t('nav.projects')}
               </button>
               <button 
                 onClick={() => scrollToSection('nosotros')}
-                className="text-gray-700 hover:text-[#DC2626] text-sm font-bold transition uppercase tracking-wide"
+                className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide"
               >
                 {t('nav.company')}
               </button>
               <button 
                 onClick={() => scrollToSection('equipos')}
-                className="text-gray-700 hover:text-[#DC2626] text-sm font-bold transition uppercase tracking-wide"
+                className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide"
               >
                 {t('nav.equipment')}
               </button>
               <Link 
                 href="/blog"
-                className="text-gray-700 hover:text-[#DC2626] text-sm font-bold transition uppercase tracking-wide"
+                className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide"
               >
                 BLOG
               </Link>
               <button 
                 onClick={scrollToContact}
-                className="text-gray-700 hover:text-[#DC2626] text-sm font-bold transition uppercase tracking-wide"
+                className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide"
               >
                 {t('nav.contact')}
               </button>
@@ -152,7 +152,7 @@ export default function HeroSection() {
               </div>
               <button 
                 onClick={scrollToContact}
-                className="bg-transervica-red text-white px-6 py-2 rounded-md text-sm font-semibold hover:bg-transervica-blue-light transition shadow-md"
+                className="bg-transervica-green text-white px-6 py-2 rounded-md text-sm font-semibold hover:bg-transervica-light-green transition shadow-md"
               >
                 {t('nav.quote')}
               </button>
@@ -161,7 +161,7 @@ export default function HeroSection() {
               <div className="lg:hidden">
                 <button
                   onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                  className="flex items-center justify-center w-12 h-12 rounded-lg text-gray-700 hover:text-[#DC2626] hover:bg-gray-100 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#DC2626] focus:ring-offset-2"
+                  className="flex items-center justify-center w-12 h-12 rounded-lg text-gray-700 hover:text-[#155d29] hover:bg-gray-100 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#155d29] focus:ring-offset-2"
                   aria-expanded={isMobileMenuOpen}
                   aria-label={isMobileMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
                 >
@@ -184,44 +184,44 @@ export default function HeroSection() {
             <div className="mobile-padding py-6 space-y-4">
               <button 
                 onClick={() => { scrollToSection('inicio'); setIsMobileMenuOpen(false); }}
-                className="block w-full text-left text-gray-700 hover:text-[#DC2626] hover:bg-gray-50 text-base font-bold transition-all duration-200 uppercase tracking-wide py-4 px-4 rounded-lg"
+                className="block w-full text-left text-gray-700 hover:text-[#155d29] hover:bg-gray-50 text-base font-bold transition-all duration-200 uppercase tracking-wide py-4 px-4 rounded-lg"
               >
                 {t('nav.home')}
               </button>
               <button 
                 onClick={() => { scrollToSection('servicios'); setIsMobileMenuOpen(false); }}
-                className="block w-full text-left text-gray-700 hover:text-[#DC2626] hover:bg-gray-50 text-base font-bold transition-all duration-200 uppercase tracking-wide py-4 px-4 rounded-lg"
+                className="block w-full text-left text-gray-700 hover:text-[#155d29] hover:bg-gray-50 text-base font-bold transition-all duration-200 uppercase tracking-wide py-4 px-4 rounded-lg"
               >
                 {t('nav.services')}
               </button>
               <button 
                 onClick={() => { scrollToSection('proyectos'); setIsMobileMenuOpen(false); }}
-                className="block w-full text-left text-gray-700 hover:text-[#DC2626] hover:bg-gray-50 text-base font-bold transition-all duration-200 uppercase tracking-wide py-4 px-4 rounded-lg"
+                className="block w-full text-left text-gray-700 hover:text-[#155d29] hover:bg-gray-50 text-base font-bold transition-all duration-200 uppercase tracking-wide py-4 px-4 rounded-lg"
               >
                 {t('nav.projects')}
               </button>
               <button 
                 onClick={() => { scrollToSection('nosotros'); setIsMobileMenuOpen(false); }}
-                className="block w-full text-left text-gray-700 hover:text-[#DC2626] hover:bg-gray-50 text-base font-bold transition-all duration-200 uppercase tracking-wide py-4 px-4 rounded-lg"
+                className="block w-full text-left text-gray-700 hover:text-[#155d29] hover:bg-gray-50 text-base font-bold transition-all duration-200 uppercase tracking-wide py-4 px-4 rounded-lg"
               >
                 {t('nav.company')}
               </button>
               <button 
                 onClick={() => { scrollToSection('equipos'); setIsMobileMenuOpen(false); }}
-                className="block w-full text-left text-gray-700 hover:text-[#DC2626] hover:bg-gray-50 text-base font-bold transition-all duration-200 uppercase tracking-wide py-4 px-4 rounded-lg"
+                className="block w-full text-left text-gray-700 hover:text-[#155d29] hover:bg-gray-50 text-base font-bold transition-all duration-200 uppercase tracking-wide py-4 px-4 rounded-lg"
               >
                 {t('nav.equipment')}
               </button>
               <Link 
                 href="/blog"
-                className="block w-full text-left text-gray-700 hover:text-[#DC2626] hover:bg-gray-50 text-base font-bold transition-all duration-200 uppercase tracking-wide py-4 px-4 rounded-lg"
+                className="block w-full text-left text-gray-700 hover:text-[#155d29] hover:bg-gray-50 text-base font-bold transition-all duration-200 uppercase tracking-wide py-4 px-4 rounded-lg"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 BLOG
               </Link>
               <button 
                 onClick={() => { scrollToContact(); setIsMobileMenuOpen(false); }}
-                className="block w-full text-left text-gray-700 hover:text-[#DC2626] hover:bg-gray-50 text-base font-bold transition-all duration-200 uppercase tracking-wide py-4 px-4 rounded-lg"
+                className="block w-full text-left text-gray-700 hover:text-[#155d29] hover:bg-gray-50 text-base font-bold transition-all duration-200 uppercase tracking-wide py-4 px-4 rounded-lg"
               >
                 {t('nav.contact')}
               </button>
@@ -229,7 +229,7 @@ export default function HeroSection() {
               {/* Call-to-Action button in mobile menu */}
               <button 
                 onClick={() => { scrollToContact(); setIsMobileMenuOpen(false); }}
-                className="w-full bg-[#DC2626] text-white mobile-button rounded-lg text-base font-semibold hover-lift shadow-lg mt-4"
+                className="w-full bg-[#155d29] text-white mobile-button rounded-lg text-base font-semibold hover-lift shadow-lg mt-4"
               >
                 {t('nav.quote')}
               </button>
@@ -276,13 +276,13 @@ export default function HeroSection() {
         <div className="w-full mobile-padding">
           <div className="pb-16 sm:pb-20 lg:pb-24">
             <div className="bg-black/60 backdrop-blur-sm rounded-xl border border-white/20 shadow-xl p-5 sm:p-7 lg:p-9 w-fit max-w-full sm:max-w-2xl lg:max-w-3xl animate-slide-up">
-              {/* Main Title - Enhanced contrast with corporate red */}
-              <h1 className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold mb-3 sm:mb-4 lg:mb-5 leading-tight text-[#DC2626] text-wrap-balance" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8), 0 0 8px rgba(0,0,0,0.5)' }}>
+              {/* Main Title - Enhanced contrast */}
+              <h1 className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold mb-3 sm:mb-4 lg:mb-5 leading-tight text-[#7dd87a] text-wrap-balance" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8), 0 0 8px rgba(0,0,0,0.5)' }}>
                 {t('hero.title')}
               </h1>
               
-              {/* Subtitle - Enhanced visibility with white */}
-              <h2 className="text-sm sm:text-base lg:text-lg xl:text-xl font-bold mb-3 sm:mb-4 lg:mb-5 text-white text-wrap-balance" style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.8), 0 0 6px rgba(0,0,0,0.5)' }}>
+              {/* Subtitle - Enhanced visibility */}
+              <h2 className="text-sm sm:text-base lg:text-lg xl:text-xl font-bold mb-3 sm:mb-4 lg:mb-5 text-[#a8e6a8] text-wrap-balance" style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.8), 0 0 6px rgba(0,0,0,0.5)' }}>
                 {t('hero.subtitle')}
               </h2>
               
@@ -295,7 +295,7 @@ export default function HeroSection() {
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                 <button 
                   onClick={scrollToContact}
-                  className="flex items-center justify-center bg-[#DC2626] text-white px-5 sm:px-6 py-3 sm:py-3.5 rounded-lg text-sm sm:text-base font-bold hover:bg-[#991B1B] transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:scale-105"
+                  className="flex items-center justify-center bg-[#155d29] text-white px-5 sm:px-6 py-3 sm:py-3.5 rounded-lg text-sm sm:text-base font-bold hover:bg-[#0f4a21] transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:scale-105"
                 >
                   <svg className="w-4 h-4 sm:w-5 sm:h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M8 5v14l11-7z"/>

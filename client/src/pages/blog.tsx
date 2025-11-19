@@ -288,7 +288,7 @@ export default function BlogPage() {
                 </div>
                 
                 <div className="p-8">
-                  <h1 className="text-3xl lg:text-4xl font-bold mb-6" style={{ color: '#DC2626' }}>
+                  <h1 className="text-3xl lg:text-4xl font-bold mb-6" style={{ color: '#155d29' }}>
                     {selectedPost.title}
                   </h1>
 
@@ -368,12 +368,12 @@ export default function BlogPage() {
 
                   {/* Tags */}
                   <div className="border-t border-gray-200 pt-6">
-                    <h3 className="text-lg font-bold mb-4" style={{ color: '#DC2626' }}>Tags:</h3>
+                    <h3 className="text-lg font-bold mb-4" style={{ color: '#155d29' }}>Tags:</h3>
                     <div className="flex flex-wrap gap-2">
                       {selectedPost.tags?.map((tag: string) => (
                         <span
                           key={tag}
-                          className="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full flex items-center gap-1 hover:bg-[#DC2626] hover:text-white transition-colors cursor-pointer"
+                          className="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full flex items-center gap-1 hover:bg-[#155d29] hover:text-white transition-colors cursor-pointer"
                         >
                           <Tag className="w-3 h-3" />
                           {tag}
@@ -386,7 +386,7 @@ export default function BlogPage() {
 
               {/* Comments Section */}
               <div className="bg-white rounded-2xl shadow-xl p-8 mt-8">
-                <h3 className="text-2xl font-bold mb-6" style={{ color: '#DC2626' }}>
+                <h3 className="text-2xl font-bold mb-6" style={{ color: '#155d29' }}>
                   Comentarios (3)
                 </h3>
                 
@@ -398,20 +398,20 @@ export default function BlogPage() {
                       <input
                         type="text"
                         placeholder="Tu nombre"
-                        className="px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#DC2626]"
+                        className="px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#155d29]"
                       />
                       <input
                         type="email"
                         placeholder="Tu email"
-                        className="px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#DC2626]"
+                        className="px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#155d29]"
                       />
                     </div>
                     <textarea
                       placeholder="Escribe tu comentario..."
                       rows={4}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#DC2626] resize-none"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#155d29] resize-none"
                     ></textarea>
-                    <button className="bg-[#DC2626] text-white px-6 py-3 rounded-lg hover:bg-[#991B1B] transition-colors flex items-center gap-2">
+                    <button className="bg-[#155d29] text-white px-6 py-3 rounded-lg hover:bg-[#0f4a21] transition-colors flex items-center gap-2">
                       <Send className="w-4 h-4" />
                       Publicar comentario
                     </button>
@@ -432,11 +432,11 @@ export default function BlogPage() {
                         </div>
                         <p className="text-gray-700">Excelente artículo sobre transporte especializado. Muy útil para nuestras operaciones logísticas.</p>
                         <div className="flex items-center gap-4 mt-3">
-                          <button className="flex items-center gap-1 text-gray-500 hover:text-[#DC2626] transition-colors">
+                          <button className="flex items-center gap-1 text-gray-500 hover:text-[#155d29] transition-colors">
                             <ThumbsUp className="w-4 h-4" />
                             <span className="text-sm">12</span>
                           </button>
-                          <button className="text-sm text-gray-500 hover:text-[#DC2626] transition-colors">
+                          <button className="text-sm text-gray-500 hover:text-[#155d29] transition-colors">
                             Responder
                           </button>
                         </div>
@@ -451,20 +451,20 @@ export default function BlogPage() {
             <aside className="lg:col-span-1 space-y-8">
               {/* Search Widget */}
               <div className="bg-white rounded-2xl shadow-lg p-6">
-                <h3 className="text-lg font-bold mb-4" style={{ color: '#DC2626' }}>Buscar en el Blog</h3>
+                <h3 className="text-lg font-bold mb-4" style={{ color: '#155d29' }}>Buscar en el Blog</h3>
                 <div className="relative">
                   <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
                   <input
                     type="text"
                     placeholder={t('blog.page.search')}
-                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#DC2626]"
+                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#155d29]"
                   />
                 </div>
               </div>
 
               {/* Related Articles */}
               <div className="bg-white rounded-2xl shadow-lg p-6">
-                <h3 className="text-lg font-bold mb-6" style={{ color: '#DC2626' }}>Artículos Relacionados</h3>
+                <h3 className="text-lg font-bold mb-6" style={{ color: '#155d29' }}>Artículos Relacionados</h3>
                 <div className="space-y-4">
                   {blogPosts.filter(post => post.id !== selectedPost.id && post.category === selectedPost.category).slice(0, 3).map((post) => (
                     <div
@@ -481,7 +481,7 @@ export default function BlogPage() {
                         className="w-16 h-16 object-cover rounded-lg"
                       />
                       <div className="flex-1">
-                        <h4 className="text-sm font-semibold group-hover:text-[#DC2626] transition-colors line-clamp-2">
+                        <h4 className="text-sm font-semibold group-hover:text-[#155d29] transition-colors line-clamp-2">
                           {post.title}
                         </h4>
                         <p className="text-xs text-gray-500 mt-1">{post.date}</p>
@@ -492,7 +492,7 @@ export default function BlogPage() {
               </div>
 
               {/* Contact Form */}
-              <div className="bg-gradient-to-br from-[#DC2626] to-[#991B1B] rounded-2xl p-6 text-white">
+              <div className="bg-gradient-to-br from-[#155d29] to-[#0f4a21] rounded-2xl p-6 text-white">
                 <h3 className="text-lg font-bold mb-4">¿Necesitas Transporte Especializado?</h3>
                 <p className="text-sm mb-6 text-white/90">Contáctanos para una cotización personalizada de tu proyecto</p>
                 <div className="space-y-3">
@@ -511,7 +511,7 @@ export default function BlogPage() {
                     rows={3}
                     className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50 resize-none"
                   ></textarea>
-                  <button className="w-full bg-white text-[#DC2626] font-bold py-3 px-4 rounded-lg hover:bg-gray-100 transition-colors">
+                  <button className="w-full bg-white text-[#155d29] font-bold py-3 px-4 rounded-lg hover:bg-gray-100 transition-colors">
                     Enviar Consulta
                   </button>
                 </div>
@@ -519,7 +519,7 @@ export default function BlogPage() {
 
               {/* Categories */}
               <div className="bg-white rounded-2xl shadow-lg p-6">
-                <h3 className="text-lg font-bold mb-4" style={{ color: '#DC2626' }}>Categorías</h3>
+                <h3 className="text-lg font-bold mb-4" style={{ color: '#155d29' }}>Categorías</h3>
                 <div className="space-y-2">
                   {categories.filter(cat => cat !== "Todos los Artículos").map((category) => (
                     <button
@@ -534,15 +534,15 @@ export default function BlogPage() {
 
               {/* Newsletter */}
               <div className="bg-gray-50 rounded-2xl p-6">
-                <h3 className="text-lg font-bold mb-4" style={{ color: '#DC2626' }}>Newsletter TRANSERVICA</h3>
+                <h3 className="text-lg font-bold mb-4" style={{ color: '#155d29' }}>Newsletter TRANSERVICA</h3>
                 <p className="text-sm text-gray-600 mb-4">Recibe las últimas noticias sobre transporte especializado</p>
                 <div className="space-y-3">
                   <input
                     type="email"
                     placeholder="Tu email"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#DC2626]"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#155d29]"
                   />
-                  <button className="w-full bg-[#DC2626] text-white font-bold py-3 px-4 rounded-lg hover:bg-[#991B1B] transition-colors">
+                  <button className="w-full bg-[#155d29] text-white font-bold py-3 px-4 rounded-lg hover:bg-[#0f4a21] transition-colors">
                     Suscribirse
                   </button>
                 </div>
@@ -568,55 +568,55 @@ export default function BlogPage() {
         <div className="absolute inset-0 opacity-5 lg:opacity-8">
           <div className="absolute top-10 left-10 lg:top-20 lg:left-20 w-48 lg:w-96 h-48 lg:h-96 border border-gray-200/30 lg:border-2 lg:border-gray-200/50 rounded-full"></div>
           <div className="absolute bottom-10 right-10 lg:bottom-20 lg:right-20 w-32 lg:w-64 h-32 lg:h-64 border border-gray-300/20 lg:border-gray-300/30 rounded-full"></div>
-          <div className="hidden lg:block absolute top-1/2 right-1/3 w-48 h-48 bg-[#DC2626]/5 rounded-full blur-3xl"></div>
+          <div className="hidden lg:block absolute top-1/2 right-1/3 w-48 h-48 bg-[#155d29]/5 rounded-full blur-3xl"></div>
           <div className="hidden lg:block absolute bottom-1/3 left-1/3 w-56 h-56 bg-gray-200/40 rounded-full blur-2xl"></div>
         </div>
 
         {/* Simplified Geometric Elements for Mobile */}
         <div className="absolute inset-0 opacity-10 lg:opacity-15">
-          <div className="absolute top-12 right-12 lg:top-24 lg:right-40 w-4 lg:w-6 h-4 lg:h-6 bg-[#DC2626] transform rotate-45"></div>
-          <div className="absolute bottom-20 left-12 lg:bottom-40 lg:left-40 w-6 lg:w-8 h-6 lg:h-8 border lg:border-2 border-[#DC2626] transform rotate-12"></div>
-          <div className="hidden lg:block absolute top-1/3 left-24 w-3 h-3 bg-[#DC2626] rounded-full"></div>
-          <div className="hidden lg:block absolute bottom-1/4 right-24 w-4 h-4 border border-[#DC2626] transform rotate-45"></div>
+          <div className="absolute top-12 right-12 lg:top-24 lg:right-40 w-4 lg:w-6 h-4 lg:h-6 bg-[#155d29] transform rotate-45"></div>
+          <div className="absolute bottom-20 left-12 lg:bottom-40 lg:left-40 w-6 lg:w-8 h-6 lg:h-8 border lg:border-2 border-[#155d29] transform rotate-12"></div>
+          <div className="hidden lg:block absolute top-1/3 left-24 w-3 h-3 bg-[#155d29] rounded-full"></div>
+          <div className="hidden lg:block absolute bottom-1/4 right-24 w-4 h-4 border border-[#155d29] transform rotate-45"></div>
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           {/* Mobile-Optimized Header */}
           <div className="mb-8 lg:mb-12">
-            <div className="inline-flex items-center gap-2 lg:gap-3 bg-[#DC2626]/10 backdrop-blur-sm rounded-full px-4 sm:px-6 lg:px-8 py-2 sm:py-3 lg:py-4 border border-[#DC2626]/20">
-              <div className="w-2 lg:w-3 h-2 lg:h-3 bg-[#DC2626] rounded-full"></div>
-              <span className="text-[#DC2626] font-bold text-xs sm:text-sm uppercase tracking-wide lg:tracking-widest">{t('blog.header.badge')}</span>
+            <div className="inline-flex items-center gap-2 lg:gap-3 bg-[#155d29]/10 backdrop-blur-sm rounded-full px-4 sm:px-6 lg:px-8 py-2 sm:py-3 lg:py-4 border border-[#155d29]/20">
+              <div className="w-2 lg:w-3 h-2 lg:h-3 bg-[#155d29] rounded-full"></div>
+              <span className="text-[#155d29] font-bold text-xs sm:text-sm uppercase tracking-wide lg:tracking-widest">{t('blog.header.badge')}</span>
             </div>
           </div>
 
           {/* Responsive Main Title */}
           <div className="max-w-6xl mx-auto">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-9xl font-black mb-6 lg:mb-10 leading-tight lg:leading-none text-[#DC2626]">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-9xl font-black mb-6 lg:mb-10 leading-tight lg:leading-none text-[#155d29]">
               <span className="block drop-shadow-md lg:drop-shadow-lg">{t('blog.header.title1')}</span>
               <span className="block text-gray-800 drop-shadow-sm lg:drop-shadow-md">{t('blog.header.title2')}</span>
             </h1>
             
             <p className="text-lg sm:text-xl lg:text-2xl xl:text-3xl text-gray-700 mb-8 lg:mb-14 max-w-4xl lg:max-w-5xl mx-auto leading-relaxed font-light px-4 lg:px-0">
               {t('blog.header.description')}
-              <span className="font-bold text-[#DC2626]"> {t('blog.header.description.years')}</span> {language === 'es' ? 'en' : 'of'} 
-              <span className="font-bold text-[#DC2626]"> {t('blog.header.description.transport')}</span>
+              <span className="font-bold text-[#155d29]"> {t('blog.header.description.years')}</span> {language === 'es' ? 'en' : 'of'} 
+              <span className="font-bold text-[#155d29]"> {t('blog.header.description.transport')}</span>
             </p>
 
             {/* Mobile-Optimized Stats Cards */}
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 mb-10 lg:mb-16 px-2 sm:px-0">
-              <div className="bg-white rounded-xl lg:rounded-2xl p-4 sm:p-6 lg:p-8 border border-gray-200 shadow-lg lg:shadow-xl group hover:shadow-xl lg:hover:shadow-2xl transition-all duration-300 hover:border-[#DC2626]/30">
-                <div className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#DC2626] mb-2 lg:mb-4 group-hover:scale-105 transition-transform">40+</div>
+              <div className="bg-white rounded-xl lg:rounded-2xl p-4 sm:p-6 lg:p-8 border border-gray-200 shadow-lg lg:shadow-xl group hover:shadow-xl lg:hover:shadow-2xl transition-all duration-300 hover:border-[#155d29]/30">
+                <div className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#155d29] mb-2 lg:mb-4 group-hover:scale-105 transition-transform">40+</div>
                 <div className="text-xs sm:text-sm text-gray-600 font-bold uppercase tracking-wide">{t('blog.header.stats.experience')}</div>
               </div>
-              <div className="bg-white rounded-xl lg:rounded-2xl p-4 sm:p-6 lg:p-8 border border-gray-200 shadow-lg lg:shadow-xl group hover:shadow-xl lg:hover:shadow-2xl transition-all duration-300 hover:border-[#DC2626]/30">
+              <div className="bg-white rounded-xl lg:rounded-2xl p-4 sm:p-6 lg:p-8 border border-gray-200 shadow-lg lg:shadow-xl group hover:shadow-xl lg:hover:shadow-2xl transition-all duration-300 hover:border-[#155d29]/30">
                 <div className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-800 mb-2 lg:mb-4 group-hover:scale-105 transition-transform">1,100</div>
                 <div className="text-xs sm:text-sm text-gray-600 font-bold uppercase tracking-wide">{t('blog.header.stats.maxTonnage')}</div>
               </div>
-              <div className="bg-white rounded-xl lg:rounded-2xl p-4 sm:p-6 lg:p-8 border border-gray-200 shadow-lg lg:shadow-xl group hover:shadow-xl lg:hover:shadow-2xl transition-all duration-300 hover:border-[#DC2626]/30">
-                <div className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#DC2626] mb-2 lg:mb-4 group-hover:scale-105 transition-transform">15K+</div>
+              <div className="bg-white rounded-xl lg:rounded-2xl p-4 sm:p-6 lg:p-8 border border-gray-200 shadow-lg lg:shadow-xl group hover:shadow-xl lg:hover:shadow-2xl transition-all duration-300 hover:border-[#155d29]/30">
+                <div className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#155d29] mb-2 lg:mb-4 group-hover:scale-105 transition-transform">15K+</div>
                 <div className="text-xs sm:text-sm text-gray-600 font-bold uppercase tracking-wide">{t('blog.header.stats.projects')}</div>
               </div>
-              <div className="bg-white rounded-xl lg:rounded-2xl p-4 sm:p-6 lg:p-8 border border-gray-200 shadow-lg lg:shadow-xl group hover:shadow-xl lg:hover:shadow-2xl transition-all duration-300 hover:border-[#DC2626]/30">
+              <div className="bg-white rounded-xl lg:rounded-2xl p-4 sm:p-6 lg:p-8 border border-gray-200 shadow-lg lg:shadow-xl group hover:shadow-xl lg:hover:shadow-2xl transition-all duration-300 hover:border-[#155d29]/30">
                 <div className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-800 mb-2 lg:mb-4 group-hover:scale-105 transition-transform">99.8%</div>
                 <div className="text-xs sm:text-sm text-gray-600 font-bold uppercase tracking-wide">{t('blog.header.stats.safety')}</div>
               </div>
@@ -624,14 +624,14 @@ export default function BlogPage() {
 
             {/* Responsive Divider */}
             <div className="flex items-center justify-center gap-4 lg:gap-8 mb-8 lg:mb-12">
-              <div className="w-16 lg:w-32 h-0.5 lg:h-1 bg-gradient-to-r from-transparent via-[#DC2626] to-transparent rounded-full"></div>
-              <div className="w-3 lg:w-5 h-3 lg:h-5 bg-[#DC2626] rounded-full shadow-lg"></div>
+              <div className="w-16 lg:w-32 h-0.5 lg:h-1 bg-gradient-to-r from-transparent via-[#155d29] to-transparent rounded-full"></div>
+              <div className="w-3 lg:w-5 h-3 lg:h-5 bg-[#155d29] rounded-full shadow-lg"></div>
               <div className="w-16 lg:w-32 h-0.5 lg:h-1 bg-gradient-to-r from-transparent via-gray-400 to-transparent rounded-full"></div>
             </div>
 
             {/* Mobile-Optimized Corporate Information */}
             <div className="bg-white/90 lg:bg-white/80 backdrop-blur-sm rounded-2xl lg:rounded-3xl p-6 lg:p-10 border border-gray-200 shadow-xl lg:shadow-2xl mx-2 sm:mx-0">
-              <p className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#DC2626] mb-3 lg:mb-4">
+              <p className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#155d29] mb-3 lg:mb-4">
                 TRANSERVICA, C.A.
               </p>
               <p className="text-base sm:text-lg lg:text-xl text-gray-700 font-medium leading-relaxed">
@@ -656,7 +656,7 @@ export default function BlogPage() {
                     placeholder={t('blog.page.search')}
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    className="w-full pl-10 lg:pl-12 pr-4 py-3 border border-gray-200 rounded-lg lg:rounded-xl focus:outline-none focus:ring-2 focus:ring-[#DC2626] focus:border-transparent text-sm lg:text-base"
+                    className="w-full pl-10 lg:pl-12 pr-4 py-3 border border-gray-200 rounded-lg lg:rounded-xl focus:outline-none focus:ring-2 focus:ring-[#155d29] focus:border-transparent text-sm lg:text-base"
                   />
                 </div>
               </div>
@@ -668,7 +668,7 @@ export default function BlogPage() {
                   <select
                     value={selectedCategory}
                     onChange={(e) => setSelectedCategory(e.target.value)}
-                    className="w-full pl-10 lg:pl-12 pr-4 py-3 border border-gray-200 rounded-lg lg:rounded-xl focus:outline-none focus:ring-2 focus:ring-[#DC2626] focus:border-transparent appearance-none bg-white text-sm lg:text-base"
+                    className="w-full pl-10 lg:pl-12 pr-4 py-3 border border-gray-200 rounded-lg lg:rounded-xl focus:outline-none focus:ring-2 focus:ring-[#155d29] focus:border-transparent appearance-none bg-white text-sm lg:text-base"
                   >
                     {categories.map((category) => (
                       <option key={category} value={category}>
@@ -690,7 +690,7 @@ export default function BlogPage() {
         {/* Mobile-Optimized Featured Posts */}
         {selectedCategory === "Todos los Artículos" && (
           <section className="mb-8 lg:mb-12">
-            <h2 className="text-2xl lg:text-3xl font-bold mb-6 lg:mb-8 text-[#DC2626] px-2 lg:px-0">
+            <h2 className="text-2xl lg:text-3xl font-bold mb-6 lg:mb-8 text-[#155d29] px-2 lg:px-0">
               Artículos Destacados
             </h2>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
@@ -773,9 +773,9 @@ export default function BlogPage() {
                       <div className="absolute inset-0 flex items-end justify-center p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                         <button 
                           className="text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
-                          style={{ backgroundColor: '#DC2626' }}
-                          onMouseEnter={(e) => (e.target as HTMLElement).style.backgroundColor = '#991B1B'}
-                          onMouseLeave={(e) => (e.target as HTMLElement).style.backgroundColor = '#DC2626'}
+                          style={{ backgroundColor: '#155d29' }}
+                          onMouseEnter={(e) => (e.target as HTMLElement).style.backgroundColor = '#0f4a21'}
+                          onMouseLeave={(e) => (e.target as HTMLElement).style.backgroundColor = '#155d29'}
                         >
                           {t('blog.page.readArticle')}
                         </button>
@@ -784,11 +784,11 @@ export default function BlogPage() {
 
                     {/* Article info */}
                     <div className="p-6">
-                      <span className="px-3 py-1 bg-[#DC2626] text-white text-xs font-medium rounded-full inline-block mb-3">
+                      <span className="px-3 py-1 bg-[#155d29] text-white text-xs font-medium rounded-full inline-block mb-3">
                         {post.category}
                       </span>
                       
-                      <h3 className="text-xl font-bold mb-3 transition-colors duration-300" style={{ color: '#DC2626' }}>
+                      <h3 className="text-xl font-bold mb-3 transition-colors duration-300" style={{ color: '#155d29' }}>
                         {post.title}
                       </h3>
                       
@@ -805,7 +805,7 @@ export default function BlogPage() {
                     </div>
 
                     {/* Animated border */}
-                    <div className="absolute inset-0 border-2 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ borderColor: '#DC2626' }}></div>
+                    <div className="absolute inset-0 border-2 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ borderColor: '#155d29' }}></div>
                   </article>
                 );
               })}
@@ -816,7 +816,7 @@ export default function BlogPage() {
         {/* Mobile-Optimized All Posts Grid */}
         <section>
           <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 lg:mb-8 px-2 lg:px-0 gap-2">
-            <h2 className="text-2xl lg:text-3xl font-bold text-[#DC2626]">
+            <h2 className="text-2xl lg:text-3xl font-bold text-[#155d29]">
               {selectedCategory === "Todos los Artículos" ? "Todos los Artículos" : selectedCategory}
             </h2>
             <span className="text-sm lg:text-base text-gray-600">
@@ -904,9 +904,9 @@ export default function BlogPage() {
                     <div className="absolute inset-0 flex items-end justify-center p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                       <button 
                         className="text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
-                        style={{ backgroundColor: '#DC2626' }}
-                        onMouseEnter={(e) => (e.target as HTMLElement).style.backgroundColor = '#991B1B'}
-                        onMouseLeave={(e) => (e.target as HTMLElement).style.backgroundColor = '#DC2626'}
+                        style={{ backgroundColor: '#155d29' }}
+                        onMouseEnter={(e) => (e.target as HTMLElement).style.backgroundColor = '#0f4a21'}
+                        onMouseLeave={(e) => (e.target as HTMLElement).style.backgroundColor = '#155d29'}
                       >
                         {t('blog.page.readArticle')}
                       </button>
@@ -915,11 +915,11 @@ export default function BlogPage() {
 
                   {/* Article info */}
                   <div className="p-6">
-                    <span className="px-3 py-1 bg-[#DC2626] text-white text-xs font-medium rounded-full inline-block mb-3">
+                    <span className="px-3 py-1 bg-[#155d29] text-white text-xs font-medium rounded-full inline-block mb-3">
                       {post.category}
                     </span>
                     
-                    <h3 className="text-xl font-bold mb-3 transition-colors duration-300" style={{ color: '#DC2626' }}>
+                    <h3 className="text-xl font-bold mb-3 transition-colors duration-300" style={{ color: '#155d29' }}>
                       {post.title}
                     </h3>
                     
@@ -940,7 +940,7 @@ export default function BlogPage() {
                   </div>
 
                   {/* Animated border */}
-                  <div className="absolute inset-0 border-2 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ borderColor: '#DC2626' }}></div>
+                  <div className="absolute inset-0 border-2 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ borderColor: '#155d29' }}></div>
                 </article>
               );
             })}
@@ -952,7 +952,7 @@ export default function BlogPage() {
               <button
                 onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
                 disabled={currentPage === 1}
-                className="flex items-center gap-2 px-3 lg:px-4 py-2 border border-gray-300 rounded-lg hover:border-[#DC2626] hover:text-[#DC2626] transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm lg:text-base w-full sm:w-auto justify-center"
+                className="flex items-center gap-2 px-3 lg:px-4 py-2 border border-gray-300 rounded-lg hover:border-[#155d29] hover:text-[#155d29] transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm lg:text-base w-full sm:w-auto justify-center"
               >
                 <ChevronLeft className="w-4 h-4" />
                 Anterior
@@ -977,8 +977,8 @@ export default function BlogPage() {
                       onClick={() => setCurrentPage(page)}
                       className={`w-8 lg:w-10 h-8 lg:h-10 rounded-lg font-medium transition-colors text-sm lg:text-base ${
                         currentPage === page
-                          ? 'bg-[#DC2626] text-white'
-                          : 'border border-gray-300 hover:border-[#DC2626] hover:text-[#DC2626]'
+                          ? 'bg-[#155d29] text-white'
+                          : 'border border-gray-300 hover:border-[#155d29] hover:text-[#155d29]'
                       }`}
                     >
                       {page}
@@ -990,7 +990,7 @@ export default function BlogPage() {
                     <span className="flex items-center px-2 text-gray-400">...</span>
                     <button
                       onClick={() => setCurrentPage(totalPages)}
-                      className="w-8 lg:w-10 h-8 lg:h-10 rounded-lg font-medium transition-colors text-sm lg:text-base border border-gray-300 hover:border-[#DC2626] hover:text-[#DC2626]"
+                      className="w-8 lg:w-10 h-8 lg:h-10 rounded-lg font-medium transition-colors text-sm lg:text-base border border-gray-300 hover:border-[#155d29] hover:text-[#155d29]"
                     >
                       {totalPages}
                     </button>
@@ -1001,7 +1001,7 @@ export default function BlogPage() {
               <button
                 onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 1))}
                 disabled={currentPage === totalPages}
-                className="flex items-center gap-2 px-3 lg:px-4 py-2 border border-gray-300 rounded-lg hover:border-[#DC2626] hover:text-[#DC2626] transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm lg:text-base w-full sm:w-auto justify-center"
+                className="flex items-center gap-2 px-3 lg:px-4 py-2 border border-gray-300 rounded-lg hover:border-[#155d29] hover:text-[#155d29] transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm lg:text-base w-full sm:w-auto justify-center"
               >
                 Siguiente
                 <ChevronRight className="w-4 h-4" />

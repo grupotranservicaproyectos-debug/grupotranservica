@@ -15,10 +15,10 @@ export default function PrivacyPolicy() {
       <section className="relative py-16 bg-gradient-to-br from-gray-50 via-white to-gray-100">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-[#DC2626] rounded-2xl mb-6">
+            <div className="inline-flex items-center justify-center w-20 h-20 bg-[#155d29] rounded-2xl mb-6">
               <Shield className="w-10 h-10 text-white" />
             </div>
-            <h1 className="text-4xl md:text-5xl font-black mb-6 text-[#DC2626]">
+            <h1 className="text-4xl md:text-5xl font-black mb-6 text-[#155d29]">
               {t('legal.privacy.title')}
             </h1>
             <p className="text-xl text-gray-700 mb-8 leading-relaxed">
@@ -43,8 +43,8 @@ export default function PrivacyPolicy() {
               {/* Section 1: Introduction */}
               <div className="mb-12">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-8 h-8 bg-[#DC2626] text-white rounded-full flex items-center justify-center font-bold">1</div>
-                  <h2 className="text-2xl font-bold text-[#DC2626]">{t('privacy.introduction.title')}</h2>
+                  <div className="w-8 h-8 bg-[#155d29] text-white rounded-full flex items-center justify-center font-bold">1</div>
+                  <h2 className="text-2xl font-bold text-[#155d29]">{t('privacy.introduction.title')}</h2>
                 </div>
                 <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
                   <p className="mb-4">
@@ -59,13 +59,13 @@ export default function PrivacyPolicy() {
               {/* Section 2: Data Collection */}
               <div className="mb-12">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-8 h-8 bg-[#DC2626] text-white rounded-full flex items-center justify-center font-bold">2</div>
-                  <h2 className="text-2xl font-bold text-[#DC2626]">{t('privacy.collection.title')}</h2>
+                  <div className="w-8 h-8 bg-[#155d29] text-white rounded-full flex items-center justify-center font-bold">2</div>
+                  <h2 className="text-2xl font-bold text-[#155d29]">{t('privacy.collection.title')}</h2>
                 </div>
                 <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
                   <p className="mb-4">{t('privacy.collection.content1')}</p>
                   
-                  <h4 className="text-lg font-semibold text-[#DC2626] mt-6 mb-3 flex items-center gap-2">
+                  <h4 className="text-lg font-semibold text-[#155d29] mt-6 mb-3 flex items-center gap-2">
                     <Database className="w-5 h-5" />
                     {t('privacy.collection.direct.title')}
                   </h4>
@@ -76,7 +76,7 @@ export default function PrivacyPolicy() {
                     <li>{t('privacy.collection.direct.item4')}</li>
                   </ul>
 
-                  <h4 className="text-lg font-semibold text-[#DC2626] mt-6 mb-3 flex items-center gap-2">
+                  <h4 className="text-lg font-semibold text-[#155d29] mt-6 mb-3 flex items-center gap-2">
                     <Eye className="w-5 h-5" />
                     {t('privacy.collection.automatic.title')}
                   </h4>
@@ -92,8 +92,8 @@ export default function PrivacyPolicy() {
               {/* Section 3: Data Usage */}
               <div className="mb-12">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-8 h-8 bg-[#DC2626] text-white rounded-full flex items-center justify-center font-bold">3</div>
-                  <h2 className="text-2xl font-bold text-[#DC2626]">{t('privacy.usage.title')}</h2>
+                  <div className="w-8 h-8 bg-[#155d29] text-white rounded-full flex items-center justify-center font-bold">3</div>
+                  <h2 className="text-2xl font-bold text-[#155d29]">{t('privacy.usage.title')}</h2>
                 </div>
                 <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
                   <p className="mb-4">{t('privacy.usage.content1')}</p>
@@ -115,8 +115,8 @@ export default function PrivacyPolicy() {
               {/* Section 4: Data Protection */}
               <div className="mb-12">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-8 h-8 bg-[#DC2626] text-white rounded-full flex items-center justify-center font-bold">4</div>
-                  <h2 className="text-2xl font-bold text-[#DC2626]">{t('privacy.protection.title')}</h2>
+                  <div className="w-8 h-8 bg-[#155d29] text-white rounded-full flex items-center justify-center font-bold">4</div>
+                  <h2 className="text-2xl font-bold text-[#155d29]">{t('privacy.protection.title')}</h2>
                 </div>
                 <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
                   <p className="mb-4">
@@ -128,7 +128,7 @@ export default function PrivacyPolicy() {
                     <li>{t('privacy.protection.item3')}</li>
                   </ul>
                   
-                  <h4 className="text-lg font-semibold text-[#DC2626] mt-6 mb-3 flex items-center gap-2">
+                  <h4 className="text-lg font-semibold text-[#155d29] mt-6 mb-3 flex items-center gap-2">
                     <Lock className="w-5 h-5" />
                     {t('privacy.protection.security.title')}
                   </h4>
@@ -145,8 +145,8 @@ export default function PrivacyPolicy() {
               {/* Section 5: Data Sharing */}
               <div className="mb-12">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-8 h-8 bg-[#DC2626] text-white rounded-full flex items-center justify-center font-bold">5</div>
-                  <h2 className="text-2xl font-bold text-[#DC2626]">{t('privacy.sharing.title')}</h2>
+                  <div className="w-8 h-8 bg-[#155d29] text-white rounded-full flex items-center justify-center font-bold">5</div>
+                  <h2 className="text-2xl font-bold text-[#155d29]">{t('privacy.sharing.title')}</h2>
                 </div>
                 <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
                   <p className="mb-4">
@@ -168,8 +168,8 @@ export default function PrivacyPolicy() {
               {/* Section 6: User Rights */}
               <div className="mb-12">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-8 h-8 bg-[#DC2626] text-white rounded-full flex items-center justify-center font-bold">6</div>
-                  <h2 className="text-2xl font-bold text-[#DC2626]">{t('privacy.rights.title')}</h2>
+                  <div className="w-8 h-8 bg-[#155d29] text-white rounded-full flex items-center justify-center font-bold">6</div>
+                  <h2 className="text-2xl font-bold text-[#155d29]">{t('privacy.rights.title')}</h2>
                 </div>
                 <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
                   <p className="mb-4">{t('privacy.rights.content1')}</p>
@@ -190,8 +190,8 @@ export default function PrivacyPolicy() {
               {/* Section 7: Data Retention */}
               <div className="mb-12">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-8 h-8 bg-[#DC2626] text-white rounded-full flex items-center justify-center font-bold">7</div>
-                  <h2 className="text-2xl font-bold text-[#DC2626]">{t('privacy.retention.title')}</h2>
+                  <div className="w-8 h-8 bg-[#155d29] text-white rounded-full flex items-center justify-center font-bold">7</div>
+                  <h2 className="text-2xl font-bold text-[#155d29]">{t('privacy.retention.title')}</h2>
                 </div>
                 <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
                   <p className="mb-4">
@@ -209,8 +209,8 @@ export default function PrivacyPolicy() {
               {/* Section 8: Updates */}
               <div className="mb-12">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-8 h-8 bg-[#DC2626] text-white rounded-full flex items-center justify-center font-bold">8</div>
-                  <h2 className="text-2xl font-bold text-[#DC2626]">{t('privacy.updates.title')}</h2>
+                  <div className="w-8 h-8 bg-[#155d29] text-white rounded-full flex items-center justify-center font-bold">8</div>
+                  <h2 className="text-2xl font-bold text-[#155d29]">{t('privacy.updates.title')}</h2>
                 </div>
                 <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
                   <p>
@@ -221,7 +221,7 @@ export default function PrivacyPolicy() {
 
               {/* Contact Information */}
               <div className="bg-gray-50 rounded-xl p-8 mt-12">
-                <h3 className="text-xl font-bold text-[#DC2626] mb-4 flex items-center gap-2">
+                <h3 className="text-xl font-bold text-[#155d29] mb-4 flex items-center gap-2">
                   <Users className="w-5 h-5" />
                   {t('privacy.contact.title')}
                 </h3>

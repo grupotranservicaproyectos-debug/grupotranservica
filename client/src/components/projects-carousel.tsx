@@ -213,7 +213,7 @@ export default function ProjectsCarousel() {
     <section id="proyectos" className="py-20 bg-gradient-to-br from-slate-50 to-gray-100">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold mb-4" style={{ color: '#DC2626' }}>
+          <h2 className="text-4xl font-bold mb-4" style={{ color: '#155d29' }}>
             GRUPO TRANSERVICA C.A
           </h2>
           <p className="text-lg text-slate-600 max-w-3xl mx-auto">
@@ -240,7 +240,7 @@ export default function ProjectsCarousel() {
                   
                   {/* Project Badge */}
                   <div className="absolute top-4 left-4">
-                    <span className="text-white px-3 py-1 rounded-full text-sm font-medium" style={{ backgroundColor: '#DC2626' }}>
+                    <span className="text-white px-3 py-1 rounded-full text-sm font-medium" style={{ backgroundColor: '#155d29' }}>
                       {currentProject.sector}
                     </span>
                   </div>
@@ -261,7 +261,7 @@ export default function ProjectsCarousel() {
                     {currentProject.title}
                   </h3>
                   
-                  <div className="flex items-center mb-4" style={{ color: '#DC2626' }}>
+                  <div className="flex items-center mb-4" style={{ color: '#155d29' }}>
                     <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -284,9 +284,9 @@ export default function ProjectsCarousel() {
                       }
                     }}
                     className="w-full md:w-auto text-white font-bold py-4 px-8 rounded-xl transform transition-all duration-200 hover:scale-105 hover:shadow-lg" 
-                    style={{ backgroundColor: '#DC2626' }} 
-                    onMouseEnter={(e) => (e.target as HTMLElement).style.backgroundColor = '#DBEAFE'} 
-                    onMouseLeave={(e) => (e.target as HTMLElement).style.backgroundColor = '#DC2626'}
+                    style={{ backgroundColor: '#155d29' }} 
+                    onMouseEnter={(e) => (e.target as HTMLElement).style.backgroundColor = '#a8e6a8'} 
+                    onMouseLeave={(e) => (e.target as HTMLElement).style.backgroundColor = '#155d29'}
                   >
                     {currentCTA}
                   </button>
@@ -295,11 +295,11 @@ export default function ProjectsCarousel() {
                 {/* Project Stats */}
                 <div className="grid grid-cols-2 gap-4 text-center">
                   <div className="bg-slate-50 rounded-lg p-3">
-                    <div className="text-2xl font-bold" style={{ color: '#DC2626' }}>{currentSlide + 1}</div>
+                    <div className="text-2xl font-bold" style={{ color: '#155d29' }}>{currentSlide + 1}</div>
                     <div className="text-sm text-slate-600">{t('projects.stats.of')} {projectsData.length} {t('projects.stats.projects')}</div>
                   </div>
                   <div className="bg-slate-50 rounded-lg p-3">
-                    <div className="text-2xl font-bold" style={{ color: '#DC2626' }}>40+</div>
+                    <div className="text-2xl font-bold" style={{ color: '#155d29' }}>40+</div>
                     <div className="text-sm text-slate-600">{t('projects.stats.years')}</div>
                   </div>
                 </div>
@@ -312,33 +312,33 @@ export default function ProjectsCarousel() {
             <button
               onClick={prevSlide}
               className="flex items-center justify-center w-12 h-12 bg-white border border-gray-200 rounded-full shadow-md transition-all duration-200 hover:shadow-lg"
-              onMouseEnter={(e) => { (e.target as HTMLElement).style.backgroundColor = '#FEF2F2'; (e.target as HTMLElement).style.borderColor = '#DC2626'; }}
+              onMouseEnter={(e) => { (e.target as HTMLElement).style.backgroundColor = '#f0f9f0'; (e.target as HTMLElement).style.borderColor = '#155d29'; }}
               onMouseLeave={(e) => { (e.target as HTMLElement).style.backgroundColor = 'white'; (e.target as HTMLElement).style.borderColor = '#d1d5db'; }}
             >
-              <ChevronLeft className="w-6 h-6 text-slate-600" style={{ color: '#DC2626' }} />
+              <ChevronLeft className="w-6 h-6 text-slate-600" style={{ color: '#155d29' }} />
             </button>
 
             {/* Autoplay Control */}
             <button
               onClick={toggleAutoplay}
               className="flex items-center justify-center w-12 h-12 bg-white border border-gray-200 rounded-full shadow-md transition-all duration-200 hover:shadow-lg"
-              onMouseEnter={(e) => { (e.target as HTMLElement).style.backgroundColor = '#FEF2F2'; (e.target as HTMLElement).style.borderColor = '#DC2626'; }}
+              onMouseEnter={(e) => { (e.target as HTMLElement).style.backgroundColor = '#f0f9f0'; (e.target as HTMLElement).style.borderColor = '#155d29'; }}
               onMouseLeave={(e) => { (e.target as HTMLElement).style.backgroundColor = 'white'; (e.target as HTMLElement).style.borderColor = '#d1d5db'; }}
             >
               {isAutoplay ? (
-                <Pause className="w-5 h-5" style={{ color: '#DC2626' }} />
+                <Pause className="w-5 h-5" style={{ color: '#155d29' }} />
               ) : (
-                <Play className="w-5 h-5" style={{ color: '#DC2626' }} />
+                <Play className="w-5 h-5" style={{ color: '#155d29' }} />
               )}
             </button>
 
             <button
               onClick={nextSlide}
               className="flex items-center justify-center w-12 h-12 bg-white border border-gray-200 rounded-full shadow-md transition-all duration-200 hover:shadow-lg"
-              onMouseEnter={(e) => { (e.target as HTMLElement).style.backgroundColor = '#FEF2F2'; (e.target as HTMLElement).style.borderColor = '#DC2626'; }}
+              onMouseEnter={(e) => { (e.target as HTMLElement).style.backgroundColor = '#f0f9f0'; (e.target as HTMLElement).style.borderColor = '#155d29'; }}
               onMouseLeave={(e) => { (e.target as HTMLElement).style.backgroundColor = 'white'; (e.target as HTMLElement).style.borderColor = '#d1d5db'; }}
             >
-              <ChevronRight className="w-6 h-6" style={{ color: '#DC2626' }} />
+              <ChevronRight className="w-6 h-6" style={{ color: '#155d29' }} />
             </button>
           </div>
 
@@ -353,7 +353,7 @@ export default function ProjectsCarousel() {
                     ? "scale-125"
                     : "bg-gray-300 hover:bg-gray-400"
                 }`}
-                style={index === currentSlide ? { backgroundColor: '#DC2626' } : {}}
+                style={index === currentSlide ? { backgroundColor: '#155d29' } : {}}
               />
             ))}
           </div>
