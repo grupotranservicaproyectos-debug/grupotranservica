@@ -102,7 +102,7 @@ ${data.description}
   };
 
   return (
-    <section id="contacto" className="py-12 sm:py-16 lg:py-20 text-white bg-[#155d29]">
+    <section id="contacto" className="py-12 sm:py-16 lg:py-20 text-white bg-[#DC2626]">
       <div className="max-w-7xl mx-auto mobile-padding">
         <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12">
           <div className="relative bg-gradient-to-br from-slate-900/80 via-slate-800/70 to-slate-700/60 backdrop-blur-sm rounded-xl sm:rounded-2xl p-6 sm:p-8 border border-white/10 shadow-2xl animate-slide-up">
@@ -335,9 +335,9 @@ ${data.description}
                 <Button 
                   type="submit" 
                   className="w-full text-white px-6 py-4 rounded-xl text-lg font-bold transition-all duration-300 transform hover:scale-105 shadow-lg"
-                  style={{ backgroundColor: '#155d29' }}
-                  onMouseEnter={(e) => { (e.target as HTMLElement).style.backgroundColor = '#0f4a21'; }}
-                  onMouseLeave={(e) => { (e.target as HTMLElement).style.backgroundColor = '#155d29'; }}
+                  style={{ backgroundColor: '#DC2626' }}
+                  onMouseEnter={(e) => { (e.target as HTMLElement).style.backgroundColor = '#991B1B'; }}
+                  onMouseLeave={(e) => { (e.target as HTMLElement).style.backgroundColor = '#DC2626'; }}
                   disabled={contactMutation.isPending}
                 >
                   {contactMutation.isPending ? t('contact.form.sending') : t('contact.form.submit')}

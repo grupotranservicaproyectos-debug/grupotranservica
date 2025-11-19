@@ -61,7 +61,7 @@ export default function LanguageSwitcher() {
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center space-x-2 text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide"
+        className="flex items-center space-x-2 text-gray-700 hover:text-[#DC2626] text-sm font-bold transition uppercase tracking-wide"
       >
         {language === 'es' ? <VenezuelaFlag /> : <UKFlag />}
         <span>{t('language.' + (language === 'es' ? 'spanish' : 'english'))}</span>
@@ -79,8 +79,8 @@ export default function LanguageSwitcher() {
             }}
             className={`w-full flex items-center space-x-3 px-4 py-2 text-sm font-bold transition ${
               language === 'es' 
-                ? 'bg-[#155d29] text-white' 
-                : 'text-gray-700 hover:bg-gray-50 hover:text-[#155d29]'
+                ? 'bg-[#DC2626] text-white' 
+                : 'text-gray-700 hover:bg-gray-50 hover:text-[#DC2626]'
             }`}
           >
             <VenezuelaFlag />
@@ -94,8 +94,8 @@ export default function LanguageSwitcher() {
             }}
             className={`w-full flex items-center space-x-3 px-4 py-2 text-sm font-bold transition ${
               language === 'en' 
-                ? 'bg-[#155d29] text-white' 
-                : 'text-gray-700 hover:bg-gray-50 hover:text-[#155d29]'
+                ? 'bg-[#DC2626] text-white' 
+                : 'text-gray-700 hover:bg-gray-50 hover:text-[#DC2626]'
             }`}
           >
             <UKFlag />

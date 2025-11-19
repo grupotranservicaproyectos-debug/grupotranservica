@@ -165,31 +165,31 @@ export default function BlogSection() {
     <section id="blog" className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-white via-gray-50 to-green-50/30">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-20 left-20 w-32 h-32 bg-[#155d29] rounded-full blur-3xl"></div>
-        <div className="absolute bottom-40 right-32 w-48 h-48 bg-[#155d29] rounded-full blur-3xl"></div>
+        <div className="absolute top-20 left-20 w-32 h-32 bg-[#DC2626] rounded-full blur-3xl"></div>
+        <div className="absolute bottom-40 right-32 w-48 h-48 bg-[#DC2626] rounded-full blur-3xl"></div>
       </div>
       <div className="relative container mx-auto mobile-padding">
         
         {/* Header Section */}
         <div className="text-center mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-3 mb-6 px-6 py-3 bg-white/80 backdrop-blur-sm rounded-full border border-[#155d29]/20 shadow-lg">
-            <div className="w-8 h-8 bg-gradient-to-br from-[#155d29] to-[#0f4a21] rounded-full flex items-center justify-center">
+          <div className="inline-flex items-center gap-3 mb-6 px-6 py-3 bg-white/80 backdrop-blur-sm rounded-full border border-[#DC2626]/20 shadow-lg">
+            <div className="w-8 h-8 bg-gradient-to-br from-[#DC2626] to-[#991B1B] rounded-full flex items-center justify-center">
               <Calendar className="w-4 h-4 text-white" />
             </div>
-            <span className="text-sm font-medium text-[#155d29]">{t('blog.section.badge')}</span>
+            <span className="text-sm font-medium text-[#DC2626]">{t('blog.section.badge')}</span>
           </div>
 
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 sm:mb-6 text-wrap-balance" style={{ color: '#155d29' }}>{t('blog.section.title')}</h2>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 sm:mb-6 text-wrap-balance" style={{ color: '#DC2626' }}>{t('blog.section.title')}</h2>
           <p className="mobile-text lg:text-xl max-w-3xl mx-auto mb-6 sm:mb-8 text-gray-600 text-wrap-pretty">
             {t('blog.section.description')}
           </p>
-          <div className="w-24 h-1 mx-auto rounded-full bg-gradient-to-r from-[#155d29] to-[#0f4a21]"></div>
+          <div className="w-24 h-1 mx-auto rounded-full bg-gradient-to-r from-[#DC2626] to-[#991B1B]"></div>
         </div>
 
         {/* Manual Carousel */}
         <div className="mb-16">
           <div className="flex items-center justify-between mb-8">
-            <h3 className="text-xl sm:text-2xl font-bold" style={{ color: '#155d29' }}>
+            <h3 className="text-xl sm:text-2xl font-bold" style={{ color: '#DC2626' }}>
               {t('blog.section.featured')}
             </h3>
             
@@ -202,7 +202,7 @@ export default function BlogSection() {
                     onClick={() => goToSlide(index)}
                     className={`w-3 h-3 rounded-full transition-all duration-300 ${
                       currentSlide === index 
-                        ? 'bg-[#155d29] scale-125' 
+                        ? 'bg-[#DC2626] scale-125' 
                         : 'bg-gray-300 hover:bg-gray-400'
                     }`}
                   />
@@ -212,13 +212,13 @@ export default function BlogSection() {
               <div className="flex gap-2">
                 <button
                   onClick={prevSlide}
-                  className="p-2 rounded-full bg-white border border-gray-200 hover:border-[#155d29] hover:bg-[#155d29] hover:text-white transition-all duration-300 shadow-md hover:shadow-lg group"
+                  className="p-2 rounded-full bg-white border border-gray-200 hover:border-[#DC2626] hover:bg-[#DC2626] hover:text-white transition-all duration-300 shadow-md hover:shadow-lg group"
                 >
                   <ChevronLeft className="w-5 h-5" />
                 </button>
                 <button
                   onClick={nextSlide}
-                  className="p-2 rounded-full bg-white border border-gray-200 hover:border-[#155d29] hover:bg-[#155d29] hover:text-white transition-all duration-300 shadow-md hover:shadow-lg group"
+                  className="p-2 rounded-full bg-white border border-gray-200 hover:border-[#DC2626] hover:bg-[#DC2626] hover:text-white transition-all duration-300 shadow-md hover:shadow-lg group"
                 >
                   <ChevronRight className="w-5 h-5" />
                 </button>
@@ -308,7 +308,7 @@ export default function BlogSection() {
 
                           {/* Article info */}
                           <div className="p-6">
-                            <h3 className="text-xl font-bold mb-3 transition-colors duration-300" style={{ color: '#155d29' }}>
+                            <h3 className="text-xl font-bold mb-3 transition-colors duration-300" style={{ color: '#DC2626' }}>
                               {post.title}
                             </h3>
                             
@@ -329,7 +329,7 @@ export default function BlogSection() {
                           </div>
 
                           {/* Animated border */}
-                          <div className="absolute inset-0 border-2 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ borderColor: '#155d29' }}></div>
+                          <div className="absolute inset-0 border-2 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ borderColor: '#DC2626' }}></div>
                         </article>
                       );
                     })}
@@ -342,7 +342,7 @@ export default function BlogSection() {
 
         {/* Newsletter Subscription */}
         <div className="max-w-lg mx-auto mb-16">
-          <div className="bg-gradient-to-br from-[#155d29] to-[#0f4a21] rounded-2xl p-6 text-white shadow-xl relative overflow-hidden">
+          <div className="bg-gradient-to-br from-[#DC2626] to-[#991B1B] rounded-2xl p-6 text-white shadow-xl relative overflow-hidden">
             {/* Background pattern for contrast */}
             <div className="absolute inset-0 opacity-15">
               <div className="absolute top-2 right-2 w-16 h-16 border border-white/30 rounded-full"></div>
@@ -368,7 +368,7 @@ export default function BlogSection() {
                   placeholder={t('blog.section.newsletter.placeholder')}
                   className="w-full px-4 py-3 rounded-xl bg-white/25 border-2 border-white/40 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/60 focus:border-white/70 backdrop-blur-sm transition-all duration-300 drop-shadow-sm"
                 />
-                <button className="w-full bg-white text-[#155d29] font-bold py-3 px-4 rounded-xl hover:bg-green-50 transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl border-2 border-white">
+                <button className="w-full bg-white text-[#DC2626] font-bold py-3 px-4 rounded-xl hover:bg-red-50 transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl border-2 border-white">
                   {t('blog.section.newsletter.subscribe')}
                 </button>
               </div>
@@ -380,7 +380,7 @@ export default function BlogSection() {
         <div className="text-center mt-12">
           <Link
             href="/blog#blog-main"
-            className="inline-flex items-center gap-3 bg-white border-2 border-[#155d29] text-[#155d29] font-bold py-4 px-8 rounded-xl hover:bg-[#155d29] hover:text-white transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+            className="inline-flex items-center gap-3 bg-white border-2 border-[#DC2626] text-[#DC2626] font-bold py-4 px-8 rounded-xl hover:bg-[#DC2626] hover:text-white transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
             onClick={() => {
               setTimeout(() => {
                 const element = document.getElementById('blog-main');
@@ -398,7 +398,7 @@ export default function BlogSection() {
 
         {/* Call to Action */}
         <div className="text-center mt-16 relative">
-          <div className="bg-gradient-to-r from-[#155d29] to-[#0f4a21] rounded-3xl p-8 sm:p-12 text-white shadow-2xl overflow-hidden">
+          <div className="bg-gradient-to-r from-[#DC2626] to-[#991B1B] rounded-3xl p-8 sm:p-12 text-white shadow-2xl overflow-hidden">
             {/* Background pattern */}
             <div className="absolute inset-0 opacity-20">
               <div className="absolute top-4 right-4 w-32 h-32 border-2 border-white/40 rounded-full"></div>
@@ -422,7 +422,7 @@ export default function BlogSection() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button 
                   onClick={() => document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="bg-white text-[#155d29] font-bold py-4 px-8 rounded-xl hover:bg-green-50 transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl flex items-center justify-center gap-2 border-2 border-white"
+                  className="bg-white text-[#DC2626] font-bold py-4 px-8 rounded-xl hover:bg-red-50 transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl flex items-center justify-center gap-2 border-2 border-white"
                 >
                   <ArrowRight className="w-5 h-5" />
                   {t('blog.section.cta.consult')}

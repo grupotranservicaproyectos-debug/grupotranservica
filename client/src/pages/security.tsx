@@ -15,10 +15,10 @@ export default function SecurityPolicy() {
       <section className="relative py-16 bg-gradient-to-br from-gray-50 via-white to-gray-100">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-[#155d29] rounded-2xl mb-6">
+            <div className="inline-flex items-center justify-center w-20 h-20 bg-[#DC2626] rounded-2xl mb-6">
               <Shield className="w-10 h-10 text-white" />
             </div>
-            <h1 className="text-4xl md:text-5xl font-black mb-6 text-[#155d29]">
+            <h1 className="text-4xl md:text-5xl font-black mb-6 text-[#DC2626]">
               {t('legal.security.title')}
             </h1>
             <p className="text-xl text-gray-700 mb-8 leading-relaxed">
@@ -47,8 +47,8 @@ export default function SecurityPolicy() {
               {/* Section 1: Our Commitment */}
               <div className="mb-12">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-8 h-8 bg-[#155d29] text-white rounded-full flex items-center justify-center font-bold">1</div>
-                  <h2 className="text-2xl font-bold text-[#155d29]">{t('security.commitment.title')}</h2>
+                  <div className="w-8 h-8 bg-[#DC2626] text-white rounded-full flex items-center justify-center font-bold">1</div>
+                  <h2 className="text-2xl font-bold text-[#DC2626]">{t('security.commitment.title')}</h2>
                 </div>
                 <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
                   <p className="mb-4">
@@ -58,26 +58,26 @@ export default function SecurityPolicy() {
                     {t('security.commitment.content2')}
                   </p>
                   
-                  <div className="bg-green-50 border border-green-200 rounded-lg p-6 mt-6">
+                  <div className="bg-red-50 border border-red-200 rounded-lg p-6 mt-6">
                     <div className="flex items-center gap-3 mb-3">
                       <CheckCircle className="w-6 h-6 text-green-600" />
-                      <h4 className="text-lg font-semibold text-green-800">{t('security.commitment.record.title')}</h4>
+                      <h4 className="text-lg font-semibold text-red-800">{t('security.commitment.record.title')}</h4>
                     </div>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
                       <div>
-                        <div className="text-2xl font-bold text-green-700">99.8%</div>
+                        <div className="text-2xl font-bold text-red-700">99.8%</div>
                         <div className="text-sm text-green-600">{t('security.commitment.record.safety')}</div>
                       </div>
                       <div>
-                        <div className="text-2xl font-bold text-green-700">15,000+</div>
+                        <div className="text-2xl font-bold text-red-700">15,000+</div>
                         <div className="text-sm text-green-600">{t('security.commitment.record.projects')}</div>
                       </div>
                       <div>
-                        <div className="text-2xl font-bold text-green-700">40</div>
+                        <div className="text-2xl font-bold text-red-700">40</div>
                         <div className="text-sm text-green-600">{t('security.commitment.record.experience')}</div>
                       </div>
                       <div>
-                        <div className="text-2xl font-bold text-green-700">1,100</div>
+                        <div className="text-2xl font-bold text-red-700">1,100</div>
                         <div className="text-sm text-green-600">{t('security.commitment.record.capacity')}</div>
                       </div>
                     </div>
@@ -88,8 +88,8 @@ export default function SecurityPolicy() {
               {/* Section 2: Safety Management System */}
               <div className="mb-12">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-8 h-8 bg-[#155d29] text-white rounded-full flex items-center justify-center font-bold">2</div>
-                  <h2 className="text-2xl font-bold text-[#155d29]">{t('security.management.title')}</h2>
+                  <div className="w-8 h-8 bg-[#DC2626] text-white rounded-full flex items-center justify-center font-bold">2</div>
+                  <h2 className="text-2xl font-bold text-[#DC2626]">{t('security.management.title')}</h2>
                 </div>
                 <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
                   <p className="mb-4">
@@ -101,9 +101,9 @@ export default function SecurityPolicy() {
                       <h4 className="font-semibold text-blue-800 mb-2">ISO 45001:2018</h4>
                       <p className="text-sm text-blue-700">{t('security.management.iso45001')}</p>
                     </div>
-                    <div className="bg-green-50 border border-green-200 rounded-lg p-4">
-                      <h4 className="font-semibold text-green-800 mb-2">ISO 14001:2015</h4>
-                      <p className="text-sm text-green-700">{t('security.management.iso14001')}</p>
+                    <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+                      <h4 className="font-semibold text-red-800 mb-2">ISO 14001:2015</h4>
+                      <p className="text-sm text-red-700">{t('security.management.iso14001')}</p>
                     </div>
                     <div className="bg-purple-50 border border-purple-200 rounded-lg p-4">
                       <h4 className="font-semibold text-purple-800 mb-2">ISO 9001:2015</h4>
@@ -111,7 +111,7 @@ export default function SecurityPolicy() {
                     </div>
                   </div>
 
-                  <h4 className="text-lg font-semibold text-[#155d29] mt-6 mb-3 flex items-center gap-2">
+                  <h4 className="text-lg font-semibold text-[#DC2626] mt-6 mb-3 flex items-center gap-2">
                     <Truck className="w-5 h-5" />
                     {t('security.management.components.title')}
                   </h4>
@@ -130,15 +130,15 @@ export default function SecurityPolicy() {
               {/* Section 3: Equipment Safety */}
               <div className="mb-12">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-8 h-8 bg-[#155d29] text-white rounded-full flex items-center justify-center font-bold">3</div>
-                  <h2 className="text-2xl font-bold text-[#155d29]">{t('security.equipment.title')}</h2>
+                  <div className="w-8 h-8 bg-[#DC2626] text-white rounded-full flex items-center justify-center font-bold">3</div>
+                  <h2 className="text-2xl font-bold text-[#DC2626]">{t('security.equipment.title')}</h2>
                 </div>
                 <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
                   <p className="mb-4">
                     {t('security.equipment.content')}
                   </p>
                   
-                  <h4 className="text-lg font-semibold text-[#155d29] mt-6 mb-3">{t('security.equipment.trailers.title')}</h4>
+                  <h4 className="text-lg font-semibold text-[#DC2626] mt-6 mb-3">{t('security.equipment.trailers.title')}</h4>
                   <ul className="list-disc pl-6 mb-4 space-y-2">
                     <li>{t('security.equipment.trailers.item1')}</li>
                     <li>{t('security.equipment.trailers.item2')}</li>
@@ -147,7 +147,7 @@ export default function SecurityPolicy() {
                     <li>{t('security.equipment.trailers.item5')}</li>
                   </ul>
 
-                  <h4 className="text-lg font-semibold text-[#155d29] mt-6 mb-3">{t('security.equipment.cranes.title')}</h4>
+                  <h4 className="text-lg font-semibold text-[#DC2626] mt-6 mb-3">{t('security.equipment.cranes.title')}</h4>
                   <ul className="list-disc pl-6 mb-4 space-y-2">
                     <li>{t('security.equipment.cranes.item1')}</li>
                     <li>{t('security.equipment.cranes.item2')}</li>
@@ -156,7 +156,7 @@ export default function SecurityPolicy() {
                     <li>{t('security.equipment.cranes.item5')}</li>
                   </ul>
 
-                  <h4 className="text-lg font-semibold text-[#155d29] mt-6 mb-3">{t('security.equipment.maintenance.title')}</h4>
+                  <h4 className="text-lg font-semibold text-[#DC2626] mt-6 mb-3">{t('security.equipment.maintenance.title')}</h4>
                   <ul className="list-disc pl-6 mb-4 space-y-2">
                     <li>{t('security.equipment.maintenance.item1')}</li>
                     <li>{t('security.equipment.maintenance.item2')}</li>
@@ -170,15 +170,15 @@ export default function SecurityPolicy() {
               {/* Section 4: Personnel Training */}
               <div className="mb-12">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-8 h-8 bg-[#155d29] text-white rounded-full flex items-center justify-center font-bold">4</div>
-                  <h2 className="text-2xl font-bold text-[#155d29]">Capacitación del Personal</h2>
+                  <div className="w-8 h-8 bg-[#DC2626] text-white rounded-full flex items-center justify-center font-bold">4</div>
+                  <h2 className="text-2xl font-bold text-[#DC2626]">Capacitación del Personal</h2>
                 </div>
                 <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
                   <p className="mb-4">
                     Todo el personal de TRANSERVICA recibe capacitación continua en seguridad y operaciones especializadas:
                   </p>
                   
-                  <h4 className="text-lg font-semibold text-[#155d29] mt-6 mb-3 flex items-center gap-2">
+                  <h4 className="text-lg font-semibold text-[#DC2626] mt-6 mb-3 flex items-center gap-2">
                     <Users className="w-5 h-5" />
                     Programas de Capacitación
                   </h4>
@@ -191,7 +191,7 @@ export default function SecurityPolicy() {
                     <li>Programas de liderazgo en seguridad para supervisores</li>
                   </ul>
 
-                  <h4 className="text-lg font-semibold text-[#155d29] mt-6 mb-3">Certificaciones Requeridas</h4>
+                  <h4 className="text-lg font-semibold text-[#DC2626] mt-6 mb-3">Certificaciones Requeridas</h4>
                   <ul className="list-disc pl-6 mb-4 space-y-2">
                     <li>Licencias de conducir especializadas para transporte de cargas excepcionales</li>
                     <li>Certificaciones de operadores de grúas móviles y sobre orugas</li>
@@ -205,8 +205,8 @@ export default function SecurityPolicy() {
               {/* Section 5: Route Planning */}
               <div className="mb-12">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-8 h-8 bg-[#155d29] text-white rounded-full flex items-center justify-center font-bold">5</div>
-                  <h2 className="text-2xl font-bold text-[#155d29]">Planificación y Estudios de Ruta</h2>
+                  <div className="w-8 h-8 bg-[#DC2626] text-white rounded-full flex items-center justify-center font-bold">5</div>
+                  <h2 className="text-2xl font-bold text-[#DC2626]">Planificación y Estudios de Ruta</h2>
                 </div>
                 <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
                   <p className="mb-4">
@@ -227,15 +227,15 @@ export default function SecurityPolicy() {
               {/* Section 6: Risk Management */}
               <div className="mb-12">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-8 h-8 bg-[#155d29] text-white rounded-full flex items-center justify-center font-bold">6</div>
-                  <h2 className="text-2xl font-bold text-[#155d29]">Gestión de Riesgos</h2>
+                  <div className="w-8 h-8 bg-[#DC2626] text-white rounded-full flex items-center justify-center font-bold">6</div>
+                  <h2 className="text-2xl font-bold text-[#DC2626]">Gestión de Riesgos</h2>
                 </div>
                 <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
                   <p className="mb-4">
                     Implementamos un proceso sistemático de identificación, evaluación y control de riesgos:
                   </p>
                   
-                  <h4 className="text-lg font-semibold text-[#155d29] mt-6 mb-3 flex items-center gap-2">
+                  <h4 className="text-lg font-semibold text-[#DC2626] mt-6 mb-3 flex items-center gap-2">
                     <AlertTriangle className="w-5 h-5" />
                     Matriz de Riesgos
                   </h4>
@@ -247,7 +247,7 @@ export default function SecurityPolicy() {
                     <li>Riesgos ambientales y de impacto en comunidades</li>
                   </ul>
 
-                  <h4 className="text-lg font-semibold text-[#155d29] mt-6 mb-3">Medidas de Control</h4>
+                  <h4 className="text-lg font-semibold text-[#DC2626] mt-6 mb-3">Medidas de Control</h4>
                   <ul className="list-disc pl-6 mb-4 space-y-2">
                     <li>Protocolos específicos para cada tipo de riesgo identificado</li>
                     <li>Sistemas de monitoreo continuo durante las operaciones</li>
@@ -261,8 +261,8 @@ export default function SecurityPolicy() {
               {/* Section 7: Emergency Response */}
               <div className="mb-12">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-8 h-8 bg-[#155d29] text-white rounded-full flex items-center justify-center font-bold">7</div>
-                  <h2 className="text-2xl font-bold text-[#155d29]">Respuesta ante Emergencias</h2>
+                  <div className="w-8 h-8 bg-[#DC2626] text-white rounded-full flex items-center justify-center font-bold">7</div>
+                  <h2 className="text-2xl font-bold text-[#DC2626]">Respuesta ante Emergencias</h2>
                 </div>
                 <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
                   <p className="mb-4">
@@ -282,8 +282,8 @@ export default function SecurityPolicy() {
               {/* Section 8: Continuous Improvement */}
               <div className="mb-12">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-8 h-8 bg-[#155d29] text-white rounded-full flex items-center justify-center font-bold">8</div>
-                  <h2 className="text-2xl font-bold text-[#155d29]">Mejora Continua</h2>
+                  <div className="w-8 h-8 bg-[#DC2626] text-white rounded-full flex items-center justify-center font-bold">8</div>
+                  <h2 className="text-2xl font-bold text-[#DC2626]">Mejora Continua</h2>
                 </div>
                 <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
                   <p className="mb-4">
@@ -302,7 +302,7 @@ export default function SecurityPolicy() {
 
               {/* Contact Information */}
               <div className="bg-gray-50 rounded-xl p-8 mt-12">
-                <h3 className="text-xl font-bold text-[#155d29] mb-4 flex items-center gap-2">
+                <h3 className="text-xl font-bold text-[#DC2626] mb-4 flex items-center gap-2">
                   <Shield className="w-5 h-5" />
                   Departamento de Seguridad
                 </h3>

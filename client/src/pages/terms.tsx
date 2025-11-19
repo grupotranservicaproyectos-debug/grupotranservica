@@ -15,10 +15,10 @@ export default function TermsOfService() {
       <section className="relative py-16 bg-gradient-to-br from-gray-50 via-white to-gray-100">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-[#155d29] rounded-2xl mb-6">
+            <div className="inline-flex items-center justify-center w-20 h-20 bg-[#DC2626] rounded-2xl mb-6">
               <FileText className="w-10 h-10 text-white" />
             </div>
-            <h1 className="text-4xl md:text-5xl font-black mb-6 text-[#155d29]">
+            <h1 className="text-4xl md:text-5xl font-black mb-6 text-[#DC2626]">
               {t('legal.terms.title')}
             </h1>
             <p className="text-xl text-gray-700 mb-8 leading-relaxed">
@@ -43,8 +43,8 @@ export default function TermsOfService() {
               {/* Section 1: Acceptance */}
               <div className="mb-12">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-8 h-8 bg-[#155d29] text-white rounded-full flex items-center justify-center font-bold">1</div>
-                  <h2 className="text-2xl font-bold text-[#155d29]">{t('terms.acceptance.title')}</h2>
+                  <div className="w-8 h-8 bg-[#DC2626] text-white rounded-full flex items-center justify-center font-bold">1</div>
+                  <h2 className="text-2xl font-bold text-[#DC2626]">{t('terms.acceptance.title')}</h2>
                 </div>
                 <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
                   <p className="mb-4">
@@ -59,8 +59,8 @@ export default function TermsOfService() {
               {/* Section 2: Services */}
               <div className="mb-12">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-8 h-8 bg-[#155d29] text-white rounded-full flex items-center justify-center font-bold">2</div>
-                  <h2 className="text-2xl font-bold text-[#155d29]">{t('terms.services.title')}</h2>
+                  <div className="w-8 h-8 bg-[#DC2626] text-white rounded-full flex items-center justify-center font-bold">2</div>
+                  <h2 className="text-2xl font-bold text-[#DC2626]">{t('terms.services.title')}</h2>
                 </div>
                 <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
                   <p className="mb-4">
@@ -82,8 +82,8 @@ export default function TermsOfService() {
               {/* Section 3: Responsibilities */}
               <div className="mb-12">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-8 h-8 bg-[#155d29] text-white rounded-full flex items-center justify-center font-bold">3</div>
-                  <h2 className="text-2xl font-bold text-[#155d29]">{t('terms.responsibilities.title')}</h2>
+                  <div className="w-8 h-8 bg-[#DC2626] text-white rounded-full flex items-center justify-center font-bold">3</div>
+                  <h2 className="text-2xl font-bold text-[#DC2626]">{t('terms.responsibilities.title')}</h2>
                 </div>
                 <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
                   <p className="mb-4">{t('terms.responsibilities.content1')}</p>
@@ -103,8 +103,8 @@ export default function TermsOfService() {
               {/* Section 4: Limitations */}
               <div className="mb-12">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-8 h-8 bg-[#155d29] text-white rounded-full flex items-center justify-center font-bold">4</div>
-                  <h2 className="text-2xl font-bold text-[#155d29]">{t('terms.limitations.title')}</h2>
+                  <div className="w-8 h-8 bg-[#DC2626] text-white rounded-full flex items-center justify-center font-bold">4</div>
+                  <h2 className="text-2xl font-bold text-[#DC2626]">{t('terms.limitations.title')}</h2>
                 </div>
                 <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
                   <p className="mb-4">
@@ -124,8 +124,8 @@ export default function TermsOfService() {
               {/* Section 5: Payment Terms */}
               <div className="mb-12">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-8 h-8 bg-[#155d29] text-white rounded-full flex items-center justify-center font-bold">5</div>
-                  <h2 className="text-2xl font-bold text-[#155d29]">{t('terms.payment.title')}</h2>
+                  <div className="w-8 h-8 bg-[#DC2626] text-white rounded-full flex items-center justify-center font-bold">5</div>
+                  <h2 className="text-2xl font-bold text-[#DC2626]">{t('terms.payment.title')}</h2>
                 </div>
                 <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
                   <p className="mb-4">
@@ -143,8 +143,8 @@ export default function TermsOfService() {
               {/* Section 6: Force Majeure */}
               <div className="mb-12">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-8 h-8 bg-[#155d29] text-white rounded-full flex items-center justify-center font-bold">6</div>
-                  <h2 className="text-2xl font-bold text-[#155d29]">{t('terms.forceMajeure.title')}</h2>
+                  <div className="w-8 h-8 bg-[#DC2626] text-white rounded-full flex items-center justify-center font-bold">6</div>
+                  <h2 className="text-2xl font-bold text-[#DC2626]">{t('terms.forceMajeure.title')}</h2>
                 </div>
                 <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
                   <p>
@@ -156,8 +156,8 @@ export default function TermsOfService() {
               {/* Section 7: Modifications */}
               <div className="mb-12">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-8 h-8 bg-[#155d29] text-white rounded-full flex items-center justify-center font-bold">7</div>
-                  <h2 className="text-2xl font-bold text-[#155d29]">{t('terms.modifications.title')}</h2>
+                  <div className="w-8 h-8 bg-[#DC2626] text-white rounded-full flex items-center justify-center font-bold">7</div>
+                  <h2 className="text-2xl font-bold text-[#DC2626]">{t('terms.modifications.title')}</h2>
                 </div>
                 <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
                   <p>
@@ -168,7 +168,7 @@ export default function TermsOfService() {
 
               {/* Contact Information */}
               <div className="bg-gray-50 rounded-xl p-8 mt-12">
-                <h3 className="text-xl font-bold text-[#155d29] mb-4 flex items-center gap-2">
+                <h3 className="text-xl font-bold text-[#DC2626] mb-4 flex items-center gap-2">
                   <Users className="w-5 h-5" />
                   {t('terms.contact.title')}
                 </h3>
