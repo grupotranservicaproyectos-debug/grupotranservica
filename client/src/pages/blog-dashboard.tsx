@@ -34,7 +34,11 @@ export default function BlogDashboard() {
     queryKey: ['/api/blogs'],
   });
 
-  const ADMIN_TOKEN = import.meta.env.VITE_ADMIN_TOKEN || 'transervica-admin-2025';
+  const ADMIN_TOKEN = import.meta.env.VITE_ADMIN_TOKEN;
+
+  if (!ADMIN_TOKEN) {
+    console.error('VITE_ADMIN_TOKEN not configured. Blog generation will fail.');
+  }
 
   const generateSingleBlog = useMutation({
     mutationFn: async () => {
