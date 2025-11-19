@@ -224,6 +224,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const mainPages = [
         { loc: '/', changefreq: 'weekly', priority: 1.0 },
         { loc: '/blog', changefreq: 'daily', priority: 0.9 },
+        { loc: '/seo-blog', changefreq: 'daily', priority: 0.9 },
       ];
       
       mainPages.forEach((page) => {
@@ -236,7 +237,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       
       blogs.forEach((blog) => {
         xml += '  <url>\n';
-        xml += `    <loc>${baseUrl}/blog/${blog.slug}</loc>\n`;
+        xml += `    <loc>${baseUrl}/seo-blog/${blog.slug}</loc>\n`;
         xml += `    <lastmod>${blog.publishedAt?.toISOString()}</lastmod>\n`;
         xml += '    <changefreq>monthly</changefreq>\n';
         xml += '    <priority>0.8</priority>\n';
