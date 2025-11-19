@@ -1,0 +1,341 @@
+# 🎯 PROMPT COMPLETO GRUPORANSSERVICA.COM - VERSIÓN 2.0 MEJORADA
+
+## **ELIMINADO: Aspectos Visuales y de Apariencia**
+*(Se asume diseño corporativo rojo/azul similar a TranservicaNet)*
+
+***
+
+## **1. CONTEXTO Y OBJETIVOS EMPRESARIALES**
+
+### Información Corporativa
+```
+Nombre: Grupo Transervica, C.A.
+Sector: Transporte de carga pesada, logística industrial, almacenamiento
+Target: B2B - Empresas industriales en Venezuela
+Capacidad máxima: 500 toneladas
+Cobertura: 8 ciudades principales
+Sectores atendidos: 6 industrias clave
+```
+
+### Servicios Principales (Estructura Modular)
+1. **Transporte de Carga Sobredimensionada**
+   - Lowboys de 100-150 toneladas
+   - Camas bajas extendibles
+   - Modulares hidráulicos hasta 300 toneladas
+   - Super Lowboys hasta 500 toneladas
+
+2. **Logística Industrial Especializada**
+   - Planificación de rutas inteligente (API Google Maps integrada)
+   - Estudios de factibilidad técnico-económicos
+   - Gestión de permisos y trámites (tracker automático)
+   - Coordinación multimodal (terrestre + portuaria)
+   - Seguimiento GPS 24/7 en tiempo real
+
+3. **Almacenamiento y Distribución**
+   - Bodegas techadas con control CCTV
+   - Patios descubiertos certificados
+   - Control de inventario automatizado
+   - Seguridad 24/7 con vigilancia integrada
+   - Ubicaciones estratégicas (3-4 hubs principales)
+
+4. **Consultoría en Transporte Pesado**
+   - Estudios de viabilidad técnica
+   - Análisis de costos total (TCO)
+   - Optimización de procesos operacionales
+   - Asesoría técnica regulatory
+
+5. **Servicios de Ingeniería Logística**
+   - Diseño de operaciones personalizadas
+   - Cálculos estructurales y cargas
+   - Planificación de proyectos especiales
+   - Supervisión técnica in-situ
+
+***
+
+## **2. ARQUITECTURA TÉCNICA AVANZADA**
+
+### Stack Tecnológico Completo (Same as TranservicaNet + Enhancements)
+```typescript
+// Core
+Framework: Next.js 14.2.28
+Runtime: Node.js 18 LTS
+Language: TypeScript 5.2.2
+Styling: Tailwind CSS 3.3.3
+
+// Database & ORM
+Database: PostgreSQL 14+
+ORM: Prisma 6.7.0
+Caching Layer: Redis (para tracking GPS y datos en vivo)
+
+// Internacionalization
+Library: next-intl (ES, EN)
+
+// Forms & Validation
+react-hook-form 7.53.0
+zod 3.23.8 (schemas reutilizables)
+
+// Email & Notifications
+Email: Nodemailer + Gmail SMTP
+SMS: Twilio API (notificaciones urgentes)
+Push: Firebase Cloud Messaging (FCM)
+
+// Real-time & APIs
+Tracking: Socket.io (GPS en vivo)
+Maps: Google Maps API + Mapbox
+Analytics: Posthog (alternativa a GA4)
+
+// Utilities
+date-fns 3.6.0
+clsx 2.1.1
+class-variance-authority 0.7.0
+```
+
+### Estructura de Directorios (Mejorada)
+```
+gruporansservica/
+├── app/
+│   ├── api/
+│   │   ├── contacto/
+│   │   │   └── route.ts [POST] ← Sistema notificaciones 5 correos
+│   │   ├── cotizaciones/
+│   │   │   ├── route.ts [POST/GET]
+│   │   │   └── [id]/ (actualizar estado)
+│   │   ├── tracking/
+│   │   │   ├── route.ts [GET] ← GPS en tiempo real
+│   │   │   └── ws.ts [WebSocket] ← Ubicación viva
+│   │   ├── blogs/
+│   │   │   ├── route.ts [GET/POST]
+│   │   │   └── [slug]/route.ts
+│   │   ├── newsletter/
+│   │   │   └── route.ts [POST]
+│   │   ├── sitemap/
+│   │   │   └── route.ts [GET] ← Dinámico
+│   │   ├── robots/
+│   │   │   └── route.ts [GET]
+│   │   ├── analytics/
+│   │   │   ├── events/route.ts [POST] ← Custom events
+│   │   │   └── performance/route.ts [GET]
+│   │   ├── webhooks/
+│   │   │   ├── stripe/route.ts [POST] ← Pagos
+│   │   │   ├── twilio/route.ts [POST] ← SMS entrantes
+│   │   │   └── google-maps/route.ts [POST] ← Alerts
+│   │   ├── export/
+│   │   │   ├── quotations-pdf/route.ts [GET]
+│   │   │   └── reports-csv/route.ts [GET]
+│   │   └── admin/
+│   │       ├── contacts/route.ts [GET] ← CRM básico
+│   │       └── analytics/route.ts [GET]
+│   ├── (main)/
+│   │   ├── page.tsx [Hero + Stats + CTAs]
+│   │   ├── servicios/
+│   │   │   ├── page.tsx
+│   │   │   ├── [servicio]/page.tsx
+│   │   │   └── calculadora/page.tsx ← Presupuestos en vivo
+│   │   ├── proyectos/
+│   │   │   ├── page.tsx
+│   │   │   ├── [slug]/page.tsx
+│   │   │   └── galeria/page.tsx
+│   │   ├── blog/
+│   │   │   ├── page.tsx
+│   │   │   ├── [slug]/page.tsx
+│   │   │   └── buscar/page.tsx ← Search avanzado
+│   │   ├── contacto/page.tsx ← Multi-form
+│   │   ├── cotizar/page.tsx ← Cotizador interactivo
+│   │   ├── rastrear/page.tsx ← Tracking GPS público
+│   │   ├── nosotros/page.tsx
+│   │   ├── certificaciones/page.tsx ← Trust signals
+│   │   ├── careers/page.tsx ← Job board integrado
+│   │   ├── api-docs/page.tsx ← Para partners B2B
+│   │   └── politica-privacidad/page.tsx
+│   ├── admin/
+│   │   ├── layout.tsx [Auth requerida]
+│   │   ├── dashboard/page.tsx ← Analytics en tiempo real
+│   │   ├── contacts/page.tsx ← CRM completo
+│   │   ├── quotations/page.tsx ← Pipeline ventas
+│   │   ├── analytics/page.tsx ← KPIs
+│   │   └── content/page.tsx ← Blog editor
+│   ├── layout.tsx [Root + Metadata]
+│   └── error.tsx, not-found.tsx
+├── components/
+│   ├── (sections)/
+│   │   ├── hero-advanced.tsx ← Con video + stats
+│   │   ├── services-comparison.tsx ← Tabla interactiva
+│   │   ├── quote-calculator.tsx ← Presupuesto dinámico
+│   │   ├── projects-showcase.tsx ← Con filtros avanzados
+│   │   ├── testimonials-carousel.tsx ← Reviews/casos éxito
+│   │   ├── trust-signals.tsx ← Certificaciones, partners
+│   │   ├── cta-section.tsx ← Múltiples CTAs
+│   │   └── faq-advanced.tsx ← Colapsable + búsqueda
+│   ├── (forms)/
+│   │   ├── contact-form.tsx ← Multi-step
+│   │   ├── quote-form.tsx ← Cotizador avanzado
+│   │   ├── newsletter-form.tsx
+│   │   ├── quote-calculator-widget.tsx
+│   │   └── tracking-widget.tsx
+│   ├── (ui)/
+│   │   ├── button.tsx
+│   │   ├── input.tsx
+│   │   ├── select.tsx
+│   │   ├── textarea.tsx
+│   │   ├── card.tsx
+│   │   ├── modal.tsx
+│   │   ├── accordion.tsx
+│   │   ├── tabs.tsx
+│   │   ├── toast.tsx
+│   │   └── tooltip.tsx
+│   ├── (layout)/
+│   │   ├── header.tsx [Con navegación mega-menu]
+│   │   ├── footer.tsx [Links + Info]
+│   │   ├── breadcrumb.tsx
+│   │   ├── sidebar-nav.tsx [Para admin]
+│   │   └── mobile-nav.tsx
+│   ├── (widgets)/
+│   │   ├── whatsapp-widget.tsx [Mejorado con opciones]
+│   │   ├── chat-widget.tsx [Intercom-like]
+│   │   ├── notification-banner.tsx [Alerts]
+│   │   ├── cookie-consent.tsx
+│   │   └── seasonal-promo.tsx
+│   └── (common)/
+│       ├── seo-head.tsx
+│       ├── language-switcher.tsx
+│       ├── theme-provider.tsx
+│       └── analytics-provider.tsx
+├── lib/
+│   ├── db.ts [Prisma singleton]
+│   ├── auth.ts [JWT básico para admin]
+│   ├── seo-config.ts [Keywords + metadata]
+│   ├── email-templates/
+│   │   ├── contact-notification.ts
+│   │   ├── quote-response.ts
+│   │   ├── order-confirmation.ts
+│   │   └── tracking-update.ts
+│   ├── apis/
+│   │   ├── google-maps.ts [Rutas, geocoding]
+│   │   ├── twilio.ts [SMS alerts]
+│   │   ├── stripe.ts [Pagos online]
+│   │   └── mailchimp.ts [Newsletter]
+│   ├── utils/
+│   │   ├── validation-schemas.ts [Zod]
+│   │   ├── formatting.ts [Números, fechas]
+│   │   ├── calculations.ts [Presupuestos, tarifas]
+│   │   ├── tracking-service.ts [GPS integration]
+│   │   └── seo-helpers.ts
+│   ├── hooks/
+│   │   ├── useQuote.ts
+│   │   ├── useTracking.ts
+│   │   ├── useContactForm.ts
+│   │   └── useAnalytics.ts
+│   └── constants/
+│       ├── services.ts
+│       ├── cities.ts
+│       ├── sectors.ts
+│       └── pricing.ts
+├── prisma/
+│   ├── schema.prisma [Modelos expandidos]
+│   └── migrations/
+├── public/
+│   ├── images/
+│   ├── videos/ [Hero videos, demos]
+│   ├── documents/ [Descargas]
+│   └── sitemap.xml
+├── scripts/
+│   ├── seed-blogs.ts [10 blogs iniciales]
+│   ├── generar-blogs-geo.ts [32 combinations]
+│   ├── generar-blogs-sectores.ts [Sector-specific]
+│   ├── optimize-images.js
+│   ├── generate-sitemaps.ts
+│   └── generate-schema-markup.ts
+├── styles/
+│   └── globals.css
+├── messages/
+│   ├── es.json [Traducciones]
+│   └── en.json
+├── .env.example
+├── .env.local
+├── next.config.js
+├── tailwind.config.ts
+├── tsconfig.json
+└── package.json
+```
+
+***
+
+## **3. SISTEMA DE BASE DE DATOS AVANZADO (Prisma Schema)**
+
+```prisma
+// prisma/schema.prisma
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// ================== CONTACTOS Y LEADS ==================
+model Contact {
+  id                String   @id @default(cuid())
+  nombre            String
+  empresa           String
+  cargo             String
+  email             String   @unique
+  telefono          String
+  ciudad            String
+  sector            String
+  tipo_servicio     String
+  asunto            String
+  mensaje           String   @db.Text
+  canal             String   @default("web_form") // web_form, whatsapp, phone, email
+  
+  // Detalles técnicos para cotización
+  peso_estimado     Float?
+  dimensiones       String?  // "10m x 3m x 2m"
+  origen            String?
+  destino           String?
+  fecha_requerida   DateTime?
+  urgencia          String   @default("media") // baja, media, alta, urgente
+  
+  // Seguimiento
+  estado            String   @default("nuevo") // nuevo, revisado, cotizado, ganado, perdido
+  notified_emails   String[] @default([]) // Correos notificados
+  created_at        DateTime @default(now())
+  updated_at        DateTime @updatedAt
+  
+  // Relaciones
+  quotation         Quotation?
+  tracking          TrackingLog[]
+  
+  @@index([email])
+  @@index([estado])
+  @@index([ciudad])
+  @@index([sector])
+  @@index([created_at])
+}
+
+// ================== COTIZACIONES ==================
+model Quotation {
+  id                String   @id @default(cuid())
+  contact_id        String   @unique
+  contact           Contact  @relation(fields: [contact_id], references: [id])
+  
+  // Detalles técnicos
+  ruta              String?
+  distancia_km      Float?
+  tiempo_estimado   String?  // "2-3 días"
+  capacidad_usada   Float?   // toneladas
+  equipo_recomendado String?
+  
+  // Presupuesto
+  tarifa_base       Float
+  tarifa_distancia  Float?   // por km
+  tarifa_especial   Float?   // manipuleo, seguimiento
+  descuento_pct     Float?   @default(0)
+  total             Float
+  divisa            String   @default("USD")
+  
+  // Términos
+  validez_dias      Int      @default(7)
+  forma_pago        String   // "contado", "credito 15 dias", etc
+  condiciones       String   @db.Text
