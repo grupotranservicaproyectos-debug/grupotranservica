@@ -6,6 +6,9 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { LanguageProvider } from "./contexts/LanguageContext";
 import Home from "@/pages/home";
 import BlogPage from "@/pages/blog";
+import SEOBlogPage from "@/pages/seo-blog";
+import SEOBlogArticle from "@/pages/seo-blog-article";
+import BlogDashboard from "@/pages/blog-dashboard";
 import TermsOfService from "@/pages/terms";
 import PrivacyPolicy from "@/pages/privacy";
 import CookiePolicy from "@/pages/cookies";
@@ -17,6 +20,9 @@ function Router() {
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/blog" component={BlogPage} />
+      <Route path="/seo-blog" component={SEOBlogPage} />
+      <Route path="/seo-blog/:slug" component={SEOBlogArticle} />
+      <Route path="/admin/blog-dashboard" component={BlogDashboard} />
       <Route path="/terms" component={TermsOfService} />
       <Route path="/privacy" component={PrivacyPolicy} />
       <Route path="/cookies" component={CookiePolicy} />
