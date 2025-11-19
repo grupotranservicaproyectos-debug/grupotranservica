@@ -1,0 +1,452 @@
+---
+
+## **FASE 4.3: SCHEMA MARKUP PARA SEO**
+
+```typescript
+// src/lib/schemaMarkup.ts
+
+export function generateOrganizationSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Grupo Transervica, C.A.',
+    description: 'Líder en transporte de carga pesada y logística industrial en Venezuela',
+    url: 'https://grupotranservica.com',
+    logo: 'https://grupotranservica.com/logo.png',
+    contactPoint: {
+      '@type': 'ContactPoint',
+      telephone: '+58-414-XXXXXXX',
+      contactType: 'Customer Service',
+      areaServed: 'VE',
+      availableLanguage: ['es', 'en'],
+    },
+    sameAs: [
+      'https://www.facebook.com/grupotranservica',
+      'https://www.instagram.com/grupotranservica',
+      'https://www.linkedin.com/company/grupo-transervica',
+    ],
+    address: {
+      '@type': 'PostalAddress',
+      addressCountry: 'VE',
+      addressRegion: 'Distrito Capital',
+      addressLocality: 'Caracas',
+    },
+  };
+}
+
+export function generateLocalBusinessSchema(city: string) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    name: `Grupo Transervica - ${city}`,
+    description: `Servicios de transporte de carga pesada en ${city}`,
+    image: 'https://grupotranservica.com/logo.png',
+    telephone: '+58-414-XXXXXXX',
+    url: `https://grupotranservica.com/${city}`,
+    address: {
+      '@type': 'PostalAddress',
+      addressCountry: 'VE',
+      addressLocality: city,
+    },
+    areaServed: city,
+    priceRange: '$$',
+  };
+}
+
+export function generateBlogPostSchema(blog: any) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: blog.title,
+    description: blog.metaDescription,
+    image: blog.coverImage,
+    datePublished: blog.publishedAt,
+    dateModified: blog.updatedAt,
+    author: {
+      '@type': 'Organization',
+      name: 'Grupo Transervica',
+      url: 'https://grupotranservica.com',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Grupo Transervica',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://grupotranservica.com/logo.png',
+      },
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `https://grupotranservica.com/blog/${blog.slug}`,
+    },
+  };
+}
+
+export function generateFAQSchema(faqs: any[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
+  };
+}
+
+export function generateBreadcrumbSchema(items: any[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.name,
+      item: item.url,
+    })),
+  };
+}
+
+export function generateAggregateRatingSchema(rating: number, reviewCount: number) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'AggregateRating',
+    ratingValue: rating,
+    reviewCount: reviewCount,
+  };
+}
+```
+
+### **4.4 Componente React para inyectar Schema Markup**
+
+```typescript
+// src/components/SchemaMarkup.tsx
+
+import React from 'react';
+
+interface SchemaMarkupProps {
+  schema: Record<string, any>;
+}
+
+export function SchemaMarkup({ schema }: SchemaMarkupProps) {
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
+
+// Uso en componentes:
+// import { SchemaMarkup } from './SchemaMarkup';
+// import { generateBlogPostSchema } from '../lib/schemaMarkup';
+//
+// export function BlogPost({ blog }) {
+//   return (
+//     <>
+//       <SchemaMarkup schema={generateBlogPostSchema(blog)} />
+//       <article>...</article>
+//     </>
+//   );
+// }
+```
+
+***
+
+## **FASE 5: IMPLEMENTACIÓN EN REPLIT Y DEPLOYMENT (Semana 3-4)**
+
+### **5.1 Estructura final de package.json**
+
+```json
+{
+  "name": "grupotranservica",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "start": "node dist/server.js",
+    "db:migrate": "drizzle-kit generate:pg && drizzle-kit migrate",
+    "db:push": "drizzle-kit push:pg",
+    "generate:blogs": "tsx src/scripts/generateBlogsManual.ts",
+    "seed:keywords": "tsx src/scripts/seedKeywords.ts"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "drizzle-orm": "^0.28.0",
+    "pg": "^8.10.0",
+    "openai": "^4.28.0",
+    "node-cron": "^3.0.2",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.2.2",
+    "tsx": "^3.14.0",
+    "vite": "^4.4.9",
+    "drizzle-kit": "^0.19.13"
+  }
+}
+```
+
+### **5.2 Script manual para generar blogs de prueba**
+
+```typescript
+// src/scripts/generateBlogsManual.ts
+
+import { generate5BlogsDaily } from '../services/blogGenerator';
+
+async function main() {
+  console.log('🚀 Generando 5 blogs de prueba...');
+  await generate5BlogsDaily();
+  console.log('✅ Blogs generados exitosamente');
+  process.exit(0);
+}
+
+main().catch((error) => {
+  console.error('❌ Error:', error);
+  process.exit(1);
+});
+```
+
+```bash
+# Ejecutar manualmente
+npm run generate:blogs
+```
+
+### **5.3 Archivo .env.local (Template)**
+
+```bash
+# Database
+DATABASE_URL="postgresql://user:password@localhost:5432/grupotranservica"
+
+# OpenAI
+OPENAI_API_KEY="sk-..."
+
+# Site
+SITE_URL="https://grupotranservica.com"
+NODE_ENV="production"
+
+# Email (existente)
+SMTP_USER="equiserdominios@gmail.com"
+SMTP_PASSWORD="app-password-here"
+SMTP_HOST="smtp.gmail.com"
+SMTP_PORT="587"
+
+# Analytics
+GOOGLE_ANALYTICS_ID="G-..."
+
+# Google Maps
+GOOGLE_MAPS_API_KEY="..."
+
+# Twilio (SMS - opcional)
+TWILIO_ACCOUNT_SID="..."
+TWILIO_AUTH_TOKEN="..."
+TWILIO_PHONE_NUMBER="+1..."
+```
+
+### **5.4 Archivo replit.nix (Para Replit)**
+
+```nix
+{ pkgs }: {
+  deps = [
+    pkgs.nodejs_18
+    pkgs.postgresql
+    pkgs.git
+  ];
+  env = {
+    LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath [ pkgs.openssl ];
+  };
+}
+```
+
+***
+
+## **FASE 6: CHECKLIST EJECUTABLE Y DEPLOYMENT**
+
+### **6.1 Checklist paso a paso**
+
+```markdown
+## 🚀 CHECKLIST IMPLEMENTACIÓN - GRUPOTRANSERVICA.COM
+
+### SEMANA 1: SETUP
+- [ ] Clonar gruasequiser.com como base
+- [ ] Crear carpeta `/grupotranservica` en Replit
+- [ ] npm install (dependencias nuevas: openai, node-cron)
+- [ ] Crear tabla `blogs` en PostgreSQL
+- [ ] Configurar variables .env.local
+- [ ] Verificar conexión a BD
+- [ ] Crear OPENAI_API_KEY en openai.com
+
+### SEMANA 1-2: BLOG GENERATION
+- [ ] Copiar `src/services/blogGenerator.ts`
+- [ ] Copiar `src/tasks/blogSchedule.ts`
+- [ ] Copiar `src/scripts/generateBlogsManual.ts`
+- [ ] Integrar setupBlogSchedule() en server.ts
+- [ ] Ejecutar npm run generate:blogs (prueba manual)
+- [ ] Verificar 5 blogs creados en BD
+- [ ] Verificar contenido generado por OpenAI
+
+### SEMANA 2: SEO Y KEYWORDS
+- [ ] Copiar `src/lib/seoKeywords.ts` (200+ keywords)
+- [ ] Copiar `src/routes/api/blogs.ts`
+- [ ] Copiar `src/lib/schemaMarkup.ts`
+- [ ] Copiar `src/components/SchemaMarkup.tsx`
+- [ ] Integrar schema markup en componentes Blog
+- [ ] Crear rutas dinámicas en React para [city]/[sector]
+- [ ] Verificar SEO metadata en cada página
+
+### SEMANA 2-3: SITEMAP Y APIS
+- [ ] Copiar `src/routes/api/sitemap.ts`
+- [ ] Integrar endpoint /api/sitemap.xml
+- [ ] Verificar sitemap.xml genera correctamente
+- [ ] Crear endpoint /api/blogs
+- [ ] Crear endpoint /api/blogs/:slug
+- [ ] Crear endpoint /api/blogs/city/:city
+- [ ] Crear endpoint /api/blogs/sector/:sector
+- [ ] Testear todos los endpoints
+
+### SEMANA 3: FRONTEND
+- [ ] Crear componente DynamicCityPage.tsx
+- [ ] Crear componente BlogFeed.tsx
+- [ ] Crear página /blog
+- [ ] Crear página /blog/[slug]
+- [ ] Crear rutas dinámicas /[city]/[sector]
+- [ ] Integrar formulario de contacto en cada página
+- [ ] Agregar CTA a "Solicitar Cotización"
+
+### SEMANA 3: ANALYTICS Y TRACKING
+- [ ] Instalar Posthog o GA4
+- [ ] Integrar tracking de eventos
+- [ ] Crear dashboard admin básico
+- [ ] Implementar tracking de formularios
+- [ ] Tracking de clicks en CTAs
+
+### SEMANA 4: TESTING Y DEPLOY
+- [ ] Tests Lighthouse (Score > 90)
+- [ ] Tests responsividad (móvil, tablet, desktop)
+- [ ] Verificar velocidad de carga
+- [ ] Verificar Core Web Vitals
+- [ ] Validar sitemap.xml
+- [ ] Validar schema markup en Google Structured Data
+- [ ] Verificar robots.txt
+- [ ] Deploy en Replit
+- [ ] Configurar Google Search Console
+- [ ] Configurar Google Analytics 4
+- [ ] Verificar indexación
+
+### DESPUÉS DEL LAUNCH
+- [ ] Monitorear posiciones Google (primera semana)
+- [ ] Revisar logs de errores
+- [ ] Analizar tráfico y conversiones
+- [ ] Optimizar blogs underperforming
+- [ ] Agregar backlinks
+- [ ] Preparar content marketing strategy
+```
+
+### **6.2 Comandos de ejecución rápida**
+
+```bash
+# SETUP INICIAL
+git clone <repo> grupotranservica
+cd grupotranservica
+npm install openai node-cron dotenv
+npm run db:push
+
+# DESARROLLO
+npm run dev
+
+# GENERAR BLOGS MANUALMENTE (prueba)
+npm run generate:blogs
+
+# BUILD PARA PRODUCCIÓN
+npm run build
+
+# START EN PRODUCCIÓN
+npm start
+
+# VERIFICAR SITEMAP
+curl https://grupotranservica.com/api/sitemap.xml
+
+# VER LOGS
+tail -f logs/app.log
+```
+
+***
+
+## **FASE 7: MONITOREO Y OPTIMIZACIÓN (Mes 2-3)**
+
+### **7.1 Métricas de éxito esperadas**
+
+```
+TIMELINE: 90 DÍAS
+
+DÍA 1-7:
+✅ 5 blogs/día × 7 = 35 blogs publicados
+✅ Sitemap actualizado automáticamente
+✅ 0 errores 404
+✅ Carga < 2 segundos
+
+DÍA 8-30:
+✅ 150 blogs totales (5 diarios)
+✅ Primeras posiciones en keywords Tier 4-5
+✅ 500+ visitas/mes
+✅ 10+ formularios de contacto/mes
+
+DÍA 31-60:
+✅ 300 blogs totales
+✅ Top 10 para keywords Tier 2-3
+✅ 2,000+ visitas/mes
+✅ 50+ formularios/mes
+✅ 5+ cotizaciones calificadas/semana
+
+DÍA 61-90:
+✅ 450+ blogs totales
+✅ Top 3 para palabras clave principales
+✅ 5,000+ visitas/mes
+✅ 150+ formularios/mes
+✅ 15+ cotizaciones/semana
+✅ 50+ keywords en primera página
+```
+
+### **7.2 Dashboard de monitoreo**
+
+```typescript
+// src/components/AdminDashboard.tsx
+
+import React, { useState, useEffect } from 'react';
+
+export function AdminDashboard() {
+  const [stats, setStats] = useState({
+    totalBlogs: 0,
+    blogsThisMonth: 0,
+    totalVisits: 0,
+    avgTimeOnPage: 0,
+    conversionRate: 0,
+    topKeywords: [],
+  });
+
+  useEffect(() => {
+    // Fetch stats from /api/analytics
+    fetch('/api/analytics')
+      .then((res) => res.json())
+      .then((data) => setStats(data));
+  }, []);
+
+  return (
+    <div className="dashboard">
+      <h1>📊 Dashboard - Grupo Transervica</h1>
+      
+      <div className="stats-grid">
+        <div className="stat-card">
+          <h3>Blogs Totales</h3>
+          <p className="stat-value">{stats.totalBlogs}</p>
+        </div>
+        
+        <div className="stat-card">
+          <h3>Este

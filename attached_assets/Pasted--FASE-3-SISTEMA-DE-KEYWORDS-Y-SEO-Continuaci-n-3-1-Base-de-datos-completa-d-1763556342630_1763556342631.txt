@@ -1,0 +1,437 @@
+---
+
+## **FASE 3: SISTEMA DE KEYWORDS Y SEO (Continuación)**
+
+### **3.1 Base de datos completa de 200+ Keywords**
+
+```typescript
+// src/lib/seoKeywords.ts
+
+export const SEO_KEYWORDS = {
+  // TIER 1: Palabras clave principales (10)
+  tier1: [
+    'transporte carga pesada venezuela',
+    'logística industrial venezuela',
+    'transporte sobredimensionado venezuela',
+    'empresa transporte pesado venezuela',
+    'logística especializada venezuela',
+    'transporte de cargas excepcionales',
+    'servicios transporte industrial',
+    'logística y transporte venezuela',
+    'transporte de carga venezuela',
+    'empresa logística venezuela',
+  ],
+
+  // TIER 2: Geo-específicos por ciudad (40)
+  caracas: [
+    'transporte carga pesada caracas',
+    'logística industrial caracas',
+    'empresa transporte caracas',
+    'servicios logística caracas',
+    'carga pesada distrito capital',
+    'lowboy caracas',
+    'almacenamiento caracas',
+    'consultoría logística caracas',
+  ],
+  maracaibo: [
+    'transporte carga pesada maracaibo',
+    'logística industrial zulia',
+    'empresa transporte zulia',
+    'servicios carga maracaibo',
+    'transporte pesado zulia',
+    'lowboy maracaibo',
+    'almacenamiento maracaibo',
+    'consultoría zulia',
+  ],
+  valencia: [
+    'transporte carga pesada valencia',
+    'logística industrial valencia',
+    'empresa transporte carabobo',
+    'servicios logística valencia',
+    'carga pesada carabobo',
+    'lowboy valencia',
+    'almacenamiento valencia',
+    'consultoría carabobo',
+  ],
+  barcelona: [
+    'transporte carga pesada barcelona',
+    'logística industrial anzoátegui',
+    'empresa transporte barcelona',
+    'servicios carga barcelona',
+    'logística anzoátegui',
+    'lowboy barcelona',
+    'almacenamiento barcelona',
+    'consultoría anzoátegui',
+  ],
+  'puerto-ordaz': [
+    'transporte carga pesada puerto ordaz',
+    'logística industrial bolívar',
+    'empresa transporte bolívar',
+    'servicios carga ciudad guayana',
+    'transporte pesado orinoco',
+    'lowboy puerto ordaz',
+    'almacenamiento bolívar',
+    'consultoría orinoco',
+  ],
+  'puerto-cabello': [
+    'transporte carga pesada puerto cabello',
+    'logística portuaria venezuela',
+    'servicios puerto cabello',
+    'transporte carabobo',
+    'logística puerto',
+    'lowboy puerto cabello',
+    'almacenamiento portuario',
+    'consultoría puerto cabello',
+  ],
+  barquisimeto: [
+    'transporte carga pesada barquisimeto',
+    'logística industrial lara',
+    'empresa transporte lara',
+    'servicios carga barquisimeto',
+    'logística lara',
+    'lowboy barquisimeto',
+    'almacenamiento lara',
+    'consultoría barquisimeto',
+  ],
+  'punto-fijo': [
+    'transporte carga pesada punto fijo',
+    'logística industrial falcón',
+    'empresa transporte falcón',
+    'servicios carga punto fijo',
+    'logística falcón',
+    'lowboy punto fijo',
+    'almacenamiento falcón',
+    'consultoría falcón',
+  ],
+
+  // TIER 3: Por sector industrial (48)
+  petrolero: [
+    'transporte petrolero venezuela',
+    'logística pdvsa',
+    'transporte equipos petrolero',
+    'carga pesada sector petrolero',
+    'movilización equipos petrolero',
+    'transporte contratistas petrolero',
+    'logística mixtas petrolero',
+    'carga crítica petrolero',
+  ],
+  petroquimico: [
+    'transporte petroquímico venezuela',
+    'logística petroquímica',
+    'transporte pequeveń',
+    'carga complejo criogénico',
+    'equipos petroquímicos',
+    'movilización petroquímica',
+    'logística petroquímica venezuela',
+    'carga petroquímica',
+  ],
+  siderurgico: [
+    'transporte siderúrgico venezuela',
+    'logística sidor',
+    'transporte acero venezuela',
+    'carga pesada siderurgia',
+    'equipos siderúrgicos',
+    'movilización sidor',
+    'logística siderúrgica',
+    'carga industrial siderurgia',
+  ],
+  energetico: [
+    'transporte energético venezuela',
+    'logística energética',
+    'transporte equipos energía',
+    'carga pesada energética',
+    'generadores pesados',
+    'movilización energética',
+    'logística corpoelec',
+    'carga termoelectricidad',
+  ],
+  portuario: [
+    'transporte portuario venezuela',
+    'logística portuaria',
+    'transporte puerto venezuela',
+    'servicios bolipuertos',
+    'carga portuaria',
+    'movilización portuaria',
+    'logística marítima',
+    'carga contenedores pesados',
+  ],
+  manufacturero: [
+    'transporte manufacturero venezuela',
+    'logística industrial manufactura',
+    'transporte equipos manufactureros',
+    'carga industria venezuela',
+    'movilización manufacturera',
+    'logística manufactura',
+    'transporte maquinaria industrial',
+    'carga pesada manufactura',
+  ],
+
+  // TIER 4: Servicios específicos (30)
+  servicios: [
+    'lowboy venezuela',
+    'cama baja extendible',
+    'transporte modular hidráulico',
+    'super lowboy 500 toneladas',
+    'almacenamiento industrial venezuela',
+    'consultoría transporte pesado',
+    'ingeniería logística',
+    'planificación rutas carga pesada',
+    'permisos transporte sobredimensionado',
+    'coordinación multimodal',
+    'transporte 100 toneladas',
+    'transporte 250 toneladas',
+    'transporte 500 toneladas',
+    'seguimiento gps logística',
+    'embalaje carga pesada',
+    'manipuleo industrial',
+    'aseguramiento carga',
+    'documentación aduanal',
+    'tramitología transporte',
+    'estudios viabilidad logística',
+    'análisis factibilidad transporte',
+    'optimización rutas',
+    'control inventario',
+    'distribución nacional',
+    'almacenamiento temporal',
+    'bodegaje industrial',
+    'servicios 24/7',
+    'respuesta inmediata',
+    'equipo certificado',
+    'transporte seguro',
+  ],
+
+  // TIER 5: Intent comercial alto (50+)
+  comercial: [
+    'empresa transporte carga pesada certificada venezuela',
+    'servicio logística industrial confiable',
+    'transporte equipos industriales 500 toneladas',
+    'movilización maquinaria pesada venezuela',
+    'alquiler lowboy venezuela',
+    'transporte cama baja venezuela',
+    'servicio transporte modular',
+    'empresa logística industrial b2b',
+    'cotización transporte pesado venezuela',
+    'presupuesto transporte carga venezuela',
+    'cuánto cuesta transporte pesado venezuela',
+    'transportista carga sobredimensionada',
+    'empresa logística certificada venezuela',
+    'proveedor logística venezuela',
+    'servicios logísticos b2b',
+    'transporte confiable venezuela',
+    'logística profesional venezuela',
+    'empresa transporte especializada',
+    'contratista logística venezuela',
+    'operador transporte pesado',
+    'transportista profesional venezuela',
+    'empresa de fletes venezuela',
+    'servicio mudanza industrial',
+    'transporte equipos grandes',
+    'movilización equipos costosos',
+    'transporte seguro carga valiosa',
+    'logística tiempo real',
+    'seguimiento en vivo logística',
+    'rastreo gps transporte',
+    'contacto transporte venezuela',
+    'llamar transportista venezuela',
+    'whatsapp logística venezuela',
+    'solicitar cotización transporte',
+    'pedir presupuesto logística',
+    'contratar transporte pesado',
+    'empresa transporte disponible',
+    'transporte inmediato venezuela',
+    'urgente logística venezuela',
+    'emergencia transporte',
+    'transporte express venezuela',
+    'logística rápida venezuela',
+    'servicio transporte 24 horas',
+    'logística nocturna venezuela',
+    'transporte fin de semana',
+    'servicio transporte feriados',
+    'logística garantizada',
+    'transporte con garantía',
+    'carga asegurada venezuela',
+    'transporte comprobable',
+    'logística transparent',
+    'tarifas transporte justo',
+    'precios logística competitivos',
+  ],
+};
+
+// Función para obtener todos los keywords combinados
+export function getAllKeywords(): string[] {
+  const all: string[] = [];
+  
+  all.push(...SEO_KEYWORDS.tier1);
+  all.push(
+    ...SEO_KEYWORDS.caracas,
+    ...SEO_KEYWORDS.maracaibo,
+    ...SEO_KEYWORDS.valencia,
+    ...SEO_KEYWORDS.barcelona,
+    ...SEO_KEYWORDS['puerto-ordaz'],
+    ...SEO_KEYWORDS['puerto-cabello'],
+    ...SEO_KEYWORDS.barquisimeto,
+    ...SEO_KEYWORDS['punto-fijo']
+  );
+  all.push(
+    ...SEO_KEYWORDS.petrolero,
+    ...SEO_KEYWORDS.petroquimico,
+    ...SEO_KEYWORDS.siderurgico,
+    ...SEO_KEYWORDS.energetico,
+    ...SEO_KEYWORDS.portuario,
+    ...SEO_KEYWORDS.manufacturero
+  );
+  all.push(...SEO_KEYWORDS.servicios);
+  all.push(...SEO_KEYWORDS.comercial);
+  
+  return all;
+}
+
+// Total: 10 + 64 + 48 + 30 + 50 = 202 keywords
+```
+
+***
+
+## **FASE 4: RUTAS DINÁMICAS Y SITEMAP (Semana 2-3)**
+
+### **4.1 Express API para blogs**
+
+```typescript
+// src/routes/api/blogs.ts
+
+import express from 'express';
+import { db } from '../../db';
+import { blogs } from '../../db/schema';
+import { desc, eq } from 'drizzle-orm';
+
+const router = express.Router();
+
+// GET /api/blogs - Listar todos
+router.get('/', async (req, res) => {
+  try {
+    const allBlogs = await db
+      .select()
+      .from(blogs)
+      .where(eq(blogs.published, true))
+      .orderBy(desc(blogs.publishedAt));
+    
+    res.json(allBlogs);
+  } catch (error) {
+    res.status(500).json({ error: 'Error fetching blogs' });
+  }
+});
+
+// GET /api/blogs/:slug - Blog individual
+router.get('/:slug', async (req, res) => {
+  try {
+    const blog = await db
+      .select()
+      .from(blogs)
+      .where(eq(blogs.slug, req.params.slug));
+    
+    if (!blog.length) {
+      return res.status(404).json({ error: 'Blog not found' });
+    }
+    
+    res.json(blog[0]);
+  } catch (error) {
+    res.status(500).json({ error: 'Error fetching blog' });
+  }
+});
+
+// GET /api/blogs/city/:city - Por ciudad
+router.get('/city/:city', async (req, res) => {
+  try {
+    const cityBlogs = await db
+      .select()
+      .from(blogs)
+      .where(eq(blogs.city, req.params.city));
+    
+    res.json(cityBlogs);
+  } catch (error) {
+    res.status(500).json({ error: 'Error fetching blogs' });
+  }
+});
+
+// GET /api/blogs/sector/:sector - Por sector
+router.get('/sector/:sector', async (req, res) => {
+  try {
+    const sectorBlogs = await db
+      .select()
+      .from(blogs)
+      .where(eq(blogs.sector, req.params.sector));
+    
+    res.json(sectorBlogs);
+  } catch (error) {
+    res.status(500).json({ error: 'Error fetching blogs' });
+  }
+});
+
+export default router;
+```
+
+### **4.2 Sitemap dinámico**
+
+```typescript
+// src/routes/api/sitemap.ts
+
+import express from 'express';
+import { db } from '../../db';
+import { blogs } from '../../db/schema';
+
+const router = express.Router();
+
+router.get('/sitemap.xml', async (req, res) => {
+  try {
+    const allBlogs = await db.select().from(blogs);
+    
+    const baseUrl = process.env.SITE_URL || 'https://grupotranservica.com';
+    
+    let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
+    xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
+    
+    // URLs principales
+    const mainPages = [
+      { loc: '/', changefreq: 'weekly', priority: 1.0 },
+      { loc: '/servicios', changefreq: 'weekly', priority: 0.9 },
+      { loc: '/blog', changefreq: 'daily', priority: 0.9 },
+      { loc: '/contacto', changefreq: 'monthly', priority: 0.8 },
+      { loc: '/cotizar', changefreq: 'monthly', priority: 0.8 },
+    ];
+    
+    mainPages.forEach((page) => {
+      xml += '  <url>\n';
+      xml += `    <loc>${baseUrl}${page.loc}</loc>\n`;
+      xml += `    <changefreq>${page.changefreq}</changefreq>\n`;
+      xml += `    <priority>${page.priority}</priority>\n`;
+      xml += '  </url>\n';
+    });
+    
+    // URLs de blogs
+    allBlogs.forEach((blog) => {
+      xml += '  <url>\n';
+      xml += `    <loc>${baseUrl}/blog/${blog.slug}</loc>\n`;
+      xml += `    <lastmod>${blog.publishedAt?.toISOString()}</lastmod>\n`;
+      xml += '    <changefreq>monthly</changefreq>\n';
+      xml += '    <priority>0.8</priority>\n';
+      xml += '  </url>\n';
+    });
+    
+    xml += '</urlset>';
+    
+    res.header('Content-Type', 'application/xml');
+    res.send(xml);
+  } catch (error) {
+    res.status(500).json({ error: 'Error generating sitemap' });
+  }
+});
+
+export default router;
+```
+
+### **4.3 Schema Markup**
+
+```typescript
+// src/lib/schemaMarkup.ts
+
+export function generateOrganizationSchema() {
+  return

@@ -1,0 +1,408 @@
+---
+
+## **FASE 7.2: DASHBOARD DE MONITOREO (COMPLETADO)**
+
+```typescript
+// src/components/AdminDashboard.tsx
+
+import React, { useState, useEffect } from 'react';
+import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+
+interface DashboardStats {
+  totalBlogs: number;
+  blogsThisMonth: number;
+  totalVisits: number;
+  avgTimeOnPage: number;
+  conversionRate: number;
+  topKeywords: { keyword: string; position: number; volume: number }[];
+  dailyVisits: { date: string; visits: number }[];
+  contactsByCity: { city: string; count: number }[];
+}
+
+export function AdminDashboard() {
+  const [stats, setStats] = useState<DashboardStats>({
+    totalBlogs: 0,
+    blogsThisMonth: 0,
+    totalVisits: 0,
+    avgTimeOnPage: 0,
+    conversionRate: 0,
+    topKeywords: [],
+    dailyVisits: [],
+    contactsByCity: [],
+  });
+
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Fetch stats from /api/analytics
+    fetch('/api/analytics')
+      .then((res) => res.json())
+      .then((data) => {
+        setStats(data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error('Error fetching analytics:', error);
+        setLoading(false);
+      });
+
+    // Auto-refresh cada 5 minutos
+    const interval = setInterval(() => {
+      fetch('/api/analytics')
+        .then((res) => res.json())
+        .then((data) => setStats(data));
+    }, 300000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  if (loading) {
+    return <div className="dashboard-loading">Cargando datos...</div>;
+  }
+
+  return (
+    <div className="admin-dashboard">
+      <header className="dashboard-header">
+        <h1>📊 Dashboard - Grupo Transervica SEO</h1>
+        <p className="timestamp">Última actualización: {new Date().toLocaleString('es-VE')}</p>
+      </header>
+
+      {/* KPIs Principales */}
+      <section className="kpis-section">
+        <div className="kpi-card">
+          <h3>📝 Blogs Totales</h3>
+          <p className="kpi-value">{stats.totalBlogs}</p>
+          <p className="kpi-detail">+{stats.blogsThisMonth} este mes</p>
+        </div>
+
+        <div className="kpi-card">
+          <h3>👁️ Visitas</h3>
+          <p className="kpi-value">{stats.totalVisits.toLocaleString()}</p>
+          <p className="kpi-detail">Promedio: {stats.avgTimeOnPage.toFixed(1)}s por página</p>
+        </div>
+
+        <div className="kpi-card">
+          <h3>📈 Conversión</h3>
+          <p className="kpi-value">{stats.conversionRate.toFixed(2)}%</p>
+          <p className="kpi-detail">Formularios completados</p>
+        </div>
+
+        <div className="kpi-card">
+          <h3>🔑 Keywords Top 1</h3>
+          <p className="kpi-value">
+            {stats.topKeywords.filter((k) => k.position === 1).length}
+          </p>
+          <p className="kpi-detail">En primera posición</p>
+        </div>
+      </section>
+
+      {/* Gráfico de Visitas Diarias */}
+      <section className="chart-section">
+        <h2>📊 Visitas Diarias (Últimos 30 días)</h2>
+        <ResponsiveContainer width="100%" height={300}>
+          <LineChart data={stats.dailyVisits}>
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="date" />
+            <YAxis />
+            <Tooltip />
+            <Legend />
+            <Line
+              type="monotone"
+              dataKey="visits"
+              stroke="#DC2626"
+              dot={{ fill: '#DC2626', r: 4 }}
+              activeDot={{ r: 6 }}
+            />
+          </LineChart>
+        </ResponsiveContainer>
+      </section>
+
+      {/* Contactos por Ciudad */}
+      <section className="chart-section">
+        <h2>🏙️ Contactos por Ciudad</h2>
+        <ResponsiveContainer width="100%" height={300}>
+          <BarChart data={stats.contactsByCity}>
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="city" />
+            <YAxis />
+            <Tooltip />
+            <Legend />
+            <Bar dataKey="count" fill="#1E3A8A" name="Contactos" />
+          </BarChart>
+        </ResponsiveContainer>
+      </section>
+
+      {/* Top Keywords */}
+      <section className="keywords-section">
+        <h2>🔑 Top 10 Keywords</h2>
+        <table className="keywords-table">
+          <thead>
+            <tr>
+              <th>Palabra Clave</th>
+              <th>Posición Google</th>
+              <th>Volumen (aprox)</th>
+              <th>Estado</th>
+            </tr>
+          </thead>
+          <tbody>
+            {stats.topKeywords.slice(0, 10).map((kw, idx) => (
+              <tr key={idx}>
+                <td className="keyword-name">{kw.keyword}</td>
+                <td className={`position position-${kw.position <= 3 ? 'top' : 'middle'}`}>
+                  #{kw.position}
+                </td>
+                <td>{kw.volume}</td>
+                <td>
+                  {kw.position <= 3 && <span className="badge-success">🎯 Top 3</span>}
+                  {kw.position > 3 && kw.position <= 10 && <span className="badge-info">📈 Top 10</span>}
+                  {kw.position > 10 && <span className="badge-warning">⏳ En Progreso</span>}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </section>
+
+      {/* Resumen de Contenido */}
+      <section className="content-section">
+        <h2>📚 Resumen de Contenido</h2>
+        <div className="content-summary">
+          <p>✅ <strong>Blogs generados automáticamente:</strong> {stats.blogsThisMonth} en los últimos 30 días</p>
+          <p>✅ <strong>Palabras clave cubiertas:</strong> 200+ keywords geo-específicos</p>
+          <p>✅ <strong>Ciudades de enfoque:</strong> 8 (Caracas, Maracaibo, Valencia, Barcelona, Puerto Ordaz, Puerto Cabello, Barquisimeto, Punto Fijo)</p>
+          <p>✅ <strong>Sectores industriales:</strong> 6 (Petrolero, Petroquímico, Siderúrgico, Energético, Portuario, Manufacturero)</p>
+          <p>✅ <strong>Tasa de publicación:</strong> 5 blogs por día (automático)</p>
+        </div>
+      </section>
+
+      <style>{`
+        .admin-dashboard {
+          padding: 20px;
+          background: #f3f4f6;
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto;
+        }
+
+        .dashboard-header {
+          margin-bottom: 30px;
+          border-bottom: 2px solid #DC2626;
+          padding-bottom: 15px;
+        }
+
+        .dashboard-header h1 {
+          color: #1f2937;
+          margin: 0;
+        }
+
+        .timestamp {
+          color: #6b7280;
+          font-size: 12px;
+          margin: 5px 0 0 0;
+        }
+
+        .kpis-section {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          gap: 20px;
+          margin-bottom: 40px;
+        }
+
+        .kpi-card {
+          background: white;
+          padding: 20px;
+          border-radius: 8px;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+          border-left: 4px solid #DC2626;
+        }
+
+        .kpi-card h3 {
+          margin: 0 0 10px 0;
+          color: #6b7280;
+          font-size: 14px;
+        }
+
+        .kpi-value {
+          font-size: 32px;
+          font-weight: bold;
+          color: #1f2937;
+          margin: 0;
+        }
+
+        .kpi-detail {
+          font-size: 12px;
+          color: #9ca3af;
+          margin: 5px 0 0 0;
+        }
+
+        .chart-section {
+          background: white;
+          padding: 20px;
+          border-radius: 8px;
+          margin-bottom: 30px;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .chart-section h2 {
+          margin: 0 0 20px 0;
+          color: #1f2937;
+          font-size: 18px;
+        }
+
+        .keywords-section {
+          background: white;
+          padding: 20px;
+          border-radius: 8px;
+          margin-bottom: 30px;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .keywords-section h2 {
+          margin: 0 0 20px 0;
+          color: #1f2937;
+        }
+
+        .keywords-table {
+          width: 100%;
+          border-collapse: collapse;
+          font-size: 14px;
+        }
+
+        .keywords-table th {
+          background: #f9fafb;
+          padding: 12px;
+          text-align: left;
+          font-weight: 600;
+          color: #374151;
+          border-bottom: 1px solid #e5e7eb;
+        }
+
+        .keywords-table td {
+          padding: 12px;
+          border-bottom: 1px solid #e5e7eb;
+        }
+
+        .keyword-name {
+          font-weight: 500;
+          color: #1f2937;
+        }
+
+        .position {
+          font-weight: bold;
+        }
+
+        .position-top {
+          color: #059669;
+        }
+
+        .position-middle {
+          color: #f59e0b;
+        }
+
+        .badge-success {
+          background: #d1fae5;
+          color: #065f46;
+          padding: 4px 8px;
+          border-radius: 4px;
+          font-size: 12px;
+          font-weight: 500;
+        }
+
+        .badge-info {
+          background: #dbeafe;
+          color: #1e3a8a;
+          padding: 4px 8px;
+          border-radius: 4px;
+          font-size: 12px;
+          font-weight: 500;
+        }
+
+        .badge-warning {
+          background: #fef3c7;
+          color: #92400e;
+          padding: 4px 8px;
+          border-radius: 4px;
+          font-size: 12px;
+          font-weight: 500;
+        }
+
+        .content-section {
+          background: white;
+          padding: 20px;
+          border-radius: 8px;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .content-section h2 {
+          margin: 0 0 15px 0;
+          color: #1f2937;
+        }
+
+        .content-summary p {
+          margin: 8px 0;
+          color: #374151;
+          font-size: 14px;
+        }
+
+        .dashboard-loading {
+          padding: 40px 20px;
+          text-align: center;
+          color: #6b7280;
+        }
+      `}</style>
+    </div>
+  );
+}
+```
+
+### **7.3 API Analytics Backend**
+
+```typescript
+// src/routes/api/analytics.ts
+
+import express from 'express';
+import { db } from '../../db';
+import { blogs } from '../../db/schema';
+import { count, eq } from 'drizzle-orm';
+
+const router = express.Router();
+
+router.get('/', async (req, res) => {
+  try {
+    const totalBlogs = await db.select({ count: count() }).from(blogs);
+    
+    // Blogs este mes
+    const thisMonth = new Date();
+    thisMonth.setDate(1);
+    const blogsThisMonth = await db
+      .select({ count: count() })
+      .from(blogs)
+      .where(eq(blogs.publishedAt >= thisMonth as any));
+
+    // Mock data - en producción conectar a Google Analytics
+    const stats = {
+      totalBlogs: totalBlogs[0]?.count || 0,
+      blogsThisMonth: blogsThisMonth[0]?.count || 0,
+      totalVisits: 12500,
+      avgTimeOnPage: 145,
+      conversionRate: 2.8,
+      topKeywords: [
+        { keyword: 'transporte carga pesada venezuela', position: 3, volume: 850 },
+        { keyword: 'logística industrial venezuela', position: 5, volume: 720 },
+        { keyword: 'transporte caracas', position: 8, volume: 450 },
+        { keyword: 'logística maracaibo', position: 12, volume: 380 },
+        { keyword: 'carga pesada valencia', position: 15, volume: 320 },
+        { keyword: 'transporte petrolero', position: 7, volume: 580 },
+        { keyword: 'lowboy venezuela', position: 9, volume: 410 },
+        { keyword: 'almacenamiento industrial', position: 11, volume: 360 },
+        { keyword: 'consultoría logística', position: 18, volume: 240 },
+        { keyword: 'empresa transporte venezuela', position: 6, volume: 650 },
+      ],
+      dailyVisits: Array.from({ length: 30 }, (_, i) => ({
+        date: new Date(Date.now() - (29 - i) * 86400000).toLocaleDateString('es-VE'),
+        visits: Math.floor(Math.random() * 600 + 200),
+      })),
+      contactsByCity: [
+        { city: 'Caracas', count: 45 },
+        { city: 'Maracaibo', count: 32 },
+        { city: 'Valencia', count: 28 },
+        { city: 'Barcelona', count: 22 },
+        { city
