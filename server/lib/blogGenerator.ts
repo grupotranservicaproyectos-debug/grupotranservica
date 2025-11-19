@@ -210,7 +210,7 @@ IMPORTANTE: No incluyas tags <html>, <head> o <body>. Solo el contenido del art√
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        model: 'deepseek/deepseek-v3:free',
+        model: 'deepseek/deepseek-chat-v3.1:free',
         messages: [
           {
             role: 'user',
