@@ -34,12 +34,22 @@ export default function BlogDashboard() {
     queryKey: ['/api/blogs'],
   });
 
+  const ADMIN_TOKEN = import.meta.env.VITE_ADMIN_TOKEN || 'transervica-admin-2025';
+
   const generateSingleBlog = useMutation({
     mutationFn: async () => {
       setIsGenerating(true);
       const response = await fetch('/api/blogs/generate', {
         method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${ADMIN_TOKEN}`,
+          'Content-Type': 'application/json',
+        },
       });
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Error al generar blog');
+      }
       return response.json();
     },
     onSuccess: () => {
@@ -47,7 +57,9 @@ export default function BlogDashboard() {
       queryClient.invalidateQueries({ queryKey: ['/api/blogs/stats'] });
       setIsGenerating(false);
     },
-    onError: () => {
+    onError: (error: Error) => {
+      console.error('Error generating blog:', error);
+      alert(`Error: ${error.message}`);
       setIsGenerating(false);
     },
   });
@@ -57,7 +69,15 @@ export default function BlogDashboard() {
       setIsGenerating(true);
       const response = await fetch('/api/blogs/generate-batch', {
         method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${ADMIN_TOKEN}`,
+          'Content-Type': 'application/json',
+        },
       });
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Error al generar blogs');
+      }
       return response.json();
     },
     onSuccess: () => {
@@ -65,7 +85,9 @@ export default function BlogDashboard() {
       queryClient.invalidateQueries({ queryKey: ['/api/blogs/stats'] });
       setIsGenerating(false);
     },
-    onError: () => {
+    onError: (error: Error) => {
+      console.error('Error generating blogs:', error);
+      alert(`Error: ${error.message}`);
       setIsGenerating(false);
     },
   });

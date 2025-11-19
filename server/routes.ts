@@ -6,6 +6,8 @@ import { z } from "zod";
 import { sendNotificationEmails, sendConfirmationEmail } from "./email";
 import { generateBlog, generate5Blogs } from "./lib/blogGenerator";
 import { startBlogCron } from "./lib/blogCron";
+import { requireAdmin } from "./middleware/auth";
+import { blogGenerationRateLimit } from "./middleware/rateLimit";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Contact form submission
@@ -169,7 +171,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.post("/api/blogs/generate", async (req, res) => {
+  app.post("/api/blogs/generate", requireAdmin, blogGenerationRateLimit, async (req, res) => {
     try {
       const blog = await generateBlog();
       const createdBlog = await storage.createBlog(blog);
@@ -187,7 +189,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.post("/api/blogs/generate-batch", async (req, res) => {
+  app.post("/api/blogs/generate-batch", requireAdmin, blogGenerationRateLimit, async (req, res) => {
     try {
       const blogs = await generate5Blogs();
       const createdBlogs = [];

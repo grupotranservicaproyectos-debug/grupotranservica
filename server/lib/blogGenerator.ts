@@ -203,14 +203,22 @@ IMPORTANTE: No incluyas tags <html>, <head> o <body>. Solo el contenido del art√
 `;
 
   try {
+    const apiKey = process.env.OPENROUTER_API_KEY;
+    
+    if (!apiKey) {
+      throw new Error('OPENROUTER_API_KEY not configured');
+    }
+
     const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${process.env.OPENROUTER_API_KEY}`,
+        'Authorization': `Bearer ${apiKey}`,
         'Content-Type': 'application/json',
+        'HTTP-Referer': 'https://grupotranservica.com',
+        'X-Title': 'Grupo Transervica Blog Generator',
       },
       body: JSON.stringify({
-        model: 'deepseek/deepseek-chat-v3.1:free',
+        model: 'deepseek/deepseek-chat',
         messages: [
           {
             role: 'user',
@@ -223,16 +231,24 @@ IMPORTANTE: No incluyas tags <html>, <head> o <body>. Solo el contenido del art√
     });
 
     if (!response.ok) {
-      throw new Error(`OpenRouter API error: ${response.statusText}`);
+      const errorData = await response.json().catch(() => ({}));
+      console.error('OpenRouter API error:', response.status, response.statusText, errorData);
+      throw new Error(`OpenRouter API error: ${response.status} ${response.statusText}`);
     }
 
     const data = await response.json();
     const content = data.choices[0]?.message?.content || '';
     
+    if (!content) {
+      throw new Error('Empty content from OpenRouter API');
+    }
+    
     const metaDescription = content
       .replace(/<[^>]*>/g, '')
       .substring(0, 155)
       .trim();
+
+    console.log(`‚úÖ Blog content generated successfully using OpenRouter API for: ${title}`);
 
     return {
       title,
@@ -242,7 +258,7 @@ IMPORTANTE: No incluyas tags <html>, <head> o <body>. Solo el contenido del art√
       keywords,
     };
   } catch (error) {
-    console.error('Error generating blog content:', error);
+    console.error('‚ö†Ô∏è  Error generating blog content with OpenRouter, using fallback:', error);
     
     const fallbackContent = `
 <h2>Introducci√≥n</h2>
