@@ -1,9 +1,10 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { insertContactRequestSchema, insertContactoRecibidoSchema } from "@shared/schema";
+import { insertContactRequestSchema, insertContactoRecibidoSchema, insertBlogSchema } from "@shared/schema";
 import { z } from "zod";
 import { sendNotificationEmails, sendConfirmationEmail } from "./email";
+import { generateBlog, generate5Blogs } from "./lib/blogGenerator";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Contact form submission
@@ -110,6 +111,142 @@ export async function registerRoutes(app: Express): Promise<Server> {
         success: false,
         message: "Error al obtener contactos",
       });
+    }
+  });
+
+  // Blog routes
+  app.get("/api/blogs", async (req, res) => {
+    try {
+      const { city, sector, published } = req.query;
+      const filters: any = {};
+      if (city) filters.city = city as string;
+      if (sector) filters.sector = sector as string;
+      if (published !== undefined) filters.published = published as string;
+      
+      const blogs = await storage.getBlogs(filters);
+      res.json(blogs);
+    } catch (error) {
+      console.error('Error fetching blogs:', error);
+      res.status(500).json({
+        success: false,
+        message: "Error al obtener blogs",
+      });
+    }
+  });
+
+  app.get("/api/blogs/stats", async (req, res) => {
+    try {
+      const stats = await storage.getBlogStats();
+      res.json(stats);
+    } catch (error) {
+      console.error('Error fetching blog stats:', error);
+      res.status(500).json({
+        success: false,
+        message: "Error al obtener estadísticas",
+      });
+    }
+  });
+
+  app.get("/api/blogs/:slug", async (req, res) => {
+    try {
+      const blog = await storage.getBlogBySlug(req.params.slug);
+      if (!blog) {
+        return res.status(404).json({
+          success: false,
+          message: "Blog no encontrado",
+        });
+      }
+      
+      await storage.updateBlogViews(blog.id);
+      res.json(blog);
+    } catch (error) {
+      console.error('Error fetching blog:', error);
+      res.status(500).json({
+        success: false,
+        message: "Error al obtener blog",
+      });
+    }
+  });
+
+  app.post("/api/blogs/generate", async (req, res) => {
+    try {
+      const blog = await generateBlog();
+      const createdBlog = await storage.createBlog(blog);
+      res.json({
+        success: true,
+        message: "Blog generado exitosamente",
+        data: createdBlog,
+      });
+    } catch (error) {
+      console.error('Error generating blog:', error);
+      res.status(500).json({
+        success: false,
+        message: "Error al generar blog",
+      });
+    }
+  });
+
+  app.post("/api/blogs/generate-batch", async (req, res) => {
+    try {
+      const blogs = await generate5Blogs();
+      const createdBlogs = [];
+      
+      for (const blog of blogs) {
+        const created = await storage.createBlog(blog);
+        createdBlogs.push(created);
+      }
+      
+      res.json({
+        success: true,
+        message: `${createdBlogs.length} blogs generados exitosamente`,
+        data: createdBlogs,
+      });
+    } catch (error) {
+      console.error('Error generating blogs:', error);
+      res.status(500).json({
+        success: false,
+        message: "Error al generar blogs",
+      });
+    }
+  });
+
+  app.get("/api/sitemap.xml", async (req, res) => {
+    try {
+      const blogs = await storage.getBlogs({ published: 'true' });
+      const baseUrl = process.env.SITE_URL || 'https://grupotranservica.com';
+      
+      let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
+      xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
+      
+      const mainPages = [
+        { loc: '/', changefreq: 'weekly', priority: 1.0 },
+        { loc: '/blog', changefreq: 'daily', priority: 0.9 },
+      ];
+      
+      mainPages.forEach((page) => {
+        xml += '  <url>\n';
+        xml += `    <loc>${baseUrl}${page.loc}</loc>\n`;
+        xml += `    <changefreq>${page.changefreq}</changefreq>\n`;
+        xml += `    <priority>${page.priority}</priority>\n`;
+        xml += '  </url>\n';
+      });
+      
+      blogs.forEach((blog) => {
+        xml += '  <url>\n';
+        xml += `    <loc>${baseUrl}/blog/${blog.slug}</loc>\n`;
+        xml += `    <lastmod>${blog.publishedAt?.toISOString()}</lastmod>\n`;
+        xml += '    <changefreq>monthly</changefreq>\n';
+        xml += '    <priority>0.8</priority>\n';
+        xml += '  </url>\n';
+      });
+      
+      xml += '</urlset>';
+      
+      res.header('Content-Type', 'application/xml');
+      res.send(xml);
+    } catch (error) {
+      console.error('Error generating sitemap:', error);
+      res.status(500).send('Error generating sitemap');
     }
   });
 
