@@ -12,7 +12,8 @@ const MAX_REQUESTS = 10;
 
 function cleanupOldEntries() {
   const now = Date.now();
-  for (const [key, entry] of rateLimitStore.entries()) {
+  const entries = Array.from(rateLimitStore.entries());
+  for (const [key, entry] of entries) {
     if (now > entry.resetTime) {
       rateLimitStore.delete(key);
     }
