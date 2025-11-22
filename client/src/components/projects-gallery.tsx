@@ -109,8 +109,9 @@ export default function ProjectsGallery() {
                   <div className="bg-white rounded-lg shadow-lg overflow-hidden">
                     <img 
                       src={project.image} 
-                      alt={project.title} 
+                      alt={`Proyecto TRANSERVICA: ${project.title} - Transporte de ${project.weight}`} 
                       className="w-full h-64 object-cover"
+                      loading="lazy"
                     />
                     <div className="p-6">
                       <h3 className="text-xl font-bold text-gray-800 mb-2">{project.title}</h3>
@@ -132,12 +133,16 @@ export default function ProjectsGallery() {
           <button 
             onClick={prevSlide}
             className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-lg hover:bg-gray-50"
+            aria-label="Proyecto anterior"
+            data-testid="button-prev-slide"
           >
             <ChevronLeft className="w-6 h-6 text-transervica-green" />
           </button>
           <button 
             onClick={nextSlide}
             className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-lg hover:bg-gray-50"
+            aria-label="Proyecto siguiente"
+            data-testid="button-next-slide"
           >
             <ChevronRight className="w-6 h-6 text-transervica-green" />
           </button>
@@ -151,6 +156,8 @@ export default function ProjectsGallery() {
                 className={`w-3 h-3 rounded-full transition ${
                   index === currentIndex ? 'bg-transervica-green' : 'bg-gray-300'
                 }`}
+                aria-label={`Ir a proyecto ${index + 1}`}
+                data-testid={`button-indicator-${index}`}
               />
             ))}
           </div>

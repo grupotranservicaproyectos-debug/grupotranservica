@@ -314,6 +314,8 @@ export default function ProjectsCarousel() {
               className="flex items-center justify-center w-12 h-12 bg-white border border-gray-200 rounded-full shadow-md transition-all duration-200 hover:shadow-lg"
               onMouseEnter={(e) => { (e.target as HTMLElement).style.backgroundColor = '#f0f9f0'; (e.target as HTMLElement).style.borderColor = '#155d29'; }}
               onMouseLeave={(e) => { (e.target as HTMLElement).style.backgroundColor = 'white'; (e.target as HTMLElement).style.borderColor = '#d1d5db'; }}
+              aria-label="Proyecto anterior"
+              data-testid="button-prev-project"
             >
               <ChevronLeft className="w-6 h-6 text-slate-600" style={{ color: '#155d29' }} />
             </button>
@@ -324,6 +326,8 @@ export default function ProjectsCarousel() {
               className="flex items-center justify-center w-12 h-12 bg-white border border-gray-200 rounded-full shadow-md transition-all duration-200 hover:shadow-lg"
               onMouseEnter={(e) => { (e.target as HTMLElement).style.backgroundColor = '#f0f9f0'; (e.target as HTMLElement).style.borderColor = '#155d29'; }}
               onMouseLeave={(e) => { (e.target as HTMLElement).style.backgroundColor = 'white'; (e.target as HTMLElement).style.borderColor = '#d1d5db'; }}
+              aria-label={isAutoplay ? "Pausar reproducción automática" : "Iniciar reproducción automática"}
+              data-testid="button-autoplay"
             >
               {isAutoplay ? (
                 <Pause className="w-5 h-5" style={{ color: '#155d29' }} />
@@ -337,6 +341,8 @@ export default function ProjectsCarousel() {
               className="flex items-center justify-center w-12 h-12 bg-white border border-gray-200 rounded-full shadow-md transition-all duration-200 hover:shadow-lg"
               onMouseEnter={(e) => { (e.target as HTMLElement).style.backgroundColor = '#f0f9f0'; (e.target as HTMLElement).style.borderColor = '#155d29'; }}
               onMouseLeave={(e) => { (e.target as HTMLElement).style.backgroundColor = 'white'; (e.target as HTMLElement).style.borderColor = '#d1d5db'; }}
+              aria-label="Proyecto siguiente"
+              data-testid="button-next-project"
             >
               <ChevronRight className="w-6 h-6" style={{ color: '#155d29' }} />
             </button>
@@ -354,6 +360,8 @@ export default function ProjectsCarousel() {
                     : "bg-gray-300 hover:bg-gray-400"
                 }`}
                 style={index === currentSlide ? { backgroundColor: '#155d29' } : {}}
+                aria-label={`Ir a proyecto ${index + 1}`}
+                data-testid={`button-slide-${index}`}
               />
             ))}
           </div>

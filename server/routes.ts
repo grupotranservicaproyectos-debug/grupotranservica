@@ -330,7 +330,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.get("/api/sitemap.xml", async (req, res) => {
     try {
       const blogs = await storage.getBlogs({ published: 'true' });
-      const baseUrl = process.env.SITE_URL || 'https://grupotranservica.com';
+      const baseUrl = 'https://www.transervica.net';
       
       let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
       xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
@@ -339,6 +339,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
         { loc: '/', changefreq: 'weekly', priority: 1.0 },
         { loc: '/blog', changefreq: 'daily', priority: 0.9 },
         { loc: '/seo-blog', changefreq: 'daily', priority: 0.9 },
+        { loc: '/terms', changefreq: 'monthly', priority: 0.5 },
+        { loc: '/privacy', changefreq: 'monthly', priority: 0.5 },
+        { loc: '/cookies', changefreq: 'monthly', priority: 0.5 },
+        { loc: '/security', changefreq: 'monthly', priority: 0.5 },
       ];
       
       mainPages.forEach((page) => {
@@ -352,7 +356,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
       blogs.forEach((blog) => {
         xml += '  <url>\n';
         xml += `    <loc>${baseUrl}/seo-blog/${blog.slug}</loc>\n`;
-        xml += `    <lastmod>${blog.publishedAt?.toISOString()}</lastmod>\n`;
+        const lastmod = blog.publishedAt instanceof Date 
+          ? blog.publishedAt.toISOString() 
+          : blog.publishedAt || new Date().toISOString();
+        xml += `    <lastmod>${lastmod}</lastmod>\n`;
         xml += '    <changefreq>monthly</changefreq>\n';
         xml += '    <priority>0.8</priority>\n';
         xml += '  </url>\n';

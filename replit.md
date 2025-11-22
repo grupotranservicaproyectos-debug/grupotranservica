@@ -1,52 +1,39 @@
 # TRANSERVICA Website
 
 ## Overview
-This project is a professional corporate website for TRANSERVICA, C.A., a leading heavy cargo transportation company in Venezuela. The site showcases their 40 years of expertise in transporting exceptional loads up to 1,100 tons using specialized hydraulic modular trailers and equipment. It features corporate video integration, project galleries, contact forms, a comprehensive blog, and is optimized for search engines, targeting "transporte cargas excepcionales Venezuela". The website is built as a modern React single-page application with an Express.js backend and is designed for high performance with sub-2-second load times and a target PageSpeed score of 90+. It includes a comprehensive bilingual system (Spanish-English) with advanced language management, dynamic meta tags, hreflang support, and Google Analytics 4 integration. The project aims to achieve #1 Google ranking in Venezuela for specialized heavy cargo transportation keywords.
+This project is the official corporate website for TRANSERVICA, C.A., a Venezuelan heavy cargo transportation company. It highlights their 40 years of experience with exceptional loads up to 1,100 tons using specialized equipment. The site features corporate videos, project galleries, contact forms, and a comprehensive bilingual blog. It's built as a React SPA with an Express.js backend, prioritizing high performance (sub-2-second load times, PageSpeed 90+), SEO (targeting "transporte cargas excepcionales Venezuela"), and a sophisticated bilingual system (Spanish-English) with dynamic meta tags and hreflang support. The project aims for a #1 Google ranking in Venezuela for relevant keywords and integrates Google Analytics 4.
 
 ## User Preferences
 Preferred communication style: Simple, everyday language.
 
 ## System Architecture
 
-### Frontend Architecture
-The frontend uses **React 18** with **TypeScript** and **Vite**. It follows a component-based architecture with **Wouter** for routing, **Tailwind CSS** for styling (custom Transervica green and orange theme), **Radix UI** primitives and **shadcn/ui** for UI components, **TanStack Query** for server state management, and **React Hook Form** with **Zod** for form handling. Corporate videos are integrated via YouTube iframes. The design system is responsive and mobile-first, using CSS variables for brand consistency.
+### Frontend
+The frontend uses React 18 with TypeScript and Vite, following a component-based architecture. It utilizes Wouter for routing, Tailwind CSS for styling (custom Transervica theme), Radix UI primitives and shadcn/ui for UI components, TanStack Query for server state management, and React Hook Form with Zod for form handling. The design system is responsive, mobile-first, and uses CSS variables for brand consistency. Corporate videos are integrated via YouTube iframes with a custom lazy-loading component for performance. Dynamic meta tags and hreflang support are implemented using `react-helmet-async` for SEO and bilingual content. The logo is implemented consistently across the site with responsive and performance optimizations.
 
+### Backend
+The backend is built with Express.js and TypeScript, providing RESTful APIs for contact form submissions and data retrieval. It includes custom middleware for request logging, centralized error handling, CORS, and security measures. It also manages an automated SEO blog generation system.
 
-### Backend Architecture
-The backend is built with **Express.js** and **TypeScript** (ESM format). It provides RESTful APIs for contact form submissions and data retrieval, with custom middleware for request logging, centralized error handling, and security measures like CORS.
-
-### Data Storage Solutions
-The application utilizes **Drizzle ORM** with **PostgreSQL** (Neon Database) as the primary database. It features type-safe schemas, a storage abstraction layer, in-memory storage for development, and **Drizzle Kit** for migrations.
-
-### Development and Build System
-The project uses **Vite** for fast development and optimized production builds, with full **TypeScript** support, HMR, and efficient asset handling.
+### Data Storage
+Drizzle ORM with PostgreSQL (Neon Database) is used for primary data storage, featuring type-safe schemas and Drizzle Kit for migrations.
 
 ### UI Component System
-A comprehensive design system includes reusable UI components, a dedicated blog system, CSS variables for theming, **Radix UI** for accessibility, and a mobile-first responsive design.
+A comprehensive design system includes reusable UI components, a dedicated blog system, CSS variables for theming, Radix UI for accessibility, and a mobile-first responsive design.
 
 ### Blog Architecture
-The blog system features a professional layout with a carousel showcase, a dedicated blog page with search, categories, pagination, and individual article pages. It includes real project documentation with technical specifications, project achievements, publication dates, view/comment counts, and embedded YouTube videos for flagship projects. Articles are categorized under "Proyectos Especiales" / "Special Projects" and optimized with Schema.org markup and relevant keywords. **The entire blog system is fully bilingual** - all 6 blog posts (IDs: 1, 2, 3, 4, 7, 8) include complete Spanish and English translations for titles, excerpts, and full content. Language switching works seamlessly in both blog list view and article detail view, with automatic category filter synchronization and selectedPost updates.
-
-### Corporate Logo Implementation
-The company logo is strategically implemented across the site with HD retina-ready quality and professional specifications. The logo URL constant (LOGO_URL: https://page.gensparksite.com/v1/base64_upload/effd6e03d44742614215e90a841dd3a8) is defined in affected components and wrapped in Wouter Link components for home navigation. **Desktop specifications**: 60px height (flexible responsive sizing), hover scale animation (1.05), subtle shadow effects, and absolute top-left positioning. **Mobile specifications**: 45px height, fixed positioning with backdrop blur effect, translucent background (rgba), and maintained z-index layering. The logo features eager loading priority via preload directive in client/index.html. CSS class `.transervica-logo` (client/src/index.css) defines responsive behavior with @media queries, smooth transitions, image sharpening filters (brightness, contrast), and professional shadow effects. The logo appears in hero-section.tsx (both desktop and mobile navigation), blog-header.tsx, and footer.tsx, maintaining consistency across all pages with clickable home navigation.
+The blog system features a professional layout with a carousel showcase, a dedicated blog page with search, categories, pagination, and individual article pages. Articles include real project documentation, technical specifications, and embedded YouTube videos. The entire blog is fully bilingual, with complete Spanish and English translations for all content, including 6 initial blog posts (IDs: 1, 2, 3, 4, 7, 8). Language switching seamlessly updates content, categories, and selected posts. An automated SEO blog generation system (OpenRouter + Pexels API) is implemented to create content with specific requirements: minimum 3 images, 3 CTAs, contact form, visible contact data, and internal linking to related articles.
 
 ### Performance Optimizations
-The website implements extensive performance optimizations targeting <1.5s desktop, <2s mobile, PageSpeed >95:
-- **Image Optimization**: All images converted to WebP format, significantly compressed, and lazy-loaded for below-the-fold content. Critical above-the-fold images (logos) load eagerly.
-- **YouTube Lazy Loading**: Custom YouTubeLazy component (client/src/components/youtube-lazy.tsx) with intersection observer support. Videos display thumbnails initially and load iframes automatically when entering viewport (autoLoad mode). This maintains autoplay functionality while reducing initial page weight. Applied to about-section and blog-section videos. Hero background video uses eager loading for UX.
-- **Server Compression**: GZIP compression enabled (level 6, 1KB threshold) for all text-based responses via compression middleware.
-- **Aggressive Caching**: Static assets cached for 1 year (max-age=31536000, immutable) including images, JS, CSS. HTML cached for 1 hour with must-revalidate.
-- **Security Headers**: X-Content-Type-Options, X-Frame-Options, X-XSS-Protection, Referrer-Policy applied to all responses.
-- **Resource Preloading**: Strategic `preconnect`, `dns-prefetch`, `preload`, and `prefetch` directives for critical resources like Google Fonts, YouTube embeds, and main logo.
-- **Font Optimization**: Preload directive for Google Fonts with `font-display: swap` for instant text rendering.
-- **Static Asset Serving**: Efficient serving with correct MIME types and immutable cache headers.
-- **Build Optimizations**: Vite handles minification, code splitting, tree shaking, and asset optimization automatically.
+Extensive optimizations target <1.5s desktop, <2s mobile load times, and PageSpeed >95. This includes WebP image optimization with lazy loading (except critical above-the-fold), a custom YouTube lazy-loading component, GZIP server compression, aggressive caching (1 year for static assets), security headers, resource preloading/prefetching, font optimization with `font-display: swap`, and Vite's build optimizations (minification, code splitting, tree shaking).
+
+### Automated Contact Form System
+A complete automated contact form system is implemented with PostgreSQL storage (`contactos_recibidos` table), email notifications to administrators via Gmail SMTP, and user confirmation emails. Both frontend and backend utilize Zod for schema validation.
 
 ## External Dependencies
 
 ### Database and Storage
 - **Neon Database**: Serverless PostgreSQL.
-- **Drizzle ORM**: TypeScript ORM.
+- **Drizzle ORM**: TypeScript ORM for database interaction.
 - **connect-pg-simple**: PostgreSQL-based session management.
 
 ### UI and Design
@@ -54,6 +41,7 @@ The website implements extensive performance optimizations targeting <1.5s deskt
 - **Tailwind CSS**: Utility-first CSS framework.
 - **Lucide Icons**: Icon library.
 - **Embla Carousel**: Lightweight carousel component.
+- **shadcn/ui**: Reusable UI components built on Radix UI and Tailwind CSS.
 
 ### Forms and Validation
 - **React Hook Form**: Performant forms library.
@@ -64,109 +52,12 @@ The website implements extensive performance optimizations targeting <1.5s deskt
 - **Vite**: Build tool and development server.
 - **TypeScript**: Static type checking.
 - **ESBuild**: Fast JavaScript bundler.
+- **react-helmet-async**: For dynamic meta tag management in SPAs.
 
 ### External Services
 - **YouTube**: Video embedding.
 - **Google Fonts**: Typography.
 - **WhatsApp**: Direct messaging integration.
-
-## Recent Changes (November 19, 2025)
-
-### Automated SEO Blog Generation System - PRODUCTION READY (November 22, 2025)
-Implemented comprehensive automated blog generation system for SEO optimization targeting #1 Google ranking in Venezuela with **MANDATORY** features in every blog:
-
-#### Critical Requirements (NEVER publish blogs without these):
-1. ✅ **Minimum 3 Images**: 1 cover + 2 secondary images from Pexels API (fallback to Unsplash if needed)
-2. ✅ **Exactly 3 CTAs**: Green-themed call-to-action boxes with phone + WhatsApp links at start, middle, end
-3. ✅ **Contact Form**: Integrated BlogContactForm component for lead capture at end of every article
-4. ✅ **Contact Data Visible**: 3 phone numbers, 2 emails, WhatsApp button, location info displayed
-5. ✅ **Internal Linking**: Related articles section showing 3 blogs filtered by matching city/sector
-
-#### System Architecture:
-- **Database Schema**: PostgreSQL table `blogs` with complete SEO metadata (title, slug, content, excerpt, meta tags, keywords, coverImage, secondaryImages array)
-- **OpenRouter Integration**: Automated content generation using OpenRouter API (deepseek/deepseek-chat model) with explicit instructions for 3 CTAs
-- **Pexels Image Service**: Automatic image fetching via Pexels API (PEXELS_API_KEY secret, 200 req/hour free tier) with Unsplash fallback
-- **Validation System**: Pre-save validation ensures 3 images minimum and warns if CTAs missing - prevents incomplete blog publishing
-- **Security**: 
-  - Authentication middleware with ADMIN_TOKEN requirement (no hardcoded fallback)
-  - Rate limiting: 10 requests per 15 minutes per IP address
-  - Protected endpoints: POST /api/blogs/generate and POST /api/blogs/generate-batch
-- **Keyword System**: 200+ geo-specific keywords covering 8 cities × 6 industrial sectors
-- **Blog Templates**: 5 professional templates (CityGuide, PriceGuide, ServiceHighlight, SectorDeep, CaseStudy)
-
-#### API Endpoints:
-- GET /api/blogs (list with filters by city, sector, published status)
-- GET /api/blogs/stats (total blogs, monthly count, total views)
-- GET /api/blogs/:slug (individual article with automatic view tracking)
-- POST /api/blogs/generate (protected - generate single blog with auth + rate limit)
-- POST /api/blogs/generate-batch (protected - generate 5 blogs at once with auth + rate limit)
-- GET /api/sitemap.xml (dynamic sitemap for Google indexing)
-
-#### Frontend Pages:
-- `/seo-blog` - Blog list with search, city/sector filters, pagination, thumbnail images
-- `/seo-blog/:slug` - Individual article pages with:
-  - Cover image (Pexels/Unsplash)
-  - 3 CTA boxes with green corporate styling
-  - 2 secondary images in grid layout
-  - Contact information section (phones, emails, WhatsApp)
-  - BlogContactForm component for lead capture
-  - Related articles section with internal links
-  - Schema.org Article markup for SEO
-- `/admin/blog-dashboard` - Analytics dashboard with stats and generation controls
-
-#### Automated Features:
-- **Cron Job**: Daily blog generation at 3:00 AM Venezuela time (generates 5 blogs automatically)
-- **Email Integration**: Contact form saves to PostgreSQL and gracefully handles missing Gmail credentials
-- **View Tracking**: Automatic increment of view count when articles accessed
-
-#### Production Status:
-✅ **PRODUCTION READY - All 5 Critical Requirements Implemented & E2E Tested**
-- **3+ Images**: Pexels API integration with Unsplash fallback - ✅ VERIFIED
-- **3 CTAs**: Green-themed call-to-action boxes - ✅ VERIFIED
-- **Contact Form**: Integrated BlogContactForm component - ✅ VERIFIED  
-- **Contact Data**: 3 phones, 2 emails, WhatsApp button - ✅ VERIFIED
-- **Internal Links**: Related articles filtered by city/sector - ✅ IMPLEMENTED
-- 25+ blogs generated with complete automated system
-- All new blogs (post-November 22) include all mandatory features
-- Contact form handles email service failures gracefully
-- API response format standardized: `{ data: Blog[] }`
-
-#### Required Secrets:
-- ADMIN_TOKEN (authentication)
-- OPENROUTER_API_KEY (AI content generation)
-- PEXELS_API_KEY (image fetching)
-- GMAIL_USER + GMAIL_APP_PASSWORD (optional - for email notifications)
-
-### Automated Contact Form System (November 17, 2025)
-Implemented complete automated contact form with database storage and email notifications:
-- **Database**: PostgreSQL table `contactos_recibidos` with all required fields
-- **Email Notifications**: Automated emails sent to 5 specified addresses via Gmail SMTP
-- **User Confirmation**: Automatic confirmation email sent to form submitter
-- **API Endpoints**: POST /api/contacto (submit), GET /api/contactos (retrieve)
-- **Validation**: Zod schema validation on frontend and backend
-- **Storage**: Both in-memory (MemStorage) and PostgreSQL support
-- **Email Service**: Nodemailer with HTML templates for professional notifications
-
-## Previous Changes (November 17, 2025)
-
-### Contact Information Update
-All contact information across the website has been updated to reflect the new primary contact number and WhatsApp link:
-
-**Primary Contact Number**: +58 422-6361047 (now listed first in all locations)
-- Secondary numbers preserved: +58 412-367-5636, +58 414-277-6340
-
-**WhatsApp Direct Message Link**: https://wa.me/message/WAKKACM55ESHC1
-- Replaced all previous WhatsApp links with the new direct message URL
-- Updated across all CTA buttons and contact sections
-
-**Updated Components and Pages**:
-- Hero section (desktop top bar and mobile menu)
-- Equipment section (WhatsApp CTA button)
-- Services section (2 WhatsApp CTA buttons)
-- Contact section (primary WhatsApp button and contact information display)
-- Footer (contact information)
-- Blog header (top bar contact info)
-- About section (tel: link)
-- All legal pages (Terms, Privacy, Cookies, Security)
-
-All changes maintain consistency across Spanish and English versions.
+- **OpenRouter API**: For AI-driven content generation (blog).
+- **Pexels API**: For automated image fetching (blog).
+- **Gmail SMTP (via Nodemailer)**: For email notifications from contact forms.

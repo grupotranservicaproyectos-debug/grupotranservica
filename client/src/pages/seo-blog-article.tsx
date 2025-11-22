@@ -6,6 +6,7 @@ import { Link } from 'wouter';
 import BlogHeader from '@/components/blog-header';
 import Footer from '@/components/footer';
 import BlogContactForm from '@/components/blog-contact-form';
+import SEO from '@/components/seo';
 import type { Blog } from '@shared/schema';
 
 const CITIES = {
@@ -51,61 +52,6 @@ export default function SEOBlogArticle() {
     enabled: !!blog && !!slug,
   });
 
-  useEffect(() => {
-    if (blog) {
-      document.title = blog.metaTitle || blog.title;
-      
-      const metaDescription = document.querySelector('meta[name="description"]');
-      if (metaDescription) {
-        metaDescription.setAttribute('content', blog.metaDescription || blog.excerpt || '');
-      } else {
-        const meta = document.createElement('meta');
-        meta.name = 'description';
-        meta.content = blog.metaDescription || blog.excerpt || '';
-        document.head.appendChild(meta);
-      }
-
-      const schemaScript = document.createElement('script');
-      schemaScript.type = 'application/ld+json';
-      schemaScript.textContent = JSON.stringify({
-        '@context': 'https://schema.org',
-        '@type': 'Article',
-        'headline': blog.title,
-        'description': blog.excerpt || '',
-        'image': blog.coverImage || blog.ogImage || '',
-        'author': {
-          '@type': 'Organization',
-          'name': 'Grupo Transervica, C.A.',
-          'url': 'https://grupotranservica.com'
-        },
-        'publisher': {
-          '@type': 'Organization',
-          'name': 'Grupo Transervica, C.A.',
-          'logo': {
-            '@type': 'ImageObject',
-            'url': 'https://page.gensparksite.com/v1/base64_upload/effd6e03d44742614215e90a841dd3a8'
-          }
-        },
-        'datePublished': blog.publishedAt || blog.createdAt,
-        'dateModified': blog.updatedAt,
-        'mainEntityOfPage': {
-          '@type': 'WebPage',
-          '@id': `https://grupotranservica.com/seo-blog/${blog.slug}`
-        },
-        'keywords': blog.keywords?.join(', ') || '',
-        'articleSection': blog.sector || '',
-        'about': {
-          '@type': 'Thing',
-          'name': `Transporte de carga pesada en ${blog.city || 'Venezuela'}`
-        }
-      });
-      document.head.appendChild(schemaScript);
-
-      return () => {
-        document.head.removeChild(schemaScript);
-      };
-    }
-  }, [blog]);
 
   const formatDate = (dateString: string | Date) => {
     const date = typeof dateString === 'string' ? new Date(dateString) : dateString;
@@ -157,6 +103,23 @@ export default function SEOBlogArticle() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-green-50/30">
+      <SEO
+        title={blog.metaTitle || blog.title}
+        description={blog.metaDescription || blog.excerpt || ''}
+        keywords={blog.keywords?.join(', ') || ''}
+        canonical={`https://www.transervica.net/seo-blog/${blog.slug}`}
+        ogTitle={blog.title}
+        ogDescription={blog.excerpt || ''}
+        ogImage={blog.coverImage || undefined}
+        ogType="article"
+        article={{
+          publishedTime: blog.publishedAt instanceof Date ? blog.publishedAt.toISOString() : (blog.publishedAt || (blog.createdAt instanceof Date ? blog.createdAt.toISOString() : blog.createdAt)),
+          modifiedTime: blog.updatedAt instanceof Date ? blog.updatedAt.toISOString() : blog.updatedAt || undefined,
+          author: 'TRANSERVICA C.A.',
+          section: blog.sector || undefined,
+          tags: blog.keywords || undefined,
+        }}
+      />
       <BlogHeader showBackButton={false} />
 
       <div className="container mx-auto px-4 py-12">
