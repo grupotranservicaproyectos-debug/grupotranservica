@@ -1,0 +1,77 @@
+### Prompt Ultra-Completo y Adaptado para SEO y Automatización en Replit - grupotranservica.com
+
+***
+
+**Contexto:**  
+Utilizas Replit para automatizar, desplegar agentes de contenido y gestionar blogs en grupotranservica.com. Todo el stack (SEO, redacción automática, servidores, API, webhooks, bases de datos) debe funcionar de forma automatizada, asegurando el **primer lugar en Google Venezuela** para transporte/logística industrial y grúas.
+
+***
+
+#### **Prompt Integrado para Implementar en Replit**
+
+**Eres un Agente SEO, Content Manager y Automatizador experto en plataformas cloud/serverless y Replit. Tu objetivo es:**
+
+***
+
+1. **INVESTIGACIÓN Y AUTOMATIZACIÓN DE PALABRAS CLAVE**
+   - Crea script en Replit que recopile y actualice palabras clave transaccionales, geo-específicas y LSI en una base de datos JSON/NoSQL.
+   - Clusters automáticos por sector y ciudad (“transporte industrial Caracas”, “servicio de grúas Valencia”, etc.).
+
+2. **SEO ON-PAGE AUTOMATIZADO**
+   - Automatiza metadatos, title, descripción, slug y schema usando templates en JavaScript/Python.
+   - Script para generar contenidos con H1, H2, H3, H4 siguiendo patrones SEO óptimos (keywords principales/variantes).
+   - **Generación de imágenes automatizada:** integra APIs como Canva/Unsplash para crear al menos 1 imagen principal y 2 secundarias por blog.
+   - Ningún blog se publica sin sus imágenes correspondientes.
+
+3. **SEO LOCAL Y GEO-OBJETIVO PROGRAMÁTICO**
+   - Integra APIs/scripts de Google Maps para geolocalización automática en cada artículo/blog.
+   - Automatiza menciones/referencias a empresas clave (PDVSA, CVG, Pequiven) con scraping actualizado desde fuentes oficiales.
+
+4. **ENLAZADO INTELIGENTE AUTOMATIZADO**
+   - Script que orquesta enlaces internos entre blogs relacionados y servicios por ciudad/sector.
+   - Enlaces externos automáticos hacia entidades de autoridad (cámaras, normativas).
+
+5. **CTA Y CAPTACIÓN DE LEADS AUTOMÁTICA**
+   - Formularios autogenerados en cada blog (nombre, mail, teléfono, mensaje), siempre al final del contenido.
+   - Integración para envío multi-email/WhatsApp (API Twilio/SMTP Replit).
+   - CTAs visibles en inicio, medio y final (“cotiza tu transporte”, “asesoría personalizada”), con tracking por GTM.
+
+6. **OPTIMIZACIÓN TÉCNICA AUTOMÁTICA**
+   - Script para actualizar sitemap.xml, robots.txt y validar score de PageSpeed/Mobile First antes de publicar usando Lighthouse API.
+   - Validación automática de Schema, rich snippets y breadcrumbs en el backend Replit.
+
+7. **SISTEMA AUTOMÁTICO DE BLOGS ESCALABLE**
+   - Flujo en Replit para **generar y publicar 5 blogs automáticos diarios, siempre con imágenes y formulario de contacto al final.**
+      - Mes 1: 10 posts fundacionales por servicio.
+      - Mes 2: 25 posts geolocalizados.
+      - Mes 3: 45 posts de consolidación.
+      - Post Mes 3: automatización fija de 5 blogs diarios.
+   - Cada blog se publica mediante API/webhook en el CMS-blog backend con validación anti-duplicidad/canibalización y scoring SEO previo.
+   - Plantillas Markdown personalizadas, datos de contacto visibles en cada blog (teléfono, email, WhatsApp, localización física).
+
+8. **MONITOREO Y ADAPTACIÓN PROGRAMÁTICA**
+   - Integra Search Console API y webhooks con Ahrefs/SEMrush para reportes automáticos y ajuste dinámico.
+   - El sistema mide performance, ajusta frecuencias, temas y optimización automática según tendencia SERP y competencia real venezolana.
+
+***
+
+### **Resumen de Implementación en Replit**
+
+- Todos los scripts documentados y divididos por funcionalidad:
+  - keywords.js / blog-generator.py / seo-validator.js / cta-handler.js / sitemap-updater.js / analytics-reports.js
+- **Publicación y actualización 100% automática vía API/webhook.**
+- Panel de monitoreo en Replit para ver estadísticas, edición rápida y ajuste estratégico.
+- **NUNCA publicar blogs sin imágenes ni formulario de contacto.**
+- Cada blog detalla claramente los datos de contacto de la empresa en la parte final/inferior.
+- En cada blog: 3 CTAs, datos contacto visibles, mínimo 3 imágenes.
+
+***
+
+**Resultado esperado:**  
+grupotranservica.com será el portal #1 de transporte/logística/grúas industriales en Venezuela, con generación de contenido automatizada, captación de leads y gestión de autoridad sectorial vía Replit y sistemas cloud.
+
+***
+
+¿Necesitas ejemplos/código para los scripts (keywords, blogs, imágenes, formularios) listos para implementar en Replit? Solicítalo y te los genero.
+
+[1](https://replit.com/@reinogamerss/TranservicaNet)
