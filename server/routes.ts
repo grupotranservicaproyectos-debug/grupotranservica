@@ -1,7 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { insertContactRequestSchema, insertContactoRecibidoSchema, insertBlogSchema } from "@shared/schema";
+import { insertContactRequestSchema, contactFormSchema, insertContactoRecibidoSchema, insertBlogSchema } from "@shared/schema";
 import { z } from "zod";
 import { sendNotificationEmails, sendConfirmationEmail } from "./email";
 import { generateBlog, generate5Blogs } from "./lib/blogGenerator";
@@ -55,24 +55,30 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // New contact endpoint with email notifications
   app.post("/api/contacto", async (req, res) => {
     try {
-      // Validate input data
-      const validatedData = insertContactoRecibidoSchema.parse(req.body);
+      // Validate input data from frontend (without correosNotificados)
+      const validatedData = contactFormSchema.parse(req.body);
       
-      // Send notification emails in parallel
-      const emailResults = await sendNotificationEmails({
-        nombre: validatedData.nombre,
-        correo: validatedData.correoContacto,
-        telefono: validatedData.telefono,
-        asunto: validatedData.asunto,
-        mensaje: validatedData.mensaje,
-      });
+      // Try to send notification emails but don't fail if email service is down
+      let emailResults: string[] = [];
+      try {
+        emailResults = await sendNotificationEmails({
+          nombre: validatedData.nombre,
+          correo: validatedData.correoContacto,
+          telefono: validatedData.telefono,
+          asunto: validatedData.asunto,
+          mensaje: validatedData.mensaje,
+        });
 
-      // Send confirmation email to user (don't wait for it)
-      sendConfirmationEmail(validatedData.correoContacto, validatedData.nombre).catch(error => {
-        console.error('Error sending confirmation email:', error);
-      });
+        // Send confirmation email to user (don't wait for it)
+        sendConfirmationEmail(validatedData.correoContacto, validatedData.nombre).catch(error => {
+          console.error('Error sending confirmation email:', error);
+        });
+      } catch (emailError) {
+        console.error('Email service unavailable, but contact will be saved:', emailError);
+        emailResults = [];
+      }
 
-      // Store in database with list of successfully notified emails
+      // Always store in database even if email fails
       const contacto = await storage.createContactoRecibido({
         ...validatedData,
         correosNotificados: emailResults,
@@ -80,7 +86,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
       res.json({
         success: true,
-        message: "Tu mensaje ha sido enviado exitosamente. Te contactaremos pronto.",
+        message: "Tu mensaje ha sido recibido exitosamente. Te contactaremos pronto.",
         data: {
           id: contacto.id,
           notificacionesEnviadas: emailResults.length,
@@ -127,7 +133,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       if (published !== undefined) filters.published = published as string;
       
       const blogs = await storage.getBlogs(filters);
-      res.json(blogs);
+      res.json({ data: blogs });
     } catch (error) {
       console.error('Error fetching blogs:', error);
       res.status(500).json({

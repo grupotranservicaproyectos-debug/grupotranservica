@@ -69,12 +69,16 @@ export const insertContactRequestSchema = createInsertSchema(contactRequests).om
   createdAt: true,
 });
 
-export const insertContactoRecibidoSchema = createInsertSchema(contactosRecibidos).omit({
+// Schema for frontend contact form submission (excludes correosNotificados)
+export const contactFormSchema = createInsertSchema(contactosRecibidos).omit({
   id: true,
   fechaRecibido: true,
   correosNotificados: true,
-}).extend({
-  correosNotificados: z.array(z.string()).optional(),
+});
+
+// Schema for database insertion (includes correosNotificados)
+export const insertContactoRecibidoSchema = contactFormSchema.extend({
+  correosNotificados: z.array(z.string()),
 });
 
 export const insertBlogSchema = createInsertSchema(blogs).omit({
@@ -89,6 +93,7 @@ export type InsertUser = z.infer<typeof insertUserSchema>;
 export type User = typeof users.$inferSelect;
 export type InsertContactRequest = z.infer<typeof insertContactRequestSchema>;
 export type ContactRequest = typeof contactRequests.$inferSelect;
+export type ContactFormInput = z.infer<typeof contactFormSchema>;
 export type InsertContactoRecibido = z.infer<typeof insertContactoRecibidoSchema>;
 export type ContactoRecibido = typeof contactosRecibidos.$inferSelect;
 export type InsertBlog = z.infer<typeof insertBlogSchema>;

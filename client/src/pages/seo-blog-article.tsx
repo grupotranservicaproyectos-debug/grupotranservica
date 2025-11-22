@@ -1,10 +1,11 @@
 import { useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { useRoute } from 'wouter';
-import { Calendar, Eye, MapPin, Briefcase, ArrowLeft, Share2, Loader2 } from 'lucide-react';
+import { Calendar, Eye, MapPin, Briefcase, ArrowLeft, Share2, Loader2, Phone, Mail, MapPinned } from 'lucide-react';
 import { Link } from 'wouter';
 import BlogHeader from '@/components/blog-header';
 import Footer from '@/components/footer';
+import BlogContactForm from '@/components/blog-contact-form';
 import type { Blog } from '@shared/schema';
 
 const CITIES = {
@@ -39,6 +40,20 @@ export default function SEOBlogArticle() {
       return response.json();
     },
     enabled: !!slug,
+  });
+
+  const { data: relatedBlogs } = useQuery<{ data: Blog[] }>({
+    queryKey: ['/api/blogs', 'related', blog?.city, blog?.sector],
+    queryFn: async () => {
+      const params = new URLSearchParams();
+      if (blog?.city) params.append('city', blog.city);
+      if (blog?.sector) params.append('sector', blog.sector);
+      params.append('published', 'true');
+      params.append('limit', '4');
+      const response = await fetch(`/api/blogs?${params.toString()}`);
+      return response.json();
+    },
+    enabled: !!blog,
   });
 
   useEffect(() => {
@@ -110,7 +125,7 @@ export default function SEOBlogArticle() {
     if (navigator.share) {
       navigator.share({
         title: blog?.title,
-        text: blog?.excerpt,
+        text: blog?.excerpt || undefined,
         url: window.location.href,
       });
     } else {
@@ -226,10 +241,114 @@ export default function SEOBlogArticle() {
 
               {/* Content */}
               <div 
-                className="prose prose-lg max-w-none mb-12"
+                className="prose prose-lg max-w-none mb-12 blog-content"
                 dangerouslySetInnerHTML={{ __html: blog.content }}
                 data-testid="article-content"
               />
+
+              {/* Secondary Images */}
+              {blog.secondaryImages && blog.secondaryImages.length > 0 && (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+                  {blog.secondaryImages.map((imageUrl: string, index: number) => (
+                    <div key={index} className="rounded-xl overflow-hidden shadow-lg">
+                      <img
+                        src={imageUrl}
+                        alt={`${blog.title} - Imagen ${index + 1}`}
+                        className="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
+                        loading="lazy"
+                      />
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {/* Company Contact Info */}
+              <div className="bg-gradient-to-r from-[#155d29] to-[#0f4a21] text-white rounded-xl p-8 mb-12">
+                <h3 className="text-2xl font-bold mb-6 text-center">📞 Datos de Contacto - Grupo Transervica, C.A.</h3>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                  <div>
+                    <Phone className="w-8 h-8 mx-auto mb-2" />
+                    <p className="font-semibold mb-1">Teléfonos</p>
+                    <a href="tel:+584226361047" className="block text-sm hover:underline">+58 422-6361047</a>
+                    <a href="tel:+584123675636" className="block text-sm hover:underline">+58 412-367-5636</a>
+                    <a href="tel:+584142776340" className="block text-sm hover:underline">+58 414-277-6340</a>
+                  </div>
+                  <div>
+                    <Mail className="w-8 h-8 mx-auto mb-2" />
+                    <p className="font-semibold mb-1">Emails</p>
+                    <a href="mailto:direccioncomercialtvc@grupotranservica.com" className="block text-sm hover:underline break-all">
+                      direccioncomercialtvc@grupotranservica.com
+                    </a>
+                    <a href="mailto:direccionejecutivatvc@grupotranservica.com" className="block text-sm hover:underline break-all">
+                      direccionejecutivatvc@grupotranservica.com
+                    </a>
+                  </div>
+                  <div>
+                    <MapPinned className="w-8 h-8 mx-auto mb-2" />
+                    <p className="font-semibold mb-1">Ubicación</p>
+                    <p className="text-sm">Venezuela</p>
+                    <a 
+                      href="https://wa.me/message/WAKKACM55ESHC1" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-block mt-2 px-4 py-2 bg-green-600 hover:bg-green-700 rounded-lg text-sm font-semibold transition-colors"
+                    >
+                      💬 WhatsApp
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              {/* Related Articles */}
+              {relatedBlogs?.data && (() => {
+                const filteredBlogs = relatedBlogs.data.filter((relatedBlog: Blog) => relatedBlog.slug !== blog?.slug).slice(0, 3);
+                if (filteredBlogs.length === 0) return null;
+                
+                return (
+                  <div className="border-t border-gray-200 pt-8 mb-12">
+                    <h3 className="text-2xl font-bold mb-6 text-gray-900">📚 Artículos Relacionados</h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      {filteredBlogs.map((relatedBlog: Blog) => (
+                        <Link key={relatedBlog.slug} href={`/seo-blog/${relatedBlog.slug}`}>
+                          <div className="bg-white border-2 border-gray-200 rounded-lg p-4 hover:border-[#155d29] hover:shadow-lg transition-all cursor-pointer group">
+                            <div className="flex items-start gap-3">
+                              {relatedBlog.coverImage && (
+                                <img
+                                  src={relatedBlog.coverImage}
+                                  alt={relatedBlog.title}
+                                  className="w-20 h-20 object-cover rounded-lg"
+                                />
+                              )}
+                              <div className="flex-1">
+                                <h4 className="font-semibold text-gray-900 group-hover:text-[#155d29] transition-colors line-clamp-2 mb-2">
+                                  {relatedBlog.title}
+                                </h4>
+                                <div className="flex flex-wrap gap-2">
+                                  {relatedBlog.city && (
+                                    <span className="text-xs px-2 py-1 bg-[#155d29]/10 text-[#155d29] rounded-full">
+                                      {CITIES[relatedBlog.city as keyof typeof CITIES]}
+                                    </span>
+                                  )}
+                                  {relatedBlog.sector && (
+                                    <span className="text-xs px-2 py-1 bg-orange-100 text-orange-700 rounded-full">
+                                      {SECTORS[relatedBlog.sector as keyof typeof SECTORS]}
+                                    </span>
+                                  )}
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                );
+              })()}
+
+              {/* Contact Form */}
+              <div className="mb-12">
+                <BlogContactForm blogTitle={blog.title} />
+              </div>
 
               {/* Keywords */}
               {blog.keywords && blog.keywords.length > 0 && (

@@ -1,4 +1,5 @@
 import { CITIES, SECTORS } from './seoKeywords';
+import { getBlogImages } from './imageService';
 import type { InsertBlog } from '@shared/schema';
 
 interface BlogTemplate {
@@ -181,25 +182,43 @@ Escribe un artículo de blog profesional para una empresa de transporte de carga
 TÍTULO: ${title}
 PALABRAS CLAVE: ${keywords.join(', ')}
 
-REQUERIMIENTOS:
-1. Extensión: 600-800 palabras
-2. Optimizado para SEO (incluir keywords naturalmente)
-3. Estructura: H2 y H3 claros
-4. Tono: Profesional, B2B, informativo
-5. Incluir llamada a acción al final
-6. HTML simple (solo <h2>, <h3>, <p>, <ul>, <li>, <strong>)
+REQUERIMIENTOS OBLIGATORIOS:
+1. Extensión: 700-900 palabras
+2. Optimizado para SEO (keywords naturalmente integradas)
+3. Estructura: H2 y H3 claros con jerarquía lógica
+4. Tono: Profesional, B2B, informativo pero persuasivo
+5. HTML simple (solo <h2>, <h3>, <p>, <ul>, <li>, <strong>)
+6. INCLUIR EXACTAMENTE 3 LLAMADAS A ACCIÓN (CTAs):
+   - CTA #1: Al inicio del artículo (después de la introducción)
+   - CTA #2: En el medio del contenido
+   - CTA #3: Al final del artículo
+   
+Formato de los CTAs (usar exactamente este HTML):
+<div class="cta-box">
+<p><strong>💼 ¿Necesita transporte especializado en ${city}?</strong></p>
+<p>Contáctenos ahora: <a href="tel:+584226361047">+58 422-6361047</a> | <a href="https://wa.me/message/WAKKACM55ESHC1" target="_blank">WhatsApp</a></p>
+</div>
 
 OUTLINE:
 ${template.outline.map((item) => `- ${item.replace(/{sector}/g, sector).replace(/{city}/g, city)}`).join('\n')}
 
-CONTEXTO:
+CONTEXTO EMPRESA:
+- Empresa: Grupo Transervica, C.A.
 - Ciudad: ${city}
 - Sector industrial: ${sector}
-- Servicios: Transporte de carga pesada (100-500 toneladas), Lowboy, Almacenamiento, Consultoría
-- Contacto: +58 422-6361047, WhatsApp disponible
-- 40 años de experiencia
+- Servicios principales: Transporte 100-500 toneladas, Lowboy, Grúas móviles 25-800 ton, Almacenamiento, Consultoría
+- Experiencia: 40 años en Venezuela
+- Contacto: +58 422-6361047
+- WhatsApp: https://wa.me/message/WAKKACM55ESHC1
+- Email comercial: direccioncomercialtvc@grupotranservica.com
+- Email ejecutivo: direccionejecutivatvc@grupotranservica.com
 
-IMPORTANTE: No incluyas tags <html>, <head> o <body>. Solo el contenido del artículo.
+MENCIONES OBLIGATORIAS (incluir naturalmente cuando sea relevante):
+- Si sector petrolero/energético: mencionar PDVSA (principal cliente del sector)
+- Si sector minero/siderúrgico: mencionar CVG (Corporación Venezolana de Guayana)
+- Si sector petroquímico: mencionar Pequiven
+
+IMPORTANTE: No incluyas tags <html>, <head> o <body>. Solo el contenido del artículo con los 3 CTAs insertados estratégicamente.
 `;
 
   try {
@@ -264,19 +283,35 @@ IMPORTANTE: No incluyas tags <html>, <head> o <body>. Solo el contenido del art�
 <h2>Introducción</h2>
 <p>Grupo Transervica, C.A. ofrece servicios especializados de transporte de carga pesada en ${city} para el sector ${sector}. Con 40 años de experiencia, somos líderes en logística industrial en Venezuela.</p>
 
+<div class="cta-box">
+<p><strong>💼 ¿Necesita transporte especializado en ${city}?</strong></p>
+<p>Contáctenos ahora: <a href="tel:+584226361047">+58 422-6361047</a> | <a href="https://wa.me/message/WAKKACM55ESHC1" target="_blank">WhatsApp</a></p>
+</div>
+
 <h2>Nuestros Servicios en ${city}</h2>
 <ul>
 <li>Transporte de carga pesada de 100 a 500 toneladas</li>
 <li>Lowboy y camas bajas especializadas</li>
+<li>Grúas móviles de 25 a 800 toneladas</li>
 <li>Almacenamiento industrial seguro</li>
 <li>Consultoría logística profesional</li>
 </ul>
 
 <h2>Experiencia en el Sector ${sector}</h2>
-<p>Nuestro equipo cuenta con amplia experiencia en el transporte especializado para el sector ${sector}, garantizando la movilización segura y eficiente de sus cargas.</p>
+<p>Nuestro equipo cuenta con amplia experiencia en el transporte especializado para el sector ${sector}, garantizando la movilización segura y eficiente de sus cargas. Trabajamos con principales empresas como PDVSA, CVG y Pequiven.</p>
 
-<h2>Contacto</h2>
-<p>Para solicitar una cotización gratuita, contáctenos al +58 422-6361047 o por WhatsApp. Estamos listos para atender sus necesidades de transporte en ${city}.</p>
+<div class="cta-box">
+<p><strong>💼 ¿Necesita transporte especializado en ${city}?</strong></p>
+<p>Contáctenos ahora: <a href="tel:+584226361047">+58 422-6361047</a> | <a href="https://wa.me/message/WAKKACM55ESHC1" target="_blank">WhatsApp</a></p>
+</div>
+
+<h2>Contacto y Cotización</h2>
+<p>Para solicitar una cotización gratuita, contáctenos al +58 422-6361047 o por WhatsApp. También puede escribirnos a direccioncomercialtvc@grupotranservica.com o direccionejecutivatvc@grupotranservica.com. Estamos listos para atender sus necesidades de transporte en ${city}.</p>
+
+<div class="cta-box">
+<p><strong>💼 ¿Necesita transporte especializado en ${city}?</strong></p>
+<p>Contáctenos ahora: <a href="tel:+584226361047">+58 422-6361047</a> | <a href="https://wa.me/message/WAKKACM55ESHC1" target="_blank">WhatsApp</a></p>
+</div>
 `;
 
     return {
@@ -300,6 +335,18 @@ export async function generateBlog(): Promise<InsertBlog> {
     sector
   );
 
+  console.log(`🖼️  Buscando imágenes para: ${sector} ${city}...`);
+  const { coverImage, secondaryImages } = await getBlogImages(city, sector);
+  
+  if (!coverImage || !secondaryImages || secondaryImages.length < 2) {
+    throw new Error('Failed to generate required minimum 3 images for blog');
+  }
+
+  const ctaCount = (content.match(/class="cta-box"/g) || []).length;
+  if (ctaCount < 3) {
+    console.warn(`⚠️  Blog generated with only ${ctaCount} CTAs (required: 3)`);
+  }
+
   return {
     title,
     slug,
@@ -311,8 +358,9 @@ export async function generateBlog(): Promise<InsertBlog> {
     city: slugify(city),
     sector: slugify(sector),
     template: template.name,
-    coverImage: `https://placehold.co/1200x630/155d29/ffffff?text=${encodeURIComponent(title.substring(0, 50))}`,
-    ogImage: `https://placehold.co/1200x630/155d29/ffffff?text=${encodeURIComponent(title.substring(0, 50))}`,
+    coverImage,
+    secondaryImages,
+    ogImage: coverImage,
     published: 'true',
     autoGenerated: 'true',
   };

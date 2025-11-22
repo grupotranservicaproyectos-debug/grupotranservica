@@ -108,6 +108,39 @@
     overflow: hidden;
   }
   
+  /* CTA Box Styles for Auto-Generated Content */
+  .blog-content .cta-box {
+    background: linear-gradient(135deg, #155d29 0%, #0f4a21 100%);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    box-shadow: 0 10px 25px rgba(21, 93, 41, 0.2);
+    border-left: 4px solid #a8e6a8;
+  }
+  
+  .blog-content .cta-box p {
+    color: white;
+    margin: 0.5rem 0;
+  }
+  
+  .blog-content .cta-box strong {
+    font-size: 1.25rem;
+    color: white;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  
+  .blog-content .cta-box a {
+    color: #a8e6a8;
+    text-decoration: underline;
+    font-weight: 600;
+    transition: color 0.2s;
+  }
+  
+  .blog-content .cta-box a:hover {
+    color: white;
+  }
+  
   /* Mobile menu animations */
   .mobile-menu-transition {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);

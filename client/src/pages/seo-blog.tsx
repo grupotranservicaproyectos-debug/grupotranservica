@@ -45,7 +45,8 @@ export default function SEOBlogPage() {
       
       const response = await fetch(`/api/blogs?${params}`);
       if (!response.ok) throw new Error('Failed to fetch blogs');
-      return response.json();
+      const result = await response.json();
+      return result.data;
     },
   });
 

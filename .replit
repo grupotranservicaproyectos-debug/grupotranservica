@@ -27,6 +27,10 @@ localPort = 34097
 externalPort = 3003
 
 [[ports]]
+localPort = 35949
+externalPort = 5000
+
+[[ports]]
 localPort = 42565
 externalPort = 3002
 
@@ -57,3 +61,8 @@ author = "agent"
 task = "shell.exec"
 args = "npm run dev"
 waitForPort = 5000
+
+[userenv]
+
+[userenv.shared]
+PEXELS_API_KEY = "ThIQgDLB8gLdfKB4Lo3YHtmwsQGDvvsICa2LIfA2vm3mdw3eZZoxgkEn"
