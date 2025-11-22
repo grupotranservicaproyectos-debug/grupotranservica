@@ -156,6 +156,83 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  app.get("/api/blogs/:slug/related", async (req, res) => {
+    try {
+      const blog = await storage.getBlogBySlug(req.params.slug);
+      if (!blog) {
+        return res.status(404).json({
+          success: false,
+          message: "Blog no encontrado",
+        });
+      }
+      
+      const relatedBlogs: any[] = [];
+      const addedIds = new Set<string>();
+      
+      // Priority 1: Same city AND sector
+      if (blog.city && blog.sector && relatedBlogs.length < 4) {
+        const cityAndSectorBlogs = await storage.getBlogs({
+          city: blog.city,
+          sector: blog.sector,
+          published: 'true'
+        });
+        for (const b of cityAndSectorBlogs) {
+          if (b.slug !== blog.slug && !addedIds.has(b.id) && relatedBlogs.length < 4) {
+            relatedBlogs.push(b);
+            addedIds.add(b.id);
+          }
+        }
+      }
+      
+      // Priority 2: Same city
+      if (blog.city && relatedBlogs.length < 4) {
+        const cityBlogs = await storage.getBlogs({
+          city: blog.city,
+          published: 'true'
+        });
+        for (const b of cityBlogs) {
+          if (b.slug !== blog.slug && !addedIds.has(b.id) && relatedBlogs.length < 4) {
+            relatedBlogs.push(b);
+            addedIds.add(b.id);
+          }
+        }
+      }
+      
+      // Priority 3: Same sector
+      if (blog.sector && relatedBlogs.length < 4) {
+        const sectorBlogs = await storage.getBlogs({
+          sector: blog.sector,
+          published: 'true'
+        });
+        for (const b of sectorBlogs) {
+          if (b.slug !== blog.slug && !addedIds.has(b.id) && relatedBlogs.length < 4) {
+            relatedBlogs.push(b);
+            addedIds.add(b.id);
+          }
+        }
+      }
+      
+      // Priority 4: Any other published blog (fallback to guarantee at least 1 result)
+      if (relatedBlogs.length < 4) {
+        const allBlogs = await storage.getBlogs({ published: 'true' });
+        for (const b of allBlogs) {
+          if (b.slug !== blog.slug && !addedIds.has(b.id) && relatedBlogs.length < 4) {
+            relatedBlogs.push(b);
+            addedIds.add(b.id);
+          }
+        }
+      }
+      
+      res.json({ data: relatedBlogs });
+    } catch (error) {
+      console.error('Error fetching related blogs:', error);
+      res.status(500).json({
+        success: false,
+        message: "Error al obtener blogs relacionados",
+      });
+    }
+  });
+
   app.get("/api/blogs/:slug", async (req, res) => {
     try {
       const blog = await storage.getBlogBySlug(req.params.slug);
@@ -215,6 +292,37 @@ export async function registerRoutes(app: Express): Promise<Server> {
       res.status(500).json({
         success: false,
         message: "Error al generar blogs",
+      });
+    }
+  });
+
+  app.post("/api/blogs/:id/regenerate-images", requireAdmin, async (req, res) => {
+    try {
+      const { id } = req.params;
+      const blog = await storage.getBlogById(id);
+      
+      if (!blog) {
+        return res.status(404).json({
+          success: false,
+          message: "Blog no encontrado",
+        });
+      }
+
+      const { getBlogImages } = await import('./lib/imageService');
+      const images = await getBlogImages(blog.city || 'caracas', blog.sector || 'industrial');
+      
+      const updated = await storage.updateBlogImages(id, images.coverImage, images.secondaryImages);
+      
+      res.json({
+        success: true,
+        message: "Imágenes actualizadas exitosamente",
+        data: updated,
+      });
+    } catch (error) {
+      console.error('Error regenerating images:', error);
+      res.status(500).json({
+        success: false,
+        message: "Error al regenerar imágenes",
       });
     }
   });

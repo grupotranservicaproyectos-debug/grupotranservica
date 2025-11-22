@@ -43,17 +43,12 @@ export default function SEOBlogArticle() {
   });
 
   const { data: relatedBlogs } = useQuery<{ data: Blog[] }>({
-    queryKey: ['/api/blogs', 'related', blog?.city, blog?.sector],
+    queryKey: ['/api/blogs', slug, 'related'],
     queryFn: async () => {
-      const params = new URLSearchParams();
-      if (blog?.city) params.append('city', blog.city);
-      if (blog?.sector) params.append('sector', blog.sector);
-      params.append('published', 'true');
-      params.append('limit', '4');
-      const response = await fetch(`/api/blogs?${params.toString()}`);
+      const response = await fetch(`/api/blogs/${slug}/related`);
       return response.json();
     },
-    enabled: !!blog,
+    enabled: !!blog && !!slug,
   });
 
   useEffect(() => {
