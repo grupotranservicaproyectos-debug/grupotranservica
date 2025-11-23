@@ -86,15 +86,30 @@ Migrado sistema de generación automática de blogs de node-cron a Replit Schedu
 - **Costo real**: $0 adicional - Cubierto completamente por créditos incluidos en Replit Core ($25/mes en créditos)
 - **Plan recomendado**: Replit Core ($20/mes) es más que suficiente
 
+#### Horario de Generación:
+- **Hora**: 6:30 AM diariamente
+- **Zona horaria**: America/Panama (UTC-5)
+- **Cron expression**: `30 6 * * *`
+
 #### Enlaces de Blogs SEO Automatizados:
-- **Página principal**: https://www.transervica.net/seo-blog
-- **API endpoint**: https://www.transervica.net/api/seo-blogs
-- **Sitemap**: https://www.transervica.net/api/sitemap.xml
-- **Ejemplos de artículos**:
-  - https://www.transervica.net/seo-blog/transporte-petrolero-caracas
-  - https://www.transervica.net/seo-blog/lowboy-caracas
-  - https://www.transervica.net/seo-blog/sector-petrolero-venezuela
-  - https://www.transervica.net/seo-blog/precio-transporte-punto-fijo
+
+Los blogs están disponibles en **ambos dominios**:
+
+**🌐 Dominio Principal - GrupoTranservica.com:**
+- **Página principal**: https://grupotranservica.com/seo-blog
+- **API endpoint**: https://grupotranservica.com/api/seo-blogs
+- **Sitemap**: https://grupotranservica.com/api/sitemap.xml
+
+**🌐 Dominio Secundario - Transervica.net:**
+- **Página principal**: https://transervica.net/seo-blog
+- **API endpoint**: https://transervica.net/api/seo-blogs
+- **Sitemap**: https://transervica.net/api/sitemap.xml
+
+**Ejemplos de artículos** (ambos dominios):
+  - https://grupotranservica.com/seo-blog/transporte-petrolero-caracas
+  - https://grupotranservica.com/seo-blog/lowboy-caracas
+  - https://transervica.net/seo-blog/sector-petrolero-venezuela
+  - https://transervica.net/seo-blog/precio-transporte-punto-fijo
 
 ### Technical SEO and Accessibility Improvements (November 22, 2025)
 Implemented comprehensive technical improvements based on complete site audit:

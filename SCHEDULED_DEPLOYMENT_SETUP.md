@@ -42,17 +42,17 @@ Este documento explica cómo configurar la generación automática diaria de blo
 
 #### **Schedule Description** (Descripción de horario)
 ```
-Every day at 3:00 AM
+Every day at 6:30 AM
 ```
 
 #### **Timezone** (Zona horaria)
 ```
-America/Caracas (Venezuela)
+America/Panama
 ```
 
 #### **Cron Expression** (Expresión cron - se genera automáticamente)
 ```
-0 3 * * *
+30 6 * * *
 ```
 
 ### Paso 4: Configurar Commands
@@ -148,30 +148,48 @@ Según la documentación de Replit, los Scheduled Deployments tienen:
 
 ## 📍 Enlaces de Blogs Automatizados
 
-### URL Base del Blog SEO
+### Dominios Disponibles
+
+Los blogs SEO se generan diariamente y están disponibles en **ambos dominios**:
+
+#### 🌐 **Dominio Principal: GrupoTranservica.com**
 ```
-https://www.transervica.net/seo-blog
+https://grupotranservica.com/seo-blog
+```
+
+#### 🌐 **Dominio Secundario: Transervica.net**
+```
+https://transervica.net/seo-blog
 ```
 
 ### Últimos Blogs Generados Automáticamente
 
-Los blogs se generan con slugs automáticos basados en keywords geográficos de Venezuela. Algunos ejemplos de URLs generadas:
+Los blogs se generan con slugs automáticos basados en keywords geográficos de Venezuela. Ejemplos de URLs en **ambos dominios**:
 
-1. `https://www.transervica.net/seo-blog/transporte-petrolero-caracas`
-2. `https://www.transervica.net/seo-blog/lowboy-caracas`
-3. `https://www.transervica.net/seo-blog/sector-petrolero-venezuela`
-4. `https://www.transervica.net/seo-blog/precio-transporte-punto-fijo`
+#### GrupoTranservica.com:
+1. `https://grupotranservica.com/seo-blog/transporte-petrolero-caracas`
+2. `https://grupotranservica.com/seo-blog/lowboy-caracas`
+3. `https://grupotranservica.com/seo-blog/sector-petrolero-venezuela`
+4. `https://grupotranservica.com/seo-blog/precio-transporte-punto-fijo`
 
-### Ver Todos los Blogs
+#### Transervica.net:
+1. `https://transervica.net/seo-blog/transporte-petrolero-caracas`
+2. `https://transervica.net/seo-blog/lowboy-caracas`
+3. `https://transervica.net/seo-blog/sector-petrolero-venezuela`
+4. `https://transervica.net/seo-blog/precio-transporte-punto-fijo`
 
-Para ver todos los blogs generados automáticamente:
+### API Endpoints
+
+**GrupoTranservica.com:**
 ```
-https://www.transervica.net/seo-blog
+GET https://grupotranservica.com/api/seo-blogs
+GET https://grupotranservica.com/api/sitemap.xml
 ```
 
-### API Endpoint para Listar Blogs
+**Transervica.net:**
 ```
-GET https://www.transervica.net/api/seo-blogs
+GET https://transervica.net/api/seo-blogs
+GET https://transervica.net/api/sitemap.xml
 ```
 
 ---
@@ -188,6 +206,13 @@ GET https://www.transervica.net/api/seo-blogs
    - ✅ Títulos y slugs
    - ✅ Número de imágenes
    - ✅ Errores (si los hay)
+
+### Horario de Ejecución
+
+Los blogs se generan automáticamente:
+- ⏰ **Hora**: 6:30 AM
+- 🌎 **Zona horaria**: America/Panama (UTC-5)
+- 📅 **Frecuencia**: Todos los días
 
 ### Ejecución Manual
 
@@ -228,8 +253,8 @@ Cada blog generado automáticamente incluye:
 - Aumenta el **Job timeout** en la configuración del Scheduled Deployment
 
 ### No se ejecuta a la hora programada
-- Verifica que la **timezone** esté configurada como `America/Caracas`
-- Revisa la **cron expression** sea `0 3 * * *`
+- Verifica que la **timezone** esté configurada como `America/Panama`
+- Revisa la **cron expression** sea `30 6 * * *`
 
 ---
 
