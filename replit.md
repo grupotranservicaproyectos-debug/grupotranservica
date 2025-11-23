@@ -61,3 +61,61 @@ A complete automated contact form system is implemented with PostgreSQL storage 
 - **OpenRouter API**: For AI-driven content generation (blog).
 - **Pexels API**: For automated image fetching (blog).
 - **Gmail SMTP (via Nodemailer)**: For email notifications from contact forms.
+
+## Recent Changes
+
+### Migración a Replit Scheduled Deployment (November 23, 2025)
+Migrado sistema de generación automática de blogs de node-cron a Replit Scheduled Deployment:
+
+#### Cambios Implementados:
+- **Script Independiente**: Creado `scripts/generate-daily-blogs.ts` que se ejecuta como tarea programada independiente del servidor principal.
+- **Cron Job Removido**: Eliminado node-cron del servidor principal (server/routes.ts) para reducir carga y mejorar eficiencia.
+- **Scheduled Deployment**: Sistema ahora usa infraestructura nativa de Replit para tareas programadas diarias.
+- **Documentación Completa**: Creado `SCHEDULED_DEPLOYMENT_SETUP.md` con instrucciones paso a paso, estimación de costos y troubleshooting.
+
+#### Ventajas del Nuevo Sistema:
+- ✅ Servidor principal más liviano (solo maneja HTTP requests, no tareas cron)
+- ✅ Logs dedicados y organizados por ejecución
+- ✅ Costos optimizados (solo cobra durante ejecución, no 24/7)
+- ✅ Escalabilidad automática por Replit
+- ✅ Mayor confiabilidad con infraestructura managed de Replit
+
+#### Costos Estimados (Replit Scheduled Deployment):
+- **Compute Units por ejecución**: ~1,710 CU (90 segundos @ 1 CPU + 0.5GB RAM)
+- **Costo mensual (30 días)**: ~51,300 Compute Units
+- **Costo real**: $0 adicional - Cubierto completamente por créditos incluidos en Replit Core ($25/mes en créditos)
+- **Plan recomendado**: Replit Core ($20/mes) es más que suficiente
+
+#### Enlaces de Blogs SEO Automatizados:
+- **Página principal**: https://www.transervica.net/seo-blog
+- **API endpoint**: https://www.transervica.net/api/seo-blogs
+- **Sitemap**: https://www.transervica.net/api/sitemap.xml
+- **Ejemplos de artículos**:
+  - https://www.transervica.net/seo-blog/transporte-petrolero-caracas
+  - https://www.transervica.net/seo-blog/lowboy-caracas
+  - https://www.transervica.net/seo-blog/sector-petrolero-venezuela
+  - https://www.transervica.net/seo-blog/precio-transporte-punto-fijo
+
+### Technical SEO and Accessibility Improvements (November 22, 2025)
+Implemented comprehensive technical improvements based on complete site audit:
+
+#### SEO Enhancements:
+- **Dynamic Meta Tags System**: Created reusable SEO component (client/src/components/seo.tsx) with react-helmet-async for per-page meta management. Each page now has unique title, description, keywords, canonical URLs, Open Graph tags, Twitter Cards, and hreflang tags for ES/EN.
+- **Enhanced Sitemap.xml**: Updated sitemap to include all site pages (/, /blog, /seo-blog, /terms, /privacy, /cookies, /security) with proper priority and changefreq. Dynamic blog article URLs included.
+- **Article Schema Markup**: Blog articles now include complete Article schema with author, publishedTime, modifiedTime, section, and tags metadata.
+- **Canonical URLs**: Properly configured canonical URLs across all pages to avoid duplicate content penalties.
+
+#### Accessibility Improvements (WCAG AA):
+- **ARIA Labels**: Added descriptive aria-label attributes to interactive elements in projects-carousel and projects-gallery components (navigation buttons, slide indicators, autoplay controls).
+- **Keyboard Navigation**: All carousel controls support keyboard navigation with proper ARIA labels.
+- **Screen Reader Support**: Improved screen reader experience with descriptive labels for all interactive UI elements.
+
+#### Performance Optimizations:
+- **Lazy Loading Images**: Implemented loading="lazy" attribute on below-the-fold images in projects-gallery and other components.
+- **Improved ALT Texts**: Enhanced ALT attributes with descriptive context (e.g., "Proyecto TRANSERVICA: [title] - Transporte de [weight]").
+- **Statistics Fix**: Corrected initial statistics display to show final values (40 años, 1100 toneladas, 100%) immediately instead of animating from 0.
+
+#### Technical Infrastructure:
+- **React Helmet Async**: Integrated react-helmet-async for dynamic meta tag management in SPA architecture.
+- **HelmetProvider**: App.tsx wrapped with HelmetProvider for centralized meta tag control.
+- **Date Handling**: Fixed blog article date handling to support both Date objects and ISO strings with proper null guards.
