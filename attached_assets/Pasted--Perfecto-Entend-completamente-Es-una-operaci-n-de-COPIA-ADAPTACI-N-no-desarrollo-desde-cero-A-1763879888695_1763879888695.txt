@@ -1,0 +1,66 @@
+¡Perfecto! Entendí completamente. Es una operación de COPIA/ADAPTACIÓN, no desarrollo desde cero.
+
+Antes de comenzar, necesito confirmar algunos datos críticos:
+
+🔍 Información Necesaria
+1️⃣ Stack Tecnológico
+He verificado tu proyecto y veo que GruasEquiser usa:
+
+✅ Next.js 14 (no React + Vite como TRANSERVICA)
+✅ Prisma + PostgreSQL
+✅ TypeScript + Tailwind CSS
+Esto significa que necesito adaptar el código de TRANSERVICA (React + Vite + Express) a tu stack de Next.js. Es más trabajo que copiar directo, pero sigue siendo factible.
+
+2️⃣ APIs ya configuradas (CRÍTICO)
+¿Ya tienes estos API keys configurados en tu .env?
+
+Veo que ya tienes:
+
+✅ DATABASE_URL
+✅ EMAIL_USER y EMAIL_PASS
+✅ ABACUSAI_API_KEY (para LLMs - puedo usar esto en lugar de OpenRouter)
+✅ FREEPIK_API_KEY
+✅ SHUTTERSTOCK_CONSUMER_KEY y SECRET
+Falta:
+
+❌ PEXELS_API_KEY (prioridad 1 para imágenes)
+❌ UNSPLASH_ACCESS_KEY (opcional, fallback)
+Mencionaste una OpenRouter API key: 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
+
+Pregunta: ¿Tienes una Pexels API key? Es GRATIS y la más recomendada. Si no, puedo proceder solo con Freepik + Shutterstock.
+
+3️⃣ Datos de Contacto de GruasEquiser
+Necesito estos datos para los CTAs y contenido de los blogs:
+
+✅ Empresa: GruasEquiser, C.A.
+❓ Teléfono principal: [?]
+❓ Email comercial: [?]
+❓ WhatsApp: [?]
+❓ Dirección física: [?]
+❓ Años de experiencia: [?]
+¿Puedes proporcionarlos?
+
+4️⃣ Colores Corporativos
+Veo en tu CSS actual:
+
+--equiser-yellow: #FFD700
+--equiser-blue: #1976D2
+¿Confirmas que estos son los colores correctos para usar en TODO el sistema de blogs?
+
+📊 Estimación Actualizada
+Dado que GruasEquiser usa Next.js (no React + Vite):
+
+Tarea	Complejidad
+Adaptar código TRANSERVICA a Next.js	Media
+Crear API routes en Next.js	Media
+Adaptar servicios (blogGenerator, imageService)	Baja
+Colores y keywords	Baja
+Testing	Media
+Total estimado	3-4 horas
+Créditos estimados	2000-2500
+¿Puedes confirmar estos 4 puntos para que pueda proceder?
+
+¿Tienes Pexels API key? (si no, procedo con Freepik/Shutterstock)
+Datos de contacto de GruasEquiser
+Confirmar colores: #FFD700 (amarillo) y #1976D2 (azul)
+¿Quieres que agregue la OpenRouter API key al .env?
