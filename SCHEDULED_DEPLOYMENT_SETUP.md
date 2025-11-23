@@ -1,0 +1,258 @@
+# 🤖 Configuración de Generación Automática Diaria de Blogs SEO
+
+## 📋 Resumen
+
+Este documento explica cómo configurar la generación automática diaria de blogs SEO usando **Replit Scheduled Deployment** en lugar del cron job tradicional.
+
+---
+
+## ✅ Cambios Implementados
+
+### 1. **Script Independiente Creado**
+- **Ubicación**: `scripts/generate-daily-blogs.ts`
+- **Función**: Genera 5 blogs SEO optimizados diariamente y los guarda en PostgreSQL
+- **Características**:
+  - ✅ Conexión directa a PostgreSQL (Neon)
+  - ✅ Generación de 5 blogs con imágenes, CTAs, contacto y enlaces internos
+  - ✅ Logs detallados de progreso
+  - ✅ Manejo robusto de errores
+  - ✅ Exit codes apropiados (0 = éxito, 1 = error)
+
+### 2. **Cron Job Removido**
+- ❌ Eliminado `node-cron` del servidor principal
+- ❌ Removido `startBlogCron()` de `server/routes.ts`
+- ✅ El servidor ahora es más liviano y solo maneja peticiones HTTP
+
+---
+
+## 🚀 Instrucciones de Configuración en Replit
+
+### Paso 1: Acceder a Deployments
+
+1. En tu proyecto de Replit, haz clic en el panel lateral izquierdo
+2. Selecciona **"All tools"** (Todas las herramientas)
+3. Busca y selecciona **"Deployments"**
+
+### Paso 2: Crear Scheduled Deployment
+
+1. En la pantalla de Deployments, selecciona **"Scheduled"**
+2. Haz clic en **"Set up your published app"**
+
+### Paso 3: Configurar el Schedule
+
+#### **Schedule Description** (Descripción de horario)
+```
+Every day at 3:00 AM
+```
+
+#### **Timezone** (Zona horaria)
+```
+America/Caracas (Venezuela)
+```
+
+#### **Cron Expression** (Expresión cron - se genera automáticamente)
+```
+0 3 * * *
+```
+
+### Paso 4: Configurar Commands
+
+#### **Build Command** (Comando de construcción)
+```bash
+npm install
+```
+
+#### **Run Command** (Comando de ejecución)
+```bash
+tsx scripts/generate-daily-blogs.ts
+```
+
+#### **Job Timeout** (Tiempo máximo de ejecución)
+```
+600 seconds (10 minutos)
+```
+
+### Paso 5: Configurar Secrets (Variables de Entorno)
+
+En la sección **"Deployment secrets"**, asegúrate de que estén configurados:
+
+- ✅ `DATABASE_URL` - URL de conexión a PostgreSQL
+- ✅ `OPENROUTER_API_KEY` - Clave API de OpenRouter para generación de contenido
+- ✅ `PEXELS_API_KEY` - Clave API de Pexels para imágenes
+
+**Nota**: Estos secrets ya están configurados en tu proyecto y se heredarán automáticamente.
+
+### Paso 6: Publicar (Deploy)
+
+1. Revisa toda la configuración
+2. Haz clic en **"Deploy"** o **"Publish"**
+3. Espera a que Replit configure el deployment
+4. ✅ ¡Listo! La tarea se ejecutará automáticamente cada día a las 3:00 AM (hora de Venezuela)
+
+---
+
+## 💰 Costos de Replit Scheduled Deployment
+
+### Cómo Funciona el Cobro
+
+Replit cobra por **Compute Units (CU)**, que miden el trabajo computacional realizado:
+
+- **1 CPU second** = 18 Compute Units
+- **1 GB-second RAM** = 2 Compute Units
+
+### Estimación de Costos para Generación Diaria
+
+#### Recursos Estimados por Ejecución:
+- **Tiempo de ejecución**: ~60-120 segundos (generación de 5 blogs con imágenes)
+- **CPU**: ~1 core activo
+- **RAM**: ~0.5 GB promedio
+
+#### Cálculo de Compute Units por Ejecución:
+```
+CPU: 90 segundos × 18 CU/seg = 1,620 CU
+RAM: 90 segundos × 0.5 GB × 2 CU/GB-seg = 90 CU
+Total por ejecución: ~1,710 Compute Units
+```
+
+#### Costo Mensual (30 días):
+```
+1,710 CU × 30 días = 51,300 Compute Units/mes
+```
+
+### Planes de Replit y Créditos Incluidos
+
+#### **Replit Core** ($20/mes por editor)
+- ✅ **$25 en créditos mensuales** incluidos
+- ✅ Suficiente para la generación diaria de blogs
+- ✅ Sobran créditos para otros deployments
+
+#### **Replit Teams** ($40/usuario/mes)
+- ✅ **$40 en créditos mensuales** por usuario
+- ✅ Más que suficiente para generación diaria + otros servicios
+
+### Estimación de Costo Real
+
+Según la documentación de Replit, los Scheduled Deployments tienen:
+- **Base fee**: Pequeña tarifa mensual por deployment activo
+- **Compute Units**: Facturados según uso real
+
+**Estimación conservadora**: 
+- Con Replit Core ($20/mes), los **$25 en créditos incluidos son más que suficientes** para:
+  - ✅ Generación diaria de blogs (51,300 CU/mes)
+  - ✅ Tu deployment principal (frontend + backend)
+  - ✅ Otros servicios y workflows
+
+**Conclusión**: Con el plan Core actual, **NO deberías pagar costos adicionales** por la generación automática diaria de blogs.
+
+---
+
+## 📍 Enlaces de Blogs Automatizados
+
+### URL Base del Blog SEO
+```
+https://www.transervica.net/seo-blog
+```
+
+### Últimos Blogs Generados Automáticamente
+
+Los blogs se generan con slugs automáticos basados en keywords geográficos de Venezuela. Algunos ejemplos de URLs generadas:
+
+1. `https://www.transervica.net/seo-blog/transporte-petrolero-caracas`
+2. `https://www.transervica.net/seo-blog/lowboy-caracas`
+3. `https://www.transervica.net/seo-blog/sector-petrolero-venezuela`
+4. `https://www.transervica.net/seo-blog/precio-transporte-punto-fijo`
+
+### Ver Todos los Blogs
+
+Para ver todos los blogs generados automáticamente:
+```
+https://www.transervica.net/seo-blog
+```
+
+### API Endpoint para Listar Blogs
+```
+GET https://www.transervica.net/api/seo-blogs
+```
+
+---
+
+## 🔍 Monitoreo y Logs
+
+### Ver Logs de Ejecución
+
+1. En Replit, ve a **Deployments**
+2. Selecciona tu **Scheduled Deployment**
+3. Haz clic en la pestaña **"Logs"**
+4. Verás el output completo de cada ejecución, incluyendo:
+   - ✅ Blogs creados
+   - ✅ Títulos y slugs
+   - ✅ Número de imágenes
+   - ✅ Errores (si los hay)
+
+### Ejecución Manual
+
+Si necesitas generar blogs manualmente sin esperar al scheduled run:
+
+1. En tu proyecto Replit, abre la terminal
+2. Ejecuta:
+```bash
+tsx scripts/generate-daily-blogs.ts
+```
+
+---
+
+## 📊 Características de los Blogs Generados
+
+Cada blog generado automáticamente incluye:
+
+✅ **Mínimo 3 imágenes** (Pexels con fallback a otros proveedores)  
+✅ **Exactamente 3 CTAs** con información de contacto  
+✅ **Formulario de contacto** integrado  
+✅ **Contacto visible** (3 teléfonos, 2 emails, WhatsApp)  
+✅ **Enlaces internos** a artículos relacionados  
+✅ **Optimización SEO** completa (meta tags, keywords, schema.org)  
+✅ **Contenido bilingüe** (Español + English)  
+✅ **Geo-targeting** Venezuela  
+
+---
+
+## 🛠️ Troubleshooting
+
+### Error: "DATABASE_URL not configured"
+- Verifica que el secret `DATABASE_URL` esté configurado en Deployment secrets
+
+### Error: "OPENROUTER_API_KEY not configured"
+- Verifica que el secret `OPENROUTER_API_KEY` esté configurado en Deployment secrets
+
+### Timeout después de 600 segundos
+- Aumenta el **Job timeout** en la configuración del Scheduled Deployment
+
+### No se ejecuta a la hora programada
+- Verifica que la **timezone** esté configurada como `America/Caracas`
+- Revisa la **cron expression** sea `0 3 * * *`
+
+---
+
+## 📝 Notas Importantes
+
+1. **No elimines** el directorio `server/lib/blogCron.ts` - aunque ya no se usa en el servidor, se mantiene como referencia
+2. **El script** `scripts/generate-daily-blogs.ts` es independiente y puede ejecutarse desde cualquier lugar
+3. **Los blogs generados** se guardan directamente en PostgreSQL (producción)
+4. **La base de datos** usada es la misma del deployment principal
+
+---
+
+## ✨ Ventajas de Scheduled Deployment vs Cron Job
+
+| Característica | Cron Job (anterior) | Scheduled Deployment (nuevo) |
+|----------------|---------------------|------------------------------|
+| **Servidor principal** | Debe estar corriendo 24/7 | Independiente |
+| **Recursos** | Consume recursos constantemente | Solo consume durante ejecución |
+| **Logs** | Mezclados con logs del servidor | Logs dedicados y organizados |
+| **Escalabilidad** | Limitada | Escalable automáticamente |
+| **Costos** | Cobra por servidor corriendo | Cobra solo por tiempo de ejecución |
+| **Confiabilidad** | Depende del servidor | Infraestructura de Replit |
+
+---
+
+¿Necesitas ayuda con la configuración? Revisa este documento o consulta la [documentación oficial de Replit Deployments](https://docs.replit.com/deployments/scheduled-deployments).
