@@ -17,8 +17,8 @@ neonConfig.webSocketConstructor = ws;
 
 async function main() {
   console.log('🚀 Iniciando generación automática de blogs SEO...');
-  console.log(`📅 Fecha: ${new Date().toLocaleString('es-VE', { timeZone: 'America/Caracas' })}`);
-  console.log('⏰ Zona horaria: America/Caracas (Venezuela)\n');
+  console.log(`📅 Fecha: ${new Date().toLocaleString('es-PA', { timeZone: 'America/Panama' })}`);
+  console.log('⏰ Zona horaria: America/Panama (6:30 AM diariamente)\n');
 
   try {
     // Conectar a la base de datos
@@ -50,8 +50,9 @@ async function main() {
     // Mostrar resumen
     console.log('📝 Blogs creados:');
     createdBlogs.forEach((blog, index) => {
+      const totalImages = 1 + (blog.secondaryImages?.length || 0); // coverImage + secondaryImages
       console.log(`   ${index + 1}. ${blog.title} (${blog.slug})`);
-      console.log(`      Idioma: ${blog.language} | Imágenes: ${blog.images?.length || 0}`);
+      console.log(`      Ciudad: ${blog.city || 'Venezuela'} | Imágenes: ${totalImages}`);
     });
 
     console.log('\n✨ Generación automática completada exitosamente');
