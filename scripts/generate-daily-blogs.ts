@@ -38,7 +38,7 @@ async function main() {
 
     // Guardar en base de datos
     console.log('💾 Guardando blogs en base de datos...');
-    const createdBlogs = [];
+    const createdBlogs: typeof schema.blogs.$inferSelect[] = [];
     
     for (const blog of blogs) {
       const [created] = await db.insert(schema.blogs).values(blog).returning();
@@ -51,7 +51,7 @@ async function main() {
     console.log('📝 Blogs creados:');
     createdBlogs.forEach((blog, index) => {
       console.log(`   ${index + 1}. ${blog.title} (${blog.slug})`);
-      console.log(`      Idioma: ${blog.language} | Imágenes: ${blog.images.length}`);
+      console.log(`      Idioma: ${blog.language} | Imágenes: ${blog.images?.length || 0}`);
     });
 
     console.log('\n✨ Generación automática completada exitosamente');

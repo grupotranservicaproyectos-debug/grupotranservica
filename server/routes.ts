@@ -5,7 +5,6 @@ import { insertContactRequestSchema, contactFormSchema, insertContactoRecibidoSc
 import { z } from "zod";
 import { sendNotificationEmails, sendConfirmationEmail } from "./email";
 import { generateBlog, generate5Blogs } from "./lib/blogGenerator";
-import { startBlogCron } from "./lib/blogCron";
 import { requireAdmin } from "./middleware/auth";
 import { blogGenerationRateLimit } from "./middleware/rateLimit";
 
@@ -374,8 +373,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
       res.status(500).send('Error generating sitemap');
     }
   });
-
-  startBlogCron(storage);
 
   const httpServer = createServer(app);
   return httpServer;
