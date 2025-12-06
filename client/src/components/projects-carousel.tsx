@@ -230,7 +230,7 @@ export default function ProjectsCarousel() {
                 <div className="aspect-video md:aspect-square relative overflow-hidden">
                   <img
                     src={currentProject.image}
-                    alt={currentProject.title}
+                    alt={`Proyecto TRANSERVICA: ${currentProject.title} - Transporte ${currentProject.weight} ${currentProject.location} Venezuela`}
                     loading="lazy"
                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                   />

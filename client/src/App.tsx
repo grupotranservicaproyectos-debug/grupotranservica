@@ -7,6 +7,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { LanguageProvider } from "./contexts/LanguageContext";
 import { injectYouTube1080pGlobally } from "./utils/youtube-utils";
+import { initializeSEOMeta } from "./utils/seo-meta";
 import Home from "@/pages/home";
 import BlogPage from "@/pages/blog";
 import SEOBlogPage from "@/pages/seo-blog";
@@ -39,6 +40,7 @@ function Router() {
 
 function App() {
   useEffect(() => {
+    initializeSEOMeta();
     injectYouTube1080pGlobally();
   }, []);
 

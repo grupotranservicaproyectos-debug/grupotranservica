@@ -151,7 +151,7 @@ export default function EquipmentSection() {
                 <div className="aspect-video md:aspect-square relative overflow-hidden">
                   <img
                     src={currentEquipment.image}
-                    alt={currentEquipment.name}
+                    alt={`Equipo TRANSERVICA: ${currentEquipment.name} - Transporte Cargas Excepcionales Venezuela`}
                     loading="lazy"
                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                   />

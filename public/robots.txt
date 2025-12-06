@@ -1,0 +1,33 @@
+# TRANSERVICA - robots.txt
+# https://grupotranservica.com
+
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /api
+Disallow: /seo-blog/admin
+
+# Permitir acceso a blogs SEO
+Allow: /seo-blog
+Allow: /blog
+
+# Sitemaps
+Sitemap: https://grupotranservica.com/sitemap.xml
+Sitemap: https://grupotranservica.com/api/sitemap.xml
+
+# Crawl-delay para ser amable con el servidor
+Crawl-delay: 1
+
+# Google specific
+User-agent: Googlebot
+Allow: /
+Disallow: /admin
+Disallow: /api
+Disallow: /seo-blog/admin
+
+# Bing specific
+User-agent: Bingbot
+Allow: /
+Disallow: /admin
+Disallow: /api
+Disallow: /seo-blog/admin

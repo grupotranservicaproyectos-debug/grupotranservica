@@ -80,7 +80,7 @@ export default function HeroSection() {
             <div className="lg:hidden">
               <img 
                 src={logoTranservica} 
-                alt="TRANSERVICA" 
+                alt="Logo TRANSERVICA - Transporte Cargas Excepcionales Venezuela" 
                 className="h-16 sm:h-20 w-auto cursor-pointer hover:scale-105 transition-all duration-300 filter brightness-110 contrast-125 drop-shadow-lg"
                 onClick={() => scrollToSection('inicio')}
               />
@@ -90,7 +90,7 @@ export default function HeroSection() {
               {/* Logo next to navigation */}
               <img 
                 src={logoTranservica} 
-                alt="TRANSERVICA" 
+                alt="Logo TRANSERVICA - Transporte Cargas Excepcionales Venezuela Hasta 1100 Toneladas" 
                 className="h-24 lg:h-28 xl:h-32 w-auto cursor-pointer hover:scale-105 transition-all duration-300 mr-8 filter brightness-110 contrast-125 drop-shadow-lg"
                 style={{ 
                   filter: 'brightness(1.1) contrast(1.25) drop-shadow(0 2px 4px rgba(0,0,0,0.2))'
