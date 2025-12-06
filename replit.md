@@ -64,6 +64,28 @@ A complete automated contact form system is implemented with PostgreSQL storage 
 
 ## Recent Changes
 
+### Panel Admin SEO (December 6, 2025)
+Implementado panel de administración SEO para monitoreo y análisis del sistema de blogs automatizados:
+
+#### Acceso:
+- **URL**: `/seo-blog/admin?token=ADMIN_TOKEN`
+- **Protección**: Requiere token de administrador via query parameter
+- **API**: `/api/admin/seo-stats?token=ADMIN_TOKEN`
+
+#### Funcionalidades del Panel:
+- **Semáforo de Estado**: Indicador visual healthy/degraded/unhealthy basado en generaciones esperadas vs reales
+- **Métricas Totales**: Total blogs, auto-generados, vistas totales
+- **Gráfico Diario**: Blogs generados por día (últimos 14-30 días)
+- **Top 10 URLs**: Artículos con mejor rendimiento por vistas
+- **Distribución**: Por ciudad, sector y template (tablas y gráfico circular)
+- **Alerta de Canibalización**: Combinaciones ciudad/sector con 3+ posts
+- **Logs de Generación**: Últimas 10 ejecuciones del sistema
+
+#### Lógica de Estado del Sistema:
+- `healthy`: Generaciones en objetivo, sin errores
+- `degraded`: Generaciones por debajo del objetivo (actualYesterday < expectedDaily)
+- `unhealthy`: Generaciones fallidas en los últimos 7 días
+
 ### Migración a Replit Scheduled Deployment (November 23, 2025)
 Migrado sistema de generación automática de blogs de node-cron a Replit Scheduled Deployment:
 
