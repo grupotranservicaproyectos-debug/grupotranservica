@@ -1,0 +1,33 @@
+Tu sistema quedó muy bien armado; ahora las mejores mejoras son de eficiencia, control de costo y foco en negocio, no tanto de código.  Aquí van opciones concretas para ir a “modo producción serio”.[1]
+
+## Afinar volumen y calidad
+
+- Cambia el enfoque de “5 blogs diarios fijos” a un modo dinámico: por ejemplo, 3–5 diarios según huecos de keywords y performance histórica (usar `blog_generation_logs` + `views` para decidir cuántos generar y de qué tipo).[1]
+- Define plantillas por intención: “PriceGuide”, “CityGuide”, “CaseStudy”, “SectorDeep” ya están en tus datos; usa ese campo `template` para controlar la mezcla diaria (ejemplo: 1 PriceGuide + 2 CityGuide + 1 CaseStudy).[1]
+
+## Orquestación y workflows
+
+- Mantén un solo workflow diario: generación + logging + pequeño “self-check” llamando a `/api/blogs/health` al final; si responde “unhealthy”, que registre un error en `blog_generation_logs` y te envíe notificación (por ahora, basta con log + campo `status=error`).[1]
+- El script semanal `refresh-old-blogs.ts` está perfecto; mejora haciéndolo seleccionar solo posts con baja performance (bajas vistas en últimos 30 días) y alto potencial (keywords con buen CPC/búsqueda).[1]
+
+## Métricas y panel mínimo
+
+- Crea una ruta admin muy simple (aunque sea protegida por query param) tipo `/seo-blog/admin` que lea de `blog_generation_logs` + `blogs` y te muestre: número de posts generados por día, errores, top 10 URLs por vistas y por sector/ciudad.[1]
+- Añade al `health` una métrica de “expected count vs real”: por ejemplo, si esperas 5 posts diarios y ayer solo hay 2 con `generation_batch_id` de ese día, marcar el sistema como “degraded” en lugar de “healthy”.[1]
+
+## SEO avanzado sin mucho más código
+
+- Usa los nuevos campos para evitar canibalización: si ya tienes 3+ artículos sobre “Puerto Cabello + petrolero”, haz que el generador priorice otra ciudad o sector hasta que los clusters queden más balanceados.[1]
+- Haz que el refresh semanal actualice también `meta_title`, `meta_description` y añada un párrafo 100% orientado a conversión (FAQ + CTA directo a contacto o WhatsApp).[1]
+
+## Qué podrías simplificar
+
+- No sobre-optimizar el timeout: si tus ejecuciones reales están por debajo de 60–90 segundos, deja margen cómodo (300 s) y concéntrate más en la lógica de negocio que en microoptimizar consumo de créditos, porque con Core igual estás sobrado.[2][3][4]
+- Evita duplicar lógica entre el script diario y el semanal: extrae todo lo que sea “reglas de calidad” a funciones puras reutilizables (`ensureInternalLinks`, validación de longitud, cooldown de temas).[1]
+
+Si quieres, en el siguiente paso se puede diseñar el endpoint/admin `/seo-blog/admin` con los campos exactos y queries SQL para que tengas tu “panel SEO Transervica” dentro del mismo proyecto.[1]
+
+[1](https://replit.com/@reinogamerss/TranservicaNet)
+[2](https://www.superblocks.com/blog/replit-pricing)
+[3](https://rpltbldrs.com/p/replit-pricing-explained-2025)
+[4](https://www.sidetool.co/post/replit-pricing-demystified-what-every-developer-should-know/)
