@@ -6,21 +6,48 @@ Este documento explica cómo configurar la generación automática diaria de blo
 
 ---
 
-## ✅ Cambios Implementados
+## ✅ Cambios Implementados (Actualización Diciembre 2025)
 
-### 1. **Script Independiente Creado**
+### 1. **Script de Generación Diaria Optimizado**
 - **Ubicación**: `scripts/generate-daily-blogs.ts`
-- **Función**: Genera 5 blogs SEO optimizados diariamente y los guarda en PostgreSQL
+- **Función**: Genera 4 blogs SEO optimizados diariamente con control de calidad
 - **Características**:
   - ✅ Conexión directa a PostgreSQL (Neon)
-  - ✅ Generación de 5 blogs con imágenes, CTAs, contacto y enlaces internos
-  - ✅ Logs detallados de progreso
-  - ✅ Manejo robusto de errores
+  - ✅ Generación de 4 blogs (optimizado para mejor calidad vs cantidad)
+  - ✅ **Logging estructurado JSON** para fácil análisis
+  - ✅ **Control de calidad**: validación de longitud mínima (1500 caracteres)
+  - ✅ **Detección de duplicados**: valida títulos y slugs únicos
+  - ✅ **Sistema de cooldown**: evita repetir ciudad/sector más de 3 veces/mes
+  - ✅ **Batch tracking**: cada ejecución tiene un `generation_batch_id` único
   - ✅ Exit codes apropiados (0 = éxito, 1 = error)
 
-### 2. **Cron Job Removido**
+### 2. **Script de Refresh Semanal** (NUEVO)
+- **Ubicación**: `scripts/refresh-old-blogs.ts`
+- **Función**: Refresca 2 posts antiguos semanalmente para mejorar señales de frescura
+- **Cron recomendado**: `0 10 * * 0` (Domingos 10:00 AM Panama)
+- **Características**:
+  - ✅ Actualiza fechas de posts con más de 30 días
+  - ✅ Actualiza años en el contenido (2024 → 2025)
+  - ✅ Añade nota de "Artículo actualizado"
+  - ✅ Registra en `lastRefreshedAt`
+
+### 3. **Endpoint de Monitoreo** (NUEVO)
+- **URL**: `/api/blogs/health`
+- **Función**: Dashboard de estado del sistema de generación
+- **Retorna**:
+  - ✅ Último blog auto-generado
+  - ✅ Blogs generados en últimos 7 y 30 días
+  - ✅ Logs de las últimas 5 ejecuciones
+  - ✅ Errores detectados
+  - ✅ Configuración del schedule
+
+### 4. **Nuevas Tablas en Base de Datos**
+- `blog_generation_logs`: Registro de cada ejecución del generador
+- `city_sector_cooldown`: Control de cooldown por ciudad/sector/mes
+- Nuevos campos en `blogs`: `generation_batch_id`, `generation_source`, `last_refreshed_at`
+
+### 5. **Cron Job del Servidor Removido**
 - ❌ Eliminado `node-cron` del servidor principal
-- ❌ Removido `startBlogCron()` de `server/routes.ts`
 - ✅ El servidor ahora es más liviano y solo maneja peticiones HTTP
 
 ---
@@ -69,7 +96,7 @@ tsx scripts/generate-daily-blogs.ts
 
 #### **Job Timeout** (Tiempo máximo de ejecución)
 ```
-600 seconds (10 minutos)
+300 seconds (5 minutos) - Optimizado para 4 blogs
 ```
 
 ### Paso 5: Configurar Secrets (Variables de Entorno)
@@ -143,6 +170,56 @@ Según la documentación de Replit, los Scheduled Deployments tienen:
   - ✅ Otros servicios y workflows
 
 **Conclusión**: Con el plan Core actual, **NO deberías pagar costos adicionales** por la generación automática diaria de blogs.
+
+---
+
+## 🔄 Configuración del Refresh Semanal (Opcional)
+
+### Paso 1: Crear Segundo Scheduled Deployment
+
+1. En Replit, ve a **Deployments** > **Scheduled**
+2. Crea un nuevo scheduled deployment
+
+### Paso 2: Configuración del Schedule
+
+#### **Schedule Description**
+```
+Every Sunday at 10:00 AM
+```
+
+#### **Timezone**
+```
+America/Panama
+```
+
+#### **Cron Expression**
+```
+0 10 * * 0
+```
+
+### Paso 3: Configurar Commands
+
+#### **Build Command**
+```bash
+npm install
+```
+
+#### **Run Command**
+```bash
+tsx scripts/refresh-old-blogs.ts
+```
+
+#### **Job Timeout**
+```
+300 seconds (5 minutos)
+```
+
+### Beneficios del Refresh Semanal
+
+- ✅ Mejora señales de "frescura" para Google
+- ✅ Actualiza años desactualizados en el contenido
+- ✅ Añade nota de última actualización
+- ✅ Bajo costo (solo 2 blogs por semana)
 
 ---
 
