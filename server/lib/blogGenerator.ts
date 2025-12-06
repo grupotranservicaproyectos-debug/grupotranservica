@@ -366,15 +366,15 @@ export async function generateBlog(): Promise<InsertBlog> {
   };
 }
 
-export async function generate5Blogs(): Promise<InsertBlog[]> {
-  console.log('🤖 Generando 5 blogs automáticamente...');
+export async function generate5Blogs(count: number = 5): Promise<InsertBlog[]> {
+  console.log(`🤖 Generando ${count} blogs automáticamente...`);
   const blogs: InsertBlog[] = [];
 
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < count; i++) {
     try {
       const blog = await generateBlog();
       blogs.push(blog);
-      console.log(`✅ Blog ${i + 1}/5 generado: "${blog.title}"`);
+      console.log(`✅ Blog ${i + 1}/${count} generado: "${blog.title}"`);
       
       await new Promise(resolve => setTimeout(resolve, 2000));
     } catch (error) {

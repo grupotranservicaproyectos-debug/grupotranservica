@@ -1,0 +1,34 @@
+mejoras concretas que puedes aplicar al flujo y al prompt que usas en Replit.​
+
+Mejores prácticas de generación
+Añade control de calidad antes de insertar: validar longitud mínima del contenido, evitar títulos duplicados y revisar que las keywords no se repitan demasiado entre posts del mismo día.​
+
+Registra en la tabla blogs campos de control como generation_batch_id y generation_source para poder filtrar fácilmente qué blogs provinieron del job automático de las 6:30 AM.​
+
+Implementa un sistema de “cooldown” por ciudad/sector para no repetir la misma combinación más de X veces al mes, evitando canibalización SEO.​
+
+Optimización del workflow en Replit
+En lugar de correr npm install en cada ejecución programada, fija el build en una imagen estable (build único) y deja el job de las 6:30 AM solo como “run command” sobre la imagen ya construida. Esto reduce tiempo de CPU y uso de créditos.​
+
+Añade Timeout más ajustado (por ejemplo 300 segundos) y logging estructurado (JSON) para que los logs del Scheduled Deployment sean fáciles de filtrar por errores específicos.​
+
+Si notas que el script tarda muy poco, considera bajar de 5 a 3–4 blogs por día y compensar con mejor calidad por post, manteniendo el costo aún más bajo sin perder tracción SEO.​
+
+SEO y arquitectura de contenidos
+Aprovecha que ya tienes /seo-blog para crear “clusters” por sector y ciudad (por ejemplo, /seo-blog/puerto-cabello/ o /seo-blog/sector-petroquimico/) generando enlaces internos automáticos hacia estos hubs.​
+
+Haz que el generador añada siempre: enlace al formulario de contacto, enlace a la página de servicio principal y 2–3 enlaces internos a otros blogs relevantes del mismo sector o ciudad.​
+
+Programa una tarea semanal (otro Scheduled Deployment) para regenerar o refrescar 1–2 posts antiguos (actualizar fecha, datos, ejemplos), lo que mejora señales de frescura ante Google.​
+
+Monitorización y métricas
+Crea una tabla blog_generation_logs donde guardes por día: número de blogs generados, tiempo de ejecución del script, errores y número de llamadas a la IA, para poder auditar el sistema.​
+
+Expon un endpoint interno tipo /api/blogs/health que devuelva: último published_at de blog auto-generado, total de posts en los últimos 7 días y cualquier error detectado, útil para dashboards externos o checks de uptime.​
+
+Conecta los datos de vistas (views) a un panel sencillo (puede ser otra ruta admin) para ver qué combinaciones ciudad + sector convierten mejor y ajustar el prompt de generación hacia esos nichos.​
+
+Ajustes al mensaje del agente en Replit
+Haz que la respuesta del agente no solo describa el sistema, sino que devuelva una lista concreta de “acciones aplicadas” y “acciones recomendadas pendientes”, por ejemplo: “1) Implementado batch_id, 2) Ajustado timeout a 300s, 3) Pendiente crear job semanal de refresco de contenidos”.​
+
+Pídele que valide después de cada cambio que: el cron sigue en 30 6 * * *, la zona horaria es America/Panama y las rutas /seo-blog siguen respondiendo correctamente en ambos dominios.​
