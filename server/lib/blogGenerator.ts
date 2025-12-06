@@ -183,11 +183,11 @@ TÍTULO: ${title}
 PALABRAS CLAVE: ${keywords.join(', ')}
 
 REQUERIMIENTOS OBLIGATORIOS:
-1. Extensión: 700-900 palabras
+1. Extensión: 800-1000 palabras
 2. Optimizado para SEO (keywords naturalmente integradas)
 3. Estructura: H2 y H3 claros con jerarquía lógica
 4. Tono: Profesional, B2B, informativo pero persuasivo
-5. HTML simple (solo <h2>, <h3>, <p>, <ul>, <li>, <strong>)
+5. HTML simple (solo <h2>, <h3>, <p>, <ul>, <li>, <strong>, <a>)
 6. INCLUIR EXACTAMENTE 3 LLAMADAS A ACCIÓN (CTAs):
    - CTA #1: Al inicio del artículo (después de la introducción)
    - CTA #2: En el medio del contenido
@@ -197,7 +197,23 @@ Formato de los CTAs (usar exactamente este HTML):
 <div class="cta-box">
 <p><strong>💼 ¿Necesita transporte especializado en ${city}?</strong></p>
 <p>Contáctenos ahora: <a href="tel:+584226361047">+58 422-6361047</a> | <a href="https://wa.me/message/WAKKACM55ESHC1" target="_blank">WhatsApp</a></p>
+<p><a href="/#contacto" class="internal-link">Solicitar cotización gratuita</a></p>
 </div>
+
+7. ENLACES INTERNOS OBLIGATORIOS (incluir naturalmente en el texto):
+   - Enlace al formulario de contacto: <a href="/#contacto">formulario de cotización</a>
+   - Enlace a servicios: <a href="/#servicios">nuestros servicios</a>
+   - Al menos 2 enlaces a otros artículos relacionados usando formato: <a href="/seo-blog/{slug-articulo}">texto descriptivo</a>
+
+8. DATOS DE CONTACTO VISIBLES:
+   Al final del artículo incluir una sección con información de contacto clara:
+   <div class="contact-info">
+   <h3>Información de Contacto</h3>
+   <p><strong>Teléfono:</strong> <a href="tel:+584226361047">+58 422-6361047</a></p>
+   <p><strong>WhatsApp:</strong> <a href="https://wa.me/message/WAKKACM55ESHC1">Escribir por WhatsApp</a></p>
+   <p><strong>Email Comercial:</strong> <a href="mailto:direccioncomercialtvc@grupotranservica.com">direccioncomercialtvc@grupotranservica.com</a></p>
+   <p><strong>Web:</strong> <a href="https://grupotranservica.com">www.grupotranservica.com</a></p>
+   </div>
 
 OUTLINE:
 ${template.outline.map((item) => `- ${item.replace(/{sector}/g, sector).replace(/{city}/g, city)}`).join('\n')}
@@ -218,7 +234,7 @@ MENCIONES OBLIGATORIAS (incluir naturalmente cuando sea relevante):
 - Si sector minero/siderúrgico: mencionar CVG (Corporación Venezolana de Guayana)
 - Si sector petroquímico: mencionar Pequiven
 
-IMPORTANTE: No incluyas tags <html>, <head> o <body>. Solo el contenido del artículo con los 3 CTAs insertados estratégicamente.
+IMPORTANTE: No incluyas tags <html>, <head> o <body>. Solo el contenido del artículo con los 3 CTAs, enlaces internos y datos de contacto insertados estratégicamente.
 `;
 
   try {
@@ -281,14 +297,16 @@ IMPORTANTE: No incluyas tags <html>, <head> o <body>. Solo el contenido del art�
     
     const fallbackContent = `
 <h2>Introducción</h2>
-<p>Grupo Transervica, C.A. ofrece servicios especializados de transporte de carga pesada en ${city} para el sector ${sector}. Con 40 años de experiencia, somos líderes en logística industrial en Venezuela.</p>
+<p>Grupo Transervica, C.A. ofrece servicios especializados de transporte de carga pesada en ${city} para el sector ${sector}. Con 40 años de experiencia, somos líderes en logística industrial en Venezuela. Descubra cómo <a href="/#servicios">nuestros servicios</a> pueden optimizar su operación logística.</p>
 
 <div class="cta-box">
 <p><strong>💼 ¿Necesita transporte especializado en ${city}?</strong></p>
 <p>Contáctenos ahora: <a href="tel:+584226361047">+58 422-6361047</a> | <a href="https://wa.me/message/WAKKACM55ESHC1" target="_blank">WhatsApp</a></p>
+<p><a href="/#contacto" class="internal-link">Solicitar cotización gratuita</a></p>
 </div>
 
 <h2>Nuestros Servicios en ${city}</h2>
+<p>Ofrecemos una amplia gama de soluciones logísticas adaptadas a sus necesidades:</p>
 <ul>
 <li>Transporte de carga pesada de 100 a 500 toneladas</li>
 <li>Lowboy y camas bajas especializadas</li>
@@ -296,21 +314,33 @@ IMPORTANTE: No incluyas tags <html>, <head> o <body>. Solo el contenido del art�
 <li>Almacenamiento industrial seguro</li>
 <li>Consultoría logística profesional</li>
 </ul>
+<p>Conozca más sobre <a href="/seo-blog/logistica-industrial-venezuela">logística industrial en Venezuela</a> y cómo podemos ayudarle.</p>
 
 <h2>Experiencia en el Sector ${sector}</h2>
 <p>Nuestro equipo cuenta con amplia experiencia en el transporte especializado para el sector ${sector}, garantizando la movilización segura y eficiente de sus cargas. Trabajamos con principales empresas como PDVSA, CVG y Pequiven.</p>
+<p>Le invitamos a leer sobre <a href="/seo-blog/transporte-carga-pesada-venezuela">transporte de carga pesada en Venezuela</a> para conocer más sobre nuestros proyectos exitosos.</p>
 
 <div class="cta-box">
 <p><strong>💼 ¿Necesita transporte especializado en ${city}?</strong></p>
 <p>Contáctenos ahora: <a href="tel:+584226361047">+58 422-6361047</a> | <a href="https://wa.me/message/WAKKACM55ESHC1" target="_blank">WhatsApp</a></p>
+<p><a href="/#contacto" class="internal-link">Solicitar cotización gratuita</a></p>
 </div>
 
 <h2>Contacto y Cotización</h2>
-<p>Para solicitar una cotización gratuita, contáctenos al +58 422-6361047 o por WhatsApp. También puede escribirnos a direccioncomercialtvc@grupotranservica.com o direccionejecutivatvc@grupotranservica.com. Estamos listos para atender sus necesidades de transporte en ${city}.</p>
+<p>Para solicitar una cotización gratuita, complete nuestro <a href="/#contacto">formulario de cotización</a> o contáctenos directamente. Estamos listos para atender sus necesidades de transporte en ${city}.</p>
 
 <div class="cta-box">
 <p><strong>💼 ¿Necesita transporte especializado en ${city}?</strong></p>
 <p>Contáctenos ahora: <a href="tel:+584226361047">+58 422-6361047</a> | <a href="https://wa.me/message/WAKKACM55ESHC1" target="_blank">WhatsApp</a></p>
+<p><a href="/#contacto" class="internal-link">Solicitar cotización gratuita</a></p>
+</div>
+
+<div class="contact-info">
+<h3>Información de Contacto</h3>
+<p><strong>Teléfono:</strong> <a href="tel:+584226361047">+58 422-6361047</a></p>
+<p><strong>WhatsApp:</strong> <a href="https://wa.me/message/WAKKACM55ESHC1">Escribir por WhatsApp</a></p>
+<p><strong>Email Comercial:</strong> <a href="mailto:direccioncomercialtvc@grupotranservica.com">direccioncomercialtvc@grupotranservica.com</a></p>
+<p><strong>Web:</strong> <a href="https://grupotranservica.com">www.grupotranservica.com</a></p>
 </div>
 `;
 
