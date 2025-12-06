@@ -15,8 +15,15 @@ import {
   MapPin,
   Building2,
   Layout,
-  ExternalLink
+  ExternalLink,
+  Lightbulb,
+  Target,
+  Zap,
+  ChevronDown,
+  ChevronUp
 } from "lucide-react";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import { useState } from "react";
 import {
   Table,
   TableBody,
@@ -77,7 +84,24 @@ interface SEOStats {
     city: string | null;
     sector: string | null;
     count: number;
+    posts: Array<{
+      id: string;
+      title: string;
+      slug: string;
+      views: number;
+      publishedAt: string;
+    }>;
   }>;
+  recommendations: Array<{
+    type: 'priority' | 'warning' | 'action';
+    title: string;
+    description: string;
+    details?: { city?: string; sector?: string; count?: number };
+  }>;
+  coverage: {
+    cities: Array<{ city: string; count: number; totalViews: number }>;
+    sectors: Array<{ sector: string; count: number; totalViews: number }>;
+  };
   recentLogs: Array<{
     batchId: string;
     executionDate: string;
@@ -95,6 +119,91 @@ interface SEOStats {
 }
 
 const COLORS = ['#155d29', '#1a7535', '#1f8d40', '#24a54b', '#29bd56', '#2ed561', '#33ed6c', '#52f084', '#71f39c', '#90f6b4'];
+
+interface CannibalizationGroupProps {
+  combo: {
+    city: string | null;
+    sector: string | null;
+    count: number;
+    posts: Array<{
+      id: string;
+      title: string;
+      slug: string;
+      views: number;
+      publishedAt: string;
+    }>;
+  };
+  index: number;
+}
+
+function CannibalizationGroup({ combo, index }: CannibalizationGroupProps) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <Collapsible open={isOpen} onOpenChange={setIsOpen}>
+      <CollapsibleTrigger asChild>
+        <button
+          className="w-full flex items-center justify-between p-3 bg-yellow-100 hover:bg-yellow-200 rounded-lg border border-yellow-300 transition-colors"
+          data-testid={`cannibalization-trigger-${index}`}
+        >
+          <div className="flex items-center gap-3">
+            <Badge variant="outline" className="bg-yellow-200 border-yellow-400 text-yellow-800">
+              {combo.count} posts
+            </Badge>
+            <span className="font-medium text-yellow-800 capitalize">
+              {combo.city} / {combo.sector}
+            </span>
+          </div>
+          {isOpen ? (
+            <ChevronUp className="w-5 h-5 text-yellow-700" />
+          ) : (
+            <ChevronDown className="w-5 h-5 text-yellow-700" />
+          )}
+        </button>
+      </CollapsibleTrigger>
+      <CollapsibleContent>
+        <div className="mt-2 space-y-2 pl-4 border-l-2 border-yellow-300">
+          {combo.posts.map((post, postIndex) => (
+            <div 
+              key={post.id}
+              className="flex items-center justify-between p-2 bg-white rounded border border-yellow-200 hover:border-yellow-400 transition-colors"
+              data-testid={`cannibalization-post-${index}-${postIndex}`}
+            >
+              <div className="flex-1 min-w-0">
+                <a
+                  href={`/seo-blog/${post.slug}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#155d29] hover:underline font-medium text-sm flex items-center gap-1 truncate"
+                >
+                  {post.title.length > 60 ? post.title.substring(0, 60) + '...' : post.title}
+                  <ExternalLink className="w-3 h-3 flex-shrink-0" />
+                </a>
+                <p className="text-xs text-gray-500 mt-0.5">
+                  {new Date(post.publishedAt).toLocaleDateString('es-VE')} | {post.views} vistas
+                </p>
+              </div>
+              <div className="flex gap-1 ml-2">
+                <a
+                  href={`/seo-blog/${post.slug}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-2 py-1 text-xs bg-gray-100 hover:bg-gray-200 rounded text-gray-700 transition-colors"
+                  title="Ver artículo"
+                >
+                  Ver
+                </a>
+              </div>
+            </div>
+          ))}
+          <div className="text-xs text-yellow-700 p-2 bg-yellow-50 rounded italic">
+            Considera combinar artículos similares, desindexar los de menor rendimiento, o editar para diferenciar el contenido.
+          </div>
+        </div>
+      </CollapsibleContent>
+    </Collapsible>
+  );
+}
 
 export default function SEOBlogAdmin() {
   const [, setLocation] = useLocation();
@@ -457,28 +566,87 @@ export default function SEOBlogAdmin() {
           </Card>
         </div>
 
+        {data.recommendations && data.recommendations.length > 0 && (
+          <Card className="border-[#155d29] border-2 bg-green-50" data-testid="recommendations-card">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2 text-[#155d29]">
+                <Lightbulb className="w-5 h-5" />
+                Próximos Pasos Sugeridos
+              </CardTitle>
+              <CardDescription className="text-green-700">
+                Recomendaciones calculadas automáticamente basadas en los datos actuales
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-3">
+                {data.recommendations.map((rec, index) => (
+                  <div 
+                    key={index} 
+                    className={`p-4 rounded-lg border-l-4 ${
+                      rec.type === 'priority' ? 'bg-blue-50 border-blue-500' :
+                      rec.type === 'warning' ? 'bg-yellow-50 border-yellow-500' :
+                      'bg-red-50 border-red-500'
+                    }`}
+                    data-testid={`recommendation-${index}`}
+                  >
+                    <div className="flex items-start gap-3">
+                      {rec.type === 'priority' && <Target className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />}
+                      {rec.type === 'warning' && <AlertTriangle className="w-5 h-5 text-yellow-600 mt-0.5 flex-shrink-0" />}
+                      {rec.type === 'action' && <Zap className="w-5 h-5 text-red-600 mt-0.5 flex-shrink-0" />}
+                      <div>
+                        <h4 className={`font-semibold ${
+                          rec.type === 'priority' ? 'text-blue-800' :
+                          rec.type === 'warning' ? 'text-yellow-800' :
+                          'text-red-800'
+                        }`}>
+                          {rec.title}
+                        </h4>
+                        <p className="text-sm text-gray-700 mt-1">{rec.description}</p>
+                        {rec.details && (
+                          <div className="flex gap-2 mt-2">
+                            {rec.details.city && (
+                              <Badge variant="outline" className="text-xs">
+                                <MapPin className="w-3 h-3 mr-1" />
+                                {rec.details.city}
+                              </Badge>
+                            )}
+                            {rec.details.sector && (
+                              <Badge variant="outline" className="text-xs">
+                                <Building2 className="w-3 h-3 mr-1" />
+                                {rec.details.sector}
+                              </Badge>
+                            )}
+                            {rec.details.count !== undefined && (
+                              <Badge variant="secondary" className="text-xs">
+                                {rec.details.count} posts
+                              </Badge>
+                            )}
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        )}
+
         {data.overusedCombinations.length > 0 && (
           <Card className="border-yellow-200 bg-yellow-50" data-testid="alert-cannibalization">
             <CardHeader>
               <CardTitle className="flex items-center gap-2 text-yellow-800">
                 <AlertTriangle className="w-5 h-5" />
-                Alerta de Canibalización SEO
+                Alerta de Canibalización SEO - Posts Detallados
               </CardTitle>
               <CardDescription className="text-yellow-700">
-                Combinaciones ciudad/sector con 3+ posts (considerar diversificar)
+                Combinaciones ciudad/sector con 3+ posts. Haz clic para ver los artículos y decidir si desindexar/combinar/editar.
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="flex flex-wrap gap-2">
+              <div className="space-y-4">
                 {data.overusedCombinations.map((combo, index) => (
-                  <Badge 
-                    key={index} 
-                    variant="outline" 
-                    className="bg-yellow-100 border-yellow-300 text-yellow-800"
-                    data-testid={`badge-overused-${index}`}
-                  >
-                    {combo.city}/{combo.sector}: {combo.count} posts
-                  </Badge>
+                  <CannibalizationGroup key={index} combo={combo} index={index} />
                 ))}
               </div>
             </CardContent>
