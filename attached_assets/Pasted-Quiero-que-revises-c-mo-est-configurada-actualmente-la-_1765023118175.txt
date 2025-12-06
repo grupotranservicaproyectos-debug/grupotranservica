@@ -1,0 +1,46 @@
+Quiero que revises cómo está configurada actualmente la generación y publicación automatizada de blogs en este proyecto TranservicaNet, usando la base de datos blogs y los workflows o deployments que ya existan, y me expliques en un resumen corto el flujo actual:
+
+Qué tarea o script está generando los posts.
+
+Cada cuánto se ejecuta hoy (hora y zona horaria).
+
+En qué URLs finales se publican o exponen esos blogs en producción.​
+
+Después de esa descripción, quiero que mejores la automatización con estos requerimientos:
+
+Programa la generación y publicación automática de los nuevos blogs para que se ejecute todos los días a las 6:30 am, hora de Panamá (America/Panama) usando Workflows o Scheduled Deployments, no como una tarea manual ni como algo que dependa de que el repl esté abierto.​
+
+Asegúrate de que los blogs queden publicados en los dominios de producción:
+
+https://grupotranservica.com
+
+https://transervica.net/
+y explícame cómo se está haciendo el deploy para que el contenido generado en la tabla blogs llegue a estas webs (por ejemplo, si es un deployment estático, un servidor Node, etc.).​
+
+Crea o ajusta un Workflow en Replit donde la tarea diaria de blogs quede claramente definida como un job recurrente (por ejemplo, un Scheduled Deployment con cron) y explícame en pasos qué hace cada etapa del workflow: generar contenido, guardarlo en la base de datos y desplegarlo o dejarlo listo para que el sitio lo lea.​
+
+Usa una expresión de tiempo o descripción natural equivalente a:
+“Run this task every day at 6:30 AM America/Panama”
+y asegúrate de dejar documentado el cron o la configuración de horario dentro del proyecto.​
+
+Al final de todo, respóndeme en formato muy claro con estos puntos:
+
+Un bloque donde copies las URLs exactas donde se están mostrando los blogs automatizados hoy en grupotranservica.com y transervica.net (por ejemplo, rutas tipo /blog/slug o /articulos/...).​
+
+Un bloque donde indiques el costo aproximado mensual en Replit de mantener esta automatización diaria usando Scheduled Deployments, asumiendo el plan Replit Core activo, indicando:
+
+Costo base mensual del plan Core.
+
+Costo base mensual de Scheduled Deployments (si aplica).
+
+Costo aproximado por segundo de ejecución del job diario y una estimación para un script que dure entre 30 y 120 segundos al día.​
+
+Quiero que la respuesta sea muy concreta, en español, y que incluya:
+
+Descripción actual del flujo.
+
+Propuesta mejorada con ejecución diaria a las 6:30 am hora Panamá en Workflows.
+
+Las URLs donde quedan los blogs.
+
+El costo mensual aproximado de la plataforma de Replit para ejecutar esos blogs automatizados diariamente desde Workflows / Scheduled Deployments.
