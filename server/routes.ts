@@ -18,6 +18,11 @@ import { db } from "./lib/db";
 import { desc, gte, eq, and, sql, lt, count } from "drizzle-orm";
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  // Google Site Verification files - must be before Vite middleware
+  app.get("/google8f9cfe36ab6897c8.html", (req, res) => {
+    res.type("text/html").send("google-site-verification: google8f9cfe36ab6897c8.html");
+  });
+
   // Admin SEO Stats endpoint - protected by query param
   app.get("/api/admin/seo-stats", async (req, res) => {
     try {
