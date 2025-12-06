@@ -1,0 +1,36 @@
+Sí, empieza 100% por el panel admin `/seo-blog/admin`, pero con un scope ultra-enfocado en negocio.  Aquí tienes cómo dejarlo bien planteado y el orden óptimo para lo demás.[1]
+
+## 1. Panel admin prioritario
+
+Haz que el panel responda a tres preguntas de negocio, no solo a datos técnicos:  
+- ¿Cuánto estoy publicando por día/semana vs lo esperado?  
+- ¿Qué URLs y combinaciones ciudad/sector traen más vistas y merecen más contenido?  
+- ¿Hay errores o caídas en la generación?[1]
+
+Mínimo viable del panel:  
+- Gráfico o tabla simple: blogs generados por día (últimos 14–30 días) usando `published_at` y `generation_source`.  
+- Top 10 URLs por `views` con ciudad, sector y template.  
+- Tabla corta de errores recientes desde `blog_generation_logs`.  
+- Semáforo de estado: `healthy / degraded / unhealthy` usando la métrica de “expected vs real” por día.[1]
+
+## 2. Generación dinámica inteligente
+
+Una vez tengas el panel, activa la mezcla de templates y usa los datos reales:  
+- Target base: 4 blogs/día → 1 PriceGuide + 2 CityGuide + 1 CaseStudy, ajustable según qué template convierta mejor (lo verás en el panel).[1]
+- Regla de canibalización: si ciudad+sector ya tiene, por ejemplo, 3+ posts, el generador debe elegir otra ciudad o sector hasta equilibrar el mapa de contenidos.[1]
+
+## 3. Self-check automático y calidad
+
+- Al final del script diario: llamada interna a `/api/blogs/health`; si el estado no es `healthy`, escribir una entrada específica en `blog_generation_logs` con tipo `self_check_failure`.[1]
+- Refactoriza `ensureInternalLinks`, `validateLength`, `checkCooldown` en un módulo común y úsalo tanto en el script diario como en el semanal para no duplicar lógica.[1]
+
+## 4. Orden recomendado de ejecución
+
+- Paso 1: Panel `/seo-blog/admin` (solo lectura de `blogs`, `blog_generation_logs`, `health`).  
+- Paso 2: Activar mezcla de templates + canibalización usando ya el panel para ver el impacto.  
+- Paso 3: Self-check automático al final del job diario + anotación en logs.  
+- Paso 4: Refactor de reglas de calidad en módulo compartido y ajuste fino de “expected vs real”.[1]
+
+Con esto quedas en un verdadero “modo producción serio”: decides la estrategia de contenidos desde el panel y el sistema se ajusta solo, en lugar de empujar 5 posts diarios sin feedback.[1]
+
+[1](https://replit.com/@reinogamerss/TranservicaNet)

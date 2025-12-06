@@ -10,6 +10,7 @@ import BlogPage from "@/pages/blog";
 import SEOBlogPage from "@/pages/seo-blog";
 import SEOBlogArticle from "@/pages/seo-blog-article";
 import BlogDashboard from "@/pages/blog-dashboard";
+import SEOBlogAdmin from "@/pages/seo-blog-admin";
 import TermsOfService from "@/pages/terms";
 import PrivacyPolicy from "@/pages/privacy";
 import CookiePolicy from "@/pages/cookies";
@@ -22,6 +23,7 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/blog" component={BlogPage} />
       <Route path="/seo-blog" component={SEOBlogPage} />
+      <Route path="/seo-blog/admin" component={SEOBlogAdmin} />
       <Route path="/seo-blog/:slug" component={SEOBlogArticle} />
       <Route path="/admin/blog-dashboard" component={BlogDashboard} />
       <Route path="/terms" component={TermsOfService} />
