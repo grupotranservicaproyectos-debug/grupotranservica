@@ -23,6 +23,15 @@ export async function registerRoutes(app: Express): Promise<Server> {
     res.type("text/html").send("google-site-verification: google8f9cfe36ab6897c8.html");
   });
 
+  // Sitemap redirect - 301 permanent redirect to XML sitemap
+  app.get("/sitemap", (req, res) => {
+    res.redirect(301, "/api/sitemap.xml");
+  });
+
+  app.get("/sitemap.xml", (req, res) => {
+    res.redirect(301, "/api/sitemap.xml");
+  });
+
   // Admin SEO Stats endpoint - protected by query param
   app.get("/api/admin/seo-stats", async (req, res) => {
     try {
