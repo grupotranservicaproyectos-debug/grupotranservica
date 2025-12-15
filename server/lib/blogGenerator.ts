@@ -196,8 +196,8 @@ REQUERIMIENTOS OBLIGATORIOS:
 Formato de los CTAs (usar exactamente este HTML):
 <div class="cta-box">
 <p><strong>💼 ¿Necesita transporte especializado en ${city}?</strong></p>
-<p>Contáctenos: <a href="tel:+584226361047">+58 422-6361047</a> | <a href="tel:+584123675636">+58 412-367-5636</a> | <a href="https://wa.me/message/WAKKACM55ESHC1" target="_blank">WhatsApp</a></p>
-<p><a href="/#contacto" class="internal-link">Solicitar cotización gratuita</a></p>
+<p>Contáctenos: <a href="tel:+584226361047">+58 422-6361047</a> | <a href="tel:+584123675636">+58 412-367-5636</a> | <a href="tel:+584142776340">+58 414-277-6340</a></p>
+<p><a href="https://wa.me/message/WAKKACM55ESHC1" target="_blank">WhatsApp</a> | <a href="/#contacto" class="internal-link">Solicitar cotización gratuita</a></p>
 </div>
 
 7. ENLACES INTERNOS OBLIGATORIOS (incluir naturalmente en el texto):
@@ -327,8 +327,8 @@ IMPORTANTE: No incluyas tags <html>, <head> o <body>. Solo el contenido del art�
 
 <div class="cta-box">
 <p><strong>💼 ¿Necesita transporte especializado en ${city}?</strong></p>
-<p>Contáctenos: <a href="tel:+584226361047">+58 422-6361047</a> | <a href="tel:+584123675636">+58 412-367-5636</a> | <a href="https://wa.me/message/WAKKACM55ESHC1" target="_blank">WhatsApp</a></p>
-<p><a href="/#contacto" class="internal-link">Solicitar cotización gratuita</a></p>
+<p>Contáctenos: <a href="tel:+584226361047">+58 422-6361047</a> | <a href="tel:+584123675636">+58 412-367-5636</a> | <a href="tel:+584142776340">+58 414-277-6340</a></p>
+<p><a href="https://wa.me/message/WAKKACM55ESHC1" target="_blank">WhatsApp</a> | <a href="/#contacto" class="internal-link">Solicitar cotización gratuita</a></p>
 </div>
 
 <h2>Nuestros Servicios en ${city}</h2>
@@ -348,8 +348,8 @@ IMPORTANTE: No incluyas tags <html>, <head> o <body>. Solo el contenido del art�
 
 <div class="cta-box">
 <p><strong>💼 ¿Necesita transporte especializado en ${city}?</strong></p>
-<p>Contáctenos: <a href="tel:+584226361047">+58 422-6361047</a> | <a href="tel:+584123675636">+58 412-367-5636</a> | <a href="https://wa.me/message/WAKKACM55ESHC1" target="_blank">WhatsApp</a></p>
-<p><a href="/#contacto" class="internal-link">Solicitar cotización gratuita</a></p>
+<p>Contáctenos: <a href="tel:+584226361047">+58 422-6361047</a> | <a href="tel:+584123675636">+58 412-367-5636</a> | <a href="tel:+584142776340">+58 414-277-6340</a></p>
+<p><a href="https://wa.me/message/WAKKACM55ESHC1" target="_blank">WhatsApp</a> | <a href="/#contacto" class="internal-link">Solicitar cotización gratuita</a></p>
 </div>
 
 <h2>Contacto y Cotización</h2>
@@ -357,8 +357,8 @@ IMPORTANTE: No incluyas tags <html>, <head> o <body>. Solo el contenido del art�
 
 <div class="cta-box">
 <p><strong>💼 ¿Necesita transporte especializado en ${city}?</strong></p>
-<p>Contáctenos: <a href="tel:+584226361047">+58 422-6361047</a> | <a href="tel:+584123675636">+58 412-367-5636</a> | <a href="https://wa.me/message/WAKKACM55ESHC1" target="_blank">WhatsApp</a></p>
-<p><a href="/#contacto" class="internal-link">Solicitar cotización gratuita</a></p>
+<p>Contáctenos: <a href="tel:+584226361047">+58 422-6361047</a> | <a href="tel:+584123675636">+58 412-367-5636</a> | <a href="tel:+584142776340">+58 414-277-6340</a></p>
+<p><a href="https://wa.me/message/WAKKACM55ESHC1" target="_blank">WhatsApp</a> | <a href="/#contacto" class="internal-link">Solicitar cotización gratuita</a></p>
 </div>
 
 <div class="contact-info">
