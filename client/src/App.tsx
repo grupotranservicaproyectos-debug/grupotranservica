@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, lazy, Suspense } from "react";
 import { Switch, Route } from "wouter";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
@@ -9,32 +9,43 @@ import { LanguageProvider } from "./contexts/LanguageContext";
 import { injectYouTube1080pGlobally } from "./utils/youtube-utils";
 import { initializeSEOMeta } from "./utils/seo-meta";
 import Home from "@/pages/home";
-import BlogPage from "@/pages/blog";
-import SEOBlogPage from "@/pages/seo-blog";
-import SEOBlogArticle from "@/pages/seo-blog-article";
-import BlogDashboard from "@/pages/blog-dashboard";
-import SEOBlogAdmin from "@/pages/seo-blog-admin";
-import TermsOfService from "@/pages/terms";
-import PrivacyPolicy from "@/pages/privacy";
-import CookiePolicy from "@/pages/cookies";
-import SecurityPolicy from "@/pages/security";
-import NotFound from "@/pages/not-found";
+
+const BlogPage = lazy(() => import("@/pages/blog"));
+const SEOBlogPage = lazy(() => import("@/pages/seo-blog"));
+const SEOBlogArticle = lazy(() => import("@/pages/seo-blog-article"));
+const BlogDashboard = lazy(() => import("@/pages/blog-dashboard"));
+const SEOBlogAdmin = lazy(() => import("@/pages/seo-blog-admin"));
+const TermsOfService = lazy(() => import("@/pages/terms"));
+const PrivacyPolicy = lazy(() => import("@/pages/privacy"));
+const CookiePolicy = lazy(() => import("@/pages/cookies"));
+const SecurityPolicy = lazy(() => import("@/pages/security"));
+const NotFound = lazy(() => import("@/pages/not-found"));
+
+function LoadingFallback() {
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-white">
+      <div className="animate-spin rounded-full h-12 w-12 border-4 border-[#155d29] border-t-transparent"></div>
+    </div>
+  );
+}
 
 function Router() {
   return (
-    <Switch>
-      <Route path="/" component={Home} />
-      <Route path="/blog" component={BlogPage} />
-      <Route path="/seo-blog" component={SEOBlogPage} />
-      <Route path="/seo-blog/admin" component={SEOBlogAdmin} />
-      <Route path="/seo-blog/:slug" component={SEOBlogArticle} />
-      <Route path="/admin/blog-dashboard" component={BlogDashboard} />
-      <Route path="/terms" component={TermsOfService} />
-      <Route path="/privacy" component={PrivacyPolicy} />
-      <Route path="/cookies" component={CookiePolicy} />
-      <Route path="/security" component={SecurityPolicy} />
-      <Route component={NotFound} />
-    </Switch>
+    <Suspense fallback={<LoadingFallback />}>
+      <Switch>
+        <Route path="/" component={Home} />
+        <Route path="/blog" component={BlogPage} />
+        <Route path="/seo-blog" component={SEOBlogPage} />
+        <Route path="/seo-blog/admin" component={SEOBlogAdmin} />
+        <Route path="/seo-blog/:slug" component={SEOBlogArticle} />
+        <Route path="/admin/blog-dashboard" component={BlogDashboard} />
+        <Route path="/terms" component={TermsOfService} />
+        <Route path="/privacy" component={PrivacyPolicy} />
+        <Route path="/cookies" component={CookiePolicy} />
+        <Route path="/security" component={SecurityPolicy} />
+        <Route component={NotFound} />
+      </Switch>
+    </Suspense>
   );
 }
 

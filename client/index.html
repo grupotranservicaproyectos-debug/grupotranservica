@@ -355,7 +355,7 @@
 
     <!-- Critical CSS Inline for faster FCP -->
     <style>
-      *,*::before,*::after{box-sizing:border-box}body{margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,sans-serif;-webkit-font-smoothing:antialiased}#root{min-height:100vh}.bg-black{background-color:#000}.bg-white{background-color:#fff}.text-white{color:#fff}.text-gray-700{color:#374151}.min-h-screen{min-height:100vh}.relative{position:relative}.absolute{position:absolute}.inset-0{inset:0}.z-50{z-index:50}.flex{display:flex}.items-center{align-items:center}.justify-between{justify-content:space-between}.hidden{display:none}@media(min-width:1024px){.lg\\:flex{display:flex}}.shadow-md{box-shadow:0 4px 6px -1px rgba(0,0,0,.1)}.py-3{padding-top:.75rem;padding-bottom:.75rem}.overflow-hidden{overflow:hidden}
+      :root{--transervica-green:#155d29}*,*::before,*::after{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;line-height:1.5}#root{min-height:100vh}.bg-black{background:#000}.bg-white{background:#fff}.text-white{color:#fff}.text-gray-700{color:#374151}.min-h-screen{min-height:100vh}.relative{position:relative}.absolute{position:absolute}.inset-0{inset:0}.z-50{z-index:50}.z-20{z-index:20}.flex{display:flex}.items-center{align-items:center}.items-end{align-items:flex-end}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.hidden{display:none}.w-full{width:100%}.h-16{height:4rem}.h-24{height:6rem}.space-x-8>:not([hidden])~:not([hidden]){margin-left:2rem}.py-3{padding:.75rem 0}.px-4{padding:0 1rem}.shadow-md{box-shadow:0 4px 6px -1px rgba(0,0,0,.1)}.overflow-hidden{overflow:hidden}.rounded-lg{border-radius:.5rem}.transition{transition:all .3s}.cursor-pointer{cursor:pointer}.font-bold{font-weight:700}.text-sm{font-size:.875rem}.uppercase{text-transform:uppercase}@media(min-width:1024px){.lg\\:flex{display:flex}.lg\\:hidden{display:none}}@media(max-width:1023px){.lg\\:flex{display:none}}nav{background:#fff}.animate-spin{animation:spin 1s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
     </style>
 
     <!-- Fonts with optimized loading -->
@@ -401,10 +401,6 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-    <!-- This is a replit script which adds a banner on the top of the page when opened in development mode outside the replit environment -->
-    <script
-      type="text/javascript"
-      src="https://replit.com/public/js/replit-dev-banner.js"
-    ></script>
+    <script defer src="https://replit.com/public/js/replit-dev-banner.js"></script>
   </body>
 </html>
