@@ -43,8 +43,10 @@ export default function Footer() {
               >
                 <img 
                   src={logoTranservica} 
-                  alt="TRANSERVICA Logo"
+                  alt="TRANSERVICA Logo - Transporte Cargas Excepcionales Venezuela"
                   loading="lazy"
+                  width={128}
+                  height={96}
                   className="h-24 md:h-28 lg:h-32 w-auto max-w-full hover:scale-105 transition-transform duration-300 filter brightness-150 contrast-125 drop-shadow-lg"
                   style={{ 
                     imageRendering: 'crisp-edges',

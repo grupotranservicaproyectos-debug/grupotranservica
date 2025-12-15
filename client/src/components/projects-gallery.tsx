@@ -80,8 +80,11 @@ export default function ProjectsGallery() {
             <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition">
               <img 
                 src={project.image} 
-                alt={project.title} 
+                alt={`Proyecto TRANSERVICA: ${project.title} - Transporte de ${project.weight}`} 
                 className="w-full h-64 object-cover"
+                width={400}
+                height={256}
+                loading="lazy"
               />
               <div className="p-6">
                 <h3 className="text-xl font-bold text-gray-800 mb-2">{project.title}</h3>
@@ -111,6 +114,8 @@ export default function ProjectsGallery() {
                       src={project.image} 
                       alt={`Proyecto TRANSERVICA: ${project.title} - Transporte de ${project.weight}`} 
                       className="w-full h-64 object-cover"
+                      width={400}
+                      height={256}
                       loading="lazy"
                     />
                     <div className="p-6">
