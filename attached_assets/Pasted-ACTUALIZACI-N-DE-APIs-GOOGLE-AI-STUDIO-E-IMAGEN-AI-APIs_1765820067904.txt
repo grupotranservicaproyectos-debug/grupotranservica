@@ -1,0 +1,70 @@
+ACTUALIZACIÓN DE APIs - GOOGLE AI STUDIO E IMAGEN AI
+
+=== APIs PROPORCIONADAS ===
+
+1. GOOGLE AI STUDIO (IMAGEN AI - NANO BANANA PRO)
+API Key: AIzaSyC-ppS8qhlsqEzvGhUzA1RDKL2Zf5NxySs
+Uso: Generación de imágenes para blogs
+Modelo: Imagen 3 o equivalente disponible
+
+2. OPENROUTER (GENERACIÓN DE TEXTO)
+API Key: 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
+Uso: Generación de contenido de blogs
+Modelo recomendado: google/gemini-pro-1.5 o anthropic/claude-3.5-sonnet
+
+=== TAREAS ESPECÍFICAS ===
+
+1. AGREGAR GOOGLE AI STUDIO PARA IMÁGENES
+- Añadir variable de entorno: GOOGLE_AI_STUDIO_API_KEY=AIzaSyC-ppS8qhlsqEzvGhUzA1RDKL2Zf5NxySs
+- Crear servicio /server/services/imageAI.ts para generar imágenes con Google AI
+- Endpoint: https://generativelanguage.googleapis.com/v1beta/models/imagen-3.0-generate-001:predict
+- Prompt para imágenes: "Professional photo of {tema}, heavy transport truck, industrial equipment, Venezuela, high quality, photorealistic, 4K"
+- Tamaño: 1920x1080 (hero), 640x360 (thumbnail)
+- Formato: WebP optimizado
+- Prioridad de proveedores: 1. Google AI Studio, 2. Pexels, 3. Freepik, 4. Unsplash
+
+2. ACTUALIZAR OPENROUTER PARA GENERACIÓN DE TEXTO
+- Actualizar variable: OPENROUTER_API_KEY=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
+- Cambiar modelo actual (deepseek) a: google/gemini-pro-1.5
+- Alternativa si falla: anthropic/claude-3.5-sonnet
+- Actualizar en /server/services/blogAIService.ts
+- Endpoint: https://openrouter.ai/api/v1/chat/completions
+- Headers requeridos:
+  * Authorization: Bearer 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
+  * HTTP-Referer: https://grupotranservica.com
+  * X-Title: TRANSERVICA Blog Generator
+
+3. CONFIGURAR VARIABLES DE ENTORNO
+Añadir en Secrets (pestillos):
+```
+GOOGLE_AI_STUDIO_API_KEY=AIzaSyC-ppS8qhlsqEzvGhUzA1RDKL2Zf5NxySs
+OPENROUTER_API_KEY=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
+OPENROUTER_MODEL=google/gemini-pro-1.5
+```
+
+4. ACTUALIZAR FLUJO DE GENERACIÓN
+- Paso 1: Generar contenido con OpenRouter (Gemini Pro 1.5)
+- Paso 2: Extraer tema principal del contenido
+- Paso 3: Generar imagen con Google AI Studio basada en tema
+- Paso 4: Si Google AI falla, usar Pexels como backup
+- Paso 5: Optimizar imagen a WebP
+- Paso 6: Guardar en base de datos con metadata completa
+
+5. VALIDACIONES Y MANEJO DE ERRORES
+- Verificar que ambas API keys estén configuradas al iniciar
+- Retry logic: 3 intentos para cada API
+- Timeout: 30 segundos para generación de imagen
+- Logs detallados: timestamp, modelo usado, tokens consumidos, tiempo de respuesta
+- Si Google AI falla, notificar en logs pero continuar con Pexels
+
+6. TESTING
+- Probar generación de contenido con OpenRouter
+- Probar generación de imagen con Google AI Studio
+- Validar que backup a Pexels funciona si Google AI falla
+- Verificar que imágenes se guarden en formato WebP
+
+IMPLEMENTA ESTOS CAMBIOS AHORA:
+- Agregar ambas API keys a Secrets
+- Actualizar servicios de generación de contenido e imágenes
+- Probar sistema completo
+- Confirmar que todo funciona correctamente
