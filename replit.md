@@ -58,11 +58,36 @@ A complete automated contact form system is implemented with PostgreSQL storage 
 - **YouTube**: Video embedding.
 - **Google Fonts**: Typography.
 - **WhatsApp**: Direct messaging integration.
-- **OpenRouter API**: For AI-driven content generation (blog).
-- **Image APIs**: Pexels (primary), Freepik, Shutterstock, Unsplash (fallback order) for automated blog images.
+- **OpenRouter API**: For AI-driven content generation (blog) using Gemini Pro 1.5 with Claude 3.5 Sonnet fallback.
+- **Google AI Studio**: For AI image generation (Imagen 3.0) as primary image source.
+- **Image APIs**: Google AI Studio (primary), Pexels, Freepik, Shutterstock, Unsplash (fallback order) for automated blog images.
 - **Gmail SMTP (via Nodemailer)**: For email notifications from contact forms.
 
 ## Recent Changes
+
+### API Updates - Google AI Studio & OpenRouter (December 15, 2025)
+Actualizado sistema de generación de blogs con nuevas APIs:
+
+#### Generación de Imágenes (Google AI Studio):
+- **API**: Google AI Studio con Imagen 3.0
+- **Endpoint**: `generativelanguage.googleapis.com/v1beta/models/imagen-3.0-generate-001:predict`
+- **Prompt**: Professional photos of heavy transport equipment
+- **Formato**: WebP optimizado (16:9 aspect ratio)
+- **Retry logic**: 3 intentos con timeout de 30 segundos
+- **Prioridad de proveedores**: Google AI Studio (1) → Pexels (2) → Freepik (3) → Shutterstock (4) → Unsplash (5)
+
+#### Generación de Contenido (OpenRouter):
+- **Modelo primario**: `google/gemini-pro-1.5`
+- **Modelo fallback**: `anthropic/claude-3.5-sonnet`
+- **Logs**: Modelo usado, tokens consumidos, tiempo de respuesta
+- **Variable de entorno**: `OPENROUTER_MODEL` para configurar modelo
+
+#### Variables de Entorno Requeridas:
+```
+GOOGLE_AI_STUDIO_API_KEY=<key>
+OPENROUTER_API_KEY=<key>
+OPENROUTER_MODEL=google/gemini-pro-1.5
+```
 
 ### Panel Admin SEO (December 6, 2025)
 Implementado panel de administración SEO para monitoreo y análisis del sistema de blogs automatizados:
