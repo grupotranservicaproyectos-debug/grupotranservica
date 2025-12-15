@@ -1,14 +1,19 @@
 import express, { type Request, Response, NextFunction } from "express";
 import compression from "compression";
+import zlib from "zlib";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
 
 const app = express();
 
-// Enable GZIP compression for all responses
+// Enable compression with Brotli support for maximum performance
 app.use(compression({
   level: 6,
-  threshold: 1024,
+  threshold: 512,
+  brotli: {
+    enabled: true,
+    zlib: {},
+  },
   filter: (req, res) => {
     if (req.headers['x-no-compression']) {
       return false;
