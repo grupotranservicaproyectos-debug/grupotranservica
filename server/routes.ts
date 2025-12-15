@@ -674,9 +674,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
           latestErrors: latestLog?.errors || [],
         },
         schedule: {
-          cron: "30 6 * * *",
+          cron: "30 7 * * *",
           timezone: "America/Panama",
-          nextScheduledTime: "6:30 AM tomorrow",
+          nextScheduledTime: "7:30 AM tomorrow",
         },
       });
     } catch (error) {
