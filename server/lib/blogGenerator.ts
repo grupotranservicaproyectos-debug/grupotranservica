@@ -244,38 +244,63 @@ IMPORTANTE: No incluyas tags <html>, <head> o <body>. Solo el contenido del art�
       throw new Error('OPENROUTER_API_KEY not configured');
     }
 
-    const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${apiKey}`,
-        'Content-Type': 'application/json',
-        'HTTP-Referer': 'https://grupotranservica.com',
-        'X-Title': 'Grupo Transervica Blog Generator',
-      },
-      body: JSON.stringify({
-        model: 'deepseek/deepseek-chat',
-        messages: [
-          {
-            role: 'user',
-            content: prompt,
+    const primaryModel = process.env.OPENROUTER_MODEL || 'google/gemini-pro-1.5';
+    const fallbackModel = 'anthropic/claude-3.5-sonnet';
+    
+    let content = '';
+    let usedModel = primaryModel;
+
+    for (const model of [primaryModel, fallbackModel]) {
+      try {
+        console.log(`🤖 Trying model: ${model}`);
+        const startTime = Date.now();
+        
+        const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${apiKey}`,
+            'Content-Type': 'application/json',
+            'HTTP-Referer': 'https://grupotranservica.com',
+            'X-Title': 'TRANSERVICA Blog Generator',
           },
-        ],
-        temperature: 0.7,
-        max_tokens: 2000,
-      }),
-    });
+          body: JSON.stringify({
+            model: model,
+            messages: [
+              {
+                role: 'user',
+                content: prompt,
+              },
+            ],
+            temperature: 0.7,
+            max_tokens: 2000,
+          }),
+        });
 
-    if (!response.ok) {
-      const errorData = await response.json().catch(() => ({}));
-      console.error('OpenRouter API error:', response.status, response.statusText, errorData);
-      throw new Error(`OpenRouter API error: ${response.status} ${response.statusText}`);
+        const responseTime = Date.now() - startTime;
+
+        if (!response.ok) {
+          const errorData = await response.json().catch(() => ({}));
+          console.error(`OpenRouter API error with ${model}:`, response.status, response.statusText, errorData);
+          continue;
+        }
+
+        const data = await response.json();
+        content = data.choices[0]?.message?.content || '';
+        
+        if (content) {
+          usedModel = model;
+          const tokensUsed = data.usage?.total_tokens || 'unknown';
+          console.log(`✅ Content generated with ${model} | Time: ${responseTime}ms | Tokens: ${tokensUsed}`);
+          break;
+        }
+      } catch (modelError) {
+        console.error(`Error with model ${model}:`, modelError);
+        continue;
+      }
     }
-
-    const data = await response.json();
-    const content = data.choices[0]?.message?.content || '';
     
     if (!content) {
-      throw new Error('Empty content from OpenRouter API');
+      throw new Error('All models failed to generate content');
     }
     
     const metaDescription = content
@@ -283,7 +308,7 @@ IMPORTANTE: No incluyas tags <html>, <head> o <body>. Solo el contenido del art�
       .substring(0, 155)
       .trim();
 
-    console.log(`✅ Blog content generated successfully using OpenRouter API for: ${title}`);
+    console.log(`✅ Blog content generated successfully using ${usedModel} for: ${title}`);
 
     return {
       title,

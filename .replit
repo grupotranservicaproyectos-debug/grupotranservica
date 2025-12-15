@@ -42,3 +42,4 @@ waitForPort = 5000
 
 [userenv.shared]
 PEXELS_API_KEY = "ThIQgDLB8gLdfKB4Lo3YHtmwsQGDvvsICa2LIfA2vm3mdw3eZZoxgkEn"
+OPENROUTER_MODEL = "google/gemini-pro-1.5"
