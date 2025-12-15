@@ -59,7 +59,7 @@ A complete automated contact form system is implemented with PostgreSQL storage 
 - **Google Fonts**: Typography.
 - **WhatsApp**: Direct messaging integration.
 - **OpenRouter API**: For AI-driven content generation (blog).
-- **Pexels API**: For automated image fetching (blog).
+- **Image APIs**: Pexels (primary), Freepik, Shutterstock, Unsplash (fallback order) for automated blog images.
 - **Gmail SMTP (via Nodemailer)**: For email notifications from contact forms.
 
 ## Recent Changes
@@ -109,9 +109,9 @@ Migrado sistema de generación automática de blogs de node-cron a Replit Schedu
 - **Plan recomendado**: Replit Core ($20/mes) es más que suficiente
 
 #### Horario de Generación:
-- **Hora**: 6:30 AM diariamente
+- **Hora**: 7:30 AM diariamente
 - **Zona horaria**: America/Panama (UTC-5)
-- **Cron expression**: `30 6 * * *`
+- **Cron expression**: `30 7 * * *`
 
 #### Enlaces de Blogs SEO Automatizados:
 

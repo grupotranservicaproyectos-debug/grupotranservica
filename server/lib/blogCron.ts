@@ -36,7 +36,6 @@ export function startBlogCron(storage: IStorage) {
       console.error('❌ Error in automatic blog generation:', error);
     }
   }, {
-    scheduled: true,
     timezone: 'America/Panama'
   });
 
