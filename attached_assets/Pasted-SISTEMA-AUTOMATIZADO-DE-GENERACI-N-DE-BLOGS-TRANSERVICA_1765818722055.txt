@@ -1,0 +1,124 @@
+SISTEMA AUTOMATIZADO DE GENERACIÓN DE BLOGS - TRANSERVICA
+
+=== OBJETIVO ===
+Crear un sistema que genere automáticamente artículos de blog diarios a las 7:30 AM hora de Panamá (GMT-5), con título, contenido optimizado SEO, imágenes y slug automático.
+
+=== ARQUITECTURA DEL SISTEMA ===
+
+1. CRON JOB / SCHEDULED TASK
+- Implementar node-cron para ejecución diaria
+- Horario: '30 7 * * *' (7:30 AM hora servidor)
+- Convertir a timezone 'America/Panama' usando moment-timezone
+- Logs de ejecución en archivo separado
+
+2. GENERADOR DE CONTENIDO
+- API: Usar OpenAI GPT-4 o Claude para generación de contenido
+- Prompt template optimizado para transporte de cargas en Venezuela
+- Temas rotativos:
+  * Transporte de cargas excepcionales
+  * Seguridad en transporte pesado
+  * Equipos SCHEUERLE y tecnología
+  * Normativas venezolanas de transporte
+  * Casos de éxito y proyectos
+  * Mantenimiento de equipos
+  * Logística y planificación
+  * Sectores: petrolero, petroquímico, siderúrgico, energético
+  * Ciudades: Caracas, Maracaibo, Valencia, Puerto Cabello, Punto Fijo
+
+3. ESTRUCTURA DEL ARTÍCULO
+- Título: 60-70 caracteres, incluir keywords
+- Slug: auto-generado desde título (lowercase, sin tildes, guiones)
+- Fecha: timestamp automático (ISO 8601)
+- Autor: "Equipo TRANSERVICA"
+- Categoría: auto-asignada según tema
+- Contenido: 
+  * Introducción (150-200 palabras)
+  * 3-4 secciones con H2 (300-400 palabras cada una)
+  * Conclusión con CTA (100-150 palabras)
+  * Total: 1200-1800 palabras
+- Keywords: 5-7 keywords relevantes
+- Meta description: 150-160 caracteres
+
+4. GENERACIÓN DE IMÁGENES
+- Fuente: Unsplash API (imágenes gratis de transporte/logística/camiones)
+- Query de búsqueda: basado en tema del artículo
+- Formato: WebP optimizado (calidad 80%)
+- Tamaños: hero (1920x1080), thumbnail (640x360)
+- Alt text: auto-generado descriptivo
+- Guardar en: /public/blog-images/{slug}/
+
+5. BASE DE DATOS
+- Tabla: blog_posts
+- Campos:
+  * id (UUID)
+  * title (VARCHAR 200)
+  * slug (VARCHAR 200, UNIQUE)
+  * content (TEXT)
+  * excerpt (VARCHAR 300)
+  * featured_image (VARCHAR 500)
+  * author (VARCHAR 100)
+  * category (VARCHAR 50)
+  * keywords (JSON)
+  * meta_description (VARCHAR 160)
+  * published_date (TIMESTAMP)
+  * status (ENUM: draft, published)
+  * views (INTEGER, default 0)
+  * created_at (TIMESTAMP)
+  * updated_at (TIMESTAMP)
+
+6. SITEMAP AUTO-UPDATE
+- Después de crear blog, actualizar /api/sitemap.xml
+- Añadir nueva URL: /seo-blog/{slug}
+- Priority: 0.8
+- Changefreq: monthly
+- Lastmod: fecha de publicación
+
+7. VALIDACIONES Y SEGURIDAD
+- Verificar que no existan slugs duplicados
+- Sanitizar contenido HTML
+- Validar longitud mínima de contenido (1000 palabras)
+- Rate limiting en API calls
+- Retry logic si falla generación (max 3 intentos)
+
+8. LOGS Y MONITOREO
+- Log exitoso: timestamp, título, slug, palabras
+- Log de errores: timestamp, tipo de error, stack trace
+- Notificación por email si falla 3 días consecutivos
+
+9. PROMPT TEMPLATE PARA GPT
+```
+Genera un artículo de blog profesional sobre {TEMA} para TRANSERVICA, empresa venezolana especializada en transporte de cargas excepcionales hasta 1,100 toneladas.
+
+Requsitos:
+- Título atractivo con keyword {KEYWORD}
+- Introducción que capte atención (150-200 palabras)
+- 3 secciones principales con H2:
+  1. {SECCION_1}
+  2. {SECCION_2}
+  3. {SECCION_3}
+- Incluir datos técnicos sobre transporte pesado
+- Mencionar equipos SCHEUERLE y capacidades de TRANSERVICA
+- Conclusión con CTA: "Contáctenos para su proyecto"
+- Tono: profesional, informativo, técnico
+- Longitud: 1200-1500 palabras
+- Incluir 5-7 keywords relevantes
+- Meta description de 155 caracteres
+```
+
+10. CONFIGURACIÓN ENV
+```
+OPENAI_API_KEY=tu_api_key
+UNSPLASH_ACCESS_KEY=tu_access_key
+BLOG_TIMEZONE=America/Panama
+BLOG_SCHEDULE_TIME=30 7 * * *
+DATABASE_URL=tu_database_url
+NOTIFICATION_EMAIL=grupotranservicaproyectos@gmail.com
+```
+
+IMPLEMENTA ESTE SISTEMA COMPLETO AHORA.
+- Crear archivo /server/services/blogGenerator.ts
+- Crear archivo /server/cron/dailyBlog.ts
+- Crear schema de base de datos
+- Configurar cron job
+- Probar generación manual primero
+- Activar automatización

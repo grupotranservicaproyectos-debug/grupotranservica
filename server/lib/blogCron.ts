@@ -11,12 +11,12 @@ export function startBlogCron(storage: IStorage) {
   }
 
   console.log('🔄 Initializing automatic blog generation cron job...');
-  console.log('📅 Schedule: Daily at 3:00 AM (Venezuela time)');
+  console.log('📅 Schedule: Daily at 7:30 AM (Panama time / GMT-5)');
   
-  cron.schedule('0 3 * * *', async () => {
+  cron.schedule('30 7 * * *', async () => {
     try {
       console.log('\n🤖 Starting automatic blog generation...');
-      console.log(`🕐 Time: ${new Date().toLocaleString('es-VE', { timeZone: 'America/Caracas' })}`);
+      console.log(`🕐 Time: ${new Date().toLocaleString('es-PA', { timeZone: 'America/Panama' })}`);
       
       const blogs = await generate5Blogs();
       const createdBlogs = [];
@@ -37,7 +37,7 @@ export function startBlogCron(storage: IStorage) {
     }
   }, {
     scheduled: true,
-    timezone: 'America/Caracas'
+    timezone: 'America/Panama'
   });
 
   isCronRunning = true;

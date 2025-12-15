@@ -128,12 +128,20 @@ async function searchShutterstock(query: string, count: number): Promise<string[
 }
 
 async function searchUnsplash(query: string, count: number): Promise<string[]> {
+  const accessKey = process.env.UNSPLASH_ACCESS_KEY;
+  
+  if (!accessKey) {
+    console.warn('UNSPLASH_ACCESS_KEY not configured, skipping Unsplash');
+    return [];
+  }
+
   try {
     const searchQuery = encodeURIComponent(query);
     const response = await fetch(
-      `https://api.unsplash.com/search/photos?query=${searchQuery}&per_page=${count}&orientation=landscape&client_id=demo`,
+      `https://api.unsplash.com/search/photos?query=${searchQuery}&per_page=${count}&orientation=landscape`,
       {
         headers: {
+          'Authorization': `Client-ID ${accessKey}`,
           'Accept-Version': 'v1'
         }
       }
