@@ -127,8 +127,9 @@ export default function SEOBlogArticle() {
           {/* Back Button */}
           <Link href="/seo-blog">
             <button 
-              className="flex items-center gap-2 text-[#155d29] hover:text-[#0f4a21] mb-6 transition-colors"
+              className="flex items-center gap-2 text-[#155d29] hover:text-[#0f4a21] mb-6 transition-colors min-h-[48px] py-2"
               data-testid="button-back"
+              aria-label="Volver a la lista de artículos del blog"
             >
               <ArrowLeft className="w-5 h-5" />
               Volver al blog
@@ -141,8 +142,13 @@ export default function SEOBlogArticle() {
             <div className="aspect-video overflow-hidden bg-gradient-to-br from-[#155d29] to-[#0f4a21]">
               <img
                 src={blog.coverImage || 'https://placehold.co/1200x630/155d29/ffffff?text=TRANSERVICA'}
-                alt={blog.title}
+                alt={`${blog.title} - Transporte de Cargas Excepcionales Venezuela`}
                 className="w-full h-full object-cover"
+                width={1200}
+                height={630}
+                fetchPriority="high"
+                decoding="sync"
+                style={{ aspectRatio: '16/9' }}
               />
             </div>
 
@@ -180,8 +186,9 @@ export default function SEOBlogArticle() {
                 </div>
                 <button
                   onClick={handleShare}
-                  className="flex items-center gap-2 text-gray-600 hover:text-[#155d29] transition-colors ml-auto"
+                  className="flex items-center gap-2 text-gray-600 hover:text-[#155d29] transition-colors ml-auto min-h-[48px] py-2"
                   data-testid="button-share"
+                  aria-label="Compartir este artículo"
                 >
                   <Share2 className="w-5 h-5" />
                   <span>Compartir</span>
@@ -211,9 +218,13 @@ export default function SEOBlogArticle() {
                     <div key={index} className="rounded-xl overflow-hidden shadow-lg">
                       <img
                         src={imageUrl}
-                        alt={`${blog.title} - Imagen ${index + 1}`}
+                        alt={`${blog.title} - Transporte pesado Venezuela - Imagen ${index + 1}`}
                         className="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
                         loading="lazy"
+                        decoding="async"
+                        width={600}
+                        height={256}
+                        style={{ aspectRatio: '600/256' }}
                       />
                     </div>
                   ))}
@@ -225,31 +236,33 @@ export default function SEOBlogArticle() {
                 <h3 className="text-2xl font-bold mb-6 text-center">📞 Datos de Contacto - Grupo Transervica, C.A.</h3>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
                   <div>
-                    <Phone className="w-8 h-8 mx-auto mb-2" />
+                    <Phone className="w-8 h-8 mx-auto mb-2" aria-hidden="true" />
                     <p className="font-semibold mb-1">Teléfonos</p>
-                    <a href="tel:+584226361047" className="block text-sm hover:underline">+58 422-6361047</a>
-                    <a href="tel:+584123675636" className="block text-sm hover:underline">+58 412-367-5636</a>
-                    <a href="tel:+584142776340" className="block text-sm hover:underline">+58 414-277-6340</a>
+                    <a href="tel:+584226361047" className="block text-sm hover:underline min-h-[44px] py-2" aria-label="Llamar al +58 422-6361047">+58 422-6361047</a>
+                    <a href="tel:+584123675636" className="block text-sm hover:underline min-h-[44px] py-2" aria-label="Llamar al +58 412-367-5636">+58 412-367-5636</a>
+                    <a href="tel:+584142776340" className="block text-sm hover:underline min-h-[44px] py-2" aria-label="Llamar al +58 414-277-6340">+58 414-277-6340</a>
                   </div>
                   <div>
-                    <Mail className="w-8 h-8 mx-auto mb-2" />
+                    <Mail className="w-8 h-8 mx-auto mb-2" aria-hidden="true" />
                     <p className="font-semibold mb-1">Emails</p>
-                    <a href="mailto:direccioncomercialtvc@grupotranservica.com" className="block text-sm hover:underline break-all">
+                    <a href="mailto:direccioncomercialtvc@grupotranservica.com" className="block text-sm hover:underline break-all min-h-[44px] py-2" aria-label="Enviar email a dirección comercial">
                       direccioncomercialtvc@grupotranservica.com
                     </a>
-                    <a href="mailto:direccionejecutivatvc@grupotranservica.com" className="block text-sm hover:underline break-all">
+                    <a href="mailto:direccionejecutivatvc@grupotranservica.com" className="block text-sm hover:underline break-all min-h-[44px] py-2" aria-label="Enviar email a dirección ejecutiva">
                       direccionejecutivatvc@grupotranservica.com
                     </a>
                   </div>
                   <div>
-                    <MapPinned className="w-8 h-8 mx-auto mb-2" />
+                    <MapPinned className="w-8 h-8 mx-auto mb-2" aria-hidden="true" />
                     <p className="font-semibold mb-1">Ubicación</p>
                     <p className="text-sm">Venezuela</p>
                     <a 
                       href="https://wa.me/message/WAKKACM55ESHC1" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="inline-block mt-2 px-4 py-2 bg-green-600 hover:bg-green-700 rounded-lg text-sm font-semibold transition-colors"
+                      className="inline-block mt-2 px-4 py-2 bg-green-600 hover:bg-green-700 rounded-lg text-sm font-semibold transition-colors min-h-[48px]"
+                      aria-label="Contactar por WhatsApp"
+                      data-testid="link-whatsapp-contact"
                     >
                       💬 WhatsApp
                     </a>
@@ -273,8 +286,13 @@ export default function SEOBlogArticle() {
                               {relatedBlog.coverImage && (
                                 <img
                                   src={relatedBlog.coverImage}
-                                  alt={relatedBlog.title}
+                                  alt={`${relatedBlog.title} - Artículo relacionado`}
                                   className="w-20 h-20 object-cover rounded-lg"
+                                  loading="lazy"
+                                  decoding="async"
+                                  width={80}
+                                  height={80}
+                                  style={{ aspectRatio: '1/1' }}
                                 />
                               )}
                               <div className="flex-1">
@@ -336,15 +354,17 @@ export default function SEOBlogArticle() {
                     href="https://wa.me/message/WAKKACM55ESHC1"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-white text-[#155d29] px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+                    className="bg-white text-[#155d29] px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors min-h-[48px] flex items-center"
                     data-testid="link-whatsapp"
+                    aria-label="Contactar por WhatsApp para cotización"
                   >
                     WhatsApp
                   </a>
                   <a
                     href="tel:+584226361047"
-                    className="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-[#155d29] transition-colors"
+                    className="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-[#155d29] transition-colors min-h-[48px] flex items-center"
                     data-testid="link-phone"
+                    aria-label="Llamar al +58 422-6361047"
                   >
                     +58 422-6361047
                   </a>
