@@ -3,6 +3,11 @@ import nodemailer from 'nodemailer';
 const gmailUser = process.env.GMAIL_USER;
 const gmailAppPassword = process.env.GMAIL_APP_PASSWORD;
 
+// Debug logging for email configuration (only show lengths for security)
+console.log(`[EMAIL CONFIG] GMAIL_USER: ${gmailUser ? gmailUser : 'NOT SET'}`);
+console.log(`[EMAIL CONFIG] GMAIL_APP_PASSWORD length: ${gmailAppPassword ? gmailAppPassword.length : 0} characters`);
+console.log(`[EMAIL CONFIG] GMAIL_APP_PASSWORD first 2 chars: ${gmailAppPassword ? gmailAppPassword.substring(0, 2) + '***' : 'N/A'}`);
+
 if (!gmailUser || !gmailAppPassword) {
   console.error('ERROR: GMAIL_USER and GMAIL_APP_PASSWORD must be set in environment variables');
 }
