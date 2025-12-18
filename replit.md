@@ -65,6 +65,37 @@ A complete automated contact form system is implemented with PostgreSQL storage 
 
 ## Recent Changes
 
+### Performance Optimizations for Mobile LCP (December 18, 2025)
+Implemented performance improvements to address mobile LCP issues (was 9.8s):
+
+#### Hero Section YouTube Lazy Loading:
+- **YouTube iframe now lazy-loaded** using React useState/useEffect
+- Iframe loads 100ms after initial render to keep off critical path
+- Background div stays black during loading for smooth transition
+- Significantly reduces LCP by not blocking initial paint
+
+#### Logo Preload Optimization:
+- **Changed logo preload from PNG to WebP** in index.html
+- Added `fetchpriority="high"` to preload directive
+- WebP format reduces file size while maintaining quality
+
+#### Console Warning Fixes:
+- **Removed unsupported `fetchPriority` attribute** from React img elements
+- Logo is already preloaded via HTML, React attribute was redundant
+- Eliminates "React does not recognize fetchPriority" warnings
+
+#### Files Modified:
+- `client/index.html`: WebP logo preload with high priority
+- `client/src/components/hero-section.tsx`: Lazy-loaded YouTube iframe
+- `client/src/components/blog-header.tsx`: Removed fetchPriority attribute
+- `client/src/pages/seo-blog-article.tsx`: Removed fetchPriority attribute
+
+#### Verified Existing Optimizations:
+- Gzip compression at level 6 in server/index.ts ✓
+- Cache headers with 1 year max-age for static assets ✓
+- All below-fold images have `loading="lazy"` and `decoding="async"` ✓
+- Font `display=swap` on Google Fonts ✓
+
 ### API Updates - Google AI Studio & OpenRouter (December 15, 2025)
 Actualizado sistema de generación de blogs con nuevas APIs:
 
