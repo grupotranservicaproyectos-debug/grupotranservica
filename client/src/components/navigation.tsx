@@ -23,11 +23,15 @@ export default function Navigation() {
           <div className="flex items-center">
             <button 
               onClick={() => scrollToSection('inicio')}
-              className="focus:outline-none"
+              className="focus:outline-none focus:ring-2 focus:ring-transervica-green focus:ring-offset-2 rounded-lg"
+              aria-label="Ir al inicio - TRANSERVICA"
+              data-testid="button-logo-home"
             >
               <img 
                 src={logoTranservica} 
-                alt="TRANSERVICA Logo" 
+                alt="TRANSERVICA Logo - Transporte Cargas Excepcionales Venezuela" 
+                width={160}
+                height={96}
                 className="h-24 w-auto hover:scale-105 transition-transform duration-300"
               />
             </button>
@@ -85,7 +89,11 @@ export default function Navigation() {
           <div className="md:hidden">
             <button 
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-700 hover:text-transervica-green"
+              className="text-gray-700 hover:text-transervica-green min-w-[48px] min-h-[48px] flex items-center justify-center p-2"
+              aria-label={isMenuOpen ? "Cerrar menú de navegación" : "Abrir menú de navegación"}
+              aria-expanded={isMenuOpen}
+              aria-controls="mobile-navigation"
+              data-testid="button-mobile-menu"
             >
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -94,7 +102,7 @@ export default function Navigation() {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden">
+          <div className="md:hidden" id="mobile-navigation" role="navigation" aria-label="Menú de navegación móvil">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
               <button 
                 onClick={() => scrollToSection('inicio')}

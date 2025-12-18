@@ -232,7 +232,11 @@ export default function ProjectsCarousel() {
                     src={currentProject.image}
                     alt={`Proyecto TRANSERVICA: ${currentProject.title} - Transporte ${currentProject.weight} ${currentProject.location} Venezuela`}
                     loading="lazy"
+                    width={600}
+                    height={600}
+                    decoding="async"
                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                    style={{ aspectRatio: '1/1' }}
                   />
                   
                   {/* Image Overlay */}
@@ -283,10 +287,12 @@ export default function ProjectsCarousel() {
                         contactSection.scrollIntoView({ behavior: 'smooth' });
                       }
                     }}
-                    className="w-full md:w-auto text-white font-bold py-4 px-8 rounded-xl transform transition-all duration-200 hover:scale-105 hover:shadow-lg" 
+                    className="w-full md:w-auto text-white font-bold py-4 px-8 rounded-xl transform transition-all duration-200 hover:scale-105 hover:shadow-lg min-h-[48px]" 
                     style={{ backgroundColor: '#155d29' }} 
                     onMouseEnter={(e) => (e.target as HTMLElement).style.backgroundColor = '#a8e6a8'} 
                     onMouseLeave={(e) => (e.target as HTMLElement).style.backgroundColor = '#155d29'}
+                    aria-label={`Solicitar cotización para ${currentProject.title}`}
+                    data-testid="button-carousel-cta"
                   >
                     {currentCTA}
                   </button>

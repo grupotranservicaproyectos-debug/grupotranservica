@@ -1,0 +1,27 @@
+Las debilidades digitales completas de Transervica C.A. se dividen en dos categorías principales: **Limitaciones de Marketing y Visibilidad** (identificadas en el análisis FODA) y **Deficiencias Técnicas de SEO** (identificadas en la auditoría web).
+
+A continuación, se presenta un listado completo de las debilidades digitales de `grupotranservica.com`:
+
+### I. Limitaciones de Marketing y Visibilidad (Debilidades Estratégicas)
+
+1.  **Ausencia Significativa en Redes Sociales:** Transervica presenta una **ausencia significativa o total en plataformas digitales principales** como Facebook, LinkedIn, Instagram o Twitter.
+2.  **Carencia de Estrategia Digital Visible:** La empresa **carece de una estrategia visible en redes sociales principales**, lo que **limita su alcance y visibilidad** en el mercado actual.
+3.  **Contraste con Prácticas del Sector:** Esta falta de presencia digital **contrasta con las mejores prácticas del sector**, donde la presencia digital facilita la comunicación con clientes y el posicionamiento de marca.
+4.  **Modelo de Ventas Limitado:** El canal de ventas se basa **principalmente en contacto directo** (teléfono y ubicación física), **sin evidencia de plataformas digitales** que diversifiquen los puntos de contacto con clientes potenciales.
+5.  **Sitio Web Básico:** Su presencia digital se limita a un **sitio web corporativo** que ofrece solo **información corporativa básica y contacto directo**.
+
+### II. Deficiencias Técnicas Críticas (Errores SEO)
+
+Según la auditoría SEO exhaustiva realizada a la página `https://grupotranservica.com`, existen errores técnicos críticos que impiden un posicionamiento eficiente:
+
+1.  **Meta Description Faltante o Incompleta:** Este es un **problema crítico**. No se detecta una *meta description* adecuada, lo que provoca que los resultados de búsqueda en Google **no tengan una descripción clara**.
+2.  **Schema Structured Data Ausente:** Es un **problema crítico** que **no haya datos estructurados JSON-LD** (para `LocalBusiness` u `Organization`) implementados. Esto resulta en que Google **no entiende la estructura del negocio**.
+3.  **Falta de Archivos de Indexación:** Hay una **ausencia de los archivos `/public/sitemap.xml` y `/public/robots.txt`**. Esto es **importante** ya que **Google no puede indexar el sitio de manera eficiente**.
+4.  **H1 Duplicado o Débil:** Se detectó un **H1 duplicado o débil**, lo que significa que **no hay un encabezado `<h1>` claro** y único al inicio de la página.
+5.  **Alt Text Faltante en Imágenes:** Se identificaron **6 o más imágenes sin el atributo `alt`**, lo que conlleva una **pérdida de SEO en Google Imágenes**.
+6.  **Ausencia de Open Graph y Twitter Cards:** Estos protocolos **están ausentes**, lo que significa que **no existe una previsualización adecuada** al compartir el contenido en redes sociales.
+7.  **Optimización de Velocidad Pendiente:** Se identificó la necesidad de realizar optimizaciones para los *Core Web Vitals* y la velocidad, incluyendo:
+    *   Imágenes que **pueden ser 40% a 60% más pequeñas**.
+    *   Necesidad de **implementar *lazy loading* en videos**.
+    *   Necesidad de **minimizar archivos CSS y JavaScript**.
+    *   Falta de **configuración de *Cache Headers*** para contenido estático.

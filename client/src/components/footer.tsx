@@ -39,7 +39,9 @@ export default function Footer() {
             <div className="mb-8">
               <button 
                 onClick={() => navigateToSection('inicio')}
-                className="focus:outline-none mb-4"
+                className="focus:outline-none focus:ring-2 focus:ring-[#155d29] focus:ring-offset-2 focus:ring-offset-gray-900 rounded-lg mb-4 min-w-[48px] min-h-[48px]"
+                aria-label="Ir al inicio - TRANSERVICA"
+                data-testid="button-footer-logo"
               >
                 <img 
                   src={logoTranservica} 
@@ -50,7 +52,8 @@ export default function Footer() {
                   className="h-24 md:h-28 lg:h-32 w-auto max-w-full hover:scale-105 transition-transform duration-300 filter brightness-150 contrast-125 drop-shadow-lg"
                   style={{ 
                     imageRendering: 'crisp-edges',
-                    filter: 'brightness(1.5) contrast(1.25) drop-shadow(0 4px 8px rgba(0,0,0,0.3))'
+                    filter: 'brightness(1.5) contrast(1.25) drop-shadow(0 4px 8px rgba(0,0,0,0.3))',
+                    aspectRatio: '4/3'
                   }}
                 />
               </button>

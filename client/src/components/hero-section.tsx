@@ -267,8 +267,9 @@ export default function HeroSection() {
         href="https://wa.me/message/WAKKACM55ESHC1" 
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition z-50"
+        className="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition z-50 min-w-[56px] min-h-[56px] flex items-center justify-center"
         title="Contactar por WhatsApp"
+        aria-label="Contactar por WhatsApp - Atención 24/7"
         data-testid="button-whatsapp-floating"
       >
         <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 32 32">

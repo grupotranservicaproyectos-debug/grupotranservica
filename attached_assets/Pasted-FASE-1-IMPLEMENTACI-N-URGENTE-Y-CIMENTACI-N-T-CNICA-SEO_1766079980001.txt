@@ -1,0 +1,64 @@
+FASE 1: IMPLEMENTACIÓN URGENTE Y CIMENTACIÓN TÉCNICA SEO (Tiempo Estimado: 1 Semana)
+Esta fase se centra en corregir errores críticos que impiden la indexación eficiente y el posicionamiento fundamental (impacto directo en el score SEO y Accesibilidad).
+Tarea
+Categorías Impactadas
+Descripción y Especificación de Código
+1. Meta Descriptions y Open Graph
+SEO, Accesibilidad, Prácticas Recomendadas
+Corregir el problema crítico de Meta Description faltante e implementar Open Graph y Twitter Cards para mejorar la previsualización en redes sociales.  Añadir el código Open Graph en el <head>.
+2. Schema Structured Data (JSON-LD)
+SEO
+Implementar el JSON-LD de LocalBusiness antes del cierre del </head>. Esto es crítico para que Google comprenda la estructura del negocio (Transporte de cargas excepcionales) y mejore el SEO Local. Utilizar los datos específicos proporcionados (dirección, teléfono, redes sociales, horarios, coordenadas geográficas).
+3. Archivos de Indexación
+SEO, Prácticas Recomendadas
+Crear /public/robots.txt para definir el sitemap y las directivas de rastreo (desautorizando /admin y /api) y crear /public/sitemap.xml con las URLs principales (home, servicios, proyectos, blog) y frecuencia de cambio semanal/mensual.
+4. Optimización de Imágenes (Alt Text)
+SEO, Accesibilidad
+Asegurar que todas las imágenes (incluyendo la foto hero, transformador, grúas, vagones y reactor) tengan el atributo alt descriptivo. El alt text debe incluir la keyword principal y la ubicación geográfica del proyecto (ej: "Transporte Auto Transformador 170 Toneladas Puerto Cabello Villa de Cura - Servicios TRANSERVICA").
+5. Estructura de Encabezados (H1)
+SEO, Accesibilidad
+Asegurar un único <h1> claro en el inicio de la página, preferiblemente: "Transporte de Cargas Excepcionales hasta 1,100 Toneladas en Venezuela". Revisar que la jerarquía H2/H3 sea correcta y contenga variaciones de keywords.
+
+--------------------------------------------------------------------------------
+📊 FASE 2: VELOCIDAD Y EXPERIENCIA DE USUARIO (Core Web Vitals) (Tiempo Estimado: 2-3 Semanas)
+Esta fase aborda las optimizaciones de rendimiento y experiencia de usuario para garantizar el 100% en las categorías de Rendimiento y Prácticas recomendadas.
+Tarea
+Categorías Impactadas
+Descripción y Especificación de Código
+1. Optimización y Compresión de Imágenes
+Rendimiento, Prácticas Recomendadas
+Comprimir todas las imágenes (objetivo 40-60% de reducción de tamaño) y, si es posible, guardarlas en formato WebP para máxima eficiencia.
+2. Implementación de Lazy Loading
+Rendimiento, Prácticas Recomendadas
+Aplicar lazy loading a todos los videos y elementos multimedia, incluyendo los 9 videos de YouTube incrustados, para asegurar que el contenido se cargue solo cuando es visible.
+3. Optimización de Código y Cache
+Rendimiento, Prácticas Recomendadas
+Minimizar archivos CSS y JavaScript. Configurar los Cache Headers del servidor para contenido estático (assets) con una duración de 30 días (Cache-Control: max-age=2592000).
+4. Configuración Local SEO (GMB)
+SEO, Prácticas Recomendadas
+Configurar/Verificar Google My Business (GMB) con la información exacta del negocio (Nombre: GRUPO TRANSERVICA C.A, dirección, teléfono, horarios, categoría: "Servicios de Transporte") y subir un mínimo de 10 fotos de equipos y proyectos.
+5. Distribución de Keywords Inicial
+SEO
+Distribuir las keywords principales (transporte cargas excepcionales Venezuela, cargas sobredimensionadas Venezuela) en los H2, H3 y en las primeras 100 palabras de las secciones de la página de inicio.
+
+--------------------------------------------------------------------------------
+🎯 FASE 3: CONTENIDO, ESCALA Y AUTORIDAD (Mensual Continuo)
+Esta fase se enfoca en la estrategia de crecimiento orgánico y autoridad de dominio requerida para mantener el Ranking #1 y capitalizar las oportunidades de mercado (Impacto a largo plazo en SEO).
+Tarea
+Categorías Impactadas
+Descripción y Especificación de Contenido
+1. Creación de Blog Estratégico
+SEO, Accesibilidad
+Publicar los primeros 5 artículos de blog (mínimo 2,000 palabras cada uno). Prioridades: "Guía Completa: Permisos INTT para Cargas Excepcionales 2025", "Costo de Transportar Carga Excepcional en Venezuela" y "Equipos SCHEUERLE vs COMETTO: Comparativa".
+2. Optimización SEO Local por Ciudades
+SEO
+Crear páginas de aterrizaje dedicadas (mínimo 800 palabras) para las "Ciudades Servidas". Ejemplos de URLs: /servicios/transporte-caracas, /servicios/transporte-valencia, /servicios/transporte-puerto-cabello.
+3. Estrategia de Backlinks
+SEO, Autoridad
+Iniciar la construcción de 10-20 backlinks de calidad al mes. Priorizar las fuentes venezolanas (.ve) y los directorios de empresas de logística, incluyendo posibles partnerships (ej. SCHEUERLE) y comunicados de prensa de proyectos grandes.
+4. Integración de Sistemas
+Prácticas Recomendadas
+Integrar el sistema de seguimiento GPS y la plataforma de cotizaciones online en el sitio web (siguiendo el modelo exitoso de Felconsa). Implementar botones de acceso directo a WhatsApp Business para seguimiento de proyectos en tiempo real, ya que esta es una herramienta clave en el sector.
+
+--------------------------------------------------------------------------------
+Tiempo Estimado hasta Ranking #1 (para keywords principales)

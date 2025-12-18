@@ -137,7 +137,7 @@ export default function ProjectsGallery() {
           {/* Carousel Controls */}
           <button 
             onClick={prevSlide}
-            className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-lg hover:bg-gray-50"
+            className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-3 shadow-lg hover:bg-gray-50 min-w-[48px] min-h-[48px] flex items-center justify-center"
             aria-label="Proyecto anterior"
             data-testid="button-prev-slide"
           >
@@ -145,7 +145,7 @@ export default function ProjectsGallery() {
           </button>
           <button 
             onClick={nextSlide}
-            className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-lg hover:bg-gray-50"
+            className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-3 shadow-lg hover:bg-gray-50 min-w-[48px] min-h-[48px] flex items-center justify-center"
             aria-label="Proyecto siguiente"
             data-testid="button-next-slide"
           >
@@ -158,10 +158,11 @@ export default function ProjectsGallery() {
               <button
                 key={index}
                 onClick={() => setCurrentIndex(index)}
-                className={`w-3 h-3 rounded-full transition ${
+                className={`w-4 h-4 rounded-full transition min-w-[44px] min-h-[44px] flex items-center justify-center ${
                   index === currentIndex ? 'bg-transervica-green' : 'bg-gray-300'
                 }`}
-                aria-label={`Ir a proyecto ${index + 1}`}
+                aria-label={`Ir a proyecto ${index + 1}: ${projects[index].title}`}
+                aria-current={index === currentIndex ? 'true' : 'false'}
                 data-testid={`button-indicator-${index}`}
               />
             ))}
