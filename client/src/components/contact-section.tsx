@@ -58,24 +58,24 @@ export default function ContactSection() {
     }
   });
 
+  // Honeypot state for anti-spam (hidden field that bots fill)
+  const [honeypot, setHoneypot] = useState("");
+
   const contactMutation = useMutation({
     mutationFn: async (data: ContactFormData) => {
-      // Transform to new endpoint format
-      const contactoData: Omit<ContactoFormData, 'canal' | 'estado' | 'correosNotificados'> = {
+      // Transform to new endpoint format with all fields
+      const contactoData = {
         nombre: data.name,
         correoContacto: data.email,
         telefono: data.phone,
         asunto: data.cargoType || "Solicitud de cotización",
-        mensaje: `
-Empresa: ${data.company || "No especificada"}
-Tipo de carga: ${data.cargoType || "No especificado"}
-Peso estimado: ${data.estimatedWeight ? `${data.estimatedWeight} kg` : "No especificado"}
-Origen: ${data.origin || "No especificado"}
-Destino: ${data.destination || "No especificado"}
-
-Descripción:
-${data.description}
-        `.trim()
+        mensaje: data.description,
+        empresa: data.company || undefined,
+        tipoCarga: data.cargoType || undefined,
+        pesoEstimado: data.estimatedWeight || undefined,
+        origen: data.origin || undefined,
+        destino: data.destination || undefined,
+        honeypot: honeypot, // Anti-spam honeypot field
       };
 
       const response = await apiRequest("POST", "/api/contacto", contactoData);
@@ -181,6 +181,19 @@ ${data.description}
           <div className="bg-white rounded-2xl p-8 text-gray-800 shadow-2xl border-2 border-white/30">
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                {/* Honeypot field - hidden from users, visible to bots */}
+                <div style={{ position: 'absolute', left: '-9999px', opacity: 0 }} aria-hidden="true">
+                  <label htmlFor="website">Website</label>
+                  <input 
+                    type="text" 
+                    id="website" 
+                    name="website" 
+                    value={honeypot}
+                    onChange={(e) => setHoneypot(e.target.value)}
+                    tabIndex={-1}
+                    autoComplete="off"
+                  />
+                </div>
                 <div className="grid md:grid-cols-2 gap-4">
                   <FormField
                     control={form.control}

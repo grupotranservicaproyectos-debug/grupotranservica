@@ -10,7 +10,7 @@ import {
   blogGenerationLogs,
 } from "@shared/schema";
 import { z } from "zod";
-import { sendNotificationEmails, sendConfirmationEmail } from "./email";
+import { sendNotificationEmails, sendConfirmationEmail, checkRateLimit } from "./email";
 import { generateBlog, generate5Blogs } from "./lib/blogGenerator";
 import { requireAdmin } from "./middleware/auth";
 import { blogGenerationRateLimit } from "./middleware/rateLimit";
@@ -451,35 +451,67 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // New contact endpoint with email notifications
+  // New contact endpoint with email notifications, rate limiting, and honeypot
   app.post("/api/contacto", async (req, res) => {
     try {
+      // Get client IP for rate limiting and logging
+      const clientIp = req.headers['x-forwarded-for'] as string || req.socket.remoteAddress || 'unknown';
+      const timestamp = new Date();
+
+      // Rate limiting check (5 requests per 10 minutes per IP)
+      const rateLimit = checkRateLimit(clientIp);
+      if (!rateLimit.allowed) {
+        console.log(`[CONTACT] Rate limit exceeded for IP: ${clientIp}`);
+        return res.status(429).json({
+          success: false,
+          message: `Has enviado demasiadas solicitudes. Por favor espera ${Math.ceil(rateLimit.resetIn / 60)} minutos antes de intentar nuevamente.`,
+          retryAfter: rateLimit.resetIn,
+        });
+      }
+
+      // Honeypot anti-spam check - if this field is filled, it's likely a bot
+      if (req.body.website || req.body.url || req.body.honeypot) {
+        console.log(`[CONTACT] Honeypot triggered from IP: ${clientIp}`);
+        // Return success to not alert the bot, but don't process
+        return res.json({
+          success: true,
+          message: "Cotización enviada exitosamente. Le responderemos en menos de 24 horas.",
+        });
+      }
+
       // Validate input data from frontend (without correosNotificados)
       const validatedData = contactFormSchema.parse(req.body);
+
+      console.log(`[CONTACT] New contact from ${validatedData.nombre} (${validatedData.correoContacto}) - IP: ${clientIp}`);
 
       // Try to send notification emails but don't fail if email service is down
       let emailResults: string[] = [];
       try {
         emailResults = await sendNotificationEmails({
           nombre: validatedData.nombre,
+          empresa: req.body.empresa || undefined,
           correo: validatedData.correoContacto,
           telefono: validatedData.telefono,
-          asunto: validatedData.asunto,
+          tipoCarga: req.body.tipoCarga || undefined,
+          pesoEstimado: req.body.pesoEstimado ? Number(req.body.pesoEstimado) : undefined,
+          origen: req.body.origen || undefined,
+          destino: req.body.destino || undefined,
           mensaje: validatedData.mensaje,
+          ip: clientIp,
+          timestamp: timestamp,
         });
+
+        console.log(`[CONTACT] Notifications sent to ${emailResults.length} recipients`);
 
         // Send confirmation email to user (don't wait for it)
         sendConfirmationEmail(
           validatedData.correoContacto,
           validatedData.nombre,
         ).catch((error) => {
-          console.error("Error sending confirmation email:", error);
+          console.error("[CONTACT] Error sending confirmation email:", error);
         });
       } catch (emailError) {
-        console.error(
-          "Email service unavailable, but contact will be saved:",
-          emailError,
-        );
+        console.error("[CONTACT] Email service unavailable, but contact will be saved:", emailError);
         emailResults = [];
       }
 
@@ -489,17 +521,18 @@ export async function registerRoutes(app: Express): Promise<Server> {
         correosNotificados: emailResults,
       });
 
+      console.log(`[CONTACT] Contact saved with ID: ${contacto.id} - Emails sent: ${emailResults.length}`);
+
       res.json({
         success: true,
-        message:
-          "Tu mensaje ha sido recibido exitosamente. Te contactaremos pronto.",
+        message: "Cotización enviada exitosamente. Le responderemos en menos de 24 horas.",
         data: {
           id: contacto.id,
           notificacionesEnviadas: emailResults.length,
         },
       });
     } catch (error) {
-      console.error("Error in /api/contacto:", error);
+      console.error("[CONTACT] Error in /api/contacto:", error);
 
       if (error instanceof z.ZodError) {
         res.status(400).json({
@@ -510,8 +543,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       } else {
         res.status(500).json({
           success: false,
-          message:
-            "Error al procesar tu solicitud. Por favor intenta nuevamente.",
+          message: "Error al procesar tu solicitud. Por favor intenta nuevamente.",
         });
       }
     }
