@@ -180,7 +180,13 @@ export default function ContactSection() {
           
           <div className="bg-white rounded-2xl p-8 text-gray-800 shadow-2xl border-2 border-white/30">
             <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+              <form 
+                onSubmit={form.handleSubmit(onSubmit)} 
+                className="space-y-6"
+                role="form"
+                aria-label="Formulario de solicitud de cotización - TRANSERVICA"
+                data-testid="form-contact-quote"
+              >
                 {/* Honeypot field - hidden from users, visible to bots */}
                 <div style={{ position: 'absolute', left: '-9999px', opacity: 0 }} aria-hidden="true">
                   <label htmlFor="website">Website</label>
@@ -347,11 +353,13 @@ export default function ContactSection() {
                 
                 <Button 
                   type="submit" 
-                  className="w-full text-white px-6 py-4 rounded-xl text-lg font-bold transition-all duration-300 transform hover:scale-105 shadow-lg"
+                  className="w-full text-white px-6 py-4 rounded-xl text-lg font-bold transition-all duration-300 transform hover:scale-105 shadow-lg min-h-[48px]"
                   style={{ backgroundColor: '#155d29' }}
                   onMouseEnter={(e) => { (e.target as HTMLElement).style.backgroundColor = '#0f4a21'; }}
                   onMouseLeave={(e) => { (e.target as HTMLElement).style.backgroundColor = '#155d29'; }}
                   disabled={contactMutation.isPending}
+                  data-testid="button-submit-quote"
+                  aria-label="Enviar solicitud de cotización"
                 >
                   {contactMutation.isPending ? t('contact.form.sending') : t('contact.form.submit')}
                 </Button>

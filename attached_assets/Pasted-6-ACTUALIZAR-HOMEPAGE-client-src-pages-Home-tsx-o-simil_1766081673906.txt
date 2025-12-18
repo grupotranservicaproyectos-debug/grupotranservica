@@ -1,0 +1,273 @@
+6. ACTUALIZAR HOMEPAGE (client/src/pages/Home.tsx o similar):
+
+HERO SECTION - Nuevo headline:
+<h1>Movemos lo Imposible: Transporte de Cargas Excepcionales hasta 1,100 Toneladas</h1>
+<p>30+ años de excelencia en Venezuela. Equipos SCHEUERLE alemanes. Líderes en sectores petrolero, minero y eléctrico.</p>
+
+NUEVA SECCIÓN: "Por Qué Elegir Transervica":
+- 🏆 30+ años de experiencia comprobada
+- ⚡ Capacidad de hasta 1,100 toneladas
+- 🇩🇪 Equipos alemanes SCHEUERLE de última generación
+- 🛢️ Especialistas en sectores críticos: Petróleo, Minería, Energía
+- ✅ Historial impecable en proyectos complejos
+- 🔧 Flota completa de grúas y trailers modulares
+- 📋 Todos los permisos INTT y seguros requeridos
+- 🇻🇪 Cobertura en todo el territorio venezolano
+
+NUEVA SECCIÓN: "Sectores que Servimos":
+
+**Sector Energético** ⚡
+- Turbinas de gas y vapor
+- Transformadores de potencia
+- Componentes de centrales termoeléctricas
+- Generadores industriales
+CASO DESTACADO: "Instalación completa de central termoeléctrica"
+
+**Sector Petrolero** 🛢️
+- Equipamiento para refinería
+- Torres de destilación
+- Compresores industriales
+- Tanques de almacenamiento
+PROYECTOS: PDVSA y sector privado
+
+**Sector Minero** ⛏️
+- Maquinaria pesada para Arco del Orinoco
+- Excavadoras y cargadores gigantes
+- Equipos de procesamiento
+- Transporte de mineral
+CAPACIDAD: Hasta las zonas más remotas
+
+**Sector Industrial** 🏭
+- Maquinaria manufacturera
+- Equipos siderúrgicos
+- Proyectos de construcción pesada
+- Instalaciones portuarias
+
+NUEVA SECCIÓN: "Calculadora de Cotización":
+Formulario con campos:
+- Nombre y empresa (required)
+- Email y teléfono (required)
+- Sector: [Petrolero / Minero / Eléctrico / Industrial / Otro]
+- Tipo de carga (textarea)
+- Peso estimado en toneladas (slider: 0-1100)
+- Dimensiones (largo x ancho x alto)
+- Ciudad de origen (select con principales ciudades VE)
+- Ciudad de destino (select)
+- Fecha estimada del proyecto
+- Urgencia: [Normal / Urgente / Muy Urgente]
+- Comentarios adicionales (textarea)
+
+CTA: "SOLICITAR COTIZACIÓN GRATUITA - Respuesta en 24 Horas"
+
+Enviar a los 5 emails:
+- direccioncomercialtvc@grupotranservica.com
+- direccionejecutivatvc@grupotranservica.com
+- grupotranservicaproyectos@gmail.com
+- marketingimpulsoai@gmail.com
+- direccionmercadeo@equisercranes.com
+
+7. CREAR PÁGINA: /sectores/petrolero
+
+Contenido SEO-optimizado:
+Title: "Transporte Especializado para Sector Petrolero Venezuela | TRANSERVICA"
+Meta Description: "Expertos en transporte de equipos petroleros pesados. Servicios para PDVSA y sector privado. Grúas hasta 1,100 toneladas. Todos los permisos INTT. Cotización gratis."
+
+Estructura de contenido:
+- Hero con imagen de transporte petrolero
+- Introducción al sector (datos del mercado)
+- Equipos que transportamos (torres destilación, compresores, etc.)
+- Experiencia con PDVSA
+- Permisos y certificaciones específicas
+- Casos de éxito (sin revelar clientes sensibles)
+- Calculadora de cotización especializada
+- CTAs múltiples
+
+8. CREAR PÁGINA: /sectores/minero
+
+Title: "Transporte de Maquinaria Minera Pesada | Arco del Orinoco | TRANSERVICA"
+Meta Description: "Líderes en logística minera. Transporte de equipos hasta 1,100 toneladas para Arco del Orinoco. Experiencia en zonas remotas. Flota SCHEUERLE. Cotización 24/7."
+
+Estructura similar a petrolero, enfocada en:
+- Arco del Orinoco
+- Maquinaria minera (excavadoras, cargadores)
+- Desafíos de terreno difícil
+- Seguridad en transporte
+
+9. CREAR PÁGINA: /sectores/electrico
+
+Title: "Transporte de Turbinas y Transformadores | Rehabilitación Eléctrica Venezuela"
+Meta Description: "Especialistas en transporte de componentes eléctricos gigantes. Turbinas, transformadores, generadores. 30+ años de experiencia. Equipos alemanes SCHEUERLE."
+
+Contenido:
+- Planes gubernamentales de rehabilitación
+- Turbinas de gas/vapor
+- Transformadores de potencia
+- Generadores industriales
+- Caso estrella: Central termoeléctrica
+
+10. CREAR PÁGINA: /sectores/industrial
+
+Title: "Transporte Industrial Pesado Venezuela | Manufactura y Siderurgia"
+Meta Description: "Logística industrial para proyectos complejos. Maquinaria manufacturera, equipos siderúrgicos, construcción pesada. Capacidad 1,100 toneladas."
+
+11. CREAR PÁGINA: /casos-exito
+
+Title: "Casos de Éxito | Proyectos Completados por TRANSERVICA"
+
+Incluir (con imágenes):
+- Central Termoeléctrica (descripción detallada del proceso)
+- Proyecto sector minero
+- Proyecto sector petrolero
+- Proyecto sector industrial
+
+Cada caso con:
+- Descripción del desafío
+- Solución implementada
+- Equipos utilizados
+- Resultado exitoso
+- Testimonial (si disponible)
+
+12. CREAR PÁGINA: /certificaciones
+
+Title: "Certificaciones, Permisos y Seguros | TRANSERVICA"
+
+Listar:
+- Permisos INTT vigentes
+- Seguros de carga (montos cubiertos)
+- Certificaciones internacionales (si aplican)
+- Licencias de operación
+- Certificaciones de equipos SCHEUERLE
+- Protocolos de seguridad
+
+13. CREAR PÁGINA: /calculadora-cotizacion
+
+Página dedicada solo al formulario de cotización inteligente (versión extendida de la homepage)
+
+Agregar:
+- Información de contacto alternativa (WhatsApp, teléfonos)
+- Horario de atención: 24/7
+- Mapa de ubicación (Google Maps embed de Mariara)
+- Promesa: "Respuesta garantizada en 24 horas"
+
+14. BLOG - GENERAR AUTOMÁTICAMENTE ESTOS ARTÍCULOS PRIORITARIOS:
+
+Usar el sistema de generación automática de blogs YA IMPLEMENTADO para crear:
+
+a) "Guía Completa: Permisos INTT para Transporte de Cargas Excepcionales en Venezuela 2025"
+   - Keywords: permisos INTT, cargas excepcionales, transporte pesado Venezuela
+   - 1500+ palabras
+   - Secciones: Requisitos, documentación, proceso, costos, tiempos
+   - 3 CTAs internos
+
+b) "¿Cuánto Cuesta Transportar Más de 100 Toneladas en Venezuela? Desglose de Tarifas 2025"
+   - Keywords: costo transporte pesado, tarifas, presupuesto logística
+   - 1200+ palabras
+   - Tabla de rangos de precios por peso
+   - Factores que afectan el costo
+   - CTA: Calculadora de cotización
+
+c) "5 Factores Clave para Seleccionar un Transportista de Cargas Pesadas Confiable"
+   - Keywords: elegir transportista, logística confiable, transporte industrial
+   - 1000+ palabras
+   - Lista numerada de factores
+   - Por qué Transervica cumple todos
+
+d) "Caso de Éxito: Cómo Transportamos e Instalamos una Central Termoeléctrica Completa"
+   - Keywords: proyecto eléctrico, central termoeléctrica, caso éxito transporte
+   - 1800+ palabras
+   - Storytelling del proyecto
+   - Fotos del proceso (si disponibles)
+   - Retos y soluciones
+
+e) "Transporte para el Sector Petrolero en Venezuela: Equipos SCHEUERLE y Capacidades Extremas"
+   - Keywords: transporte petrolero, PDVSA, equipos pesados
+   - 1400+ palabras
+   - Equipos específicos
+   - Proyectos realizados
+   - Contacto especializado
+
+f) "Logística para el Arco del Orinoco: Desafíos y Soluciones en Transporte Minero"
+   - Keywords: Arco Orinoco, transporte minero, logística Venezuela
+   - 1500+ palabras
+   - Análisis del mercado minero
+   - Desafíos de terreno
+   - Flota especializada
+
+g) "Rehabilitación de Infraestructura Eléctrica en Venezuela: El Rol del Transporte Especializado"
+   - Keywords: rehabilitación eléctrica, infraestructura Venezuela, transporte turbinas
+   - 1300+ palabras
+   - Contexto de planes gubernamentales
+   - Tipos de equipos
+   - Capacidades de Transervica
+
+15. ACTUALIZAR FOOTER:
+
+Añadir secciones:
+- **Servicios**: Links a páginas de sectores
+- **Recursos**: Blog, Casos de Éxito, Calculadora
+- **Empresa**: Sobre Nosotros, Certificaciones, Contacto
+- **Contacto Directo**:
+  - 📞 +58 422-6361047 / +58 412-367-5636 / +58 414-277-6340
+  - 📧 direccioncomercialtvc@grupotranservica.com
+  - 📍 Carretera Nacional Maracay Mariara Km 9, Mariara, Edo. Carabobo
+  - 🕒 Disponible 24/7
+  - 💬 WhatsApp: [Enlace directo a wa.me]
+
+- **Redes Sociales**: LinkedIn (preparar para creación)
+
+16. OPTIMIZACIÓN DE IMÁGENES (FASE 1 BÁSICA):
+
+Para TODAS las imágenes existentes:
+- Añadir atributos width y height
+- Añadir loading="lazy" (excepto hero)
+- Añadir alt descriptivo
+- Asegurar que hero image tenga fetchpriority="high"
+
+Ejemplo:
+<img 
+  src="/images/hero-transport.jpg"
+  alt="Grúa SCHEUERLE de 1100 toneladas transportando carga industrial en Venezuela"
+  width="1920"
+  height="1080"
+  fetchpriority="high"
+  loading="eager"
+/>
+
+<img 
+  src="/images/proyecto-petrolero.jpg"
+  alt="Transporte de torre de destilación para sector petrolero venezolano"
+  width="800"
+  height="600"
+  loading="lazy"
+/>
+
+17. ACTUALIZAR sitemap.xml (/api/sitemap.xml):
+
+Asegurar que incluye TODAS las nuevas páginas:
+- /sectores/petrolero (priority: 0.9)
+- /sectores/minero (priority: 0.9)
+- /sectores/electrico (priority: 0.9)
+- /sectores/industrial (priority: 0.9)
+- /casos-exito (priority: 0.8)
+- /certificaciones (priority: 0.7)
+- /calculadora-cotizacion (priority: 0.9)
+- Todos los nuevos blogs (priority: 0.8)
+
+18. CREAR COMPONENTE: <CallToActionBox>
+
+Reutilizable para usar en todas las páginas:
+
+Props:
+- variant: 'primary' | 'secondary' | 'sector-specific'
+- title: string
+- description: string
+- buttonText: string
+- buttonLink: string
+- showWhatsApp?: boolean
+
+Estilos:
+- Fondo llamativo (verde Transervica)
+- Botón grande visible
+- Iconos relevantes
+- Mobile-responsive
+- Touch-friendly (min 48px)

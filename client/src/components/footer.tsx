@@ -47,6 +47,7 @@ export default function Footer() {
                   src={logoTranservica} 
                   alt="TRANSERVICA Logo - Transporte Cargas Excepcionales Venezuela"
                   loading="lazy"
+                  decoding="async"
                   width={128}
                   height={96}
                   className="h-24 md:h-28 lg:h-32 w-auto max-w-full hover:scale-105 transition-transform duration-300 filter brightness-150 contrast-125 drop-shadow-lg"
@@ -100,7 +101,7 @@ export default function Footer() {
               <li>
                 <button 
                   onClick={() => navigateToSection('inicio')}
-                  className="text-gray-300 hover:text-white text-sm transition-colors duration-200 text-left"
+                  className="text-gray-300 hover:text-white text-sm transition-colors duration-200 text-left min-h-[44px] py-2"
                 >
                   {t('footer.pages.home')}
                 </button>
@@ -108,7 +109,7 @@ export default function Footer() {
               <li>
                 <button 
                   onClick={() => navigateToSection('nosotros')}
-                  className="text-gray-300 hover:text-white text-sm transition-colors duration-200 text-left"
+                  className="text-gray-300 hover:text-white text-sm transition-colors duration-200 text-left min-h-[44px] py-2"
                 >
                   {t('footer.pages.about')}
                 </button>
@@ -116,7 +117,7 @@ export default function Footer() {
               <li>
                 <button 
                   onClick={() => navigateToSection('servicios')}
-                  className="text-gray-300 hover:text-white text-sm transition-colors duration-200 text-left"
+                  className="text-gray-300 hover:text-white text-sm transition-colors duration-200 text-left min-h-[44px] py-2"
                 >
                   {t('footer.pages.services')}
                 </button>
@@ -124,7 +125,7 @@ export default function Footer() {
               <li>
                 <button 
                   onClick={() => navigateToSection('proyectos')}
-                  className="text-gray-300 hover:text-white text-sm transition-colors duration-200 text-left"
+                  className="text-gray-300 hover:text-white text-sm transition-colors duration-200 text-left min-h-[44px] py-2"
                 >
                   {t('footer.pages.projects')}
                 </button>
@@ -132,7 +133,7 @@ export default function Footer() {
               <li>
                 <button 
                   onClick={() => navigateToSection('contacto')}
-                  className="text-gray-300 hover:text-white text-sm transition-colors duration-200 text-left"
+                  className="text-gray-300 hover:text-white text-sm transition-colors duration-200 text-left min-h-[44px] py-2"
                 >
                   {t('footer.pages.contact')}
                 </button>
@@ -149,7 +150,7 @@ export default function Footer() {
               <li>
                 <a 
                   href="/blog" 
-                  className="text-gray-300 hover:text-white text-sm transition-colors duration-200"
+                  className="text-gray-300 hover:text-white text-sm transition-colors duration-200 inline-block min-h-[44px] py-2"
                 >
                   {t('footer.resources.blog')}
                 </a>
@@ -157,7 +158,7 @@ export default function Footer() {
               <li>
                 <button 
                   onClick={() => navigateToSection('equipos')}
-                  className="text-gray-300 hover:text-white text-sm transition-colors duration-200 text-left"
+                  className="text-gray-300 hover:text-white text-sm transition-colors duration-200 text-left min-h-[44px] py-2"
                 >
                   {t('footer.resources.equipment')}
                 </button>
@@ -165,7 +166,7 @@ export default function Footer() {
               <li>
                 <button 
                   onClick={() => navigateToSection('contacto')}
-                  className="text-gray-300 hover:text-white text-sm transition-colors duration-200 text-left"
+                  className="text-gray-300 hover:text-white text-sm transition-colors duration-200 text-left min-h-[44px] py-2"
                 >
                   {t('footer.resources.help')}
                 </button>
@@ -180,19 +181,27 @@ export default function Footer() {
               {t('footer.newsletter.title')}
             </h4>
             
-            <form onSubmit={handleSubmit} className="space-y-3">
+            <form 
+              onSubmit={handleSubmit} 
+              className="space-y-3"
+              role="form"
+              aria-label="Formulario de suscripción al boletín"
+            >
               <input
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder={t('footer.newsletter.placeholder')}
-                className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-[#155d29] focus:ring-1 focus:ring-[#155d29] transition-colors duration-200"
+                className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-[#155d29] focus:ring-1 focus:ring-[#155d29] transition-colors duration-200 min-h-[48px]"
                 required
+                aria-label="Correo electrónico para suscripción"
+                data-testid="input-newsletter-email"
               />
               <button
                 type="submit"
-                className="w-full text-white font-bold py-3 px-4 rounded-lg transition-all duration-200 hover:opacity-90 transform hover:scale-[1.02]"
+                className="w-full text-white font-bold py-3 px-4 rounded-lg transition-all duration-200 hover:opacity-90 transform hover:scale-[1.02] min-h-[48px]"
                 style={{ backgroundColor: '#155d29' }}
+                data-testid="button-newsletter-subscribe"
               >
                 {t('footer.newsletter.subscribe')}
               </button>
