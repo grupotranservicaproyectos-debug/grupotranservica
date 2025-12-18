@@ -151,9 +151,13 @@ export default function EquipmentSection() {
                 <div className="aspect-video md:aspect-square relative overflow-hidden">
                   <img
                     src={currentEquipment.image}
-                    alt={`Equipo TRANSERVICA: ${currentEquipment.name} - Transporte Cargas Excepcionales Venezuela`}
+                    alt={`Equipo TRANSERVICA: ${currentEquipment.name} - Transporte Cargas Excepcionales Venezuela con Equipos Alemanes SCHEUERLE`}
                     loading="lazy"
+                    width={600}
+                    height={600}
+                    decoding="async"
                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                    style={{ aspectRatio: '1/1' }}
                   />
                   
                   {/* Image Overlay */}

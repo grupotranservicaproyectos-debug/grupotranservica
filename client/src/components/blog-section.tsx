@@ -298,9 +298,13 @@ export default function BlogSection() {
                             ) : (
                               <img 
                                 src={post.image} 
-                                alt={post.title}
+                                alt={`TRANSERVICA Blog: ${post.title} - Transporte Cargas Excepcionales Venezuela`}
                                 loading="lazy"
+                                width={400}
+                                height={300}
+                                decoding="async"
                                 className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                                style={{ aspectRatio: '4/3' }}
                               />
                             )}
                             

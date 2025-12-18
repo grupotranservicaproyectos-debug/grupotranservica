@@ -80,11 +80,13 @@ export default function ProjectsGallery() {
             <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition">
               <img 
                 src={project.image} 
-                alt={`Proyecto TRANSERVICA: ${project.title} - Transporte de ${project.weight}`} 
+                alt={`Proyecto TRANSERVICA: ${project.title} - Transporte de ${project.weight} Venezuela`} 
                 className="w-full h-64 object-cover"
                 width={400}
                 height={256}
                 loading="lazy"
+                decoding="async"
+                style={{ aspectRatio: '400/256' }}
               />
               <div className="p-6">
                 <h3 className="text-xl font-bold text-gray-800 mb-2">{project.title}</h3>
@@ -112,11 +114,13 @@ export default function ProjectsGallery() {
                   <div className="bg-white rounded-lg shadow-lg overflow-hidden">
                     <img 
                       src={project.image} 
-                      alt={`Proyecto TRANSERVICA: ${project.title} - Transporte de ${project.weight}`} 
+                      alt={`Proyecto TRANSERVICA: ${project.title} - Transporte de ${project.weight} Venezuela`} 
                       className="w-full h-64 object-cover"
                       width={400}
                       height={256}
                       loading="lazy"
+                      decoding="async"
+                      style={{ aspectRatio: '400/256' }}
                     />
                     <div className="p-6">
                       <h3 className="text-xl font-bold text-gray-800 mb-2">{project.title}</h3>
