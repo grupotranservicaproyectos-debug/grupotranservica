@@ -389,20 +389,15 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
 
-    <!-- Performance optimizations -->
+    <!-- Performance optimizations - WebP format for faster loading -->
     <link
       rel="preload"
       as="image"
-      href="/attached_assets/logo transervica sin fondo_1754163034585.png"
-      type="image/png"
+      href="/attached_assets/logo transervica sin fondo_1754163034585.webp"
+      type="image/webp"
+      fetchpriority="high"
     />
     <meta http-equiv="x-dns-prefetch-control" content="on" />
-    <link
-      rel="prefetch"
-      href="/attached_assets/5_1754173669383.webp"
-      as="image"
-      type="image/webp"
-    />
   </head>
   <body>
     <div id="root"></div>
