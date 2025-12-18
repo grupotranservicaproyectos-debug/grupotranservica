@@ -1,7 +1,7 @@
 # TRANSERVICA Website
 
 ## Overview
-This project is the official corporate website for TRANSERVICA, C.A., a Venezuelan heavy cargo transportation company. It highlights their 40 years of experience with exceptional loads up to 1,100 tons using specialized equipment. The site features corporate videos, project galleries, contact forms, and a comprehensive bilingual blog. It's built as a React SPA with an Express.js backend, prioritizing high performance (sub-2-second load times, PageSpeed 90+), SEO (targeting "transporte cargas excepcionales Venezuela"), and a sophisticated bilingual system (Spanish-English) with dynamic meta tags and hreflang support. The project aims for a #1 Google ranking in Venezuela for relevant keywords and integrates Google Analytics 4.
+The TRANSERVICA corporate website showcases the Venezuelan heavy cargo transportation company's 40 years of experience, specializing in loads up to 1,100 tons. The site features corporate videos, project galleries, contact forms, and a comprehensive bilingual blog. Built with React and Express.js, it prioritizes high performance (sub-2-second load times, PageSpeed 90+), robust SEO (targeting "transporte cargas excepcionales Venezuela" for #1 Google ranking), and a sophisticated Spanish-English bilingual system with dynamic meta tags and hreflang support. It integrates Google Analytics 4 to track performance and user engagement.
 
 ## User Preferences
 Preferred communication style: Simple, everyday language.
@@ -9,206 +9,56 @@ Preferred communication style: Simple, everyday language.
 ## System Architecture
 
 ### Frontend
-The frontend uses React 18 with TypeScript and Vite, following a component-based architecture. It utilizes Wouter for routing, Tailwind CSS for styling (custom Transervica theme), Radix UI primitives and shadcn/ui for UI components, TanStack Query for server state management, and React Hook Form with Zod for form handling. The design system is responsive, mobile-first, and uses CSS variables for brand consistency. Corporate videos are integrated via YouTube iframes with a custom lazy-loading component for performance. Dynamic meta tags and hreflang support are implemented using `react-helmet-async` for SEO and bilingual content. The logo is implemented consistently across the site with responsive and performance optimizations.
+The frontend is a React 18 SPA with TypeScript and Vite. It uses Wouter for routing, Tailwind CSS for styling (custom Transervica theme), Radix UI primitives and shadcn/ui for UI components, TanStack Query for server state, and React Hook Form with Zod for forms. The design is responsive, mobile-first, and uses CSS variables for branding. It includes a custom lazy-loading YouTube component, dynamic meta tags via `react-helmet-async`, and hreflang support for SEO.
 
 ### Backend
-The backend is built with Express.js and TypeScript, providing RESTful APIs for contact form submissions and data retrieval. It includes custom middleware for request logging, centralized error handling, CORS, and security measures. It also manages an automated SEO blog generation system.
+The backend uses Express.js with TypeScript, providing RESTful APIs for contact form submissions and data retrieval. It features custom middleware for request logging, error handling, CORS, security, and manages an automated SEO blog generation system.
 
 ### Data Storage
-Drizzle ORM with PostgreSQL (Neon Database) is used for primary data storage, featuring type-safe schemas and Drizzle Kit for migrations.
+Drizzle ORM with PostgreSQL (Neon Database) is used for type-safe data storage, with Drizzle Kit for migrations.
 
 ### UI Component System
 A comprehensive design system includes reusable UI components, a dedicated blog system, CSS variables for theming, Radix UI for accessibility, and a mobile-first responsive design.
 
 ### Blog Architecture
-The blog system features a professional layout with a carousel showcase, a dedicated blog page with search, categories, pagination, and individual article pages. Articles include real project documentation, technical specifications, and embedded YouTube videos. The entire blog is fully bilingual, with complete Spanish and English translations for all content, including 6 initial blog posts (IDs: 1, 2, 3, 4, 7, 8). Language switching seamlessly updates content, categories, and selected posts. An automated SEO blog generation system (OpenRouter + Pexels API) is implemented to create content with specific requirements: minimum 3 images, 3 CTAs, contact form, visible contact data, and internal linking to related articles.
+The blog system offers a professional layout with a carousel, a dedicated blog page with search, categories, and pagination, and individual article pages. Content is fully bilingual (Spanish/English) and includes real project documentation and technical specifications. An automated SEO blog generation system utilizes AI (OpenRouter + Google AI Studio) to create content with specific requirements, including images, CTAs, contact information, and internal linking.
 
 ### Performance Optimizations
-Extensive optimizations target <1.5s desktop, <2s mobile load times, and PageSpeed >95. This includes WebP image optimization with lazy loading (except critical above-the-fold), a custom YouTube lazy-loading component, GZIP server compression, aggressive caching (1 year for static assets), security headers, resource preloading/prefetching, font optimization with `font-display: swap`, and Vite's build optimizations (minification, code splitting, tree shaking).
+Optimizations target <1.5s desktop and <2s mobile load times, aiming for PageSpeed >95. Techniques include WebP image optimization with lazy loading, a custom YouTube lazy-loading component, GZIP compression, aggressive caching (1 year for static assets), security headers, resource preloading/prefetching, font optimization, and Vite's build optimizations. A YouTube Facade pattern is implemented for the hero section to ensure zero YouTube resources on initial load.
 
 ### Automated Contact Form System
-A complete automated contact form system is implemented with PostgreSQL storage (`contactos_recibidos` table), email notifications to administrators via Gmail SMTP, and user confirmation emails. Both frontend and backend utilize Zod for schema validation.
+This system handles contact form submissions, storing data in PostgreSQL, sending email notifications to administrators via Gmail SMTP, and confirmation emails to users. Both frontend and backend use Zod for schema validation.
+
+### Technical SEO and Accessibility
+The site implements dynamic meta tags using `react-helmet-async` for per-page SEO, including titles, descriptions, Open Graph, Twitter Cards, and hreflang. The sitemap.xml is enhanced to include all pages and dynamic blog articles. Blog articles feature Article schema markup. Accessibility improvements include ARIA labels, keyboard navigation support, and enhanced screen reader compatibility.
 
 ## External Dependencies
 
 ### Database and Storage
 - **Neon Database**: Serverless PostgreSQL.
 - **Drizzle ORM**: TypeScript ORM for database interaction.
-- **connect-pg-simple**: PostgreSQL-based session management.
 
 ### UI and Design
 - **Radix UI**: Accessible UI primitives.
 - **Tailwind CSS**: Utility-first CSS framework.
 - **Lucide Icons**: Icon library.
 - **Embla Carousel**: Lightweight carousel component.
-- **shadcn/ui**: Reusable UI components built on Radix UI and Tailwind CSS.
+- **shadcn/ui**: Reusable UI components.
 
 ### Forms and Validation
 - **React Hook Form**: Performant forms library.
 - **Zod**: TypeScript-first schema validation.
-- **Hookform Resolvers**: Integration for React Hook Form and Zod.
 
 ### Development Tools
 - **Vite**: Build tool and development server.
 - **TypeScript**: Static type checking.
-- **ESBuild**: Fast JavaScript bundler.
-- **react-helmet-async**: For dynamic meta tag management in SPAs.
+- **react-helmet-async**: For dynamic meta tag management.
 
 ### External Services
 - **YouTube**: Video embedding.
 - **Google Fonts**: Typography.
 - **WhatsApp**: Direct messaging integration.
-- **OpenRouter API**: For AI-driven content generation (blog) using Gemini Pro 1.5 with Claude 3.5 Sonnet fallback.
-- **Google AI Studio**: For AI image generation (Imagen 3.0) as primary image source.
-- **Image APIs**: Google AI Studio (primary), Pexels, Freepik, Shutterstock, Unsplash (fallback order) for automated blog images.
-- **Gmail SMTP (via Nodemailer)**: For email notifications from contact forms.
-
-## Recent Changes
-
-### Performance Optimizations for Mobile LCP (December 18, 2025)
-Implemented performance improvements to address mobile LCP issues (was 9.8s):
-
-#### Hero Section YouTube Lazy Loading:
-- **YouTube iframe now lazy-loaded** using React useState/useEffect
-- Iframe loads 100ms after initial render to keep off critical path
-- Background div stays black during loading for smooth transition
-- Significantly reduces LCP by not blocking initial paint
-
-#### Logo Preload Optimization:
-- **Changed logo preload from PNG to WebP** in index.html
-- Added `fetchpriority="high"` to preload directive
-- WebP format reduces file size while maintaining quality
-
-#### Console Warning Fixes:
-- **Removed unsupported `fetchPriority` attribute** from React img elements
-- Logo is already preloaded via HTML, React attribute was redundant
-- Eliminates "React does not recognize fetchPriority" warnings
-
-#### Files Modified:
-- `client/index.html`: WebP logo preload with high priority
-- `client/src/components/hero-section.tsx`: Lazy-loaded YouTube iframe
-- `client/src/components/blog-header.tsx`: Removed fetchPriority attribute
-- `client/src/pages/seo-blog-article.tsx`: Removed fetchPriority attribute
-
-#### Verified Existing Optimizations:
-- Gzip compression at level 6 in server/index.ts ✓
-- Cache headers with 1 year max-age for static assets ✓
-- All below-fold images have `loading="lazy"` and `decoding="async"` ✓
-- Font `display=swap` on Google Fonts ✓
-
-### API Updates - Google AI Studio & OpenRouter (December 15, 2025)
-Actualizado sistema de generación de blogs con nuevas APIs:
-
-#### Generación de Imágenes (Google AI Studio):
-- **API**: Google AI Studio con Imagen 3.0
-- **Endpoint**: `generativelanguage.googleapis.com/v1beta/models/imagen-3.0-generate-001:predict`
-- **Prompt**: Professional photos of heavy transport equipment
-- **Formato**: WebP optimizado (16:9 aspect ratio)
-- **Retry logic**: 3 intentos con timeout de 30 segundos
-- **Prioridad de proveedores**: Google AI Studio (1) → Pexels (2) → Freepik (3) → Shutterstock (4) → Unsplash (5)
-
-#### Generación de Contenido (OpenRouter):
-- **Modelo primario**: `google/gemini-pro-1.5`
-- **Modelo fallback**: `anthropic/claude-3.5-sonnet`
-- **Logs**: Modelo usado, tokens consumidos, tiempo de respuesta
-- **Variable de entorno**: `OPENROUTER_MODEL` para configurar modelo
-
-#### Variables de Entorno Requeridas:
-```
-GOOGLE_AI_STUDIO_API_KEY=<key>
-OPENROUTER_API_KEY=<key>
-OPENROUTER_MODEL=google/gemini-pro-1.5
-```
-
-### Panel Admin SEO (December 6, 2025)
-Implementado panel de administración SEO para monitoreo y análisis del sistema de blogs automatizados:
-
-#### Acceso:
-- **URL**: `/seo-blog/admin?token=ADMIN_TOKEN`
-- **Protección**: Requiere token de administrador via query parameter
-- **API**: `/api/admin/seo-stats?token=ADMIN_TOKEN`
-
-#### Funcionalidades del Panel:
-- **Semáforo de Estado**: Indicador visual healthy/degraded/unhealthy basado en generaciones esperadas vs reales
-- **Métricas Totales**: Total blogs, auto-generados, vistas totales
-- **Gráfico Diario**: Blogs generados por día (últimos 14-30 días)
-- **Top 10 URLs**: Artículos con mejor rendimiento por vistas
-- **Distribución**: Por ciudad, sector y template (tablas y gráfico circular)
-- **Alerta de Canibalización**: Combinaciones ciudad/sector con 3+ posts
-- **Logs de Generación**: Últimas 10 ejecuciones del sistema
-
-#### Lógica de Estado del Sistema:
-- `healthy`: Generaciones en objetivo, sin errores
-- `degraded`: Generaciones por debajo del objetivo (actualYesterday < expectedDaily)
-- `unhealthy`: Generaciones fallidas en los últimos 7 días
-
-### Migración a Replit Scheduled Deployment (November 23, 2025)
-Migrado sistema de generación automática de blogs de node-cron a Replit Scheduled Deployment:
-
-#### Cambios Implementados:
-- **Script Independiente**: Creado `scripts/generate-daily-blogs.ts` que se ejecuta como tarea programada independiente del servidor principal.
-- **Cron Job Removido**: Eliminado node-cron del servidor principal (server/routes.ts) para reducir carga y mejorar eficiencia.
-- **Scheduled Deployment**: Sistema ahora usa infraestructura nativa de Replit para tareas programadas diarias.
-- **Documentación Completa**: Creado `SCHEDULED_DEPLOYMENT_SETUP.md` con instrucciones paso a paso, estimación de costos y troubleshooting.
-
-#### Ventajas del Nuevo Sistema:
-- ✅ Servidor principal más liviano (solo maneja HTTP requests, no tareas cron)
-- ✅ Logs dedicados y organizados por ejecución
-- ✅ Costos optimizados (solo cobra durante ejecución, no 24/7)
-- ✅ Escalabilidad automática por Replit
-- ✅ Mayor confiabilidad con infraestructura managed de Replit
-
-#### Costos Estimados (Replit Scheduled Deployment):
-- **Compute Units por ejecución**: ~1,710 CU (90 segundos @ 1 CPU + 0.5GB RAM)
-- **Costo mensual (30 días)**: ~51,300 Compute Units
-- **Costo real**: $0 adicional - Cubierto completamente por créditos incluidos en Replit Core ($25/mes en créditos)
-- **Plan recomendado**: Replit Core ($20/mes) es más que suficiente
-
-#### Horario de Generación:
-- **Hora**: 7:30 AM diariamente
-- **Zona horaria**: America/Panama (UTC-5)
-- **Cron expression**: `30 7 * * *`
-
-#### Enlaces de Blogs SEO Automatizados:
-
-Los blogs están disponibles en **ambos dominios**:
-
-**🌐 Dominio Principal - GrupoTranservica.com:**
-- **Página principal**: https://grupotranservica.com/seo-blog
-- **API endpoint**: https://grupotranservica.com/api/seo-blogs
-- **Sitemap**: https://grupotranservica.com/api/sitemap.xml
-
-**🌐 Dominio Secundario - Transervica.net:**
-- **Página principal**: https://transervica.net/seo-blog
-- **API endpoint**: https://transervica.net/api/seo-blogs
-- **Sitemap**: https://transervica.net/api/sitemap.xml
-
-**Ejemplos de artículos** (ambos dominios):
-  - https://grupotranservica.com/seo-blog/transporte-petrolero-caracas
-  - https://grupotranservica.com/seo-blog/lowboy-caracas
-  - https://transervica.net/seo-blog/sector-petrolero-venezuela
-  - https://transervica.net/seo-blog/precio-transporte-punto-fijo
-
-### Technical SEO and Accessibility Improvements (November 22, 2025)
-Implemented comprehensive technical improvements based on complete site audit:
-
-#### SEO Enhancements:
-- **Dynamic Meta Tags System**: Created reusable SEO component (client/src/components/seo.tsx) with react-helmet-async for per-page meta management. Each page now has unique title, description, keywords, canonical URLs, Open Graph tags, Twitter Cards, and hreflang tags for ES/EN.
-- **Enhanced Sitemap.xml**: Updated sitemap to include all site pages (/, /blog, /seo-blog, /terms, /privacy, /cookies, /security) with proper priority and changefreq. Dynamic blog article URLs included.
-- **Article Schema Markup**: Blog articles now include complete Article schema with author, publishedTime, modifiedTime, section, and tags metadata.
-- **Canonical URLs**: Properly configured canonical URLs across all pages to avoid duplicate content penalties.
-
-#### Accessibility Improvements (WCAG AA):
-- **ARIA Labels**: Added descriptive aria-label attributes to interactive elements in projects-carousel and projects-gallery components (navigation buttons, slide indicators, autoplay controls).
-- **Keyboard Navigation**: All carousel controls support keyboard navigation with proper ARIA labels.
-- **Screen Reader Support**: Improved screen reader experience with descriptive labels for all interactive UI elements.
-
-#### Performance Optimizations:
-- **Lazy Loading Images**: Implemented loading="lazy" attribute on below-the-fold images in projects-gallery and other components.
-- **Improved ALT Texts**: Enhanced ALT attributes with descriptive context (e.g., "Proyecto TRANSERVICA: [title] - Transporte de [weight]").
-- **Statistics Fix**: Corrected initial statistics display to show final values (40 años, 1100 toneladas, 100%) immediately instead of animating from 0.
-
-#### Technical Infrastructure:
-- **React Helmet Async**: Integrated react-helmet-async for dynamic meta tag management in SPA architecture.
-- **HelmetProvider**: App.tsx wrapped with HelmetProvider for centralized meta tag control.
-- **Date Handling**: Fixed blog article date handling to support both Date objects and ISO strings with proper null guards.
+- **OpenRouter API**: For AI-driven content generation (Gemini Pro 1.5, Claude 3.5 Sonnet fallback).
+- **Google AI Studio**: For AI image generation (Imagen 3.0) and primary image source.
+- **Image APIs**: Pexels, Freepik, Shutterstock, Unsplash (fallback for blog images).
+- **Gmail SMTP (via Nodemailer)**: For email notifications.
