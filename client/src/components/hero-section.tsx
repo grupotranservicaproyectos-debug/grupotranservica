@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'wouter';
 import { useLanguage } from '../contexts/LanguageContext';
 import LanguageSwitcher from './LanguageSwitcher';
@@ -6,7 +6,16 @@ import logoTranservica from "@assets/logo transervica sin fondo_1754163034585.we
 
 export default function HeroSection() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [videoLoaded, setVideoLoaded] = useState(false);
   const { t } = useLanguage();
+
+  // Lazy load YouTube video after initial render to improve LCP
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setVideoLoaded(true);
+    }, 100);
+    return () => clearTimeout(timer);
+  }, []);
   const scrollToContact = () => {
     const element = document.getElementById('contacto');
     if (element) {
@@ -23,23 +32,25 @@ export default function HeroSection() {
 
   return (
     <section id="inicio" className="relative min-h-screen bg-black overflow-hidden">
-      {/* Video de fondo Netflix Style */}
-      <div className="absolute inset-0 z-0 overflow-hidden">
-        <iframe
-          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
-          src="https://www.youtube.com/embed/_LQbWkWlg6s?autoplay=1&mute=1&controls=0&showinfo=0&rel=0&loop=1&playlist=_LQbWkWlg6s&modestbranding=1&start=20&iv_load_policy=3&cc_load_policy=0&disablekb=1&fs=0&vq=hd1080&quality=hd1080&hd=1&fmt=22&enablejsapi=1"
-          title="Transervica Background Video - Transporte de Cargas Excepcionales"
-          allow="autoplay; encrypted-media"
-          loading="eager"
-          style={{
-            pointerEvents: 'none',
-            border: 'none',
-            width: 'max(100vw, 177.77vh)',
-            height: 'max(100vh, 56.25vw)',
-            minWidth: '100vw',
-            minHeight: '100vh'
-          }}
-        />
+      {/* Video de fondo Netflix Style - Lazy loaded for better LCP */}
+      <div className="absolute inset-0 z-0 overflow-hidden bg-black">
+        {videoLoaded && (
+          <iframe
+            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+            src="https://www.youtube.com/embed/_LQbWkWlg6s?autoplay=1&mute=1&controls=0&showinfo=0&rel=0&loop=1&playlist=_LQbWkWlg6s&modestbranding=1&start=20&iv_load_policy=3&cc_load_policy=0&disablekb=1&fs=0&vq=hd1080&quality=hd1080&hd=1&fmt=22&enablejsapi=1"
+            title="Transervica Background Video - Transporte de Cargas Excepcionales"
+            allow="autoplay; encrypted-media"
+            loading="lazy"
+            style={{
+              pointerEvents: 'none',
+              border: 'none',
+              width: 'max(100vw, 177.77vh)',
+              height: 'max(100vh, 56.25vw)',
+              minWidth: '100vw',
+              minHeight: '100vh'
+            }}
+          />
+        )}
         
         {/* Minimal overlay only where needed */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent z-10"></div>
@@ -84,7 +95,6 @@ export default function HeroSection() {
                 className="h-16 sm:h-20 w-auto cursor-pointer hover:scale-105 transition-all duration-300 filter brightness-110 contrast-125 drop-shadow-lg"
                 width={80}
                 height={64}
-                fetchPriority="high"
                 decoding="sync"
                 onClick={() => scrollToSection('inicio')}
               />
@@ -98,7 +108,6 @@ export default function HeroSection() {
                 className="h-24 lg:h-28 xl:h-32 w-auto cursor-pointer hover:scale-105 transition-all duration-300 mr-8 filter brightness-110 contrast-125 drop-shadow-lg"
                 width={128}
                 height={96}
-                fetchPriority="high"
                 decoding="sync"
                 style={{ 
                   filter: 'brightness(1.1) contrast(1.25) drop-shadow(0 2px 4px rgba(0,0,0,0.2))'

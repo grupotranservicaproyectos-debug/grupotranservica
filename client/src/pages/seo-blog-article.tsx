@@ -146,7 +146,6 @@ export default function SEOBlogArticle() {
                 className="w-full h-full object-cover"
                 width={1200}
                 height={630}
-                fetchPriority="high"
                 decoding="sync"
                 style={{ aspectRatio: '16/9' }}
               />
