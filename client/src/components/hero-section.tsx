@@ -36,8 +36,8 @@ export default function HeroSection() {
         {!videoPlaying ? (
           <button
             onClick={handlePlayVideo}
-            className="absolute inset-0 w-full h-full cursor-pointer group focus:outline-none"
-            aria-label="Reproducir video corporativo de TRANSERVICA"
+            className="absolute inset-0 w-full h-full cursor-pointer group focus:outline-none focus-visible:ring-4 focus-visible:ring-[#155d29] focus-visible:ring-offset-2"
+            aria-label="Reproducir video de fondo corporativo de TRANSERVICA - video ambiental silenciado"
             data-testid="button-play-video-facade"
           >
             <img
