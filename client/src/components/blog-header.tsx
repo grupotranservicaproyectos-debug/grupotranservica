@@ -80,48 +80,55 @@ export default function BlogHeader({ showBackButton = false, onBackClick }: Blog
             </Link>
             <Link 
               href="/"
-              className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide"
+              className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide min-h-[48px] flex items-center"
+              aria-label="Ir a la página de inicio"
             >
               {t('nav.home')}
             </Link>
             <div className="relative group">
               <button 
                 onClick={() => scrollToSection('servicios')}
-                className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide flex items-center"
+                className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide flex items-center min-h-[48px]"
+                aria-label="Ir a la sección de servicios"
               >
                 {t('nav.services')}
-                <svg className="w-3 h-3 ml-1" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-3 h-3 ml-1" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
                 </svg>
               </button>
             </div>
             <button 
               onClick={() => scrollToSection('proyectos')}
-              className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide"
+              className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide min-h-[48px]"
+              aria-label="Ir a la sección de proyectos"
             >
               {t('nav.projects')}
             </button>
             <button 
               onClick={() => scrollToSection('nosotros')}
-              className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide"
+              className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide min-h-[48px]"
+              aria-label="Ir a la sección sobre nosotros"
             >
               {t('nav.company')}
             </button>
             <button 
               onClick={() => scrollToSection('equipos')}
-              className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide"
+              className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide min-h-[48px]"
+              aria-label="Ir a la sección de equipos"
             >
               {t('nav.equipment')}
             </button>
             <Link 
               href="/blog"
-              className="text-[#155d29] text-sm font-bold transition uppercase tracking-wide border-b-2 border-[#155d29] pb-1"
+              className="text-[#155d29] text-sm font-bold transition uppercase tracking-wide border-b-2 border-[#155d29] pb-1 min-h-[48px] flex items-center"
+              aria-label="Ir a la sección del blog"
             >
               BLOG
             </Link>
             <button 
               onClick={() => scrollToSection('contacto')}
-              className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide"
+              className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide min-h-[48px]"
+              aria-label="Ir a la sección de contacto"
             >
               {t('nav.contact')}
             </button>
@@ -144,7 +151,8 @@ export default function BlogHeader({ showBackButton = false, onBackClick }: Blog
             </div>
             <button 
               onClick={() => scrollToSection('contacto')}
-              className="bg-transervica-green text-white px-6 py-2 rounded-md text-sm font-semibold hover:bg-transervica-light-green transition shadow-md"
+              className="bg-transervica-green text-white px-6 py-2 rounded-md text-sm font-semibold hover:bg-transervica-light-green transition shadow-md min-h-[48px]"
+              aria-label="Solicitar cotización gratuita"
             >
               {t('nav.quote')}
             </button>
@@ -180,42 +188,47 @@ export default function BlogHeader({ showBackButton = false, onBackClick }: Blog
               
               <Link 
                 href="/"
-                className="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-700 hover:text-[#155d29] hover:bg-gray-50 transition-all duration-200 font-semibold"
+                className="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-700 hover:text-[#155d29] hover:bg-gray-50 transition-all duration-200 font-semibold min-h-[48px]"
                 onClick={() => setMobileMenuOpen(false)}
+                aria-label="Ir a la página de inicio"
               >
-                <Home className="w-5 h-5" />
+                <Home className="w-5 h-5" aria-hidden="true" />
                 <span>{t('nav.home')}</span>
               </Link>
               
               <button 
                 onClick={() => { scrollToSection('servicios'); setMobileMenuOpen(false); }}
-                className="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-700 hover:text-[#155d29] hover:bg-gray-50 transition-all duration-200 font-semibold w-full text-left"
+                className="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-700 hover:text-[#155d29] hover:bg-gray-50 transition-all duration-200 font-semibold w-full text-left min-h-[48px]"
+                aria-label="Ir a la sección de servicios"
               >
-                <Briefcase className="w-5 h-5" />
+                <Briefcase className="w-5 h-5" aria-hidden="true" />
                 <span>{t('nav.services')}</span>
               </button>
               
               <button 
                 onClick={() => { scrollToSection('proyectos'); setMobileMenuOpen(false); }}
-                className="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-700 hover:text-[#155d29] hover:bg-gray-50 transition-all duration-200 font-semibold w-full text-left"
+                className="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-700 hover:text-[#155d29] hover:bg-gray-50 transition-all duration-200 font-semibold w-full text-left min-h-[48px]"
+                aria-label="Ir a la sección de proyectos"
               >
-                <FileText className="w-5 h-5" />
+                <FileText className="w-5 h-5" aria-hidden="true" />
                 <span>{t('nav.projects')}</span>
               </button>
               
               <button 
                 onClick={() => { scrollToSection('nosotros'); setMobileMenuOpen(false); }}
-                className="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-700 hover:text-[#155d29] hover:bg-gray-50 transition-all duration-200 font-semibold w-full text-left"
+                className="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-700 hover:text-[#155d29] hover:bg-gray-50 transition-all duration-200 font-semibold w-full text-left min-h-[48px]"
+                aria-label="Ir a la sección sobre nosotros"
               >
-                <Users className="w-5 h-5" />
+                <Users className="w-5 h-5" aria-hidden="true" />
                 <span>{t('nav.company')}</span>
               </button>
               
               <button 
                 onClick={() => { scrollToSection('equipos'); setMobileMenuOpen(false); }}
-                className="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-700 hover:text-[#155d29] hover:bg-gray-50 transition-all duration-200 font-semibold w-full text-left"
+                className="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-700 hover:text-[#155d29] hover:bg-gray-50 transition-all duration-200 font-semibold w-full text-left min-h-[48px]"
+                aria-label="Ir a la sección de equipos"
               >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M19 7h-3V6a4 4 0 0 0-8 0v1H5a1 1 0 0 0-1 1v11a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V8a1 1 0 0 0-1-1zM10 6a2 2 0 0 1 4 0v1h-4V6zm8 13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V9h2v1a1 1 0 0 0 2 0V9h4v1a1 1 0 0 0 2 0V9h2v10z"/>
                 </svg>
                 <span>EQUIPOS</span>
@@ -223,10 +236,11 @@ export default function BlogHeader({ showBackButton = false, onBackClick }: Blog
               
               <Link 
                 href="/blog"
-                className="flex items-center space-x-3 px-4 py-3 rounded-lg text-[#155d29] bg-green-50 border border-[#155d29] transition-all duration-200 font-bold"
+                className="flex items-center space-x-3 px-4 py-3 rounded-lg text-[#155d29] bg-green-50 border border-[#155d29] transition-all duration-200 font-bold min-h-[48px]"
                 onClick={() => setMobileMenuOpen(false)}
+                aria-label="Ir a la sección del blog"
               >
-                <Calendar className="w-5 h-5" />
+                <Calendar className="w-5 h-5" aria-hidden="true" />
                 <span>BLOG</span>
               </Link>
               

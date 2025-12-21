@@ -145,48 +145,55 @@ export default function HeroSection() {
               />
               <button 
                 onClick={() => scrollToSection('inicio')}
-                className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide"
+                className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide min-h-[48px]"
+                aria-label="Ir a la sección de inicio"
               >
                 {t('nav.home')}
               </button>
               <div className="relative group">
                 <button 
                   onClick={() => scrollToSection('servicios')}
-                  className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide flex items-center"
+                  className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide flex items-center min-h-[48px]"
+                  aria-label="Ir a la sección de servicios"
                 >
                   {t('nav.services')}
-                  <svg className="w-3 h-3 ml-1" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-3 h-3 ml-1" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                     <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
                   </svg>
                 </button>
               </div>
               <button 
                 onClick={() => scrollToSection('proyectos')}
-                className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide"
+                className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide min-h-[48px]"
+                aria-label="Ir a la sección de proyectos"
               >
                 {t('nav.projects')}
               </button>
               <button 
                 onClick={() => scrollToSection('nosotros')}
-                className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide"
+                className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide min-h-[48px]"
+                aria-label="Ir a la sección sobre nosotros"
               >
                 {t('nav.company')}
               </button>
               <button 
                 onClick={() => scrollToSection('equipos')}
-                className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide"
+                className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide min-h-[48px]"
+                aria-label="Ir a la sección de equipos"
               >
                 {t('nav.equipment')}
               </button>
               <Link 
                 href="/blog"
-                className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide"
+                className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide min-h-[48px] flex items-center"
+                aria-label="Ir a la sección del blog"
               >
                 BLOG
               </Link>
               <button 
                 onClick={scrollToContact}
-                className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide"
+                className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide min-h-[48px]"
+                aria-label="Ir a la sección de contacto"
               >
                 {t('nav.contact')}
               </button>
@@ -198,7 +205,8 @@ export default function HeroSection() {
               </div>
               <button 
                 onClick={scrollToContact}
-                className="bg-transervica-green text-white px-6 py-2 rounded-md text-sm font-semibold hover:bg-transervica-light-green transition shadow-md"
+                className="bg-transervica-green text-white px-6 py-2 rounded-md text-sm font-semibold hover:bg-transervica-light-green transition shadow-md min-h-[48px]"
+                aria-label="Solicitar cotización gratuita"
               >
                 {t('nav.quote')}
               </button>
@@ -230,44 +238,51 @@ export default function HeroSection() {
             <div className="mobile-padding py-6 space-y-4">
               <button 
                 onClick={() => { scrollToSection('inicio'); setIsMobileMenuOpen(false); }}
-                className="block w-full text-left text-gray-700 hover:text-[#155d29] hover:bg-gray-50 text-base font-bold transition-all duration-200 uppercase tracking-wide py-4 px-4 rounded-lg"
+                className="block w-full text-left text-gray-700 hover:text-[#155d29] hover:bg-gray-50 text-base font-bold transition-all duration-200 uppercase tracking-wide py-4 px-4 rounded-lg min-h-[48px]"
+                aria-label="Ir a la sección de inicio"
               >
                 {t('nav.home')}
               </button>
               <button 
                 onClick={() => { scrollToSection('servicios'); setIsMobileMenuOpen(false); }}
-                className="block w-full text-left text-gray-700 hover:text-[#155d29] hover:bg-gray-50 text-base font-bold transition-all duration-200 uppercase tracking-wide py-4 px-4 rounded-lg"
+                className="block w-full text-left text-gray-700 hover:text-[#155d29] hover:bg-gray-50 text-base font-bold transition-all duration-200 uppercase tracking-wide py-4 px-4 rounded-lg min-h-[48px]"
+                aria-label="Ir a la sección de servicios"
               >
                 {t('nav.services')}
               </button>
               <button 
                 onClick={() => { scrollToSection('proyectos'); setIsMobileMenuOpen(false); }}
-                className="block w-full text-left text-gray-700 hover:text-[#155d29] hover:bg-gray-50 text-base font-bold transition-all duration-200 uppercase tracking-wide py-4 px-4 rounded-lg"
+                className="block w-full text-left text-gray-700 hover:text-[#155d29] hover:bg-gray-50 text-base font-bold transition-all duration-200 uppercase tracking-wide py-4 px-4 rounded-lg min-h-[48px]"
+                aria-label="Ir a la sección de proyectos"
               >
                 {t('nav.projects')}
               </button>
               <button 
                 onClick={() => { scrollToSection('nosotros'); setIsMobileMenuOpen(false); }}
-                className="block w-full text-left text-gray-700 hover:text-[#155d29] hover:bg-gray-50 text-base font-bold transition-all duration-200 uppercase tracking-wide py-4 px-4 rounded-lg"
+                className="block w-full text-left text-gray-700 hover:text-[#155d29] hover:bg-gray-50 text-base font-bold transition-all duration-200 uppercase tracking-wide py-4 px-4 rounded-lg min-h-[48px]"
+                aria-label="Ir a la sección sobre nosotros"
               >
                 {t('nav.company')}
               </button>
               <button 
                 onClick={() => { scrollToSection('equipos'); setIsMobileMenuOpen(false); }}
-                className="block w-full text-left text-gray-700 hover:text-[#155d29] hover:bg-gray-50 text-base font-bold transition-all duration-200 uppercase tracking-wide py-4 px-4 rounded-lg"
+                className="block w-full text-left text-gray-700 hover:text-[#155d29] hover:bg-gray-50 text-base font-bold transition-all duration-200 uppercase tracking-wide py-4 px-4 rounded-lg min-h-[48px]"
+                aria-label="Ir a la sección de equipos"
               >
                 {t('nav.equipment')}
               </button>
               <Link 
                 href="/blog"
-                className="block w-full text-left text-gray-700 hover:text-[#155d29] hover:bg-gray-50 text-base font-bold transition-all duration-200 uppercase tracking-wide py-4 px-4 rounded-lg"
+                className="block w-full text-left text-gray-700 hover:text-[#155d29] hover:bg-gray-50 text-base font-bold transition-all duration-200 uppercase tracking-wide py-4 px-4 rounded-lg min-h-[48px]"
                 onClick={() => setIsMobileMenuOpen(false)}
+                aria-label="Ir a la sección del blog"
               >
                 BLOG
               </Link>
               <button 
                 onClick={() => { scrollToContact(); setIsMobileMenuOpen(false); }}
-                className="block w-full text-left text-gray-700 hover:text-[#155d29] hover:bg-gray-50 text-base font-bold transition-all duration-200 uppercase tracking-wide py-4 px-4 rounded-lg"
+                className="block w-full text-left text-gray-700 hover:text-[#155d29] hover:bg-gray-50 text-base font-bold transition-all duration-200 uppercase tracking-wide py-4 px-4 rounded-lg min-h-[48px]"
+                aria-label="Ir a la sección de contacto"
               >
                 {t('nav.contact')}
               </button>
@@ -275,7 +290,8 @@ export default function HeroSection() {
               {/* Call-to-Action button in mobile menu */}
               <button 
                 onClick={() => { scrollToContact(); setIsMobileMenuOpen(false); }}
-                className="w-full bg-[#155d29] text-white mobile-button rounded-lg text-base font-semibold hover-lift shadow-lg mt-4"
+                className="w-full bg-[#155d29] text-white mobile-button rounded-lg text-base font-semibold hover-lift shadow-lg mt-4 min-h-[48px]"
+                aria-label="Solicitar cotización gratuita"
               >
                 {t('nav.quote')}
               </button>

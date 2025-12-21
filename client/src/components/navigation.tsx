@@ -30,9 +30,10 @@ export default function Navigation() {
               <img 
                 src={logoTranservica} 
                 alt="TRANSERVICA Logo - Transporte Cargas Excepcionales Venezuela" 
-                width={160}
+                width={112}
                 height={96}
                 className="h-24 w-auto hover:scale-105 transition-transform duration-300"
+                style={{ aspectRatio: '225/192' }}
               />
             </button>
           </div>
