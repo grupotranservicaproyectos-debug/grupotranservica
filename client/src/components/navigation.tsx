@@ -42,43 +42,50 @@ export default function Navigation() {
             <div className="ml-10 flex items-baseline space-x-8">
               <button 
                 onClick={() => scrollToSection('inicio')}
-                className="text-transervica-green hover:text-transervica-light-green px-3 py-2 text-sm font-medium transition"
+                className="text-transervica-green hover:text-transervica-light-green px-3 py-2 text-sm font-medium transition min-h-[48px] min-w-[48px]"
+                aria-label="Ir a la sección de inicio"
               >
                 {t('nav.home')}
               </button>
               <button 
                 onClick={() => scrollToSection('servicios')}
-                className="text-transervica-gray hover:text-transervica-green px-3 py-2 text-sm font-medium transition"
+                className="text-transervica-gray hover:text-transervica-green px-3 py-2 text-sm font-medium transition min-h-[48px] min-w-[48px]"
+                aria-label="Ir a la sección de servicios"
               >
                 {t('nav.services')}
               </button>
               <button 
                 onClick={() => scrollToSection('proyectos')}
-                className="text-transervica-gray hover:text-transervica-green px-3 py-2 text-sm font-medium transition"
+                className="text-transervica-gray hover:text-transervica-green px-3 py-2 text-sm font-medium transition min-h-[48px] min-w-[48px]"
+                aria-label="Ir a la sección de proyectos"
               >
                 {t('nav.projects')}
               </button>
               <button 
                 onClick={() => scrollToSection('nosotros')}
-                className="text-transervica-gray hover:text-transervica-green px-3 py-2 text-sm font-medium transition"
+                className="text-transervica-gray hover:text-transervica-green px-3 py-2 text-sm font-medium transition min-h-[48px] min-w-[48px]"
+                aria-label="Ir a la sección sobre nosotros"
               >
                 {t('nav.company')}
               </button>
               <button 
                 onClick={() => scrollToSection('equipos')}
-                className="text-transervica-gray hover:text-transervica-green px-3 py-2 text-sm font-medium transition"
+                className="text-transervica-gray hover:text-transervica-green px-3 py-2 text-sm font-medium transition min-h-[48px] min-w-[48px]"
+                aria-label="Ir a la sección de equipos"
               >
                 {t('nav.equipment')}
               </button>
               <Link 
                 href="/blog"
-                className="text-transervica-gray hover:text-transervica-green px-3 py-2 text-sm font-medium transition"
+                className="text-transervica-gray hover:text-transervica-green px-3 py-2 text-sm font-medium transition min-h-[48px] min-w-[48px] flex items-center"
+                aria-label="Ir a la sección del blog"
               >
                 {t('nav.blog')}
               </Link>
               <button 
                 onClick={() => scrollToSection('contacto')}
-                className="bg-transervica-green text-white px-6 py-2 rounded-lg text-sm font-medium hover:bg-transervica-light-green transition"
+                className="bg-transervica-green text-white px-6 py-2 rounded-lg text-sm font-medium hover:bg-transervica-light-green transition min-h-[48px]"
+                aria-label="Solicitar cotización gratuita"
               >
                 {t('nav.quote')}
               </button>
@@ -106,44 +113,51 @@ export default function Navigation() {
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
               <button 
                 onClick={() => scrollToSection('inicio')}
-                className="text-transervica-green hover:text-transervica-light-green block px-3 py-2 text-base font-medium w-full text-left"
+                className="text-transervica-green hover:text-transervica-light-green block px-3 py-2 text-base font-medium w-full text-left min-h-[48px]"
+                aria-label="Ir a la sección de inicio"
               >
                 {t('nav.home')}
               </button>
               <button 
                 onClick={() => scrollToSection('servicios')}
-                className="text-transervica-gray hover:text-transervica-green block px-3 py-2 text-base font-medium w-full text-left"
+                className="text-transervica-gray hover:text-transervica-green block px-3 py-2 text-base font-medium w-full text-left min-h-[48px]"
+                aria-label="Ir a la sección de servicios"
               >
                 {t('nav.services')}
               </button>
               <button 
                 onClick={() => scrollToSection('proyectos')}
-                className="text-transervica-gray hover:text-transervica-green block px-3 py-2 text-base font-medium w-full text-left"
+                className="text-transervica-gray hover:text-transervica-green block px-3 py-2 text-base font-medium w-full text-left min-h-[48px]"
+                aria-label="Ir a la sección de proyectos"
               >
                 {t('nav.projects')}
               </button>
               <button 
                 onClick={() => scrollToSection('nosotros')}
-                className="text-transervica-gray hover:text-transervica-green block px-3 py-2 text-base font-medium w-full text-left"
+                className="text-transervica-gray hover:text-transervica-green block px-3 py-2 text-base font-medium w-full text-left min-h-[48px]"
+                aria-label="Ir a la sección sobre nosotros"
               >
                 {t('nav.company')}
               </button>
               <button 
                 onClick={() => scrollToSection('equipos')}
-                className="text-transervica-gray hover:text-transervica-green block px-3 py-2 text-base font-medium w-full text-left"
+                className="text-transervica-gray hover:text-transervica-green block px-3 py-2 text-base font-medium w-full text-left min-h-[48px]"
+                aria-label="Ir a la sección de equipos"
               >
                 {t('nav.equipment')}
               </button>
               <Link 
                 href="/blog"
-                className="text-transervica-gray hover:text-transervica-green block px-3 py-2 text-base font-medium w-full text-left"
+                className="text-transervica-gray hover:text-transervica-green block px-3 py-2 text-base font-medium w-full text-left min-h-[48px]"
                 onClick={() => setIsMenuOpen(false)}
+                aria-label="Ir a la sección del blog"
               >
                 {t('nav.blog')}
               </Link>
               <button 
                 onClick={() => scrollToSection('contacto')}
-                className="bg-transervica-green text-white block px-3 py-2 rounded-lg text-base font-medium hover:bg-transervica-light-green transition w-full text-left"
+                className="bg-transervica-green text-white block px-3 py-2 rounded-lg text-base font-medium hover:bg-transervica-light-green transition w-full text-left min-h-[48px]"
+                aria-label="Solicitar cotización gratuita"
               >
                 {t('nav.quote')}
               </button>

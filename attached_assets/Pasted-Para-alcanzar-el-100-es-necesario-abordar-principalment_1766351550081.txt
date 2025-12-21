@@ -1,0 +1,190 @@
+Para alcanzar el 100%, es necesario abordar principalmente los problemas de rendimiento (99/100), accesibilidad (88/100) y prácticas recomendadas (92/100).
+
+1. Optimización de Rendimiento (99/100 → 100/100)
+1.1 Eliminar JavaScript que Bloquea Renderizado (Impacto: 170ms)
+Problema: El archivo CSS está bloqueando el renderizado inicial de la página.
+
+Solución: Optimizar la carga de CSS para que no bloquee el renderizado.
+
+Implementación:
+
+1.2 Optimizar Imágenes (Impacto: 317 KiB)
+Problema: Las imágenes están sobredimensionadas para su visualización.
+
+Soluciones:
+
+Redimensionar imágenes a sus dimensiones de visualización reales
+Implementar imágenes responsivas con srcset
+Implementación específica:
+
+1.3 Mejorar Caché de Recursos (Impacto: 617 KiB)
+Problema: Las imágenes de YouTube tienen un tiempo de caché de solo 2 horas.
+
+Solución: Implementar caché a largo plazo para recursos estáticos.
+
+Implementación:
+
+apache
+
+# En .htaccess o configuración del servidor
+<IfModule mod_expires.c>
+  ExpiresActive on
+  # Imágenes
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  # CSS y JS
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+</IfModule>
+1.4 Reducir JavaScript y CSS No Utilizados
+Problema: Hay 38 KiB de JavaScript y 13 KiB de CSS no utilizados.
+
+Soluciones:
+
+Implementar code splitting para JavaScript
+Usar PurgeCSS para eliminar CSS no utilizado
+Cargar módulos bajo demanda
+Implementación:
+
+javascript
+
+// Carga dinámica de módulos no críticos
+const loadNonCriticalModule = async () => {
+  const module = await import('./non-critical-module.js');
+  module.init();
+};
+
+// Cargar después de la carga inicial
+window.addEventListener('load', () => {
+  setTimeout(loadNonCriticalModule, 2000);
+});
+1.5 Optimizar Tareas del Hilo Principal
+Problema: Se detectaron 2 tareas largas que afectan la interactividad.
+
+Soluciones:
+
+Dividir tareas largas en chunks más pequeños
+Optimizar operaciones costosas
+Usar requestIdleCallback para tareas no críticas
+Implementación:
+
+javascript
+
+// División de tareas largas
+function processLargeArray(array) {
+  const chunkSize = 100;
+  let i = 0;
+  
+  function processChunk() {
+    const end = Math.min(i + chunkSize, array.length);
+    for (; i < end; i++) {
+      // Procesar elemento
+    }
+    
+    if (i < array.length) {
+      requestIdleCallback(processChunk);
+    }
+  }
+  
+  processChunk();
+}
+2. Mejoras de Accesibilidad (88/100 → 100/100)
+2.1 Nombres Accesibles para Botones
+Problema: Los botones no tienen nombres accesibles para lectores de pantalla.
+
+Solución: Añadir atributos aria-label descriptivos.
+
+Implementación:
+
+2.2 Mejorar Contraste de Colores
+Problema: Textos con contraste insuficiente.
+
+Solución: Ajustar colores para cumplir con WCAG 2.1 AA (4.5:1 para texto normal).
+
+Implementación:
+
+css
+
+/* Anterior */
+.bg-transervica-green {
+  background-color: #155d29; /* Puede tener contraste insuficiente */
+}
+
+/* Mejorado */
+.bg-transervica-green {
+  background-color: #0d4018; /* Mayor contraste con texto blanco */
+}
+
+/* Para spans con fondo */
+.text-white-on-green {
+  color: #FFFFFF; /* Asegurar máximo contraste */
+  background-color: #0d4018; /* Mayor contraste */
+}
+2.3 Aumentar Tamaño de Áreas Táctiles
+Problema: Los botones de navegación son demasiado pequeños (12x12px).
+
+Solución: Aumentar el tamaño mínimo a 48x48px según las guías de accesibilidad.
+
+Implementación:
+
+3. Mejoras de Prácticas Recomendadas (92/100 → 100/100)
+3.1 Corregir Relación de Aspecto de Imágenes
+Problema: El logo se muestra con una relación de aspecto incorrecta.
+
+Solución: Corregir las dimensiones del logo para mantener su relación de aspecto natural.
+
+Implementación:
+
+3.2 Corregir Errores de Consola
+Problema: Hay un error 404 para una imagen de YouTube.
+
+Solución: Verificar y corregir URLs de recursos rotos.
+
+Implementación:
+
+3.3 Mejorar Seguridad con CSP
+Problema: La CSP actual puede ser vulnerable a ataques XSS.
+
+Solución: Implementar una CSP más restrictiva con nonces o hashes.
+
+Implementación:
+
+3.4 Implementar Trusted Types
+Problema: No se ha encontrado ningún encabezado CSP con la directiva Trusted Types.
+
+Solución: Implementar Trusted Types para mitigar XSS basado en DOM.
+
+Implementación:
+
+4. Plan de Implementación Priorizado
+Fase 1: Impacto Inmediato (1 semana)
+Corregir relación de aspecto del logo
+Aumentar tamaño de áreas táctiles
+Corregir error 404 de imagen de YouTube
+Mejorar contraste de colores
+Fase 2: Mejoras de Rendimiento (1-2 semanas)
+Optimizar carga de CSS para eliminar bloqueo de renderizado
+Redimensionar imágenes principales
+Implementar caché a largo plazo
+Fase 3: Optimización Avanzada (2-3 semanas)
+Reducir JavaScript y CSS no utilizados
+Optimizar tareas del hilo principal
+Implementar CSP mejorada con Trusted Types
+5. Métricas Esperadas Tras la Implementación
+Con la implementación completa de estas recomendaciones, se esperaría:
+
+Puntuación de rendimiento: 99 → 100
+First Contentful Paint: 0.6s → 0.5s
+Largest Contentful Paint: 0.9s → 0.8s
+Total Blocking Time: 20ms → <10ms
+Speed Index: 1.1s → 1.0s
+Puntuación de accesibilidad: 88 → 100
+Puntuación de prácticas recomendadas: 92 → 100
+Reducción de bytes transferidos: ~300-400 KiB
+6. Herramientas Recomendadas
+Optimización de imágenes: Squoosh, ImageOptim, Cloudinary API
+Análisis de CSS/JS no utilizado: Chrome DevTools Coverage, PurgeCSS
+Verificación de accesibilidad: axe DevTools, WAVE, Lighthouse
+Implementación de CSP: CSP Evaluator, CSP Builder
+Análisis de rendimiento: Chrome DevTools Performance, WebPageTest

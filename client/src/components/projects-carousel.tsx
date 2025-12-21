@@ -354,21 +354,25 @@ export default function ProjectsCarousel() {
             </button>
           </div>
 
-          {/* Slide Indicators */}
-          <div className="flex justify-center mt-6 space-x-2">
+          {/* Slide Indicators - 48x48px touch targets with 12x12px visual dots */}
+          <div className="flex justify-center mt-6 space-x-1">
             {projectsData.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentSlide(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-200 ${
-                  index === currentSlide
-                    ? "scale-125"
-                    : "bg-gray-300 hover:bg-gray-400"
-                }`}
-                style={index === currentSlide ? { backgroundColor: '#155d29' } : {}}
+                className="w-12 h-12 flex items-center justify-center"
                 aria-label={`Ir a proyecto ${index + 1}`}
                 data-testid={`button-slide-${index}`}
-              />
+              >
+                <span 
+                  className={`w-3 h-3 rounded-full transition-all duration-200 ${
+                    index === currentSlide
+                      ? "scale-125"
+                      : "bg-gray-300 hover:bg-gray-400"
+                  }`}
+                  style={index === currentSlide ? { backgroundColor: '#155d29' } : {}}
+                />
+              </button>
             ))}
           </div>
         </div>
