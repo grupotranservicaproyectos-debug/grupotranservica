@@ -32,6 +32,12 @@ This system handles contact form submissions, storing data in PostgreSQL, sendin
 ### Technical SEO and Accessibility
 The site implements dynamic meta tags using `react-helmet-async` for per-page SEO, including titles, descriptions, Open Graph, Twitter Cards, and hreflang. The sitemap.xml is enhanced to include all pages and dynamic blog articles. Blog articles feature Article schema markup. Accessibility improvements include ARIA labels, keyboard navigation support, and enhanced screen reader compatibility.
 
+### Legacy URL Handling (SEO)
+Server-side middleware handles legacy WordPress URLs to resolve Google Search Console indexing issues:
+- **301 Redirects**: `/category/movimientos/` → `/blog`, `/contacto/` → `/#contacto`, `/services/izamiento-carga/` → `/#servicios`
+- **410 Gone**: `/about-us-slider-2-bg-jpg/`, `/11/` with noindex meta
+- **_escaped_fragment_**: Redirects to clean URLs for proper indexing
+
 ## External Dependencies
 
 ### Database and Storage
