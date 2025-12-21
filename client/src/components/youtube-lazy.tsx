@@ -8,6 +8,7 @@ interface YouTubeLazyProps {
   params?: string;
   thumbnailQuality?: 'default' | 'hqdefault' | 'mqdefault' | 'sddefault' | 'maxresdefault';
   autoLoad?: boolean;
+  localThumbnail?: string;
 }
 
 export default function YouTubeLazy({ 
@@ -16,11 +17,12 @@ export default function YouTubeLazy({
   className = '', 
   params = '',
   thumbnailQuality = 'hqdefault',
-  autoLoad = false
+  autoLoad = false,
+  localThumbnail
 }: YouTubeLazyProps) {
   const [isLoaded, setIsLoaded] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
-  const thumbnailUrl = `https://i.ytimg.com/vi/${videoId}/${thumbnailQuality}.jpg`;
+  const thumbnailUrl = localThumbnail || `https://i.ytimg.com/vi/${videoId}/${thumbnailQuality}.jpg`;
 
   useEffect(() => {
     if (!autoLoad || isLoaded) return;

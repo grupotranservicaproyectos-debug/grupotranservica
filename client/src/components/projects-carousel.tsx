@@ -1,18 +1,18 @@
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight, Play, Pause } from "lucide-react";
 import { useLanguage } from '../contexts/LanguageContext';
-import image1 from "@assets/2_1754167186023.webp";
-import image2 from "@assets/3_1754167186023.webp";
-import image3 from "@assets/4_1754167186024.webp";
-import image4 from "@assets/5_1754167186024.webp";
-import image5 from "@assets/6_1754167186024.webp";
-import image6 from "@assets/7_1754167186025.webp";
-import image7 from "@assets/8_1754167186025.webp";
-import image8 from "@assets/9_1754167186025.webp";
-import image9 from "@assets/10_1754167186025.webp";
-import image10 from "@assets/11_1754167186026.webp";
-import image11 from "@assets/12_1754167186026.webp";
-import image12 from "@assets/13_1754167186026.webp";
+import image1 from "@assets/optimized/2_1754167186023.webp";
+import image2 from "@assets/optimized/3_1754167186023.webp";
+import image3 from "@assets/optimized/4_1754167186024.webp";
+import image4 from "@assets/optimized/5_1754167186024.webp";
+import image5 from "@assets/optimized/6_1754167186024.webp";
+import image6 from "@assets/optimized/7_1754167186025.webp";
+import image7 from "@assets/optimized/8_1754167186025.webp";
+import image8 from "@assets/optimized/9_1754167186025.webp";
+import image9 from "@assets/optimized/10_1754167186025.webp";
+import image10 from "@assets/optimized/11_1754167186026.webp";
+import image11 from "@assets/optimized/12_1754167186026.webp";
+import image12 from "@assets/optimized/13_1754167186026.webp";
 
 interface Project {
   id: number;

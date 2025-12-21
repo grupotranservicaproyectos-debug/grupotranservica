@@ -1,4 +1,5 @@
 import transportImage from "@assets/5_1754173669383.webp";
+import aboutVideoThumbnail from "@assets/youtube-about-thumbnail.webp";
 import { useLanguage } from '../contexts/LanguageContext';
 import YouTubeLazy from './youtube-lazy';
 
@@ -49,7 +50,7 @@ export default function AboutSection() {
                     title="TRANSERVICA - 40 Años de Experiencia"
                     className="absolute inset-0 w-full h-full"
                     params="autoplay=1&mute=1&start=32&controls=1&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&vq=hd1080&quality=hd1080&hd=1&fmt=22"
-                    thumbnailQuality="maxresdefault"
+                    localThumbnail={aboutVideoThumbnail}
                     autoLoad={false}
                   />
                 </div>

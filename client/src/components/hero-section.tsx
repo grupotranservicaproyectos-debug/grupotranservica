@@ -46,6 +46,7 @@ export default function HeroSection() {
               className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 object-cover"
               loading="eager"
               decoding="async"
+              {...{ fetchpriority: "high" } as any}
               style={{
                 width: 'max(100vw, 177.77vh)',
                 height: 'max(100vh, 56.25vw)',
@@ -122,7 +123,7 @@ export default function HeroSection() {
                 width={80}
                 height={64}
                 decoding="sync"
-                fetchPriority="high"
+                {...{ fetchpriority: "high" } as any}
                 onClick={() => scrollToSection('inicio')}
               />
             </div>
@@ -136,7 +137,7 @@ export default function HeroSection() {
                 width={128}
                 height={96}
                 decoding="sync"
-                fetchPriority="high"
+                {...{ fetchpriority: "high" } as any}
                 style={{ 
                   filter: 'brightness(1.1) contrast(1.25) drop-shadow(0 2px 4px rgba(0,0,0,0.2))'
                 }}
