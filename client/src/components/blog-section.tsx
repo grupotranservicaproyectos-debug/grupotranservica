@@ -248,7 +248,7 @@ export default function BlogSection() {
                                 className="w-full h-full"
                                 params="autoplay=1&mute=1&loop=1&playlist=JnWnFe_QdnE&vq=hd2160"
                                 thumbnailQuality="maxresdefault"
-                                autoLoad={true}
+                                autoLoad={false}
                               />
                             ) : post.id === 2 ? (
                               <YouTubeLazy
@@ -257,7 +257,7 @@ export default function BlogSection() {
                                 className="w-full h-full"
                                 params="autoplay=1&mute=1&loop=1&playlist=4ZfZ5YFelkQ&vq=hd2160"
                                 thumbnailQuality="maxresdefault"
-                                autoLoad={true}
+                                autoLoad={false}
                               />
                             ) : post.id === 3 ? (
                               <YouTubeLazy
@@ -266,7 +266,7 @@ export default function BlogSection() {
                                 className="w-full h-full"
                                 params="autoplay=1&mute=1&loop=1&playlist=44lpgBO22qU&vq=hd2160"
                                 thumbnailQuality="maxresdefault"
-                                autoLoad={true}
+                                autoLoad={false}
                               />
                             ) : post.id === 4 ? (
                               <YouTubeLazy
@@ -275,7 +275,7 @@ export default function BlogSection() {
                                 className="w-full h-full"
                                 params="autoplay=1&mute=1&loop=1&playlist=54hazc90eNk&vq=hd2160"
                                 thumbnailQuality="maxresdefault"
-                                autoLoad={true}
+                                autoLoad={false}
                               />
                             ) : post.id === 7 ? (
                               <YouTubeLazy
@@ -284,7 +284,7 @@ export default function BlogSection() {
                                 className="w-full h-full"
                                 params="autoplay=1&start=30&end=171&mute=1&loop=1&playlist=NW9Huszovqw&vq=hd2160"
                                 thumbnailQuality="maxresdefault"
-                                autoLoad={true}
+                                autoLoad={false}
                               />
                             ) : post.id === 8 ? (
                               <YouTubeLazy
@@ -293,7 +293,7 @@ export default function BlogSection() {
                                 className="w-full h-full"
                                 params="autoplay=1&start=22&end=86&mute=1&loop=1&playlist=JJjJ6lF_4oI&vq=hd2160"
                                 thumbnailQuality="maxresdefault"
-                                autoLoad={true}
+                                autoLoad={false}
                               />
                             ) : (
                               <img 

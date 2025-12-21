@@ -3,6 +3,7 @@ import { Link } from 'wouter';
 import { useLanguage } from '../contexts/LanguageContext';
 import LanguageSwitcher from './LanguageSwitcher';
 import logoTranservica from "@assets/logo transervica sin fondo_1754163034585.webp";
+import heroThumbnail from "@assets/youtube-hero-thumbnail.webp";
 
 export default function HeroSection() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -10,7 +11,6 @@ export default function HeroSection() {
   const { t } = useLanguage();
 
   const youtubeVideoId = '_LQbWkWlg6s';
-  const youtubeThumbnail = `https://i.ytimg.com/vi/${youtubeVideoId}/maxresdefault.jpg`;
 
   const handlePlayVideo = () => {
     setVideoPlaying(true);
@@ -41,7 +41,7 @@ export default function HeroSection() {
             data-testid="button-play-video-facade"
           >
             <img
-              src={youtubeThumbnail}
+              src={heroThumbnail}
               alt="Video corporativo TRANSERVICA - Transporte de cargas excepcionales en Venezuela"
               className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 object-cover"
               loading="eager"
