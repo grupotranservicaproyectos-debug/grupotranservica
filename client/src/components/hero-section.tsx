@@ -122,6 +122,7 @@ export default function HeroSection() {
                 width={80}
                 height={64}
                 decoding="sync"
+                fetchPriority="high"
                 onClick={() => scrollToSection('inicio')}
               />
             </div>
@@ -135,6 +136,7 @@ export default function HeroSection() {
                 width={128}
                 height={96}
                 decoding="sync"
+                fetchPriority="high"
                 style={{ 
                   filter: 'brightness(1.1) contrast(1.25) drop-shadow(0 2px 4px rgba(0,0,0,0.2))'
                 }}
