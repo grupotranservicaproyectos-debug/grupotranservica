@@ -32,8 +32,14 @@ Optimizations target <1.5s desktop and <2s mobile load times, aiming for PageSpe
 - **GZIP compression** and aggressive caching (1 year for static assets).
 - **Security headers** and Vite's build optimizations.
 
+### B2B Credibility Features
+The site includes B2B-focused features to reduce perceived risk for corporate clients:
+- **Social Proof Section**: Displays 6 industry sectors (Energy, Oil & Gas, Construction, Mining, Manufacturing, Logistics) with icons and statistics banner (500+ projects, 40+ years, 1,100 tons capacity, 100% success rate).
+- **LinkedIn Integration**: LinkedIn icon in footer linking to company page for professional networking.
+- **Lead Qualification**: Contact form includes required "Service Type" dropdown (Heavy Transport, Crane Lifting, Crane Rental, Engineering Logistics, Other) to qualify leads before capturing details.
+
 ### Automated Contact Form System
-This system handles contact form submissions, storing data in PostgreSQL, sending email notifications to administrators via Gmail SMTP, and confirmation emails to users. Both frontend and backend use Zod for schema validation.
+This system handles contact form submissions, storing data in PostgreSQL, sending email notifications to administrators via Gmail SMTP, and confirmation emails to users. Both frontend and backend use Zod for schema validation. The form now includes service type qualification for better lead routing.
 
 ### Technical SEO and Accessibility
 The site implements dynamic meta tags using `react-helmet-async` for per-page SEO, including titles, descriptions, Open Graph, Twitter Cards, and hreflang. The sitemap.xml is enhanced to include all pages and dynamic blog articles. Blog articles feature Article schema markup. Accessibility improvements include ARIA labels, keyboard navigation support, and enhanced screen reader compatibility.
