@@ -1,0 +1,34 @@
+Tu base técnica es excelente (SEO técnico y velocidad están resueltos), pero para convertir visitas en contratos de logística pesada, te faltan elementos de confianza y autoridad B2B.
+
+Aquí tienes las 4 implementaciones críticas que deberías priorizar:
+
+1. Sección de "Social Proof" (Prioridad Alta)
+Actualmente, el sitio dice que sois expertos, pero no muestra quién confía en vosotros. En logística industrial, el riesgo percibido es alto; necesitas bajarlo visualmente.
+
+Qué implementar: Un carrusel de logotipos de empresas (Clientes Actuales) o una sección de "Sectores que atendemos" con iconos.
+Por qué: Si un cliente ve que has trabajado con empresas de Energía, Construcción o Minería reconocidas, la barrera de entrada para contactarte desaparece.
+2. Conversión de Proyectos a "Casos de Estudio" (SEO + Ventas)
+Vi que tienes una sección de proyectos, lo cual es excelente, pero muchos solo llevan a un video o son muy visuales.
+
+Qué implementar: Crear plantillas de página individual para proyectos clave (ej. "Transporte de Transformador 120T").
+Estructura sugerida:
+El Desafío: "El cliente necesitaba mover X carga por una ruta con puentes bajos..."
+La Solución: "Utilizamos nuestros equipos modulares y realizamos un estudio de ruta..."
+El Resultado: "Entrega en 48 horas sin incidentes."
+Por qué: Esto te posiciona en Google para búsquedas como "empresa transporte transformadores centroamerica", que son pocas búsquedas pero de altísimo valor comercial.
+3. Ecosistema Profesional (LinkedIn)
+Tu footer tiene Facebook, Instagram y YouTube. Falta el más importante para B2B: LinkedIn.
+
+Qué implementar:
+Crear la página de empresa en LinkedIn si no existe.
+Poner el icono visible en el Header o Footer.
+Pista: Los gerentes de logística que contratan fletes de 1,100 toneladas no suelen buscar proveedores en Instagram; lo hacen en LinkedIn.
+4. Formulario de Cotización Inteligente (Cualificación)
+Tu formulario de contacto actual es estándar (Nombre, Email, Mensaje).
+
+Qué implementar: Un formulario de "Solicitar Cotización Rápida" con campos desplegables simples:
+Tipo de Servicio: (Carga Pesada / Izaje / Alquiler de Grúa / Otro)
+Origen y Destino: (País/Ciudad)
+Por qué: Ayuda a tu equipo de ventas a filtrar curiosos de clientes reales y da una imagen de mayor especialización.
+Resumen del Plan de Acción
+Si tuviera que elegir solo una cosa para hacer hoy: Añade la sección de logotipos de clientes ("Confían en Nosotros") en la página de inicio. Es el cambio con mayor retorno de inversión (ROI) inmediato para la credibilidad de la marca.

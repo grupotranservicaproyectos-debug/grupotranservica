@@ -14,6 +14,7 @@ import { apiRequest } from "@/lib/queryClient";
 import { useLanguage } from "../contexts/LanguageContext";
 
 const contactFormSchema = z.object({
+  serviceType: z.string().min(1, "Seleccione un tipo de servicio"),
   name: z.string().min(2, "El nombre debe tener al menos 2 caracteres"),
   company: z.string().optional(),
   email: z.string().email("Email inválido"),
@@ -46,6 +47,7 @@ export default function ContactSection() {
   const form = useForm<ContactFormData>({
     resolver: zodResolver(contactFormSchema),
     defaultValues: {
+      serviceType: "",
       name: "",
       company: "",
       email: "",
@@ -68,14 +70,15 @@ export default function ContactSection() {
         nombre: data.name,
         correoContacto: data.email,
         telefono: data.phone,
-        asunto: data.cargoType || "Solicitud de cotización",
+        asunto: data.serviceType || "Solicitud de cotización",
         mensaje: data.description,
         empresa: data.company || undefined,
+        tipoServicio: data.serviceType || undefined,
         tipoCarga: data.cargoType || undefined,
         pesoEstimado: data.estimatedWeight || undefined,
         origen: data.origin || undefined,
         destino: data.destination || undefined,
-        honeypot: honeypot, // Anti-spam honeypot field
+        honeypot: honeypot,
       };
 
       const response = await apiRequest("POST", "/api/contacto", contactoData);
@@ -200,6 +203,31 @@ export default function ContactSection() {
                     autoComplete="off"
                   />
                 </div>
+                <FormField
+                  control={form.control}
+                  name="serviceType"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>{t('contact.form.serviceType')} *</FormLabel>
+                      <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <FormControl>
+                          <SelectTrigger data-testid="select-service-type">
+                            <SelectValue placeholder={t('contact.form.serviceType.placeholder')} />
+                          </SelectTrigger>
+                        </FormControl>
+                        <SelectContent>
+                          <SelectItem value="transporte-cargas-pesadas">{t('contact.form.serviceType.heavyTransport')}</SelectItem>
+                          <SelectItem value="izaje-gruas">{t('contact.form.serviceType.lifting')}</SelectItem>
+                          <SelectItem value="alquiler-gruas">{t('contact.form.serviceType.craneRental')}</SelectItem>
+                          <SelectItem value="logistica-ingenieria">{t('contact.form.serviceType.logistics')}</SelectItem>
+                          <SelectItem value="otro">{t('contact.form.serviceType.other')}</SelectItem>
+                        </SelectContent>
+                      </Select>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
                 <div className="grid md:grid-cols-2 gap-4">
                   <FormField
                     control={form.control}

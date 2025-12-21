@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Facebook, Instagram, Youtube, Mail, Phone, MapPin } from 'lucide-react';
+import { Facebook, Instagram, Youtube, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
 import logoTranservica from "@assets/logo-transervica-optimized.webp";
 import { useLanguage } from '../contexts/LanguageContext';
 import { Link } from 'wouter';
@@ -255,6 +255,20 @@ export default function Footer() {
                 <Youtube className="w-8 h-8 text-[#FF0000] transition-all duration-300 hover:scale-110" />
                 <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <span className="text-xs text-gray-400 font-medium">YouTube</span>
+                </div>
+              </a>
+              
+              <a 
+                href="https://www.linkedin.com/company/grupotranservica" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative flex items-center justify-center transition-all duration-300 hover:scale-110"
+                aria-label="LinkedIn"
+                data-testid="link-linkedin"
+              >
+                <Linkedin className="w-8 h-8 text-[#0A66C2] transition-all duration-300 hover:scale-110" />
+                <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <span className="text-xs text-gray-400 font-medium">LinkedIn</span>
                 </div>
               </a>
             </div>

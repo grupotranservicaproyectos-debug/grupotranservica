@@ -1,0 +1,96 @@
+Contenido y Link Building
+text
+  ✓ Crear 4 artículos de blog optimizados
+  ✓ Ejecutar guest posting (obtener backlinks)
+  ✓ Agregar en directorios locales
+  ✓ Solicitar reseñas en Google Business
+  ✓ Crear presencia en redes sociales
+Mes 3+: Monitoreo y Expansión
+text
+  ✓ Analizar datos en Google Search Console
+  ✓ Crear más contenido (2 artículos/mes)
+  ✓ Optimizar páginas de bajo rendimiento
+  ✓ Implementar nuevas palabras clave
+  ✓ Expandir estrategia off-page
+🎯 PALABRAS CLAVE RECOMENDADAS
+Principales (Head Terms):
+Logística Panamá
+
+Servicios de transporte Panamá
+
+Distribución de carga Panamá
+
+Transporte internacional
+
+Secundarias (Long Tail):
+Transporte terrestre de carga Panamá
+
+Servicios logísticos empresariales
+
+Almacenaje y distribución Panamá
+
+Logística de última milla
+
+Aduanas e importación/exportación
+
+Locales:
+Logística Ciudad de Panamá
+
+Servicios transporte Colón
+
+Distribución logística Panamá Oeste
+
+📈 MÉTRICAS ESPERADAS (Proyección)
+Mes 1-2:
+Aumento de impresiones: 50-100%
+
+Cobertura índice: 95%+
+
+Core Web Vitals: Verde
+
+Mes 3-6:
+Tráfico orgánico: 50-200 sesiones/mes
+
+Posición promedio: Top 20
+
+Aumento de leads: +50%
+
+Mes 6-12:
+Tráfico orgánico: 500+ sesiones/mes
+
+Posición promedio: Top 10 (palabras clave principales)
+
+ROI: Excelente (inversión principalmente en tiempo)
+
+🛠️ ERRORES COMUNES A EVITAR (Elementor + WordPress)
+Error 1: H1 Duplicado
+Problema: Elementor crea un H1, pero el tema WordPress deja el título "oculto" (no eliminado). Resultado: dos H1 en la página.
+
+Solución: Desactiva "Mostrar título de página" en la configuración del tema WordPress y usa solo el H1 de Elementor.
+
+Error 2: Múltiples Enlaces en Listados
+Problema: Widget "Posts" crea 3 enlaces por post (imagen, título, "Leer más").
+
+Solución: Configura el widget para mostrar solo un enlace (por título) y desactiva el botón "Leer más".
+
+Error 3: Menús Duplicados
+Problema: Menú del tema + menú de Elementor = enlaces duplicados.
+
+Solución: Mantén solo un menú. Elimina uno de ellos completamente.
+
+Error 4: Encabezados no Controlados
+Problema: Widgets de Woocommerce generan H2/H3 automáticos.
+
+Solución: Usa plugin Dynamic.ooo para crear loops de producto personalizados donde controles los encabezados.
+
+🔗 ESTRATEGIA OFF-PAGE (Backlinks)
+Fuentes de Backlinks Prioritarias:
+Directorios Locales: Páginas Amarillas Panamá, directorios logísticos, cámaras de comercio
+
+Sitios de Autoridad: Portales logísticos, publicaciones de transporte, universidades
+
+Guest Posting: Escribe artículos invitados en blogs relacionados y obtén enlace de vuelta
+
+Google Business Profile: Fundamental para tráfico local
+
+Menciones de Marca: Busca que te mencionen en línea (Google Alerts)

@@ -2,6 +2,7 @@ import { lazy, Suspense } from "react";
 import HeroSection from "@/components/hero-section";
 import StatisticsSection from "@/components/statistics-section";
 
+const SocialProofSection = lazy(() => import("@/components/social-proof-section"));
 const ProjectsCarousel = lazy(() => import("@/components/projects-carousel"));
 const ServicesSection = lazy(() => import("@/components/services-section"));
 const AboutSection = lazy(() => import("@/components/about-section"));
@@ -22,6 +23,7 @@ export default function Home() {
         <HeroSection />
         <StatisticsSection />
         <Suspense fallback={<BelowFoldLoader />}>
+          <SocialProofSection />
           <ProjectsCarousel />
           <ServicesSection />
           <AboutSection />
