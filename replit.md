@@ -24,7 +24,13 @@ A comprehensive design system includes reusable UI components, a dedicated blog 
 The blog system offers a professional layout with a carousel, a dedicated blog page with search, categories, and pagination, and individual article pages. Content is fully bilingual (Spanish/English) and includes real project documentation and technical specifications. An automated SEO blog generation system utilizes AI (OpenRouter + Google AI Studio) to create content with specific requirements, including images, CTAs, contact information, and internal linking.
 
 ### Performance Optimizations
-Optimizations target <1.5s desktop and <2s mobile load times, aiming for PageSpeed >95. Techniques include WebP image optimization with lazy loading, a custom YouTube lazy-loading component, GZIP compression, aggressive caching (1 year for static assets), security headers, resource preloading/prefetching, font optimization, and Vite's build optimizations. A YouTube Facade pattern is implemented for the hero section to ensure zero YouTube resources on initial load.
+Optimizations target <1.5s desktop and <2s mobile load times, aiming for PageSpeed >95. Techniques include:
+- **YouTube Facade Pattern (site-wide)**: All YouTube videos use a thumbnail + play button facade. Videos only load when clicked, eliminating ~1.8MB per video from initial load. Applied to: hero section (local WebP thumbnail), services, about, blog sections (homepage), and blog page (/blog).
+- **Optimized images**: Hero thumbnail (41KB local WebP vs 103KB remote), logo (11KB vs 107KB original - 90% reduction).
+- **WebP format with lazy loading** for all project and blog images.
+- **Preload hints** for critical resources (hero thumbnail with fetchpriority="high").
+- **GZIP compression** and aggressive caching (1 year for static assets).
+- **Security headers** and Vite's build optimizations.
 
 ### Automated Contact Form System
 This system handles contact form submissions, storing data in PostgreSQL, sending email notifications to administrators via Gmail SMTP, and confirmation emails to users. Both frontend and backend use Zod for schema validation.
