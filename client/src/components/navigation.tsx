@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Link } from "wouter";
 import { useLanguage } from "@/contexts/LanguageContext";
-import logoTranservica from "@assets/logo transervica sin fondo_1754163034585.webp";
+import logoTranservica from "@assets/logo-transervica-optimized.webp";
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

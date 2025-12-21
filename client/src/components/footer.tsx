@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Facebook, Instagram, Youtube, Mail, Phone, MapPin } from 'lucide-react';
-import logoTranservica from "@assets/logo transervica sin fondo_1754163034585.webp";
+import logoTranservica from "@assets/logo-transervica-optimized.webp";
 import { useLanguage } from '../contexts/LanguageContext';
 import { Link } from 'wouter';
 

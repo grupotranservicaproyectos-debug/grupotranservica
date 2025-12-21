@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from 'wouter';
 import { useLanguage } from '../contexts/LanguageContext';
 import LanguageSwitcher from './LanguageSwitcher';
-import logoTranservica from "@assets/logo transervica sin fondo_1754163034585.webp";
+import logoTranservica from "@assets/logo-transervica-optimized.webp";
 import heroThumbnail from "@assets/youtube-hero-thumbnail.webp";
 
 export default function HeroSection() {
