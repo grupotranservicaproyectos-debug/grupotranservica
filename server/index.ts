@@ -60,6 +60,68 @@ app.use((req, res, next) => {
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+// Legacy URL redirects and SEO cleanup for Google Search Console issues
+// Handle old WordPress URLs that Google is still trying to crawl
+app.use((req, res, next) => {
+  const path = req.path;
+  const query = req.query;
+  
+  // Handle _escaped_fragment_ parameter (old AJAX crawling) - 301 to clean URL
+  if (query._escaped_fragment_ !== undefined) {
+    return res.redirect(301, '/');
+  }
+  
+  // 301 Redirects - Map legacy URLs to current equivalents
+  const redirects: Record<string, string> = {
+    '/category/movimientos/': '/blog',
+    '/category/movimientos': '/blog',
+    '/transporte-terrestre-y-descarga-de-plantas-compresoras/': '/blog',
+    '/transporte-terrestre-y-descarga-de-plantas-compresoras': '/blog',
+    '/services/izamiento-carga/': '/#servicios',
+    '/services/izamiento-carga': '/#servicios',
+    '/contacto/': '/#contacto',
+    '/contacto': '/#contacto',
+  };
+  
+  if (redirects[path]) {
+    return res.redirect(301, redirects[path]);
+  }
+  
+  // 410 Gone - URLs that no longer exist and have no equivalent
+  const goneUrls = [
+    '/about-us-slider-2-bg-jpg/',
+    '/about-us-slider-2-bg-jpg',
+    '/11/',
+    '/11',
+  ];
+  
+  if (goneUrls.includes(path)) {
+    return res.status(410).send(`
+      <!DOCTYPE html>
+      <html lang="es">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="robots" content="noindex">
+        <title>410 - Página Eliminada | TRANSERVICA</title>
+        <style>
+          body { font-family: Arial, sans-serif; text-align: center; padding: 50px; background: #f5f5f5; }
+          h1 { color: #155d29; }
+          a { color: #155d29; text-decoration: none; }
+          a:hover { text-decoration: underline; }
+        </style>
+      </head>
+      <body>
+        <h1>410 - Página Eliminada</h1>
+        <p>Esta página ya no existe en nuestro sitio.</p>
+        <p><a href="/">Visitar página principal de TRANSERVICA</a></p>
+      </body>
+      </html>
+    `);
+  }
+  
+  next();
+});
+
 app.use((req, res, next) => {
   const start = Date.now();
   const path = req.path;
