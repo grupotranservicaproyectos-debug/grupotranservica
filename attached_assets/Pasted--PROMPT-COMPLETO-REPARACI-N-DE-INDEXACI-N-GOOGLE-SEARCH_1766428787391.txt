@@ -1,0 +1,686 @@
+# PROMPT COMPLETO: REPARACIÓN DE INDEXACIÓN GOOGLE SEARCH CONSOLE
+## Transervica.net - Páginas Afectadas
+---
+## 🎯 MISIÓN CRÍTICA
+Diagnosticar y reparar **TODAS** las páginas afectadas en Google Search Console para **transervica.net** que están causando problemas de indexación y rastreo.
+---
+## 📊 ANÁLISIS DE PÁGINAS AFECTADAS
+### URLs Problemáticas Identificadas
+#### ❌ TIPO 1: Páginas de Categoría
+```
+https://transervica.net/category/movimientos/
+Último rastreo: 22 nov 2025
+```
+**Problema probable:** Soft 404, contenido delgado, o noindex accidental
+#### ❌ TIPO 2: Recurso de Imagen como Página
+```
+https://transervica.net/about-us-slider-2-bg-jpg/
+Último rastreo: 9 nov 2025
+```
+**Problema:** Imagen indexada como página (debería ser attachment o 301)
+#### ❌ TIPO 3: URL Numérica Sin Contexto
+```
+https://transervica.net/11/
+Último rastreo: 30 ago 2024
+```
+**Problema:** Post/página eliminada, draft, o URL huérfana
+#### ❌ TIPO 4: Página de Servicio/Proyecto
+```
+https://transervica.net/transporte-terrestre-y-descarga-de-plantas-compresoras/
+Último rastreo: 4 nov 2024
+```
+**Problema:** Contenido válido pero no rastreado recientemente
+#### ❌ TIPO 5: Páginas de Servicios
+```
+https://transervica.net/services/izamiento-carga/
+Último rastreo: 17 oct 2025
+https://transervica.net/contacto/
+Último rastreo: 17 oct 2025
+```
+**Problema:** Páginas válidas con problemas de rastreo/indexación
+#### ❌ TIPO 6: Fragmentos Escapados (AJAX/SPA)
+```
+https://transervica.net/?_escaped_fragment_=
+Último rastreo: 21 sept 2025
+```
+**Problema:** Esquema antiguo de AJAX crawling (deprecado por Google)
+---
+## 🔍 DIAGNÓSTICO DETALLADO
+### PASO 1: Identificar el tipo exacto de problema
+Para cada URL, verificar en Search Console:
+1. **Cobertura (Coverage)**
+   - ¿Está en "Excluidas"?
+   - ¿Está en "Error"?
+   - ¿Está en "Válidas con advertencias"?
+2. **Estado específico:**
+   - ⚠️ **Soft 404** (Página existe pero parece eliminada)
+   - ⚠️ **No encontrado (404)** (Página no existe)
+   - ⚠️ **Bloqueado por robots.txt**
+   - ⚠️ **Bloqueado por etiqueta 'noindex'**
+   - ⚠️ **Redirigido** (301/302)
+   - ⚠️ **Error del servidor (5xx)**
+   - ⚠️ **Duplicado - Usuario no ha seleccionado canónico**
+   - ⚠️ **Rastreado - actualmente no indexado**
+   - ⚠️ **Descubierto - actualmente no indexado**
+### PASO 2: Verificar cada URL manualmente
+```bash
+# Para cada URL problemática, verificar:
+# 1. ¿La página carga?
+curl -I https://transervica.net/category/movimientos/
+# 2. ¿Qué código de estado devuelve?
+# 200 = OK
+# 301/302 = Redirect
+# 404 = Not Found
+# 500/503 = Server Error
+# 3. ¿Tiene meta robots?
+curl https://transervica.net/category/movimientos/ | grep -i "noindex"
+# 4. ¿Está en robots.txt?
+curl https://transervica.net/robots.txt | grep -i "movimientos"
+```
+---
+## 🛠️ SOLUCIONES POR TIPO DE PROBLEMA
+### SOLUCIÓN 1: Páginas de Categoría con Soft 404
+#### Problema:
+La página `/category/movimientos/` existe pero Google la considera un Soft 404 (página vacía o sin contenido).
+#### Diagnóstico:
+```bash
+# Verificar si la categoría tiene posts
+# Si es WordPress:
+wp post list --category=movimientos --fields=ID,post_title,post_status
+# O manualmente visitar:
+https://transervica.net/category/movimientos/
+```
+#### Soluciones:
+**OPCIÓN A: Si la categoría está vacía → Redirigir o noindex**
+```php
+// functions.php (WordPress)
+function redirect_empty_categories() {
+    if (is_category() && !have_posts()) {
+        // Redirigir a página de servicios o home
+        wp_redirect(home_url('/servicios/'), 301);
+        exit;
+    }
+}
+add_action('template_redirect', 'redirect_empty_categories');
+```
+**OPCIÓN B: Si la categoría debe tener posts → Agregar contenido**
+```php
+// Asignar posts a la categoría
+// En WordPress admin:
+// Posts → Todos los posts
+// Seleccionar posts relacionados con "movimientos"
+// Edición rápida → Categorías → Marcar "Movimientos"
+```
+**OPCIÓN C: Noindex categorías vacías pero mantenerlas**
+```php
+// functions.php
+function noindex_empty_categories() {
+    if (is_category() && !have_posts()) {
+        echo '<meta name="robots" content="noindex, follow">';
+    }
+}
+add_action('wp_head', 'noindex_empty_categories', 1);
+```
+**OPCIÓN D: Usar Yoast SEO para configurar categorías**
+```
+SEO → Search Appearance → Taxonomies → Categories
+→ Show Categories in search results = No (si categorías están vacías)
+```
+---
+### SOLUCIÓN 2: Imagen Indexada como Página
+#### Problema:
+`/about-us-slider-2-bg-jpg/` es una imagen/attachment indexada como página
+#### Soluciones:
+**OPCIÓN A: Redirigir attachments a su parent post**
+```php
+// functions.php (WordPress)
+function redirect_attachment_to_parent() {
+    if (is_attachment()) {
+        global $post;
+        if ($post->post_parent) {
+            // Redirigir al post padre
+            wp_redirect(get_permalink($post->post_parent), 301);
+            exit;
+        } else {
+            // Si no tiene padre, redirigir a home
+            wp_redirect(home_url(), 301);
+            exit;
+        }
+    }
+}
+add_action('template_redirect', 'redirect_attachment_to_parent');
+```
+**OPCIÓN B: Noindex todas las páginas de attachments**
+```php
+// functions.php
+function noindex_attachments() {
+    if (is_attachment()) {
+        echo '<meta name="robots" content="noindex, follow">';
+    }
+}
+add_action('wp_head', 'noindex_attachments', 1);
+```
+**OPCIÓN C: Usar Yoast SEO**
+```
+SEO → Search Appearance → Media
+→ Redirect attachment URLs to the attachment itself? = Yes
+```
+**OPCIÓN D: Eliminar la URL de Google manualmente**
+```
+Search Console → Remociones → Nueva solicitud
+→ URL: https://transervica.net/about-us-slider-2-bg-jpg/
+→ Eliminar esta URL
+```
+---
+### SOLUCIÓN 3: URLs Numéricas Huérfanas
+#### Problema:
+`/11/` es una URL sin contexto (post eliminado, draft, o slug numérico)
+#### Diagnóstico:
+```bash
+# WordPress - Verificar si existe el post
+wp post get 11
+# O en base de datos
+mysql> SELECT ID, post_title, post_status, post_type 
+       FROM wp_posts 
+       WHERE ID = 11;
+```
+#### Soluciones:
+**OPCIÓN A: Si el post existe y es válido → Republicar**
+```php
+// En WordPress admin
+Posts → All Posts → Buscar ID: 11
+→ Cambiar status de Draft a Published
+→ Update
+```
+**OPCIÓN B: Si el post no existe → 410 Gone (mejor que 404)**
+```nginx
+# nginx.conf
+location = /11/ {
+    return 410;
+}
+```
+```apache
+# .htaccess
+RedirectMatch 410 ^/11/$
+```
+**OPCIÓN C: Si el post fue eliminado → 301 a página relevante**
+```php
+// functions.php
+function redirect_old_posts() {
+    if (is_404()) {
+        $request_uri = $_SERVER['REQUEST_URI'];
+        
+        $redirects = [
+            '/11/' => '/servicios/',
+            // Agregar más redirects según necesites
+        ];
+        
+        if (isset($redirects[$request_uri])) {
+            wp_redirect(home_url($redirects[$request_uri]), 301);
+            exit;
+        }
+    }
+}
+add_action('template_redirect', 'redirect_old_posts');
+```
+**OPCIÓN D: Usar plugin de redirects**
+```
+Plugin: Redirection
+https://wordpress.org/plugins/redirection/
+→ Add new redirect
+→ Source URL: /11/
+→ Target URL: /servicios/
+→ Type: 301 - Permanent
+```
+---
+### SOLUCIÓN 4: Páginas Válidas No Rastreadas Recientemente
+#### Problema:
+Páginas como `/transporte-terrestre-y-descarga-de-plantas-compresoras/` son válidas pero no se rastrea frecuentemente
+#### Soluciones:
+**OPCIÓN A: Forzar re-rastreo en Search Console**
+```
+1. Ir a Search Console
+2. Herramienta de inspección de URLs
+3. Pegar: https://transervica.net/transporte-terrestre-y-descarga-de-plantas-compresoras/
+4. Click "Solicitar indexación"
+5. Esperar 1-2 días
+```
+**OPCIÓN B: Mejorar enlazado interno**
+```html
+<!-- En páginas relevantes, agregar enlaces internos -->
+<a href="/transporte-terrestre-y-descarga-de-plantas-compresoras/">
+    Transporte Terrestre y Descarga de Plantas Compresoras
+</a>
+<!-- En menú de servicios -->
+<nav>
+    <ul>
+        <li><a href="/services/izamiento-carga/">Izamiento de Carga</a></li>
+        <li><a href="/transporte-terrestre-y-descarga-de-plantas-compresoras/">
+            Transporte Terrestre
+        </a></li>
+    </ul>
+</nav>
+```
+**OPCIÓN C: Actualizar el sitemap**
+```xml
+<!-- sitemap.xml -->
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <!-- Agregar URLs importantes con prioridad alta -->
+    <url>
+        <loc>https://transervica.net/transporte-terrestre-y-descarga-de-plantas-compresoras/</loc>
+        <lastmod>2025-12-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://transervica.net/services/izamiento-carga/</loc>
+        <lastmod>2025-12-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://transervica.net/contacto/</loc>
+        <lastmod>2025-12-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>1.0</priority>
+    </url>
+</urlset>
+```
+**Luego reenviar sitemap:**
+```
+Search Console → Sitemaps → Añadir un nuevo sitemap
+→ URL: https://transervica.net/sitemap.xml
+→ Enviar
+```
+**OPCIÓN D: Agregar contenido reciente**
+```html
+<!-- Actualizar la página con fecha reciente -->
+<article>
+    <h1>Transporte Terrestre y Descarga de Plantas Compresoras</h1>
+    
+    <!-- Agregar sección de actualización -->
+    <div class="actualizacion">
+        <p><strong>Última actualización:</strong> Diciembre 22, 2025</p>
+        <p>Hemos actualizado nuestros servicios de transporte terrestre...</p>
+    </div>
+    
+    <!-- Contenido existente -->
+</article>
+```
+---
+### SOLUCIÓN 5: Fragmentos Escapados (AJAX Crawling)
+#### Problema:
+`/?_escaped_fragment_=` es un esquema antiguo de AJAX que Google ya no soporta (deprecado en 2015)
+#### Soluciones:
+**OPCIÓN A: Bloquear en robots.txt**
+```txt
+# robots.txt
+User-agent: *
+Disallow: /*?_escaped_fragment_
+# O más específico
+Disallow: /?_escaped_fragment_=
+```
+**OPCIÓN B: 301 Redirect a versión sin fragmento**
+```php
+// functions.php
+function redirect_escaped_fragments() {
+    if (isset($_GET['_escaped_fragment_'])) {
+        // Redirigir a home sin el parámetro
+        wp_redirect(home_url(), 301);
+        exit;
+    }
+}
+add_action('template_redirect', 'redirect_escaped_fragments');
+```
+```nginx
+# nginx.conf
+if ($args ~* "_escaped_fragment_") {
+    return 301 https://transervica.net/;
+}
+```
+```apache
+# .htaccess
+RewriteCond %{QUERY_STRING} _escaped_fragment_
+RewriteRule ^(.*)$ https://transervica.net/ [R=301,L]
+```
+**OPCIÓN C: Eliminar de Google**
+```
+Search Console → Remociones
+→ Nueva solicitud
+→ URL: https://transervica.net/?_escaped_fragment_=
+→ Eliminar
+```
+**OPCIÓN D: Implementar Server-Side Rendering (SSR)**
+Si el sitio es SPA (React/Vue/Angular), implementar SSR para que Google pueda rastrear sin necesidad de fragmentos escapados.
+```javascript
+// Next.js example (si aplica)
+export async function getServerSideProps() {
+    // Pre-renderizar en servidor
+    return {
+        props: {
+            // Datos para la página
+        }
+    }
+}
+```
+---
+## 📋 PLAN DE ACCIÓN COMPLETO
+### FASE 1: Auditoría (30-60 min)
+**Paso 1.1: Exportar todas las URLs afectadas de Search Console**
+```
+Search Console → Cobertura → Excluidas → Exportar
+Search Console → Cobertura → Error → Exportar
+```
+**Paso 1.2: Categorizar cada URL**
+```
+Crear Excel/Google Sheets con columnas:
+| URL | Tipo | Estado en GSC | Problema | Solución Propuesta | Prioridad |
+```
+**Paso 1.3: Verificar manualmente las 10 URLs más críticas**
+```bash
+# Script para verificar estado de URLs
+#!/bin/bash
+urls=(
+    "https://transervica.net/category/movimientos/"
+    "https://transervica.net/about-us-slider-2-bg-jpg/"
+    "https://transervica.net/11/"
+    "https://transervica.net/transporte-terrestre-y-descarga-de-plantas-compresoras/"
+    "https://transervica.net/services/izamiento-carga/"
+    "https://transervica.net/contacto/"
+    "https://transervica.net/?_escaped_fragment_="
+)
+for url in "${urls[@]}"; do
+    echo "=== Verificando: $url ==="
+    http_code=$(curl -s -o /dev/null -w "%{http_code}" "$url")
+    echo "HTTP Status: $http_code"
+    
+    # Verificar noindex
+    noindex=$(curl -s "$url" | grep -i "noindex")
+    if [ -n "$noindex" ]; then
+        echo "⚠️  NOINDEX encontrado: $noindex"
+    fi
+    
+    # Verificar canonical
+    canonical=$(curl -s "$url" | grep -i "canonical")
+    if [ -n "$canonical" ]; then
+        echo "Canonical: $canonical"
+    fi
+    
+    echo ""
+done
+```
+---
+### FASE 2: Implementación de Fixes (2-4 horas)
+#### Fix 1: Páginas de Categoría
+```php
+// functions.php
+// 1. Redirigir categorías vacías
+function transervica_redirect_empty_categories() {
+    if (is_category() && !have_posts()) {
+        wp_redirect(home_url('/servicios/'), 301);
+        exit;
+    }
+}
+add_action('template_redirect', 'transervica_redirect_empty_categories');
+// 2. Noindex categorías de archivo si es necesario
+function transervica_noindex_categories() {
+    if (is_category()) {
+        // Solo noindex si la categoría es de paginación > 1
+        if (get_query_var('paged') > 1) {
+            echo '<meta name="robots" content="noindex, follow">';
+        }
+    }
+}
+add_action('wp_head', 'transervica_noindex_categories', 1);
+```
+#### Fix 2: Attachments
+```php
+// functions.php
+// Redirigir todas las páginas de attachments al parent o home
+function transervica_redirect_attachments() {
+    if (is_attachment()) {
+        global $post;
+        if ($post->post_parent) {
+            wp_redirect(get_permalink($post->post_parent), 301);
+            exit;
+        } else {
+            wp_redirect(home_url(), 301);
+            exit;
+        }
+    }
+}
+add_action('template_redirect', 'transervica_redirect_attachments');
+```
+#### Fix 3: URLs Huérfanas
+```php
+// functions.php
+// Redirigir URLs viejas/eliminadas
+function transervica_redirect_old_urls() {
+    if (is_404()) {
+        $request_uri = $_SERVER['REQUEST_URI'];
+        
+        $redirects = [
+            '/11/' => '/servicios/',
+            // Agregar más según necesites
+        ];
+        
+        if (isset($redirects[$request_uri])) {
+            wp_redirect(home_url($redirects[$request_uri]), 301);
+            exit;
+        }
+    }
+}
+add_action('template_redirect', 'transervica_redirect_old_urls');
+```
+#### Fix 4: Fragmentos Escapados
+```php
+// functions.php
+// Eliminar parámetros _escaped_fragment_
+function transervica_remove_escaped_fragments() {
+    if (isset($_GET['_escaped_fragment_'])) {
+        wp_redirect(remove_query_arg('_escaped_fragment_'), 301);
+        exit;
+    }
+}
+add_action('template_redirect', 'transervica_remove_escaped_fragments');
+```
+**O en .htaccess:**
+```apache
+# .htaccess
+# Redirigir fragmentos escapados
+RewriteCond %{QUERY_STRING} _escaped_fragment_
+RewriteRule ^(.*)$ https://transervica.net/$1? [R=301,L]
+```
+#### Fix 5: Bloquear en robots.txt
+```txt
+# robots.txt
+User-agent: *
+Disallow: /wp-admin/
+Disallow: /wp-includes/
+Disallow: /*?_escaped_fragment_
+Disallow: /category/
+Disallow: /tag/
+Disallow: /author/
+# Permitir Googlebot en ciertas áreas
+User-agent: Googlebot
+Disallow: /wp-admin/
+Allow: /wp-admin/admin-ajax.php
+# Sitemap
+Sitemap: https://transervica.net/sitemap.xml
+```
+---
+### FASE 3: Validación y Solicitud de Re-indexación (1-2 horas)
+#### Paso 3.1: Verificar fixes localmente
+```bash
+# 1. Limpiar cache
+# Si usas WP Super Cache / W3 Total Cache
+wp cache flush
+# 2. Verificar redirects funcionan
+curl -I https://transervica.net/11/
+# Debe mostrar: HTTP/1.1 301 Moved Permanently
+curl -I https://transervica.net/about-us-slider-2-bg-jpg/
+# Debe mostrar: HTTP/1.1 301 Moved Permanently
+# 3. Verificar robots.txt actualizado
+curl https://transervica.net/robots.txt
+```
+#### Paso 3.2: Solicitar re-indexación en Search Console
+**Para cada URL arreglada:**
+```
+1. Search Console → Inspección de URLs
+2. Pegar URL (ejemplo: https://transervica.net/category/movimientos/)
+3. Esperar resultado
+4. Si ahora es 301: Click "Solicitar indexación"
+5. Repetir para todas las URLs
+```
+#### Paso 3.3: Actualizar y reenviar sitemap
+```xml
+<!-- sitemap.xml - Generar con plugin o manualmente -->
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <!-- Solo incluir páginas válidas y activas -->
+    <url>
+        <loc>https://transervica.net/</loc>
+        <lastmod>2025-12-22</lastmod>
+        <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://transervica.net/servicios/</loc>
+        <lastmod>2025-12-22</lastmod>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://transervica.net/services/izamiento-carga/</loc>
+        <lastmod>2025-12-22</lastmod>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://transervica.net/contacto/</loc>
+        <lastmod>2025-12-22</lastmod>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- NO incluir: categorías, tags, attachments, fragmentos -->
+</urlset>
+```
+**Reenviar:**
+```
+Search Console → Sitemaps
+→ Eliminar sitemap viejo (si existe)
+→ Añadir: https://transervica.net/sitemap.xml
+→ Enviar
+```
+---
+### FASE 4: Monitoreo (Continuo)
+#### Paso 4.1: Configurar alertas en Search Console
+```
+Search Console → Configuración → Usuarios y propietarios
+→ Agregar email para recibir alertas
+```
+#### Paso 4.2: Revisar semanalmente
+```
+Semana 1: Verificar que URLs redirigidas muestran 301
+Semana 2: Verificar reducción de "Páginas excluidas"
+Semana 3: Verificar incremento de "Páginas válidas"
+Semana 4: Auditoría completa de nuevo
+```
+#### Paso 4.3: Script de monitoreo
+```bash
+#!/bin/bash
+# monitor-urls.sh
+echo "=== Monitoreo de URLs Transervica.net ==="
+echo "Fecha: $(date)"
+echo ""
+# URLs que deben redirigir (301)
+redirect_urls=(
+    "https://transervica.net/11/"
+    "https://transervica.net/about-us-slider-2-bg-jpg/"
+)
+# URLs que deben estar activas (200)
+active_urls=(
+    "https://transervica.net/"
+    "https://transervica.net/servicios/"
+    "https://transervica.net/services/izamiento-carga/"
+    "https://transervica.net/contacto/"
+)
+for url in "${redirect_urls[@]}"; do
+    code=$(curl -s -o /dev/null -w "%{http_code}" "$url")
+    if [ "$code" = "301" ] || [ "$code" = "302" ]; then
+        echo "✅ $url: $code (REDIRECT OK)"
+    else
+        echo "❌ $url: $code (ESPERADO 301)"
+    fi
+done
+echo ""
+for url in "${active_urls[@]}"; do
+    code=$(curl -s -o /dev/null -w "%{http_code}" "$url")
+    if [ "$code" = "200" ]; then
+        echo "✅ $url: $code (OK)"
+    else
+        echo "❌ $url: $code (PROBLEMA)"
+    fi
+done
+```
+**Ejecutar semanalmente:**
+```bash
+chmod +x monitor-urls.sh
+./monitor-urls.sh
+```
+---
+## ✅ CHECKLIST DE IMPLEMENTACIÓN
+### Pre-implementación
+- [ ] Backup de sitio completo (archivos + base de datos)
+- [ ] Backup de .htaccess o nginx.conf
+- [ ] Backup de functions.php
+- [ ] Exportar URLs afectadas de Search Console
+- [ ] Categorizar URLs por tipo de problema
+### Implementación
+- [ ] Fix 1: Redirigir/noindex categorías vacías
+- [ ] Fix 2: Redirigir páginas de attachments
+- [ ] Fix 3: Redirigir URLs huérfanas
+- [ ] Fix 4: Eliminar fragmentos escapados
+- [ ] Fix 5: Actualizar robots.txt
+- [ ] Fix 6: Generar sitemap limpio
+### Testing
+- [ ] Verificar redirects con curl
+- [ ] Verificar robots.txt
+- [ ] Verificar sitemap válido
+- [ ] Probar navegación normal del sitio
+- [ ] Verificar no hay enlaces rotos
+### Search Console
+- [ ] Solicitar re-indexación de URLs arregladas
+- [ ] Eliminar URLs problemáticas (si es necesario)
+- [ ] Reenviar sitemap
+- [ ] Configurar alertas
+### Monitoreo
+- [ ] Revisar semanalmente Coverage en Search Console
+- [ ] Ejecutar script de monitoreo
+- [ ] Documentar cambios en páginas excluidas/válidas
+---
+## 🎯 RESULTADOS ESPERADOS
+### Inmediato (1-3 días)
+- ✅ URLs redirigidas devuelven 301
+- ✅ Fragmentos escapados bloqueados
+- ✅ Sitemap actualizado y reenviado
+### Corto plazo (1-2 semanas)
+- ✅ Reducción en "Páginas excluidas" en Coverage
+- ✅ Google re-rastrea URLs solicitadas
+- ✅ Errores de rastreo = 0
+### Mediano plazo (1 mes)
+- ✅ Solo páginas válidas en índice
+- ✅ Cobertura 100% verde en Search Console
+- ✅ Mejora en rankings (efecto indirecto)
+---
+## 🎓 MEJORES PRÁCTICAS APRENDIDAS
+### ✅ SIEMPRE hacer:
+1. **Redirects permanentes (301) para contenido movido/eliminado**
+2. **Noindex para contenido de bajo valor** (categorías vacías, tags, attachments)
+3. **Sitemap solo con URLs válidas y canónicas**
+4. **Solicitar re-indexación después de fixes**
+5. **Monitorear Search Console semanalmente**
+### ❌ NUNCA hacer:
+1. ❌ Dejar URLs huérfanas sin redirect
+2. ❌ Indexar páginas de attachments/media
+3. ❌ Usar esquemas deprecados (_escaped_fragment_)
+4. ❌ Tener categorías/tags vacías indexadas
+5. ❌ Ignorar alertas de Search Console

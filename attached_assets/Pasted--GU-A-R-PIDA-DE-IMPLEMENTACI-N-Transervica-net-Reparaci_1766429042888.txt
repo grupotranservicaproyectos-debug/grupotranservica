@@ -1,0 +1,249 @@
+# 🚀 GUÍA RÁPIDA DE IMPLEMENTACIÓN
+# Transervica.net - Reparación de Indexación
+---
+## ⚡ QUICK START (15 minutos)
+### Paso 1: Backup (2 min)
+```bash
+# Descargar backup de archivos críticos
+# - functions.php
+# - .htaccess
+# - robots.txt
+```
+### Paso 2: Implementar Fixes PHP (5 min)
+```bash
+# 1. Abrir: wp-content/themes/[tu-tema]/functions.php
+# 2. Copiar TODO el contenido de: code/transervica-indexation-fixes.php
+# 3. Pegar al FINAL de functions.php
+# 4. Guardar
+```
+### Paso 3: Actualizar .htaccess (3 min)
+```bash
+# 1. Backup del .htaccess actual
+# 2. Reemplazar con: code/.htaccess.transervica
+# 3. Renombrar a: .htaccess
+# 4. Subir al servidor
+```
+### Paso 4: Actualizar robots.txt (2 min)
+```bash
+# 1. Backup del robots.txt actual (si existe)
+# 2. Subir: code/robots.txt.transervica
+# 3. Renombrar a: robots.txt
+# 4. Verificar: https://transervica.net/robots.txt
+```
+### Paso 5: Verificar (3 min)
+```bash
+# En Windows:
+scripts/verify-transervica-urls.bat
+# En Linux/Mac:
+chmod +x scripts/verify-transervica-urls.sh
+./scripts/verify-transervica-urls.sh
+# Con Python:
+python scripts/audit-transervica.py
+```
+---
+## 📋 CHECKLIST COMPLETO
+### ✅ Pre-implementación
+- [ ] Backup de functions.php
+- [ ] Backup de .htaccess
+- [ ] Backup de robots.txt
+- [ ] Acceso FTP/SSH al servidor
+- [ ] Acceso a WordPress admin
+### ✅ Implementación
+- [ ] Código PHP agregado a functions.php
+- [ ] .htaccess actualizado
+- [ ] robots.txt actualizado
+- [ ] Cache de WordPress limpiado
+- [ ] Sitio funciona correctamente
+### ✅ Verificación Local
+- [ ] Script de verificación ejecutado
+- [ ] URLs problemáticas devuelven 301
+- [ ] URLs activas devuelven 200
+- [ ] robots.txt accesible
+- [ ] Sitemap accesible
+### ✅ Search Console
+- [ ] Solicitar re-indexación de URLs arregladas
+- [ ] Eliminar URLs problemáticas (si es necesario)
+- [ ] Reenviar sitemap
+- [ ] Configurar alertas
+### ✅ Monitoreo (Semanal)
+- [ ] Revisar "Cobertura" en Search Console
+- [ ] Ejecutar script de verificación
+- [ ] Documentar cambios
+---
+## 🎯 RESULTADOS ESPERADOS
+### Inmediato (Hoy)
+- ✅ `/11/` → Redirige a `/servicios/` (301)
+- ✅ `/about-us-slider-2-bg-jpg/` → Redirige (301)
+- ✅ `/category/movimientos/` → Redirige si vacía (301)
+- ✅ `?_escaped_fragment_` → Redirige a URL limpia (301)
+### 3-7 Días
+- ✅ Google re-rastrea URLs solicitadas
+- ✅ Reducción en "Páginas excluidas"
+- ✅ Aumento en "Páginas válidas"
+### 2-4 Semanas
+- ✅ Todas las URLs problemáticas resueltas
+- ✅ Cobertura 100% verde
+- ✅ Solo páginas relevantes en índice
+---
+## 🔧 TROUBLESHOOTING
+### Problema: Script bash no ejecuta en Windows
+**Solución:**
+```powershell
+# Usar script .bat en su lugar
+scripts\verify-transervica-urls.bat
+# O instalar Git Bash:
+# https://git-scm.com/downloads
+```
+### Problema: URLs siguen devolviendo 404
+**Solución:**
+```bash
+# 1. Verificar que código PHP está en functions.php
+# 2. Limpiar cache de WordPress
+wp cache flush
+# 3. Verificar que .htaccess se aplicó
+curl -I https://transervica.net/11/
+```
+### Problema: Sitio muestra error 500
+**Solución:**
+```bash
+# 1. Restaurar backup de functions.php
+# 2. Revisar error en wp-content/debug.log
+# 3. Implementar fixes uno a uno
+```
+### Problema: Python script falla
+**Solución:**
+```bash
+# Instalar requests
+pip install requests
+# O usar conda
+conda install requests
+```
+---
+## 📊 SCRIPTS DISPONIBLES
+### 1. **verify-transervica-urls.sh** (Linux/Mac)
+```bash
+chmod +x scripts/verify-transervica-urls.sh
+./scripts/verify-transervica-urls.sh
+```
+**Output:**
+- ✅/❌ para cada URL
+- Resumen de redirects y páginas activas
+- Verificación de robots.txt y sitemap
+### 2. **verify-transervica-urls.bat** (Windows)
+```cmd
+scripts\verify-transervica-urls.bat
+```
+**Output:**
+- Códigos HTTP de cada URL
+- Estado de robots.txt
+- Estado de sitemaps
+### 3. **audit-transervica.py** (Todas las plataformas)
+```bash
+python scripts/audit-transervica.py
+```
+**Output:**
+- Reporte detallado en consola
+- CSV con todos los resultados
+- HTML con reporte visual
+**Archivos generados:**
+- `transervica_audit_YYYYMMDD_HHMMSS.csv`
+- `transervica_audit_YYYYMMDD_HHMMSS.html`
+---
+## 🔄 WORKFLOW RECOMENDADO
+### Semana 1: Implementación
+```
+Día 1: Backup + Implementar fixes
+Día 2: Verificar con scripts
+Día 3: Solicitar re-indexación en Search Console
+Día 4-7: Monitorear errores
+```
+### Semana 2: Validación
+```
+Día 8: Ejecutar scripts de nuevo
+Día 9: Revisar Search Console Coverage
+Día 10: Ajustar si es necesario
+Día 14: Reporte de progreso
+```
+### Semana 3-4: Consolidación
+```
+Día 21: Auditoría completa con Python script
+Día 28: Validación final
+```
+### Mensual: Mantenimiento
+```
+- Ejecutar script de verificación
+- Revisar nuevas URLs en Search Console
+- Actualizar redirects según necesidad
+```
+---
+## 📞 COMANDOS ÚTILES
+### Verificar código HTTP
+```bash
+curl -I https://transervica.net/11/
+```
+### Verificar redirect completo
+```bash
+curl -IL https://transervica.net/11/
+```
+### Verificar noindex
+```bash
+curl -s https://transervica.net/contacto/ | grep -i "noindex"
+```
+### Verificar canonical
+```bash
+curl -s https://transervica.net/contacto/ | grep -i "canonical"
+```
+### Limpiar cache WordPress (CLI)
+```bash
+wp cache flush
+```
+### Ver últimas líneas de error log
+```bash
+tail -n 50 wp-content/debug.log
+```
+---
+## 📁 ESTRUCTURA DE ARCHIVOS
+```
+transervica-fixes/
+│
+├── 📖 Documentación
+│   ├── PROMPT_REPARACION_INDEXACION_TRANSERVICA.md
+│   └── GUIA_RAPIDA_TRANSERVICA.md (este archivo)
+│
+├── 💻 Código
+│   ├── transervica-indexation-fixes.php
+│   ├── .htaccess.transervica
+│   └── robots.txt.transervica
+│
+└── 🔧 Scripts
+    ├── verify-transervica-urls.sh
+    ├── verify-transervica-urls.bat
+    └── audit-transervica.py
+```
+---
+## ✅ VALIDACIÓN FINAL
+Cuando hayas completado todo, debes ver:
+### En tu sitio:
+- [ ] `https://transervica.net/11/` → 301 a `/servicios/`
+- [ ] `https://transervica.net/about-us-slider-2-bg-jpg/` → 301
+- [ ] `https://transervica.net/category/movimientos/` → 301 si vacía
+- [ ] `https://transervica.net/?_escaped_fragment_=` → 301 a URL limpia
+- [ ] `https://transervica.net/robots.txt` → Accesible
+- [ ] `https://transervica.net/sitemap.xml` → Accesible
+### En Search Console:
+- [ ] "Cobertura" → Páginas excluidas disminuyendo
+- [ ] "Cobertura" → Páginas válidas aumentando
+- [ ] "URLs remitidas" → En proceso de indexación
+### En Scripts:
+- [ ] Script de verificación → TODO ✅
+- [ ] Python audit → 0 errores
+- [ ] HTML report → 100% PASS
+---
+## 🎉 ¡ÉXITO!
+Una vez completado todo, tu sitio estará:
+✅ Libre de URLs problemáticas  
+✅ Indexado correctamente en Google  
+✅ Optimizado para SEO  
+✅ Monitoreado continuamente  
+**Próximo paso:** Mantener monitoreo semanal con los scripts.
+---

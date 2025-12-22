@@ -1,0 +1,356 @@
+#!/usr/bin/env python3
+"""
+TRANSERVICA.NET - AUDITOR DE URLs CON REPORTE DETALLADO
+Genera reporte completo en HTML y CSV de todas las URLs
+"""
+import requests
+import csv
+from datetime import datetime
+from typing import List, Dict
+import sys
+# Configuración
+TIMEOUT = 10
+USER_AGENT = 'Mozilla/5.0 (compatible; TranservicaAudit/1.0)'
+class URLAuditor:
+    def __init__(self):
+        self.results = []
+        self.session = requests.Session()
+        self.session.headers.update({'User-Agent': USER_AGENT})
+    
+    def check_url(self, url: str, expected_status: str) -> Dict:
+        """Verifica una URL y retorna resultado detallado"""
+        result = {
+            'url': url,
+            'expected_status': expected_status,
+            'status_code': None,
+            'redirect_url': None,
+            'response_time': None,
+            'has_noindex': False,
+            'canonical_url': None,
+            'status': 'PENDING'
+        }
+        
+        try:
+            # Hacer request sin seguir redirects automáticamente
+            response = self.session.get(
+                url, 
+                timeout=TIMEOUT, 
+                allow_redirects=False
+            )
+            
+            result['status_code'] = response.status_code
+            result['response_time'] = round(response.elapsed.total_seconds(), 2)
+            
+            # Si es redirect, obtener URL destino
+            if response.status_code in [301, 302, 303, 307, 308]:
+                result['redirect_url'] = response.headers.get('Location', 'N/A')
+            
+            # Si es 200, revisar contenido
+            if response.status_code == 200:
+                content = response.text.lower()
+                
+                # Verificar noindex
+                if 'noindex' in content:
+                    result['has_noindex'] = True
+                
+                # Buscar canonical
+                if '<link rel="canonical"' in content:
+                    # Extraer URL canonical (simplificado)
+                    try:
+                        canonical_start = content.find('<link rel="canonical"')
+                        canonical_section = content[canonical_start:canonical_start+200]
+                        href_start = canonical_section.find('href="') + 6
+                        href_end = canonical_section.find('"', href_start)
+                        result['canonical_url'] = canonical_section[href_start:href_end]
+                    except:
+                        pass
+            
+            # Determinar si pasó el test
+            if expected_status == '200':
+                result['status'] = 'PASS' if response.status_code == 200 else 'FAIL'
+            elif expected_status in ['301', '302']:
+                result['status'] = 'PASS' if response.status_code in [301, 302] else 'FAIL'
+            
+        except requests.exceptions.Timeout:
+            result['status'] = 'TIMEOUT'
+        except requests.exceptions.RequestException as e:
+            result['status'] = 'ERROR'
+            result['error'] = str(e)
+        
+        return result
+    
+    def run_audit(self):
+        """Ejecuta auditoría completa"""
+        print("=" * 70)
+        print("TRANSERVICA.NET - AUDITORÍA DE URLs")
+        print(f"Fecha: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+        print("=" * 70)
+        print()
+        
+        # URLs que deben redirigir
+        redirect_urls = [
+            'https://transervica.net/category/movimientos/',
+            'https://transervica.net/about-us-slider-2-bg-jpg/',
+            'https://transervica.net/11/',
+            'https://transervica.net/?_escaped_fragment_=',
+        ]
+        
+        # URLs que deben estar activas
+        active_urls = [
+            'https://transervica.net/',
+            'https://transervica.net/servicios/',
+            'https://transervica.net/services/izamiento-carga/',
+            'https://transervica.net/contacto/',
+            'https://transervica.net/transporte-terrestre-y-descarga-de-plantas-compresoras/',
+        ]
+        
+        # Verificar URLs de redirect
+        print("🔄 Verificando URLs que deben redirigir...")
+        print("-" * 70)
+        for url in redirect_urls:
+            result = self.check_url(url, '301')
+            self.results.append(result)
+            self.print_result(result)
+        
+        print()
+        
+        # Verificar URLs activas
+        print("✅ Verificando URLs que deben estar activas...")
+        print("-" * 70)
+        for url in active_urls:
+            result = self.check_url(url, '200')
+            self.results.append(result)
+            self.print_result(result)
+        
+        print()
+        self.print_summary()
+        self.export_results()
+    
+    def print_result(self, result: Dict):
+        """Imprime resultado de una URL"""
+        status_emoji = {
+            'PASS': '✅',
+            'FAIL': '❌',
+            'TIMEOUT': '⏱️',
+            'ERROR': '⚠️',
+            'PENDING': '⏳'
+        }
+        
+        emoji = status_emoji.get(result['status'], '❓')
+        
+        print(f"{emoji} {result['url']}")
+        print(f"   Status: HTTP {result['status_code']} (esperado: {result['expected_status']})")
+        
+        if result['redirect_url']:
+            print(f"   Redirect → {result['redirect_url']}")
+        
+        if result['response_time']:
+            print(f"   Tiempo: {result['response_time']}s")
+        
+        if result['has_noindex']:
+            print(f"   ⚠️  NOINDEX detectado")
+        
+        if result['canonical_url']:
+            print(f"   Canonical: {result['canonical_url']}")
+        
+        print()
+    
+    def print_summary(self):
+        """Imprime resumen de resultados"""
+        total = len(self.results)
+        passed = sum(1 for r in self.results if r['status'] == 'PASS')
+        failed = sum(1 for r in self.results if r['status'] == 'FAIL')
+        errors = sum(1 for r in self.results if r['status'] in ['TIMEOUT', 'ERROR'])
+        
+        print("=" * 70)
+        print("RESUMEN")
+        print("=" * 70)
+        print(f"Total URLs verificadas: {total}")
+        print(f"✅ Pasaron: {passed}")
+        print(f"❌ Fallaron: {failed}")
+        print(f"⚠️  Errores: {errors}")
+        print()
+        
+        if failed == 0 and errors == 0:
+            print("🎉 ¡TODAS LAS URLs ESTÁN CORRECTAS!")
+        else:
+            print("⚠️  HAY PROBLEMAS QUE REQUIEREN ATENCIÓN")
+        
+        print("=" * 70)
+    
+    def export_results(self):
+        """Exporta resultados a CSV y HTML"""
+        timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+        
+        # Exportar a CSV
+        csv_filename = f'transervica_audit_{timestamp}.csv'
+        with open(csv_filename, 'w', newline='', encoding='utf-8') as csvfile:
+            fieldnames = [
+                'url', 'expected_status', 'status_code', 'status', 
+                'redirect_url', 'response_time', 'has_noindex', 'canonical_url'
+            ]
+            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+            
+            writer.writeheader()
+            for result in self.results:
+                writer.writerow({k: result.get(k, '') for k in fieldnames})
+        
+        print(f"\n📊 Resultados exportados a: {csv_filename}")
+        
+        # Exportar a HTML
+        html_filename = f'transervica_audit_{timestamp}.html'
+        self.generate_html_report(html_filename)
+        print(f"📄 Reporte HTML generado: {html_filename}")
+    
+    def generate_html_report(self, filename: str):
+        """Genera reporte HTML"""
+        html = f"""
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auditoría Transervica.net - {datetime.now().strftime('%Y-%m-%d')}</title>
+    <style>
+        body {{
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
+        }}
+        .container {{
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }}
+        h1 {{
+            color: #333;
+            border-bottom: 3px solid #007bff;
+            padding-bottom: 10px;
+        }}
+        .summary {{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }}
+        .summary-card {{
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }}
+        .summary-card h3 {{
+            margin: 0;
+            font-size: 2em;
+        }}
+        .summary-card p {{
+            margin: 5px 0 0 0;
+            color: #666;
+        }}
+        .pass {{ background: #d4edda; color: #155724; }}
+        .fail {{ background: #f8d7da; color: #721c24; }}
+        .error {{ background: #fff3cd; color: #856404; }}
+        table {{
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }}
+        th, td {{
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }}
+        th {{
+            background: #007bff;
+            color: white;
+            font-weight: 600;
+        }}
+        tr:hover {{
+            background: #f5f5f5;
+        }}
+        .status-badge {{
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            font-weight: 600;
+        }}
+        .status-pass {{ background: #28a745; color: white; }}
+        .status-fail {{ background: #dc3545; color: white; }}
+        .status-error {{ background: #ffc107; color: #333; }}
+        .url-cell {{
+            max-width: 400px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 Auditoría de URLs - Transervica.net</h1>
+        <p><strong>Fecha:</strong> {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}</p>
+        
+        <div class="summary">
+            <div class="summary-card pass">
+                <h3>{sum(1 for r in self.results if r['status'] == 'PASS')}</h3>
+                <p>URLs Correctas</p>
+            </div>
+            <div class="summary-card fail">
+                <h3>{sum(1 for r in self.results if r['status'] == 'FAIL')}</h3>
+                <p>URLs con Problemas</p>
+            </div>
+            <div class="summary-card error">
+                <h3>{sum(1 for r in self.results if r['status'] in ['TIMEOUT', 'ERROR'])}</h3>
+                <p>Errores</p>
+            </div>
+        </div>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>URL</th>
+                    <th>Esperado</th>
+                    <th>HTTP</th>
+                    <th>Status</th>
+                    <th>Redirect</th>
+                    <th>Tiempo</th>
+                </tr>
+            </thead>
+            <tbody>
+"""
+        
+        for result in self.results:
+            status_class = {
+                'PASS': 'status-pass',
+                'FAIL': 'status-fail',
+                'TIMEOUT': 'status-error',
+                'ERROR': 'status-error'
+            }.get(result['status'], '')
+            
+            html += f"""
+                <tr>
+                    <td class="url-cell" title="{result['url']}">{result['url']}</td>
+                    <td>{result['expected_status']}</td>
+                    <td>{result['status_code'] or 'N/A'}</td>
+                    <td><span class="status-badge {status_class}">{result['status']}</span></td>
+                    <td>{result['redirect_url'] or '-'}</td>
+                    <td>{result['response_time']}s</td>
+                </tr>
+"""
+        
+        html += """
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+"""
+        
+        with open(filename, 'w', encoding='utf-8') as f:
+            f.write(html)
+if __name__ == '__main__':
+    auditor = URLAuditor()
+    auditor.run_audit()

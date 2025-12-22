@@ -1,0 +1,309 @@
+<?php
+/**
+ * TRANSERVICA.NET - FIXES DE INDEXACIÓN GOOGLE SEARCH CONSOLE
+ * 
+ * Agregar este código al archivo functions.php del tema activo
+ * O crear un plugin personalizado con este código
+ * 
+ * IMPORTANTE: Hacer backup antes de implementar
+ */
+// ==================================================
+// FIX 1: REDIRIGIR CATEGORÍAS VACÍAS
+// ==================================================
+/**
+ * Redirige categorías que no tienen posts al home o página de servicios
+ */
+function transervica_redirect_empty_categories() {
+    if (is_category() && !have_posts()) {
+        // Redirigir a página de servicios
+        wp_redirect(home_url('/servicios/'), 301);
+        exit;
+    }
+}
+add_action('template_redirect', 'transervica_redirect_empty_categories', 1);
+/**
+ * Noindex categorías de paginación (página 2, 3, etc.)
+ * Google no necesita indexar todas las páginas de archivo
+ */
+function transervica_noindex_category_pagination() {
+    if (is_category() && get_query_var('paged') > 1) {
+        echo '<meta name="robots" content="noindex, follow" />' . "\n";
+    }
+}
+add_action('wp_head', 'transervica_noindex_category_pagination', 1);
+// ==================================================
+// FIX 2: REDIRIGIR ATTACHMENTS (IMÁGENES COMO PÁGINAS)
+// ==================================================
+/**
+ * Redirige páginas de attachments al post padre o al home
+ * Esto evita que imágenes como "about-us-slider-2-bg-jpg" se indexen como páginas
+ */
+function transervica_redirect_attachments() {
+    if (is_attachment()) {
+        global $post;
+        
+        // Si tiene post padre, redirigir ahí
+        if ($post && $post->post_parent) {
+            $redirect_url = get_permalink($post->post_parent);
+            wp_redirect($redirect_url, 301);
+            exit;
+        }
+        
+        // Si no tiene post padre, redirigir a home
+        wp_redirect(home_url(), 301);
+        exit;
+    }
+}
+add_action('template_redirect', 'transervica_redirect_attachments', 1);
+/**
+ * Alternativa: noindex attachments en lugar de redirigir
+ * Descomentar si prefieres noindex en lugar de redirect
+ */
+/*
+function transervica_noindex_attachments() {
+    if (is_attachment()) {
+        echo '<meta name="robots" content="noindex, follow" />' . "\n";
+    }
+}
+add_action('wp_head', 'transervica_noindex_attachments', 1);
+*/
+// ==================================================
+// FIX 3: REDIRIGIR URLs HUÉRFANAS Y ELIMINADAS
+// ==================================================
+/**
+ * Redirige URLs viejas, eliminadas o huérfanas a páginas relevantes
+ * Evita errores 404 en URLs que Google ya conoce
+ */
+function transervica_redirect_old_urls() {
+    // Ejecutar solo en páginas 404
+    if (!is_404()) {
+        return;
+    }
+    
+    $request_uri = $_SERVER['REQUEST_URI'];
+    
+    // Mapa de redirects
+    // Formato: 'URL vieja' => 'URL nueva'
+    $redirects = array(
+        '/11/' => '/servicios/',
+        '/12/' => '/servicios/',
+        '/13/' => '/servicios/',
+        // Agregar más redirection según sea necesario
+        
+        // Ejemplo: posts eliminados de categoría movimientos
+        '/category/movimientos/old-post/' => '/services/transporte-terrestre/',
+        
+        // Agregar cualquier otra URL problemática aquí
+    );
+    
+    // Buscar si hay un redirect configurado
+    if (isset($redirects[$request_uri])) {
+        wp_redirect(home_url($redirects[$request_uri]), 301);
+        exit;
+    }
+    
+    // OPCIONAL: Redirigir todos los 404 numéricos a servicios
+    if (preg_match('/^\/\d+\/$/', $request_uri)) {
+        wp_redirect(home_url('/servicios/'), 301);
+        exit;
+    }
+}
+add_action('template_redirect', 'transervica_redirect_old_urls', 2);
+// ==================================================
+// FIX 4: ELIMINAR FRAGMENTOS ESCAPADOS (?_escaped_fragment_)
+// ==================================================
+/**
+ * Redirige URLs con parámetro _escaped_fragment_ (esquema AJAX deprecado)
+ */
+function transervica_remove_escaped_fragments() {
+    if (isset($_GET['_escaped_fragment_'])) {
+        // Construir URL sin el parámetro
+        $current_url = home_url(add_query_arg(array(), $GLOBALS['wp']->request));
+        
+        // Redirigir a la versión sin fragmento
+        wp_redirect(remove_query_arg('_escaped_fragment_'), 301);
+        exit;
+    }
+}
+add_action('template_redirect', 'transervica_remove_escaped_fragments', 1);
+/**
+ * También limpiar el parámetro de las URLs generadas
+ */
+function transervica_clean_query_vars($vars) {
+    if (isset($vars['_escaped_fragment_'])) {
+        unset($vars['_escaped_fragment_']);
+    }
+    return $vars;
+}
+add_filter('query_vars', 'transervica_clean_query_vars');
+// ==================================================
+// FIX 5: NOINDEX ARCHIVES (TAGS, DATES, AUTHORS)
+// ==================================================
+/**
+ * Noindex en archives que típicamente tienen contenido delgado
+ */
+function transervica_noindex_archives() {
+    // Noindex tags (a menos que tengas tags con contenido robusto)
+    if (is_tag()) {
+        echo '<meta name="robots" content="noindex, follow" />' . "\n";
+    }
+    
+    // Noindex archives de autor (si no es un blog multi-autor)
+    if (is_author()) {
+        echo '<meta name="robots" content="noindex, follow" />' . "\n";
+    }
+    
+    // Noindex archives de fecha
+    if (is_date()) {
+        echo '<meta name="robots" content="noindex, follow" />' . "\n";
+    }
+    
+    // Noindex páginas de búsqueda
+    if (is_search()) {
+        echo '<meta name="robots" content="noindex, follow" />' . "\n";
+    }
+}
+add_action('wp_head', 'transervica_noindex_archives', 1);
+// ==================================================
+// FIX 6: CANONICAL TAGS CORRECTOS
+// ==================================================
+/**
+ * Asegurar que canonical tags estén correctos
+ * (Yoast SEO ya lo hace, pero esto es un fallback)
+ */
+function transervica_canonical_tag() {
+    // Solo si Yoast SEO no está activo
+    if (function_exists('wpseo_activate')) {
+        return; // Yoast ya maneja esto
+    }
+    
+    if (is_singular()) {
+        echo '<link rel="canonical" href="' . get_permalink() . '" />' . "\n";
+    } elseif (is_home() || is_front_page()) {
+        echo '<link rel="canonical" href="' . home_url('/') . '" />' . "\n";
+    }
+}
+add_action('wp_head', 'transervica_canonical_tag', 1);
+// ==================================================
+// FIX 7: LIMPIAR SITEMAP (SI NO USAS PLUGIN)
+// ==================================================
+/**
+ * Excluir ciertos tipos de posts del sitemap nativo de WordPress
+ */
+function transervica_filter_sitemap_post_types($post_types) {
+    // Excluir attachments del sitemap
+    if (isset($post_types['attachment'])) {
+        unset($post_types['attachment']);
+    }
+    
+    return $post_types;
+}
+add_filter('wp_sitemaps_post_types', 'transervica_filter_sitemap_post_types');
+/**
+ * Excluir taxonomías problemáticas del sitemap
+ */
+function transervica_filter_sitemap_taxonomies($taxonomies) {
+    // Solo incluir categories, excluir tags
+    return array('category' => $taxonomies['category']);
+}
+add_filter('wp_sitemaps_taxonomies', 'transervica_filter_sitemap_taxonomies');
+// ==================================================
+// UTILIDAD: LOGGING DE REDIRECTS (OPCIONAL - SOLO PARA DEBUG)
+// ==================================================
+/**
+ * Registra todos los redirects en un archivo de log
+ * SOLO ACTIVAR PARA DEBUGGING - Desactivar en producción
+ */
+/*
+function transervica_log_redirect($location, $status) {
+    $log_file = WP_CONTENT_DIR . '/transervica-redirects.log';
+    $log_entry = sprintf(
+        "[%s] %s → %s (Status: %d)\n",
+        date('Y-m-d H:i:s'),
+        $_SERVER['REQUEST_URI'],
+        $location,
+        $status
+    );
+    error_log($log_entry, 3, $log_file);
+    
+    return $location;
+}
+add_filter('wp_redirect', 'transervica_log_redirect', 10, 2);
+*/
+// ==================================================
+// UTILIDAD: DASHBOARD WIDGET CON ESTADO
+// ==================================================
+/**
+ * Widget en dashboard mostrando estado de indexación
+ */
+function transervica_indexation_dashboard_widget() {
+    ?>
+    <div class="transervica-indexation-status">
+        <h3>Estado de Indexación</h3>
+        <p>
+            <strong>Fixes Activos:</strong>
+            <ul style="margin-left: 20px;">
+                <li>✅ Categorías vacías: Redirigidas</li>
+                <li>✅ Attachments: Redirigidos al padre</li>
+                <li>✅ URLs huérfanas: Manejadas</li>
+                <li>✅ Fragmentos escapados: Eliminados</li>
+                <li>✅ Archives: Noindex aplicado</li>
+            </ul>
+        </p>
+        <p>
+            <strong>Próximo paso:</strong> 
+            <a href="https://search.google.com/search-console" target="_blank">
+                Verificar en Search Console
+            </a>
+        </p>
+    </div>
+    <?php
+}
+function transervica_add_dashboard_widget() {
+    wp_add_dashboard_widget(
+        'transervica_indexation_widget',
+        'Transervica - Fixes de Indexación',
+        'transervica_indexation_dashboard_widget'
+    );
+}
+add_action('wp_dashboard_setup', 'transervica_add_dashboard_widget');
+// ==================================================
+// INSTRUCCIONES DE USO
+// ==================================================
+/**
+ * CÓMO IMPLEMENTAR:
+ * 
+ * 1. Hacer BACKUP de functions.php
+ * 2. Copiar TODO este código
+ * 3. Pegar al FINAL de functions.php del tema activo
+ * 4. Guardar archivo
+ * 5. Verificar que el sitio funciona
+ * 6. Probar redirects manualmente
+ * 7. Solicitar re-indexación en Search Console
+ * 
+ * TESTING:
+ * 
+ * # Verificar redirect de categoría vacía
+ * curl -I https://transervica.net/category/movimientos/
+ * # Debe devolver: HTTP/1.1 301 Moved Permanently
+ * 
+ * # Verificar redirect de attachment
+ * curl -I https://transervica.net/about-us-slider-2-bg-jpg/
+ * # Debe devolver: HTTP/1.1 301 Moved Permanently
+ * 
+ * # Verificar redirect de URL numérica
+ * curl -I https://transervica.net/11/
+ * # Debe devolver: HTTP/1.1 301 Moved Permanently
+ * 
+ * MONITOREO:
+ * 
+ * - Revisar Search Console semanalmente
+ * - Ver "Cobertura" → debe reducir páginas excluidas
+ * - Ver "Experiencia" → verificar Core Web Vitals
+ * 
+ * DESACTIVAR UN FIX:
+ * 
+ * Comentar la línea add_action del fix específico:
+ * 
+ * // add_action('template_redirect', 'transervica_redirect_attachments', 1);
+ */

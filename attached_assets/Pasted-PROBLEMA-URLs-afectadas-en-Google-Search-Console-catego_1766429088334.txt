@@ -1,0 +1,165 @@
+PROBLEMA
+URLs afectadas en Google Search Console:
+
+/category/movimientos/ (Categoría vacía/soft 404)
+/about-us-slider-2-bg-jpg/ (Imagen indexada como página)
+/11/ (URL numérica huérfana)
+/transporte-terrestre... (Páginas válidas no rastreadas)
+/services/izamiento-carga/ (No rastreada frecuentemente)
+/contacto/ (Problemas de rastreo)
+/?_escaped_fragment_= (AJAX crawling deprecado)
+📁 ARCHIVOS GENERADOS (8 archivos)
+📖 Documentación (2 archivos)
+PROMPT_REPARACION_INDEXACION_TRANSERVICA.md
+
+Análisis completo de cada problema
+Soluciones detalladas por tipo
+Plan de acción en 4 fases
+Testing y validación
+GUIA_RAPIDA_TRANSERVICA.md ⭐
+
+Quick start en 15 minutos
+Checklist paso a paso
+Troubleshooting
+Comandos útiles
+💻 Código (3 archivos)
+code/transervica-indexation-fixes.php
+
+✅ FIX 1: Redirigir categorías vacías
+✅ FIX 2: Redirigir attachments al padre
+✅ FIX 3: Redirigir URLs huérfanas
+✅ FIX 4: Eliminar fragmentos escapados
+✅ FIX 5: Noindex archives
+✅ FIX 6: Canonical tags
+✅ FIX 7: Limpiar sitemap
+code/.htaccess.transervica
+
+Redirects de URLs numéricas
+Eliminación de fragmentos escapados
+HTTPS forzado
+Cache headers
+Seguridad
+code/robots.txt.transervica
+
+Bloqueo de directorios WordPress
+Bloqueo de parámetros problemáticos
+Bloqueo de taxonomías
+Configuración de sitemap
+🔧 Scripts de Testing (3 archivos)
+scripts/verify-transervica-urls.sh (Linux/Mac)
+
+Verifica estado HTTP de todas las URLs
+Comprueba redirects (301)
+Verifica páginas activas (200)
+Revisa robots.txt y sitemap
+Output colorizado
+scripts/verify-transervica-urls.bat (Windows)
+
+Misma funcionalidad que .sh
+Compatible con cmd.exe
+No requiere bash
+scripts/audit-transervica.py (Todas las plataformas)
+
+Auditoría completa con requests
+Detecta noindex y canonical
+Genera CSV con resultados
+Genera HTML con reporte visual
+Métricas detalladas
+🚀 QUICK START
+Opción 1: Implementación Completa (15 min)
+# 1. Backup
+# Descargar: functions.php, .htaccess, robots.txt
+# 2. Implementar PHP
+# Copiar code/transervica-indexation-fixes.php
+# Pegar en functions.php (al final)
+# 3. Actualizar .htaccess
+# Reemplazar con code/.htaccess.transervica
+# 4. Actualizar robots.txt
+# Subir code/robots.txt.transervica
+# 5. Verificar
+# Windows: scripts\verify-transervica-urls.bat
+# Linux/Mac: ./scripts/verify-transervica-urls.sh
+# Python: python scripts/audit-transervica.py
+# 6. Search Console
+# Solicitar re-indexación de URLs arregladas
+Opción 2: Solo Testing (Si ya implementaste)
+# Ejecutar script de verificación
+python scripts/audit-transervica.py
+# Revisar reporte HTML generado
+# transervica_audit_YYYYMMDD_HHMMSS.html
+📊 RESULTADOS ESPERADOS
+Antes
+URL	Estado	Problema
+/category/movimientos/	Excluida	Soft 404
+/about-us-slider-2-bg-jpg/	Indexada	Attachment como página
+/11/	Error 404	URL huérfana
+/?_escaped_fragment_=	Indexada	AJAX deprecado
+Después
+URL	Estado	Solución
+/category/movimientos/	301 → /servicios/	Redirigida
+/about-us-slider-2-bg-jpg/	301 → padre	Redirigida
+/11/	301 → /servicios/	Redirigida
+/?_escaped_fragment_=	301 → URL limpia	Redirigida
+Métricas Search Console
+Páginas excluidas: ↓ Reducción esperada
+Páginas válidas: ↑ Aumento esperado
+Errores de rastreo: → 0
+✅ CHECKLIST RÁPIDO
+Implementación
+ Backup creado
+ PHP implementado en functions.php
+ .htaccess actualizado
+ robots.txt actualizado
+ Cache limpiado
+Verificación
+ Scripts ejecutados
+ Todos los redirects = 301
+ Páginas activas = 200
+ robots.txt accesible
+ Sitemap accesible
+Search Console
+ Re-indexación solicitada
+ URLs problemáticas eliminadas (opcional)
+ Sitemap reenviado
+🎓 SOLUCIONES IMPLEMENTADAS
+✅ FIX 1: Categorías Vacías
+// Redirige categorías sin posts
+if (is_category() && !have_posts()) {
+    wp_redirect(home_url('/servicios/'), 301);
+}
+✅ FIX 2: Attachments
+// Redirige imágenes al post padre
+if (is_attachment()) {
+    wp_redirect(get_permalink($post->post_parent), 301);
+}
+✅ FIX 3: URLs Huérfanas
+// Redirige /11/, /12/, etc.
+if (preg_match('/^\/\d+\/$/', $request_uri)) {
+    wp_redirect(home_url('/servicios/'), 301);
+}
+✅ FIX 4: Fragmentos Escapados
+// Elimina ?_escaped_fragment_
+if (isset($_GET['_escaped_fragment_'])) {
+    wp_redirect(remove_query_arg('_escaped_fragment_'), 301);
+}
+🔧 SCRIPTS CREADOS
+1. Bash Script (Linux/Mac)
+./scripts/verify-transervica-urls.sh
+Output:
+
+✅ https://transervica.net/11/
+   HTTP 301 → https://transervica.net/servicios/
+✅ https://transervica.net/
+   HTTP 200
+Resumen: 8 OK | 0 FALLOS
+2. Batch Script (Windows)
+scripts\verify-transervica-urls.bat
+Output: Códigos HTTP de cada URL
+
+3. Python Script (Universal)
+python scripts/audit-transervica.py
+Genera:
+
+transervica_audit_20241222.csv
+transervica_audit_20241222.html
+📞 SOPORTE
