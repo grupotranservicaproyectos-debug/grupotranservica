@@ -8,6 +8,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { LanguageProvider } from "./contexts/LanguageContext";
 import { injectYouTube1080pGlobally } from "./utils/youtube-utils";
 import { initializeSEOMeta } from "./utils/seo-meta";
+import CriticalPreload from "./components/critical-preload";
 import Home from "@/pages/home";
 
 const BlogPage = lazy(() => import("@/pages/blog"));
@@ -58,6 +59,7 @@ function App() {
   return (
     <HelmetProvider>
       <QueryClientProvider client={queryClient}>
+        <CriticalPreload />
         <LanguageProvider>
           <TooltipProvider>
             <Toaster />

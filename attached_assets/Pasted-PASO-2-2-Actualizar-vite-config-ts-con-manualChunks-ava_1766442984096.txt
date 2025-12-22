@@ -1,0 +1,117 @@
+PASO 2.2: Actualizar vite.config.ts con manualChunks avanzado Agrega esta configuración para separar lucide-react icons:
+
+build: {
+  rollupOptions: {
+    output: {
+      manualChunks(id) {
+        // Separar node_modules por paquete
+        if (id.includes('node_modules')) {
+          if (id.includes('react') || id.includes('react-dom')) {
+            return 'vendor-react';
+          }
+          if (id.includes('@tanstack/react-query')) {
+            return 'vendor-query';
+          }
+          if (id.includes('lucide-react')) {
+            return 'vendor-icons';
+          }
+          // Resto de node_modules
+          return 'vendor-misc';
+        }
+      },
+    },
+  },
+},
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PROBLEMA #3: RETRASO DE CARGA DEL LCP (IMPACTO: -3 PUNTOS) ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ Recurso LCP: /assets/youtube-hero-thumbnail-BhoNah7i.webp Retraso actual: 450ms (se carga después del CSS) Situación: Ya tiene fetchpriority="high" pero no tiene preload
+
+SOLUCIÓN: Preload explícito + preconnects optimizados
+
+PASO 3.1: Actualizar index.html Reemplaza el completo con esta versión optimizada:
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- 🔥 PRECONNECTS: Acelera fuentes de Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- 🔥 PRELOAD CRÍTICO #1: Fuente principal -->
+    <link 
+      rel="preload" 
+      href="https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7.woff2" 
+      as="font" 
+      type="font/woff2" 
+      crossorigin 
+    />
+    
+    <!-- 🔥 PRELOAD CRÍTICO #2: Imagen Hero (LCP) -->
+    <link 
+      rel="preload" 
+      fetchpriority="high"
+      as="image" 
+      href="/assets/youtube-hero-thumbnail-BhoNah7i.webp" 
+      type="image/webp"
+    />
+    
+    <!-- CSS Principal (se inline automáticamente con Critters) -->
+    <link rel="stylesheet" href="/src/index.css" />
+    
+    <title>TRANSERVICA - Transporte de Cargas Excepcionales Venezuela</title>
+    <meta name="description" content="Transporte especializado de cargas pesadas y excepcionales. Más de 40 años moviendo hasta 1,100 toneladas con seguridad y experiencia." />
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="TRANSERVICA - Transporte de Cargas Excepcionales" />
+    <meta property="og:description" content="Líderes en transporte pesado venezolano. Experiencia comprobada en proyectos industriales." />
+    <meta property="og:image" content="https://grupotranservica.com/og-image.jpg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_VE" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+PROBLEMA: El path "/assets/youtube-hero-thumbnail-BhoNah7i.webp" cambia en cada build.
+
+PASO 3.2: Crear un componente crítico para el preload dinámico Crea: src/components/critical-preload.tsx
+
+import { useEffect } from 'react';
+export default function CriticalPreload() {
+  useEffect(() => {
+    // Preload dinámico de la imagen hero
+    const link = document.createElement('link');
+    link.rel = 'preload';
+    link.as = 'image';
+    link.fetchPriority = 'high';
+    link.type = 'image/webp';
+    
+    // Busca la imagen del hero en el DOM
+    const heroImg = document.querySelector('img[alt*="Video corporativo"]');
+    if (heroImg) {
+      link.href = heroImg.src;
+      document.head.appendChild(link);
+    }
+  }, []);
+  
+  return null;
+}
+PASO 3.3: Importar en App.tsx
+
+import CriticalPreload from './components/critical-preload';
+function App() {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <CriticalPreload />
+      {/* resto del código... */}
+    </QueryClientProvider>
+  );
+}
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PASO FINAL: BUILD Y VERIFICACIÓN ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PASO 4.1: Rebuild de producción
+
+npm run build
