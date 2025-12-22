@@ -1,0 +1,288 @@
+MISIÓN: Optimizar grupotranservica.com de PageSpeed 87/100 a 95-100/100 en Mobile.
+CONTEXTO DEL PROYECTO:
+- Tech Stack: React + Vite + TypeScript + Express
+- Sitio actual: https://grupotranservica.com
+- Problema: Bundle JavaScript grande, CSS bloqueante, retraso en carga de imagen LCP
+ANÁLISIS DE PAGESPEED ACTUAL:
+1. FCP: 2.5s (debería ser <1.8s)
+2. LCP: 3.5s (debería ser <2.5s)
+3. Total Blocking Time: 0ms ✅ (ya está bien)
+4. CLS: 0 ✅ (ya está bien)
+5. Speed Index: 2.5s
+PROBLEMAS IDENTIFICADOS (EN ORDEN DE IMPACTO):
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PROBLEMA #1: CSS BLOQUEANTE (IMPACTO: -5 PUNTOS)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Archivo: /assets/index-C3BaDvmm.css
+Tamaño: 20.1 KiB
+Duración de bloqueo: 460ms
+CSS no usado: 13.9 KiB (69% desperdiciado)
+SOLUCIÓN: Inline de CSS crítico + diferir CSS no crítico
+PASO 1.1: Instalar plugin de Critical CSS
+```bash
+npm install --save-dev critters
+PASO 1.2: Actualizar vite.config.ts Agrega el plugin al final de la lista de plugins:
+
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+export default defineConfig({
+  plugins: [
+    react(),
+  ],
+  build: {
+    cssCodeSplit: true,
+    minify: 'terser',
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'vendor-react': ['react', 'react-dom'],
+          'vendor-query': ['@tanstack/react-query'],
+        },
+      },
+    },
+  },
+  css: {
+    postcss: {
+      plugins: [
+        // Inline critical CSS automáticamente
+        require('critters')({
+          preload: 'swap',
+          inlineFonts: true,
+        }),
+      ],
+    },
+  },
+});
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PROBLEMA #2: JAVASCRIPT NO USADO (IMPACTO: -4 PUNTOS) ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ Archivo: /assets/index-BlnzZoYV.js Tamaño total: 121.3 KiB JavaScript no usado: 37.6 KiB (31% desperdiciado) Causa: Todos los componentes se cargan en el bundle inicial
+
+SOLUCIÓN: Code splitting agresivo con React.lazy()
+
+PASO 2.1: Actualizar src/App.tsx Reemplaza TODOS los imports de secciones con lazy loading:
+
+import { lazy, Suspense } from 'react';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import Header from './components/header';
+import HeroSection from './components/hero-section';
+import Footer from './components/footer';
+import WhatsAppButton from './components/whatsapp-button';
+// 🔥 LAZY LOAD: Componentes below-the-fold
+const ServicesSection = lazy(() => import('./components/services-section'));
+const AboutSection = lazy(() => import('./components/about-section'));
+const EquipmentSection = lazy(() => import('./components/equipment-section'));
+const ProjectsSection = lazy(() => import('./components/projects-section'));
+const BlogSection = lazy(() => import('./components/blog-section'));
+const FAQSection = lazy(() => import('./components/faq-section'));
+const ContactSection = lazy(() => import('./components/contact-section'));
+const StatisticsSection = lazy(() => import('./components/statistics-section'));
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 1000 * 60 * 5,
+      gcTime: 1000 * 60 * 10,
+    },
+  },
+});
+function App() {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+        <Header />
+        <HeroSection />
+        
+        <Suspense fallback={<div className="h-32" />}>
+          <StatisticsSection />
+        </Suspense>
+        
+        <Suspense fallback={<div className="h-96" />}>
+          <ServicesSection />
+        </Suspense>
+        
+        <Suspense fallback={<div className="h-96" />}>
+          <AboutSection />
+        </Suspense>
+        
+        <Suspense fallback={<div className="h-96" />}>
+          <EquipmentSection />
+        </Suspense>
+        
+        <Suspense fallback={<div className="h-96" />}>
+          <ProjectsSection />
+        </Suspense>
+        
+        <Suspense fallback={<div className="h-96" />}>
+          <BlogSection />
+        </Suspense>
+        
+        <Suspense fallback={<div className="h-96" />}>
+          <FAQSection />
+        </Suspense>
+        
+        <Suspense fallback={<div className="h-96" />}>
+          <ContactSection />
+        </Suspense>
+        
+        <Footer />
+        <WhatsAppButton />
+      </div>
+    </QueryClientProvider>
+  );
+}
+export default App;
+PASO 2.2: Actualizar vite.config.ts con manualChunks avanzado Agrega esta configuración para separar lucide-react icons:
+
+build: {
+  rollupOptions: {
+    output: {
+      manualChunks(id) {
+        // Separar node_modules por paquete
+        if (id.includes('node_modules')) {
+          if (id.includes('react') || id.includes('react-dom')) {
+            return 'vendor-react';
+          }
+          if (id.includes('@tanstack/react-query')) {
+            return 'vendor-query';
+          }
+          if (id.includes('lucide-react')) {
+            return 'vendor-icons';
+          }
+          // Resto de node_modules
+          return 'vendor-misc';
+        }
+      },
+    },
+  },
+},
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PROBLEMA #3: RETRASO DE CARGA DEL LCP (IMPACTO: -3 PUNTOS) ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ Recurso LCP: /assets/youtube-hero-thumbnail-BhoNah7i.webp Retraso actual: 450ms (se carga después del CSS) Situación: Ya tiene fetchpriority="high" pero no tiene preload
+
+SOLUCIÓN: Preload explícito + preconnects optimizados
+
+PASO 3.1: Actualizar index.html Reemplaza el completo con esta versión optimizada:
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- 🔥 PRECONNECTS: Acelera fuentes de Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- 🔥 PRELOAD CRÍTICO #1: Fuente principal -->
+    <link 
+      rel="preload" 
+      href="https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7.woff2" 
+      as="font" 
+      type="font/woff2" 
+      crossorigin 
+    />
+    
+    <!-- 🔥 PRELOAD CRÍTICO #2: Imagen Hero (LCP) -->
+    <link 
+      rel="preload" 
+      fetchpriority="high"
+      as="image" 
+      href="/assets/youtube-hero-thumbnail-BhoNah7i.webp" 
+      type="image/webp"
+    />
+    
+    <!-- CSS Principal (se inline automáticamente con Critters) -->
+    <link rel="stylesheet" href="/src/index.css" />
+    
+    <title>TRANSERVICA - Transporte de Cargas Excepcionales Venezuela</title>
+    <meta name="description" content="Transporte especializado de cargas pesadas y excepcionales. Más de 40 años moviendo hasta 1,100 toneladas con seguridad y experiencia." />
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="TRANSERVICA - Transporte de Cargas Excepcionales" />
+    <meta property="og:description" content="Líderes en transporte pesado venezolano. Experiencia comprobada en proyectos industriales." />
+    <meta property="og:image" content="https://grupotranservica.com/og-image.jpg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_VE" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+PROBLEMA: El path "/assets/youtube-hero-thumbnail-BhoNah7i.webp" cambia en cada build.
+
+PASO 3.2: Crear un componente crítico para el preload dinámico Crea: src/components/critical-preload.tsx
+
+import { useEffect } from 'react';
+export default function CriticalPreload() {
+  useEffect(() => {
+    // Preload dinámico de la imagen hero
+    const link = document.createElement('link');
+    link.rel = 'preload';
+    link.as = 'image';
+    link.fetchPriority = 'high';
+    link.type = 'image/webp';
+    
+    // Busca la imagen del hero en el DOM
+    const heroImg = document.querySelector('img[alt*="Video corporativo"]');
+    if (heroImg) {
+      link.href = heroImg.src;
+      document.head.appendChild(link);
+    }
+  }, []);
+  
+  return null;
+}
+PASO 3.3: Importar en App.tsx
+
+import CriticalPreload from './components/critical-preload';
+function App() {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <CriticalPreload />
+      {/* resto del código... */}
+    </QueryClientProvider>
+  );
+}
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PASO FINAL: BUILD Y VERIFICACIÓN ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PASO 4.1: Rebuild de producción
+
+npm run build
+PASO 4.2: Verificar outputs esperados Después del build, deberías ver en dist/assets/: ✅ vendor-react-[hash].js (~40 KiB) - React separado ✅ vendor-icons-[hash].js (~15 KiB) - Lucide icons ✅ services-section-[hash].js (~4 KiB) - Lazy chunk ✅ about-section-[hash].js (~4 KiB) - Lazy chunk ... (otros chunks)
+
+El bundle principal (index-[hash].js) debe bajar de 121 KiB a ~60 KiB.
+
+PASO 4.3: Test local
+
+npm run preview
+Abre DevTools → Network:
+
+La imagen hero debe tener "Priority: Highest"
+Los chunks de secciones solo deben cargar al hacer scroll
+PASO 4.4: Deploy y re-test PageSpeed
+
+Deploy a producción
+Espera 2 minutos (caché CDN)
+Test: https://pagespeed.web.dev/
+Objetivo: 95-100/100
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ RESULTADOS ESPERADOS ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ Métrica | Antes | Después | Mejora ─────────────────|--------|---------|-------- Puntuación | 87 | 95-98 | +8-11 FCP | 2.5s | 1.2s | -52% LCP | 3.5s | 1.8s | -49% Bundle inicial | 121 KB | 60 KB | -50% CSS bloqueante | 460ms | 0ms | -100%
+
+ERRORES COMUNES Y SOLUCIONES: ❌ "Cannot find module 'critters'" → Ejecuta: npm install --save-dev critters ❌ Build falla con "manualChunks" → Verifica que la sintaxis sea exacta (function, no objeto) ❌ Lazy chunks no se cargan → Asegúrate que Suspense tenga fallback válido ❌ PreLoad no funciona → Usa la solución dinámica (CriticalPreload component)
+
+CONFIRMACIÓN DE ÉXITO: Ejecuta este comando después del deploy: curl -I https://grupotranservica.com | grep "cache"
+
+Deberías ver cabeceras de caché activas.
+
+FIN DEL PROMPT
+
+---
+## 📋 CHECKLIST DE IMPLEMENTACIÓN
+Puedes verificar cada paso con este checklist:
+- [ ] **Paso 1.1**: `npm install --save-dev critters` ejecutado sin errores
+- [ ] **Paso 1.2**: `vite.config.ts` actualizado con configuración CSS
+- [ ] **Paso 2.1**: `src/App.tsx` convertido a lazy loading
+- [ ] **Paso 2.2**: `vite.config.ts` tiene `manualChunks` configurado
+- [ ] **Paso 3.1**: `index.html` tiene preconnects y preloads optimizados
+- [ ] **Paso 3.2**: `src/components/critical-preload.tsx` creado
+- [ ] **Paso 3.3**: `CriticalPreload` importado en `App.tsx`
+- [ ] **Paso 4.1**: `npm run build` completa sin errores
+- [ ] **Paso 4.2**: Verificar tamaños de chunks en `dist/assets/`
+- [ ] **Paso 4.3**: `npm run preview` funciona correctamente
+- [ ] **Paso 4.4**: Deploy + PageSpeed test muestra 95+
