@@ -187,37 +187,63 @@ export default function EquipmentSection() {
                   </div>
                 </div>
 
-                {/* Navigation Dots */}
-                <div className="flex justify-center gap-2 mb-6">
-                  {equipmentItems.map((_, index) => (
-                    <button
-                      key={index}
-                      onClick={() => setCurrentSlide(index)}
-                      className={`h-2 rounded-full transition-all duration-300 ${
-                        currentSlide === index 
-                          ? 'bg-[#155d29] w-8' 
-                          : 'bg-gray-300 w-2 hover:bg-gray-400'
-                      }`}
-                      aria-label={`Go to equipment ${index + 1}`}
-                    />
-                  ))}
-                </div>
+                {/* Navigation Dots - 44x44px touch targets with 8x8px visual dots (WCAG 2.5.5) */}
+                <nav 
+                  className="flex justify-center gap-2 mb-6"
+                  role="group"
+                  aria-label="Navegación de equipos destacados"
+                >
+                  {equipmentItems.map((_, index) => {
+                    const isActive = currentSlide === index;
+                    return (
+                      <button
+                        key={index}
+                        onClick={() => setCurrentSlide(index)}
+                        className={`
+                          relative w-11 h-11 min-w-[44px] min-h-[44px]
+                          rounded-full transition-all duration-300
+                          flex items-center justify-center
+                          hover:bg-gray-100
+                          focus:outline-none focus:ring-2 focus:ring-[#155d29] focus:ring-offset-2
+                          ${isActive ? 'bg-gray-50' : ''}
+                        `}
+                        aria-label={`Ir al equipo ${index + 1}`}
+                        aria-current={isActive ? 'true' : undefined}
+                        type="button"
+                      >
+                        <span 
+                          className={`rounded-full transition-all duration-300 pointer-events-none ${
+                            isActive ? 'w-8 h-2 bg-[#155d29]' : 'w-2 h-2 bg-gray-300'
+                          }`}
+                          aria-hidden="true"
+                        />
+                        <span className="sr-only">
+                          {isActive ? `Equipo ${index + 1} de ${equipmentItems.length} (activo)` : `Equipo ${index + 1} de ${equipmentItems.length}`}
+                        </span>
+                      </button>
+                    );
+                  })}
+                </nav>
 
-                {/* Navigation Buttons */}
+                {/* Navigation Buttons - 48x48px touch targets */}
                 <div className="flex justify-center gap-4">
                   <button
                     onClick={prevSlide}
-                    className="p-3 rounded-full bg-slate-100 hover:bg-[#155d29] hover:text-white transition-all duration-300 shadow-md hover:shadow-lg"
-                    aria-label="Previous equipment"
+                    className="w-12 h-12 min-w-[48px] min-h-[48px] flex items-center justify-center rounded-full bg-slate-100 hover:bg-[#155d29] hover:text-white transition-all duration-300 shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-[#155d29] focus:ring-offset-2"
+                    aria-label="Equipo anterior"
+                    type="button"
                   >
-                    <ChevronLeft className="w-6 h-6" />
+                    <ChevronLeft className="w-6 h-6" aria-hidden="true" />
+                    <span className="sr-only">Ir al equipo anterior</span>
                   </button>
                   <button
                     onClick={nextSlide}
-                    className="p-3 rounded-full bg-slate-100 hover:bg-[#155d29] hover:text-white transition-all duration-300 shadow-md hover:shadow-lg"
-                    aria-label="Next equipment"
+                    className="w-12 h-12 min-w-[48px] min-h-[48px] flex items-center justify-center rounded-full bg-slate-100 hover:bg-[#155d29] hover:text-white transition-all duration-300 shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-[#155d29] focus:ring-offset-2"
+                    aria-label="Equipo siguiente"
+                    type="button"
                   >
-                    <ChevronRight className="w-6 h-6" />
+                    <ChevronRight className="w-6 h-6" aria-hidden="true" />
+                    <span className="sr-only">Ir al equipo siguiente</span>
                   </button>
                 </div>
               </div>

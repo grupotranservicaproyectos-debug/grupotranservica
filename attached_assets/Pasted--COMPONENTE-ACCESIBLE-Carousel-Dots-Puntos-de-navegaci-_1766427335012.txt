@@ -1,0 +1,124 @@
+/**
+ * COMPONENTE ACCESIBLE: Carousel Dots (Puntos de navegación)
+ * 
+ * Optimizaciones de accesibilidad:
+ * - ✅ Área táctil mínima 44x44px (WCAG 2.5.5)
+ * - ✅ aria-label descriptivos
+ * - ✅ aria-current para slide activo
+ * - ✅ Focus states visibles
+ * - ✅ Texto para screen readers
+ * - ✅ Navegación por teclado (Tab + Enter/Space)
+ */
+import { FC } from 'react';
+interface CarouselDotsProps {
+    /** Número total de slides */
+    totalSlides: number;
+    /** Índice del slide actual (0-based) */
+    currentSlide: number;
+    /** Callback cuando se cambia de slide */
+    onSlideChange: (index: number) => void;
+    /** Etiqueta ARIA para el grupo de navegación */
+    ariaLabel?: string;
+    /** Color del indicador activo (Tailwind class o hex) */
+    activeColor?: string;
+    /** Color del indicador inactivo (Tailwind class o hex) */
+    inactiveColor?: string;
+}
+const CarouselDots: FC<CarouselDotsProps> = ({
+    totalSlides,
+    currentSlide,
+    onSlideChange,
+    ariaLabel = 'Navegación de carrusel de equipos',
+    activeColor = 'bg-[#155d29]',
+    inactiveColor = 'bg-gray-300'
+}) => {
+    return (
+        <nav
+            className="flex gap-2 justify-center items-center py-4"
+            role="group"
+            aria-label={ariaLabel}
+        >
+            {Array.from({ length: totalSlides }).map((_, index) => {
+                const isActive = index === currentSlide;
+                const slideNumber = index + 1;
+                return (
+                    <button
+                        key={index}
+                        onClick={() => onSlideChange(index)}
+                        className={`
+              relative
+              w-11 h-11
+              min-w-[44px] min-h-[44px]
+              rounded-full
+              transition-all duration-300
+              flex items-center justify-center
+              hover:bg-gray-100
+              focus:outline-none 
+              focus:ring-2 
+              focus:ring-[#155d29] 
+              focus:ring-offset-2
+              ${isActive ? 'bg-gray-50' : ''}
+            `}
+                        aria-label={`Ir al equipo ${slideNumber}`}
+                        aria-current={isActive}
+                        type="button"
+                        tabIndex={0}
+                    >
+                        {/* Indicador visual pequeño (8x8px) */}
+                        <span
+                            className={`
+                w-2 h-2
+                rounded-full
+                transition-all duration-300
+                pointer-events-none
+                ${isActive
+                                    ? `${activeColor} scale-125`
+                                    : `${inactiveColor} group-hover:bg-gray-400`
+                                }
+              `}
+                            aria-hidden="true"
+                        />
+                        {/* Texto para screen readers (oculto visualmente) */}
+                        <span className="sr-only">
+                            {isActive
+                                ? `Equipo ${slideNumber} de ${totalSlides} (activo)`
+                                : `Equipo ${slideNumber} de ${totalSlides}`
+                            }
+                        </span>
+                    </button>
+                );
+            })}
+        </nav>
+    );
+};
+export default CarouselDots;
+/**
+ * EJEMPLO DE USO:
+ * 
+ * import { useState } from 'react';
+ * import CarouselDots from '@/components/CarouselDots.accessible';
+ * 
+ * function EquipmentCarousel() {
+ *   const [currentSlide, setCurrentSlide] = useState(0);
+ *   const totalSlides = 6;
+ * 
+ *   return (
+ *     <div className="relative">
+ *       {/* Contenido del carrusel * /}
+ *       <div className="carousel-content">
+ *         {/* Slides aquí * /}
+ *       </div>
+ * 
+ *       {/* Navegación con dots accesibles * /}
+ *       <CarouselDots
+ *         totalSlides={totalSlides}
+ *         currentSlide={currentSlide}
+ *         onSlideChange={setCurrentSlide}
+ *         ariaLabel="Navegación de equipos destacados"
+ *         activeColor="bg-[#155d29]"
+ *         inactiveColor="bg-gray-300"
+ *       />
+ *     </div>
+ *   );
+ * }
+ */

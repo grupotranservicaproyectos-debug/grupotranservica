@@ -193,34 +193,63 @@ export default function BlogSection() {
               {t('blog.section.featured')}
             </h3>
             
-            {/* Carousel Controls */}
+            {/* Carousel Controls - 44x44px touch targets (WCAG 2.5.5) */}
             <div className="flex items-center gap-4">
-              <div className="flex gap-2">
-                {Array.from({ length: totalSlides }).map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => goToSlide(index)}
-                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                      currentSlide === index 
-                        ? 'bg-[#155d29] scale-125' 
-                        : 'bg-gray-300 hover:bg-gray-400'
-                    }`}
-                  />
-                ))}
-              </div>
+              <nav 
+                className="flex gap-1"
+                role="group"
+                aria-label="Navegación de artículos del blog"
+              >
+                {Array.from({ length: totalSlides }).map((_, index) => {
+                  const isActive = currentSlide === index;
+                  return (
+                    <button
+                      key={index}
+                      onClick={() => goToSlide(index)}
+                      className={`
+                        relative w-11 h-11 min-w-[44px] min-h-[44px]
+                        rounded-full transition-all duration-300
+                        flex items-center justify-center
+                        hover:bg-gray-100
+                        focus:outline-none focus:ring-2 focus:ring-[#155d29] focus:ring-offset-2
+                        ${isActive ? 'bg-gray-50' : ''}
+                      `}
+                      aria-label={`Ir a página ${index + 1} del blog`}
+                      aria-current={isActive ? 'true' : undefined}
+                      type="button"
+                    >
+                      <span 
+                        className={`w-2 h-2 rounded-full transition-all duration-300 pointer-events-none ${
+                          isActive ? 'bg-[#155d29] scale-125' : 'bg-gray-300'
+                        }`}
+                        aria-hidden="true"
+                      />
+                      <span className="sr-only">
+                        {isActive ? `Página ${index + 1} de ${totalSlides} (activo)` : `Página ${index + 1} de ${totalSlides}`}
+                      </span>
+                    </button>
+                  );
+                })}
+              </nav>
               
               <div className="flex gap-2">
                 <button
                   onClick={prevSlide}
-                  className="p-2 rounded-full bg-white border border-gray-200 hover:border-[#155d29] hover:bg-[#155d29] hover:text-white transition-all duration-300 shadow-md hover:shadow-lg group"
+                  className="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full bg-white border border-gray-200 hover:border-[#155d29] hover:bg-[#155d29] hover:text-white transition-all duration-300 shadow-md hover:shadow-lg group focus:outline-none focus:ring-2 focus:ring-[#155d29] focus:ring-offset-2"
+                  aria-label="Artículos anteriores"
+                  type="button"
                 >
-                  <ChevronLeft className="w-5 h-5" />
+                  <ChevronLeft className="w-5 h-5" aria-hidden="true" />
+                  <span className="sr-only">Ir a artículos anteriores</span>
                 </button>
                 <button
                   onClick={nextSlide}
-                  className="p-2 rounded-full bg-white border border-gray-200 hover:border-[#155d29] hover:bg-[#155d29] hover:text-white transition-all duration-300 shadow-md hover:shadow-lg group"
+                  className="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full bg-white border border-gray-200 hover:border-[#155d29] hover:bg-[#155d29] hover:text-white transition-all duration-300 shadow-md hover:shadow-lg group focus:outline-none focus:ring-2 focus:ring-[#155d29] focus:ring-offset-2"
+                  aria-label="Artículos siguientes"
+                  type="button"
                 >
-                  <ChevronRight className="w-5 h-5" />
+                  <ChevronRight className="w-5 h-5" aria-hidden="true" />
+                  <span className="sr-only">Ir a artículos siguientes</span>
                 </button>
               </div>
             </div>

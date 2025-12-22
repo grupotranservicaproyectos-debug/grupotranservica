@@ -249,9 +249,9 @@ export default function ProjectsCarousel() {
                     </span>
                   </div>
 
-                  {/* Weight Badge */}
+                  {/* Weight Badge - Fixed contrast ratio ≥4.5:1 */}
                   <div className="absolute top-4 right-4">
-                    <span className="text-white px-3 py-1 rounded-full text-sm font-medium bg-[#3ea30f]">
+                    <span className="text-white px-3 py-1 rounded-full text-sm font-bold" style={{ backgroundColor: '#155d29' }}>
                       {currentProject.weight}
                     </span>
                   </div>
@@ -354,27 +354,45 @@ export default function ProjectsCarousel() {
             </button>
           </div>
 
-          {/* Slide Indicators - 48x48px touch targets with 12x12px visual dots */}
-          <div className="flex justify-center mt-6 space-x-1">
-            {projectsData.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentSlide(index)}
-                className="w-12 h-12 flex items-center justify-center"
-                aria-label={`Ir a proyecto ${index + 1}`}
-                data-testid={`button-slide-${index}`}
-              >
-                <span 
-                  className={`w-3 h-3 rounded-full transition-all duration-200 ${
-                    index === currentSlide
-                      ? "scale-125"
-                      : "bg-gray-300 hover:bg-gray-400"
-                  }`}
-                  style={index === currentSlide ? { backgroundColor: '#155d29' } : {}}
-                />
-              </button>
-            ))}
-          </div>
+          {/* Slide Indicators - 44x44px touch targets with 8x8px visual dots (WCAG 2.5.5) */}
+          <nav 
+            className="flex justify-center mt-6 gap-2"
+            role="group"
+            aria-label="Navegación de proyectos destacados"
+          >
+            {projectsData.map((_, index) => {
+              const isActive = index === currentSlide;
+              return (
+                <button
+                  key={index}
+                  onClick={() => setCurrentSlide(index)}
+                  className={`
+                    relative w-11 h-11 min-w-[44px] min-h-[44px]
+                    rounded-full transition-all duration-300
+                    flex items-center justify-center
+                    hover:bg-gray-100
+                    focus:outline-none focus:ring-2 focus:ring-[#155d29] focus:ring-offset-2
+                    ${isActive ? 'bg-gray-50' : ''}
+                  `}
+                  aria-label={`Ir al proyecto ${index + 1}`}
+                  aria-current={isActive ? 'true' : undefined}
+                  type="button"
+                  data-testid={`button-slide-${index}`}
+                >
+                  <span 
+                    className={`w-2 h-2 rounded-full transition-all duration-300 pointer-events-none ${
+                      isActive ? 'scale-125' : 'bg-gray-300'
+                    }`}
+                    style={isActive ? { backgroundColor: '#155d29' } : {}}
+                    aria-hidden="true"
+                  />
+                  <span className="sr-only">
+                    {isActive ? `Proyecto ${index + 1} de ${projectsData.length} (activo)` : `Proyecto ${index + 1} de ${projectsData.length}`}
+                  </span>
+                </button>
+              );
+            })}
+          </nav>
         </div>
 
 
