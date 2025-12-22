@@ -389,18 +389,19 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
 
-    <!-- Performance optimizations - WebP format for faster loading -->
-    <link
-      rel="preload"
-      as="image"
-      href="/attached_assets/logo-transervica-optimized.webp"
-      type="image/webp"
-      fetchpriority="high"
-    />
+    <!-- LCP Optimization - Preload hero thumbnail with highest priority -->
     <link
       rel="preload"
       as="image"
       href="/attached_assets/youtube-hero-thumbnail.webp"
+      type="image/webp"
+      fetchpriority="high"
+    />
+    <!-- Logo preload - secondary priority -->
+    <link
+      rel="preload"
+      as="image"
+      href="/attached_assets/logo-transervica-optimized.webp"
       type="image/webp"
     />
     <meta http-equiv="x-dns-prefetch-control" content="on" />
