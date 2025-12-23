@@ -107,7 +107,7 @@ export default function SEOBlogArticle() {
         title={blog.metaTitle || blog.title}
         description={blog.metaDescription || blog.excerpt || ''}
         keywords={blog.keywords?.join(', ') || ''}
-        canonical={`https://www.transervica.net/seo-blog/${blog.slug}`}
+        canonical={`https://grupotranservica.com/seo-blog/${blog.slug}`}
         ogTitle={blog.title}
         ogDescription={blog.excerpt || ''}
         ogImage={blog.coverImage || undefined}
