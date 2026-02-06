@@ -57,7 +57,7 @@ export default defineConfig({
         manualChunks(id) {
           // ReactCore
           if (
-            id.includes("node_modules/react/") ||
+            id.includes("node_modules/react/") || id.includes("node_modules/scheduler/") || id.includes("node_modules/react-is/") || id.includes("node_modules/use-sync-external-store/") ||
             id.includes("node_modules/react-dom/")
           ) {
             return "vendor-react";
