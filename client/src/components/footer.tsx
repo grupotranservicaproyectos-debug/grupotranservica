@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Facebook, Instagram, Youtube, Mail, Phone, MapPin } from 'lucide-react';
 import logoTranservica from "@assets/logo transervica sin fondo_1754163034585.webp";
 import { useLanguage } from '../contexts/LanguageContext';
@@ -10,8 +10,6 @@ export default function Footer() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle newsletter subscription
-    console.log('Newsletter subscription:', email);
     setEmail('');
   };
 
@@ -40,6 +38,7 @@ export default function Footer() {
               <button 
                 onClick={() => navigateToSection('inicio')}
                 className="focus:outline-none mb-4"
+                aria-label="Ir al inicio - TRANSERVICA"
               >
                 <img 
                   src={logoTranservica} 
@@ -178,13 +177,16 @@ export default function Footer() {
             </h4>
             
             <form onSubmit={handleSubmit} className="space-y-3">
+              <label htmlFor="newsletter-email" className="sr-only">Email</label>
               <input
+                id="newsletter-email"
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder={t('footer.newsletter.placeholder')}
                 className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-[#155d29] focus:ring-1 focus:ring-[#155d29] transition-colors duration-200"
                 required
+                autoComplete="email"
               />
               <button
                 type="submit"

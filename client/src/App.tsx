@@ -6,7 +6,6 @@ import { HelmetProvider } from "react-helmet-async";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { LanguageProvider } from "./contexts/LanguageContext";
-import { injectYouTube1080pGlobally } from "./utils/youtube-utils";
 import { initializeSEOMeta } from "./utils/seo-meta";
 import Home from "@/pages/home";
 
@@ -52,7 +51,6 @@ function Router() {
 function App() {
   useEffect(() => {
     initializeSEOMeta();
-    injectYouTube1080pGlobally();
   }, []);
 
   return (

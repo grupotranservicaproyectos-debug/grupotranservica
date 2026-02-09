@@ -50,7 +50,7 @@ export default function YouTubeLazy({
   if (isLoaded) {
     return (
       <iframe
-        src={`https://www.youtube.com/embed/${videoId}?${params}${params.includes('autoplay') ? '' : '&autoplay=1'}`}
+        src={`https://www.youtube-nocookie.com/embed/${videoId}?${params}${params.includes('autoplay') ? '' : '&autoplay=1'}`}
         title={title}
         className={className}
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

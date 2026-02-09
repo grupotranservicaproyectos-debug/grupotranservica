@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import { Link } from 'wouter';
 import { useLanguage } from '../contexts/LanguageContext';
 import LanguageSwitcher from './LanguageSwitcher';
@@ -6,7 +6,12 @@ import logoTranservica from "@assets/logo transervica sin fondo_1754163034585.we
 
 export default function HeroSection() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [videoLoaded, setVideoLoaded] = useState(false);
   const { t } = useLanguage();
+
+  const loadVideo = useCallback(() => {
+    if (!videoLoaded) setVideoLoaded(true);
+  }, [videoLoaded]);
   const scrollToContact = () => {
     const element = document.getElementById('contacto');
     if (element) {
@@ -23,25 +28,35 @@ export default function HeroSection() {
 
   return (
     <section id="inicio" className="relative min-h-screen bg-black overflow-hidden">
-      {/* Video de fondo Netflix Style */}
-      <div className="absolute inset-0 z-0 overflow-hidden">
-        <iframe
-          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
-          src="https://www.youtube.com/embed/_LQbWkWlg6s?autoplay=1&mute=1&controls=0&showinfo=0&rel=0&loop=1&playlist=_LQbWkWlg6s&modestbranding=1&start=20&iv_load_policy=3&cc_load_policy=0&disablekb=1&fs=0&vq=hd1080&quality=hd1080&hd=1&fmt=22&enablejsapi=1"
-          title="Transervica Background Video - Transporte de Cargas Excepcionales"
-          allow="autoplay; encrypted-media"
-          loading="eager"
-          style={{
-            pointerEvents: 'none',
-            border: 'none',
-            width: 'max(100vw, 177.77vh)',
-            height: 'max(100vh, 56.25vw)',
-            minWidth: '100vw',
-            minHeight: '100vh'
-          }}
-        />
-        
-        {/* Minimal overlay only where needed */}
+      {/* Video de fondo - Lazy loaded for performance */}
+      <div className="absolute inset-0 z-0 overflow-hidden" onClick={loadVideo} onMouseEnter={loadVideo}>
+        {videoLoaded ? (
+          <iframe
+            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+            src="https://www.youtube-nocookie.com/embed/_LQbWkWlg6s?autoplay=1&mute=1&controls=0&showinfo=0&rel=0&loop=1&playlist=_LQbWkWlg6s&modestbranding=1&start=20&iv_load_policy=3&cc_load_policy=0&disablekb=1&fs=0&enablejsapi=1"
+            title="Transervica Background Video - Transporte de Cargas Excepcionales"
+            allow="autoplay; encrypted-media"
+            style={{
+              pointerEvents: 'none',
+              border: 'none',
+              width: 'max(100vw, 177.77vh)',
+              height: 'max(100vh, 56.25vw)',
+              minWidth: '100vw',
+              minHeight: '100vh'
+            }}
+          />
+        ) : (
+          <img
+            src="https://i.ytimg.com/vi/_LQbWkWlg6s/hqdefault.jpg"
+            alt="TRANSERVICA - Transporte de Cargas Excepcionales Venezuela"
+            className="absolute inset-0 w-full h-full object-cover"
+            loading="eager"
+            decoding="async"
+            onLoad={() => {
+              setTimeout(loadVideo, 3000);
+            }}
+          />
+        )}
         <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent z-10"></div>
       </div>
       {/* Transportes Montejo Style Navigation - Optimized for Mobile */}
@@ -84,7 +99,6 @@ export default function HeroSection() {
                 className="h-16 sm:h-20 w-auto cursor-pointer hover:scale-105 transition-all duration-300 filter brightness-110 contrast-125 drop-shadow-lg"
                 width={80}
                 height={64}
-                fetchPriority="high"
                 onClick={() => scrollToSection('inicio')}
               />
             </div>
@@ -270,6 +284,7 @@ export default function HeroSection() {
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition z-50"
         title="Contactar por WhatsApp"
+        aria-label="Contactar por WhatsApp"
         data-testid="button-whatsapp-floating"
       >
         <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 32 32">

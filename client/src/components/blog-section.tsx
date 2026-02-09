@@ -246,8 +246,8 @@ export default function BlogSection() {
                                 videoId="JnWnFe_QdnE"
                                 title={post.title}
                                 className="w-full h-full"
-                                params="autoplay=1&mute=1&loop=1&playlist=JnWnFe_QdnE&vq=hd2160"
-                                thumbnailQuality="maxresdefault"
+                                params="autoplay=1&mute=1&loop=1&playlist=JnWnFe_QdnE"
+                                thumbnailQuality="hqdefault"
                                 autoLoad={true}
                               />
                             ) : post.id === 2 ? (
@@ -255,8 +255,8 @@ export default function BlogSection() {
                                 videoId="4ZfZ5YFelkQ"
                                 title={post.title}
                                 className="w-full h-full"
-                                params="autoplay=1&mute=1&loop=1&playlist=4ZfZ5YFelkQ&vq=hd2160"
-                                thumbnailQuality="maxresdefault"
+                                params="autoplay=1&mute=1&loop=1&playlist=4ZfZ5YFelkQ"
+                                thumbnailQuality="hqdefault"
                                 autoLoad={true}
                               />
                             ) : post.id === 3 ? (
@@ -264,8 +264,8 @@ export default function BlogSection() {
                                 videoId="44lpgBO22qU"
                                 title={post.title}
                                 className="w-full h-full"
-                                params="autoplay=1&mute=1&loop=1&playlist=44lpgBO22qU&vq=hd2160"
-                                thumbnailQuality="maxresdefault"
+                                params="autoplay=1&mute=1&loop=1&playlist=44lpgBO22qU"
+                                thumbnailQuality="hqdefault"
                                 autoLoad={true}
                               />
                             ) : post.id === 4 ? (
@@ -273,8 +273,8 @@ export default function BlogSection() {
                                 videoId="54hazc90eNk"
                                 title={post.title}
                                 className="w-full h-full"
-                                params="autoplay=1&mute=1&loop=1&playlist=54hazc90eNk&vq=hd2160"
-                                thumbnailQuality="maxresdefault"
+                                params="autoplay=1&mute=1&loop=1&playlist=54hazc90eNk"
+                                thumbnailQuality="hqdefault"
                                 autoLoad={true}
                               />
                             ) : post.id === 7 ? (
@@ -282,8 +282,8 @@ export default function BlogSection() {
                                 videoId="NW9Huszovqw"
                                 title={post.title}
                                 className="w-full h-full"
-                                params="autoplay=1&start=30&end=171&mute=1&loop=1&playlist=NW9Huszovqw&vq=hd2160"
-                                thumbnailQuality="maxresdefault"
+                                params="autoplay=1&start=30&end=171&mute=1&loop=1&playlist=NW9Huszovqw"
+                                thumbnailQuality="hqdefault"
                                 autoLoad={true}
                               />
                             ) : post.id === 8 ? (
@@ -291,8 +291,8 @@ export default function BlogSection() {
                                 videoId="JJjJ6lF_4oI"
                                 title={post.title}
                                 className="w-full h-full"
-                                params="autoplay=1&start=22&end=86&mute=1&loop=1&playlist=JJjJ6lF_4oI&vq=hd2160"
-                                thumbnailQuality="maxresdefault"
+                                params="autoplay=1&start=22&end=86&mute=1&loop=1&playlist=JJjJ6lF_4oI"
+                                thumbnailQuality="hqdefault"
                                 autoLoad={true}
                               />
                             ) : (

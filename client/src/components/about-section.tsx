@@ -46,10 +46,10 @@ export default function AboutSection() {
                 <div className="relative aspect-video">
                   <YouTubeLazy
                     videoId="0-vWA7PJp3s"
-                    title="TRANSERVICA - 40 Años de Experiencia"
+                    title="TRANSERVICA - 40 Años de Experiencia en Transporte de Cargas Excepcionales"
                     className="absolute inset-0 w-full h-full"
-                    params="autoplay=1&mute=1&start=32&controls=1&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&vq=hd1080&quality=hd1080&hd=1&fmt=22"
-                    thumbnailQuality="maxresdefault"
+                    params="autoplay=1&mute=1&start=32&controls=1&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3"
+                    thumbnailQuality="hqdefault"
                     autoLoad={true}
                   />
                 </div>

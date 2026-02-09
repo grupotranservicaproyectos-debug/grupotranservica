@@ -32,7 +32,6 @@ export default function Navigation() {
                 className="h-24 w-auto hover:scale-105 transition-transform duration-300"
                 width={96}
                 height={96}
-                fetchPriority="high"
               />
             </button>
           </div>
