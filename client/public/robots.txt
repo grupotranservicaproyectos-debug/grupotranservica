@@ -1,31 +1,15 @@
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /seo-blog/admin
 
-# SEO optimization for TRANSERVICA
-Sitemap: https://www.transervica.net/sitemap.xml
+Sitemap: https://grupotranservica.com/api/sitemap.xml
 
-# Allow all search engines to index the site
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Bingbot
 Allow: /
-
-User-agent: Slurp
-Allow: /
-
-# Crawl-delay for better server performance
-Crawl-delay: 1
-
-# Important pages for indexing
-Allow: /
-Allow: /blog
-Allow: /*.css
-Allow: /*.js
-Allow: /assets/
-
-# Block development files
-Disallow: /node_modules/
-Disallow: /.git/
-Disallow: /server/
-Disallow: /.env
+Crawl-delay: 2

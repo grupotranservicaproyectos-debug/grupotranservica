@@ -23,6 +23,25 @@ app.use((req, res, next) => {
   res.setHeader('X-Frame-Options', 'SAMEORIGIN');
   res.setHeader('X-XSS-Protection', '1; mode=block');
   res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
+  res.setHeader('Strict-Transport-Security', 'max-age=31536000; includeSubDomains; preload');
+  res.setHeader('Cross-Origin-Opener-Policy', 'same-origin-allow-popups');
+  res.setHeader('Cross-Origin-Resource-Policy', 'cross-origin');
+
+  const isHTML = req.accepts('html') && !req.path.match(/\.(js|css|png|jpg|jpeg|webp|svg|ico|woff|woff2|ttf|eot|map|json|xml|txt|webmanifest)$/);
+  if (isHTML) {
+    res.setHeader('Content-Security-Policy',
+      "default-src 'self'; " +
+      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.youtube.com https://www.youtube-nocookie.com https://s.ytimg.com https://replit.com https://replit-cdn.com https://www.googletagmanager.com https://www.google-analytics.com; " +
+      "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; " +
+      "font-src 'self' https://fonts.gstatic.com data:; " +
+      "img-src 'self' data: https: blob: https://i.ytimg.com https://img.youtube.com https://images.pexels.com; " +
+      "media-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://i.ytimg.com https://*.ytimg.com https://*.googlevideo.com; " +
+      "frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://www.google.com; " +
+      "connect-src 'self' https://api.openrouter.ai https://generativelanguage.googleapis.com https://www.google-analytics.com https://vitals.vercel-insights.com wss: ws:; " +
+      "object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; upgrade-insecure-requests"
+    );
+    res.setHeader('Permissions-Policy', 'accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()');
+  }
   next();
 });
 

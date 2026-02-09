@@ -24,11 +24,15 @@ export default function Navigation() {
             <button 
               onClick={() => scrollToSection('inicio')}
               className="focus:outline-none"
+              aria-label="Ir al inicio - TRANSERVICA"
             >
               <img 
                 src={logoTranservica} 
                 alt="TRANSERVICA Logo" 
                 className="h-24 w-auto hover:scale-105 transition-transform duration-300"
+                width={96}
+                height={96}
+                fetchPriority="high"
               />
             </button>
           </div>
@@ -86,6 +90,8 @@ export default function Navigation() {
             <button 
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="text-gray-700 hover:text-transervica-green"
+              aria-label={isMenuOpen ? "Cerrar menú de navegación" : "Abrir menú de navegación"}
+              aria-expanded={isMenuOpen}
             >
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>

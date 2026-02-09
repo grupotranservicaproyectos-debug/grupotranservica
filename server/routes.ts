@@ -909,19 +909,21 @@ export async function registerRoutes(app: Express): Promise<Server> {
       let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
       xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
 
+      const today = new Date().toISOString().split('T')[0];
       const mainPages = [
-        { loc: "/", changefreq: "weekly", priority: 1.0 },
-        { loc: "/blog", changefreq: "daily", priority: 0.9 },
-        { loc: "/seo-blog", changefreq: "daily", priority: 0.9 },
-        { loc: "/terms", changefreq: "monthly", priority: 0.5 },
-        { loc: "/privacy", changefreq: "monthly", priority: 0.5 },
-        { loc: "/cookies", changefreq: "monthly", priority: 0.5 },
-        { loc: "/security", changefreq: "monthly", priority: 0.5 },
+        { loc: "/", changefreq: "weekly", priority: 1.0, lastmod: today },
+        { loc: "/blog", changefreq: "daily", priority: 0.9, lastmod: today },
+        { loc: "/seo-blog", changefreq: "daily", priority: 0.9, lastmod: today },
+        { loc: "/terms", changefreq: "monthly", priority: 0.5, lastmod: "2025-11-01" },
+        { loc: "/privacy", changefreq: "monthly", priority: 0.5, lastmod: "2025-11-01" },
+        { loc: "/cookies", changefreq: "monthly", priority: 0.5, lastmod: "2025-11-01" },
+        { loc: "/security", changefreq: "monthly", priority: 0.5, lastmod: "2025-11-01" },
       ];
 
       mainPages.forEach((page) => {
         xml += "  <url>\n";
         xml += `    <loc>${baseUrl}${page.loc}</loc>\n`;
+        xml += `    <lastmod>${page.lastmod}</lastmod>\n`;
         xml += `    <changefreq>${page.changefreq}</changefreq>\n`;
         xml += `    <priority>${page.priority}</priority>\n`;
         xml += "  </url>\n";

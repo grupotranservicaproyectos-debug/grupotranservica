@@ -84,6 +84,7 @@ export default function HeroSection() {
                 className="h-16 sm:h-20 w-auto cursor-pointer hover:scale-105 transition-all duration-300 filter brightness-110 contrast-125 drop-shadow-lg"
                 width={80}
                 height={64}
+                fetchPriority="high"
                 onClick={() => scrollToSection('inicio')}
               />
             </div>
