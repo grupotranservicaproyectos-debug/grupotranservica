@@ -1,7 +1,11 @@
 import express, { type Request, Response, NextFunction } from "express";
 import compression from "compression";
+import fs from "fs";
+import path from "path";
+import sanitizeHtml from "sanitize-html";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
+import { storage } from "./storage";
 
 const app = express();
 
@@ -99,6 +103,136 @@ app.use((req, res, next) => {
       }
     }
   }));
+
+  // Server-side prerendering for SEO-critical pages
+  // Injects meta tags and sanitized content into HTML so Googlebot sees real content
+  let cachedTemplate: string | null = null;
+
+  function getBaseUrl(req: Request): string {
+    const protocol = req.get("x-forwarded-proto") || req.protocol || "https";
+    const host = req.get("host") || "grupotranservica.com";
+    return `${protocol}://${host}`;
+  }
+
+  function getHtmlTemplate(): string | null {
+    if (app.get("env") === "development") return null;
+    if (cachedTemplate) return cachedTemplate;
+    const distPath = path.resolve(import.meta.dirname, "public");
+    const indexPath = path.resolve(distPath, "index.html");
+    if (fs.existsSync(indexPath)) {
+      cachedTemplate = fs.readFileSync(indexPath, "utf-8");
+      return cachedTemplate;
+    }
+    return null;
+  }
+
+  function injectMetaTags(html: string, meta: {
+    title: string;
+    description: string;
+    canonical: string;
+    ogType?: string;
+    ogImage?: string;
+    content?: string;
+  }): string {
+    const escapedTitle = meta.title.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    const escapedDesc = meta.description.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
+    const ogType = meta.ogType || 'website';
+    
+    html = html.replace(/<title>[^<]*<\/title>/, `<title>${escapedTitle}</title>`);
+    html = html.replace(/<meta\s+name="description"\s+content="[^"]*"\s*\/?>/i, `<meta name="description" content="${escapedDesc}" />`);
+    html = html.replace(/<link\s+rel="canonical"\s+href="[^"]*"\s*\/?>/i, `<link rel="canonical" href="${meta.canonical}" />`);
+    html = html.replace(/<meta\s+property="og:title"\s+content="[^"]*"\s*\/?>/i, `<meta property="og:title" content="${escapedTitle}" />`);
+    html = html.replace(/<meta\s+property="og:description"\s+content="[^"]*"\s*\/?>/i, `<meta property="og:description" content="${escapedDesc}" />`);
+    html = html.replace(/<meta\s+property="og:url"\s+content="[^"]*"\s*\/?>/i, `<meta property="og:url" content="${meta.canonical}" />`);
+    html = html.replace(/<meta\s+property="og:type"\s+content="[^"]*"\s*\/?>/i, `<meta property="og:type" content="${ogType}" />`);
+    if (meta.ogImage) {
+      html = html.replace(/<meta\s+property="og:image"\s+content="[^"]*"\s*\/?>/i, `<meta property="og:image" content="${meta.ogImage}" />`);
+    }
+
+    if (meta.content) {
+      const sanitized = sanitizeHtml(meta.content, {
+        allowedTags: ['h1', 'h2', 'h3', 'h4', 'p', 'ul', 'ol', 'li', 'strong', 'em', 'a', 'article', 'section', 'div', 'span', 'img'],
+        allowedAttributes: {
+          'a': ['href', 'title'],
+          'img': ['src', 'alt', 'width', 'height'],
+        },
+        allowedSchemes: ['https', 'http', 'tel', 'mailto'],
+      });
+      html = html.replace(
+        '<div id="root"></div>',
+        `<div id="root"></div><div id="ssr-content" style="display:none">${sanitized}</div>`
+      );
+    }
+
+    return html;
+  }
+
+  // Prerender SEO blog article pages
+  app.get("/seo-blog/:slug", async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const template = getHtmlTemplate();
+      if (!template) return next();
+
+      const blog = await storage.getBlogBySlug(req.params.slug);
+      if (!blog) return next();
+
+      const baseUrl = getBaseUrl(req);
+      const html = injectMetaTags(template, {
+        title: `${blog.metaTitle || blog.title} | TRANSERVICA`,
+        description: blog.metaDescription || blog.excerpt || '',
+        canonical: `${baseUrl}/seo-blog/${blog.slug}`,
+        ogType: 'article',
+        ogImage: blog.coverImage || undefined,
+        content: `<article><h1>${blog.title}</h1>${blog.content || ''}</article>`,
+      });
+
+      res.status(200).set({ "Content-Type": "text/html" }).send(html);
+    } catch (error) {
+      console.error("SSR error for /seo-blog/:slug:", error);
+      next();
+    }
+  });
+
+  // Prerender legal pages
+  const legalPages: Record<string, { title: string; description: string }> = {
+    "/terms": {
+      title: "Términos y Condiciones | TRANSERVICA C.A.",
+      description: "Términos y condiciones de servicio de TRANSERVICA C.A. - Transporte de cargas excepcionales en Venezuela.",
+    },
+    "/privacy": {
+      title: "Política de Privacidad | TRANSERVICA C.A.",
+      description: "Política de privacidad y protección de datos de TRANSERVICA C.A. - Transporte especializado en Venezuela.",
+    },
+    "/security": {
+      title: "Política de Seguridad | TRANSERVICA C.A.",
+      description: "Política de seguridad industrial y transporte de TRANSERVICA C.A. - Normas y certificaciones para cargas excepcionales.",
+    },
+    "/cookies": {
+      title: "Política de Cookies | TRANSERVICA C.A.",
+      description: "Política de cookies del sitio web de TRANSERVICA C.A. - Información sobre el uso de cookies.",
+    },
+  };
+
+  for (const [route, meta] of Object.entries(legalPages)) {
+    app.get(route, (req: Request, res: Response, next: NextFunction) => {
+      try {
+        const template = getHtmlTemplate();
+        if (!template) return next();
+
+        const baseUrl = getBaseUrl(req);
+        const html = injectMetaTags(template, {
+          title: meta.title,
+          description: meta.description,
+          canonical: `${baseUrl}${route}`,
+        });
+
+        res.status(200).set({ "Content-Type": "text/html" }).send(html);
+      } catch (error) {
+        console.error(`SSR error for ${route}:`, error);
+        next();
+      }
+    });
+  }
 
   // importantly only setup vite in development and after
   // setting up all the other routes so the catch-all route
