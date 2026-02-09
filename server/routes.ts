@@ -932,10 +932,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
       blogs.forEach((blog) => {
         xml += "  <url>\n";
         xml += `    <loc>${baseUrl}/seo-blog/${blog.slug}</loc>\n`;
-        const lastmod =
-          blog.publishedAt instanceof Date
-            ? blog.publishedAt.toISOString()
-            : blog.publishedAt || new Date().toISOString();
+        const rawDate = blog.publishedAt instanceof Date
+            ? blog.publishedAt
+            : blog.publishedAt ? new Date(blog.publishedAt) : new Date();
+        const lastmod = rawDate.toISOString().split('T')[0];
         xml += `    <lastmod>${lastmod}</lastmod>\n`;
         xml += "    <changefreq>monthly</changefreq>\n";
         xml += "    <priority>0.8</priority>\n";
