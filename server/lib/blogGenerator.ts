@@ -196,8 +196,8 @@ REQUERIMIENTOS OBLIGATORIOS:
 Formato de los CTAs (usar exactamente este HTML):
 <div class="cta-box">
 <p><strong>💼 ¿Necesita transporte especializado en ${city}?</strong></p>
-<p>Contáctenos: <a href="tel:+584226361047">+58 422-6361047</a> | <a href="tel:+584123675636">+58 412-367-5636</a> | <a href="tel:+584142776340">+58 414-277-6340</a></p>
-<p><a href="https://wa.me/message/WAKKACM55ESHC1" target="_blank">WhatsApp</a> | <a href="/#contacto" class="internal-link">Solicitar cotización gratuita</a></p>
+<p>Contáctenos ahora: <a href="tel:+584226361047">+58 422-6361047</a> | <a href="https://wa.me/message/WAKKACM55ESHC1" target="_blank">WhatsApp</a></p>
+<p><a href="/#contacto" class="internal-link">Solicitar cotización gratuita</a></p>
 </div>
 
 7. ENLACES INTERNOS OBLIGATORIOS (incluir naturalmente en el texto):
@@ -209,10 +209,9 @@ Formato de los CTAs (usar exactamente este HTML):
    Al final del artículo incluir una sección con información de contacto clara:
    <div class="contact-info">
    <h3>Información de Contacto</h3>
-   <p><strong>Teléfonos:</strong> <a href="tel:+584226361047">+58 422-6361047</a> | <a href="tel:+584123675636">+58 412-367-5636</a> | <a href="tel:+584142776340">+58 414-277-6340</a></p>
+   <p><strong>Teléfono:</strong> <a href="tel:+584226361047">+58 422-6361047</a></p>
    <p><strong>WhatsApp:</strong> <a href="https://wa.me/message/WAKKACM55ESHC1">Escribir por WhatsApp</a></p>
    <p><strong>Email Comercial:</strong> <a href="mailto:direccioncomercialtvc@grupotranservica.com">direccioncomercialtvc@grupotranservica.com</a></p>
-   <p><strong>Email Ejecutivo:</strong> <a href="mailto:direccionejecutivatvc@grupotranservica.com">direccionejecutivatvc@grupotranservica.com</a></p>
    <p><strong>Web:</strong> <a href="https://grupotranservica.com">www.grupotranservica.com</a></p>
    </div>
 
@@ -223,9 +222,9 @@ CONTEXTO EMPRESA:
 - Empresa: Grupo Transervica, C.A.
 - Ciudad: ${city}
 - Sector industrial: ${sector}
-- Servicios principales: Transporte 100-1100 toneladas, Lowboy, Grúas móviles 25-800 ton, Almacenamiento, Consultoría
+- Servicios principales: Transporte 100-500 toneladas, Lowboy, Grúas móviles 25-800 ton, Almacenamiento, Consultoría
 - Experiencia: 40 años en Venezuela
-- Teléfonos: +58 422-6361047, +58 412-367-5636, +58 414-277-6340
+- Contacto: +58 422-6361047
 - WhatsApp: https://wa.me/message/WAKKACM55ESHC1
 - Email comercial: direccioncomercialtvc@grupotranservica.com
 - Email ejecutivo: direccionejecutivatvc@grupotranservica.com
@@ -245,63 +244,38 @@ IMPORTANTE: No incluyas tags <html>, <head> o <body>. Solo el contenido del art�
       throw new Error('OPENROUTER_API_KEY not configured');
     }
 
-    const primaryModel = process.env.OPENROUTER_MODEL || 'google/gemini-pro-1.5';
-    const fallbackModel = 'anthropic/claude-3.5-sonnet';
-    
-    let content = '';
-    let usedModel = primaryModel;
-
-    for (const model of [primaryModel, fallbackModel]) {
-      try {
-        console.log(`🤖 Trying model: ${model}`);
-        const startTime = Date.now();
-        
-        const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
-          method: 'POST',
-          headers: {
-            'Authorization': `Bearer ${apiKey}`,
-            'Content-Type': 'application/json',
-            'HTTP-Referer': 'https://grupotranservica.com',
-            'X-Title': 'TRANSERVICA Blog Generator',
+    const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${apiKey}`,
+        'Content-Type': 'application/json',
+        'HTTP-Referer': 'https://grupotranservica.com',
+        'X-Title': 'Grupo Transervica Blog Generator',
+      },
+      body: JSON.stringify({
+        model: 'deepseek/deepseek-chat',
+        messages: [
+          {
+            role: 'user',
+            content: prompt,
           },
-          body: JSON.stringify({
-            model: model,
-            messages: [
-              {
-                role: 'user',
-                content: prompt,
-              },
-            ],
-            temperature: 0.7,
-            max_tokens: 2000,
-          }),
-        });
+        ],
+        temperature: 0.7,
+        max_tokens: 2000,
+      }),
+    });
 
-        const responseTime = Date.now() - startTime;
-
-        if (!response.ok) {
-          const errorData = await response.json().catch(() => ({}));
-          console.error(`OpenRouter API error with ${model}:`, response.status, response.statusText, errorData);
-          continue;
-        }
-
-        const data = await response.json();
-        content = data.choices[0]?.message?.content || '';
-        
-        if (content) {
-          usedModel = model;
-          const tokensUsed = data.usage?.total_tokens || 'unknown';
-          console.log(`✅ Content generated with ${model} | Time: ${responseTime}ms | Tokens: ${tokensUsed}`);
-          break;
-        }
-      } catch (modelError) {
-        console.error(`Error with model ${model}:`, modelError);
-        continue;
-      }
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}));
+      console.error('OpenRouter API error:', response.status, response.statusText, errorData);
+      throw new Error(`OpenRouter API error: ${response.status} ${response.statusText}`);
     }
+
+    const data = await response.json();
+    const content = data.choices[0]?.message?.content || '';
     
     if (!content) {
-      throw new Error('All models failed to generate content');
+      throw new Error('Empty content from OpenRouter API');
     }
     
     const metaDescription = content
@@ -309,7 +283,7 @@ IMPORTANTE: No incluyas tags <html>, <head> o <body>. Solo el contenido del art�
       .substring(0, 155)
       .trim();
 
-    console.log(`✅ Blog content generated successfully using ${usedModel} for: ${title}`);
+    console.log(`✅ Blog content generated successfully using OpenRouter API for: ${title}`);
 
     return {
       title,
@@ -327,14 +301,14 @@ IMPORTANTE: No incluyas tags <html>, <head> o <body>. Solo el contenido del art�
 
 <div class="cta-box">
 <p><strong>💼 ¿Necesita transporte especializado en ${city}?</strong></p>
-<p>Contáctenos: <a href="tel:+584226361047">+58 422-6361047</a> | <a href="tel:+584123675636">+58 412-367-5636</a> | <a href="tel:+584142776340">+58 414-277-6340</a></p>
-<p><a href="https://wa.me/message/WAKKACM55ESHC1" target="_blank">WhatsApp</a> | <a href="/#contacto" class="internal-link">Solicitar cotización gratuita</a></p>
+<p>Contáctenos ahora: <a href="tel:+584226361047">+58 422-6361047</a> | <a href="https://wa.me/message/WAKKACM55ESHC1" target="_blank">WhatsApp</a></p>
+<p><a href="/#contacto" class="internal-link">Solicitar cotización gratuita</a></p>
 </div>
 
 <h2>Nuestros Servicios en ${city}</h2>
 <p>Ofrecemos una amplia gama de soluciones logísticas adaptadas a sus necesidades:</p>
 <ul>
-<li>Transporte de carga pesada de 100 a 1,100 toneladas</li>
+<li>Transporte de carga pesada de 100 a 500 toneladas</li>
 <li>Lowboy y camas bajas especializadas</li>
 <li>Grúas móviles de 25 a 800 toneladas</li>
 <li>Almacenamiento industrial seguro</li>
@@ -348,8 +322,8 @@ IMPORTANTE: No incluyas tags <html>, <head> o <body>. Solo el contenido del art�
 
 <div class="cta-box">
 <p><strong>💼 ¿Necesita transporte especializado en ${city}?</strong></p>
-<p>Contáctenos: <a href="tel:+584226361047">+58 422-6361047</a> | <a href="tel:+584123675636">+58 412-367-5636</a> | <a href="tel:+584142776340">+58 414-277-6340</a></p>
-<p><a href="https://wa.me/message/WAKKACM55ESHC1" target="_blank">WhatsApp</a> | <a href="/#contacto" class="internal-link">Solicitar cotización gratuita</a></p>
+<p>Contáctenos ahora: <a href="tel:+584226361047">+58 422-6361047</a> | <a href="https://wa.me/message/WAKKACM55ESHC1" target="_blank">WhatsApp</a></p>
+<p><a href="/#contacto" class="internal-link">Solicitar cotización gratuita</a></p>
 </div>
 
 <h2>Contacto y Cotización</h2>
@@ -357,16 +331,15 @@ IMPORTANTE: No incluyas tags <html>, <head> o <body>. Solo el contenido del art�
 
 <div class="cta-box">
 <p><strong>💼 ¿Necesita transporte especializado en ${city}?</strong></p>
-<p>Contáctenos: <a href="tel:+584226361047">+58 422-6361047</a> | <a href="tel:+584123675636">+58 412-367-5636</a> | <a href="tel:+584142776340">+58 414-277-6340</a></p>
-<p><a href="https://wa.me/message/WAKKACM55ESHC1" target="_blank">WhatsApp</a> | <a href="/#contacto" class="internal-link">Solicitar cotización gratuita</a></p>
+<p>Contáctenos ahora: <a href="tel:+584226361047">+58 422-6361047</a> | <a href="https://wa.me/message/WAKKACM55ESHC1" target="_blank">WhatsApp</a></p>
+<p><a href="/#contacto" class="internal-link">Solicitar cotización gratuita</a></p>
 </div>
 
 <div class="contact-info">
 <h3>Información de Contacto</h3>
-<p><strong>Teléfonos:</strong> <a href="tel:+584226361047">+58 422-6361047</a> | <a href="tel:+584123675636">+58 412-367-5636</a> | <a href="tel:+584142776340">+58 414-277-6340</a></p>
+<p><strong>Teléfono:</strong> <a href="tel:+584226361047">+58 422-6361047</a></p>
 <p><strong>WhatsApp:</strong> <a href="https://wa.me/message/WAKKACM55ESHC1">Escribir por WhatsApp</a></p>
 <p><strong>Email Comercial:</strong> <a href="mailto:direccioncomercialtvc@grupotranservica.com">direccioncomercialtvc@grupotranservica.com</a></p>
-<p><strong>Email Ejecutivo:</strong> <a href="mailto:direccionejecutivatvc@grupotranservica.com">direccionejecutivatvc@grupotranservica.com</a></p>
 <p><strong>Web:</strong> <a href="https://grupotranservica.com">www.grupotranservica.com</a></p>
 </div>
 `;

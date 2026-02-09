@@ -14,7 +14,6 @@ import { apiRequest } from "@/lib/queryClient";
 import { useLanguage } from "../contexts/LanguageContext";
 
 const contactFormSchema = z.object({
-  serviceType: z.string().min(1, "Seleccione un tipo de servicio"),
   name: z.string().min(2, "El nombre debe tener al menos 2 caracteres"),
   company: z.string().optional(),
   email: z.string().email("Email inválido"),
@@ -47,7 +46,6 @@ export default function ContactSection() {
   const form = useForm<ContactFormData>({
     resolver: zodResolver(contactFormSchema),
     defaultValues: {
-      serviceType: "",
       name: "",
       company: "",
       email: "",
@@ -60,25 +58,24 @@ export default function ContactSection() {
     }
   });
 
-  // Honeypot state for anti-spam (hidden field that bots fill)
-  const [honeypot, setHoneypot] = useState("");
-
   const contactMutation = useMutation({
     mutationFn: async (data: ContactFormData) => {
-      // Transform to new endpoint format with all fields
-      const contactoData = {
+      // Transform to new endpoint format
+      const contactoData: Omit<ContactoFormData, 'canal' | 'estado' | 'correosNotificados'> = {
         nombre: data.name,
         correoContacto: data.email,
         telefono: data.phone,
-        asunto: data.serviceType || "Solicitud de cotización",
-        mensaje: data.description,
-        empresa: data.company || undefined,
-        tipoServicio: data.serviceType || undefined,
-        tipoCarga: data.cargoType || undefined,
-        pesoEstimado: data.estimatedWeight || undefined,
-        origen: data.origin || undefined,
-        destino: data.destination || undefined,
-        honeypot: honeypot,
+        asunto: data.cargoType || "Solicitud de cotización",
+        mensaje: `
+Empresa: ${data.company || "No especificada"}
+Tipo de carga: ${data.cargoType || "No especificado"}
+Peso estimado: ${data.estimatedWeight ? `${data.estimatedWeight} kg` : "No especificado"}
+Origen: ${data.origin || "No especificado"}
+Destino: ${data.destination || "No especificado"}
+
+Descripción:
+${data.description}
+        `.trim()
       };
 
       const response = await apiRequest("POST", "/api/contacto", contactoData);
@@ -183,51 +180,7 @@ export default function ContactSection() {
           
           <div className="bg-white rounded-2xl p-8 text-gray-800 shadow-2xl border-2 border-white/30">
             <Form {...form}>
-              <form 
-                onSubmit={form.handleSubmit(onSubmit)} 
-                className="space-y-6"
-                role="form"
-                aria-label="Formulario de solicitud de cotización - TRANSERVICA"
-                data-testid="form-contact-quote"
-              >
-                {/* Honeypot field - hidden from users, visible to bots */}
-                <div style={{ position: 'absolute', left: '-9999px', opacity: 0 }} aria-hidden="true">
-                  <label htmlFor="website">Website</label>
-                  <input 
-                    type="text" 
-                    id="website" 
-                    name="website" 
-                    value={honeypot}
-                    onChange={(e) => setHoneypot(e.target.value)}
-                    tabIndex={-1}
-                    autoComplete="off"
-                  />
-                </div>
-                <FormField
-                  control={form.control}
-                  name="serviceType"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>{t('contact.form.serviceType')} *</FormLabel>
-                      <Select onValueChange={field.onChange} defaultValue={field.value}>
-                        <FormControl>
-                          <SelectTrigger data-testid="select-service-type">
-                            <SelectValue placeholder={t('contact.form.serviceType.placeholder')} />
-                          </SelectTrigger>
-                        </FormControl>
-                        <SelectContent>
-                          <SelectItem value="transporte-cargas-pesadas">{t('contact.form.serviceType.heavyTransport')}</SelectItem>
-                          <SelectItem value="izaje-gruas">{t('contact.form.serviceType.lifting')}</SelectItem>
-                          <SelectItem value="alquiler-gruas">{t('contact.form.serviceType.craneRental')}</SelectItem>
-                          <SelectItem value="logistica-ingenieria">{t('contact.form.serviceType.logistics')}</SelectItem>
-                          <SelectItem value="otro">{t('contact.form.serviceType.other')}</SelectItem>
-                        </SelectContent>
-                      </Select>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-
+              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-4">
                   <FormField
                     control={form.control}
@@ -381,13 +334,11 @@ export default function ContactSection() {
                 
                 <Button 
                   type="submit" 
-                  className="w-full text-white px-6 py-4 rounded-xl text-lg font-bold transition-all duration-300 transform hover:scale-105 shadow-lg min-h-[48px]"
+                  className="w-full text-white px-6 py-4 rounded-xl text-lg font-bold transition-all duration-300 transform hover:scale-105 shadow-lg"
                   style={{ backgroundColor: '#155d29' }}
                   onMouseEnter={(e) => { (e.target as HTMLElement).style.backgroundColor = '#0f4a21'; }}
                   onMouseLeave={(e) => { (e.target as HTMLElement).style.backgroundColor = '#155d29'; }}
                   disabled={contactMutation.isPending}
-                  data-testid="button-submit-quote"
-                  aria-label="Enviar solicitud de cotización"
                 >
                   {contactMutation.isPending ? t('contact.form.sending') : t('contact.form.submit')}
                 </Button>

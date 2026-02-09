@@ -5,85 +5,6 @@ interface ImageResult {
   alt?: string;
 }
 
-async function generateWithGoogleAI(query: string, count: number): Promise<string[]> {
-  const apiKey = process.env.GOOGLE_AI_STUDIO_API_KEY;
-  
-  if (!apiKey) {
-    console.warn('GOOGLE_AI_STUDIO_API_KEY not configured, skipping Google AI');
-    return [];
-  }
-
-  const images: string[] = [];
-  const prompt = `Professional photo of ${query}, heavy transport truck, industrial equipment, Venezuela, high quality, photorealistic, 4K`;
-
-  for (let i = 0; i < count; i++) {
-    for (let retry = 0; retry < 3; retry++) {
-      try {
-        const controller = new AbortController();
-        const timeout = setTimeout(() => controller.abort(), 30000);
-
-        const response = await fetch(
-          `https://generativelanguage.googleapis.com/v1beta/models/imagen-3.0-generate-001:predict?key=${apiKey}`,
-          {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-              instances: [{ prompt }],
-              parameters: {
-                sampleCount: 1,
-                aspectRatio: '16:9',
-                outputOptions: {
-                  mimeType: 'image/webp',
-                },
-              },
-            }),
-            signal: controller.signal,
-          }
-        );
-
-        clearTimeout(timeout);
-
-        if (!response.ok) {
-          const errorData = await response.json().catch(() => ({}));
-          console.error(`Google AI Studio error (attempt ${retry + 1}/3): ${response.status}`, errorData);
-          if (retry === 2) break;
-          await new Promise(resolve => setTimeout(resolve, 1000));
-          continue;
-        }
-
-        const data = await response.json();
-        
-        if (data.predictions && data.predictions[0]?.bytesBase64Encoded) {
-          const base64Image = data.predictions[0].bytesBase64Encoded;
-          const imageUrl = `data:image/webp;base64,${base64Image}`;
-          images.push(imageUrl);
-          console.log(`✅ Generated image ${i + 1}/${count} with Google AI Studio`);
-          break;
-        } else {
-          console.warn('No image data in Google AI response');
-          if (retry === 2) break;
-        }
-      } catch (error: any) {
-        if (error.name === 'AbortError') {
-          console.error(`Google AI Studio timeout (attempt ${retry + 1}/3)`);
-        } else {
-          console.error(`Google AI Studio error (attempt ${retry + 1}/3):`, error);
-        }
-        if (retry === 2) break;
-        await new Promise(resolve => setTimeout(resolve, 1000));
-      }
-    }
-  }
-
-  if (images.length > 0) {
-    console.log(`✅ Generated ${images.length} images with Google AI Studio for "${query}"`);
-  }
-  
-  return images;
-}
-
 async function searchPexels(query: string, count: number): Promise<string[]> {
   const apiKey = process.env.PEXELS_API_KEY;
   
@@ -207,20 +128,12 @@ async function searchShutterstock(query: string, count: number): Promise<string[
 }
 
 async function searchUnsplash(query: string, count: number): Promise<string[]> {
-  const accessKey = process.env.UNSPLASH_ACCESS_KEY;
-  
-  if (!accessKey) {
-    console.warn('UNSPLASH_ACCESS_KEY not configured, skipping Unsplash');
-    return [];
-  }
-
   try {
     const searchQuery = encodeURIComponent(query);
     const response = await fetch(
-      `https://api.unsplash.com/search/photos?query=${searchQuery}&per_page=${count}&orientation=landscape`,
+      `https://api.unsplash.com/search/photos?query=${searchQuery}&per_page=${count}&orientation=landscape&client_id=demo`,
       {
         headers: {
-          'Authorization': `Client-ID ${accessKey}`,
           'Accept-Version': 'v1'
         }
       }
@@ -249,9 +162,8 @@ async function searchUnsplash(query: string, count: number): Promise<string[]> {
 export async function searchImages(query: string, count: number = 3): Promise<string[]> {
   console.log(`🔍 Searching for ${count} images with query: "${query}"`);
   
-  // Try providers in order: Google AI → Pexels → Freepik → Shutterstock → Unsplash
+  // Try providers in order: Pexels → Freepik → Shutterstock → Unsplash
   const providers = [
-    { name: 'Google AI Studio', fn: generateWithGoogleAI },
     { name: 'Pexels', fn: searchPexels },
     { name: 'Freepik', fn: searchFreepik },
     { name: 'Shutterstock', fn: searchShutterstock },

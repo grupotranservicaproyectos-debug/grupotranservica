@@ -83,12 +83,7 @@ export default function BlogContactForm({ blogTitle }: { blogTitle: string }) {
       </div>
 
       <Form {...form}>
-        <form 
-          onSubmit={form.handleSubmit((data) => submitMutation.mutate(data))} 
-          className="space-y-6"
-          role="form"
-          aria-label="Formulario de solicitud de cotización - Grupo Transervica"
-        >
+        <form onSubmit={form.handleSubmit((data) => submitMutation.mutate(data))} className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <FormField
               control={form.control}
@@ -103,9 +98,8 @@ export default function BlogContactForm({ blogTitle }: { blogTitle: string }) {
                     <Input 
                       placeholder="Juan Pérez" 
                       {...field} 
-                      className="border-green-200 focus:border-green-500 min-h-[48px]"
+                      className="border-green-200 focus:border-green-500"
                       data-testid="input-nombre"
-                      aria-label="Nombre completo"
                     />
                   </FormControl>
                   <FormMessage />
@@ -126,9 +120,8 @@ export default function BlogContactForm({ blogTitle }: { blogTitle: string }) {
                     <Input 
                       placeholder="+58 412-1234567" 
                       {...field}
-                      className="border-green-200 focus:border-green-500 min-h-[48px]"
+                      className="border-green-200 focus:border-green-500"
                       data-testid="input-telefono"
-                      aria-label="Número de teléfono"
                     />
                   </FormControl>
                   <FormMessage />
@@ -151,9 +144,8 @@ export default function BlogContactForm({ blogTitle }: { blogTitle: string }) {
                     type="email" 
                     placeholder="[email protected]" 
                     {...field}
-                    className="border-green-200 focus:border-green-500 min-h-[48px]"
+                    className="border-green-200 focus:border-green-500"
                     data-testid="input-email"
-                    aria-label="Correo electrónico"
                   />
                 </FormControl>
                 <FormMessage />
@@ -174,9 +166,8 @@ export default function BlogContactForm({ blogTitle }: { blogTitle: string }) {
                   <Input 
                     placeholder="Necesito cotización para transporte" 
                     {...field}
-                    className="border-green-200 focus:border-green-500 min-h-[48px]"
+                    className="border-green-200 focus:border-green-500"
                     data-testid="input-asunto"
-                    aria-label="Asunto de la consulta"
                   />
                 </FormControl>
                 <FormMessage />
@@ -195,9 +186,8 @@ export default function BlogContactForm({ blogTitle }: { blogTitle: string }) {
                     placeholder="Describa su necesidad de transporte: tipo de carga, peso estimado, origen, destino, etc."
                     rows={5}
                     {...field}
-                    className="border-green-200 focus:border-green-500 min-h-[120px]"
+                    className="border-green-200 focus:border-green-500"
                     data-testid="input-mensaje"
-                    aria-label="Mensaje o descripción del servicio"
                   />
                 </FormControl>
                 <FormMessage />
@@ -208,9 +198,8 @@ export default function BlogContactForm({ blogTitle }: { blogTitle: string }) {
           <Button
             type="submit"
             disabled={submitMutation.isPending}
-            className="w-full bg-[#155d29] hover:bg-[#0f4a21] text-white text-lg py-6 rounded-lg transition-all transform hover:scale-105 min-h-[48px]"
+            className="w-full bg-[#155d29] hover:bg-[#0f4a21] text-white text-lg py-6 rounded-lg transition-all transform hover:scale-105"
             data-testid="button-enviar-contacto"
-            aria-label="Enviar consulta de cotización"
           >
             {submitMutation.isPending ? (
               <>

@@ -2,19 +2,11 @@ import { useState } from 'react';
 import { Link } from 'wouter';
 import { useLanguage } from '../contexts/LanguageContext';
 import LanguageSwitcher from './LanguageSwitcher';
-import logoTranservica from "@assets/logo-transervica-optimized.webp";
-import heroThumbnail from "@assets/youtube-hero-thumbnail.webp";
+import logoTranservica from "@assets/logo transervica sin fondo_1754163034585.webp";
 
 export default function HeroSection() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [videoPlaying, setVideoPlaying] = useState(false);
   const { t } = useLanguage();
-
-  const youtubeVideoId = '_LQbWkWlg6s';
-
-  const handlePlayVideo = () => {
-    setVideoPlaying(true);
-  };
   const scrollToContact = () => {
     const element = document.getElementById('contacto');
     if (element) {
@@ -31,53 +23,23 @@ export default function HeroSection() {
 
   return (
     <section id="inicio" className="relative min-h-screen bg-black overflow-hidden">
-      {/* Video de fondo Netflix Style - YouTube Facade Pattern for Performance */}
-      <div className="absolute inset-0 z-0 overflow-hidden bg-black">
-        {!videoPlaying ? (
-          <button
-            onClick={handlePlayVideo}
-            className="absolute inset-0 w-full h-full cursor-pointer group focus:outline-none focus-visible:ring-4 focus-visible:ring-[#155d29] focus-visible:ring-offset-2"
-            aria-label="Reproducir video de fondo corporativo de TRANSERVICA - video ambiental silenciado"
-            data-testid="button-play-video-facade"
-          >
-            <img
-              src={heroThumbnail}
-              alt="Video corporativo TRANSERVICA - Transporte de cargas excepcionales en Venezuela"
-              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 object-cover"
-              loading="eager"
-              decoding="async"
-              {...{ fetchpriority: "high" } as any}
-              style={{
-                width: 'max(100vw, 177.77vh)',
-                height: 'max(100vh, 56.25vw)',
-                minWidth: '100vw',
-                minHeight: '100vh'
-              }}
-            />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-20 h-20 sm:w-24 sm:h-24 bg-red-600 rounded-full flex items-center justify-center shadow-2xl group-hover:bg-red-700 group-hover:scale-110 transition-all duration-300">
-                <svg className="w-10 h-10 sm:w-12 sm:h-12 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M8 5v14l11-7z"/>
-                </svg>
-              </div>
-            </div>
-          </button>
-        ) : (
-          <iframe
-            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
-            src={`https://www.youtube.com/embed/${youtubeVideoId}?autoplay=1&mute=1&controls=0&showinfo=0&rel=0&loop=1&playlist=${youtubeVideoId}&modestbranding=1&start=20&iv_load_policy=3&cc_load_policy=0&disablekb=1&fs=0&vq=hd1080&quality=hd1080&hd=1&fmt=22&enablejsapi=1`}
-            title="Transervica Background Video - Transporte de Cargas Excepcionales"
-            allow="autoplay; encrypted-media"
-            style={{
-              pointerEvents: 'none',
-              border: 'none',
-              width: 'max(100vw, 177.77vh)',
-              height: 'max(100vh, 56.25vw)',
-              minWidth: '100vw',
-              minHeight: '100vh'
-            }}
-          />
-        )}
+      {/* Video de fondo Netflix Style */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <iframe
+          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+          src="https://www.youtube.com/embed/_LQbWkWlg6s?autoplay=1&mute=1&controls=0&showinfo=0&rel=0&loop=1&playlist=_LQbWkWlg6s&modestbranding=1&start=20&iv_load_policy=3&cc_load_policy=0&disablekb=1&fs=0&vq=hd1080&quality=hd1080&hd=1&fmt=22&enablejsapi=1"
+          title="Transervica Background Video - Transporte de Cargas Excepcionales"
+          allow="autoplay; encrypted-media"
+          loading="eager"
+          style={{
+            pointerEvents: 'none',
+            border: 'none',
+            width: 'max(100vw, 177.77vh)',
+            height: 'max(100vh, 56.25vw)',
+            minWidth: '100vw',
+            minHeight: '100vh'
+          }}
+        />
         
         {/* Minimal overlay only where needed */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent z-10"></div>
@@ -122,8 +84,6 @@ export default function HeroSection() {
                 className="h-16 sm:h-20 w-auto cursor-pointer hover:scale-105 transition-all duration-300 filter brightness-110 contrast-125 drop-shadow-lg"
                 width={80}
                 height={64}
-                decoding="sync"
-                {...{ fetchpriority: "high" } as any}
                 onClick={() => scrollToSection('inicio')}
               />
             </div>
@@ -136,8 +96,6 @@ export default function HeroSection() {
                 className="h-24 lg:h-28 xl:h-32 w-auto cursor-pointer hover:scale-105 transition-all duration-300 mr-8 filter brightness-110 contrast-125 drop-shadow-lg"
                 width={128}
                 height={96}
-                decoding="sync"
-                {...{ fetchpriority: "high" } as any}
                 style={{ 
                   filter: 'brightness(1.1) contrast(1.25) drop-shadow(0 2px 4px rgba(0,0,0,0.2))'
                 }}
@@ -145,55 +103,48 @@ export default function HeroSection() {
               />
               <button 
                 onClick={() => scrollToSection('inicio')}
-                className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide min-h-[48px]"
-                aria-label="Ir a la sección de inicio"
+                className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide"
               >
                 {t('nav.home')}
               </button>
               <div className="relative group">
                 <button 
                   onClick={() => scrollToSection('servicios')}
-                  className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide flex items-center min-h-[48px]"
-                  aria-label="Ir a la sección de servicios"
+                  className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide flex items-center"
                 >
                   {t('nav.services')}
-                  <svg className="w-3 h-3 ml-1" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                  <svg className="w-3 h-3 ml-1" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
                   </svg>
                 </button>
               </div>
               <button 
                 onClick={() => scrollToSection('proyectos')}
-                className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide min-h-[48px]"
-                aria-label="Ir a la sección de proyectos"
+                className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide"
               >
                 {t('nav.projects')}
               </button>
               <button 
                 onClick={() => scrollToSection('nosotros')}
-                className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide min-h-[48px]"
-                aria-label="Ir a la sección sobre nosotros"
+                className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide"
               >
                 {t('nav.company')}
               </button>
               <button 
                 onClick={() => scrollToSection('equipos')}
-                className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide min-h-[48px]"
-                aria-label="Ir a la sección de equipos"
+                className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide"
               >
                 {t('nav.equipment')}
               </button>
               <Link 
                 href="/blog"
-                className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide min-h-[48px] flex items-center"
-                aria-label="Ir a la sección del blog"
+                className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide"
               >
                 BLOG
               </Link>
               <button 
                 onClick={scrollToContact}
-                className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide min-h-[48px]"
-                aria-label="Ir a la sección de contacto"
+                className="text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide"
               >
                 {t('nav.contact')}
               </button>
@@ -205,8 +156,7 @@ export default function HeroSection() {
               </div>
               <button 
                 onClick={scrollToContact}
-                className="bg-transervica-green text-white px-6 py-2 rounded-md text-sm font-semibold hover:bg-transervica-light-green transition shadow-md min-h-[48px]"
-                aria-label="Solicitar cotización gratuita"
+                className="bg-transervica-green text-white px-6 py-2 rounded-md text-sm font-semibold hover:bg-transervica-light-green transition shadow-md"
               >
                 {t('nav.quote')}
               </button>
@@ -238,51 +188,44 @@ export default function HeroSection() {
             <div className="mobile-padding py-6 space-y-4">
               <button 
                 onClick={() => { scrollToSection('inicio'); setIsMobileMenuOpen(false); }}
-                className="block w-full text-left text-gray-700 hover:text-[#155d29] hover:bg-gray-50 text-base font-bold transition-all duration-200 uppercase tracking-wide py-4 px-4 rounded-lg min-h-[48px]"
-                aria-label="Ir a la sección de inicio"
+                className="block w-full text-left text-gray-700 hover:text-[#155d29] hover:bg-gray-50 text-base font-bold transition-all duration-200 uppercase tracking-wide py-4 px-4 rounded-lg"
               >
                 {t('nav.home')}
               </button>
               <button 
                 onClick={() => { scrollToSection('servicios'); setIsMobileMenuOpen(false); }}
-                className="block w-full text-left text-gray-700 hover:text-[#155d29] hover:bg-gray-50 text-base font-bold transition-all duration-200 uppercase tracking-wide py-4 px-4 rounded-lg min-h-[48px]"
-                aria-label="Ir a la sección de servicios"
+                className="block w-full text-left text-gray-700 hover:text-[#155d29] hover:bg-gray-50 text-base font-bold transition-all duration-200 uppercase tracking-wide py-4 px-4 rounded-lg"
               >
                 {t('nav.services')}
               </button>
               <button 
                 onClick={() => { scrollToSection('proyectos'); setIsMobileMenuOpen(false); }}
-                className="block w-full text-left text-gray-700 hover:text-[#155d29] hover:bg-gray-50 text-base font-bold transition-all duration-200 uppercase tracking-wide py-4 px-4 rounded-lg min-h-[48px]"
-                aria-label="Ir a la sección de proyectos"
+                className="block w-full text-left text-gray-700 hover:text-[#155d29] hover:bg-gray-50 text-base font-bold transition-all duration-200 uppercase tracking-wide py-4 px-4 rounded-lg"
               >
                 {t('nav.projects')}
               </button>
               <button 
                 onClick={() => { scrollToSection('nosotros'); setIsMobileMenuOpen(false); }}
-                className="block w-full text-left text-gray-700 hover:text-[#155d29] hover:bg-gray-50 text-base font-bold transition-all duration-200 uppercase tracking-wide py-4 px-4 rounded-lg min-h-[48px]"
-                aria-label="Ir a la sección sobre nosotros"
+                className="block w-full text-left text-gray-700 hover:text-[#155d29] hover:bg-gray-50 text-base font-bold transition-all duration-200 uppercase tracking-wide py-4 px-4 rounded-lg"
               >
                 {t('nav.company')}
               </button>
               <button 
                 onClick={() => { scrollToSection('equipos'); setIsMobileMenuOpen(false); }}
-                className="block w-full text-left text-gray-700 hover:text-[#155d29] hover:bg-gray-50 text-base font-bold transition-all duration-200 uppercase tracking-wide py-4 px-4 rounded-lg min-h-[48px]"
-                aria-label="Ir a la sección de equipos"
+                className="block w-full text-left text-gray-700 hover:text-[#155d29] hover:bg-gray-50 text-base font-bold transition-all duration-200 uppercase tracking-wide py-4 px-4 rounded-lg"
               >
                 {t('nav.equipment')}
               </button>
               <Link 
                 href="/blog"
-                className="block w-full text-left text-gray-700 hover:text-[#155d29] hover:bg-gray-50 text-base font-bold transition-all duration-200 uppercase tracking-wide py-4 px-4 rounded-lg min-h-[48px]"
+                className="block w-full text-left text-gray-700 hover:text-[#155d29] hover:bg-gray-50 text-base font-bold transition-all duration-200 uppercase tracking-wide py-4 px-4 rounded-lg"
                 onClick={() => setIsMobileMenuOpen(false)}
-                aria-label="Ir a la sección del blog"
               >
                 BLOG
               </Link>
               <button 
                 onClick={() => { scrollToContact(); setIsMobileMenuOpen(false); }}
-                className="block w-full text-left text-gray-700 hover:text-[#155d29] hover:bg-gray-50 text-base font-bold transition-all duration-200 uppercase tracking-wide py-4 px-4 rounded-lg min-h-[48px]"
-                aria-label="Ir a la sección de contacto"
+                className="block w-full text-left text-gray-700 hover:text-[#155d29] hover:bg-gray-50 text-base font-bold transition-all duration-200 uppercase tracking-wide py-4 px-4 rounded-lg"
               >
                 {t('nav.contact')}
               </button>
@@ -290,8 +233,7 @@ export default function HeroSection() {
               {/* Call-to-Action button in mobile menu */}
               <button 
                 onClick={() => { scrollToContact(); setIsMobileMenuOpen(false); }}
-                className="w-full bg-[#155d29] text-white mobile-button rounded-lg text-base font-semibold hover-lift shadow-lg mt-4 min-h-[48px]"
-                aria-label="Solicitar cotización gratuita"
+                className="w-full bg-[#155d29] text-white mobile-button rounded-lg text-base font-semibold hover-lift shadow-lg mt-4"
               >
                 {t('nav.quote')}
               </button>
@@ -325,9 +267,8 @@ export default function HeroSection() {
         href="https://wa.me/message/WAKKACM55ESHC1" 
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition z-50 min-w-[56px] min-h-[56px] flex items-center justify-center"
+        className="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition z-50"
         title="Contactar por WhatsApp"
-        aria-label="Contactar por WhatsApp - Atención 24/7"
         data-testid="button-whatsapp-floating"
       >
         <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 32 32">

@@ -80,13 +80,11 @@ export default function ProjectsGallery() {
             <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition">
               <img 
                 src={project.image} 
-                alt={`Proyecto TRANSERVICA: ${project.title} - Transporte de ${project.weight} Venezuela`} 
+                alt={`Proyecto TRANSERVICA: ${project.title} - Transporte de ${project.weight}`} 
                 className="w-full h-64 object-cover"
                 width={400}
                 height={256}
                 loading="lazy"
-                decoding="async"
-                style={{ aspectRatio: '400/256' }}
               />
               <div className="p-6">
                 <h3 className="text-xl font-bold text-gray-800 mb-2">{project.title}</h3>
@@ -114,13 +112,11 @@ export default function ProjectsGallery() {
                   <div className="bg-white rounded-lg shadow-lg overflow-hidden">
                     <img 
                       src={project.image} 
-                      alt={`Proyecto TRANSERVICA: ${project.title} - Transporte de ${project.weight} Venezuela`} 
+                      alt={`Proyecto TRANSERVICA: ${project.title} - Transporte de ${project.weight}`} 
                       className="w-full h-64 object-cover"
                       width={400}
                       height={256}
                       loading="lazy"
-                      decoding="async"
-                      style={{ aspectRatio: '400/256' }}
                     />
                     <div className="p-6">
                       <h3 className="text-xl font-bold text-gray-800 mb-2">{project.title}</h3>
@@ -141,7 +137,7 @@ export default function ProjectsGallery() {
           {/* Carousel Controls */}
           <button 
             onClick={prevSlide}
-            className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-3 shadow-lg hover:bg-gray-50 min-w-[48px] min-h-[48px] flex items-center justify-center"
+            className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-lg hover:bg-gray-50"
             aria-label="Proyecto anterior"
             data-testid="button-prev-slide"
           >
@@ -149,7 +145,7 @@ export default function ProjectsGallery() {
           </button>
           <button 
             onClick={nextSlide}
-            className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-3 shadow-lg hover:bg-gray-50 min-w-[48px] min-h-[48px] flex items-center justify-center"
+            className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-lg hover:bg-gray-50"
             aria-label="Proyecto siguiente"
             data-testid="button-next-slide"
           >
@@ -162,11 +158,10 @@ export default function ProjectsGallery() {
               <button
                 key={index}
                 onClick={() => setCurrentIndex(index)}
-                className={`w-4 h-4 rounded-full transition min-w-[44px] min-h-[44px] flex items-center justify-center ${
+                className={`w-3 h-3 rounded-full transition ${
                   index === currentIndex ? 'bg-transervica-green' : 'bg-gray-300'
                 }`}
-                aria-label={`Ir a proyecto ${index + 1}: ${projects[index].title}`}
-                aria-current={index === currentIndex ? 'true' : 'false'}
+                aria-label={`Ir a proyecto ${index + 1}`}
                 data-testid={`button-indicator-${index}`}
               />
             ))}

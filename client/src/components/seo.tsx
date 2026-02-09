@@ -31,7 +31,7 @@ export default function SEO({
   article,
 }: SEOProps) {
   const { language } = useLanguage();
-  const baseUrl = 'https://grupotranservica.com';
+  const baseUrl = 'https://www.transervica.net';
   
   const defaultTitle = 'TRANSERVICA C.A | Transporte Cargas Excepcionales Venezuela | Equipos Alemanes SCHEUERLE | 1,100 Toneladas';
   const defaultDescription = '🏆 Transporte cargas excepcionales Venezuela con equipos alemanes SCHEUERLE. Modulares hidráulicos 1,100 tons, grúas móviles 500 tons, izamiento especializado. 40 años experiencia. ¡Cotización 24/7!';

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Facebook, Instagram, Youtube, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
-import logoTranservica from "@assets/logo-transervica-optimized.webp";
+import { Facebook, Instagram, Youtube, Mail, Phone, MapPin } from 'lucide-react';
+import logoTranservica from "@assets/logo transervica sin fondo_1754163034585.webp";
 import { useLanguage } from '../contexts/LanguageContext';
 import { Link } from 'wouter';
 
@@ -39,22 +39,18 @@ export default function Footer() {
             <div className="mb-8">
               <button 
                 onClick={() => navigateToSection('inicio')}
-                className="focus:outline-none focus:ring-2 focus:ring-[#155d29] focus:ring-offset-2 focus:ring-offset-gray-900 rounded-lg mb-4 min-w-[48px] min-h-[48px]"
-                aria-label="Ir al inicio - TRANSERVICA"
-                data-testid="button-footer-logo"
+                className="focus:outline-none mb-4"
               >
                 <img 
                   src={logoTranservica} 
                   alt="TRANSERVICA Logo - Transporte Cargas Excepcionales Venezuela"
                   loading="lazy"
-                  decoding="async"
-                  width={112}
+                  width={128}
                   height={96}
                   className="h-24 md:h-28 lg:h-32 w-auto max-w-full hover:scale-105 transition-transform duration-300 filter brightness-150 contrast-125 drop-shadow-lg"
                   style={{ 
                     imageRendering: 'crisp-edges',
-                    filter: 'brightness(1.5) contrast(1.25) drop-shadow(0 4px 8px rgba(0,0,0,0.3))',
-                    aspectRatio: '225/192'
+                    filter: 'brightness(1.5) contrast(1.25) drop-shadow(0 4px 8px rgba(0,0,0,0.3))'
                   }}
                 />
               </button>
@@ -101,8 +97,7 @@ export default function Footer() {
               <li>
                 <button 
                   onClick={() => navigateToSection('inicio')}
-                  className="text-gray-300 hover:text-white text-sm transition-colors duration-200 text-left min-h-[48px] py-2"
-                  aria-label="Ir a la sección de inicio"
+                  className="text-gray-300 hover:text-white text-sm transition-colors duration-200 text-left"
                 >
                   {t('footer.pages.home')}
                 </button>
@@ -110,8 +105,7 @@ export default function Footer() {
               <li>
                 <button 
                   onClick={() => navigateToSection('nosotros')}
-                  className="text-gray-300 hover:text-white text-sm transition-colors duration-200 text-left min-h-[48px] py-2"
-                  aria-label="Ir a la sección sobre nosotros"
+                  className="text-gray-300 hover:text-white text-sm transition-colors duration-200 text-left"
                 >
                   {t('footer.pages.about')}
                 </button>
@@ -119,8 +113,7 @@ export default function Footer() {
               <li>
                 <button 
                   onClick={() => navigateToSection('servicios')}
-                  className="text-gray-300 hover:text-white text-sm transition-colors duration-200 text-left min-h-[48px] py-2"
-                  aria-label="Ir a la sección de servicios"
+                  className="text-gray-300 hover:text-white text-sm transition-colors duration-200 text-left"
                 >
                   {t('footer.pages.services')}
                 </button>
@@ -128,8 +121,7 @@ export default function Footer() {
               <li>
                 <button 
                   onClick={() => navigateToSection('proyectos')}
-                  className="text-gray-300 hover:text-white text-sm transition-colors duration-200 text-left min-h-[48px] py-2"
-                  aria-label="Ir a la sección de proyectos"
+                  className="text-gray-300 hover:text-white text-sm transition-colors duration-200 text-left"
                 >
                   {t('footer.pages.projects')}
                 </button>
@@ -137,8 +129,7 @@ export default function Footer() {
               <li>
                 <button 
                   onClick={() => navigateToSection('contacto')}
-                  className="text-gray-300 hover:text-white text-sm transition-colors duration-200 text-left min-h-[48px] py-2"
-                  aria-label="Ir a la sección de contacto"
+                  className="text-gray-300 hover:text-white text-sm transition-colors duration-200 text-left"
                 >
                   {t('footer.pages.contact')}
                 </button>
@@ -155,8 +146,7 @@ export default function Footer() {
               <li>
                 <a 
                   href="/blog" 
-                  className="text-gray-300 hover:text-white text-sm transition-colors duration-200 inline-block min-h-[48px] py-2"
-                  aria-label="Ir a la sección del blog"
+                  className="text-gray-300 hover:text-white text-sm transition-colors duration-200"
                 >
                   {t('footer.resources.blog')}
                 </a>
@@ -164,8 +154,7 @@ export default function Footer() {
               <li>
                 <button 
                   onClick={() => navigateToSection('equipos')}
-                  className="text-gray-300 hover:text-white text-sm transition-colors duration-200 text-left min-h-[48px] py-2"
-                  aria-label="Ir a la sección de equipos"
+                  className="text-gray-300 hover:text-white text-sm transition-colors duration-200 text-left"
                 >
                   {t('footer.resources.equipment')}
                 </button>
@@ -173,8 +162,7 @@ export default function Footer() {
               <li>
                 <button 
                   onClick={() => navigateToSection('contacto')}
-                  className="text-gray-300 hover:text-white text-sm transition-colors duration-200 text-left min-h-[48px] py-2"
-                  aria-label="Ir a la sección de ayuda y contacto"
+                  className="text-gray-300 hover:text-white text-sm transition-colors duration-200 text-left"
                 >
                   {t('footer.resources.help')}
                 </button>
@@ -189,28 +177,19 @@ export default function Footer() {
               {t('footer.newsletter.title')}
             </h4>
             
-            <form 
-              onSubmit={handleSubmit} 
-              className="space-y-3"
-              role="form"
-              aria-label="Formulario de suscripción al boletín"
-            >
+            <form onSubmit={handleSubmit} className="space-y-3">
               <input
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder={t('footer.newsletter.placeholder')}
-                className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-[#155d29] focus:ring-1 focus:ring-[#155d29] transition-colors duration-200 min-h-[48px]"
+                className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-[#155d29] focus:ring-1 focus:ring-[#155d29] transition-colors duration-200"
                 required
-                aria-label="Correo electrónico para suscripción"
-                data-testid="input-newsletter-email"
               />
               <button
                 type="submit"
-                className="w-full text-white font-bold py-3 px-4 rounded-lg transition-all duration-200 hover:opacity-90 transform hover:scale-[1.02] min-h-[48px]"
+                className="w-full text-white font-bold py-3 px-4 rounded-lg transition-all duration-200 hover:opacity-90 transform hover:scale-[1.02]"
                 style={{ backgroundColor: '#155d29' }}
-                aria-label="Suscribirse al boletín de noticias"
-                data-testid="button-newsletter-subscribe"
               >
                 {t('footer.newsletter.subscribe')}
               </button>
@@ -226,16 +205,16 @@ export default function Footer() {
             </h4>
             <div className="w-24 h-1 mx-auto mb-8 rounded-full" style={{ backgroundColor: '#155d29' }}></div>
             
-            {/* Clean Social Media Icons - 48x48px touch targets */}
-            <div className="flex justify-center space-x-4 mb-12">
+            {/* Clean Social Media Icons */}
+            <div className="flex justify-center space-x-8 mb-12">
               <a 
                 href="https://www.facebook.com/people/Grupotranservica/100093036004743" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative flex items-center justify-center w-12 h-12 transition-all duration-300 hover:scale-110"
-                aria-label="Visitar nuestra página de Facebook"
+                className="group relative flex items-center justify-center transition-all duration-300 hover:scale-110"
+                aria-label="Facebook"
               >
-                <Facebook className="w-8 h-8 text-[#1877F2] transition-all duration-300" />
+                <Facebook className="w-8 h-8 text-[#1877F2] transition-all duration-300 hover:scale-110" />
                 <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <span className="text-xs text-gray-400 font-medium">Facebook</span>
                 </div>
@@ -245,10 +224,10 @@ export default function Footer() {
                 href="https://www.instagram.com/grupotranservica" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative flex items-center justify-center w-12 h-12 transition-all duration-300 hover:scale-110"
-                aria-label="Visitar nuestra página de Instagram"
+                className="group relative flex items-center justify-center transition-all duration-300 hover:scale-110"
+                aria-label="Instagram"
               >
-                <Instagram className="w-8 h-8 text-[#E4405F] transition-all duration-300" />
+                <Instagram className="w-8 h-8 text-[#E4405F] transition-all duration-300 hover:scale-110" />
                 <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <span className="text-xs text-gray-400 font-medium">Instagram</span>
                 </div>
@@ -258,26 +237,12 @@ export default function Footer() {
                 href="https://www.youtube.com/@transervicac.a.3092" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative flex items-center justify-center w-12 h-12 transition-all duration-300 hover:scale-110"
-                aria-label="Visitar nuestro canal de YouTube"
+                className="group relative flex items-center justify-center transition-all duration-300 hover:scale-110"
+                aria-label="YouTube"
               >
-                <Youtube className="w-8 h-8 text-[#FF0000] transition-all duration-300" />
+                <Youtube className="w-8 h-8 text-[#FF0000] transition-all duration-300 hover:scale-110" />
                 <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <span className="text-xs text-gray-400 font-medium">YouTube</span>
-                </div>
-              </a>
-              
-              <a 
-                href="https://www.linkedin.com/company/grupotranservica" 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative flex items-center justify-center w-12 h-12 transition-all duration-300 hover:scale-110"
-                aria-label="Visitar nuestra página de LinkedIn"
-                data-testid="link-linkedin"
-              >
-                <Linkedin className="w-8 h-8 text-[#0A66C2] transition-all duration-300" />
-                <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <span className="text-xs text-gray-400 font-medium">LinkedIn</span>
                 </div>
               </a>
             </div>
@@ -293,16 +258,16 @@ export default function Footer() {
               {t('footer.copyright')}
             </div>
             <div className="flex space-x-6 text-sm">
-              <Link href="/terms" className="text-gray-400 hover:text-white transition-colors duration-200 min-h-[48px] flex items-center" aria-label="Ver términos y condiciones">
+              <Link href="/terms" className="text-gray-400 hover:text-white transition-colors duration-200">
                 {t('footer.legal.terms')}
               </Link>
-              <Link href="/privacy" className="text-gray-400 hover:text-white transition-colors duration-200 min-h-[48px] flex items-center" aria-label="Ver política de privacidad">
+              <Link href="/privacy" className="text-gray-400 hover:text-white transition-colors duration-200">
                 {t('footer.legal.privacy')}
               </Link>
-              <Link href="/cookies" className="text-gray-400 hover:text-white transition-colors duration-200 min-h-[48px] flex items-center" aria-label="Ver política de cookies">
+              <Link href="/cookies" className="text-gray-400 hover:text-white transition-colors duration-200">
                 {t('footer.legal.cookies')}
               </Link>
-              <Link href="/security" className="text-gray-400 hover:text-white transition-colors duration-200 min-h-[48px] flex items-center" aria-label="Ver información de seguridad">
+              <Link href="/security" className="text-gray-400 hover:text-white transition-colors duration-200">
                 {t('footer.legal.security')}
               </Link>
             </div>

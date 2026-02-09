@@ -1,8 +1,7 @@
 import { lazy, Suspense } from "react";
 import HeroSection from "@/components/hero-section";
+import StatisticsSection from "@/components/statistics-section";
 
-const StatisticsSection = lazy(() => import("@/components/statistics-section"));
-const SocialProofSection = lazy(() => import("@/components/social-proof-section"));
 const ProjectsCarousel = lazy(() => import("@/components/projects-carousel"));
 const ServicesSection = lazy(() => import("@/components/services-section"));
 const AboutSection = lazy(() => import("@/components/about-section"));
@@ -21,9 +20,8 @@ export default function Home() {
     <div className="min-h-screen bg-white">
       <main>
         <HeroSection />
+        <StatisticsSection />
         <Suspense fallback={<BelowFoldLoader />}>
-          <StatisticsSection />
-          <SocialProofSection />
           <ProjectsCarousel />
           <ServicesSection />
           <AboutSection />

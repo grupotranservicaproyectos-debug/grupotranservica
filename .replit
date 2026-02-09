@@ -11,10 +11,6 @@ build = ["npm", "run", "build"]
 run = ["npm", "run", "start"]
 
 [[ports]]
-localPort = 3333
-externalPort = 3001
-
-[[ports]]
 localPort = 5000
 externalPort = 80
 
@@ -46,4 +42,3 @@ waitForPort = 5000
 
 [userenv.shared]
 PEXELS_API_KEY = "ThIQgDLB8gLdfKB4Lo3YHtmwsQGDvvsICa2LIfA2vm3mdw3eZZoxgkEn"
-OPENROUTER_MODEL = "google/gemini-pro-1.5"

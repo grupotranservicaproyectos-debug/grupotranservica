@@ -8,7 +8,6 @@ interface YouTubeLazyProps {
   params?: string;
   thumbnailQuality?: 'default' | 'hqdefault' | 'mqdefault' | 'sddefault' | 'maxresdefault';
   autoLoad?: boolean;
-  localThumbnail?: string;
 }
 
 export default function YouTubeLazy({ 
@@ -17,12 +16,11 @@ export default function YouTubeLazy({
   className = '', 
   params = '',
   thumbnailQuality = 'hqdefault',
-  autoLoad = false,
-  localThumbnail
+  autoLoad = false
 }: YouTubeLazyProps) {
   const [isLoaded, setIsLoaded] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
-  const thumbnailUrl = localThumbnail || `https://i.ytimg.com/vi/${videoId}/${thumbnailQuality}.jpg`;
+  const thumbnailUrl = `https://i.ytimg.com/vi/${videoId}/${thumbnailQuality}.jpg`;
 
   useEffect(() => {
     if (!autoLoad || isLoaded) return;
@@ -67,21 +65,13 @@ export default function YouTubeLazy({
       ref={containerRef}
       className={`relative ${!autoLoad ? 'cursor-pointer' : ''} group ${className}`}
       onClick={() => !autoLoad && setIsLoaded(true)}
-      onKeyDown={(e) => !autoLoad && e.key === 'Enter' && setIsLoaded(true)}
-      tabIndex={!autoLoad ? 0 : undefined}
-      role={!autoLoad ? 'button' : undefined}
-      aria-label={!autoLoad ? `Reproducir video: ${title}` : undefined}
       data-testid={`youtube-lazy-${videoId}`}
     >
       <img 
         src={thumbnailUrl} 
         alt={title}
         loading="lazy"
-        width={640}
-        height={360}
-        decoding="async"
         className="w-full h-full object-cover"
-        style={{ aspectRatio: '16/9' }}
       />
       {!autoLoad && (
         <div className="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-colors flex items-center justify-center">

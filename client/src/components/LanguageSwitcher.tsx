@@ -61,11 +61,7 @@ export default function LanguageSwitcher() {
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center space-x-2 text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide min-h-[48px] px-3 py-2"
-        aria-label={`Cambiar idioma. Idioma actual: ${language === 'es' ? 'Español' : 'English'}`}
-        aria-expanded={isOpen}
-        aria-haspopup="listbox"
-        data-testid="button-language-switcher"
+        className="flex items-center space-x-2 text-gray-700 hover:text-[#155d29] text-sm font-bold transition uppercase tracking-wide"
       >
         {language === 'es' ? <VenezuelaFlag /> : <UKFlag />}
         <span>{t('language.' + (language === 'es' ? 'spanish' : 'english'))}</span>
@@ -75,24 +71,17 @@ export default function LanguageSwitcher() {
       </button>
 
       {isOpen && (
-        <div 
-          className="absolute top-full mt-2 right-0 bg-white border border-gray-200 rounded-lg shadow-lg py-2 min-w-[160px] z-50"
-          role="listbox"
-          aria-label="Seleccionar idioma"
-        >
+        <div className="absolute top-full mt-2 right-0 bg-white border border-gray-200 rounded-lg shadow-lg py-2 min-w-[160px] z-50">
           <button
             onClick={() => {
               setLanguage('es');
               setIsOpen(false);
             }}
-            className={`w-full flex items-center space-x-3 px-4 py-3 text-sm font-bold transition min-h-[48px] ${
+            className={`w-full flex items-center space-x-3 px-4 py-2 text-sm font-bold transition ${
               language === 'es' 
                 ? 'bg-[#155d29] text-white' 
                 : 'text-gray-700 hover:bg-gray-50 hover:text-[#155d29]'
             }`}
-            role="option"
-            aria-selected={language === 'es'}
-            data-testid="button-lang-es"
           >
             <VenezuelaFlag />
             <span>ESPAÑOL</span>
@@ -103,14 +92,11 @@ export default function LanguageSwitcher() {
               setLanguage('en');
               setIsOpen(false);
             }}
-            className={`w-full flex items-center space-x-3 px-4 py-3 text-sm font-bold transition min-h-[48px] ${
+            className={`w-full flex items-center space-x-3 px-4 py-2 text-sm font-bold transition ${
               language === 'en' 
                 ? 'bg-[#155d29] text-white' 
                 : 'text-gray-700 hover:bg-gray-50 hover:text-[#155d29]'
             }`}
-            role="option"
-            aria-selected={language === 'en'}
-            data-testid="button-lang-en"
           >
             <UKFlag />
             <span>ENGLISH</span>

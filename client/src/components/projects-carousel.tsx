@@ -1,18 +1,18 @@
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight, Play, Pause } from "lucide-react";
 import { useLanguage } from '../contexts/LanguageContext';
-import image1 from "@assets/optimized/2_1754167186023.webp";
-import image2 from "@assets/optimized/3_1754167186023.webp";
-import image3 from "@assets/optimized/4_1754167186024.webp";
-import image4 from "@assets/optimized/5_1754167186024.webp";
-import image5 from "@assets/optimized/6_1754167186024.webp";
-import image6 from "@assets/optimized/7_1754167186025.webp";
-import image7 from "@assets/optimized/8_1754167186025.webp";
-import image8 from "@assets/optimized/9_1754167186025.webp";
-import image9 from "@assets/optimized/10_1754167186025.webp";
-import image10 from "@assets/optimized/11_1754167186026.webp";
-import image11 from "@assets/optimized/12_1754167186026.webp";
-import image12 from "@assets/optimized/13_1754167186026.webp";
+import image1 from "@assets/2_1754167186023.webp";
+import image2 from "@assets/3_1754167186023.webp";
+import image3 from "@assets/4_1754167186024.webp";
+import image4 from "@assets/5_1754167186024.webp";
+import image5 from "@assets/6_1754167186024.webp";
+import image6 from "@assets/7_1754167186025.webp";
+import image7 from "@assets/8_1754167186025.webp";
+import image8 from "@assets/9_1754167186025.webp";
+import image9 from "@assets/10_1754167186025.webp";
+import image10 from "@assets/11_1754167186026.webp";
+import image11 from "@assets/12_1754167186026.webp";
+import image12 from "@assets/13_1754167186026.webp";
 
 interface Project {
   id: number;
@@ -232,11 +232,7 @@ export default function ProjectsCarousel() {
                     src={currentProject.image}
                     alt={`Proyecto TRANSERVICA: ${currentProject.title} - Transporte ${currentProject.weight} ${currentProject.location} Venezuela`}
                     loading="lazy"
-                    width={600}
-                    height={600}
-                    decoding="async"
                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                    style={{ aspectRatio: '1/1' }}
                   />
                   
                   {/* Image Overlay */}
@@ -249,9 +245,9 @@ export default function ProjectsCarousel() {
                     </span>
                   </div>
 
-                  {/* Weight Badge - Fixed contrast ratio ≥4.5:1 */}
+                  {/* Weight Badge */}
                   <div className="absolute top-4 right-4">
-                    <span className="text-white px-3 py-1 rounded-full text-sm font-bold" style={{ backgroundColor: '#155d29' }}>
+                    <span className="text-white px-3 py-1 rounded-full text-sm font-medium bg-[#3ea30f]">
                       {currentProject.weight}
                     </span>
                   </div>
@@ -287,12 +283,10 @@ export default function ProjectsCarousel() {
                         contactSection.scrollIntoView({ behavior: 'smooth' });
                       }
                     }}
-                    className="w-full md:w-auto text-white font-bold py-4 px-8 rounded-xl transform transition-all duration-200 hover:scale-105 hover:shadow-lg min-h-[48px]" 
+                    className="w-full md:w-auto text-white font-bold py-4 px-8 rounded-xl transform transition-all duration-200 hover:scale-105 hover:shadow-lg" 
                     style={{ backgroundColor: '#155d29' }} 
                     onMouseEnter={(e) => (e.target as HTMLElement).style.backgroundColor = '#a8e6a8'} 
                     onMouseLeave={(e) => (e.target as HTMLElement).style.backgroundColor = '#155d29'}
-                    aria-label={`Solicitar cotización para ${currentProject.title}`}
-                    data-testid="button-carousel-cta"
                   >
                     {currentCTA}
                   </button>
@@ -354,45 +348,23 @@ export default function ProjectsCarousel() {
             </button>
           </div>
 
-          {/* Slide Indicators - 44x44px touch targets with 8x8px visual dots (WCAG 2.5.5) */}
-          <nav 
-            className="flex justify-center mt-6 gap-2"
-            role="group"
-            aria-label="Navegación de proyectos destacados"
-          >
-            {projectsData.map((_, index) => {
-              const isActive = index === currentSlide;
-              return (
-                <button
-                  key={index}
-                  onClick={() => setCurrentSlide(index)}
-                  className={`
-                    relative w-11 h-11 min-w-[44px] min-h-[44px]
-                    rounded-full transition-all duration-300
-                    flex items-center justify-center
-                    hover:bg-gray-100
-                    focus:outline-none focus:ring-2 focus:ring-[#155d29] focus:ring-offset-2
-                    ${isActive ? 'bg-gray-50' : ''}
-                  `}
-                  aria-label={`Ir al proyecto ${index + 1}`}
-                  aria-current={isActive ? 'true' : undefined}
-                  type="button"
-                  data-testid={`button-slide-${index}`}
-                >
-                  <span 
-                    className={`w-2 h-2 rounded-full transition-all duration-300 pointer-events-none ${
-                      isActive ? 'scale-125' : 'bg-gray-300'
-                    }`}
-                    style={isActive ? { backgroundColor: '#155d29' } : {}}
-                    aria-hidden="true"
-                  />
-                  <span className="sr-only">
-                    {isActive ? `Proyecto ${index + 1} de ${projectsData.length} (activo)` : `Proyecto ${index + 1} de ${projectsData.length}`}
-                  </span>
-                </button>
-              );
-            })}
-          </nav>
+          {/* Slide Indicators */}
+          <div className="flex justify-center mt-6 space-x-2">
+            {projectsData.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentSlide(index)}
+                className={`w-3 h-3 rounded-full transition-all duration-200 ${
+                  index === currentSlide
+                    ? "scale-125"
+                    : "bg-gray-300 hover:bg-gray-400"
+                }`}
+                style={index === currentSlide ? { backgroundColor: '#155d29' } : {}}
+                aria-label={`Ir a proyecto ${index + 1}`}
+                data-testid={`button-slide-${index}`}
+              />
+            ))}
+          </div>
         </div>
 
 
