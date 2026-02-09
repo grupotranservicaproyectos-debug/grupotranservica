@@ -133,6 +133,25 @@ Los blogs están disponibles en **ambos dominios**:
   - https://transervica.net/seo-blog/sector-petrolero-venezuela
   - https://transervica.net/seo-blog/precio-transporte-punto-fijo
 
+### Production Circular Dependency Fix (February 9, 2026)
+Resolved critical production blank page issue caused by circular ES module dependency between vendor-react and vendor-misc chunks.
+
+#### Root Cause:
+- Vite's `manualChunks` placed `scheduler`, `react-is`, and `use-sync-external-store` in `vendor-misc` while `react` and `react-dom` were in `vendor-react`
+- This created a circular import: vendor-react needed scheduler from vendor-misc, and vendor-misc needed React from vendor-react
+- During ES module evaluation, React exports were `undefined` when vendor-misc tried to use them, causing `TypeError: Cannot read properties of undefined (reading 'useState')`
+- Development worked fine (no bundling), only production builds were affected
+
+#### Fix Applied:
+- **vite.config.ts**: Added `scheduler`, `react-is`, and `use-sync-external-store` to the vendor-react chunk in `manualChunks`
+- **scripts/fix-circular-deps.mjs**: Post-build script that inlines any remaining Rollup interop helpers to fully eliminate circular imports
+- **package.json build script**: Updated to run `fix-circular-deps.mjs` automatically after `vite build`
+- **Build pipeline**: `vite build` → `fix-circular-deps.mjs` → `esbuild server`
+
+#### Key Files:
+- `scripts/fix-circular-deps.mjs` - Post-build circular dependency patcher
+- `DIAGNOSTIC_REPORT.md` - Full diagnostic report of the issue
+
 ### Technical SEO and Accessibility Improvements (November 22, 2025)
 Implemented comprehensive technical improvements based on complete site audit:
 
