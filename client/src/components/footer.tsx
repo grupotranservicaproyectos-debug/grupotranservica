@@ -28,7 +28,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-gray-900 text-white py-12 sm:py-16 lg:py-20">
+    <footer className="text-white py-12 sm:py-16 lg:py-20 bg-[#ffffff]">
       <div className="container mx-auto mobile-padding">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-12">
           
