@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Fallback font para mitigar CLS y mejorar FCP */
+@font-face {
+  font-family: 'Inter Fallback';
+  src: local('Arial');
+  size-adjust: 103%;
+  ascent-override: 90%;
+  descent-override: 22%;
+  line-gap-override: 10%;
+  }
+
+body {
+  font-family: 'Inter', 'Inter Fallback', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
 :root {
   --background: hsl(0, 0%, 100%);
   --foreground: hsl(20, 14.3%, 4.1%);
@@ -17,7 +31,7 @@
   --primary-foreground: hsl(0, 0%, 100%);
   --secondary: hsl(60, 4.8%, 95.9%);
   --secondary-foreground: hsl(24, 9.8%, 10%);
-  --accent: #a8e6a8;
+  --accent: #4caf50;
   --accent-foreground: hsl(24, 9.8%, 10%);
   --destructive: hsl(0, 84.2%, 60.2%);
   --destructive-foreground: hsl(60, 9.1%, 97.8%);
@@ -26,7 +40,7 @@
   
   --transervica-green: #155d29;
   --transervica-dark-green: #0f4a21;
-  --transervica-light-green: #a8e6a8;
+  --transervica-light-green: #4caf50;
   --transervica-hover-green: #1a6b2f;
   --transervica-gray: hsl(210, 6%, 25%);
   --transervica-dark-gray: hsl(210, 8%, 15%);
@@ -106,7 +120,7 @@
     padding: 1.5rem;
     margin: 2rem 0;
     box-shadow: 0 10px 25px rgba(21, 93, 41, 0.2);
-    border-left: 4px solid #a8e6a8;
+    border-left: 4px solid #4caf50;
   }
   
   .blog-content .cta-box p {
@@ -122,7 +136,7 @@
   }
   
   .blog-content .cta-box a {
-    color: #a8e6a8;
+    color: #4caf50;
     text-decoration: underline;
     font-weight: 600;
     transition: color 0.2s;
