@@ -17,7 +17,7 @@
   --primary-foreground: hsl(0, 0%, 100%);
   --secondary: hsl(60, 4.8%, 95.9%);
   --secondary-foreground: hsl(24, 9.8%, 10%);
-  --accent: #4caf50;
+  --accent: #246109;
   --accent-foreground: hsl(24, 9.8%, 10%);
   --destructive: hsl(0, 84.2%, 60.2%);
   --destructive-foreground: hsl(60, 9.1%, 97.8%);
@@ -26,7 +26,7 @@
   
   --transervica-green: #155d29;
   --transervica-dark-green: #0f4a21;
-  --transervica-light-green: #4caf50;
+  --transervica-light-green: #246109;
   --transervica-hover-green: #1a6b2f;
   --transervica-gray: hsl(210, 6%, 25%);
   --transervica-dark-gray: hsl(210, 8%, 15%);
@@ -115,7 +115,7 @@
     padding: 1.5rem;
     margin: 2rem 0;
     box-shadow: 0 10px 25px rgba(21, 93, 41, 0.2);
-    border-left: 4px solid #4caf50;
+    border-left: 4px solid #246109;
   }
   
   .blog-content .cta-box p {
@@ -131,7 +131,7 @@
   }
   
   .blog-content .cta-box a {
-    color: #4caf50;
+    color: #246109;
     text-decoration: underline;
     font-weight: 600;
     transition: color 0.2s;
