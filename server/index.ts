@@ -3,9 +3,74 @@ import compression from "compression";
 import fs from "fs";
 import path from "path";
 import sanitizeHtml from "sanitize-html";
+import { init, parse } from "es-module-lexer";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
 import { storage } from "./storage";
+
+async function fixCircularDeps() {
+  const distAssetsDir = path.resolve(import.meta.dirname, "public", "assets");
+  if (!fs.existsSync(distAssetsDir)) return;
+
+  const jsFiles = fs.readdirSync(distAssetsDir).filter(f => f.endsWith('.js'));
+  const vendorFile = jsFiles.find(f => f.startsWith('vendor-') && !f.startsWith('vendor-react') && !f.startsWith('vendor-icons'));
+  const vendorReactFile = jsFiles.find(f => f.startsWith('vendor-react'));
+  if (!vendorFile || !vendorReactFile) return;
+
+  const vendorPath = path.join(distAssetsDir, vendorFile);
+  const vendorReactPath = path.join(distAssetsDir, vendorReactFile);
+  const vendorContent = fs.readFileSync(vendorPath, 'utf-8');
+
+  if (vendorContent.length < 20) return;
+
+  const vendorReactContent = fs.readFileSync(vendorReactPath, 'utf-8');
+  const hasCircular = vendorContent.includes(`from"./${vendorReactFile}"`) &&
+                      vendorReactContent.includes(`from"./${vendorFile}"`);
+  if (!hasCircular) return;
+
+  log("Circular dependency detected between vendor chunks. Fixing...");
+
+  await init;
+  const [vendorImports] = parse(vendorContent);
+
+  const reactImport = vendorImports.find(imp => {
+    const specifier = vendorContent.substring(imp.s, imp.e);
+    return specifier === `./${vendorReactFile}`;
+  });
+
+  if (!reactImport) {
+    log("Could not find vendor-react import in vendor chunk");
+    return;
+  }
+
+  const importStatement = vendorContent.substring(reactImport.ss, reactImport.se);
+  const bindingsMatch = importStatement.match(/import\{([^}]+)\}/);
+  if (!bindingsMatch) {
+    log("Could not parse import bindings");
+    return;
+  }
+
+  const bindings = bindingsMatch[1].split(',').map(b => {
+    const parts = b.trim().split(/\s+as\s+/);
+    return { imported: parts[0].trim(), local: (parts[1] || parts[0]).trim() };
+  });
+
+  const varDecls = bindings.map(b => b.local).join(',');
+  const assignments = bindings.map(b => `${b.local}=__m.${b.imported}`).join(';');
+  const replacement = `var ${varDecls};import("./${vendorReactFile}").then(__m=>{${assignments}})`;
+
+  const fixedVendor = vendorContent.substring(0, reactImport.ss) +
+                      replacement +
+                      vendorContent.substring(reactImport.se);
+
+  try {
+    fs.writeFileSync(vendorPath, fixedVendor);
+    log(`Fixed: converted static import to dynamic import in ${vendorFile}`);
+    log(`  Deferred ${bindings.length} bindings: ${bindings.map(b => b.imported).join(', ')}`);
+  } catch (e) {
+    log(`Warning: could not write fix to disk (read-only filesystem?): ${e}`);
+  }
+}
 
 const app = express();
 
@@ -240,6 +305,7 @@ app.use((req, res, next) => {
   if (app.get("env") === "development") {
     await setupVite(app, server);
   } else {
+    fixCircularDeps();
     serveStatic(app);
   }
 
