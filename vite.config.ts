@@ -23,25 +23,11 @@ export default defineConfig({
       "@assets": path.resolve(import.meta.dirname, "attached_assets"),
     },
   },
+  base: './',
   root: path.resolve(import.meta.dirname, "client"),
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
-    rollupOptions: {
-      output: {
-        manualChunks(id) {
-          if (id.includes("node_modules")) {
-            if (id.includes("react") || id.includes("react-dom")) {
-              return "vendor-react";
-            }
-            if (id.includes("lucide")) {
-              return "vendor-icons";
-            }
-            return "vendor";
-          }
-        },
-      },
-    },
     minify: "terser",
     terserOptions: {
       compress: {
