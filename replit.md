@@ -133,38 +133,22 @@ Los blogs están disponibles en **ambos dominios**:
   - https://transervica.net/seo-blog/sector-petrolero-venezuela
   - https://transervica.net/seo-blog/precio-transporte-punto-fijo
 
-### Production Circular Dependency Fix (February 10, 2026)
-Resolved critical production blank page issue caused by circular ES module dependency between vendor-react and vendor chunks.
+### Production Circular Dependency Fix - Root Cause Resolution (February 10, 2026)
+Resolved critical production blank page issue by removing the root cause.
 
 #### Root Cause:
-- Vite's `manualChunks` splits packages with "react" in their path to `vendor-react` and everything else to `vendor`
-- `scheduler`, `use-sync-external-store`, `@tanstack/query-core`, `@radix-ui/primitive`, and other non-"react"-named packages end up in `vendor` but are needed by packages in `vendor-react`
-- Meanwhile, packages in `vendor` (like `wouter`) need React from `vendor-react`
-- This creates a circular import: vendor-react ↔ vendor (29 bindings one way, 8 the other)
-- During ES module evaluation, the circular dependency causes `TypeError: Cannot read properties of undefined (reading 'useState')`
-- Development works fine (no bundling), only production builds were affected
+- Vite's `manualChunks` config in `vite.config.ts` split packages into `vendor-react` and `vendor` chunks
+- This created circular ES module imports between the two chunks (29 bindings one way, 8 the other)
+- During ES module evaluation, the circular dependency caused `TypeError: Cannot read properties of undefined (reading 'useState')`
+- Development worked fine (no bundling), only production builds were affected
 
-#### Fix Applied (In-Memory IIFE Merge in server/index.ts):
-- **server/index.ts `fixCircularDeps()`**: Runs at production server startup, BEFORE serving static files
-- Detects circular imports between vendor and vendor-react chunks using `es-module-lexer`
-- Merges both chunks into vendor-react using **IIFE wrapping** for variable scope isolation
-- **Serves fixed content from memory** via Express middleware (stored in `circularDepOverrides` Map)
-- Does NOT write to disk - works on **read-only filesystems** (Replit production deployments)
-- Middleware intercepts `/assets/vendor-*.js` requests before `serveStatic()` and serves patched content
-- Vendor code runs first (inside IIFE), then vendor-react code (inside separate IIFE)
-- Cross-chunk bindings are mapped via intermediate variables (`__v$xxx` for vendor exports, `__vr$xxx` for vendor-react exports)
-- Vendor file becomes a thin re-export layer (~589 bytes) pointing to vendor-react
-
-#### Why IIFE Approach:
-- Both chunks use short minified variable names (a, b, c...) that would collide in a naive merge
-- IIFEs create separate function scopes, preventing variable name collisions
-- Vendor code executes first (defines scheduler, helpers), vendor-react code executes second (uses scheduler, defines React)
-- Vendor's React references (only used in function bodies, not top-level) are assigned after vendor-react's IIFE completes
-
-#### Key Files:
-- `server/index.ts` - Contains `fixCircularDeps()`, `parseImportBindings()`, `parseExportStatement()`
-- `scripts/fix-circular-deps.mjs` - Legacy post-build script (no longer used, superseded by server-side fix)
-- `DIAGNOSTIC_REPORT.md` - Original diagnostic report
+#### Permanent Fix Applied:
+- **Removed `manualChunks`** from `vite.config.ts` - let Vite handle chunking automatically
+- **Added `base: './'`** to `vite.config.ts` for proper asset path resolution
+- **Removed all workaround code** from `server/index.ts` (`fixCircularDeps()`, `parseImportBindings()`, `parseExportStatement()`, `circularDepOverrides` Map, and the middleware)
+- **Removed `es-module-lexer` import** from server/index.ts (no longer needed)
+- Vite's automatic chunking produces clean, non-circular chunks
+- Build output: 47 JS files with no circular dependency warnings
 
 ### Technical SEO and Accessibility Improvements (November 22, 2025)
 Implemented comprehensive technical improvements based on complete site audit:
