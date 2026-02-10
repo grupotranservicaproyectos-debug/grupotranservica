@@ -1,5 +1,5 @@
-import { useState, useRef } from 'react';
-import { Play } from 'lucide-react';
+import LiteYouTubeEmbed from 'react-lite-youtube-embed';
+import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css';
 
 interface YouTubeLazyProps {
   videoId: string;
@@ -14,48 +14,42 @@ export default function YouTubeLazy({
   title, 
   className = '', 
   params = '',
-  thumbnailQuality = 'hqdefault',
 }: YouTubeLazyProps) {
-  const [isLoaded, setIsLoaded] = useState(false);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const thumbnailUrl = `https://i.ytimg.com/vi/${videoId}/${thumbnailQuality}.jpg`;
-
-  if (isLoaded) {
-    return (
-      <iframe
-        src={`https://www.youtube-nocookie.com/embed/${videoId}?${params}${params.includes('autoplay') ? '' : '&autoplay=1'}`}
+  return (
+    <div className={className}>
+      <LiteYouTubeEmbed
+        id={videoId}
         title={title}
-        className={className}
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
-        loading="lazy"
+        params={params}
+        poster="hqdefault"
+        webp={true}
+        noCookie={true}
       />
-    );
-  }
+    </div>
+  );
+}
+
+export function BlogVideoEmbed({ postId, title }: { postId: number; title: string }) {
+  const videoMap: Record<number, { id: string; params: string }> = {
+    1: { id: 'JnWnFe_QdnE', params: 'autoplay=1&mute=1&loop=1&playlist=JnWnFe_QdnE' },
+    2: { id: '4ZfZ5YFelkQ', params: 'autoplay=1&mute=1&loop=1&playlist=4ZfZ5YFelkQ' },
+    3: { id: '44lpgBO22qU', params: 'autoplay=1&mute=1&loop=1&playlist=44lpgBO22qU' },
+    4: { id: '54hazc90eNk', params: 'autoplay=1&mute=1&loop=1&playlist=54hazc90eNk' },
+    7: { id: 'NW9Huszovqw', params: 'autoplay=1&start=30&end=171&mute=1&loop=1&playlist=NW9Huszovqw' },
+    8: { id: 'JJjJ6lF_4oI', params: 'autoplay=1&start=22&end=86&mute=1&loop=1&playlist=JJjJ6lF_4oI' },
+  };
+
+  const video = videoMap[postId];
+  if (!video) return null;
 
   return (
-    <div 
-      ref={containerRef}
-      className={`relative cursor-pointer group ${className}`}
-      onClick={() => setIsLoaded(true)}
-      role="button"
-      tabIndex={0}
-      aria-label={`Reproducir video: ${title}`}
-      onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setIsLoaded(true); } }}
-    >
-      <img 
-        src={thumbnailUrl} 
-        alt={title}
-        loading="lazy"
-        width={480}
-        height={360}
-        className="w-full h-full object-cover"
-      />
-      <div className="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-colors flex items-center justify-center">
-        <div className="bg-red-600 rounded-full p-4 group-hover:scale-110 transition-transform shadow-lg">
-          <Play className="w-12 h-12 text-white fill-white" />
-        </div>
-      </div>
-    </div>
+    <LiteYouTubeEmbed
+      id={video.id}
+      title={title}
+      params={video.params}
+      poster="hqdefault"
+      webp={true}
+      noCookie={true}
+    />
   );
 }

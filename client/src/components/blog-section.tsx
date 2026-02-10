@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Calendar, User, ArrowRight, Eye, MessageCircle, ChevronLeft, ChevronRight, Truck, Settings, Shield, Award } from "lucide-react";
 import { Link } from 'wouter';
 import { useLanguage } from '../contexts/LanguageContext';
-import YouTubeLazy from './youtube-lazy';
+import YouTubeLazy, { BlogVideoEmbed } from './youtube-lazy';
 import transportImage1 from "@assets/1_1754173669382.webp";
 import transportImage2 from "@assets/2_1754173669382.webp";
 import transportImage3 from "@assets/3_1754173669382.webp";
@@ -244,54 +244,8 @@ export default function BlogSection() {
                         <article key={post.id} className="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 hover:scale-105 overflow-hidden">
                           {/* Video/Image container */}
                           <div className="relative h-64 overflow-hidden">
-                            {post.id === 1 ? (
-                              <YouTubeLazy
-                                videoId="JnWnFe_QdnE"
-                                title={post.title}
-                                className="w-full h-full"
-                                params="autoplay=1&mute=1&loop=1&playlist=JnWnFe_QdnE"
-                                thumbnailQuality="hqdefault"
-                              />
-                            ) : post.id === 2 ? (
-                              <YouTubeLazy
-                                videoId="4ZfZ5YFelkQ"
-                                title={post.title}
-                                className="w-full h-full"
-                                params="autoplay=1&mute=1&loop=1&playlist=4ZfZ5YFelkQ"
-                                thumbnailQuality="hqdefault"
-                              />
-                            ) : post.id === 3 ? (
-                              <YouTubeLazy
-                                videoId="44lpgBO22qU"
-                                title={post.title}
-                                className="w-full h-full"
-                                params="autoplay=1&mute=1&loop=1&playlist=44lpgBO22qU"
-                                thumbnailQuality="hqdefault"
-                              />
-                            ) : post.id === 4 ? (
-                              <YouTubeLazy
-                                videoId="54hazc90eNk"
-                                title={post.title}
-                                className="w-full h-full"
-                                params="autoplay=1&mute=1&loop=1&playlist=54hazc90eNk"
-                                thumbnailQuality="hqdefault"
-                              />
-                            ) : post.id === 7 ? (
-                              <YouTubeLazy
-                                videoId="NW9Huszovqw"
-                                title={post.title}
-                                className="w-full h-full"
-                                params="autoplay=1&start=30&end=171&mute=1&loop=1&playlist=NW9Huszovqw"
-                                thumbnailQuality="hqdefault"
-                              />
-                            ) : post.id === 8 ? (
-                              <YouTubeLazy
-                                videoId="JJjJ6lF_4oI"
-                                title={post.title}
-                                className="w-full h-full"
-                                params="autoplay=1&start=22&end=86&mute=1&loop=1&playlist=JJjJ6lF_4oI"
-                                thumbnailQuality="hqdefault"
-                              />
+                            {[1, 2, 3, 4, 7, 8].includes(post.id) ? (
+                              <BlogVideoEmbed postId={post.id} title={post.title} />
                             ) : (
                               <img 
                                 src={post.image} 

@@ -133,6 +133,25 @@ Los blogs están disponibles en **ambos dominios**:
   - https://transervica.net/seo-blog/sector-petrolero-venezuela
   - https://transervica.net/seo-blog/precio-transporte-punto-fijo
 
+### PageSpeed Optimization - YouTube Lite, LCP, SSR Prerender (February 10, 2026)
+Comprehensive performance optimization targeting PageSpeed 100/100:
+
+#### YouTube Lite (react-lite-youtube-embed):
+- **Replaced all YouTube iframes** with `react-lite-youtube-embed` (~1MB JS savings)
+- **Rewrote `youtube-lazy.tsx`** to wrap `LiteYouTubeEmbed` component
+- **Created `BlogVideoEmbed`** helper component for blog video mapping (post IDs 1,2,3,4,7,8)
+- **Updated files**: `blog-section.tsx`, `blog.tsx`, `services-section.tsx`, `about-section.tsx`
+- **Hero section** keeps custom YouTube background (not suitable for LiteYouTubeEmbed)
+
+#### Hero Image LCP Optimization:
+- Added `fetchpriority="high"` to hero poster image for faster LCP
+- Hero image already had `loading="eager"` and `decoding="async"`
+
+#### SSR Prerendering for Key Pages:
+- Added server-side prerendering for `/` (homepage), `/blog`, and `/seo-blog` listing page
+- Injects proper meta tags, descriptions, and hidden SSR content for Googlebot
+- Fixes "Rastreada no indexada" issue in Google Search Console
+
 ### Production Circular Dependency Fix - Root Cause Resolution (February 10, 2026)
 Resolved critical production blank page issue by removing the root cause.
 

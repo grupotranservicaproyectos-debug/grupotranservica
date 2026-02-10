@@ -1,5 +1,6 @@
 import { FileText, Shield, Settings, MapPin, Globe, Truck } from "lucide-react";
 import { useLanguage } from '../contexts/LanguageContext';
+import YouTubeLazy from './youtube-lazy';
 
 export default function ServicesSection() {
   const { t } = useLanguage();
@@ -87,13 +88,11 @@ export default function ServicesSection() {
           {/* Corporate Video - Grúas Móviles Telescópicas y Sobre Oruga */}
           <div className="max-w-4xl mx-auto mb-8 sm:mb-10 lg:mb-12">
             <div className="relative aspect-video rounded-xl sm:rounded-2xl overflow-hidden shadow-xl sm:shadow-2xl bg-black">
-              <iframe
-                src="https://www.youtube.com/embed/17qCAJDlZuM?start=78&autoplay=1&mute=1&loop=1&playlist=17qCAJDlZuM&controls=1&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&vq=hd2160"
+              <YouTubeLazy
+                videoId="17qCAJDlZuM"
                 title="TRANSERVICA - Grúas Móviles Telescópicas y Sobre Oruga hasta 800 Toneladas"
-                className="absolute inset-0 w-full h-full"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
+                className="w-full h-full"
+                params="start=78&autoplay=1&mute=1&loop=1&playlist=17qCAJDlZuM&controls=1&modestbranding=1&rel=0"
               />
             </div>
           </div>

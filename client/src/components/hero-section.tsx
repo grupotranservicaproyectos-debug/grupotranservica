@@ -54,6 +54,7 @@ export default function HeroSection() {
             height={720}
             loading="eager"
             decoding="async"
+            {...{ fetchpriority: "high" } as any}
             onLoad={() => {
               setTimeout(loadVideo, 5000);
             }}

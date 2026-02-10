@@ -167,6 +167,70 @@ app.use((req, res, next) => {
     return html;
   }
 
+  // Prerender homepage for SEO
+  app.get("/", (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const template = getHtmlTemplate();
+      if (!template) return next();
+
+      const baseUrl = getBaseUrl(req);
+      const html = injectMetaTags(template, {
+        title: "TRANSERVICA C.A. | Transporte de Cargas Excepcionales Venezuela - Hasta 1,100 Toneladas",
+        description: "TRANSERVICA C.A. - Líder en transporte de cargas excepcionales en Venezuela con 40 años de experiencia. Equipos alemanes SCHEUERLE para cargas hasta 1,100 toneladas. Servicio especializado para sectores petrolero, industrial, energético y construcción.",
+        canonical: baseUrl,
+        ogImage: `${baseUrl}/attached_assets/logo%20transervica%20sin%20fondo_1754163034585.webp`,
+        content: `<h1>TRANSERVICA C.A. - Transporte de Cargas Excepcionales Venezuela</h1><p>40 años de experiencia en transporte de cargas excepcionales hasta 1,100 toneladas con equipos alemanes SCHEUERLE. Servicio especializado en Venezuela para los sectores petrolero, industrial, energético y construcción.</p>`,
+      });
+
+      res.status(200).set({ "Content-Type": "text/html" }).send(html);
+    } catch (error) {
+      console.error("SSR error for /:", error);
+      next();
+    }
+  });
+
+  // Prerender blog page for SEO
+  app.get("/blog", (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const template = getHtmlTemplate();
+      if (!template) return next();
+
+      const baseUrl = getBaseUrl(req);
+      const html = injectMetaTags(template, {
+        title: "Blog TRANSERVICA | Proyectos y Artículos de Transporte Especializado Venezuela",
+        description: "Blog de TRANSERVICA C.A. con artículos sobre transporte de cargas excepcionales, proyectos ejecutados, equipos especializados y noticias del sector industrial en Venezuela.",
+        canonical: `${baseUrl}/blog`,
+        content: `<h1>Blog TRANSERVICA - Transporte de Cargas Excepcionales</h1><p>Artículos y proyectos destacados sobre transporte especializado de cargas excepcionales en Venezuela.</p>`,
+      });
+
+      res.status(200).set({ "Content-Type": "text/html" }).send(html);
+    } catch (error) {
+      console.error("SSR error for /blog:", error);
+      next();
+    }
+  });
+
+  // Prerender SEO blog listing page
+  app.get("/seo-blog", (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const template = getHtmlTemplate();
+      if (!template) return next();
+
+      const baseUrl = getBaseUrl(req);
+      const html = injectMetaTags(template, {
+        title: "Blog SEO TRANSERVICA | Transporte Especializado Venezuela",
+        description: "Artículos especializados sobre transporte de cargas excepcionales en Venezuela. Información sobre lowboy, cama baja, grúas telescópicas y transporte petrolero.",
+        canonical: `${baseUrl}/seo-blog`,
+        content: `<h1>Blog SEO TRANSERVICA - Transporte Especializado en Venezuela</h1><p>Información detallada sobre servicios de transporte de cargas excepcionales en las principales ciudades de Venezuela.</p>`,
+      });
+
+      res.status(200).set({ "Content-Type": "text/html" }).send(html);
+    } catch (error) {
+      console.error("SSR error for /seo-blog:", error);
+      next();
+    }
+  });
+
   // Prerender SEO blog article pages
   app.get("/seo-blog/:slug", async (req: Request, res: Response, next: NextFunction) => {
     try {
