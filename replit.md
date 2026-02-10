@@ -144,14 +144,16 @@ Resolved critical production blank page issue caused by circular ES module depen
 - During ES module evaluation, the circular dependency causes `TypeError: Cannot read properties of undefined (reading 'useState')`
 - Development works fine (no bundling), only production builds were affected
 
-#### Fix Applied (IIFE Merge in server/index.ts):
+#### Fix Applied (In-Memory IIFE Merge in server/index.ts):
 - **server/index.ts `fixCircularDeps()`**: Runs at production server startup, BEFORE serving static files
 - Detects circular imports between vendor and vendor-react chunks using `es-module-lexer`
 - Merges both chunks into vendor-react using **IIFE wrapping** for variable scope isolation
+- **Serves fixed content from memory** via Express middleware (stored in `circularDepOverrides` Map)
+- Does NOT write to disk - works on **read-only filesystems** (Replit production deployments)
+- Middleware intercepts `/assets/vendor-*.js` requests before `serveStatic()` and serves patched content
 - Vendor code runs first (inside IIFE), then vendor-react code (inside separate IIFE)
 - Cross-chunk bindings are mapped via intermediate variables (`__v$xxx` for vendor exports, `__vr$xxx` for vendor-react exports)
 - Vendor file becomes a thin re-export layer (~589 bytes) pointing to vendor-react
-- Includes safety checks: export validation, post-merge circular import verification
 
 #### Why IIFE Approach:
 - Both chunks use short minified variable names (a, b, c...) that would collide in a naive merge
