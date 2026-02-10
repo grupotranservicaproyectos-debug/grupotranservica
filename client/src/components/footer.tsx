@@ -44,11 +44,10 @@ export default function Footer() {
                   src={logoTranservica} 
                   alt="TRANSERVICA Logo - Transporte Cargas Excepcionales Venezuela"
                   loading="lazy"
-                  width={128}
-                  height={96}
+                  width={174}
+                  height={148}
                   className="h-24 md:h-28 lg:h-32 w-auto max-w-full hover:scale-105 transition-transform duration-300 filter brightness-150 contrast-125 drop-shadow-lg"
                   style={{ 
-                    imageRendering: 'crisp-edges',
                     filter: 'brightness(1.5) contrast(1.25) drop-shadow(0 4px 8px rgba(0,0,0,0.3))'
                   }}
                 />

@@ -47,13 +47,15 @@ export default function HeroSection() {
           />
         ) : (
           <img
-            src="https://i.ytimg.com/vi/_LQbWkWlg6s/hqdefault.jpg"
+            src="https://i.ytimg.com/vi/_LQbWkWlg6s/sddefault.jpg"
             alt="TRANSERVICA - Transporte de Cargas Excepcionales Venezuela"
             className="absolute inset-0 w-full h-full object-cover"
+            width={1280}
+            height={720}
             loading="eager"
             decoding="async"
             onLoad={() => {
-              setTimeout(loadVideo, 3000);
+              setTimeout(loadVideo, 5000);
             }}
           />
         )}
@@ -98,7 +100,7 @@ export default function HeroSection() {
                 alt="Logo TRANSERVICA - Transporte Cargas Excepcionales Venezuela" 
                 className="h-16 sm:h-20 w-auto cursor-pointer hover:scale-105 transition-all duration-300 filter brightness-110 contrast-125 drop-shadow-lg"
                 width={80}
-                height={64}
+                height={68}
                 onClick={() => scrollToSection('inicio')}
               />
             </div>
@@ -110,7 +112,7 @@ export default function HeroSection() {
                 alt="Logo TRANSERVICA - Transporte Cargas Excepcionales Venezuela Hasta 1100 Toneladas" 
                 className="h-24 lg:h-28 xl:h-32 w-auto cursor-pointer hover:scale-105 transition-all duration-300 mr-8 filter brightness-110 contrast-125 drop-shadow-lg"
                 width={128}
-                height={96}
+                height={109}
                 style={{ 
                   filter: 'brightness(1.1) contrast(1.25) drop-shadow(0 2px 4px rgba(0,0,0,0.2))'
                 }}
@@ -171,7 +173,7 @@ export default function HeroSection() {
               </div>
               <button 
                 onClick={scrollToContact}
-                className="bg-transervica-green text-white px-6 py-2 rounded-md text-sm font-semibold hover:bg-transervica-light-green transition shadow-md"
+                className="bg-[#155d29] text-white px-6 py-2 rounded-md text-sm font-semibold hover:bg-[#0f4a21] transition shadow-md"
               >
                 {t('nav.quote')}
               </button>

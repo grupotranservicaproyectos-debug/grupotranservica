@@ -31,7 +31,7 @@ export default function Navigation() {
                 alt="TRANSERVICA Logo" 
                 className="h-24 w-auto hover:scale-105 transition-transform duration-300"
                 width={96}
-                height={96}
+                height={82}
               />
             </button>
           </div>
@@ -77,7 +77,7 @@ export default function Navigation() {
               </Link>
               <button 
                 onClick={() => scrollToSection('contacto')}
-                className="bg-transervica-green text-white px-6 py-2 rounded-lg text-sm font-medium hover:bg-transervica-light-green transition"
+                className="bg-transervica-green text-white px-6 py-2 rounded-lg text-sm font-medium hover:bg-[#0f4a21] transition"
               >
                 {t('nav.quote')}
               </button>
@@ -140,7 +140,7 @@ export default function Navigation() {
               </Link>
               <button 
                 onClick={() => scrollToSection('contacto')}
-                className="bg-transervica-green text-white block px-3 py-2 rounded-lg text-base font-medium hover:bg-transervica-light-green transition w-full text-left"
+                className="bg-transervica-green text-white block px-3 py-2 rounded-lg text-base font-medium hover:bg-[#0f4a21] transition w-full text-left"
               >
                 {t('nav.quote')}
               </button>

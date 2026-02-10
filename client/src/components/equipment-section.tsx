@@ -189,12 +189,12 @@ export default function EquipmentSection() {
                     <button
                       key={index}
                       onClick={() => setCurrentSlide(index)}
-                      className={`h-2 rounded-full transition-all duration-300 ${
+                      className={`h-2 rounded-full transition-all duration-300 p-[23px] bg-clip-content ${
                         currentSlide === index 
                           ? 'bg-[#155d29] w-8' 
                           : 'bg-gray-300 w-2 hover:bg-gray-400'
                       }`}
-                      aria-label={`Go to equipment ${index + 1}`}
+                      aria-label={`Ir a equipo ${index + 1}`}
                     />
                   ))}
                 </div>

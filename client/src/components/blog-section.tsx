@@ -200,7 +200,8 @@ export default function BlogSection() {
                   <button
                     key={index}
                     onClick={() => goToSlide(index)}
-                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    aria-label={`Ir a slide ${index + 1}`}
+                    className={`w-3 h-3 rounded-full transition-all duration-300 p-[18px] bg-clip-content ${
                       currentSlide === index 
                         ? 'bg-[#155d29] scale-125' 
                         : 'bg-gray-300 hover:bg-gray-400'
@@ -212,13 +213,15 @@ export default function BlogSection() {
               <div className="flex gap-2">
                 <button
                   onClick={prevSlide}
-                  className="p-2 rounded-full bg-white border border-gray-200 hover:border-[#155d29] hover:bg-[#155d29] hover:text-white transition-all duration-300 shadow-md hover:shadow-lg group"
+                  aria-label="Artículo anterior"
+                  className="p-3 rounded-full bg-white border border-gray-200 hover:border-[#155d29] hover:bg-[#155d29] hover:text-white transition-all duration-300 shadow-md hover:shadow-lg group"
                 >
                   <ChevronLeft className="w-5 h-5" />
                 </button>
                 <button
                   onClick={nextSlide}
-                  className="p-2 rounded-full bg-white border border-gray-200 hover:border-[#155d29] hover:bg-[#155d29] hover:text-white transition-all duration-300 shadow-md hover:shadow-lg group"
+                  aria-label="Artículo siguiente"
+                  className="p-3 rounded-full bg-white border border-gray-200 hover:border-[#155d29] hover:bg-[#155d29] hover:text-white transition-all duration-300 shadow-md hover:shadow-lg group"
                 >
                   <ChevronRight className="w-5 h-5" />
                 </button>
@@ -248,7 +251,6 @@ export default function BlogSection() {
                                 className="w-full h-full"
                                 params="autoplay=1&mute=1&loop=1&playlist=JnWnFe_QdnE"
                                 thumbnailQuality="hqdefault"
-                                autoLoad={true}
                               />
                             ) : post.id === 2 ? (
                               <YouTubeLazy
@@ -257,7 +259,6 @@ export default function BlogSection() {
                                 className="w-full h-full"
                                 params="autoplay=1&mute=1&loop=1&playlist=4ZfZ5YFelkQ"
                                 thumbnailQuality="hqdefault"
-                                autoLoad={true}
                               />
                             ) : post.id === 3 ? (
                               <YouTubeLazy
@@ -266,7 +267,6 @@ export default function BlogSection() {
                                 className="w-full h-full"
                                 params="autoplay=1&mute=1&loop=1&playlist=44lpgBO22qU"
                                 thumbnailQuality="hqdefault"
-                                autoLoad={true}
                               />
                             ) : post.id === 4 ? (
                               <YouTubeLazy
@@ -275,7 +275,6 @@ export default function BlogSection() {
                                 className="w-full h-full"
                                 params="autoplay=1&mute=1&loop=1&playlist=54hazc90eNk"
                                 thumbnailQuality="hqdefault"
-                                autoLoad={true}
                               />
                             ) : post.id === 7 ? (
                               <YouTubeLazy
@@ -284,7 +283,6 @@ export default function BlogSection() {
                                 className="w-full h-full"
                                 params="autoplay=1&start=30&end=171&mute=1&loop=1&playlist=NW9Huszovqw"
                                 thumbnailQuality="hqdefault"
-                                autoLoad={true}
                               />
                             ) : post.id === 8 ? (
                               <YouTubeLazy
@@ -293,7 +291,6 @@ export default function BlogSection() {
                                 className="w-full h-full"
                                 params="autoplay=1&start=22&end=86&mute=1&loop=1&playlist=JJjJ6lF_4oI"
                                 thumbnailQuality="hqdefault"
-                                autoLoad={true}
                               />
                             ) : (
                               <img 

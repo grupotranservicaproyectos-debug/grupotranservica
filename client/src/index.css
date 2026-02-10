@@ -2,20 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Fallback font para mitigar CLS y mejorar FCP */
-@font-face {
-  font-family: 'Inter Fallback';
-  src: local('Arial');
-  size-adjust: 103%;
-  ascent-override: 90%;
-  descent-override: 22%;
-  line-gap-override: 10%;
-  }
-
-body {
-  font-family: 'Inter', 'Inter Fallback', -apple-system, BlinkMacSystemFont, sans-serif;
-  }
-
 :root {
   --background: hsl(0, 0%, 100%);
   --foreground: hsl(20, 14.3%, 4.1%);
@@ -73,6 +59,15 @@ body {
   --radius: 0.5rem;
 }
 
+@font-face {
+  font-family: 'Inter Fallback';
+  src: local('Arial');
+  size-adjust: 107%;
+  ascent-override: 90%;
+  descent-override: 22%;
+  line-gap-override: 0%;
+}
+
 @layer base {
   * {
     @apply border-border;
@@ -87,7 +82,7 @@ body {
   
   body {
     @apply font-sans antialiased bg-background;
-    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-family: 'Inter', 'Inter Fallback', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     color: hsl(0, 0%, 15%);
     line-height: 1.6;
     margin: 0;

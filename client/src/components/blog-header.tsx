@@ -138,7 +138,7 @@ export default function BlogHeader({ showBackButton = false, onBackClick }: Blog
             </div>
             <button 
               onClick={() => scrollToSection('contacto')}
-              className="bg-transervica-green text-white px-6 py-2 rounded-md text-sm font-semibold hover:bg-transervica-light-green transition shadow-md"
+              className="bg-transervica-green text-white px-6 py-2 rounded-md text-sm font-semibold hover:bg-[#0f4a21] transition shadow-md"
             >
               {t('nav.quote')}
             </button>
