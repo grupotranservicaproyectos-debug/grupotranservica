@@ -28,6 +28,8 @@ function parseExportStatement(content: string) {
   return { bindings, fullMatch: match[0] };
 }
 
+const circularDepOverrides: Map<string, Buffer> = new Map();
+
 async function fixCircularDeps() {
   const distAssetsDir = path.resolve(import.meta.dirname, "public", "assets");
   if (!fs.existsSync(distAssetsDir)) return;
@@ -126,21 +128,12 @@ async function fixCircularDeps() {
     return;
   }
 
-  try {
-    fs.writeFileSync(vendorReactPath, merged);
-    fs.writeFileSync(vendorPath, vendorNewContent);
+  circularDepOverrides.set(`/assets/${vendorReactFile}`, Buffer.from(merged));
+  circularDepOverrides.set(`/assets/${vendorFile}`, Buffer.from(vendorNewContent));
 
-    const verifyContent = fs.readFileSync(vendorReactPath, 'utf-8');
-    if (verifyContent.includes(`from"./${vendorFile}"`)) {
-      log("Warning: merged vendor-react still imports from vendor. Fix may be incomplete.");
-    }
-
-    log(`Fixed circular dependency: merged ${vendorFile} (${vendorContent.length}B) + ${vendorReactFile} (${vendorReactContent.length}B) = ${merged.length}B`);
-    log(`  vendor-react imports from vendor: ${vrToVBindings.length} bindings`);
-    log(`  vendor imports from vendor-react: ${vToVrBindings.length} bindings`);
-  } catch (e) {
-    log(`Warning: could not write fix to disk: ${e}`);
-  }
+  log(`Fixed circular dependency (in-memory): merged ${vendorFile} (${vendorContent.length}B) + ${vendorReactFile} (${vendorReactContent.length}B) = ${merged.length}B`);
+  log(`  vendor-react imports from vendor: ${vrToVBindings.length} bindings`);
+  log(`  vendor imports from vendor-react: ${vToVrBindings.length} bindings`);
 }
 
 const app = express();
@@ -377,6 +370,20 @@ app.use((req, res, next) => {
     await setupVite(app, server);
   } else {
     await fixCircularDeps();
+
+    if (circularDepOverrides.size > 0) {
+      app.use((req, res, next) => {
+        const override = circularDepOverrides.get(req.path);
+        if (override) {
+          res.setHeader('Content-Type', 'application/javascript; charset=utf-8');
+          res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+          return res.send(override);
+        }
+        next();
+      });
+      log(`Serving ${circularDepOverrides.size} patched vendor chunks from memory`);
+    }
+
     serveStatic(app);
   }
 
