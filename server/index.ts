@@ -8,6 +8,26 @@ import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
 import { storage } from "./storage";
 
+function parseImportBindings(content: string, ss: number, se: number) {
+  const stmt = content.substring(ss, se);
+  const match = stmt.match(/import\{([^}]+)\}/);
+  if (!match) return [];
+  return match[1].split(',').map(b => {
+    const parts = b.trim().split(/\s+as\s+/);
+    return { imported: parts[0].trim(), local: (parts[1] || parts[0]).trim() };
+  });
+}
+
+function parseExportStatement(content: string) {
+  const match = content.match(/export\{([^}]+)\}\s*;?\s*$/);
+  if (!match) return { bindings: [] as {local: string, exported: string}[], fullMatch: '' };
+  const bindings = match[1].split(',').map(b => {
+    const parts = b.trim().split(/\s+as\s+/);
+    return { local: parts[0].trim(), exported: (parts[1] || parts[0]).trim() };
+  });
+  return { bindings, fullMatch: match[0] };
+}
+
 async function fixCircularDeps() {
   const distAssetsDir = path.resolve(import.meta.dirname, "public", "assets");
   if (!fs.existsSync(distAssetsDir)) return;
@@ -21,54 +41,105 @@ async function fixCircularDeps() {
   const vendorReactPath = path.join(distAssetsDir, vendorReactFile);
   const vendorContent = fs.readFileSync(vendorPath, 'utf-8');
 
-  if (vendorContent.length < 20) return;
+  if (vendorContent.length < 100) return;
 
   const vendorReactContent = fs.readFileSync(vendorReactPath, 'utf-8');
   const hasCircular = vendorContent.includes(`from"./${vendorReactFile}"`) &&
                       vendorReactContent.includes(`from"./${vendorFile}"`);
   if (!hasCircular) return;
 
-  log("Circular dependency detected between vendor chunks. Fixing...");
+  log("Circular dependency detected between vendor chunks. Fixing with IIFE merge...");
 
   await init;
-  const [vendorImports] = parse(vendorContent);
+  const [vImports] = parse(vendorContent);
+  const [vrImports] = parse(vendorReactContent);
 
-  const reactImport = vendorImports.find(imp => {
-    const specifier = vendorContent.substring(imp.s, imp.e);
-    return specifier === `./${vendorReactFile}`;
-  });
+  const vReactImport = vImports.find(imp => vendorContent.substring(imp.s, imp.e) === `./${vendorReactFile}`);
+  const vrVendorImport = vrImports.find(imp => vendorReactContent.substring(imp.s, imp.e) === `./${vendorFile}`);
+  if (!vReactImport || !vrVendorImport) return;
 
-  if (!reactImport) {
-    log("Could not find vendor-react import in vendor chunk");
+  const vToVrBindings = parseImportBindings(vendorContent, vReactImport.ss, vReactImport.se);
+  const vrToVBindings = parseImportBindings(vendorReactContent, vrVendorImport.ss, vrVendorImport.se);
+
+  const vExport = parseExportStatement(vendorContent);
+  const vrExport = parseExportStatement(vendorReactContent);
+
+  if (vExport.bindings.length === 0 || vrExport.bindings.length === 0) {
+    log("Warning: could not parse export statements from vendor chunks. Skipping fix.");
     return;
   }
 
-  const importStatement = vendorContent.substring(reactImport.ss, reactImport.se);
-  const bindingsMatch = importStatement.match(/import\{([^}]+)\}/);
-  if (!bindingsMatch) {
-    log("Could not parse import bindings");
-    return;
-  }
-
-  const bindings = bindingsMatch[1].split(',').map(b => {
-    const parts = b.trim().split(/\s+as\s+/);
-    return { imported: parts[0].trim(), local: (parts[1] || parts[0]).trim() };
+  const vrToVMap = vrToVBindings.map(bind => {
+    const vExp = vExport.bindings.find(e => e.exported === bind.imported);
+    return { alias: bind.local, target: vExp ? vExp.local : bind.imported };
   });
 
-  const varDecls = bindings.map(b => b.local).join(',');
-  const assignments = bindings.map(b => `${b.local}=__m.${b.imported}`).join(';');
-  const replacement = `var ${varDecls};import("./${vendorReactFile}").then(__m=>{${assignments}})`;
+  const vToVrMap = vToVrBindings.map(bind => {
+    const vrExp = vrExport.bindings.find(e => e.exported === bind.imported);
+    return { alias: bind.local, target: vrExp ? vrExp.local : bind.imported };
+  });
 
-  const fixedVendor = vendorContent.substring(0, reactImport.ss) +
-                      replacement +
-                      vendorContent.substring(reactImport.se);
+  let vendorBody = vendorContent.substring(0, vReactImport.ss) + vendorContent.substring(vReactImport.se);
+  if (vExport.fullMatch) vendorBody = vendorBody.replace(vExport.fullMatch, '');
+
+  let vrBody = vendorReactContent.substring(0, vrVendorImport.ss) + vendorReactContent.substring(vrVendorImport.se);
+  if (vrExport.fullMatch) vrBody = vrBody.replace(vrExport.fullMatch, '');
+
+  const vExposeVars = vExport.bindings.map(e => `__v$${e.exported}`);
+  const vrExposeVars = vrExport.bindings.map(e => `__vr$${e.exported}`);
+
+  const vOuterDecls = vExposeVars.length > 0 ? `var ${vExposeVars.join(',')};` : '';
+  const vrOuterDecls = vrExposeVars.length > 0 ? `var ${vrExposeVars.join(',')};` : '';
+  const vToVrOuterDecls = vToVrBindings.length > 0 ? `var ${vToVrBindings.map(b => b.local).join(',')};` : '';
+
+  const vExposeAssignments = vExport.bindings.map(e => `__v$${e.exported}=${e.local}`).join(';');
+  const vrExposeAssignments = vrExport.bindings.map(e => `__vr$${e.exported}=${e.local}`).join(';');
+
+  const vrAliases = vrToVMap.map(m => `var ${m.alias}=__v$${vrToVBindings.find(b => b.local === m.alias)!.imported};`).join('');
+  const vAliases = vToVrMap.map(m => `${m.alias}=__vr$${vToVrBindings.find(b => b.local === m.alias)!.imported};`).join('');
+
+  const allExports: string[] = [];
+  for (const e of vrExport.bindings) {
+    allExports.push(`__vr$${e.exported} as ${e.exported}`);
+  }
+  for (const e of vExport.bindings) {
+    allExports.push(`__v$${e.exported} as __v_${e.exported}`);
+  }
+  const exportStatement = `export{${allExports.join(',')}}`;
+
+  const vendorReExports = vExport.bindings.map(e => `__v_${e.exported} as ${e.exported}`).join(',');
+  const vendorNewContent = `export{${vendorReExports}}from"./${vendorReactFile}"`;
+
+  const merged = [
+    vOuterDecls,
+    vrOuterDecls,
+    vToVrOuterDecls,
+    `(function(){${vendorBody};${vExposeAssignments}})();`,
+    vrAliases,
+    `(function(){${vrBody};${vrExposeAssignments}})();`,
+    vAliases,
+    exportStatement
+  ].join('');
+
+  if (!merged.includes('export{')) {
+    log("Warning: merged output missing export statement. Aborting fix to prevent corruption.");
+    return;
+  }
 
   try {
-    fs.writeFileSync(vendorPath, fixedVendor);
-    log(`Fixed: converted static import to dynamic import in ${vendorFile}`);
-    log(`  Deferred ${bindings.length} bindings: ${bindings.map(b => b.imported).join(', ')}`);
+    fs.writeFileSync(vendorReactPath, merged);
+    fs.writeFileSync(vendorPath, vendorNewContent);
+
+    const verifyContent = fs.readFileSync(vendorReactPath, 'utf-8');
+    if (verifyContent.includes(`from"./${vendorFile}"`)) {
+      log("Warning: merged vendor-react still imports from vendor. Fix may be incomplete.");
+    }
+
+    log(`Fixed circular dependency: merged ${vendorFile} (${vendorContent.length}B) + ${vendorReactFile} (${vendorReactContent.length}B) = ${merged.length}B`);
+    log(`  vendor-react imports from vendor: ${vrToVBindings.length} bindings`);
+    log(`  vendor imports from vendor-react: ${vToVrBindings.length} bindings`);
   } catch (e) {
-    log(`Warning: could not write fix to disk (read-only filesystem?): ${e}`);
+    log(`Warning: could not write fix to disk: ${e}`);
   }
 }
 
@@ -305,7 +376,7 @@ app.use((req, res, next) => {
   if (app.get("env") === "development") {
     await setupVite(app, server);
   } else {
-    fixCircularDeps();
+    await fixCircularDeps();
     serveStatic(app);
   }
 
