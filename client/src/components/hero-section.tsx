@@ -48,6 +48,8 @@ export default function HeroSection() {
         ) : (
           <img
             src="https://i.ytimg.com/vi/_LQbWkWlg6s/sddefault.jpg"
+            srcSet="https://i.ytimg.com/vi/_LQbWkWlg6s/mqdefault.jpg 320w, https://i.ytimg.com/vi/_LQbWkWlg6s/hqdefault.jpg 480w, https://i.ytimg.com/vi/_LQbWkWlg6s/sddefault.jpg 640w, https://i.ytimg.com/vi/_LQbWkWlg6s/maxresdefault.jpg 1280w"
+            sizes="100vw"
             alt="TRANSERVICA - Transporte de Cargas Excepcionales Venezuela"
             className="absolute inset-0 w-full h-full object-cover"
             width={1280}

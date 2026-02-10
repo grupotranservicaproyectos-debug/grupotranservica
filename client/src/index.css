@@ -141,6 +141,33 @@
     color: white;
   }
   
+  .mobile-padding {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  @media (min-width: 640px) {
+    .mobile-padding {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .mobile-padding {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  .mobile-button {
+    padding: 0.875rem 1.5rem;
+    min-height: 48px;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    touch-action: manipulation;
+  }
+
   .mobile-menu-transition {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
@@ -157,6 +184,19 @@
     max-width: 100%;
     height: auto;
     display: block;
+  }
+
+  section {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 500px;
+  }
+
+  section#inicio {
+    content-visibility: visible;
+  }
+
+  a, button {
+    touch-action: manipulation;
   }
 
   h1, h2, h3, h4, h5, h6 {
