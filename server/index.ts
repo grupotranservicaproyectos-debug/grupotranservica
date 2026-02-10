@@ -35,16 +35,16 @@ app.use((req, res, next) => {
   if (isHTML) {
     res.setHeader('Content-Security-Policy',
       "default-src 'self'; " +
-      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.youtube.com https://www.youtube-nocookie.com https://s.ytimg.com https://replit.com https://replit-cdn.com https://www.googletagmanager.com https://www.google-analytics.com; " +
+      "script-src 'self' 'unsafe-inline' https://www.youtube.com https://www.youtube-nocookie.com https://s.ytimg.com https://www.googletagmanager.com https://www.google-analytics.com" + (process.env.NODE_ENV !== 'production' ? " 'unsafe-eval' https://replit.com https://replit-cdn.com" : "") + "; " +
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; " +
       "font-src 'self' https://fonts.gstatic.com data:; " +
       "img-src 'self' data: https: blob: https://i.ytimg.com https://img.youtube.com https://images.pexels.com; " +
       "media-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://i.ytimg.com https://*.ytimg.com https://*.googlevideo.com; " +
       "frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://www.google.com; " +
-      "connect-src 'self' https://api.openrouter.ai https://generativelanguage.googleapis.com https://www.google-analytics.com https://vitals.vercel-insights.com wss: ws:; " +
+      "connect-src 'self' https://api.openrouter.ai https://generativelanguage.googleapis.com https://www.google-analytics.com https://vitals.vercel-insights.com" + (process.env.NODE_ENV !== 'production' ? " wss: ws:" : "") + "; " +
       "object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; upgrade-insecure-requests"
     );
-    res.setHeader('Permissions-Policy', 'accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()');
+    res.setHeader('Permissions-Policy', 'accelerometer=(), autoplay=(self), camera=(), cross-origin-isolated=(), display-capture=(), encrypted-media=(self), fullscreen=(self), geolocation=(), gyroscope=(), keyboard-map=(), magnetometer=(), microphone=(), midi=(), payment=(), picture-in-picture=(self), publickey-credentials-get=(), screen-wake-lock=(), sync-xhr=(), usb=(), xr-spatial-tracking=()');
   }
   next();
 });

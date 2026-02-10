@@ -232,6 +232,9 @@ export default function ProjectsCarousel() {
                     src={currentProject.image}
                     alt={`Proyecto TRANSERVICA: ${currentProject.title} - Transporte ${currentProject.weight} ${currentProject.location} Venezuela`}
                     loading="lazy"
+                    width={600}
+                    height={600}
+                    decoding="async"
                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                   />
                   
@@ -247,7 +250,7 @@ export default function ProjectsCarousel() {
 
                   {/* Weight Badge */}
                   <div className="absolute top-4 right-4">
-                    <span className="text-white px-3 py-1 rounded-full text-sm font-medium bg-[#3ea30f]">
+                    <span className="text-white px-3 py-1 rounded-full text-sm font-bold bg-[#1a7a1a]">
                       {currentProject.weight}
                     </span>
                   </div>
@@ -285,7 +288,7 @@ export default function ProjectsCarousel() {
                     }}
                     className="w-full md:w-auto text-white font-bold py-4 px-8 rounded-xl transform transition-all duration-200 hover:scale-105 hover:shadow-lg" 
                     style={{ backgroundColor: '#155d29' }} 
-                    onMouseEnter={(e) => (e.target as HTMLElement).style.backgroundColor = '#a8e6a8'} 
+                    onMouseEnter={(e) => (e.target as HTMLElement).style.backgroundColor = '#0f4a21'}
                     onMouseLeave={(e) => (e.target as HTMLElement).style.backgroundColor = '#155d29'}
                   >
                     {currentCTA}
@@ -348,21 +351,27 @@ export default function ProjectsCarousel() {
             </button>
           </div>
 
-          {/* Slide Indicators */}
-          <div className="flex justify-center mt-6 space-x-2">
+          {/* Slide Indicators - Accessible touch targets (min 48x48px) */}
+          <div className="flex justify-center mt-6 space-x-1">
             {projectsData.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentSlide(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-200 ${
-                  index === currentSlide
-                    ? "scale-125"
-                    : "bg-gray-300 hover:bg-gray-400"
-                }`}
-                style={index === currentSlide ? { backgroundColor: '#155d29' } : {}}
-                aria-label={`Ir a proyecto ${index + 1}`}
+                className="p-[18px] group"
+                aria-label={`Ir a proyecto ${index + 1}: ${projectsData[index].title}`}
+                aria-current={index === currentSlide ? 'true' : undefined}
                 data-testid={`button-slide-${index}`}
-              />
+              >
+                <span
+                  className={`block w-3 h-3 rounded-full transition-all duration-200 ${
+                    index === currentSlide
+                      ? "scale-125"
+                      : "bg-gray-300 group-hover:bg-gray-400"
+                  }`}
+                  style={index === currentSlide ? { backgroundColor: '#155d29' } : {}}
+                  aria-hidden="true"
+                />
+              </button>
             ))}
           </div>
         </div>

@@ -1,12 +1,19 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import { Link } from 'wouter';
 import { useLanguage } from '../contexts/LanguageContext';
 import LanguageSwitcher from './LanguageSwitcher';
 import logoTranservica from "@assets/logo transervica sin fondo_1754163034585.webp";
 
+const HERO_VIDEO_ID = '_LQbWkWlg6s';
+
 export default function HeroSection() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const { t } = useLanguage();
+
+  const loadVideo = useCallback(() => {
+    setIsVideoLoaded(true);
+  }, []);
   const scrollToContact = () => {
     const element = document.getElementById('contacto');
     if (element) {
@@ -23,24 +30,55 @@ export default function HeroSection() {
 
   return (
     <section id="inicio" className="relative min-h-screen bg-black overflow-hidden">
-      {/* Video de fondo Netflix Style */}
+      {/* Video de fondo Netflix Style - Facade Pattern for Performance */}
       <div className="absolute inset-0 z-0 overflow-hidden">
-        <iframe
-          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
-          src="https://www.youtube.com/embed/_LQbWkWlg6s?autoplay=1&mute=1&controls=0&showinfo=0&rel=0&loop=1&playlist=_LQbWkWlg6s&modestbranding=1&start=20&iv_load_policy=3&cc_load_policy=0&disablekb=1&fs=0&vq=hd1080&quality=hd1080&hd=1&fmt=22&enablejsapi=1"
-          title="Transervica Background Video - Transporte de Cargas Excepcionales"
-          allow="autoplay; encrypted-media"
-          loading="eager"
-          style={{
-            pointerEvents: 'none',
-            border: 'none',
-            width: 'max(100vw, 177.77vh)',
-            height: 'max(100vh, 56.25vw)',
-            minWidth: '100vw',
-            minHeight: '100vh'
-          }}
-        />
-        
+        {isVideoLoaded ? (
+          <iframe
+            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+            src={`https://www.youtube-nocookie.com/embed/${HERO_VIDEO_ID}?autoplay=1&mute=1&controls=0&showinfo=0&rel=0&loop=1&playlist=${HERO_VIDEO_ID}&modestbranding=1&start=20&iv_load_policy=3&cc_load_policy=0&disablekb=1&fs=0&enablejsapi=1`}
+            title="Transervica Background Video - Transporte de Cargas Excepcionales"
+            allow="autoplay; encrypted-media"
+            loading="eager"
+            style={{
+              pointerEvents: 'none',
+              border: 'none',
+              width: 'max(100vw, 177.77vh)',
+              height: 'max(100vh, 56.25vw)',
+              minWidth: '100vw',
+              minHeight: '100vh'
+            }}
+          />
+        ) : (
+          <div
+            className="absolute inset-0 cursor-pointer"
+            onClick={loadVideo}
+            role="button"
+            tabIndex={0}
+            aria-label="Reproducir video de fondo de Transervica"
+            onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') loadVideo(); }}
+          >
+            <img
+              src={`https://i.ytimg.com/vi/${HERO_VIDEO_ID}/maxresdefault.jpg`}
+              alt="Video de fondo - Transporte de Cargas Excepcionales Venezuela"
+              className="w-full h-full object-cover"
+              fetchPriority="high"
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover'
+              }}
+            />
+            {/* Play button overlay */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="bg-black/40 rounded-full p-6 hover:bg-black/60 transition-colors">
+                <svg className="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M8 5v14l11-7z"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* Minimal overlay only where needed */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent z-10"></div>
       </div>
@@ -78,27 +116,34 @@ export default function HeroSection() {
           <div className="flex items-center justify-between py-3">
             {/* Mobile logo - always visible */}
             <div className="lg:hidden">
-              <img 
-                src={logoTranservica} 
-                alt="Logo TRANSERVICA - Transporte Cargas Excepcionales Venezuela" 
-                className="h-16 sm:h-20 w-auto cursor-pointer hover:scale-105 transition-all duration-300 filter brightness-110 contrast-125 drop-shadow-lg"
+              <img
+                src={logoTranservica}
+                alt="Logo TRANSERVICA - Transporte Cargas Excepcionales Venezuela"
+                className="h-16 sm:h-20 w-auto cursor-pointer hover:scale-105 transition-all duration-300"
                 width={80}
                 height={64}
                 fetchPriority="high"
+                style={{
+                  filter: 'brightness(1.1) contrast(1.25) drop-shadow(0 2px 4px rgba(0,0,0,0.2))',
+                  aspectRatio: '80/64',
+                  objectFit: 'contain'
+                }}
                 onClick={() => scrollToSection('inicio')}
               />
             </div>
             
             <div className="hidden lg:flex items-center space-x-8">
               {/* Logo next to navigation */}
-              <img 
-                src={logoTranservica} 
-                alt="Logo TRANSERVICA - Transporte Cargas Excepcionales Venezuela Hasta 1100 Toneladas" 
-                className="h-24 lg:h-28 xl:h-32 w-auto cursor-pointer hover:scale-105 transition-all duration-300 mr-8 filter brightness-110 contrast-125 drop-shadow-lg"
-                width={128}
+              <img
+                src={logoTranservica}
+                alt="Logo TRANSERVICA - Transporte Cargas Excepcionales Venezuela Hasta 1100 Toneladas"
+                className="h-24 lg:h-28 xl:h-32 w-auto cursor-pointer hover:scale-105 transition-all duration-300 mr-8"
+                width={120}
                 height={96}
-                style={{ 
-                  filter: 'brightness(1.1) contrast(1.25) drop-shadow(0 2px 4px rgba(0,0,0,0.2))'
+                style={{
+                  filter: 'brightness(1.1) contrast(1.25) drop-shadow(0 2px 4px rgba(0,0,0,0.2))',
+                  aspectRatio: '120/96',
+                  objectFit: 'contain'
                 }}
                 onClick={() => scrollToSection('inicio')}
               />
@@ -270,11 +315,13 @@ export default function HeroSection() {
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition z-50"
         title="Contactar por WhatsApp"
+        aria-label="Contactar por WhatsApp"
         data-testid="button-whatsapp-floating"
       >
-        <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 32 32">
+        <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true">
           <path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.048l-2.137 7.952 7.933-2.127c2.42 1.396 5.202 2.127 8.067 2.127 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.467c-2.482 0-4.908-0.646-7.07-1.87l-0.507-0.292-4.713 1.262 1.262-4.669-0.292-0.508c-1.207-2.100-1.847-4.507-1.847-6.924 0-7.435 6.050-13.485 13.485-13.485s13.485 6.050 13.485 13.485c0 7.435-6.050 13.485-13.485 13.485zM21.655 18.762c-0.362-0.181-2.138-1.055-2.470-1.175s-0.573-0.181-0.815 0.181c-0.241 0.362-0.935 1.175-1.147 1.417s-0.422 0.271-0.784 0.090c-0.362-0.181-1.529-0.563-2.913-1.797-1.077-0.960-1.804-2.144-2.016-2.506s-0.022-0.558 0.159-0.738c0.163-0.163 0.362-0.422 0.543-0.634s0.241-0.362 0.362-0.603c0.121-0.241 0.060-0.452-0.030-0.634s-0.815-1.963-1.117-2.688c-0.294-0.706-0.593-0.611-0.815-0.622-0.211-0.011-0.452-0.013-0.693-0.013s-0.634 0.090-0.965 0.452c-0.332 0.362-1.268 1.239-1.268 3.019s1.298 3.502 1.479 3.744c0.181 0.241 2.549 3.892 6.177 5.459 0.863 0.373 1.537 0.596 2.063 0.763 0.867 0.276 1.656 0.237 2.281 0.144 0.696-0.104 2.138-0.874 2.440-1.718s0.302-1.567 0.211-1.718c-0.090-0.151-0.332-0.241-0.695-0.422z"/>
         </svg>
+        <span className="sr-only">Contactar por WhatsApp</span>
       </a>
       {/* Content Container - Positioned closer to bottom green bar */}
       <div className="absolute inset-0 z-20 flex items-end justify-start">

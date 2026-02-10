@@ -85,6 +85,7 @@ export default function ProjectsGallery() {
                 width={400}
                 height={256}
                 loading="lazy"
+                decoding="async"
               />
               <div className="p-6">
                 <h3 className="text-xl font-bold text-gray-800 mb-2">{project.title}</h3>
@@ -152,18 +153,24 @@ export default function ProjectsGallery() {
             <ChevronRight className="w-6 h-6 text-transervica-green" />
           </button>
 
-          {/* Carousel Indicators */}
-          <div className="flex justify-center mt-6 space-x-2">
-            {projects.map((_, index) => (
+          {/* Carousel Indicators - Accessible touch targets (min 48x48px) */}
+          <div className="flex justify-center mt-6 space-x-1">
+            {projects.map((project, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentIndex(index)}
-                className={`w-3 h-3 rounded-full transition ${
-                  index === currentIndex ? 'bg-transervica-green' : 'bg-gray-300'
-                }`}
-                aria-label={`Ir a proyecto ${index + 1}`}
+                className="p-[18px] group"
+                aria-label={`Ir a proyecto ${index + 1}: ${project.title}`}
+                aria-current={index === currentIndex ? 'true' : undefined}
                 data-testid={`button-indicator-${index}`}
-              />
+              >
+                <span
+                  className={`block w-3 h-3 rounded-full transition ${
+                    index === currentIndex ? 'bg-transervica-green' : 'bg-gray-300 group-hover:bg-gray-400'
+                  }`}
+                  aria-hidden="true"
+                />
+              </button>
             ))}
           </div>
         </div>
