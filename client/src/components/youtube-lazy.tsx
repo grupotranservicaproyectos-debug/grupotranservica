@@ -14,7 +14,7 @@ export default function YouTubeLazy({
   title, 
   className = '', 
   params = '',
-  thumbnailQuality = 'sddefault',
+  thumbnailQuality = 'hqdefault',
 }: YouTubeLazyProps) {
   return (
     <div className={className}>
@@ -48,7 +48,7 @@ export function BlogVideoEmbed({ postId, title }: { postId: number; title: strin
       id={video.id}
       title={title}
       params={video.params}
-      poster="sddefault"
+      poster="hqdefault"
       webp={false}
       noCookie={true}
     />
