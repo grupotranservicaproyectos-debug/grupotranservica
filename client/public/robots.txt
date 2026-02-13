@@ -1,15 +1,29 @@
 User-agent: *
 Allow: /
+Allow: /seo-blog/
+Allow: /blog
+Allow: /cookies
+Allow: /api/sitemap.xml
 Disallow: /api/
 Disallow: /admin/
 Disallow: /seo-blog/admin
 
-Sitemap: https://grupotranservica.com/api/sitemap.xml
+Sitemap: https://grupotranservica.com/sitemap.xml
 
 User-agent: Googlebot
 Allow: /
-Crawl-delay: 1
+Allow: /seo-blog/
+Allow: /blog
+Allow: /api/sitemap.xml
+Disallow: /api/
+Disallow: /admin/
+Disallow: /seo-blog/admin
 
 User-agent: Bingbot
 Allow: /
-Crawl-delay: 2
+Allow: /seo-blog/
+Allow: /blog
+Allow: /api/sitemap.xml
+Disallow: /api/
+Disallow: /admin/
+Disallow: /seo-blog/admin

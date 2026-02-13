@@ -126,6 +126,12 @@ app.use((req, res, next) => {
     return null;
   }
 
+  const seoHeaders = {
+    "Content-Type": "text/html",
+    "X-Robots-Tag": "index, follow",
+    "Cache-Control": "public, max-age=3600, s-maxage=86400",
+  };
+
   function injectMetaTags(html: string, meta: {
     title: string;
     description: string;
@@ -182,7 +188,7 @@ app.use((req, res, next) => {
         content: `<h1>TRANSERVICA C.A. - Transporte de Cargas Excepcionales Venezuela</h1><p>40 años de experiencia en transporte de cargas excepcionales hasta 1,100 toneladas con equipos alemanes SCHEUERLE. Servicio especializado en Venezuela para los sectores petrolero, industrial, energético y construcción.</p>`,
       });
 
-      res.status(200).set({ "Content-Type": "text/html" }).send(html);
+      res.status(200).set(seoHeaders).send(html);
     } catch (error) {
       console.error("SSR error for /:", error);
       next();
@@ -203,7 +209,7 @@ app.use((req, res, next) => {
         content: `<h1>Blog TRANSERVICA - Transporte de Cargas Excepcionales</h1><p>Artículos y proyectos destacados sobre transporte especializado de cargas excepcionales en Venezuela.</p>`,
       });
 
-      res.status(200).set({ "Content-Type": "text/html" }).send(html);
+      res.status(200).set(seoHeaders).send(html);
     } catch (error) {
       console.error("SSR error for /blog:", error);
       next();
@@ -224,7 +230,7 @@ app.use((req, res, next) => {
         content: `<h1>Blog SEO TRANSERVICA - Transporte Especializado en Venezuela</h1><p>Información detallada sobre servicios de transporte de cargas excepcionales en las principales ciudades de Venezuela.</p>`,
       });
 
-      res.status(200).set({ "Content-Type": "text/html" }).send(html);
+      res.status(200).set(seoHeaders).send(html);
     } catch (error) {
       console.error("SSR error for /seo-blog:", error);
       next();
@@ -250,7 +256,7 @@ app.use((req, res, next) => {
         content: `<article><h1>${blog.title}</h1>${blog.content || ''}</article>`,
       });
 
-      res.status(200).set({ "Content-Type": "text/html" }).send(html);
+      res.status(200).set(seoHeaders).send(html);
     } catch (error) {
       console.error("SSR error for /seo-blog/:slug:", error);
       next();
@@ -290,7 +296,7 @@ app.use((req, res, next) => {
           canonical: `${baseUrl}${route}`,
         });
 
-        res.status(200).set({ "Content-Type": "text/html" }).send(html);
+        res.status(200).set(seoHeaders).send(html);
       } catch (error) {
         console.error(`SSR error for ${route}:`, error);
         next();

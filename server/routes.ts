@@ -23,14 +23,62 @@ export async function registerRoutes(app: Express): Promise<Server> {
     res.type("text/html").send("google-site-verification: google8f9cfe36ab6897c8.html");
   });
 
-  // Sitemap redirect - 301 permanent redirect to XML sitemap
-  app.get("/sitemap", (req, res) => {
-    res.redirect(301, "/api/sitemap.xml");
-  });
+  // Sitemap handler - shared function
+  async function serveSitemap(req: Request, res: Response) {
+    try {
+      const blogs = await storage.getBlogs({ published: "true" });
+      const protocol = req.get("x-forwarded-proto") || req.protocol || "https";
+      const host = req.get("host") || "grupotranservica.com";
+      const baseUrl = `${protocol}://${host}`;
 
-  app.get("/sitemap.xml", (req, res) => {
-    res.redirect(301, "/api/sitemap.xml");
-  });
+      let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
+      xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
+
+      const today = new Date().toISOString().split('T')[0];
+      const mainPages = [
+        { loc: "/", changefreq: "weekly", priority: 1.0, lastmod: today },
+        { loc: "/blog", changefreq: "daily", priority: 0.9, lastmod: today },
+        { loc: "/seo-blog", changefreq: "daily", priority: 0.9, lastmod: today },
+        { loc: "/cookies", changefreq: "monthly", priority: 0.5, lastmod: "2025-11-01" },
+        { loc: "/terms", changefreq: "monthly", priority: 0.5, lastmod: "2025-11-01" },
+        { loc: "/privacy", changefreq: "monthly", priority: 0.5, lastmod: "2025-11-01" },
+        { loc: "/security", changefreq: "monthly", priority: 0.5, lastmod: "2025-11-01" },
+      ];
+
+      mainPages.forEach((page) => {
+        xml += "  <url>\n";
+        xml += `    <loc>${baseUrl}${page.loc}</loc>\n`;
+        xml += `    <lastmod>${page.lastmod}</lastmod>\n`;
+        xml += `    <changefreq>${page.changefreq}</changefreq>\n`;
+        xml += `    <priority>${page.priority}</priority>\n`;
+        xml += "  </url>\n";
+      });
+
+      blogs.forEach((blog: any) => {
+        xml += "  <url>\n";
+        xml += `    <loc>${baseUrl}/seo-blog/${blog.slug}</loc>\n`;
+        const rawDate = blog.publishedAt instanceof Date
+            ? blog.publishedAt
+            : blog.publishedAt ? new Date(blog.publishedAt) : new Date();
+        const lastmod = rawDate.toISOString().split('T')[0];
+        xml += `    <lastmod>${lastmod}</lastmod>\n`;
+        xml += "    <changefreq>monthly</changefreq>\n";
+        xml += "    <priority>0.8</priority>\n";
+        xml += "  </url>\n";
+      });
+
+      xml += "</urlset>";
+      res.header("Content-Type", "application/xml");
+      res.header("Cache-Control", "public, max-age=3600, s-maxage=86400");
+      res.send(xml);
+    } catch (error) {
+      console.error("Error generating sitemap:", error);
+      res.status(500).send("Error generating sitemap");
+    }
+  }
+
+  app.get("/sitemap.xml", serveSitemap);
+  app.get("/sitemap", serveSitemap);
 
   // Admin SEO Stats endpoint - protected by query param
   app.get("/api/admin/seo-stats", async (req, res) => {
@@ -897,60 +945,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     },
   );
 
-  app.get("/api/sitemap.xml", async (req, res) => {
-    try {
-      const blogs = await storage.getBlogs({ published: "true" });
-      
-      // Detectar dominio dinámicamente desde el request
-      const protocol = req.get("x-forwarded-proto") || req.protocol || "https";
-      const host = req.get("host") || "grupotranservica.com";
-      const baseUrl = `${protocol}://${host}`;
-
-      let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
-      xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
-
-      const today = new Date().toISOString().split('T')[0];
-      const mainPages = [
-        { loc: "/", changefreq: "weekly", priority: 1.0, lastmod: today },
-        { loc: "/blog", changefreq: "daily", priority: 0.9, lastmod: today },
-        { loc: "/seo-blog", changefreq: "daily", priority: 0.9, lastmod: today },
-        { loc: "/terms", changefreq: "monthly", priority: 0.5, lastmod: "2025-11-01" },
-        { loc: "/privacy", changefreq: "monthly", priority: 0.5, lastmod: "2025-11-01" },
-        { loc: "/cookies", changefreq: "monthly", priority: 0.5, lastmod: "2025-11-01" },
-        { loc: "/security", changefreq: "monthly", priority: 0.5, lastmod: "2025-11-01" },
-      ];
-
-      mainPages.forEach((page) => {
-        xml += "  <url>\n";
-        xml += `    <loc>${baseUrl}${page.loc}</loc>\n`;
-        xml += `    <lastmod>${page.lastmod}</lastmod>\n`;
-        xml += `    <changefreq>${page.changefreq}</changefreq>\n`;
-        xml += `    <priority>${page.priority}</priority>\n`;
-        xml += "  </url>\n";
-      });
-
-      blogs.forEach((blog) => {
-        xml += "  <url>\n";
-        xml += `    <loc>${baseUrl}/seo-blog/${blog.slug}</loc>\n`;
-        const rawDate = blog.publishedAt instanceof Date
-            ? blog.publishedAt
-            : blog.publishedAt ? new Date(blog.publishedAt) : new Date();
-        const lastmod = rawDate.toISOString().split('T')[0];
-        xml += `    <lastmod>${lastmod}</lastmod>\n`;
-        xml += "    <changefreq>monthly</changefreq>\n";
-        xml += "    <priority>0.8</priority>\n";
-        xml += "  </url>\n";
-      });
-
-      xml += "</urlset>";
-
-      res.header("Content-Type", "application/xml");
-      res.send(xml);
-    } catch (error) {
-      console.error("Error generating sitemap:", error);
-      res.status(500).send("Error generating sitemap");
-    }
-  });
+  app.get("/api/sitemap.xml", serveSitemap);
 
   const httpServer = createServer(app);
   return httpServer;
